@@ -1,0 +1,21 @@
+{
+  "name": "passbolt_help",
+  "version": "0.1.0",
+  "description": "The help site for the open source password manager for teams",
+  "repository": {
+    "url": "https://github.com/passbolt/passbolt_help"
+  },
+  "keywords": [
+    "passbolt",
+    "help",
+    "jekyll"
+  ],
+  "author": "Passbolt SARL",
+  "license": "AGPL-3.0",
+  "homepage": "https://www.passbolt.com",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "passbolt-styleguide": "^1.6.11"
+  }
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{% include head.html %}
+<body>
+<div id="container" class="page error page error-404">
+    {% include header.html %}
+
+    <!-- main -->
+    <div class="grid">
+        <div class="row">
+            <h2>Not Found</h2>
+            <p class="error">
+                The requested address was not found on this server.
+                Please double check the url.
+                Maybe the page was deleted or moved.
+            </p>
+        </div>
+    </div>
+
+    {% include footer.html %}
+</div>
+</body>
+</html>

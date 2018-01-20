@@ -1,0 +1,6 @@
+<div class="message {{ include.class }}">
+    <p>{{ include.content }}</p>
+    {% if include.link %}
+    <a href="{{ include.link }}" class="button {{ include.button }}">{{ include.ask }}</a>
+    {% endif %}
+</div>

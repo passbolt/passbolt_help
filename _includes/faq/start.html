@@ -1,0 +1,9 @@
+<ul>
+    {% for item in site.faq %}
+    {% if item.notsearchable %}{% else %}
+    <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+</ul>

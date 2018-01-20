@@ -1,21 +1,41 @@
-<header class="site-header" role="banner">
-
-  <div class="wrapper">
-    {% assign default_paths = site.pages | map: "path" %}
-    {% assign page_paths = site.header_pages | default: default_paths %}
-    <a class="site-title" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-  
-    {% if page_paths %}
-
-        <div class="trigger">
-          {% for path in page_paths %}
-            {% assign my_page = site.pages | where: "path", path | first %}
-            {% if my_page.title %}
-            <a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
-            {% endif %}
-          {% endfor %}
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
         </div>
-      </nav>
-    {% endif %}
-  </div>
-</header>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2_3 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>

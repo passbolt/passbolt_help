@@ -1,0 +1,10 @@
+sidebar:
+  - title: Hosting
+    slug: hosting
+    subfolderitems:
+      - page: Installation
+        slug: install
+      - page: Update
+        slug: update
+      - page: Backup
+        slug: backup

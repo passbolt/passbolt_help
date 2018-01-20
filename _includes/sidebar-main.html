@@ -1,0 +1,14 @@
+<div class="navigation wizard" role="navigation">
+    <ul>
+        <li><h2>Passbolt Help</h2></li>
+        {% for item in site.data.toc %}
+        <li>
+            {% if item.url %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+            {% else %}
+            <a href="{{ item.slug | absolute_url }}">{{ item.title }}</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>

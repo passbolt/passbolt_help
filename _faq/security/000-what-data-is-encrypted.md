@@ -1,7 +1,9 @@
 ---
-title:
-slug: 
+title: TODO What data is encrypted in passbolt?
+slug: what-is-encrypted
 layout: faq
 category: security
-permalink: /faq/start/:slug
+permalink: /faq/security/:slug
+date: 2017-01-20 00:00:00 Z
 ---
+TODO

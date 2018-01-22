@@ -1,8 +1,8 @@
 ---
-title:
-slug: 
+title: How to you prioritize feature development?
+slug: feature-priority
 layout: faq
 category: roadmap
-permalink: /faq/start/:slug
+permalink: /faq/roadmap/:slug
 ---
 

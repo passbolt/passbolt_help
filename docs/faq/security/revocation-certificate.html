@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Does passbolt support revocation certificates?</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2018 Passbolt SARL
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A revocation certificate is a small encrypted message, that you generate at the same time you create your key. This can be uploaded when you need to tell you...">
+    <meta property="og:image" content="/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Does passbolt support revocation certificates?" />
+    <meta property="og:description" content="A revocation certificate is a small encrypted message, that you generate at the same time you create your key. This can be uploaded when you need to tell you..." />
+
+    <link rel="stylesheet" href="//help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="//help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="//help.passbolt.com/faq/security/revocation-certificate">
+    <link rel="shortcut icon" type="image/x-icon" href="//help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="//help.passbolt.com/feed.xml">
+
+</head>
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2_3 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation wizard" role="navigation">
+    <ul>
+        <li><h2>All FAQs</h2></li>
+        
+
+        
+        <li>
+        
+            <a href="//help.passbolt.com/faq/start">Get started</a>
+        </li>
+        
+
+        
+        <li class="selected">
+        
+            <a href="//help.passbolt.com/faq/security">Security</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="//help.passbolt.com/faq/hosting">Hosting</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="//help.passbolt.com/faq/roadmap">Roadmap</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="//help.passbolt.com/faq/licensing">Licensing</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="//help.passbolt.com"><span>help</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="//help.passbolt.com/faq"><span>FAQ</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href=""><span>Does passbolt support revocation certificates?</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                    <div class="row" markdown="1">
+                        <div class="col7" markdown="1">
+                         <h1>Does passbolt support revocation certificates?</h1>
+                            <p>A revocation certificate is a small encrypted message, that you generate at the same time you create your key. 
+This can be uploaded when you need to tell your collaborators that your key has been compromised. This is 
+required to render your previous key unusable and mitigate potential identity thefts.</p>
+
+<p>Passbolt do not provide the ability to create or upload revocation certificate at the moment but we hope to be 
+able to support it in a near future. We need your support to be able to implement such functionalities. At the 
+moment other software compatible with passbolt can help you with this. See the GnuPG manual for more information.</p>
+
+                        </div>
+
+                    <div class="col4 last push1" markdown="1">
+                        
+                            <div class="message tldr notice">
+    <p>Not finding what you are looking for? You can also ask the community on the forum.</p>
+    
+    <a href="https://community.passbolt.com" class="button ">Talk to a human</a>
+    
+</div>
+
+                        
+                    </div>
+                    </div>
+
+                    
+                    <div class="row" markdown="1">
+                        <div class="col7" markdown="1">
+                            <h3>Other frequently asked questions in the same category</h3>
+                            <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/security-vulnerability">How can I report a security vulnerability?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/is-passbolt-secure">Is it secure to use passbolt in its current version?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/what-is-encrypted">TODO What data is encrypted in passbolt?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/encryption-tech">What kind of encryption does passbolt use?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/code-review">TODO Has the code been reviewed?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/authentication">TODO How does authentication work in passbolt?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/javascript-security">TODO Is javascript cryptographically secure</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/change-passphrase">How can I change my passphrase?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/passphrase-recovery">TODO How can I recover my passphrase</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/is-open-source-secure">Wouldn’t an attacker find vulnerabilities more easily if the code is available to everyone?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/compromised-secret-key">My secret key and passphrase are compromised, what do I do?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/why-an-extension">TODO Who do I need a browser extension</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/revocation-certificate">Does passbolt support revocation certificates?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/public-key-trust">TODO How are public keys trusted</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/security/security-token">TODO What is the security token</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+
+                        </div>
+                    </div>
+                    
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

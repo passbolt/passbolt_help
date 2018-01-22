@@ -1,7 +1,9 @@
 ---
-title:
-slug: 
+title: How can I report a security vulnerability?
+slug: security-vulnerability
 layout: faq
 category: security
-permalink: /faq/start/:slug
+permalink: /faq/security/:slug
+date: 2017-01-20 00:00:00 Z
 ---
+{% include report-security-issue.md %}

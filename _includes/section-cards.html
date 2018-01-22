@@ -10,7 +10,7 @@
     {% assign last = forloop.index | modulo:3 %}
     <div class="col4 {% if  last == 0 %}last{% endif %}">
         {% if subitem.url %}
-        <a class="tile" href="{{ subitem.url }}">
+        <a class="tile" href="{{ subitem.url | absolute_url }}">
             {% else %}
             <a class="tile" href="{{ site.baseurl }}/{{ item.slug }}/{{ subitem.slug }}">
                 {% endif %}

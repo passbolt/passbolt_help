@@ -5,6 +5,7 @@ category: start
 permalink: /faq/start/why
 sidebar: aside/org-usp.html
 layout: faq
+date: 2017-01-20 00:00:00 Z
 ---
 A password manager allows you to comfortably implement best security practices and therefore reduces the risks for
 you and your organisation.

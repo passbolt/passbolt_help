@@ -1,7 +1,7 @@
 ---
 title:
 slug: 
-layout:
+layout: faq
 category: hosting
 permalink: /faq/start/:slug
 ---

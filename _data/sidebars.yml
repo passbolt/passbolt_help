@@ -1,10 +1,16 @@
-sidebar:
+faq:
+  - title: Get started
+    slug: start
+    url: /faq/start
+  - title: Security
+    slug: security
+    url: /faq/security
   - title: Hosting
     slug: hosting
-    subfolderitems:
-      - page: Installation
-        slug: install
-      - page: Update
-        slug: update
-      - page: Backup
-        slug: backup
+    url: /faq/hosting
+  - title: Roadmap
+    slug: roadmap
+    url: /faq/roadmap
+  - title: Licensing
+    slug: licensing
+    url: /faq/licensing

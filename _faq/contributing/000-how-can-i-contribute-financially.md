@@ -1,7 +1,7 @@
 ---
 title:
 slug:
-layout:
-category: support
+layout: faq
+category: contributing
 permalink: /faq/start/:slug
 ---

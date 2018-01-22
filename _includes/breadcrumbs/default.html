@@ -22,7 +22,7 @@
                 {% if page.slug %}
                 <li>
                     <div class="main-cell">
-                        <a href="{{ page.url }}"><span>{{ page.slug }}</span></a>
+                        <a href="{{ page.url | absolute_url }}"><span>{{ page.slug }}</span></a>
                     </div>
                 </li>
                 {% endif %}

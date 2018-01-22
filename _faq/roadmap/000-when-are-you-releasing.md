@@ -1,7 +1,7 @@
 ---
 title:
 slug: 
-layout:
+layout: faq
 category: roadmap
 permalink: /faq/start/:slug
 ---

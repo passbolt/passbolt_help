@@ -1,9 +1,11 @@
 <ul>
     {% for item in site.faq %}
     {% if item.notsearchable %}{% else %}
+    {% if item.category == include.category %}
     <li>
         <a href="{{ item.url }}">{{ item.title }}</a>
     </li>
+    {% endif %}
     {% endif %}
     {% endfor %}
 </ul>

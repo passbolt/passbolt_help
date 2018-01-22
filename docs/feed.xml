@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="//help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="//help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-01-22T13:33:13+05:30</updated><id>//help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Backing up a passbolt installation</title><link href="//help.passbolt.com/hosting/backup.html" rel="alternate" type="text/html" title="Backing up a passbolt installation" /><published>2017-06-15T05:30:00+05:30</published><updated>2017-06-15T05:30:00+05:30</updated><id>//help.passbolt.com/hosting/backup</id><content type="html" xml:base="//help.passbolt.com/hosting/backup.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a backup strategy in place.&lt;/p&gt;
+
+    &lt;p&gt;As a passbolt administrator it is your responsibility to define how often and when to perform backups. Please automate and customize this process to match the needs and policies of your organization.&lt;/p&gt;
+
+    &lt;p&gt;Here are some best practices to keep in mind:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Ensure that the backups are taken at intervals that match your usage&lt;/li&gt;
+      &lt;li&gt;Take these backups off-site, or to another environment than the live one&lt;/li&gt;
+      &lt;li&gt;Make sure the backup is encrypted and stored in a safe location&lt;/li&gt;
+      &lt;li&gt;Practice drills and test the backups to make sure they work&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;what-to-backup&quot;&gt;What to backup?&lt;/h2&gt;
+
+    &lt;p&gt;There are several elements you need to backup:&lt;/p&gt;
+
+    &lt;h4 id=&quot;the-database&quot;&gt;1. The database&lt;/h4&gt;
+
+    &lt;p&gt;This can be easily scripted using &lt;a href=&quot;https://mariadb.com/kb/en/mariadb/mysqldump/&quot;&gt;mysqldump&lt;/a&gt; for example:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;user] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;pass] db &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /path/to/backup.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h4 id=&quot;the-avatars&quot;&gt;2. The avatars&lt;/h4&gt;
+
+    &lt;p&gt;The images in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webroot/img/public&lt;/code&gt; also need to be backed up, otherwise profile images will be lost.&lt;/p&gt;
+
+    &lt;h4 id=&quot;the-server-public-and-private-keys&quot;&gt;3. The server public and private keys&lt;/h4&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--export-secret-key&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;passbolt user&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; private.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h4 id=&quot;the-application-configuration&quot;&gt;4. The application configuration&lt;/h4&gt;
+
+    &lt;p&gt;The files located in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config&lt;/code&gt; such as core.php, app.php, email.php, database.php. It is optional, but it can save you some time if you need to rebuild a new instance.&lt;/p&gt;
+
+    &lt;h2 id=&quot;what-about-the-secret-keys-of-my-collaborators&quot;&gt;What about the secret keys of my collaborators?&lt;/h2&gt;
+
+    &lt;p&gt;Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.&lt;/p&gt;
+
+    &lt;p&gt;As an administrator you should stress the importance of backing up secret keys to other users. For example this warning could be part of the initial information message sent to introduce passbolt to new users.&lt;/p&gt;
+
+    &lt;p&gt;It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.&lt;/p&gt;
+
+    &lt;h2 id=&quot;last-updated&quot;&gt;Last updated&lt;/h2&gt;
+
+    &lt;p&gt;This article was last updated on 
+June
+15th,
+2017.&lt;/p&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Do you have a question about backups? Do you want to share your experience and best practices?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Get in touch!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Install passbolt server component</title><link href="//help.passbolt.com/hosting/install.html" rel="alternate" type="text/html" title="Install passbolt server component" /><published>2017-03-20T05:30:00+05:30</published><updated>2017-03-20T05:30:00+05:30</updated><id>//help.passbolt.com/hosting/install</id><content type="html" xml:base="//help.passbolt.com/hosting/install.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments.&lt;/p&gt;
+
+    &lt;p&gt;If you run into any issues with your particular configuration, &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;please check the forum&lt;/a&gt;. Maybe someone else has had your issue. If not, make a post and the community will try to help you.&lt;/p&gt;
+
+    &lt;h2 id=&quot;other-community-guides&quot;&gt;Other community guides&lt;/h2&gt;
+
+    &lt;p&gt;If you are looking for more system specific step by step guides please check out the following resources:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://medium.com/passbolt/passbolt-on-debian-8-71-from-scratch-4438dad18908&quot;&gt;Debian 8 “Jessy” with Apache, MariaDB and PHP 5 (by Passbolt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://medium.com/passbolt/passbolt-on-centos-7-with-nginx-php7-fpm-mariadb-from-scratch-7b2a9b15f3a4&quot;&gt;Centos 7 with Nginx, MariaDB, PHP 7 (by Passbolt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.patpro.net/blog/index.php/2016/09/22/3037-self-hosted-password-manager-installing-passbolt-on-freebsd/&quot;&gt;FreeBSD 10.3, Apache, Mysql 5.7, PHP 5.6 (by Patpro)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.authbsd.com/blog/?p=60&quot;&gt;OpenBSD 6.1, Nginx, MariaDB, PHP 5.6/7.0 (by AuthBSD)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;environment-setup-and-baseline-requirements&quot;&gt;Environment setup and baseline requirements&lt;/h2&gt;
+
+    &lt;h3 id=&quot;operating-system&quot;&gt;Operating system&lt;/h3&gt;
+
+    &lt;p&gt;We recommend you install passbolt on stable Unix-like operating system distributions such as Debian, Centos or FreeBSD. We have not tested passbolt on Windows (please do let us know if you tried).&lt;/p&gt;
+
+    &lt;h3 id=&quot;web-server-requirements&quot;&gt;Web server requirements&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Apache or Nginx web server with SSL enabled.&lt;/li&gt;
+      &lt;li&gt;Pretty urls: with mod_rewrite &lt;a href=&quot;http://book.cakephp.org/2.0/en/installation/url-rewriting.html#apache-and-mod-rewrite-and-htaccess&quot;&gt;for apache&lt;/a&gt;, and a site-available configuration &lt;a href=&quot;http://book.cakephp.org/2.0/en/installation/url-rewriting.html#pretty-urls-on-nginx&quot;&gt;for nginx&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h3 id=&quot;a-word-about-ssl&quot;&gt;A word about SSL&lt;/h3&gt;
+
+    &lt;p&gt;By default passbolt is configured to force SSL connections, which means that whoever tries to access your passbolt instance without an https connection will automatically be redirected to https. For this reason, if https is not enabled on your host at the time of the installation, passbolt will not be able to work.&lt;/p&gt;
+
+    &lt;p&gt;However, if you know what you are doing, and wish to disable https, you can change this setting by editing &lt;code class=&quot;highlighter-rouge&quot;&gt;/app/Config/app.php&lt;/code&gt; and set the parameter &lt;code class=&quot;highlighter-rouge&quot;&gt;App.force_ssl&lt;/code&gt; to false. Keep in mind that this setting will make your installation unsecure and should be used for development or testing only.&lt;/p&gt;
+
+    &lt;h3 id=&quot;php-requirements&quot;&gt;PHP requirements&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;PHP &amp;gt;= 5.4.&lt;/li&gt;
+      &lt;li&gt;Either one of these image manipulation libraries (to manipulate avatars):
+        &lt;ul&gt;
+          &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/book.image.php&quot;&gt;GD2&lt;/a&gt;.&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/book.imagick.php&quot;&gt;Imagick&lt;/a&gt;.&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/book.gmagick.php&quot;&gt;Gmagick&lt;/a&gt;.&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/gnupg.installation.php&quot;&gt;GnuPG&lt;/a&gt; for PHP: for key verification and authentication.&lt;/li&gt;
+      &lt;li&gt;PHP extensions (that may or may not come by default): PDO, intl, openssl, ctype, filter, hash, phar.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4 id=&quot;the-following-php-modules-are-greatly-recommended&quot;&gt;The following PHP modules are greatly recommended:&lt;/h4&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/memcached.setup.php&quot;&gt;Memcached&lt;/a&gt;: to store sessions. If you are using memcached: json, session, pecl-memcached are also required as dependencies.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h3 id=&quot;database-requirements&quot;&gt;Database requirements&lt;/h3&gt;
+
+    &lt;p class=&quot;message warning&quot;&gt;
+    Currently passbolt only works with Mysql due to the view we use to check permissions. If you want to help us make it work on postgresql, do get in touch!
+&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;MySQL &amp;gt;= 5.0.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;generate-the-gpg-server-key&quot;&gt;Generate the GPG server key&lt;/h2&gt;
+
+    &lt;p&gt;The main &lt;a href=&quot;?php echo Router::url('/help/tech/auth'); ?&quot;&gt;authentication method&lt;/a&gt; of passbolt is based on GPG. For this reason, it is required that you generate a GPG server key, and add it to the configuration.&lt;/p&gt;
+
+    &lt;h3 id=&quot;generate-a-new-key&quot;&gt;Generate a new key&lt;/h3&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--gen-key&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Answer the few questions asked by GPG, and &lt;strong&gt;do not enter a passphrase&lt;/strong&gt;. Due to limitations of PHP GnuPG, passbolt can not work with a key that has a passphrase.&lt;/p&gt;
+
+    &lt;p&gt;When key generation is complete, make sure you note down the key fingerprint. It is a 40 char in length string, displayed at the end of the command output. For example:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pub   4096R/573EE67E 2015-10-26 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;expires: 2019-10-26]
+      Key fingerprint &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2FC8 9458 33C5 1946 E937  F9FE D47B 0811 573E E67E
+uid   Passbolt Server Test Key &amp;lt;no-reply@passbolt.com&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h3 id=&quot;export-the-newly-created-key&quot;&gt;Export the newly created key&lt;/h3&gt;
+
+    &lt;p&gt;Export the public and private key&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export-secret-keys&lt;/span&gt; your_email@domain.com &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /var/www/passbolt/app/Config/gpg/private.key
+gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export&lt;/span&gt; your_email@domain.com &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /var/www/passbolt/app/Config/gpg/public.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Store both these files in a secure location on the server. They should be accessible by the web server user. In this example, we are storing them in the Config directory of passbolt.&lt;/p&gt;
+
+    &lt;h2 id=&quot;get-the-code&quot;&gt;Get the code&lt;/h2&gt;
+
+    &lt;p&gt;Get the passbolt code from the &lt;a href=&quot;https://github.com/passbolt/passbolt&quot;&gt;github repository&lt;/a&gt;:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/passbolt/passbolt.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h2 id=&quot;set-the-file-permissions&quot;&gt;Set the file permissions&lt;/h2&gt;
+
+    &lt;p&gt;Make sure the &lt;code class=&quot;highlighter-rouge&quot;&gt;app/tmp&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;app/webroot/img/public&lt;/code&gt; are writable by the webserver user (www-data or similar).&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +w &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; app/tmp
+&lt;span class=&quot;nb&quot;&gt;chmod&lt;/span&gt; +w app/webroot/img/public
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h2 id=&quot;configure-the-php-application&quot;&gt;Configure the php application&lt;/h2&gt;
+
+    &lt;p&gt;The configuration of your passbolt instance is a crucial step to make it work as per your needs and to ensure an optimal level of security. Pay a close attention to the steps described below.&lt;/p&gt;
+
+    &lt;h3 id=&quot;corephp-core-settings&quot;&gt;core.php (core settings)&lt;/h3&gt;
+
+    &lt;p&gt;The CakePHP core configuration file (located in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/core.php&lt;/code&gt;) is the base configuration file. It contains the settings that determine the application behavior (debug mode, cache, sessions, etc..).&lt;/p&gt;
+
+    &lt;p&gt;Copy the default core configuration file:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;app/Config/core.php.default app/Config/core.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;However, you need to modify the cypherseed and salt. Passbolt do not actually use these, but it is part of the standard Cakephp installation to change these values.&lt;/p&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;Configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Security.salt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'put your own salt here'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;Configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Security.cipherSeed'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'put your own cipher seed here'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Also for images that are sent in emails to work, we need to tell cakephp what is the base url. To fix this, uncomment and edit this line in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/core.php&lt;/code&gt;:&lt;/p&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;Configure&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'App.fullBaseUrl'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'http://{your domain without slash}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;The rest of the default version of core.php is good enough to be used as it is.&lt;/p&gt;
+
+    &lt;h3 id=&quot;databasephp-database-connection-settings&quot;&gt;database.php (database connection settings)&lt;/h3&gt;
+
+    &lt;p&gt;The database configuration file (located in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/database.php&lt;/code&gt;) file contains the database connection settings.&lt;/p&gt;
+
+    &lt;p&gt;Copy the default database configuration file :&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;app/Config/database.php.default app/Config/database.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then edit it. You will need to provide the name of your database, the username and password of the mysql user that passbolt can use to connect. For example:&lt;/p&gt;
+
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'datasource'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Database/Mysql'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'persistent'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'host'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'login'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'database'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'passbolt'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h3 id=&quot;appphp-application-settings&quot;&gt;app.php (application settings)&lt;/h3&gt;
+
+    &lt;p&gt;The passbolt application configuration (located in &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/app.php&lt;/code&gt;) contains the application settings. Copy the app.php.default configuration file to create one for your instance:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;app/Config/app.php.default app/Config/app.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You will need to specify the details of the GPG servery key, e.g. the location of the public and private key and the fingerprint. You also need to make sure that the webserver can access the gpg keyring. You can either add set it manually with &lt;code class=&quot;highlighter-rouge&quot;&gt;$GNUPGHOME&lt;/code&gt; or in your config as follow:&lt;/p&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$config&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'GPG'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;'env'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'setenv'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'home'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'/usr/share/httpd/.gnupg'&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;'serverKey'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'fingerprint'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'2FC8945833C51946E937F9FED47B0811573EE67D'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'public'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Config'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'gpg'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'public.key'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'private'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;APP&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Config'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'gpg'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;DS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'private.key'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;The default file is good to be used as it is. However, you might want to look at these interesting options :&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;App.ssl.force&lt;/strong&gt; (true or false, default: true): Defines if passbolt should force ssl connections.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;App.registration.public&lt;/strong&gt; (true or false, default: true): Defines if users can self register, or if only the administrator can create new accounts.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;App.meta.robots.index&lt;/strong&gt; (true or false, default: false): Defines if you want search engines to find and index your instance.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;App.selenium.active&lt;/strong&gt; (true or false, default:false): Do not change this to true unless you want to run the &lt;a href=&quot;https://github.com/passbolt/passbolt_selenium&quot;&gt;selenium tests&lt;/a&gt;. It is to be used in development environment only, and setting this option to true will compromise the security of your installation.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h3 id=&quot;emailphp-email-settings&quot;&gt;email.php (email settings)&lt;/h3&gt;
+
+    &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/email.php&lt;/code&gt; configuration file defines your email settings to enable passbolt send emails to the world. Make sure you provide the correct settings. Without this, passbolt will not be able to send notifications email.&lt;/p&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$default&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'transport'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Smtp'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'from'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'passbolt@yourdomain.com'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Passbolt'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'host'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'smtp.yourserver.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'port'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;587&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'timeout'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'your@email.com'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;You only need to modify the default variable, and leave the other sections of this file alone.&lt;/p&gt;
+
+    &lt;h2 id=&quot;run-the-install-script&quot;&gt;Run the install script&lt;/h2&gt;
+
+    &lt;p&gt;The configuration is all set! We can now install passbolt.&lt;/p&gt;
+
+    &lt;p&gt;Passbolt can be installed via a command line installation script.&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/Console/cake &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-admin&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;In this command, we also mention that we do not want a default administrator. We will create one explicitely at the next step.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Note :&lt;/strong&gt; To avoid any permission issues, mostly with the keyring, it is recommended to execute the PHP cli with the webserver rights. For instance:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;app/Console/cake install --no-admin&quot;&lt;/span&gt; www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h3 id=&quot;create-the-first-admin-account&quot;&gt;Create the first admin account&lt;/h3&gt;
+
+    &lt;p&gt;An admin user will be able to manage the other users on passbolt. You will need at least one:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;app/Console/cake passbolt register_user &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; me@domain.com &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; myFirtsname &lt;span class=&quot;nt&quot;&gt;-l&lt;/span&gt; myLastname &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; admin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;After the admin user creation, the command line tool will give you a setup link which will also be sent to you by email (if your emails are properly configured). Follow the link given to setup your account.&lt;/p&gt;
+
+    &lt;h2 id=&quot;enabling-emails&quot;&gt;Enabling emails&lt;/h2&gt;
+
+    &lt;p&gt;Emails are placed in a queue that needs to be processed by a CakePhp Shell. You can add a cron call to the script so the emails will be sent every minute. Add the following line to you crontab:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; /var/www/passbolt/app/Console/cake EmailQueue.sender &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /var/log/passbolt.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;And you are done!&lt;/p&gt;
+
+    &lt;h1 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h1&gt;
+
+    &lt;p&gt;The healthcheck is a tool that can help you identify what are the problems with your install. It is accessible from the command line:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./app/Console/cake passbolt healthcheck
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;When the application is on debug mode (or if you are logged in as an administrator), a simplified dashboard version is also accessible directly in the browser at the url : /healthcheck&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;example /healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. example /healthcheck screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will find below a list of common errors, and how to solve them.&lt;/p&gt;
+
+    &lt;h3 id=&quot;i-get-the-error-gpg-keyring-is-not-available-or-not-writable-at-install&quot;&gt;I get the error GPG Keyring is not available or not writable at install&lt;/h3&gt;
+
+    &lt;p&gt;It is possible that your &lt;code class=&quot;highlighter-rouge&quot;&gt;$GNUPGHOME&lt;/code&gt; is not set or not available to either the php CLI or Apache users thus causing a segmentation fault.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Check &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/app.php&lt;/code&gt;. If you don’t have ssh access, it can be set at run time with &lt;code class=&quot;highlighter-rouge&quot;&gt;GPG.env.home&lt;/code&gt; variable.&lt;/li&gt;
+      &lt;li&gt;Make sure the directory is accessible and writable for the PHP CLI and Apache users.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;It is commonly solved by executing this command:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; www-data:www-data /home/www-data/.gnupg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h3 id=&quot;i-get-an-error-saying-the-gpg-server-key-defined-in-the-config-is-not-found&quot;&gt;I get an error saying the GPG Server key defined in the config is not found&lt;/h3&gt;
+
+    &lt;p&gt;If you are running passbolt on FreeBSD make sure the &lt;code class=&quot;highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; for the www user include &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/{s,}bin&lt;/code&gt;. Otherwise Apache won’t be able to find the gpg modules. Something like this should do:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h3 id=&quot;i-get-the-error-that-the-gpg-key-fingerprint-is-not-found-in-the-keyring&quot;&gt;I get the error that the GPG key fingerprint is not found in the keyring&lt;/h3&gt;
+
+    &lt;p&gt;It is possible that the keyring location specified by the app.php is not writable for the web application, or that you made a mistake in specifying $GNUPGHOME. You can check if the fingerprint exist in a given keyring for a given user as follow.&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gpg --list-keys --fingerprint --home /home/www-data/.gnupg&quot;&lt;/span&gt; www-data | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt; 2 &lt;span class=&quot;s1&quot;&gt;'Passbolt Server'&lt;/span&gt;
+pub   4096R/573EE67E 2015-10-26 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;expires: 2019-10-26]
+      Key fingerprint &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 2FC8 9458 33C5 1946 E937  F9FE D47B 0811 573E E67E
+uid   Passbolt Server Test Key &amp;lt;no-reply@passbolt.com&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h3 id=&quot;at-the-end-of-the-setup-i-get-an-error-saying-invalid-request-method-should-be-put&quot;&gt;At the end of the setup I get an error saying “Invalid request method, should be PUT”&lt;/h3&gt;
+
+    &lt;p&gt;Make sure your webserver config is not rewriting the PUT method to POST. See. &lt;a href=&quot;https://github.com/passbolt/passbolt_api/issues/52&quot;&gt;Issue #52&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h3 id=&quot;passbolt-emails-are-not-being-sent-by-gmail&quot;&gt;Passbolt emails are not being sent by GMail&lt;/h3&gt;
+
+    &lt;p&gt;If you have two step verification enabled on your google account you will need to create an App Password. See. &lt;a href=&quot;https://github.com/passbolt/passbolt_api/issues/51&quot;&gt;Issue #51&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h3 id=&quot;when-trying-to-login-im-stuck-on-loading-please-wait&quot;&gt;When trying to login I’m stuck on “loading, please wait”&lt;/h3&gt;
+
+    &lt;p&gt;This can indicate that the fullBaseUrl is not set right in the app/Config/core.php, like the url is correct but not the SSL scheme (e.g. http instead of https). See. &lt;a href=&quot;https://github.com/passbolt/passbolt_api/issues/47&quot;&gt;Issue #47&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h3 id=&quot;last-updated&quot;&gt;Last updated&lt;/h3&gt;
+
+    &lt;h2 id=&quot;last-updated-1&quot;&gt;Last updated&lt;/h2&gt;
+
+    &lt;p&gt;This article was last updated on 
+March
+20th,
+2017.&lt;/p&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;tldr&quot;&gt;
+    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on docker&lt;/h4&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
+            &lt;img alt=&quot;Docker Logo&quot; src=&quot;/assets/img/third_party/docker_small_h.png&quot; style=&quot;&quot; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+        Passbolt is also available as a &lt;a href=&quot;https://github.com/passbolt/passbolt_docker_debian&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;docker container&lt;/a&gt; (for demo purpose only).
+    &lt;/p&gt;
+    &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; class=&quot;primary button&quot;&gt;
+        Get the demo container!
+    &lt;/a&gt;
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative.&lt;/p&gt;
+    
+    &lt;a href=&quot;https://letsencrypt.org/&quot; class=&quot;button &quot;&gt;let's encrypt!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component</title><link href="//help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component" /><published>2017-01-20T05:30:00+05:30</published><updated>2017-01-20T05:30:00+05:30</updated><id>//help.passbolt.com/hosting/update</id><content type="html" xml:base="//help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;which-update-process-to-follow&quot;&gt;Which update process to follow?&lt;/h2&gt;
+
+    &lt;p&gt;Each passbolt release follows the concept of &lt;a href=&quot;http://www.semver.org&quot;&gt;Semantic Versioning&lt;/a&gt;. Given a version number MAJOR.MINOR.PATCH, we increment as follow:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;PATCH&lt;/strong&gt; version when we make backwards-compatible bug fixes. So let’s say you are running passbolt v1.3.2 and the latest one available is v1.3.7 you will need to perform a patch update.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;MINOR&lt;/strong&gt; version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v1.2.0 installed and the latest version available is v1.3.2, you will need to perform a minor version update.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;MAJOR&lt;/strong&gt; version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1.3.7 to v2.0.0 for example.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;where-to-find-the-latest-release-version-number&quot;&gt;Where to find the latest release version number?&lt;/h2&gt;
+
+    &lt;p&gt;You can find information about which version is the latest in the &lt;a href=&quot;?php echo Router::url('/release/notes',true); ?&quot;&gt;release notes&lt;/a&gt;. It is generally a good idea to check these notes before running an update. You can also find it on the official &lt;a href=&quot;https://github.com/passbolt/passbolt_api/blob/master/app/Config/version.php&quot;&gt;GIT repository&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;where-to-find-the-version-number-for-a-given-installation&quot;&gt;Where to find the version number for a given installation?&lt;/h2&gt;
+
+    &lt;p&gt;You can check &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/version.php&lt;/code&gt; to know the version number for your local instance. You can also hover on the &lt;em&gt;&lt;span class=&quot;visuallyhidden&quot;&gt;heart&lt;/span&gt;&lt;/em&gt; icon at the bottom right corner of any passbolt screen. The first item is the server version, the second the one from the browser extension.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/help/2017/12/AN_footer_version_help.png&quot; alt=&quot;footer version helper&quot; style=&quot;max-width:210px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. footer version helper&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;patch-update&quot;&gt;Patch update&lt;/h2&gt;
+
+    &lt;p&gt;Performing a patch update is the easiest. All you need to do is checkout the latest version.&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can also checkout a specific version and use branches to switch versions. For example for version 1.0.9:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch &lt;span class=&quot;nt&quot;&gt;--tags&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v1.0.9 &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; tags/v1.0.9
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;minor-update&quot;&gt;Minor update&lt;/h2&gt;
+
+    &lt;p&gt;Every now and again some releases will introduce some database and/or configuration files changes. Here is a step by step guide on how to perform a minor update.&lt;/p&gt;
+
+    &lt;h4 id=&quot;take-your-site-down&quot;&gt;1. Take your site down&lt;/h4&gt;
+    &lt;p&gt;Create a temporary webserver configuration to redirect all the requests to a maintenance page. You can find resources how to do this online: &lt;a href=&quot;http://stackoverflow.com/questions/21709026/apache-enable-maintenance-mode-across-all-virtual-hosts&quot;&gt;here is an example for apache&lt;/a&gt; .&lt;/p&gt;
+
+    &lt;h4 id=&quot;get-the-latest-release&quot;&gt;2. Get the latest release&lt;/h4&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v1.x.x
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;review-the-configuration-files&quot;&gt;3. Review the configuration files&lt;/h4&gt;
+
+    &lt;p&gt;While we try to provide backward compatibility by providing safe fallbacks for new configuration files items, it is recommended that you review your configuration files when the default changes.&lt;/p&gt;
+
+    &lt;p&gt;For example let’s take the scenario where you are running v1.1.0 and you want to upgrade to v1.3.2. We can check that both the app and core files have changed as follow:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git diff &lt;span class=&quot;nt&quot;&gt;--name-status&lt;/span&gt; v1.3.2 v1.1.0 | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'php.default'&lt;/span&gt;
+M	app/Config/app.php.default
+M	app/Config/core.php.default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;make-a-backup-of-your-database&quot;&gt;4. Make a backup of your database&lt;/h4&gt;
+
+    &lt;p&gt;Prior to running a database migration script it is very important that you perform a backup, in case something goes wrong. You can do this using mysqldump, with for example:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;user] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;pass] db &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /path/to/backup.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;run-the-migration-script&quot;&gt;5. Run the migration script&lt;/h4&gt;
+
+    &lt;p&gt;To see if a database schema migration script is available you can run the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./app/Console/cake Migrations.migration status
+Cake Migration Shell
+&lt;span class=&quot;nt&quot;&gt;---------------------------------------------------------------&lt;/span&gt;
+Application
+
+Current version:
+  &lt;span class=&quot;c&quot;&gt;#1465367816 1465367816_Migration_1.1.0&lt;/span&gt;
+Latest version:
+  &lt;span class=&quot;c&quot;&gt;#1479926461 1479926461_Migration_1.3.0&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;---------------------------------------------------------------&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;In this case we can see that a migration is needed, so we run the following:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./app/Console/cake Migrations.migration run all
+Cake Migration Shell
+&lt;span class=&quot;nt&quot;&gt;---------------------------------------------------------------&lt;/span&gt;
+Running migrations:
+  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1474629203] 1474629203_Migration_1.2.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2016-09-23 16:43:23&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; Changing field &lt;span class=&quot;s2&quot;&gt;&quot;uri&quot;&lt;/span&gt; from table &lt;span class=&quot;s2&quot;&gt;&quot;resources&quot;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+
+  &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;1479926461] 1479926461_Migration_1.3.0 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2016-11-24 00:11:01&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+Allow sending anonymous usage statistics? &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;y/n&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;n] &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; y
+&lt;span class=&quot;nt&quot;&gt;---------------------------------------------------------------&lt;/span&gt;
+All migrations have completed.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;As you can see above, the migration script for v1.2.0 will also be applied automatically. Sometimes also, for example with the introduction of the anonymous usage statistics, the migration script can prompt you for input.&lt;/p&gt;
+
+    &lt;h4 id=&quot;put-your-site-back-online&quot;&gt;6. Put your site back online!&lt;/h4&gt;
+
+    &lt;p&gt;As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if your instance configuration is looking good.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;(Optional) If you run into some issues:&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Make a copy of the errors messages&lt;/li&gt;
+      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
+      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version.&lt;/li&gt;
+      &lt;li&gt;Send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details of the error or fill in a bug report using github, using as much details as possible such as your OS, php, mysql environment versions.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;major-update&quot;&gt;Major update&lt;/h2&gt;
+
+    &lt;p&gt;There is nothing special to say about major updates yet since we have not done any yet! We will most likely provide an update manual for each major versions and list them here.&lt;/p&gt;
+
+    &lt;h2 id=&quot;last-updated&quot;&gt;Last updated&lt;/h2&gt;
+
+    &lt;p&gt;This article was last updated on 
+January
+20th,
+2017.&lt;/p&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry></feed>

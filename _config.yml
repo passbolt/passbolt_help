@@ -40,8 +40,11 @@ collections:
     default:
       layout: default
 
+destination: docs
+
 # Exclude from processing.
 exclude:
+  - doc
   - package.json
   - package-lock.json
   - Gruntfile.js

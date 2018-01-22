@@ -20,8 +20,8 @@ description: >- # this means to ignore newlines until "baseurl:"
   This site contains frequently asked questions, article to troubleshoot common issues,
   installation tutorials, blueprints for developers, and more!
 
-baseurl: ""
-url: "//help.passbolt.com"
+baseurl: "passbolt_help"
+url: "https://passbolt.github.io"
 
 twitter_username: passbolt
 github_username:  passbolt

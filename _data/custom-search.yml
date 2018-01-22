@@ -1,0 +1,21 @@
+# additional search items not on the help but that should appear in search
+privacy:
+  - title: Privacy Policy
+  - url: https://www.passbolt.com/privacy
+  - content: This Privacy Policy is effective with respect to any data that we’ve collected, or collect, about and/or from you, according to our Terms of Service.
+  - category: legal
+tos:
+  - title: Terms and conditions of service
+  - url: https://www.passbolt.com/tos
+  - category: legal
+  - content: This website, www.passbolt.com and its subdomains such as help.passbolt.com (collectively referred to as the "Site" in these Terms of Service) is owned and operated by Passbolt SARL ("we", "us" or "Passbolt"). By using and accessing our Site, you ("you", "user" or, "end user") agree to these Terms of Service (collectively, the "Terms of Service", “Terms and conditions” or "Agreement").
+cla:
+  - title: Contributor License Agreement
+  - url: https://www.passbolt.com/cla
+  - category: legal
+  - content: At passbolt we are required to have agreement with everyone who submit contributions, in order to make sure that we, and the user of our software, are legally entitled to distribute your contributed code anywhere in the world. In effect, you still own the copyright but you are giving us a licence. You retain the right to modify your code and use it in other projects.
+credits:
+  - title: Credits
+  - url: https://www.passbolt.com/credits
+  - content: Passbolt could not exist without the support of the open source community and patience of our families and friends. A special thank you to all of you who gave us a hand and are spreading the word.
+  - category: legal

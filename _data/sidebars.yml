@@ -14,3 +14,6 @@ faq:
   - title: Licensing
     slug: licensing
     url: /faq/licensing
+  - title: Contributing
+    slug: contributing
+    url: /faq/contributing

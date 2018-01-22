@@ -1,16 +1,18 @@
-{% for item in site.data.sidebars.sidebar %}
+{% for item in site.data.toc %}
 {% if item.slug == include.sidebar %}
 <div class="navigation wizard" role="navigation">
     <ul>
         <li><h2>{{ item.title }}</h2></li>
-        {% for entry in item.subfolderitems %}
+        {% for entry in item.items %}
 
         {% if entry.slug == include.selected %}
         <li class="selected">
         {% else %}
         <li>
         {% endif %}
-            <a href="/{{ item.slug }}/{{ entry.slug }}">{{ entry.page }}</a>
+            {% if entry.url %}{% else %}
+            <a href="{{ item.slug | absolute_url }}/{{ entry.slug }}">{{ entry.title }}</a>
+            {% endif %}
         </li>
         {% endfor %}
     </ul>

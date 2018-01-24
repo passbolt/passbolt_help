@@ -6,7 +6,7 @@ category: start
 permalink: /faq/start/:slug
 date: 2017-01-20 00:00:00 Z
 ---
-TODO
+![diagram showing how it works]({{ site.baseurl }}/images/diagrams/howitworks.svg)
 
 * Ada has a password to share with betty
 * Ada encrypts the password using passbolt plugin,

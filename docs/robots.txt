@@ -1,1 +1,1 @@
-Sitemap: //help.passbolt.com/sitemap.xml
+Sitemap: https://help.passbolt.com/sitemap.xml

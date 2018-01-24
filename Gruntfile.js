@@ -92,6 +92,12 @@ module.exports = function(grunt) {
           src: ['og_preview.jpg'],
           dest: path.images + 'background',
           expand: true
+        }, {
+          // Diagrams
+          cwd: path.node_modules + 'passbolt-styleguide/src/img/diagrams',
+          src: '*',
+          dest: path.images + 'diagrams',
+          expand: true
         }]
       }
     }

@@ -2,7 +2,7 @@
   slug: start
   teaser: Everbody have to start somewhere
   items:
-    - title: FAQ
+    - title: Get started FAQ
       url: /faq/start
       icon: fa-compass
       teaser: Everybody have to start somewhere.
@@ -10,10 +10,6 @@
       url: https://community.passbolt.com
       icon: fa-comments
       teaser: When in doubt, ask the community!
-    - title: Feature requests
-      slug: https://community.passbolt.com/c/backlog
-      icon: fa-plus-circle
-      teaser: Propose and vote for new ideas!
     - title: Bug report
       url: https://github.com/passbolt/passbolt_api/issues/new
       icon: fa-bug
@@ -30,6 +26,10 @@
   slug: hosting
   teaser: Hosting a passbolt server
   items:
+    - title: Hosting FAQ
+      url: /faq/hosting
+      icon: fa-server
+      teaser: Frequently asked questions about hosting
     - title: Installation
       slug: install
       icon: fa-cogs
@@ -46,6 +46,18 @@
       url: https://community.passbolt.com/c/installation-issues
       icon: fa-life-saver
       teaser: Do you need help to install passbolt?
+- title: Contributing
+  slug: contributing
+  teaser: are you doing your part?
+  items:
+    - title: Contributor FAQ
+      url: /faq/contributing
+      icon: fa-group
+      teaser: How to get started as a contributor
+    - title: Feature requests
+      url: https://community.passbolt.com/c/backlog
+      icon: fa-plus-circle
+      teaser: Propose and vote for new ideas!
     - title: Authentication
       url: https://www.passbolt.com/help/tech/auth
       icon: fa-lock
@@ -54,6 +66,10 @@
       url: https://www.github.com/passbolt
       icon: fa-github
       teaser: Want to see the code? This way!
+    - title: Talk to a human
+      url: https://community.passbolt.com/c/site-feedback
+      icon: fa-comment
+      teaser: We are not machines and it's a cold world out there.
 - title: Legal Topics
   slug: legal
   url: https://www.passbolt.com/terms
@@ -73,12 +89,8 @@
       teaser: Contributor licence agreement
     - title: Code of conduct
       url: https://www.passbolt.com/code_of_conduct
-      icon: fa-users
+      icon: fa-handshake-o
       teaser: Because everyone should feel welcome
-    - title: Talk to a human
-      url: https://community.passbolt.com/c/site-feedback
-      icon: fa-comment
-      teaser: We are not machines and it's a cold world out there.
     - title: Credits
       url: https://www.passbolt.com/credits
       teaser: Passbolt would not be possible without...

@@ -26,6 +26,22 @@
       url: https://www.passbolt.com/incidents
       icon: fa-fire-extinguisher
       teaser: What went wrong and what we did to fix it.
+- title: Using passbolt
+  slug: basics
+  teaser: All the basics to set up and use passbolt
+  items:
+    - title: Account basics
+      slug: account
+      icon: fa-cogs
+      teaser: Step by step, registering, setting up and managing your account.
+    - title: Password basics
+      slug: password
+      icon: fa-refresh
+      teaser: Creating, editing, sharing and deleting passwords
+    - title: Browser extensions
+      slug: browser
+      icon: fa-download
+      teaser: How to install extensions
 - title: Hosting
   slug: hosting
   teaser: Hosting a passbolt server

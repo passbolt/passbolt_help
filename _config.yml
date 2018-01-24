@@ -30,6 +30,7 @@ github_username:  passbolt
 markdown: kramdown
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Additional folders and collections
 include: ['_pages']

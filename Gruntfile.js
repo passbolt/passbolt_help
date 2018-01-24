@@ -86,6 +86,12 @@ module.exports = function(grunt) {
           src: ['birds6_850.png'],
           dest: path.images + 'illustrations',
           expand: true
+        }, {
+          // Background
+          cwd: path.node_modules + 'passbolt-styleguide/src/img/background',
+          src: ['og_preview.jpg'],
+          dest: path.images + 'background',
+          expand: true
         }]
       }
     }

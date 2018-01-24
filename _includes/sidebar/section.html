@@ -5,15 +5,15 @@
         <li><h2>{{ item.title }}</h2></li>
         {% for entry in item.items %}
 
+        {% if entry.url %}{% else %}
         {% if entry.slug == include.selected %}
         <li class="selected">
         {% else %}
         <li>
         {% endif %}
-            {% if entry.url %}{% else %}
             <a href="{{ item.slug | absolute_url }}/{{ entry.slug }}">{{ entry.title }}</a>
-            {% endif %}
         </li>
+        {% endif %}
         {% endfor %}
     </ul>
 </div>

@@ -18,3 +18,9 @@ Additionally, having an overview of who has access to what, allows you to reset 
 your organisation. Reciprocally it can also help facilitate when someone is joining your team, since a new member
 can easily be given access to the all the password they need. It also prevents loss of credentials since you can
 perform backups.
+
+### Um, the TL;DR?
+* Decrease password reuse
+* Implement password rotation
+* Increase password strength
+* Help on-boarding new member

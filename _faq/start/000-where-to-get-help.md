@@ -13,3 +13,4 @@ If you have found a bug you can report it on [github](https://github.com/passbol
 
 If you require professional support or help to customize passbolt you can get in touch with 
  the team at [contact@passbolt.com](mailto:contact@passbolt.com).
+

@@ -9,19 +9,19 @@
     - title: Forum
       url: https://community.passbolt.com
       icon: fa-comments
-      teaser: When in doubt, ask the community!
+      teaser: When in doubt, you can also ask the community!
     - title: Bug report
       url: https://github.com/passbolt/passbolt_api/issues/new
       icon: fa-bug
       teaser: Who knows, maybe it is a feature?
-    - title: Release notes
-      url: https://www.passbolt.com/release/notes
-      icon: fa-tags
-      teaser: Find out what have changed since last time!
     - title: Incident reports
       url: https://www.passbolt.com/incidents
       icon: fa-fire-extinguisher
       teaser: What went wrong and what we did to fix it.
+    - title: Release notes
+      url: https://www.passbolt.com/release/notes
+      icon: fa-tags
+      teaser: Find out what have changed since last time!
 - title: Hosting
   slug: hosting
   teaser: Hosting a passbolt server
@@ -59,7 +59,7 @@
       icon: fa-plus-circle
       teaser: Propose and vote for new ideas!
     - title: Authentication
-      url: https://www.passbolt.com/help/tech/auth
+      url: https://help.passbolt.com/tech/auth
       icon: fa-lock
       teaser: How does GPG Authentication work?
     - title: Github

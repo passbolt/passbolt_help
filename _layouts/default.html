@@ -4,7 +4,6 @@
 <body>
 <div id="container" class="help page background">
 {% include header.html %}
-
     <div class="panel main" aria-label="Content">
         <div class="panel left">
             {% include sidebar/section.html sidebar=page.sidebar selected=page.slug %}
@@ -19,8 +18,8 @@
             </div>
         </div>
     </div>
-
 {% include footer.html %}
 </div>
+{% include analytics.html %}
 </body>
 </html>

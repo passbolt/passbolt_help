@@ -6,4 +6,4 @@ category: hosting
 permalink: /faq/hosting/:slug
 date: 2017-01-20 00:00:00 Z
 ---
-TODO intro and link to page
+Check out the dedicated [documentation page]({{ "/hosting/update" | absolute_url }}) for that topic.

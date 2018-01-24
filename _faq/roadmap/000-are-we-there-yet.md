@@ -5,4 +5,7 @@ layout: faq
 category: roadmap
 permalink: /faq/start/:slug
 ---
-TODO
+If the feature is on our [roadmap](https://www.passbolt.com/roadmap) we will most likely get to it at some point. 
+Good things take time and our capacity to add features depends on how many customers and contributors we have. 
+
+Please consider [supporting us]({{ "/faq/contributing/financial-contribution" | absolute_url }})!

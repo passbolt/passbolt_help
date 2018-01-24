@@ -25,6 +25,7 @@ url: "https://help.passbolt.com"
 
 twitter_username: passbolt
 github_username:  passbolt
+piwik: true
 
 # Build settings
 markdown: kramdown
@@ -45,6 +46,7 @@ destination: docs
 
 # Exclude from processing.
 exclude:
+  - LICENSE
   - doc
   - package.json
   - package-lock.json

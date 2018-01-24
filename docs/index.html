@@ -17,15 +17,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
-    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Passbolt | Help" />
     <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
 
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/">
-    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
+    <link rel="canonical" href="http://localhost:4000/">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
 
 </head>
 <body>
@@ -79,13 +79,13 @@
         
         <li>
             
-            <a href="https://help.passbolt.com/start">Getting started</a>
+            <a href="http://localhost:4000/start">Getting started</a>
             
         </li>
         
         <li>
             
-            <a href="https://help.passbolt.com/hosting">Hosting</a>
+            <a href="http://localhost:4000/hosting">Hosting</a>
             
         </li>
         
@@ -133,7 +133,7 @@
     
     <div class="col4 ">
         
-        <a class="tile" href="https://help.passbolt.com/faq/start">
+        <a class="tile" href="http://localhost:4000/faq/start">
             
                 <span class="tile-teaser"><i class="fa fa-compass fa-fw"></i></span>
                 <span class="tile-title">FAQ</span>
@@ -384,5 +384,20 @@
         </div>
     </footer>
 </div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
 </body>
 </html>

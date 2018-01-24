@@ -29,276 +29,276 @@
 "title": "How can I contribute with code?",
 "category": "contributing",
 "content": "To start contributing with code first check passbolt github repositories.Each repositories, such as the passbolt API or browser extension, will have instructions on how to contributeeither in the README or in a file named CONTRIBUTING.We currently have 16 repos, only 8 are likely useful to you. However, see all of them here.  JSON API - Passbolt backend, a JSON API written with CakePHP. Check out our review!  Browser extensions - Passbolt browser extensions (Firefox &amp; Chrome)  Command line interface -  Command line interface for passbolt API  Docker - Get started with passbolt using docker!  Gatling - Gatling tests for passbolt API performance benchmarking  Javascript framework -  The javascript framework of passbolt based on CanJS  Selenium - Passbolt Selenium Tests  Styleguide -  Our style guide :)These files will include information on how to setup your development environment and the process to makepull requests.Once you have a development environment up and running you can browse the open bugs for something easy to fix,or ask the existing developers and the community on the forum about areawhere you could help.",
-"url": "http://localhost:4000/faq/contributing/code-contribution"
+"url": "//help.passbolt.com/faq/contributing/code-contribution"
 },
 "faq-contributing-design-contribution": {
 "title": "How can I request a feature?",
 "category": "contributing",
 "content": "Anyone can request a feature in the backlog category of our community forum. The first step, however, is to check and see if someone else has already made a similar request. Please search the forum before making any requests.If no one has made the request you’d like to make, click the New Topic button in the upper right hand corner of the backlog category. You’ll be provided with a  template. Please fill it out carefully. The more information the better. Then just submit and make your request.The template closes with the inclusion of a community poll. The community can upvote each other’s requests to help us prioritize.Q1. What is the problem that you are trying to solve?Explain with a short paragraph what are you trying to solve with this change request or new feature. Focus on the problem: how would you measure if the problem is solved or the situation better than before?Q2 - Who is impacted?How many people are affected by this issue or how many would benefit from this new feature? Is this for everyone or a specific group?Q3 - Why is it important and/or urgent?Is it strategic? Does it help us achieve your own community objectives? Is it linked to another project that can have a big impact?Q4 - What is your proposed solution? (optional)Use this section to be describe how you would solve this problem if you have a preference or ideas on how to move forward. The more complete the proposal the better, so feel free to add:  user stories. Examples: as a logged in user I receive an email notification when a password is changed.  test scenario in the “given, when, then” format  additional functional / non functional requirements.  screenshots/wireframesQ5. Community supportPeople can vote for this idea to show traction  Must have: this is critical for me to have this  Should have: this is important for me to have this  Could have: this could be nice to have  Won’t have: we should not schedule this (explain why)",
-"url": "http://localhost:4000/faq/contributing/design-contribution"
+"url": "//help.passbolt.com/faq/contributing/design-contribution"
 },
 "faq-contributing-financial-contribution": {
 "title": "TODO How can I contribute financially",
 "category": "contributing",
 "content": "TODO",
-"url": "http://localhost:4000/faq/contributing/financial-contribution"
+"url": "//help.passbolt.com/faq/contributing/financial-contribution"
 },
 "faq-contributing-support-us": {
 "title": "How can I support passbolt?",
 "category": "contributing",
 "content": "You do not need to code to be able to help. There are many ways you can support passbolt, we wrote ablog post about it.Feel free to contact us if you would like to know more about sponsorship or volunteering opportunities.Here is a quick summary of what you can do:Spread the wordWriting a review on [Google Chrome Webstore] or Mozilla Plugin page can go a long way in helping passbolt get noticed. You can also give us a shout on twitter or a star on Github.If you have a blog, if you are the member of a forum, if you are an editor on a product review site, if you are a journalist working on technology and security topics, you can write a review of passbolt.Support other usersYou can help by answering simple questions on the community forum,document how to reproduce a bug, etc. You can also publish how-to articles, installation tutorials in other languages or propose changes to this documentation.Contribute to the productYou can help with your design ideas or with code.Test passbolt releasesWe need experienced passbolt administrators to try our development branches to test the new and upcoming releases, and propose additional selenium and unit tests scenarios.You can also organize hallway usability tests and share the results with the community.Support passbolt financiallyYou can support passbolt community as whole by subscribing to the community membership program.If you have a larger budget you can also sponsor a feature, we will make sure you are in thefront row seats to review the functional requirements and the technical specifications.",
-"url": "http://localhost:4000/faq/contributing/support-us"
+"url": "//help.passbolt.com/faq/contributing/support-us"
 },
 "faq-contributing-bug-report": {
 "title": "How should I report a bug?",
 "category": "contributing",
 "content": "If you have ever seen a piece of software that functions exactly as it’s supposed to 100% of the time…nevermind, that is an improbable dream.Reporting a bugWe work hard to squash the bugs in passbolt, so if you find something not quite right, please file an issue on our github repo.  Make sure you have a GitHub account.  Submit an issue          Check first that a similar issue does not already exist.      Make sure you fill in the earliest version that you know has the issue if it is a bug.      Clearly describe the issue including steps to reproduce the bug      Reporting a security IssuePlease send us an email at security@passbolt.com.Do not use Github or any other public channels. We ask that you keep the issue confidential until we have a fix and an announcement ready.You can encrypt the content of your email using GPG with the following key:017F E21B F15D 5825 6A3E  17AA 2494 727D EC92 2EA0Once the security issue confirmed, our team will take the following actions:  Try to first reproduce the issue and confirm the vulnerability.  Acknowledge to the reporter that we’ve received the issue and are working on a fix.  Get a fix/patch prepared and create associated automated tests.  Prepare a post describing the vulnerability, and the possible exploits.  Release new versions of all affected major versions.  Prominently feature the problem in the release announcement.  Provide credits in the release announcement to the reporter if they so desire.",
-"url": "http://localhost:4000/faq/contributing/bug-report"
+"url": "//help.passbolt.com/faq/contributing/bug-report"
 },
 "faq-contributing-design-contribution": {
 "title": "How can I contribute with design ideas?",
 "category": "contributing",
 "content": "If you have an idea for a new feature you should first try to discuss it with the community on the forum. It is important to make the difference between the problem you are trying to solve and the proposed approach, as their can be several approaches to solve the same problembut also to make sure the changes are useful to most users.You can help people visualise the proposal with wireframes, design prototypes and users stories. Userstories are an important part of passbolt development cycle as they help us define automated tests andacceptance criteria for us to call a feature done.Here is a few example of design documentation we have used in the past:  Groups functionality  Tags design discussion",
-"url": "http://localhost:4000/faq/contributing/design-contribution"
+"url": "//help.passbolt.com/faq/contributing/design-contribution"
 },
 "faq-contributing-code-of-conduct": {
 "title": "Do you have a code of conduct?",
 "category": "contributing",
 "content": "You can find the code of conduct bellow.Code of conductThis Code of Conduct applies to all of us: Passbolt staff, contributors, maintainers and participants in any campaigns, projects, and communities under the Passbolt name.We expect this Code of Conduct to be followed in any ticketing system, social network, forum, mailing list, IRC channel, wiki, web site, private correspondence, online and offline event or meeting.Anti-harassment policyWe pledge to respect everyone who contributes to this project in any way.We welcome contributions from everyone regardless of geographical location, age, culture, ethnicity, gender, gender-identity, language, disability, physical appearance, sexual orientation and religious views.We do not tolerate harassment of participants in any form. Personal attacks, hate speech, trolling, baiting, spamming, any intentional form of discrimination, unwelcome sexual attention or imagery, deliberate intimidation, physical threats, stalking or any other kind of bad behaviour will be dealt with decisively.Offenders will be temporarily or permanently banned from communicating through Passbolt’s systems and events or otherwise penalised. These rules may be enforced at the discretion of Passbolt staff by removing issues, comments, blocking or reporting accounts and banning from online or public meetings.Interaction principlesWe pledge to adhere to following principles when interacting with each other:Be respectful: there will always be people with whom we may disagree or find it difficult to cooperate. We will, however, take a deep breath if we need to and then remain respectful.Agree to disagree: decisions are often a difficult choice between competing priorities and there are many ways of reaching our common goals. If we disagree, we will do so politely.Assume good faith: when we disagree we do not assume the worst, it is unlikely a participant is intentionally trying to degrade the quality of a discussion or product. We will assume best intentions in our interactions.Welcome other perspectives: we actively seek to be open to ideas that make our own ideas better. We empower others to speak and will strive to make diversity and inclusion intentional. We welcome contributions from everyone as long as they interact constructively with our community.Be concise: we try to be concise and avoid repeating what has already been said. We try to stay on topic, especially in discussions that are already fairly large.Be transparent: we are open about what we are working on to allow others to participate. We are also transparent about our mistakes to allow others tolearn and avoid repeating them.Handling issuesIf you are subject to or witness unacceptable behavior, or have any other concerns, please email us at contact@passbolt.comDate of Last UpdateThis code of conduct was last updated on November 21st, 2017.",
-"url": "http://localhost:4000/faq/contributing/code-of-conduct"
+"url": "//help.passbolt.com/faq/contributing/code-of-conduct"
 },
 "faq-contributing-how-to-sign-cla": {
 "title": "How do I sign the Contributor Licence Agreement?",
 "category": "contributing",
 "content": "As part of the pull request process on github you will be asked to electronically sign passbolt CLA, thanks to the CLA Assistant. You only need to do this once. You can also print it and send it to us signed by email at contact@passbolt.com.",
-"url": "http://localhost:4000/faq/contributing/how-to-sign-cla"
+"url": "//help.passbolt.com/faq/contributing/how-to-sign-cla"
 },
 "faq-contributing-where-is-cla": {
 "title": "Where can I find the Contributor Licence Agreement?",
 "category": "contributing",
 "content": "We use the Harmony CLA to protect your rights regarding any contribution you make to our open source projects. You can find our version bellow:Passbolt Contributor License AgreementThank you for your interest in contributing to Passbolt (“We” or “Us”).This contributor agreement (“Agreement”) documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by email or electronic submission, following the instructions at https://www.passbolt.com/help/legal/cla. This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.1. Definitions“You” means the the person or legal entity including its affiliates asked to accept this agreement. An affiliate is any entity that controls or is controlled by the legal entity, or is under common control with it.“Contribution” means any work of authorship that is Submitted by You to Us in which You own or assert ownership of the Copyright.“Copyright” means all rights protecting works of authorship owned or controlled by You, including copyright, moral and neighboring rights, as appropriate, for the full term of their existence including any extensions by You.“Material” means the work of authorship which is made available by Us to third parties. When this Agreement covers more than one software project, the Material means the work of authorship to which the Contribution was Submitted. After You Submit the Contribution, it may be included in the Material.“Submit” means any form of electronic, verbal, or written communication sent to Us or our representatives, including but not limited to electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, Us for the purpose of discussing and improving the Material, but excluding communication that is conspicuously marked or otherwise designated in writing by You as “Not a Contribution.”“Submission Date” means the date on which You Submit a Contribution to Us.“Effective Date” means the date You execute this Agreement or the date You first Submit a Contribution to Us, whichever is earlier.2. Grant of Rights2.1 Copyright License(a) You retain ownership of the Copyright in Your Contribution and have the same rights to use or license the Contribution which You would have had without entering into the Agreement.(b) To the maximum extent permitted by the relevant law, You grant to Us a perpetual, worldwide, non-exclusive, transferable, royalty-free, irrevocable license under the Copyright covering the Contribution, with the right to sublicense such rights through multiple tiers of sublicensees, to reproduce, modify, display, perform and distribute the Contribution as part of the Material; provided that this license is conditioned upon compliance with Section 2.3.2.2 Patent LicenseFor patent claims including, without limitation, method, process, and apparatus claims which You own, control or have the right to grant, now or in the future, You grant to Us a perpetual, worldwide, non-exclusive, transferable, royalty-free, irrevocable patent license, with the right to sublicense these rights to multiple tiers of sublicensees, to make, have made, use, sell, offer for sale, import and otherwise transfer the Contribution and the Contribution in combination with the Material (and portions of such combination). This license is granted only to the extent that the exercise of the licensed rights infringes such patent claims; and provided that this license is conditioned upon compliance with Section 2.3.2.3 Outbound LicenseAs a condition on the grant of rights in Sections 2.1 and 2.2, We agree to license the Contribution only under the terms of the license or licenses which We are using on the Submission Date for the Material or any licenses which are approved by the Open Source Initiative on or after the Effective Date, including both permissive and copyleft licenses, whether or not such licenses are subsequently disapproved (including any right to adopt any future version of a license if permitted).2.4 Moral Rights.If moral rights apply to the Contribution, to the maximum extent permitted by law, You waive and agree not to assert such moral rights against Us or our successors in interest, or any of our licensees, either direct or indirect.2.5 Our Rights.You acknowledge that We are not obligated to use Your Contribution as part of the Material and may decide to include any Contribution We consider appropriate.2.6 Reservation of Rights.Any rights not expressly licensed under this section are expressly reserved by You.3. AgreementYou confirm that:(a) You have the legal authority to enter into this Agreement.(b) You own the Copyright and patent claims covering the Contribution which are required to grant the rights under Section 2.(c) The grant of rights under Section 2 does not violate any grant of rights which You have made to third parties, including Your employer. If You are an employee, You have had Your employer approve this Agreement or sign the Entity version of this document. If You are less than eighteen years old, please have Your parents or guardian sign the Agreement.(d) You have followed the instructions in https://www.passbolt.com/help/legal/cla, if You do not own the Copyright in the entire work of authorship Submitted.4. DisclaimerEXCEPT FOR THE EXPRESS WARRANTIES IN SECTION 3, THE CONTRIBUTION IS PROVIDED “AS IS”. MORE PARTICULARLY, ALL EXPRESS OR IMPLIED WARRANTIES INCLUDING, WITHOUT LIMITATION, ANY IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT ARE EXPRESSLY DISCLAIMED BY YOU TO US. TO THE EXTENT THAT ANY SUCH WARRANTIES CANNOT BE DISCLAIMED, SUCH WARRANTY IS LIMITED IN DURATION TO THE MINIMUM PERIOD PERMITTED BY LAW.5. Consequential Damage WaiverTO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT WILL YOU BE LIABLE FOR ANY LOSS OF PROFITS, LOSS OF ANTICIPATED SAVINGS, LOSS OF DATA, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL AND EXEMPLARY DAMAGES ARISING OUT OF THIS AGREEMENT REGARDLESS OF THE LEGAL OR EQUITABLE THEORY (CONTRACT, TORT OR OTHERWISE) UPON WHICH THE CLAIM IS BASED.6. Miscellaneous6.1 This Agreement will be governed by and construed in accordance with the laws of luxembourg excluding its conflicts of law provisions. Under certain circumstances, the governing law in this section might be superseded by the United Nations Convention on Contracts for the International Sale of Goods (“UN Convention”) and the parties intend to avoid the application of the UN Convention to this Agreement and, thus, exclude the application of the UN Convention in its entirety to this Agreement.6.2 This Agreement sets out the entire agreement between You and Us for Your Contributions to Us and overrides all other agreements or understandings.6.3 If You or We assign the rights or obligations received through this Agreement to a third party, as a condition of the assignment, that third party must agree in writing to abide by all the rights and obligations in the Agreement.6.4 The failure of either party to require performance by the other party of any provision of this Agreement in one situation shall not affect the right of a party to require such performance at any time in the future. A waiver of performance under a provision in one situation shall not be considered a waiver of the performance of the provision in the future or a waiver of the provision in its entirety.6.5 If any provision of this Agreement is found void and unenforceable, such provision will be replaced to the extent possible with a provision that comes closest to the meaning of the original provision and which is enforceable. The terms and conditions set forth in this Agreement shall apply notwithstanding any failure of essential purpose of this Agreement or any limited remedy to the maximum extent possible under law.",
-"url": "http://localhost:4000/faq/contributing/where-is-cla"
+"url": "//help.passbolt.com/faq/contributing/where-is-cla"
 },
 "faq-contributing-why-cla": {
 "title": "Why do we need a Contributor Licence Agreement?",
 "category": "contributing",
 "content": "At passbolt we are required to have agreement with everyone who submit contributions, in order to make sure that we, and the user of our software, are legally entitled to distribute your contributed code anywherein the world.In effect, you still own the copyright but you are giving us a licence. You retain the right to modify your code and use it in other projects.",
-"url": "http://localhost:4000/faq/contributing/why-cla"
+"url": "//help.passbolt.com/faq/contributing/why-cla"
 },
 "faq-hosting-how-to-install": {
 "title": "How to install passbolt",
 "category": "hosting",
 "content": "TODO intro and link to page",
-"url": "http://localhost:4000/faq/hosting/how-to-install"
+"url": "//help.passbolt.com/faq/hosting/how-to-install"
 },
 "faq-hosting-how-to-backup": {
 "title": "How to make passbolt backups",
 "category": "hosting",
 "content": "You can (and should) make a backup of your secret key during the setup after generating a new key. You can also do that at any moment when you are logged in the application by going to the profile section.At the moment it is not possible to download a backup of your passwords from the client side. However if you have email notification enabled you should receive a copy of your encrypted passwords by email, which can act as a backup.However on the server side you can make a regular backup of the entire database. Several methods are available and there is plenty of documentation available online.See also How to make passbolt server backup.",
-"url": "http://localhost:4000/faq/hosting/how-to-backup"
+"url": "//help.passbolt.com/faq/hosting/how-to-backup"
 },
 "faq-hosting-how-to-update": {
 "title": "How can I update my passbolt server?",
 "category": "hosting",
 "content": "TODO intro and link to page",
-"url": "http://localhost:4000/faq/hosting/how-to-update"
+"url": "//help.passbolt.com/faq/hosting/how-to-update"
 },
 "faq-hosting-where-to-host": {
 "title": "Does passbolt provide hosting?",
 "category": "hosting",
 "content": "",
-"url": "http://localhost:4000/faq/hosting/where-to-host"
+"url": "//help.passbolt.com/faq/hosting/where-to-host"
 },
 "faq-hosting-001-where-to-get-help-for-installation": {
 "title": "Where can I get help for installation issues?",
 "category": "hosting",
 "content": "Community supportIf you are experiencing issues during the installation process you can request help from thecommunity in the forum.Before posting make sure to:  read intro post: https://community.passbolt.com/t/about-the-installation-issues-category/12  read the tutorials and relevant help section on this site  searched for similar issues on the web  provide relevant information about the server (component names and versions, etc.)  provide a copy of my logs and health check  describe the steps you have taken to trouble shoot the problem  describe the steps we can take to be able to reproduce the issueProfessional supportIf you need a more rapid response time and more in depth help you can also contactPassbolt SARL, the company behind passbolt, to get professional support services atcontact@passbolt.com.",
-"url": "http://localhost:4000/faq/hosting/001-where-to-get-help-for-installation"
+"url": "//help.passbolt.com/faq/hosting/001-where-to-get-help-for-installation"
 },
 "faq-licensing-which-license": {
 "title": "Under which license is passbolt distributed?",
 "category": "licensing",
 "content": "Unless stated otherwise in the project’s files distributed on Github, including but not limited to passbolt application and browser extensions, testing and deployment tools, styleguide, documentation and artwork included with the code etc.)  Free Software Foundation’s GNU AGPL v3.0.Unless stated otherwise the text and illustrations on this website are available under:  Creative Commons BY SA 4.0.For 3rd party libraries the flavor of the open source license will vary (MIT, MPL, etc.), you can check the source for more details.Third party logos (such as Firefox, Docker, JSON, GnuPG, Github, etc.) are the sole property of their respective owners. They are used for illustrative use only. Their respective owners do not endorse passbolt or our use of their products.",
-"url": "http://localhost:4000/faq/licensing/which-license"
+"url": "//help.passbolt.com/faq/licensing/which-license"
 },
 "faq-licensing-commercial-use": {
 "title": "Can I commercially host and distribute passbolt?",
 "category": "licensing",
 "content": "If you abide by the license terms, absolutely!Our goal in selecting the AGPL v3.0, as our default license is to require that the source code is distributed to the end users, so that enhancements can be released back to the community. Traditional open source licenses such as GPL often do not achieve this when the software is runs as a web application, e.g. as hosted application available through a network.If the AGPL v3 does not satisfy your organisation, commercial licenses are available. Feel free to contact us for more details.",
-"url": "http://localhost:4000/faq/licensing/commercial-use"
+"url": "//help.passbolt.com/faq/licensing/commercial-use"
 },
 "faq-licensing-review-modify-share": {
 "title": "Can I review, modify and share passbolt source code?",
 "category": "licensing",
 "content": "Absolutely. The entire passbolt solution is composed of a free software. Our source code is made available in such a way that all of our users have the rights to:  Use the software for any purpose,  Change the software to suit their needs,  Share the software with their friends and neighbors,  Distribute the software and the changes they make.You can learn more about free software on the free software foundation website.",
-"url": "http://localhost:4000/faq/licensing/review-modify-share"
+"url": "//help.passbolt.com/faq/licensing/review-modify-share"
 },
 "faq-licensing-why-open-source": {
 "title": "Why should I care that passbolt is open source?",
 "category": "licensing",
 "content": "Typically, when the source code of a software is not available you need to trust your vendor without having any means to verify their claims. For example you do not have any guarantee that they will fix vulnerabilities, introduce backdoors or that they will not use your data without your consent. When the source code is freely available, anyone can organize a review and check if the level of security the product provides is adequate.",
-"url": "http://localhost:4000/faq/licensing/why-open-source"
+"url": "//help.passbolt.com/faq/licensing/why-open-source"
 },
 "faq-security-security-vulnerability": {
 "title": "How can I report a security vulnerability?",
 "category": "security",
 "content": "Please send us an email at security@passbolt.com.Do not use Github or any other public channels. We ask that you keep the issue confidential until we have a fix and an announcement ready.You can encrypt the content of your email using GPG with the following key:017F E21B F15D 5825 6A3E  17AA 2494 727D EC92 2EA0Once the security issue confirmed, our team will take the following actions:  Try to first reproduce the issue and confirm the vulnerability.  Acknowledge to the reporter that we’ve received the issue and are working on a fix.  Get a fix/patch prepared and create associated automated tests.  Prepare a post describing the vulnerability, and the possible exploits.  Release new versions of all affected major versions.  Prominently feature the problem in the release announcement.  Provide credits in the release announcement to the reporter if they so desire.",
-"url": "http://localhost:4000/faq/security/security-vulnerability"
+"url": "//help.passbolt.com/faq/security/security-vulnerability"
 },
 "faq-security-is-passbolt-secure": {
 "title": "Is it secure to use passbolt in its current version?",
 "category": "security",
 "content": "Currently passbolt is in “alpha”, which means it is not yet a completely finished product. While we encourage you to try it out, the answer to whether you should store critical information with it depends on your security level requirements.For instance, if your team currently stores its passwords in plaintext, passbolt will definitely be an improvement. Similarly, if you plan to host passbolt in way that it is only accessible on your local machine or network or via a VPN, then the security level is also likely to be appropriate.On the other hand if you have very high security requirements, for example if you are dealing with systems holding credit card information, or if you are a human-rights organisation, you may want to wait before starting using passbolt!In the future we will be publishing a comprehensive risk analysis to give you a complete picture of the threat model.",
-"url": "http://localhost:4000/faq/security/is-passbolt-secure"
+"url": "//help.passbolt.com/faq/security/is-passbolt-secure"
 },
 "faq-security-what-is-encrypted": {
 "title": "TODO What data is encrypted in passbolt?",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/what-is-encrypted"
+"url": "//help.passbolt.com/faq/security/what-is-encrypted"
 },
 "faq-security-encryption-tech": {
 "title": "What kind of encryption does passbolt use?",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/encryption-tech"
+"url": "//help.passbolt.com/faq/security/encryption-tech"
 },
 "faq-security-code-review": {
 "title": "TODO Has the code been reviewed?",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/code-review"
+"url": "//help.passbolt.com/faq/security/code-review"
 },
 "faq-security-authentication": {
 "title": "TODO How does authentication work in passbolt?",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/authentication"
+"url": "//help.passbolt.com/faq/security/authentication"
 },
 "faq-security-javascript-security": {
 "title": "TODO Is javascript cryptographically secure",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/javascript-security"
+"url": "//help.passbolt.com/faq/security/javascript-security"
 },
 "faq-security-change-passphrase": {
 "title": "How can I change my passphrase?",
 "category": "security",
 "content": "Currently it is not possible to change your passphrase from within passbolt itself (we do have an item in our backlog for this, ref. PASSBOLT-1283).However there is a non-trivial workaround if you really need it:  In passbolt, go to your profile and export your secret key  Import it in a GPG keyring (see. Macos, Windows, Linux).  From there you can update your passphrase  Export your key again  Perform an “account recovery” within passbolt with the new updated key.",
-"url": "http://localhost:4000/faq/security/change-passphrase"
+"url": "//help.passbolt.com/faq/security/change-passphrase"
 },
 "faq-security-passphrase-recovery": {
 "title": "TODO How can I recover my passphrase",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/passphrase-recovery"
+"url": "//help.passbolt.com/faq/security/passphrase-recovery"
 },
 "faq-security-is-open-source-secure": {
 "title": "Wouldn’t an attacker find vulnerabilities more easily if the code is available to everyone?",
 "category": "security",
 "content": "Yes, but the corollary is also true, e.g. people without malicious intent too can find these vulnerabilities and fix them, making the solution stronger in the long term. Greater visibility allows more users and experts around the world to go through the source code, discover and fix bugs early.",
-"url": "http://localhost:4000/faq/security/is-open-source-secure"
+"url": "//help.passbolt.com/faq/security/is-open-source-secure"
 },
 "faq-security-compromised-secret-key": {
 "title": "My secret key and passphrase are compromised, what do I do?",
 "category": "security",
 "content": "The secret key is in itself encrypted with a passphrase and cannot be used without it.If your passphrase has also been compromised, you will need to start a new with a fresh key and use your revocation certificate (see other FAQ in this section).",
-"url": "http://localhost:4000/faq/security/compromised-secret-key"
+"url": "//help.passbolt.com/faq/security/compromised-secret-key"
 },
 "faq-security-why-an-extension": {
 "title": "TODO Who do I need a browser extension",
 "category": "security",
 "content": "",
-"url": "http://localhost:4000/faq/security/why-an-extension"
+"url": "//help.passbolt.com/faq/security/why-an-extension"
 },
 "faq-security-revocation-certificate": {
 "title": "Does passbolt support revocation certificates?",
 "category": "security",
 "content": "A revocation certificate is a small encrypted message, that you generate at the same time you create your key. This can be uploaded when you need to tell your collaborators that your key has been compromised. This is required to render your previous key unusable and mitigate potential identity thefts.Passbolt do not provide the ability to create or upload revocation certificate at the moment but we hope to be able to support it in a near future. We need your support to be able to implement such functionalities. At the moment other software compatible with passbolt can help you with this. See the GnuPG manual for more information.",
-"url": "http://localhost:4000/faq/security/revocation-certificate"
+"url": "//help.passbolt.com/faq/security/revocation-certificate"
 },
 "faq-security-public-key-trust": {
 "title": "TODO How are public keys trusted",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/public-key-trust"
+"url": "//help.passbolt.com/faq/security/public-key-trust"
 },
 "faq-security-security-token": {
 "title": "TODO What is the security token",
 "category": "security",
 "content": "TODO",
-"url": "http://localhost:4000/faq/security/security-token"
+"url": "//help.passbolt.com/faq/security/security-token"
 },
 "faq-start-what-is-passbolt": {
 "title": "What is passbolt?",
 "category": "start",
 "content": "Passbolt is a free and open source password manager that allows team members to store and share credentials securely.For instance, the wifi password of your office, the administrator password of a router or your organisation socialmedia account password, all of them can be secured using passbolt.",
-"url": "http://localhost:4000/faq/start/what-is-passbolt"
+"url": "//help.passbolt.com/faq/start/what-is-passbolt"
 },
 "faq-start-where-to-get-help": {
 "title": "Where can I get help?",
 "category": "start",
 "content": "For installation issues or an issue specific to your instanceyou can request help from the community on the forum.If you have found a bug you can report it on github.If you require professional support or help to customize passbolt you can get in touch with  the team at contact@passbolt.com.",
-"url": "http://localhost:4000/faq/start/where-to-get-help"
+"url": "//help.passbolt.com/faq/start/where-to-get-help"
 },
 "faq-start-why": {
 "title": "Why do I need a password manager?",
 "category": "start",
 "content": "A password manager allows you to comfortably implement best security practices and therefore reduces the risks foryou and your organisation.With a password manager you can prevent your team from reusing the same password on multiple systems.You can also make sure they generate stronger passwords by default, since they do not have to remember them anymore.It also makes it easier to rotate credentials, e.g. help you change your passwords regularly, every 40 days for example.Additionally, having an overview of who has access to what, allows you to reset passwords when somebody leavesyour organisation. Reciprocally it can also help facilitate when someone is joining your team, since a new membercan easily be given access to the all the password they need. It also prevents loss of credentials since you canperform backups.",
-"url": "http://localhost:4000/faq/start/why"
+"url": "//help.passbolt.com/faq/start/why"
 },
 "faq-start-can-i-use-passbolt-as-personal-password-manager": {
 "title": "I need a personal password manager, can I use passbolt?",
 "category": "start",
 "content": "Yes, even though passbolt is primarily design for organizations, you can also use it to store those passwords that you do not want to share with anyone.",
-"url": "http://localhost:4000/faq/start/can-i-use-passbolt-as-personal-password-manager"
+"url": "//help.passbolt.com/faq/start/can-i-use-passbolt-as-personal-password-manager"
 },
 "faq-start-how-does-it-work": {
 "title": "TODO How does it work?",
 "category": "start",
 "content": "TODO  Ada has a password to share with betty  Ada encrypts the password using passbolt plugin,  and Betty public key!  The the password is sent encrypted over HTTPS  and stored on the passbolt server!  Betty receives and email notification  Betty logs in to passsbolt with the CLI or web app  Then using her private key,  Betty decrypts the password and uses it to login!",
-"url": "http://localhost:4000/faq/start/how-does-it-work"
+"url": "//help.passbolt.com/faq/start/how-does-it-work"
 },
 "faq-start-how-is-different": {
 "title": "How is passbolt different from other password managers?",
 "category": "start",
 "content": "A lot of password solutions focus on personal needs. Passbolt is primarily designed for teams and not individuals.We have built passbolt taking into account the needs of small and medium organisations in mind. Moreover passbolt is open source and respectful of your privacy.Passbolt community edition is free.It is also extensible thanks to its restful API.",
-"url": "http://localhost:4000/faq/start/how-is-different"
+"url": "//help.passbolt.com/faq/start/how-is-different"
 },
 "faq-start-is-sharing-password-a-bad-practice": {
 "title": "Is sharing the same password with multiple users a bad practice?",
 "category": "start",
 "content": "Indeed, it is. Wherever possible you should try to have one user account and a unique password per person. However it is not always possible, especially for built-in privileged accounts (like the admin password of a router, a root password on a linux server, your organization instagram / twitter account password, etc.), and this is where passbolt can be of most help.",
-"url": "http://localhost:4000/faq/start/is-sharing-password-a-bad-practice"
+"url": "//help.passbolt.com/faq/start/is-sharing-password-a-bad-practice"
 },
 "faq-start-are-we-there-yet": {
 "title": "When will you be releasing feature X or Y?",
 "category": "roadmap",
 "content": "TODO",
-"url": "http://localhost:4000/faq/start/are-we-there-yet"
+"url": "//help.passbolt.com/faq/start/are-we-there-yet"
 },
 "faq-roadmap-feature-priority": {
 "title": "How to you prioritize feature development?",
 "category": "roadmap",
 "content": "",
-"url": "http://localhost:4000/faq/roadmap/feature-priority"
+"url": "//help.passbolt.com/faq/roadmap/feature-priority"
 },
 "hosting-backup-html": {
 "title": "Backing up a passbolt installation",
 "category": "hosting",
 "content": "Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a backup strategy in place. As a passbolt administrator it is your responsibility to define how often and when to perform backups. Please automate and customize this process to match the needs and policies of your organization. Here are some best practices to keep in mind: Ensure that the backups are taken at intervals that match your usage Take these backups off-site, or to another environment than the live one Make sure the backup is encrypted and stored in a safe location Practice drills and test the backups to make sure they work What to backup? There are several elements you need to backup: 1. The database This can be easily scripted using mysqldump for example: mysqldump -u[user] -p[pass] db &gt; /path/to/backup.sql 2. The avatars The images...",
-"url": "http://localhost:4000/hosting/backup.html"
+"url": "//help.passbolt.com/hosting/backup.html"
 },
 "hosting-install-html": {
 "title": "Install passbolt server component",
 "category": "hosting",
 "content": "Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Other community guides If you are looking for more system specific step by step guides please check out the following resources: Debian 8 “Jessy” with Apache, MariaDB and PHP 5 (by Passbolt) Centos 7 with Nginx, MariaDB, PHP 7 (by Passbolt) FreeBSD 10.3, Apache, Mysql 5.7, PHP 5.6 (by Patpro) OpenBSD 6.1, Nginx, MariaDB, PHP 5.6/7.0 (by AuthBSD) Environment setup and baseline requirements Operating system We recommend you install passbolt on stable Unix-like operating system distributions such as Debian, Centos or FreeBSD. We have not tested passbolt on Windows...",
-"url": "http://localhost:4000/hosting/install.html"
+"url": "//help.passbolt.com/hosting/install.html"
 },
 "hosting-update-html": {
 "title": "Update passbolt server component",
 "category": "hosting",
 "content": "Which update process to follow? Each passbolt release follows the concept of Semantic Versioning. Given a version number MAJOR.MINOR.PATCH, we increment as follow: PATCH version when we make backwards-compatible bug fixes. So let’s say you are running passbolt v1.3.2 and the latest one available is v1.3.7 you will need to perform a patch update. MINOR version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v1.2.0 installed and the latest version available is v1.3.2, you will need to perform a minor version update. MAJOR version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1.3.7 to v2.0.0 for example. Where to find the latest release version number? You can find information about which version is the latest in the release notes. It is generally a good idea to check these notes before running an update. You...",
-"url": "http://localhost:4000/hosting/update.html"
+"url": "//help.passbolt.com/hosting/update.html"
 }
 }

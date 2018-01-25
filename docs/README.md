@@ -30,7 +30,7 @@ To get started please read Jekyll [quick start guide](https://jekyllrb.com/docs/
 ```
 gem install jekyll bundler
 git clone https://github.com/passbolt/passbolt_help.git
-cd pasbolt_help
+cd passbolt_help
 bundle exec jekyll build
 ```
 

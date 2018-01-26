@@ -1,19 +1,19 @@
 faq:
+  - title: Discover
+    slug: discover
+    url: /faq/discover
   - title: Get started
     slug: start
     url: /faq/start
-  - title: Security
-    slug: security
-    url: /faq/security
   - title: Hosting
     slug: hosting
     url: /faq/hosting
-  - title: Roadmap
-    slug: roadmap
-    url: /faq/roadmap
-  - title: Licensing
-    slug: licensing
-    url: /faq/licensing
-  - title: Contributing
-    slug: contributing
-    url: /faq/contributing
+  - title: contribute
+    slug: contribute
+    url: /faq/contribute
+  - title: Security
+    slug: security
+    url: /faq/security
+  - title: Legal
+    slug: legal
+    url: /faq/legal

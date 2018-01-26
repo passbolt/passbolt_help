@@ -1,5 +1,5 @@
 ---
-title: What is the security token
+title: What is the security token?
 slug: security-token
 layout: faq
 category: security

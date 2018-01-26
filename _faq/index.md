@@ -1,23 +1,50 @@
 ---
 title: All FAQs
-layout: faq
+layout: faq_home
+sidebar: faq
 notsearchable: true
 slug: faq
 ---
-## Get started
+
+{% include layout/row_start.html %}
+{% include layout/col_start.html column="6" %}    
+
+## Discovering passbolt
+{% include faq/list.html category="discover" %}
+
+{% include layout/col_end.html %}
+{% include layout/col_start.html column="6 last" %}  
+  
+## Getting started with passbolt
 {% include faq/list.html category="start" %}
 
-## Security
-{% include faq/list.html category="security" %}
+{% include layout/col_end.html %}
+{% include layout/row_end.html %}
+{% include layout/row_start.html %}
+{% include layout/col_start.html column="6" %}
 
-## Hosting
+## Hosting passbolt
 {% include faq/list.html category="hosting" %}
 
-## Licensing
-{% include faq/list.html category="licensing" %}
+{% include layout/col_end.html %}
+{% include layout/col_start.html column="6 last" %}  
+ 
+## Contributing to passbolt
+{% include faq/list.html category="contribute" %}
 
-## Contributing
-{% include faq/list.html category="contributing" %}
+{% include layout/col_end.html %}
+{% include layout/row_end.html %}
+{% include layout/row_start.html %}
+{% include layout/col_start.html column="6" %}
 
-## Roadmap
-{% include faq/list.html category="roadmap" %}
+## Security FAQ
+{% include faq/list.html category="security" %}
+
+{% include layout/col_end.html %}
+{% include layout/col_start.html column="6 last" %}  
+ 
+## Legal
+{% include faq/list.html category="legal" %}
+
+{% include layout/col_end.html %}
+{% include layout/row_end.html %}

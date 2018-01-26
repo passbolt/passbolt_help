@@ -15,7 +15,7 @@
                 {% if page.category %}
                 <li>
                     <div class="main-cell">
-                        <a href="{{ site.baseurl }}/{{ page.category }}"><span>{{ page.category }}</span></a>
+                        <a href="{{ page.category | absolute_url }}"><span>{{ page.category }}</span></a>
                     </div>
                 </li>
                 {% endif %}

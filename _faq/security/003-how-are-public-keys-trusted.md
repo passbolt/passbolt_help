@@ -1,5 +1,5 @@
 ---
-title: How are public keys trusted
+title: How are public keys trusted?
 slug: public-key-trust
 layout: faq
 category: security

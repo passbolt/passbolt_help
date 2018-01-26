@@ -1,5 +1,5 @@
 ---
-title: How to install passbolt
+title: How to install passbolt server
 slug: how-to-install
 layout: faq
 category: hosting

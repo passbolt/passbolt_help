@@ -1,5 +1,5 @@
 ---
-title: Is javascript cryptographically secure
+title: Is javascript cryptographically secure?
 slug: javascript-security
 layout: faq
 category: security
@@ -26,4 +26,4 @@ its cryptographic functionalities which have been reviewed multiple times by
 [Cure53](https://github.com/openpgpjs/openpgpjs/wiki/Cure53-security-audit).
 
 Organizing more regular independent 3rd party audits is one of our main priorities. We need your 
-[support]({{ "/faq/contributing" | absolute_url }}) to be able to organize them.
+[support]({{ "/faq/contribute" | absolute_url }}) to be able to organize them.

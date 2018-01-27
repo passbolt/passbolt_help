@@ -9,7 +9,7 @@ slug: faq
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="6" %}    
 
-## Discovering passbolt
+## Discover passbolt
 {% include faq/list.html category="discover" %}
 
 {% include layout/col_end.html %}

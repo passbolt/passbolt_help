@@ -19,9 +19,9 @@ Changing the profile picture is easy:
 8. Wait a moment till your profile picture is updated.
 
 ### Caution!
+{% include warning.html content="Please note that if your file size and picture quality are heavy you may be unable to upload your picture." %}
+
 When you upload a picture be mindful of the following compatibilities:
 * The height and width of the picture
 * The file size
 * The file extension
-
-Please note that if your file size and picture quality are heavy you may be unable to upload your picture.

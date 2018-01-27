@@ -1,5 +1,5 @@
 ---
-title: How to create and setup an account
+title: Account basics
 slug: account-setup
 layout: faq
 category: start
@@ -37,3 +37,19 @@ Once you have passbolt installed on your machine, you can register and open an a
 3. Click the edit button on the left side to edit your name or upload a profile picture.
 
 ![Set up profile gif]({{ "/assets/img/help/2018/01/passbolt-profile.gif" | absolute_url }})
+
+Changing the profile picture is easy:
+
+1. Select "Click here to upload a new picture"
+2. Click "Browse"
+3. Select a picture from your computer that you would like to upload
+4. Click "Save" once you have selected a picture
+5. Wait a moment till your profile picture is updated.
+
+### Caution!
+{% include warning.html content="Please note that if your file size and picture quality are heavy you may be unable to upload your picture." %}
+
+When you upload a picture be mindful of:
+* The height and width of the picture
+* The file size
+* The file extension

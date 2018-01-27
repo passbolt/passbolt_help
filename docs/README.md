@@ -45,6 +45,10 @@ Since the styleguide is distributed as a npm module you can link your local pass
 styleguide to test changes and extend the look and feel. 
 See [npm-link](https://docs.npmjs.com/cli/link) for more information.
 
+### Adding images
+Similarly if you want to add images to this site make sure you do not include them in assets folders that are
+reserved by the styleguide such as `/assets/img/screenshots` or `/assets/img/logo`. Instead you can place them in `/assets/img/help`.
+
 ## Credits
 
 https://www.passbolt.com/credits

@@ -7,28 +7,62 @@ permalink: /faq/start/:slug
 date: 2017-01-20 00:00:00 Z
 ---
 
-## Creating a new account
+## Creating a demo account
+Passbolt requires a server to work. You can either [install it on your own]({{ "/hosting/install" | absolute_url }}) machine
+or use the demo environment. Here is the procedure to try out the demo:
 
-Once you have passbolt installed on your machine, you can register and open an account with a few simple steps!
-1. Open passbolt's webpage.
-2. An add-on is required to use passbolt. Install the plugin for Firefox or Chrome.
-3. You will see a small red key icon in the upper right hand corner of your browser. Click on it. To configure the passbolt browser extension
-4. Click the Register button and enter your name and email.
+**Step 1.** Open the demo page: [https://demo.passbolt.com](https://demo.passbolt.com).
+
+**Step 2.** An add-on is required to use passbolt, click on the linke to install the plugin for Firefox or Chrome.
+
+**Step 3.** You will see a small red key icon in the upper right hand corner of your browser. Click on it.
+
+**Step 4.** Select the demo instance. 
+
+**Step 5.** Click the Register button and enter your name and email. Other users will be able to see your email (
+this is to allow testing "sharing" functionality), so you can use a throw-away email account if you are not confortable with this.
+
+**Step 6.** Passbolt sent you an email that contains a link allowing you to login.
+{% include warning.html
+    content="The link is only valid for a short duration (72h by default, but this can be vary).
+    If you registration email token expired you can request another one using the recovery feature at `https://[your_passbolt]/recover`"
+%}
 
 ## Setup the account
 
-1. Check your email. Passbolt sent you a note that contains a link allowing you to login. When you click this link, passbolt will ask you to check the URL passbolt is associated with ![URL Check]({{ "/assets/img/help/2018/01/url-check.png" | absolute_url }})
-2. If you recognize the domain name, check the checkbox and then click Next.
-3. Passbolt will ask you to create a new key with this screen
+**Step 1.** Check your email. When you click this link the setup will start.
 
+**Step 2.** passbolt will ask you to check the URL passbolt is associated with 
+
+{% include figure.html
+    url="/assets/img/help/2018/01/url-check.png"
+    legend="Validation of the domain"
+    width="450px"
+%}
+
+**Step 3.** If you recognize the domain name, check the checkbox and then click Next. 
+
+**Step 4.** Passbolt will ask you to create a new key on the following screen:
 {% include figure.html
     url="/assets/img/help/2018/01/create-new-key.png"
     legend="creating a new key"
+    width="450px"
 %}
 
-4. Next, passbolt will help you create a new master password. Choose this password wisely, it will be the gatekeeper to all your other passwords. ![Set passphrase]({{ "/assets/img/help/2018/01/set-passphrase.png" | absolute_url }})
-5. Once you haveve chosen your master password and clicked Next, you will be given the opportunity to download your private key. It is highly recommended that you do so!
-6. The final step is to create a security token. Choosing a color and a three character token is a secondary security mechanism that helps you know you are logging into a *real* passbolt instance.
+**Step 5.** Next, passbolt will help you create a new master password. Choose this password wisely, 
+it will be the gatekeeper to all your other passwords. 
+{% include figure.html
+    url="/assets/img/help/2018/01/set-passphrase.png"
+    legend="setting a passphrase"
+    width="450px"
+%}
+
+**Step 6.** Once you have chosen your master password and clicked Next, you will be given the opportunity to 
+download your private key. It is highly recommended that you do so!
+
+**Step 7.** The final step is to create a security token. 
+Choosing a color and a three character token is a secondary security mechanism that helps you know you are 
+logging into a *real* passbolt instance.
 
 ## Set up your profile
 

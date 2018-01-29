@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Creating a new account">
+    <meta name="description" content="Creating a demo account Passbolt requires a server to work. You can either install it on your own machine or use the demo environment. Here is the procedure ...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="How to create and setup an account" />
-    <meta property="og:description" content="Creating a new account" />
+    <meta property="og:description" content="Creating a demo account Passbolt requires a server to work. You can either install it on your own machine or use the demo environment. Here is the procedure ..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -166,34 +166,59 @@
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
                          <h1>How to create and setup an account</h1>
-                            <h2 id="creating-a-new-account">Creating a new account</h2>
+                            <h2 id="creating-a-demo-account">Creating a demo account</h2>
+<p>Passbolt requires a server to work. You can either <a href="https://help.passbolt.com/hosting/install">install it on your own</a> machine
+or use the demo environment. Here is the procedure to try out the demo:</p>
 
-<p>Once you have passbolt installed on your machine, you can register and open an account with a few simple steps!</p>
-<ol>
-  <li>Open passbolt’s webpage.</li>
-  <li>An add-on is required to use passbolt. Install the plugin for Firefox or Chrome.</li>
-  <li>You will see a small red key icon in the upper right hand corner of your browser. Click on it. To configure the passbolt browser extension</li>
-  <li>Click the Register button and enter your name and email.</li>
-</ol>
+<p><strong>Step 1.</strong> Open the demo page: <a href="https://demo.passbolt.com">https://demo.passbolt.com</a>.</p>
+
+<p><strong>Step 2.</strong> An add-on is required to use passbolt, click on the linke to install the plugin for Firefox or Chrome.</p>
+
+<p><strong>Step 3.</strong> You will see a small red key icon in the upper right hand corner of your browser. Click on it.</p>
+
+<p><strong>Step 4.</strong> Select the demo instance.</p>
+
+<p><strong>Step 5.</strong> Click the Register button and enter your name and email. Other users will be able to see your email (
+this is to allow testing “sharing” functionality), so you can use a throw-away email account if you are not confortable with this.</p>
+
+<p><strong>Step 6.</strong> Passbolt sent you an email that contains a link allowing you to login.</p>
+<p class="message warning">
+    The link is only valid for a short duration (72h by default, but this can be vary).
+    If you registration email token expired you can request another one using the recovery feature at <code class="highlighter-rouge">https://[your_passbolt]/recover</code>
+</p>
 
 <h2 id="setup-the-account">Setup the account</h2>
 
-<ol>
-  <li>Check your email. Passbolt sent you a note that contains a link allowing you to login. When you click this link, passbolt will ask you to check the URL passbolt is associated with <img src="https://help.passbolt.com/assets/img/help/2018/01/url-check.png" alt="URL Check" /></li>
-  <li>If you recognize the domain name, check the checkbox and then click Next.</li>
-  <li>Passbolt will ask you to create a new key with this screen</li>
-</ol>
+<p><strong>Step 1.</strong> Check your email. When you click this link the setup will start.</p>
+
+<p><strong>Step 2.</strong> passbolt will ask you to check the URL passbolt is associated with</p>
 
 <figure>
-    <img src="/assets/img/help/2018/01/create-new-key.png" alt="creating a new key" style="max-width:;" />
+    <img src="/assets/img/help/2018/01/url-check.png" alt="Validation of the domain" style="max-width:450px;" />
+    <span class="legend">fig. Validation of the domain</span>
+</figure>
+
+<p><strong>Step 3.</strong> If you recognize the domain name, check the checkbox and then click Next.</p>
+
+<p><strong>Step 4.</strong> Passbolt will ask you to create a new key on the following screen:</p>
+<figure>
+    <img src="/assets/img/help/2018/01/create-new-key.png" alt="creating a new key" style="max-width:450px;" />
     <span class="legend">fig. creating a new key</span>
 </figure>
 
-<ol>
-  <li>Next, passbolt will help you create a new master password. Choose this password wisely, it will be the gatekeeper to all your other passwords. <img src="https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png" alt="Set passphrase" /></li>
-  <li>Once you haveve chosen your master password and clicked Next, you will be given the opportunity to download your private key. It is highly recommended that you do so!</li>
-  <li>The final step is to create a security token. Choosing a color and a three character token is a secondary security mechanism that helps you know you are logging into a <em>real</em> passbolt instance.</li>
-</ol>
+<p><strong>Step 5.</strong> Next, passbolt will help you create a new master password. Choose this password wisely, 
+it will be the gatekeeper to all your other passwords.</p>
+<figure>
+    <img src="/assets/img/help/2018/01/set-passphrase.png" alt="setting a passphrase" style="max-width:450px;" />
+    <span class="legend">fig. setting a passphrase</span>
+</figure>
+
+<p><strong>Step 6.</strong> Once you have chosen your master password and clicked Next, you will be given the opportunity to 
+download your private key. It is highly recommended that you do so!</p>
+
+<p><strong>Step 7.</strong> The final step is to create a security token. 
+Choosing a color and a three character token is a secondary security mechanism that helps you know you are 
+logging into a <em>real</em> passbolt instance.</p>
 
 <h2 id="set-up-your-profile">Set up your profile</h2>
 
@@ -406,6 +431,14 @@
     
     <li>
         <a href="/faq/start/passphrase-recovery">How can I recover my passphrase?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/registration-token-expired">What can I do if my registration token expired?</a>
     </li>
     
     

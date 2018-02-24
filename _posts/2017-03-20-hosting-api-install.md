@@ -21,7 +21,8 @@ If you run into any issues with your particular configuration, [please check the
 If you are looking for more system specific step by step guides please check out the following resources:
 
 * [Debian 8 "Jessy" with Apache, MariaDB and PHP 5 (by Passbolt)](https://medium.com/passbolt/passbolt-on-debian-8-71-from-scratch-4438dad18908)
-* [Centos 7 with Nginx, MariaDB, PHP 7 (by Passbolt)](https://medium.com/passbolt/passbolt-on-centos-7-with-nginx-php7-fpm-mariadb-from-scratch-7b2a9b15f3a4)
+* [CentOS 7 with Nginx, MariaDB and PHP7 (by Passbolt)](https://medium.com/passbolt/passbolt-on-centos-7-with-nginx-php7-fpm-mariadb-from-scratch-7b2a9b15f3a4)
+* [CentOS 7 with Apache, MariaDB and PHP 7 (by Thibaut Perrin)](https://wobak.github.io/Installing%20passbolt%20on%20CentOS%207.html)
 * [FreeBSD 10.3, Apache, Mysql 5.7, PHP 5.6 (by Patpro)](https://www.patpro.net/blog/index.php/2016/09/22/3037-self-hosted-password-manager-installing-passbolt-on-freebsd/)
 * [OpenBSD 6.1, Nginx, MariaDB, PHP 5.6/7.0 (by AuthBSD)](https://www.authbsd.com/blog/?p=60)
 

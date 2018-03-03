@@ -322,7 +322,7 @@
 "faq-hosting-why-unsafe": {
 "title": "Why do I see an unsafe mode banner in the footer?",
 "category": "hosting",
-"content": "When running the site with debug mode on or without forced ssl redirection enabled your passbolt instance cannot be considered secured. These settings can be useful for example when doing some local testing or development,but should not be used for production.To disable the warning a passbolt administrator can edit your configuration to set debug to false and passbolt.ssl.force to true.",
+"content": "When running the site with debug mode on, or without enforcing https, your passbolt instance cannot be considered secure. These settings can be useful for example when doing some local testing or development,but should not be used for production.To disable the warning a passbolt administrator can edit your configuration to set debug to false and passbolt.ssl.force to true.",
 "url": "https://help.passbolt.com/faq/hosting/why-unsafe"
 },
 "faq-discover-are-we-there-yet": {

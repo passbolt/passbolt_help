@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>How to install passbolt server</title>
+    <title>Why do I see an unsafe mode banner in the footer?</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="There are multiple way to install passbolt. You can install it using Docker or on your favorite distribution. Check out the dedicated documentation page for ...">
+    <meta name="description" content="When running the site with debug mode on or without forced ssl redirection enabled your passbolt instance can not be considered secured. These settings can b...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to install passbolt server" />
-    <meta property="og:description" content="There are multiple way to install passbolt. You can install it using Docker or on your favorite distribution. Check out the dedicated documentation page for ..." />
+    <meta property="og:title" content="Why do I see an unsafe mode banner in the footer?" />
+    <meta property="og:description" content="When running the site with debug mode on or without forced ssl redirection enabled your passbolt instance can not be considered secured. These settings can b..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/faq/hosting/how-to-install">
+    <link rel="canonical" href="https://help.passbolt.com/faq/hosting/why-unsafe">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -72,7 +72,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/hosting/000-how-to-install.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/hosting/001-why-unsafe.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -154,7 +154,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How to install passbolt server</span></a>
+                        <a href=""><span>Why do I see an unsafe mode banner in the footer?</span></a>
                     </div>
                 </li>
             </ul>
@@ -165,9 +165,13 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How to install passbolt server</h1>
-                            <p>There are multiple way to install passbolt. You can install it using Docker or on your favorite distribution.
-Check out the dedicated <a href="https://help.passbolt.com/hosting/install">documentation page</a> for that topic.</p>
+                         <h1>Why do I see an unsafe mode banner in the footer?</h1>
+                            <p>When running the site with debug mode on or without forced ssl redirection enabled your passbolt instance can
+not be considered secured. These settings can be useful for example when doing some local testing or development,
+but should not be used for production.</p>
+
+<p>To disable the warning a passbolt administrator can edit your configuration to set <code class="highlighter-rouge">debug</code> to false and 
+<code class="highlighter-rouge">passbolt.ssl.force</code> to true.</p>
 
                         </div>
 

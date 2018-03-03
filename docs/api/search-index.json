@@ -319,6 +319,12 @@
 "content": "Sharing a password  Login and/ or go to password workspace  Select the password you would like to share  Click the “share” button  Type the name of  a user you would like to share this password with. Optionally, you can select the permissions you wish to give to a user  Press the save button (or enter on your keyboard)  Enter your master password. Press OK to continue.  Wait until encryption is done    Make sure you press the save button every time you make changesRemoving yourself from a password shared with you  Log in to your passbolt account.  Click on “Shared with me” from the menu on the left  Select a password you wish to remove yourself from  Remove yourself from the list of users with whom the password is shared  The password will no longer be shared with you",
 "url": "https://help.passbolt.com/faq/start/share-password"
 },
+"faq-hosting-why-unsafe": {
+"title": "Why do I see an unsafe mode banner in the footer?",
+"category": "hosting",
+"content": "When running the site with debug mode on or without forced ssl redirection enabled your passbolt instance cannot be considered secured. These settings can be useful for example when doing some local testing or development,but should not be used for production.To disable the warning a passbolt administrator can edit your configuration to set debug to false and passbolt.ssl.force to true.",
+"url": "https://help.passbolt.com/faq/hosting/why-unsafe"
+},
 "faq-discover-are-we-there-yet": {
 "title": "When will you be releasing feature X or Y?",
 "category": "discover",

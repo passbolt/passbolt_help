@@ -1,6 +1,6 @@
 ---
 title: Where can I get help for installation issues?
-slug: 
+slug: installation-issue-help
 layout: faq
 category: hosting
 permalink: /faq/hosting/:slug

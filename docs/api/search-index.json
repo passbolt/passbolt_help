@@ -145,11 +145,11 @@
 "content": "Please check out the service page for a list of current professional offers.",
 "url": "https://help.passbolt.com/faq/hosting/where-to-host"
 },
-"faq-hosting-001-where-to-get-help-for-installation": {
+"faq-hosting-installation-issue-help": {
 "title": "Where can I get help for installation issues?",
 "category": "hosting",
 "content": "Community supportIf you are experiencing issues during the installation process you can request help from thecommunity in the forum.Before posting make sure to:  read intro post: https://community.passbolt.com/t/about-the-installation-issues-category/12  read the tutorials and relevant help section on this site  searched for similar issues on the web  provide relevant information about the server (component names and versions, etc.)  provide a copy of my logs and health check  describe the steps you have taken to trouble shoot the problem  describe the steps we can take to be able to reproduce the issueProfessional supportIf you need a more rapid response time and more in depth help you can also contactPassbolt SARL, the company behind passbolt, to get professional support services atcontact@passbolt.com.",
-"url": "https://help.passbolt.com/faq/hosting/001-where-to-get-help-for-installation"
+"url": "https://help.passbolt.com/faq/hosting/installation-issue-help"
 },
 "faq-legal-which-license": {
 "title": "Under which license is passbolt distributed?",

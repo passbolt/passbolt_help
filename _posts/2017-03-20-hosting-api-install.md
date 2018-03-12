@@ -181,6 +181,11 @@ The default file is good to be used as it is. However, you might want to look at
 
 ### email.php (email settings)
 
+Copy the default email configuration file:
+```bash
+cp app/Config/email.php.default app/Config/email.php
+```
+
 The `app/Config/email.php` configuration file defines your email settings to enable passbolt send emails to the world. Make sure you provide the correct settings. Without this, passbolt will not be able to send notifications email.
 ```php
 public $default = array(

@@ -1,7 +1,7 @@
 ---
-title: Update passbolt server component
+title: Update passbolt server component (v1)
 date: 2017-01-20 00:00:00 Z
-description: How to update passbolt on your server.
+description: How to update passbolt v1 on your server.
 category: hosting
 sidebar: hosting
 layout: default
@@ -34,26 +34,9 @@ You can check `app/Config/version.php` to know the version number for your local
     width="210px"
 %}
 
-## Patch update
+## Major update
 
-Performing a patch update is the easiest. All you need to do is checkout the latest version.
-```bash
-$ git pull origin master
-```
-
-You can also checkout a specific version and use branches to switch versions. For example for version 1.0.9:
-
-```bash
-$ git fetch --tags
-$ git checkout tags/v1.0.9 -b tags/v1.0.9
-```
-
-Optionally, you can login as an administrator and check the status on the healthcheck page
-
-{% include figure.html
-    url="/assets/img/screenshots/AD_healthcheck.jpg"
-    legend="Example of healthcheck screen"
-%}
+Please see the following documentation to [Update from v1 to v2](/hosting/upgrade-v2)
 
 ## Minor update
 
@@ -127,6 +110,27 @@ As you can see above, the migration script for v1.2.0 will also be applied autom
 
 As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if your instance configuration is looking good.
 
+## Patch update
+
+Performing a patch update is the easiest. All you need to do is checkout the latest version.
+```bash
+$ git pull origin master
+```
+
+You can also checkout a specific version and use branches to switch versions. For example for version 1.0.9:
+
+```bash
+$ git fetch --tags
+$ git checkout tags/v1.0.9 -b tags/v1.0.9
+```
+
+Optionally, you can login as an administrator and check the status on the healthcheck page
+
+{% include figure.html
+    url="/assets/img/screenshots/AD_healthcheck.jpg"
+    legend="Example of healthcheck screen"
+%}
+
 **(Optional) If you run into some issues:**
 
 * Make a copy of the errors messages
@@ -134,9 +138,6 @@ As an administrator (or as any user in debug mode) you can go and check on the /
 * Drop the database and load your backup data to restore to a previously working version.
 * Send us an [email](mailto:contact@passbolt.com) with the details of the error or fill in a bug report using github, using as much details as possible such as your OS, php, mysql environment versions.
 
-## Major update
-
-There is nothing special to say about major updates yet since we have not done any yet! We will most likely provide an update manual for each major versions and list them here.
 
 {% include updated.html %}
 

@@ -60,21 +60,28 @@
       teaser: Frequently asked questions about hosting
     - title: Installation
       slug: install
+      url: /hosting/install
       icon: fa-cogs
       teaser: How to install passbolt on your own server
     - title: Update
       slug: update
+      url: /hosting/update
       icon: fa-refresh
       teaser: How to update a self-hosted passbolt instance
+    - title: Upgrade
+      slug: upgrade
+      url: /hosting/upgrade
+      icon: fa-refresh
+      teaser: How to upgrade to passbolt version 2.
     - title: Backup
       slug: backup
+      url: /hosting/backup
       icon: fa-download
       teaser: Guidelines to backup a passbolt instance
     - title: Installation issues
       url: https://community.passbolt.com/c/installation-issues
       icon: fa-life-saver
       teaser: Do you need help installing passbolt?
-      teaser: Do you need help to install passbolt?
 - title: Contribute
   slug: contribute
   teaser: Are you doing your part?

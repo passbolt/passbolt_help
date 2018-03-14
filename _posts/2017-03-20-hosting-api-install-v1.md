@@ -5,7 +5,7 @@ description: How to install passbolt on your server.
 category: hosting
 sidebar: hosting
 layout: default
-slug: install
+slug: install-v1
 permalink: /:categories/:slug.html
 ---
 
@@ -286,27 +286,11 @@ This can indicate that the fullBaseUrl is not set right in the app/Config/core.p
 {% include layout/col_start.html column="4 last push1" %}
 
 {% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when installing passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
+    class="tldr warning"
+    content="This article is about passbolt v1 and is kept for archival. Please install passbolt version 2 instead."
+    link="/hosting/install"
+    ask="Install passbolt version 2"
 %}
 
-{% include aside/docker.html %}
-
-{% include aside/message.html
-    class="tldr"
-    content="Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!"
-    link="https://www.github.com/passbolt/passbolt_help"
-    ask="View on github"
-%}
-
-{% include aside/message.html
-    class="tldr notice"
-    content="We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative."
-    link="https://letsencrypt.org/"
-    ask="let's encrypt!"
-%}
 
 {% include layout/row_end.html %}

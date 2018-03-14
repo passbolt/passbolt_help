@@ -1,11 +1,11 @@
 ---
-title: Backing up a passbolt installation
+title: Backing up a passbolt installation (v1)
 date: 2017-06-15 00:00:00 Z
-description: How to update passbolt on your server.
+description: Backing up a passbolt installation (v1)
 category: hosting
 sidebar: hosting
 layout: default
-slug: backup
+slug: backup-v1
 permalink: /:categories/:slug.html
 ---
 
@@ -57,6 +57,13 @@ It is possible that having users back up their own keys may not be realistic or 
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
+
+{% include aside/message.html
+    class="tldr warning"
+    content="This article is for passbolt v1, make sure you check the newest version of this article if you are using a more recent version."
+    link="/hosting/backup"
+    ask="See latest version"
+%}
 
 {% include aside/message.html
     class="tldr notice"

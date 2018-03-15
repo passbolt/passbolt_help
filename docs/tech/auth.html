@@ -80,6 +80,7 @@
     <div class="panel main" aria-label="Content">
         <div class="panel left">
             
+            
 
 
 
@@ -89,10 +90,11 @@
     <ul>
         <li><h2>Hosting</h2></li>
         
-
         
+        <li>
         
-
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
         
         
         <li>
@@ -101,16 +103,16 @@
         </li>
         
         
-
-        
-        
         <li>
         
             <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
-
+        <li>
+        
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
         
         
         <li>
@@ -119,8 +121,10 @@
         </li>
         
         
-
+        <li>
         
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
         
     </ul>
 </div>
@@ -131,6 +135,7 @@
 
 
 
+            
         </div>
         <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
             <div class="grid grid-responsive-12">
@@ -254,13 +259,18 @@ server decrypts the nonce and check if it is in the valid format.</li>
 user that the server identity cannot be verified.</li>
     </ol>
 
-    <p class="message warning">
-    This server identity verification should not be understood as an end to end server authentication, 
+    <div class="message warning">
+    <p>
+        This server identity verification should not be understood as an end to end server authentication, 
  e.g. it does not protect against an attacker performing a man in the middle attack. View the discussion 
  around this topic on the 
  <a href="https://community.passbolt.com/t/is-the-gpgauth-server-key-verification-a-placebo/212/2">community forum</a>. 
 
-</p>
+    </p>
+    
+    <a href="" class="button"></a>
+    
+</div>
 
     <h3 id="login-steps">Login steps</h3>
 
@@ -329,12 +339,13 @@ authentication method, as form authentication is also vulnerable to this class o
       <li><strong>Both: Key revocation and expiracy.</strong> There is no facility at the moment to replace and revoke keys.</li>
     </ul>
 
-    <h2 id="last-updated">Last updated</h2>
-
-    <p>This article was last updated on 
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
 January
 20th,
 2017.</p>
+    </div>
 
   </div>
   <div class="col4 last push1">
@@ -386,21 +397,7 @@ January
         </div>
     </footer>
 </div>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//passbolt.piwikpro.com/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>

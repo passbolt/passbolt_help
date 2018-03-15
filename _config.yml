@@ -25,7 +25,7 @@ url: "https://help.passbolt.com"
 
 twitter_username: passbolt
 github_username:  passbolt
-piwik: true
+piwik: false
 
 # Build settings
 markdown: kramdown

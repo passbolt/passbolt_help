@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Update passbolt server component</title>
+    <title>Update passbolt server component (v1)</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Update passbolt server component" />
+    <meta property="og:title" content="Update passbolt server component (v1)" />
     <meta property="og:description" content="" />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
@@ -72,13 +72,14 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2017-01-20-hosting-api-update.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2017-01-20-hosting-update-v1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
     </div>
     <div class="panel main" aria-label="Content">
         <div class="panel left">
+            
             
 
 
@@ -89,10 +90,11 @@
     <ul>
         <li><h2>Hosting</h2></li>
         
-
         
+        <li>
         
-
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
         
         
         <li>
@@ -101,16 +103,16 @@
         </li>
         
         
-
-        
-        
         <li class="selected">
         
             <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
-
+        <li>
+        
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
         
         
         <li>
@@ -119,8 +121,10 @@
         </li>
         
         
-
+        <li>
         
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
         
     </ul>
 </div>
@@ -131,6 +135,7 @@
 
 
 
+            
         </div>
         <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
             <div class="grid grid-responsive-12">
@@ -170,7 +175,7 @@
 
                     <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Update passbolt server component</h1>
+<h1>Update passbolt server component (v1)</h1>
 </div>
 </div>
 
@@ -200,24 +205,9 @@
     <span class="legend">fig. footer version helper</span>
 </figure>
 
-    <h2 id="patch-update">Patch update</h2>
+    <h2 id="major-update">Major update</h2>
 
-    <p>Performing a patch update is the easiest. All you need to do is checkout the latest version.</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin master
-</code></pre></div>    </div>
-
-    <p>You can also checkout a specific version and use branches to switch versions. For example for version 1.0.9:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git fetch <span class="nt">--tags</span>
-<span class="nv">$ </span>git checkout tags/v1.0.9 <span class="nt">-b</span> tags/v1.0.9
-</code></pre></div>    </div>
-
-    <p>Optionally, you can login as an administrator and check the status on the healthcheck page</p>
-
-    <figure>
-    <img src="/assets/img/screenshots/AD_healthcheck.jpg" alt="Example of healthcheck screen" style="max-width:;" />
-    <span class="legend">fig. Example of healthcheck screen</span>
-</figure>
+    <p>Please see the following documentation to <a href="/hosting/upgrade-v2">Update from v1 to v2</a></p>
 
     <h2 id="minor-update">Minor update</h2>
 
@@ -286,6 +276,25 @@ All migrations have completed.
 
     <p>As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if your instance configuration is looking good.</p>
 
+    <h2 id="patch-update">Patch update</h2>
+
+    <p>Performing a patch update is the easiest. All you need to do is checkout the latest version.</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin master
+</code></pre></div>    </div>
+
+    <p>You can also checkout a specific version and use branches to switch versions. For example for version 1.0.9:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git fetch <span class="nt">--tags</span>
+<span class="nv">$ </span>git checkout tags/v1.0.9 <span class="nt">-b</span> tags/v1.0.9
+</code></pre></div>    </div>
+
+    <p>Optionally, you can login as an administrator and check the status on the healthcheck page</p>
+
+    <figure>
+    <img src="/assets/img/screenshots/AD_healthcheck.jpg" alt="Example of healthcheck screen" style="max-width:;" />
+    <span class="legend">fig. Example of healthcheck screen</span>
+</figure>
+
     <p><strong>(Optional) If you run into some issues:</strong></p>
 
     <ul>
@@ -295,16 +304,13 @@ All migrations have completed.
       <li>Send us an <a href="mailto:contact@passbolt.com">email</a> with the details of the error or fill in a bug report using github, using as much details as possible such as your OS, php, mysql environment versions.</li>
     </ul>
 
-    <h2 id="major-update">Major update</h2>
-
-    <p>There is nothing special to say about major updates yet since we have not done any yet! We will most likely provide an update manual for each major versions and list them here.</p>
-
-    <h2 id="last-updated">Last updated</h2>
-
-    <p>This article was last updated on 
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
 January
 20th,
 2017.</p>
+    </div>
 
   </div>
   <div class="col4 last push1">
@@ -338,21 +344,7 @@ January
         </div>
     </footer>
 </div>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//passbolt.piwikpro.com/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>

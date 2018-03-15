@@ -1,11 +1,11 @@
 ---
-title: Install passbolt server component
+title: Install passbolt API from source
 date: 2017-03-20 00:00:00 Z
-description: How to install passbolt on your server.
-category: hosting
+description: How to install passbolt on your server from the source.
+categories: [hosting,install]
 sidebar: hosting
 layout: default
-slug: install
+slug: from-source
 permalink: /:categories/:slug.html
 ---
 
@@ -23,6 +23,12 @@ permalink: /:categories/:slug.html
 Spin up a new fresh server with your favorite distribution, install a database server
 and a webserver with a TLS certificate. If you are using apache as web server make sure you 
 have mod_rewrite module enabled.
+
+{% include warning.html
+    content="We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative."
+    link="https://letsencrypt.org/"
+    ask="let's encrypt!"
+%}
 
 ### 2. Create an empty database
 
@@ -42,8 +48,7 @@ subsequent updates.
 
 ```shell
 /var/www$ git clone git@github.com:passbolt/passbolt_api.git
-/var/www$ mv passbolt_api passbolt_v2 && cd passbolt_v2
-/var/www/passbolt_v2$ git fetch && git checkout develop
+/var/www/passbolt_api$ git fetch && git checkout develop
 ```
 
 ### 4. Generate an OpenPGP key
@@ -66,8 +71,8 @@ $ gpg --list-keys --fingerprint | grep -i -B 2 'SERVER_KEY@EMAIL.TEST'
 Copy the public and private keys to the passbolt config location:
 
 ```shell
-$ gpg --armor --export-secret-keys SERVER_KEY@EMAIL.TEST > /var/www/passbolt_v2/config/gpg/serverkey_private.asc
-$ gpg --armor --export SERVER_KEY@EMAIL.TEST > /var/www/passbolt_v2/config/gpg/serverkey.asc
+$ gpg --armor --export-secret-keys SERVER_KEY@EMAIL.TEST > /var/www/passbolt_api/config/gpg/serverkey_private.asc
+$ gpg --armor --export SERVER_KEY@EMAIL.TEST > /var/www/passbolt_api/config/gpg/serverkey.asc
 ```
 
 ### 5. Initialize the gpg keyring
@@ -90,7 +95,7 @@ The project dependencies such as the plugin to manage the images, emails, etc. a
 in the code on the official repository. Fret not, composer will manage this for us.
 
 ```shell
-/var/www/passbolt_v2$ composer install
+/var/www/passbolt_api$ composer install
 ```
 
 ### 7. Create a passbolt configuration file
@@ -140,27 +145,18 @@ $ ./bin/cake EmailQueue.sender
 You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:
 ```bash
- * * * * * /var/www/passbolt/bin/cake EmailQueue.sender > /var/log/passbolt.log
+ * * * * * /var/www/passbolt_api/bin/cake EmailQueue.sender > /var/log/passbolt.log
 ```
 
 And you are done!
 
 
-## Troubleshooting
+### Troubleshooting
 
-### Emails are not being sent
+Here are some frequently asked questions related to passbolt installation:
+{% include faq/list-by-tag.html tag='troubleshoot' %}
 
-To send a test email and debug your configuration you can run this command:
-```shell
-$ ./bin/cake passbolt send_test_email --recipient=youremail@domain.com
-```
-
-### Pretty URLs are not working
-
-While passbolt is built to work with mod_rewrite out of the box, you can check 
-Cakephp official documentation on this topic if you are having some issues:
-
-[https://book.cakephp.org/3.0/en/installation.html#url-rewriting](https://book.cakephp.org/3.0/en/installation.html#url-rewriting)
+Feel free to ask for help on the [community forum](https://community.passbolt.com/c/installation-issues).
 
 {% include updated.html %}
 
@@ -175,20 +171,11 @@ Cakephp official documentation on this topic if you are having some issues:
     button="primary"
 %}
 
-{% include aside/docker.html %}
-
 {% include aside/message.html
     class="tldr"
     content="Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!"
     link="https://www.github.com/passbolt/passbolt_help"
     ask="View on github"
-%}
-
-{% include aside/message.html
-    class="tldr notice"
-    content="We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative."
-    link="https://letsencrypt.org/"
-    ask="let's encrypt!"
 %}
 
 {% include layout/row_end.html %}

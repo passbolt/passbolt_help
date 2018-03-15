@@ -1,11 +1,12 @@
 ---
-title: Install passbolt server component
+title: "Install passbolt API version 1"
 date: 2017-03-20 00:00:00 Z
-description: How to install passbolt on your server.
+description: How to install passbolt version 1 on your server.
 category: hosting
 sidebar: hosting
 layout: default
 slug: install-v1
+archived: true
 permalink: /:categories/:slug.html
 ---
 

@@ -3,6 +3,7 @@ title: Why do I see an unsafe mode banner in the footer?
 slug: why-unsafe
 layout: faq
 category: hosting
+tags: [troubleshoot]
 permalink: /faq/hosting/:slug
 date: 2017-03-03 00:00:00 Z
 ---

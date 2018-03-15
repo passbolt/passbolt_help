@@ -17,15 +17,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Upgrade to passbolt API version 2" />
     <meta property="og:description" content="" />
 
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
-    <link rel="canonical" href="http://localhost:4000/hosting/upgrade">
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
 </head>
 <body>
@@ -72,13 +72,14 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-03-14-hosting-api-upgrade-v2.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-03-14-hosting-upgrade-v2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
     </div>
     <div class="panel main" aria-label="Content">
         <div class="panel left">
+            
             
 
 
@@ -92,31 +93,31 @@
         
         <li>
         
-            <a href="http://localhost:4000/faq/hosting">Hosting FAQ</a>
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
         </li>
         
         
         <li>
         
-            <a href="http://localhost:4000/hosting/install">Installation</a>
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
         </li>
         
         
         <li>
         
-            <a href="http://localhost:4000/hosting/update">Update</a>
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
         <li class="selected">
         
-            <a href="http://localhost:4000/hosting/upgrade">Upgrade</a>
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
         </li>
         
         
         <li>
         
-            <a href="http://localhost:4000/hosting/backup">Backup</a>
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
         </li>
         
         
@@ -134,6 +135,7 @@
 
 
 
+            
         </div>
         <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
             <div class="grid grid-responsive-12">
@@ -155,14 +157,14 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting"><span>hosting</span></a>
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
                     </div>
                 </li>
                 
                 
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting/upgrade.html"><span>upgrade</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade.html"><span>upgrade</span></a>
                     </div>
                 </li>
                 
@@ -275,11 +277,16 @@ redirect your passbolt user there, for example:</p>
 
     <h3 id="create-a-new-directory-and-copy-the-v2">4. Create a new directory and copy the v2.</h3>
 
-    <p class="message warning">
-    Note: We will use the development branch for deployment for release candidates. 
+    <div class="message warning">
+    <p>
+        Note: We will use the development branch for deployment for release candidates. 
 When v2 is released the last line can be omitted.
 
-</p>
+    </p>
+    
+    <a href="" class="button"></a>
+    
+</div>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">mv </span>passbolt passbolt_v1
 /var/www<span class="nv">$ </span>git clone git@github.com:passbolt/passbolt_api.git
@@ -346,12 +353,13 @@ data to the new format.</p>
 <span class="nv">$ </span>service apache2 restart
 </code></pre></div>    </div>
 
-    <h2 id="last-updated">Last updated</h2>
-
-    <p>This article was last updated on 
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
 March
 14th,
 2018.</p>
+    </div>
 
   </div>
   <div class="col4 last push1">
@@ -364,15 +372,11 @@ March
 </div>
 
     <div class="tldr">
-    <h4 class="visuallyhidden">Available on docker</h4>
+    <h4 class="visuallyhidden">Available on docker hub</h4>
     <p>
         <a href="https://hub.docker.com/r/passbolt/passbolt/" target="_blank" rel="noopener nofollow">
             <img alt="Docker Logo" src="/assets/img/third_party/docker_small_h.png" style="" />
         </a>
-    </p>
-    <p>
-        Passbolt is also available as a
-        <a href="https://github.com/passbolt/passbolt_docker_debian" target="_blank" rel="noopener nofollow">docker container</a>.
     </p>
     <a href="https://hub.docker.com/r/passbolt/passbolt/" class="primary button">
         Get passbolt container!
@@ -410,23 +414,9 @@ March
         </div>
     </footer>
 </div>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//passbolt.piwikpro.com/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
+
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
-<script src="http://localhost:4000/assets/js/greedynav.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<ul>
+    {% for item in site.faq %}
+    {% if item.notsearchable %}{% else %}
+        {% if item.tags[0] %}
+            {% for tag in item.tags %}
+                {% if tag == include.tag %}
+    <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+    </li>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+</ul>

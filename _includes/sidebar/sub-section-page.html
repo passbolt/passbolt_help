@@ -1,0 +1,27 @@
+{% for section in site.data.toc %}
+{% if section.slug == include.categories[0] %}
+<div class="navigation wizard" role="navigation">
+    <ul>
+        <li><h2>{{ section.title }}</h2></li>
+        {% for subsection in section.items %}
+        <li {% if subsection.slug == include.categories[1] %}class="selected"{% endif %}>
+            <a href="{{ subsection.url | absolute_url }}">{{ subsection.title }}</a>
+        </li>
+        {% if subsection.slug == include.categories[1] %}
+            {% if subsection.items[0] %}
+        <li>
+            <ul>
+                {% for entry in subsection.items %}
+                <li>
+                    <a href="{{ entry.url | absolute_url }}">{{ entry.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+{% endfor %}

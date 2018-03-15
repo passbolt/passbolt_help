@@ -1,0 +1,29 @@
+{% for section in site.data.toc %}
+{% if section.slug == include.section %}
+{% for item in section.items %}
+{% if item.slug == include.sub %}
+<div class="row">
+    <div class="col12">
+        <h2>{{ item.title }}</h2>
+    </div>
+</div>
+<div class="row">
+    {% for subitem in item.items %}
+    {% assign last = forloop.index | modulo:3 %}
+    <div class="col4 {% if  last == 0 %}last{% endif %}">
+        {% if subitem.url %}
+        <a class="tile" href="{{ subitem.url | absolute_url }}">
+        {% else %}
+        <a class="tile" href="{{ site.baseurl }}/{{ item.slug }}/{{ subitem.slug }}">
+        {% endif %}
+            <span class="tile-teaser"><i class="fa {{ subitem.icon }} fa-fw"></i></span>
+            <span class="tile-title">{{ subitem.title }}</span>
+            <span class="tile-description">{{ subitem.teaser }}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endfor %}

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Install passbolt API from source</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2018 Passbolt SARL
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Install passbolt API from source" />
+    <meta property="og:description" content="" />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/from-source">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-03-14-hosting-install-source-v2.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            
+            
+
+
+
+
+
+<div class="navigation wizard" role="navigation">
+    <ul>
+        <li><h2>Hosting</h2></li>
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
+        
+        
+        <li class="selected">
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+        </li>
+        
+            
+        <li>
+            <ul>
+                
+                <li>
+                    <a href="https://help.passbolt.com/hosting/install/from-source">From source</a>
+                </li>
+                
+                <li>
+                    <a href="https://help.passbolt.com/hosting/install/docker">Docker install</a>
+                </li>
+                
+            </ul>
+        </li>
+            
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+            
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/install"><span>install</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/install/from-source.html"><span>from-source</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                    <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Install passbolt API from source</h1>
+</div>
+</div>
+
+                    <div class="row">
+  <div class="col7">
+
+    <h2 id="system-requirements">System requirements</h2>
+
+    <p>Passbolt is reported to work on a large variety of operating system configurations. 
+Therefore this help page is a generic guide that should work for most environments.</p>
+
+    <p>If you run into any issues with your particular configuration, 
+<a href="https://community.passbolt.com/c/installation-issues">please check the forum</a>. 
+Maybe someone else has had your issue. If not, make a post and the community will try to help you.</p>
+
+    <ul>
+      <li>Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)</li>
+      <li>A webserver (Apache or Nginx)</li>
+      <li>A TLS server certificate for HTTPS</li>
+      <li>PHP &gt;= 7.0.0</li>
+      <li>Mysql &gt;= 5.5.59</li>
+      <li><a href="https://getcomposer.org/download/">Composer</a></li>
+      <li><a href="https://gnupg.org/">GnuPG</a></li>
+      <li><a href="https://git-scm.com/">Git</a></li>
+    </ul>
+
+    <p>The following PHP extensions (that may or may not come by default):</p>
+    <ul>
+      <li><a href="http://php.net/manual/en/gnupg.installation.php">PHP-GNUPG</a>: for key verification and authentication.</li>
+      <li>Cakephp default requirements: Intl, mbstring, simplexml</li>
+      <li>Image manipulation: gd or imagick</li>
+      <li>Database: Mysqlnd, pdo, pdo_mysql</li>
+      <li>Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.</li>
+      <li>&amp; more depending on your configuration (for example if you want to use memcache for sessions).</li>
+    </ul>
+
+    <h2 id="installation-steps">Installation steps</h2>
+
+    <h3 id="create-a-web-server-matching-the-system-requirements">1. Create a web server matching the system requirements.</h3>
+
+    <p>Spin up a new fresh server with your favorite distribution, install a database server
+and a webserver with a TLS certificate. If you are using apache as web server make sure you 
+have mod_rewrite module enabled.</p>
+
+    <div class="message warning">
+    <p>
+        We highly recommend that you install https on your server. You can get a free SSL certificate with the let’s encrypt initiative.
+    </p>
+    
+    <a href="https://letsencrypt.org/" class="button">let's encrypt!</a>
+    
+</div>
+
+    <h3 id="create-an-empty-database">2. Create an empty database</h3>
+
+    <p>Connect to your mysql server and create new database. Make sure it is in the utf8mb4 char set to
+support non latin characters and emojis. 👏</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>mysql <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>password]
+mysql&gt; CREATE DATABASE passbolt CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="p">;</span>
+mysql&gt; <span class="nb">exit</span><span class="p">;</span>
+</code></pre></div>    </div>
+
+    <h3 id="clone-the-repository">3. Clone the repository</h3>
+
+    <p>Cloning the code using git will allow you to keep the source under version control and facilitate
+subsequent updates.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>git clone git@github.com:passbolt/passbolt_api.git
+/var/www/passbolt_api<span class="nv">$ </span>git fetch <span class="o">&amp;&amp;</span> git checkout develop
+</code></pre></div>    </div>
+
+    <h3 id="generate-an-openpgp-key">4. Generate an OpenPGP key</h3>
+
+    <p>Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.
+For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
+php module.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--gen-key</span>
+</code></pre></div>    </div>
+
+    <p>After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
+You can get the server key fringerprint as follow:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--list-keys</span> <span class="nt">--fingerprint</span> | <span class="nb">grep</span> <span class="nt">-i</span> <span class="nt">-B</span> 2 <span class="s1">'SERVER_KEY@EMAIL.TEST'</span>
+</code></pre></div>    </div>
+
+    <p>Copy the public and private keys to the passbolt config location:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export-secret-keys</span> SERVER_KEY@EMAIL.TEST <span class="o">&gt;</span> /var/www/passbolt_api/config/gpg/serverkey_private.asc
+<span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export</span> SERVER_KEY@EMAIL.TEST <span class="o">&gt;</span> /var/www/passbolt_api/config/gpg/serverkey.asc
+</code></pre></div>    </div>
+
+    <h3 id="initialize-the-gpg-keyring">5. Initialize the gpg keyring</h3>
+
+    <p>In order for passbolt authentication to work your server key needs to be in the keyring used by the web server.
+It is likely that there is none, so you can create one by interacting with gpg with the web server user</p>
+
+    <p>The webserver name depends on your distribution and web server technology of choice, for example Apache user
+is called <code class="highlighter-rouge">www-data</code> on Debian:</p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span> www-data
+pub   4096R/573EE67E 2015-10-26 <span class="o">[</span>expires: 2019-10-26]
+      Key fingerprint <span class="o">=</span> 2FC8 9458 33C5 1946 E937  F9FE D47B 0811 573E E67E
+uid   Passbolt Server Test Key &lt;no-reply@passbolt.com&gt;
+</code></pre></div>    </div>
+
+    <h3 id="install-the-dependencies">6. Install the dependencies</h3>
+
+    <p>The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
+in the code on the official repository. Fret not, composer will manage this for us.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt_api<span class="nv">$ </span>composer <span class="nb">install</span>
+</code></pre></div>    </div>
+
+    <h3 id="create-a-passbolt-configuration-file">7. Create a passbolt configuration file</h3>
+
+    <p>The name and values in the main configuration file have changed. Everything is now located in one file called
+<code class="highlighter-rouge">config/passbolt.php</code>. Do not copy your v1 configuration files, instead you need to create a new one:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>config/passbolt.default.php config/passbolt.php
+<span class="nv">$ </span>nano config/passbolt.php
+</code></pre></div>    </div>
+
+    <p>Even if the format has changed the information needed are pretty much the same than v1.
+You will need to set at least the following:</p>
+    <ul>
+      <li>Application full base url</li>
+      <li>Database configuration</li>
+      <li>Email settings</li>
+      <li>Server OpenPGP key fingerprint.</li>
+    </ul>
+
+    <p>You can also set your configuration using environment variables.
+Check <code class="highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
+
+    <h3 id="run-the-install-script">8. Run the install script</h3>
+
+    <p>Make sure you run the installation script as the web server user:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt install"</span> www-data
+</code></pre></div>    </div>
+
+    <p>Optionally you can also run the health check to see if everything is fine.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span> www-data
+</code></pre></div>    </div>
+
+    <h3 id="setup-the-emails">9. Setup the emails</h3>
+
+    <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the 
+<code class="highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
+
+    <p>Emails are placed in a queue that needs to be processed by the following shell.</p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake EmailQueue.sender
+</code></pre></div>    </div>
+
+    <p>You can add a cron call to the script so the emails will be sent every minute. 
+Add the following line to you crontab:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt_api/bin/cake EmailQueue.sender <span class="o">&gt;</span> /var/log/passbolt.log
+</code></pre></div>    </div>
+
+    <p>And you are done!</p>
+
+    <h3 id="troubleshooting">Troubleshooting</h3>
+
+    <p>Here are some frequently asked questions related to passbolt installation:</p>
+    <ul>
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+            
+                
+    <li>
+        <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
+    </li>
+                
+            
+        
+    
+    
+    
+        
+            
+                
+    <li>
+        <a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a>
+    </li>
+                
+            
+        
+    
+    
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</ul>
+
+    <p>Feel free to ask for help on the <a href="https://community.passbolt.com/c/installation-issues">community forum</a>.</p>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+March
+20th,
+2017.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when installing passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
+</div>
+
+  </div>
+</div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

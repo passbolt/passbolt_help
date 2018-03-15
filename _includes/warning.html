@@ -1,3 +1,8 @@
-<p class="message warning" markdown="1">
-    {{ include.content }}
-</p>
+<div class="message warning" >
+    <p markdown="1">
+        {{ include.content }}
+    </p>
+    {{ if include.ask }}
+    <a href="{{ include.link }}" class="button">{{ include.ask }}</a>
+    {{ endif; }}
+</div>

@@ -63,15 +63,6 @@
       url: /hosting/install
       icon: fa-cogs
       teaser: How to install passbolt on your own server
-      items:
-      - title: From source
-        url: /hosting/install/from-source
-        icon: fa-server
-        teaser: Install passbolt from source
-      - title: Docker install
-        url: /hosting/install/docker
-        icon: fa-server
-        teaser: Install passbolt using docker
     - title: Update
       slug: update
       url: /hosting/update

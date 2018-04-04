@@ -5,7 +5,7 @@ card_teaser: Install passbolt using docker
 date: 2017-03-20 00:00:00 Z
 description: Install passbolt using docker
 icon: fa-server
-categories: [hosting,install,ce]
+categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: docker

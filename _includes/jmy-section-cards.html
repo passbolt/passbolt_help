@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col12">
+        <h2>{{ include.title }}</h2>
+    </div>
+</div>
+<div class="row">
+    {% for post in site.posts %}
+    {% assign last = forloop.index | modulo:3 %}
+    {% assign matchCategories = true %}
+    {% for category in include.categories && matchCategories%}
+        {% unless post.categories contains category %}
+            {% assign matchCategories = false; %}
+        {% endunless %}
+    {% endfor %}
+
+    {% if matchCategories %}
+    <div class="col4 {% if  last == 0 %}last{% endif %}">
+        {% if post.url %}
+        <a class="tile" href="{{ post.url }}">
+            {% else %}
+            <a class="tile" href="{{ site.baseurl }}/post.url">
+                {% endif %}
+                <span class="tile-teaser"><i class="fa {{ post.icon }} fa-fw"></i></span>
+                <span class="tile-title">{{ post.card_title }}</span>
+                <span class="tile-description">{{ post.card_teaser }}</span>
+            </a>
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>

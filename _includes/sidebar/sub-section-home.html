@@ -2,7 +2,7 @@
 {% if section.slug == include.section %}
 <div class="navigation wizard" role="navigation">
     <ul>
-        <li><h2>{{ section.title }}</h2></li>
+        <li><h2>{{ section.title }}TEst</h2></li>
         {% for subsection in section.items %}
         <li {% if subsection.slug == include.sub %}class="selected"{% endif %}>
             <a href="{{ subsection.url | absolute_url }}">{{ subsection.title }}</a>

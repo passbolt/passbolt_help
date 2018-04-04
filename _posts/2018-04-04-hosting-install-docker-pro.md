@@ -1,11 +1,11 @@
 ---
-title: Docker passbolt installation
-card_title: Docker install
-card_teaser: Install passbolt using docker
+title: Install scripts
+card_title: Install scripts
+card_teaser: Install passbolt using the install scripts
 date: 2017-03-20 00:00:00 Z
-description: Install passbolt using docker
+description: Install passbolt using the install scripts
 icon: fa-server
-categories: [hosting,install,ce]
+categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: docker
@@ -16,7 +16,7 @@ permalink: /:categories/:slug.html
 {% include layout/col_start.html column="7" %}
 
 ## System requirements
-TODO DOCKER
+TODO
 
 {% include updated.html %}
 

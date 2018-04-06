@@ -9,73 +9,17 @@ categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: docker
+docker_tag: '-pro'
+passbolt_version: Pro
 permalink: /:categories/:slug.html
 ---
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-## System requirements
-
-* Docker CE
-
-## Optional system requirements
-
-* MySQL >= 5.0 if you plan not to host mysql on a docker container.
-* docker-compose if you plan to use a docker-compose.yml file to run passbolt container.
-* rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign...) inside the docker container. [Important considerations](https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine)
-
-## Getting passbolt container
-
-Passbolt PRO containers follow the following tagging:
-
-```bash
-<version_number>-<build_number>-pro-debian
-```
-
-Since nobody is perfect we also use _latest-pro_ tag. It is recommended that users pull the tags pointing to specific Passbolt PRO versions.
-
-Get Passbolt PRO 2.0.0 docker container:
-```bash
-$ docker pull passbolt/passbolt:2.0.0-pro-debian
-```
-
-## Using passbolt container
-
-Passbolt PRO requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container.
-
-### Manually run passbolt container and mysql container
-
-It is recommended to create a user defined network to ease the container name resolution.
-
-Using a user defined network will provide a method to access containers using their names instead ip addresses:
-```bash
-$ docker network create passbolt_network
-```
-
-First run the mysql container:
-```bash
-$ docker run -d --name mysql --net passbolt_network \
-             -e MYSQL_ROOT_PASSWORD=<root_password> \
-             -e MYSQL_DATABASE=<mysql_database> \
-             -e MYSQL_USER=<mysql_user> \
-             -e MYSQL_PASSWORD=<mysql_password> \
-             mysql
-```
-
-Now we can run the passbolt container:
-```bash
-$ docker run --name passbolt --net passbolt_network \
-             -v <path_to_your_subscription_license>:/var/www/passbolt/config/license \
-             -e DATASOURCES_DEFAULT_HOST=mysql \
-             -e DATASOURCES_DEFAULT_PASSWORD=<mysql_password> \
-             -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
-             -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
-             -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.0-pro-debian
-```
-
-Note: strings between '<' and '>' are variables that the users should fill with their data.
+{% include hosting/docker-system-requirements.md %}
+{% include hosting/docker-getting-containers.md %}
+{% include hosting/docker-usage.md %}
 
 ### Manually creating first admin user
 

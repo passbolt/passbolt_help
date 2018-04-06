@@ -9,73 +9,17 @@ categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
 slug: docker
+docker_tag: ''
+passbolt_version: ''
 permalink: /:categories/:slug.html
 ---
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-## System requirements
-
-* Docker CE
-
-## Optional system requirements
-
-* MySQL >= 5.0 if you plan not to host mysql on a docker container.
-* docker-compose if you plan to use a docker-compose.yml file to run passbolt container.
-* rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign...) inside the docker container. [Important considerations](https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine)
-
-## Getting passbolt container
-
-Passbolt containers follow the following tagging:
-
-```bash
-<version_number>-<build_number>-debian
-```
-
-Since nobody is perfect we also use _latest_ and _develop-debian_ tags which points to master and develop branches of [passbolt_docker](https://github.com/passbolt/passbolt_docker) repository.
-It is recommended that users pull the tags pointing to specific passbolt versions.
-
-Get passbolt 2.0.0 docker container:
-```bash
-$ docker pull passbolt/passbolt:2.0.0-debian
-```
-
-## Using passbolt container
-
-Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container.
-
-### Manually run passbolt container and mysql container
-
-It is recommended to create a user defined network to ease the container name resolution.
-
-Using a user defined network will provide a method to access containers using their names instead ip addresses:
-```bash
-$ docker network create passbolt_network
-```
-
-First run the mysql container:
-```bash
-$ docker run -d --name mysql --net passbolt_network \
-             -e MYSQL_ROOT_PASSWORD=<root_password> \
-             -e MYSQL_DATABASE=<mysql_database> \
-             -e MYSQL_USER=<mysql_user> \
-             -e MYSQL_PASSWORD=<mysql_password> \
-             mysql
-```
-
-Now we can run the passbolt container:
-```bash
-$ docker run --name passbolt --net passbolt_network \
-             -e DATASOURCES_DEFAULT_HOST=mysql \
-             -e DATASOURCES_DEFAULT_PASSWORD=<mysql_password> \
-             -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
-             -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
-             -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.0-debian
-```
-
-Note: strings between '<' and '>' are variables that the users should fill with their data.
+{% include hosting/docker-system-requirements.md %}
+{% include hosting/docker-getting-containers.md %}
+{% include hosting/docker-usage.md %}
 
 ### Manually creating first admin user
 
@@ -126,6 +70,54 @@ $ docker-compose exec passbolt su -m -c "/var/www/passbolt/bin/cake \
                                 -l <surname> \
                                 -r admin" -s /bin/sh www-data
 ```
+
+## Persisting data in passbolt container
+
+There are several locations that might be interesting for the users to persist data between container restarts:
+* Images directory: /var/www/passbolt/webroot/img
+* Gnupg serverkeys directory: /var/www/passbolt/config/gpg
+* SSL certificate files: /etc/ssl/certs/certiticate.crt /etc/ssl/certs/certificate.key
+
+This files and directories can be persisted in the docker volume using [docker volumes](https://docs.docker.com/storage/volumes/) or using [bind mounts](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount)
+
+### Examples
+
+An example for persisting the images directory could be to create a docker volume:
+```bash
+$ docker volume create passbolt_images
+```
+
+And run passbolt container with this volume:
+```bash
+$ docker run --name passbolt --net passbolt_network \
+             --mount source=passbolt_images,\
+             target=/var/www/passbolt/webroot/img \
+             -e DATASOURCES_DEFAULT_HOST=mysql \
+             -e DATASOURCES_DEFAULT_PASSWORD=<mysql_password> \
+             -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
+             -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
+             -e APP_FULL_BASE_URL=https://mydomain.com \
+             passbolt/passbolt:2.0.0-debian
+```
+
+Bind volumes are usually useful when, for instance, the SSL certificates or GnuPG keys have been already created in the host machine:
+```bash
+$ docker run --name passbolt --net passbolt_network \
+             --mount type=bind,\
+             source=<host_path_to_gnupg_keys_dir>,\
+             target=/var/www/passbolt/config/gpg \
+             -e DATASOURCES_DEFAULT_HOST=mysql \
+             -e DATASOURCES_DEFAULT_PASSWORD=<mysql_password> \
+             -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
+             -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
+             -e APP_FULL_BASE_URL=https://mydomain.com \
+             passbolt/passbolt:2.0.0-debian
+```
+
+An example of the above using docker-compose can be found [here](https://github.com/passbolt/passbolt_docker/blob/develop/docker-compose.yml) where bind mounts and volumes are used.
+
+NOTE: If you dont provide any GnuPG severkey or SSL certificate passbolt container will create a self signed SSL certificate and a GnuPG server key pair.
+
 
 {% include updated.html %}
 

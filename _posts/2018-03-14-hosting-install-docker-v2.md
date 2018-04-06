@@ -21,39 +21,7 @@ permalink: /:categories/:slug.html
 {% include hosting/docker-getting-containers.md %}
 {% include hosting/docker-usage.md %}
 {% include hosting/docker-first-user-creation.md %}
-
-### Using docker-compose
-
-From the docker-compose official docs: 'Compose is a tool for defining and running multi-container Docker applications'
-
-Passbolt provides a [docker-compose.yaml](https://github.com/passbolt/passbolt_docker/blob/develop/docker-compose.yml) file. That users can download and use with docker-compose.
-The easiest way to use passbolt provided docker-compose.yaml is to:
-```bash
-$ git clone -b develop https://github.com/passbolt/passbolt_docker
-$ cd passbolt_docker
-```
-
-At this point some users might want to customize passbolt environment variables and change the fullBaseUrl for instance. Environment variables are defined in the following files:
-* env/mysql.env
-* env/passbolt.env
-
-Once the files fit your needs it is time to:
-```bash
-$ docker-compose up
-```
-
-### Create first admin user using docker-compose
-
-If you run passbolt using [docker-compose.yaml](https://github.com/passbolt/passbolt_docker/blob/develop/docker-compose.yml) provided by passbolt:
-
-```bash
-$ docker-compose exec passbolt su -m -c "/var/www/passbolt/bin/cake \
-                                passbolt register_user \
-                                -u <your@email.com> \
-                                -f <yourname> \
-                                -l <surname> \
-                                -r admin" -s /bin/sh www-data
-```
+{% include hosting/docker-compose-usage.md %}
 
 ## Persisting data in passbolt container
 

@@ -2,7 +2,7 @@
     <p markdown="1">
         {{ include.content }}
     </p>
-    {{ if include.ask }}
+    {% if include.ask != %}
     <a href="{{ include.link }}" class="button">{{ include.ask }}</a>
-    {{ endif; }}
+    {% endif %}
 </div>

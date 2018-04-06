@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Installation</title>
+    <title>Docker passbolt installation</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,20 +16,20 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
+    <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Installation" />
-    <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
+    <meta property="og:title" content="Docker passbolt installation" />
+    <meta property="og:description" content="" />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/docker">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
 </head>
 <body>
-<div id="container" class="help page help-home background">
+<div id="container" class="help page background">
     <header>
         <div class="header first ">
             <nav class="greedy">
@@ -72,14 +72,15 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/hosting/install.html" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-03-14-hosting-install-docker-v2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
     </div>
-<div class="panel main">
-    <div class="panel left">
-        
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            
+            
 
 
 
@@ -129,10 +130,12 @@
 
 
 
-    </div>
-    <div class="panel middle">
-        <div class="grid grid-responsive-12">
-            <div class="row" id="introduction">
+            
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
     <div class="col12">
         <div class="breadcrumbs">
             <ul>
@@ -147,16 +150,23 @@
                     </div>
                 </li>
                 
+                
                 <li>
                     <div class="main-cell">
                         <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
                     </div>
                 </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/install"><span>install</span></a>
+                    </div>
+                </li>
+                
                 
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install"><span>install</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/ce/docker.html"><span>docker</span></a>
                     </div>
                 </li>
                 
@@ -165,202 +175,55 @@
     </div>
 </div>
 
-            
-            <div class="row">
-    <div class="col12">
-        <h2>Community edition</h2>
-    </div>
+                    <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Docker passbolt installation</h1>
 </div>
-<div class="row">
-    
-    
-    
-    
+</div>
 
-    
-    
-    
-    
-    
+                    <div class="row">
+  <div class="col7">
 
-    
-    
-    
-    
-    
+    <h2 id="system-requirements">System requirements</h2>
+    <p>TODO DOCKER</p>
 
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    <div class="col4 ">
-        
-        <a class="tile" href="/hosting/install/ce/from-source.html">
-            
-                <span class="tile-teaser"><i class="fa fa-server fa-fw"></i></span>
-                <span class="tile-title">From source</span>
-                <span class="tile-description">Install passbolt from source</span>
-            </a>
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+March
+20th,
+2017.</p>
     </div>
-    
-    
-    
-    
-    
 
-    
-    <div class="col4 ">
-        
-        <a class="tile" href="/hosting/install/ce/docker.html">
-            
-                <span class="tile-teaser"><i class="fa fa-server fa-fw"></i></span>
-                <span class="tile-title">Docker install</span>
-                <span class="tile-description">Install passbolt using docker</span>
-            </a>
-    </div>
-    
-    
-    
-    
-    
+  </div>
+  <div class="col4 last push1">
 
-    
-    
-    
-    
-    
+    <div class="tldr">
+    <h4 class="visuallyhidden">Available on docker hub</h4>
+    <p>
+        <a href="https://hub.docker.com/r/passbolt/passbolt/" target="_blank" rel="noopener nofollow">
+            <img alt="Docker Logo" src="/assets/img/third_party/docker_small_h.png" style="" />
+        </a>
+    </p>
+    <a href="https://hub.docker.com/r/passbolt/passbolt/" class="primary button">
+        Get passbolt container!
+    </a>
+</div>
 
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when installing passbolt?</p>
     
-    
-    
-    
-    
-
-    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
     
 </div>
 
-            
-            <div class="row">
-    <div class="col12">
-        <h2>Pro edition</h2>
-    </div>
-</div>
-<div class="row">
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    <div class="col4 ">
-        
-        <a class="tile" href="/hosting/install/pro/install-scripts.html">
-            
-                <span class="tile-teaser"><i class="fa fa-server fa-fw"></i></span>
-                <span class="tile-title">Install scripts</span>
-                <span class="tile-description">Install passbolt using the install scripts</span>
-            </a>
-    </div>
-    
-    
-    
-    
-    
-
-    
-    <div class="col4 ">
-        
-        <a class="tile" href="/hosting/install/pro/docker.html">
-            
-                <span class="tile-teaser"><i class="fa fa-server fa-fw"></i></span>
-                <span class="tile-title">Docker install</span>
-                <span class="tile-description">Install passbolt using Docker</span>
-            </a>
-    </div>
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
-    
-    
-    
-
-    
-    
+  </div>
 </div>
 
+                </article>
+            </div>
         </div>
     </div>
-</div>
-
     <footer>
         <div class="footer">
             <ul class="footer-links">

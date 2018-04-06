@@ -54,4 +54,5 @@ exclude:
   - node_modules
   - Gemfile
   - Gemfile.lock
+  - .idea/workspace.xml
 

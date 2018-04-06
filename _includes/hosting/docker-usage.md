@@ -26,7 +26,9 @@ Now we can run the passbolt container:
 ```bash
 $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
              {%- if page.passbolt_version == 'Pro' %}
-             -v <path_subscription>:/var/www/passbolt/config/license \
+             --mount type=bind,\
+             source=<path_subscription>,\
+             target=/var/www/passbolt/config/license \
              {% else %}
              {% endif -%}
              -e DATASOURCES_DEFAULT_HOST=mysql \

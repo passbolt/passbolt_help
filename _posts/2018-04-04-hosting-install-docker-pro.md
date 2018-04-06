@@ -2,7 +2,7 @@
 title: Install scripts
 card_title: Install scripts
 card_teaser: Install passbolt using the install scripts
-date: 2017-03-20 00:00:00 Z
+date: 2018-04-06 00:00:00 Z
 description: Install passbolt using the install scripts
 icon: fa-server
 categories: [hosting,install,pro]
@@ -22,6 +22,7 @@ permalink: /:categories/:slug.html
 {% include hosting/docker-usage.md %}
 {% include hosting/docker-first-user-creation.md %}
 {% include hosting/docker-compose-usage.md %}
+{% include hosting/docker-persisting-data.md %}
 
 
 {% include updated.html %}

@@ -2,21 +2,28 @@
 title: Docker passbolt installation
 card_title: Docker install
 card_teaser: Install passbolt using docker
-date: 2017-03-20 00:00:00 Z
+date: 2018-04-06 00:00:00 Z
 description: Install passbolt using docker
 icon: fa-server
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
 slug: docker
+docker_tag: ''
+passbolt_version: ''
 permalink: /:categories/:slug.html
 ---
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-## System requirements
-TODO DOCKER
+{% include hosting/docker-system-requirements.md %}
+{% include hosting/docker-getting-containers.md %}
+{% include hosting/docker-usage.md %}
+{% include hosting/docker-first-user-creation.md %}
+{% include hosting/docker-compose-usage.md %}
+{% include hosting/docker-persisting-data.md %}
+
 
 {% include updated.html %}
 

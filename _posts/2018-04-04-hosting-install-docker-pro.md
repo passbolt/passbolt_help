@@ -9,14 +9,21 @@ categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: docker
+docker_tag: '-pro'
+passbolt_version: Pro
 permalink: /:categories/:slug.html
 ---
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include hosting/docker-system-requirements.md %}
+{% include hosting/docker-getting-containers.md %}
+{% include hosting/docker-usage.md %}
+{% include hosting/docker-first-user-creation.md %}
+{% include hosting/docker-compose-usage.md %}
+{% include hosting/docker-persisting-data.md %}
 
-## System requirements
 
 {% include updated.html %}
 

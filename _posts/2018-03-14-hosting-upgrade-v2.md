@@ -1,8 +1,11 @@
 ---
 title: Upgrade to passbolt API version 2
+card_title: Upgrade to passbolt v2
+card_teaser: Upgrade Passbolt CE from v1 to v2
+icon: fa-server
 date: 2018-03-14 00:00:00 Z
 description: How to upgrade passbolt to version 2
-category: hosting
+categories: [hosting,upgrade,ce]
 sidebar: hosting
 layout: default
 slug: upgrade

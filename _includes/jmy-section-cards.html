@@ -4,8 +4,9 @@
     </div>
 </div>
 <div class="row">
-    {% for post in site.posts %}
-    {% assign last = forloop.index | modulo:3 %}
+    {% assign sorted_posts = site.posts | sort:"card_position" %}
+    {% assign counter = 1 %}
+    {% for post in sorted_posts %}
     {% assign matchCategories = true %}
     {% for category in include.categories && matchCategories%}
         {% unless post.categories contains category %}
@@ -13,18 +14,23 @@
         {% endunless %}
     {% endfor %}
 
-    {% if matchCategories %}
+    {% if matchCategories and post.ignore_card != true %}
+    {% assign last = counter | modulo:3 %}
     <div class="col4 {% if  last == 0 %}last{% endif %}">
         {% if post.url %}
         <a class="tile" href="{{ post.url }}">
             {% else %}
             <a class="tile" href="{{ site.baseurl }}/post.url">
                 {% endif %}
+                {% if post.categories contains 'pro' %}
+                <div class="ribbon"><span>PRO</span></div>
+                {% endif %}
                 <span class="tile-teaser"><i class="fa {{ post.icon }} fa-fw"></i></span>
                 <span class="tile-title">{{ post.card_title }}</span>
                 <span class="tile-description">{{ post.card_teaser }}</span>
             </a>
     </div>
+    {% assign counter = counter | plus: 1 %}
     {% endif %}
     {% endfor %}
 </div>

@@ -3,7 +3,8 @@ title: Configure passbolt with the wizard
 date: 2017-03-20 00:00:00 Z
 description: Configure passbolt with the wizard
 icon: fa-server
-categories: [hosting,configure]
+categories: [hosting,install]
+ignore_card: true
 sidebar: hosting
 layout: default
 slug: wizard

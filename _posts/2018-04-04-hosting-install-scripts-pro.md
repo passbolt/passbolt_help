@@ -1,7 +1,8 @@
 ---
 title: Installation with install scripts
 card_title: Install scripts
-card_teaser: Install passbolt using the install scripts
+card_teaser: Install passbolt easily with the install scripts
+card_position: 1
 date: 2017-03-20 00:00:00 Z
 description: Install passbolt using the install scripts
 icon: fa-server
@@ -102,19 +103,13 @@ the hostname or ip address previously entered.
 
 The next step is to configure passbolt. You can do this quite easily with the configuration wizard.
 
-<a href="/hosting/configure/wizard" class="button primary">Configure passbolt with the wizard</a>
+<a href="/hosting/install/wizard" class="button primary">Configure passbolt with the wizard</a>
 
 {% include updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when installing passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
-%}
+{% include aside/pro-support.html %}
 
 {% include layout/row_end.html %}

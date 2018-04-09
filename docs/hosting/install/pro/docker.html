@@ -186,6 +186,170 @@
 
     <h2 id="system-requirements">System requirements</h2>
 
+    <ul>
+      <li>Docker CE</li>
+    </ul>
+
+    <h2 id="optional-system-requirements">Optional system requirements</h2>
+
+    <ul>
+      <li>MySQL &gt;= 5.0 if you plan not to host mysql on a docker container.</li>
+      <li>docker-compose if you plan to use a docker-compose.yml file to run passbolt container.</li>
+      <li>rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. <a href="https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine">Important considerations</a></li>
+    </ul>
+
+    <h2 id="getting-passbolt-container">Getting passbolt container</h2>
+
+    <p>Passbolt containers follow the following tagging:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;version_number&gt;-&lt;build_number&gt;-pro-debian
+</code></pre></div>    </div>
+
+    <p>Nobody is perfect so we also provide a  <em>latest</em> tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions.</p>
+
+    <p>Get passbolt Pro 2.0.0 docker container:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull passbolt/passbolt:2.0.0-pro-debian
+</code></pre></div>    </div>
+
+    <h2 id="using-passbolt-container">Using passbolt container</h2>
+
+    <p>Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container.</p>
+
+    <p>A subscription key file is also required to use Passbolt Pro. You can get the subscription key <a href="https://www.passbolt.com/">here</a></p>
+
+    <h3 id="manually-run-passbolt-container-and-mysql-container">Manually run passbolt container and mysql container</h3>
+
+    <p>It is recommended to create a user defined network to ease the container name resolution. Using a user defined network will provide a method to access containers using their names instead ip addresses:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network create passbolt_network
+</code></pre></div>    </div>
+
+    <p>First run the mysql container:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> mysql <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>&lt;root_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">MYSQL_USER</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
+             mysql
+</code></pre></div>    </div>
+
+    <p>Now we can run the passbolt container:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt-pro <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
+             passbolt/passbolt:2.0.0-pro-debian
+</code></pre></div>    </div>
+
+    <p>Note: strings between ‘&lt;’ and ‘&gt;’ are variables that the users should fill with their data.</p>
+
+    <h3 id="manually-creating-first-admin-user">Manually creating first admin user</h3>
+
+    <p>Once the passbolt container is up and running use this command to generate the first admin user:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec </span>passbolt-pro su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
+                                passbolt register_user </span><span class="se">\</span><span class="s2">
+                                -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
+                                -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">
+                                -l &lt;surname&gt; </span><span class="se">\</span><span class="s2">
+                                -r admin"</span> <span class="nt">-s</span> /bin/sh www-data
+</code></pre></div>    </div>
+
+    <p>It will output a link similar to the below one that can be pasted on the browser to finalize user registration:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
+</code></pre></div>    </div>
+
+    <h3 id="using-docker-compose">Using docker-compose</h3>
+
+    <p>From the docker-compose official docs: ‘Compose is a tool for defining and running multi-container Docker applications’</p>
+
+    <p>Passbolt provides a <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose-pro.yml">docker-compose-pro.yaml</a> file. That users can download and use with docker-compose.
+The easiest way to use passbolt provided docker-compose-pro.yaml is to:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/passbolt/passbolt_docker
+<span class="nv">$ </span><span class="nb">cp </span>your_subscription_license_file passbolt_docker/license
+<span class="nv">$ </span><span class="nb">cd </span>passbolt_docker
+</code></pre></div>    </div>
+
+    <p>At this point some users might want to customize passbolt environment variables and change the fullBaseUrl for instance. Environment variables are defined in the following files:</p>
+    <ul>
+      <li>env/mysql.env</li>
+      <li>env/passbolt.env</li>
+    </ul>
+
+    <p>Once the files fit your needs it is time to:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose-pro.yaml up
+</code></pre></div>    </div>
+
+    <h3 id="create-first-admin-user-using-docker-compose">Create first admin user using docker-compose</h3>
+
+    <p>If you run passbolt using <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose-pro.yml">docker-compose-pro.yaml</a> provided by passbolt:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
+                                passbolt register_user </span><span class="se">\</span><span class="s2">
+                                -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
+                                -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">
+                                -l &lt;surname&gt; </span><span class="se">\</span><span class="s2">
+                                -r admin"</span> <span class="nt">-s</span> /bin/sh www-data
+</code></pre></div>    </div>
+
+    <h2 id="persisting-data-in-passbolt-container">Persisting data in passbolt container</h2>
+
+    <p>There are several locations that might be interesting for the users to persist data between container restarts:</p>
+    <ul>
+      <li>Images directory: /var/www/passbolt/webroot/img</li>
+      <li>Gnupg serverkeys directory: /var/www/passbolt/config/gpg</li>
+      <li>
+        <p>SSL certificate files: /etc/ssl/certs/certiticate.crt /etc/ssl/certs/certificate.key</p>
+      </li>
+      <li>Subscription key file: /var/www/passbolt/config/license</li>
+    </ul>
+
+    <p>This files and directories can be persisted in the docker volume using <a href="https://docs.docker.com/storage/volumes/">docker volumes</a> or using <a href="https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount">bind mounts</a></p>
+
+    <h3 id="examples">Examples</h3>
+
+    <p>An example for persisting the images directory could be to create a docker volume:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create passbolt_images
+</code></pre></div>    </div>
+
+    <p>And run passbolt container with the previously created volume:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt-pro <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>passbolt_images,<span class="se">\</span>
+             <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
+             passbolt/passbolt:2.0.0-pro-debian
+</code></pre></div>    </div>
+
+    <p>Bind volumes are usually useful when, for instance, the SSL certificates or GnuPG keys have been already created in the host machine:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;host_path_to_gnupg_keys_dir&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
+             passbolt/passbolt:2.0.0-pro-debian
+</code></pre></div>    </div>
+
+    <p>An example of the above using docker-compose can be found <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose-pro.yml">here</a> where bind mounts and volumes are used.</p>
+
+    <p>NOTE: If you dont provide any GnuPG severkey or SSL certificate passbolt container will create a self signed SSL certificate and a GnuPG server key pair.</p>
+
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 

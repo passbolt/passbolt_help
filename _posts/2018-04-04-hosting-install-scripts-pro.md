@@ -35,11 +35,11 @@ In this tutorial, we are using a the official Debian 9 image on Vagrant.
 
 ### 2. Download the installation script
 You can download the installation scripts from these respective urls:
-- Debian 9: [https://storage.googleapis.com/passbolt/pro/installers/debian/passbolt-pro-installer-debian-9.tar.gz](https://storage.googleapis.com/passbolt/pro/installers/debian/passbolt-pro-installer-debian-9.tar.gz)
-- Centos 7: [https://storage.googleapis.com/passbolt/pro/installers/debian/passbolt-pro-installer-centos-7.tar.gz](https://storage.googleapis.com/passbolt/pro/installers/debian/passbolt-pro-installer-centos-7.tar.gz)
+- Debian 9: [https://www.passbolt.com/pro/download/installers/debian/latest](https://www.passbolt.com/pro/download/installers/debian/latest) ([Checksum](https://www.passbolt.com/pro/download/installers/debian/latest-checksum))
+- Centos 7: [https://www.passbolt.com/pro/download/installers/centos/latest](https://www.passbolt.com/pro/download/installers/centos/latest) ([Checksum](https://www.passbolt.com/pro/download/installers/centos/latest-checksum))
 
 ```shell
-$ wget https://storage.googleapis.com/passbolt/pro/installers/debian/passbolt-pro-installer-debian-9.tar.gz
+$ wget -O ./passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
 ```
 {% include figure.html
     url="/assets/img/help/2018/04/download-install-script.png"

@@ -1,13 +1,14 @@
 ---
-title: Upgrade from CE v1.x to Pro on a new server
-date: 2017-03-20 00:00:00 Z
+title: Upgrade from CE v1 to Pro on a new server
+card_title: From CE v1 new server
+card_teaser: Upgrade from CE v1 to Pro on a new server
+date: 2018-04-09 00:00:00 Z
 description: Upgrade from Passbolt CE v1.x to Passbolt Pro on a new server
 icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
-ignore_card: true
-slug: upgrade-ce-v1-to-pro-new-server
+slug: upgrade-pro-from-ce-v1-new-server
 permalink: /:categories/:slug.html
 ---
 

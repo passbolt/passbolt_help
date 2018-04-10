@@ -1,14 +1,14 @@
 ---
 title: Upgrade to Passbolt Pro
 card_title: Upgrade to Passbolt Pro
-card_teaser: Upgrade from CE to Passbolt Pro
-date: 2017-04-09 00:00:00 Z
-description: Upgrade from CE to Passbolt Pro
+card_teaser: Upgrade to Passbolt Pro
+date: 2018-04-09 00:00:00 Z
+description: Upgrade to Passbolt Pro
 icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
-slug: upgrade-ce-to-pro
+slug: upgrade-pro-from-ce
 permalink: /:categories/:slug.html
 ---
 
@@ -37,8 +37,8 @@ There are two ways you can upgrade your Passbolt Community Edition (CE) to Passb
 If the server running Passbolt CE matches the requirements listed above, you can upgrade to Passbolt Pro on the same server.
 If it doesn't match, you can also upgrade your distribution packages. The main missing dependency is usually PHP7. (In Debian, using dotdeb replacements work like a charm).
 
-- <a href="/hosting/upgrade/pro/upgrade-ce-v1-to-pro-same-server">Upgrade CE v1.x to Pro on the same server</a>
-- <a href="/hosting/upgrade/pro/upgrade-ce-v2-to-pro-same-server">Upgrade CE v2.x to Pro on the same server</a>
+- <a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server">Upgrade CE v1.x to Pro on the same server</a>
+- <a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v2">Upgrade CE v2.x to Pro</a>
 
 ### 2. Upgrade on a new server
 If the server running Passbolt CE doesn't and cannot match the requirements listed above, you will need a new server to upgrade to Passbolt Pro.

@@ -540,6 +540,18 @@
 "content": "Upcoming new funtionalities are advertised on the roadmap.Passbolt users can propose and upvote for new ideas on the community forum.The more financial contributors (and supporters in general) the quicker we can develop new functionalities.Security vulnerabilities and bugs fixes are to be given a higher priority than new features.Core libraries and framework maintenance upgrade also need to be dealt with proactively.",
 "url": "http://localhost:4000/faq/discover/feature-priority"
 },
+"hosting-upgrade-ce-upgrade-docker-ce-html": {
+"title": "Upgrade Passbolt docker from v1",
+"category": "",
+"content": "This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. Upgrade from v1.6.10-debian Passbolt v2 introduces several changes that are important to keep in mind when upgrading: Changes: Environment variables The set of environment variables have changed and users should take some time to get familiar with the new ones. For example in case of the database env variables: DB_USER is now DATASOURCES_DEFAULT_USERNAMEDB_HOST is now DATASOURCES_DEFAULT_HOST There is a more detailed list in passbolt_docker README file. Changes: Configuration files No more core.php, email.php or database.php.Any user that does not want to use environment variables must configure passbolt using: /var/www/passbolt/config/passbolt.php Passbolt will look for for configuration values in passbolt.php. Wether passbolt.php does not exist or...",
+"url": "http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce.html"
+},
+"hosting-install-pro-vm-html": {
+"title": "Using Passbolt pro virtual machine appliance",
+"category": "",
+"content": "Description Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.The VM includes the following software: Debian 9.4 Nginx Php-fpm Mariadb Passbolt Pro preinstalled certbot haveged to fill the entropy pool faster Scripts to easy managing SSL setup of the VM Getting Passbolt Pro VM Download the ova and the SHA512SUM.txt: Passbolt Pro VM SHA512SUM.txt Import the ova file using virtualbox, vmware or any other platform that supports OVA files. Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.However it is encouraged that users log in the VM and start the SSL setup proces. VM login credentials:username: passboltpassword: admin SSL setup process: Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts...",
+"url": "http://localhost:4000/hosting/install/pro/vm.html"
+},
 "hosting-upgrade-pro-upgrade-pro-from-ce-html": {
 "title": "Upgrade to Passbolt Pro",
 "category": "",
@@ -547,13 +559,13 @@
 "url": "http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html"
 },
 "hosting-upgrade-pro-upgrade-pro-from-ce-v1-same-server-html": {
-"title": "Upgrade from CE v1 to Pro on same server",
+"title": "Upgrade Passbolt from v1 to Pro on the same server",
 "category": "",
 "content": "This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server. If you want to use a new server, follow this link. Important: Please take a full backup of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database. System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG...",
 "url": "http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html"
 },
 "hosting-upgrade-pro-upgrade-pro-from-ce-v1-new-server-html": {
-"title": "Upgrade from CE v1 to Pro on a new server",
+"title": "Upgrade Passbolt from v1 to Pro on a new server",
 "category": "",
 "content": "      This tutorial will be available soon.          Last updated      This article was last updated on April9th,2018.                Are you experiencing issues when installing passbolt?        Ask the community!      ",
 "url": "http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html"
@@ -583,7 +595,7 @@
 "url": "http://localhost:4000/hosting/install/ce/from-source.html"
 },
 "hosting-upgrade-pro-upgrade-pro-from-ce-v2-html": {
-"title": "Upgrade from CE v2 to Pro",
+"title": "Upgrade Passbolt from community edition v2 to Pro",
 "category": "",
 "content": "This tutorial covers the case where you want to upgrade your current instance of passbolt CE v2.x into Passbolt Pro. Important: Please take a full backup of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database. System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following PHP extensions (that may or may not come by default): PHP-GNUPG: for...",
 "url": "http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2.html"

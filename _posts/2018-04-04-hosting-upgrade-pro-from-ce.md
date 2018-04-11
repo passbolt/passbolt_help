@@ -1,6 +1,6 @@
 ---
 title: Upgrade to Passbolt Pro
-card_title: Upgrade to Passbolt Pro
+card_title: Upgrade to Pro
 card_teaser: Upgrade to Passbolt Pro
 date: 2018-04-09 00:00:00 Z
 description: Upgrade to Passbolt Pro

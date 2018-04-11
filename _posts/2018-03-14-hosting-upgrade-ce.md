@@ -1,7 +1,7 @@
 ---
 title: Upgrade Passbolt CE from v1 to v2
 card_title: Upgrade
-card_teaser: Upgrade Passbolt CE from v1 to v2
+card_teaser: Upgrade from v1
 icon: fa-server
 date: 2018-03-14 00:00:00 Z
 description: How to upgrade passbolt to version 2

@@ -1,9 +1,9 @@
 ---
-title: Using pro virtual machine appliance
+title: Using Passbolt pro virtual machine appliance
 card_title: Virtual machine
 card_teaser: Use passbolt Pro virtual appliance
 card_position: 2
-date: 2018-04-09 00:00:00 Z
+date: 2018-04-10 00:00:00 Z
 description: Start using passbolt pro virtual machine
 icon: fa-server
 categories: [hosting,install,pro]
@@ -14,6 +14,9 @@ docker_tag: '-pro'
 passbolt_version: Pro
 permalink: /:categories/:slug.html
 ---
+
+{% include layout/row_start.html %}
+{% include layout/col_start.html column="7" %}
 
 ## Description
 
@@ -32,8 +35,8 @@ The VM includes the following software:
 
 Download the ova and the SHA512SUM.txt:
 
-- [Passbolt Pro VM]()
-- [SHA512SUM.txt]()
+- [Passbolt Pro VM](https://www.passbolt.com/pro/download/vm/debian/latest)
+- [SHA512SUM.txt](https://www.passbolt.com/pro/download/vm/debian/latest-checksum)
 
 Import the ova file using virtualbox, vmware or any other platform that supports OVA files.
 
@@ -57,3 +60,12 @@ Executing the following command the script will guide you through the SSL setup:
 ```bash
 $ sudo /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
 ```
+
+{% include updated.html %}
+
+{% include layout/col_end.html %}
+{% include layout/col_start.html column="4 last push1" %}
+
+{% include aside/pro-support.html %}
+
+{% include layout/row_end.html %}

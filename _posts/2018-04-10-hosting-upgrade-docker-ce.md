@@ -1,7 +1,7 @@
 ---
-title: Upgrade Passbolt CE docker installs from v1 to v2
-card_title: Upgrade docker installations
-card_teaser: Upgrade Passbolt CE docker installs from v1 to v2
+title: Upgrade Passbolt docker from v1
+card_title: Upgrade docker
+card_teaser: Upgrade docker from v1
 icon: fa-server
 date: 2018-04-10 00:00:00 Z
 description: How to upgrade passbolt to version 2 on docker installations

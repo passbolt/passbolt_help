@@ -1,4 +1,264 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-10T15:33:23+05:30</updated><id>http://localhost:4000/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade to Passbolt Pro</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html" rel="alternate" type="text/html" title="Upgrade to Passbolt Pro" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-04-11T14:17:04+05:30</updated><id>http://localhost:4000/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x.&lt;/p&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important:&lt;/strong&gt; Please take a full &lt;a href=&quot;/hosting/backup-v1&quot;&gt;backup&lt;/a&gt; of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;upgrade-from-v1610-debian&quot;&gt;Upgrade from v1.6.10-debian&lt;/h2&gt;
+
+    &lt;p&gt;Passbolt v2 introduces several changes that are important to keep in mind when upgrading:&lt;/p&gt;
+
+    &lt;h4 id=&quot;changes-environment-variables&quot;&gt;Changes: Environment variables&lt;/h4&gt;
+
+    &lt;p&gt;The set of environment variables have changed and users should take some time to get familiar with the new ones. For example in case of the database env variables:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DB_USER is now DATASOURCES_DEFAULT_USERNAME
+DB_HOST is now DATASOURCES_DEFAULT_HOST
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;There is a more detailed list in passbolt_docker &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/README.md&quot;&gt;README&lt;/a&gt; file.&lt;/p&gt;
+
+    &lt;h4 id=&quot;changes-configuration-files&quot;&gt;Changes: Configuration files&lt;/h4&gt;
+
+    &lt;p&gt;No more core.php, email.php or database.php.
+Any user that does not want to use environment variables must configure passbolt using:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt/config/passbolt.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Passbolt will look for for configuration values in &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt.php&lt;/code&gt;. Wether &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt.php&lt;/code&gt; does not exist or the configuration section is not defined on it, passbolt will then look for configuration details in default.php which relies on environment variables/default values.
+Gpg config directory has changed slightly its path from:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt/app/Config/gpg/ to /var/www/passbolt/config/gpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Gpg default server key file names also changed:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;serverkey.private.asc to serverkey_private.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;changes-www-user&quot;&gt;Changes: www user&lt;/h4&gt;
+
+    &lt;p&gt;Passbolt container is now running under the www-data user&lt;/p&gt;
+
+    &lt;h4 id=&quot;changes-images-directory&quot;&gt;Changes: images directory&lt;/h4&gt;
+
+    &lt;p&gt;Path to the images directory is different:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt/app/webroot/img/public/images to /var/www/passbolt/webroot/img/public/images
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Users must also rename ProfileAvatar to Avatar directory inside public/images in order to see images in passbolt v2&lt;/p&gt;
+
+    &lt;h4 id=&quot;changes-supervisor&quot;&gt;Changes: supervisor&lt;/h4&gt;
+
+    &lt;p&gt;In order to manage the running process in passbolt container we introduced supervisord. Users are now able to restart passbolt container processes using:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;passbolt supervisorctl restart &amp;lt;php-fpm|nginx|cron&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Now that we have a better overview of the changes let’s start with the upgrading process!&lt;/p&gt;
+
+    &lt;h3 id=&quot;backup-mysql-database&quot;&gt;Backup mysql database&lt;/h3&gt;
+
+    &lt;p&gt;First of all is encouraged to backup all the relevant data that is:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Database&lt;/li&gt;
+      &lt;li&gt;Images&lt;/li&gt;
+      &lt;li&gt;Server public and private keys&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;You might want to check the detailed &lt;a href=&quot;/hosting/backup-v1&quot;&gt;backup list for v1&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;There are multiple ways to backup your database following there is an example using the passbolt container:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;passbolt mysqldump &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; &amp;lt;db_host&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                                 &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; passbolt &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                                 &lt;span class=&quot;nt&quot;&gt;-pP4ssb0lt&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                                 passbolt &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; dump.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;This will output a dump.sql file on the host machine.&lt;/p&gt;
+
+    &lt;h3 id=&quot;backup-images-directory&quot;&gt;Backup images directory&lt;/h3&gt;
+
+    &lt;p&gt;If you are mounting the images directory using a bind mount just copy the host image directory in a safe location.
+If you are using docker volumes to persist your images directory, or not persisting the images directory at all, you can execute the following to copy your images to the host machine.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;passbolt:/var/www/app/webroot/img/public public_images_backup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;This will output a public_images_directory with the images stored in the passbolt container.&lt;/p&gt;
+
+    &lt;h3 id=&quot;backup-gpg-keys&quot;&gt;Backup gpg keys&lt;/h3&gt;
+
+    &lt;p&gt;As with the previous section you can proceed exactly the same with the gpg keys:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;passbolt:/var/www/app/Config/gpg/ gpg_keys_backup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;This will output a gpg_keys_backup directory with the contents of the gpg configuration folder of passbolt.&lt;/p&gt;
+
+    &lt;h2 id=&quot;upgrade-using-latest-v1-version-1610&quot;&gt;Upgrade using latest v1 version (1.6.10)&lt;/h2&gt;
+
+    &lt;p&gt;Passbolt v2 will run the database migrations if needed when starting up. Users just need to provide the gpg keys, configuration files/env variables and images.
+Following some examples:&lt;/p&gt;
+
+    &lt;h3 id=&quot;using-host-bind-mounts&quot;&gt;Using host bind mounts&lt;/h3&gt;
+
+    &lt;p&gt;Users that use host bind mounts from host machine into docker file must adjust paths of the mounted files:&lt;/p&gt;
+
+    &lt;p&gt;In the following snippet:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;passbolt_images_dir: path to a host directory that contains passbolt images Avatar directory.&lt;/li&gt;
+      &lt;li&gt;gpg_host_dir: path to a host directory that contains serverkey.asc and serverkey_private.asc&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; passbolt &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt;, &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;passbolt_images_dir&amp;gt;,&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/www/passbolt/webroot/img &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt;, &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;gpg_host_dir&amp;gt;, &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/www/passbolt/config/gpg &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;APP_FULL_BASE_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://mydomain.com &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             passbolt/passbolt:2.0.0-debian
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;using-docker-volumes&quot;&gt;Using docker volumes&lt;/h3&gt;
+
+    &lt;p&gt;Users that use docker volumes should adjust their volumes paths.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; passbolt &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;passbolt_images_volume&amp;gt;,&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/www/passbolt/webroot/img &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;gpg_keys_volume&amp;gt;, &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+               &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/www/passbolt/config/gpg &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;APP_FULL_BASE_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://mydomain.com &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             passbolt/passbolt:2.0.0-debian
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+April
+10th,
+2018.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;tldr&quot;&gt;
+    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on docker hub&lt;/h4&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
+            &lt;img alt=&quot;Docker Logo&quot; src=&quot;/assets/img/third_party/docker_small_h.png&quot; style=&quot;&quot; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; class=&quot;primary button&quot;&gt;
+        Get passbolt container!
+    &lt;/a&gt;
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative.&lt;/p&gt;
+    
+    &lt;a href=&quot;https://letsencrypt.org/&quot; class=&quot;button &quot;&gt;let's encrypt!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Using Passbolt pro virtual machine appliance</title><link href="http://localhost:4000/hosting/install/pro/vm.html" rel="alternate" type="text/html" title="Using Passbolt pro virtual machine appliance" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>http://localhost:4000/hosting/install/pro/vm</id><content type="html" xml:base="http://localhost:4000/hosting/install/pro/vm.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
+
+    &lt;p&gt;Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
+The VM includes the following software:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Debian 9.4&lt;/li&gt;
+      &lt;li&gt;Nginx&lt;/li&gt;
+      &lt;li&gt;Php-fpm&lt;/li&gt;
+      &lt;li&gt;Mariadb&lt;/li&gt;
+      &lt;li&gt;Passbolt Pro preinstalled&lt;/li&gt;
+      &lt;li&gt;certbot&lt;/li&gt;
+      &lt;li&gt;haveged to fill the entropy pool faster&lt;/li&gt;
+      &lt;li&gt;Scripts to easy managing SSL setup of the VM&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;getting-passbolt-pro-vm&quot;&gt;Getting Passbolt Pro VM&lt;/h2&gt;
+
+    &lt;p&gt;Download the ova and the SHA512SUM.txt:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.passbolt.com/pro/download/vm/debian/latest&quot;&gt;Passbolt Pro VM&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.passbolt.com/pro/download/vm/debian/latest-checksum&quot;&gt;SHA512SUM.txt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Import the ova file using virtualbox, vmware or any other platform that supports OVA files.&lt;/p&gt;
+
+    &lt;p&gt;Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
+However it is encouraged that users log in the VM and start the SSL setup proces.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;VM login credentials:
+username: passbolt
+password: admin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;ssl-setup-process&quot;&gt;SSL setup process:&lt;/h2&gt;
+
+    &lt;p&gt;Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts are located in:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Executing the following command the script will guide you through the SSL setup:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+April
+10th,
+2018.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade to Passbolt Pro</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html" rel="alternate" type="text/html" title="Upgrade to Passbolt Pro" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
@@ -57,7 +317,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v1 to Pro on same server</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html" rel="alternate" type="text/html" title="Upgrade from CE v1 to Pro on same server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from v1 to Pro on the same server</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html" rel="alternate" type="text/html" title="Upgrade Passbolt from v1 to Pro on the same server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server.&lt;/p&gt;
@@ -232,7 +492,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v1 to Pro on a new server</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html" rel="alternate" type="text/html" title="Upgrade from CE v1 to Pro on a new server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from v1 to Pro on a new server</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html" rel="alternate" type="text/html" title="Upgrade Passbolt from v1 to Pro on a new server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial will be available soon.&lt;/p&gt;
@@ -1141,7 +1401,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v2 to Pro</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2.html" rel="alternate" type="text/html" title="Upgrade from CE v2 to Pro" /><published>2018-04-03T05:30:00+05:30</published><updated>2018-04-03T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from community edition v2 to Pro</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2.html" rel="alternate" type="text/html" title="Upgrade Passbolt from community edition v2 to Pro" /><published>2018-04-03T05:30:00+05:30</published><updated>2018-04-03T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade your current instance of passbolt CE v2.x into Passbolt Pro.&lt;/p&gt;
@@ -1292,399 +1552,6 @@ April
     &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
     &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
 
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Docker passbolt installation</title><link href="http://localhost:4000/hosting/install/ce/docker.html" rel="alternate" type="text/html" title="Docker passbolt installation" /><published>2018-04-02T05:30:00+05:30</published><updated>2018-04-02T05:30:00+05:30</updated><id>http://localhost:4000/hosting/install/ce/docker</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/docker.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Docker CE&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;optional-system-requirements&quot;&gt;Optional system requirements&lt;/h2&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;MySQL &amp;gt;= 5.0 if you plan not to host mysql on a docker container.&lt;/li&gt;
-      &lt;li&gt;docker-compose if you plan to use a docker-compose.yml file to run passbolt container.&lt;/li&gt;
-      &lt;li&gt;rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. &lt;a href=&quot;https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine&quot;&gt;Important considerations&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;getting-passbolt-container&quot;&gt;Getting passbolt container&lt;/h2&gt;
-
-    &lt;p&gt;Passbolt containers follow the following tagging:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;version_number&amp;gt;-&amp;lt;build_number&amp;gt;-debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Nobody is perfect so we also provide a  &lt;em&gt;latest&lt;/em&gt; tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions.&lt;/p&gt;
-
-    &lt;p&gt;Get passbolt  2.0.0 docker container:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker pull passbolt/passbolt:2.0.0-debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;using-passbolt-container&quot;&gt;Using passbolt container&lt;/h2&gt;
-
-    &lt;p&gt;Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container.&lt;/p&gt;
-
-    &lt;h3 id=&quot;manually-run-passbolt-container-and-mysql-container&quot;&gt;Manually run passbolt container and mysql container&lt;/h3&gt;
-
-    &lt;p&gt;It is recommended to create a user defined network to ease the container name resolution. Using a user defined network will provide a method to access containers using their names instead ip addresses:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker network create passbolt_network
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;First run the mysql container:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; mysql &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;root_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             mysql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Now we can run the passbolt container:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; passbolt &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;APP_FULL_BASE_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://mydomain.com &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             passbolt/passbolt:2.0.0-debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Note: strings between ‘&amp;lt;’ and ‘&amp;gt;’ are variables that the users should fill with their data.&lt;/p&gt;
-
-    &lt;h3 id=&quot;manually-creating-first-admin-user&quot;&gt;Manually creating first admin user&lt;/h3&gt;
-
-    &lt;p&gt;Once the passbolt container is up and running use this command to generate the first admin user:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;passbolt su &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/passbolt/bin/cake &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                passbolt register_user &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -u &amp;lt;your@email.com&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -f &amp;lt;yourname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -l &amp;lt;surname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -r admin&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/sh www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It will output a link similar to the below one that can be pasted on the browser to finalize user registration:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;using-docker-compose&quot;&gt;Using docker-compose&lt;/h3&gt;
-
-    &lt;p&gt;From the docker-compose official docs: ‘Compose is a tool for defining and running multi-container Docker applications’&lt;/p&gt;
-
-    &lt;p&gt;Passbolt provides a &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;docker-compose.yaml&lt;/a&gt; file. That users can download and use with docker-compose.
-The easiest way to use passbolt provided docker-compose.yaml is to:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/passbolt/passbolt_docker
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;your_subscription_license_file passbolt_docker/license
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;passbolt_docker
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;At this point some users might want to customize passbolt environment variables and change the fullBaseUrl for instance. Environment variables are defined in the following files:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;env/mysql.env&lt;/li&gt;
-      &lt;li&gt;env/passbolt.env&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Once the files fit your needs it is time to:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker-compose &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; docker-compose.yaml up
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;create-first-admin-user-using-docker-compose&quot;&gt;Create first admin user using docker-compose&lt;/h3&gt;
-
-    &lt;p&gt;If you run passbolt using &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;docker-compose.yaml&lt;/a&gt; provided by passbolt:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker-compose &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;passbolt su &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/passbolt/bin/cake &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                passbolt register_user &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -u &amp;lt;your@email.com&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -f &amp;lt;yourname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -l &amp;lt;surname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -r admin&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/sh www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;persisting-data-in-passbolt-container&quot;&gt;Persisting data in passbolt container&lt;/h2&gt;
-
-    &lt;p&gt;There are several locations that might be interesting for the users to persist data between container restarts:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Images directory: /var/www/passbolt/webroot/img&lt;/li&gt;
-      &lt;li&gt;Gnupg serverkeys directory: /var/www/passbolt/config/gpg&lt;/li&gt;
-      &lt;li&gt;SSL certificate files: /etc/ssl/certs/certiticate.crt /etc/ssl/certs/certificate.key&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;This files and directories can be persisted in the docker volume using &lt;a href=&quot;https://docs.docker.com/storage/volumes/&quot;&gt;docker volumes&lt;/a&gt; or using &lt;a href=&quot;https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount&quot;&gt;bind mounts&lt;/a&gt;&lt;/p&gt;
-
-    &lt;h3 id=&quot;examples&quot;&gt;Examples&lt;/h3&gt;
-
-    &lt;p&gt;An example for persisting the images directory could be to create a docker volume:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker volume create passbolt_images
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;And run passbolt container with the previously created volume:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; passbolt &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;passbolt_images,&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/www/passbolt/webroot/img &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;APP_FULL_BASE_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://mydomain.com &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             passbolt/passbolt:2.0.0-debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Bind volumes are usually useful when, for instance, the SSL certificates or GnuPG keys have been already created in the host machine:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; passbolt &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt;,&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-               &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;host_path_to_gnupg_keys_dir&amp;gt;,&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-               &lt;span class=&quot;nv&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/www/passbolt/config/gpg &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;DATASOURCES_DEFAULT_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mysql_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;APP_FULL_BASE_URL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;https://mydomain.com &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-             passbolt/passbolt:2.0.0-debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;An example of the above using docker-compose can be found &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;here&lt;/a&gt; where bind mounts and volumes are used.&lt;/p&gt;
-
-    &lt;p&gt;NOTE: If you dont provide any GnuPG severkey or SSL certificate passbolt container will create a self signed SSL certificate and a GnuPG server key pair.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-April
-2nd,
-2018.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;tldr&quot;&gt;
-    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on docker hub&lt;/h4&gt;
-    &lt;p&gt;
-        &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
-            &lt;img alt=&quot;Docker Logo&quot; src=&quot;/assets/img/third_party/docker_small_h.png&quot; style=&quot;&quot; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;
-    &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; class=&quot;primary button&quot;&gt;
-        Get passbolt container!
-    &lt;/a&gt;
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt CE from v1 to v2</title><link href="http://localhost:4000/hosting/upgrade/ce/upgrade-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt CE from v1 to v2" /><published>2018-03-14T05:30:00+05:30</published><updated>2018-03-14T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/ce/upgrade-ce</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/ce/upgrade-ce.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into passbolt CE v2.x.&lt;/p&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; Please take a full &lt;a href=&quot;/hosting/backup-v1&quot;&gt;backup&lt;/a&gt; of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
-
-    &lt;p&gt;Passbolt is reported to work on a large variety of operating system configurations. 
-Therefore this help page is a generic guide that should work for most environments.&lt;/p&gt;
-
-    &lt;p&gt;If you run into any issues with your particular configuration, 
-&lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;please check the forum&lt;/a&gt;. 
-Maybe someone else has had your issue. If not, make a post and the community will try to help you.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)&lt;/li&gt;
-      &lt;li&gt;A webserver (Apache or Nginx)&lt;/li&gt;
-      &lt;li&gt;A TLS server certificate for HTTPS&lt;/li&gt;
-      &lt;li&gt;PHP &amp;gt;= 7.0.0&lt;/li&gt;
-      &lt;li&gt;Mysql &amp;gt;= 5.5.59&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;Composer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://gnupg.org/&quot;&gt;GnuPG&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The following PHP extensions (that may or may not come by default):&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/gnupg.installation.php&quot;&gt;PHP-GNUPG&lt;/a&gt;: for key verification and authentication.&lt;/li&gt;
-      &lt;li&gt;Cakephp default requirements: Intl, mbstring, simplexml&lt;/li&gt;
-      &lt;li&gt;Image manipulation: gd or imagick&lt;/li&gt;
-      &lt;li&gt;Database: Mysqlnd, pdo, pdo_mysql&lt;/li&gt;
-      &lt;li&gt;Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.&lt;/li&gt;
-      &lt;li&gt;&amp;amp; more depending on your configuration (for example if you want to use memcache for sessions).&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;upgrade-with-a-new-server&quot;&gt;Upgrade with a new server&lt;/h2&gt;
-
-    &lt;p&gt;Considering that the system requirements haved it may make sense for you to upgrade on a fresh server.
-If that is what you want to do, copy the v1 &lt;a href=&quot;/hosting/backup-v1&quot;&gt;backup&lt;/a&gt; files to your new server, import your passbolt
-database into your new server and proceed like you were upgrading on the same server, with the process described bellow.&lt;/p&gt;
-
-    &lt;h2 id=&quot;upgrade-from-the-same-server&quot;&gt;Upgrade from the same server&lt;/h2&gt;
-
-    &lt;p&gt;In the following examples we assume you are running passbolt v1 using apache in the &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt;
-directory. You will need to replace these values with your local environment settings.&lt;/p&gt;
-
-    &lt;h3 id=&quot;make-sure-you-have-the-latest-v1x-version&quot;&gt;1. Make sure you have the latest v1.x version&lt;/h3&gt;
-    &lt;p&gt;If you do not have the latest version, please follow the regular &lt;a href=&quot;/hosting/update&quot;&gt;v1 udpate process&lt;/a&gt;.
-We’ll also assume you have a web server that match the system requirements.&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cat &lt;/span&gt;app/Config/version.php  | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;number
-&lt;span class=&quot;s1&quot;&gt;'number'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'1.6.10'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;take-your-site-offline&quot;&gt;2. Take your site offline&lt;/h3&gt;
-    &lt;p&gt;There are multiple ways of doing that, the simplest is sending a notice by email to your users
-and stopping your webserver. The better approach would be to create a temporary html file and
-redirect your passbolt user there, for example:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mkdir &lt;/span&gt;wip
-/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;touch &lt;/span&gt;wip/index.html
-/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;Maintenance in progress&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;h1&amp;gt;Maintenance in progress&amp;lt;/h1&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; wip/index.html
-/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/apache2/sites-enabled/001-default.conf
-
-&amp;lt;IfModule mod_ssl.c&amp;gt;
-        &amp;lt;VirtualHost _default_:443&amp;gt;
-                ServerAdmin webmaster@localhost
-                ServerName www.passbolt.test
-                DocumentRoot /var/www/wip
-
-                ErrorLog &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;APACHE_LOG_DIR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/error.log
-                CustomLog &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;APACHE_LOG_DIR&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt;/access.log combined
-
-                SSLEngine on
-                SSLCertificateFile /etc/apache2/ssl/passbolt.crt
-                SSLCertificateKeyFile /etc/apache2/ssl/passbolt.key
-
-        &amp;lt;Directory /var/www/wip&amp;gt;
-            Options FollowSymLinks
-            AllowOverride All
-            Require all granted
-        &amp;lt;/Directory&amp;gt;
-
-        &amp;lt;/VirtualHost&amp;gt;
-&amp;lt;/IfModule&amp;gt;
-/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;download-the-v2&quot;&gt;3. Download the v2&lt;/h3&gt;
-    &lt;p&gt;Open a shell with the same user as your web server user. (usually, www-data for apache, nginx for nginx)&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Replace the previous passbolt by the new version.&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; ./passbolt ./passbolt_old
-/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://bitbucket.org/passbolt_pro/passbolt_pro_api.git ./passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;install-the-dependencies&quot;&gt;4. Install the dependencies&lt;/h3&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./passbolt
-/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;copy-the-avatar-folder&quot;&gt;5. Copy the avatar folder&lt;/h3&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; ../passbolt_old/app/webroot/img/public/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; ./webroot/img/public/.
-/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; ./webroot/img/public/images/ProfileAvatar ./webroot/img/public/images/Avatar
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;copy-the-server-gpg-key&quot;&gt;6. Copy the server gpg key&lt;/h3&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp&lt;/span&gt; ../passbolt_old/app/Config/gpg/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; config/gpg/.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;create-a-passbolt-configuration-file&quot;&gt;7. Create a passbolt configuration file&lt;/h3&gt;
-
-    &lt;p&gt;The name and values in the main configuration file have changed. Everything is now located in one file called
-&lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;. Do not copy your v1 configuration files, instead you need to create a new one:&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;config/passbolt.default.php config/passbolt.php
-/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano config/passbolt.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Even if the format has changed the information needed are pretty much the same than v1.
-You will need to set at least the following:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Application full base url&lt;/li&gt;
-      &lt;li&gt;Database configuration&lt;/li&gt;
-      &lt;li&gt;Email settings&lt;/li&gt;
-      &lt;li&gt;Server OpenPGP key fingerprint.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;You can also set your configuration using environment variables.
-Check &lt;code class=&quot;highlighter-rouge&quot;&gt;config/default.php&lt;/code&gt; to get the names of the environment variables.&lt;/p&gt;
-
-    &lt;h3 id=&quot;run-the-migration-script&quot;&gt;8. Run the migration script&lt;/h3&gt;
-
-    &lt;p&gt;The structure of the database changed in version 2. Make sure you run the following script to migrate your 
-data to the new format.&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake passbolt migrate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Optionally you can also run the health check to see if everything is fine.&lt;/p&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt; www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;get-your-service-back-online&quot;&gt;9. Get your service back online&lt;/h3&gt;
-
-    &lt;p&gt;Edit your apache or nginx to point to the new directory and bring your service back online.&lt;/p&gt;
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/apache2/sites-enabled/001-default.conf
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;service apache2 restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-March
-14th,
-2018.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;tldr&quot;&gt;
-    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on docker hub&lt;/h4&gt;
-    &lt;p&gt;
-        &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
-            &lt;img alt=&quot;Docker Logo&quot; src=&quot;/assets/img/third_party/docker_small_h.png&quot; style=&quot;&quot; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;
-    &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; class=&quot;primary button&quot;&gt;
-        Get passbolt container!
-    &lt;/a&gt;
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative.&lt;/p&gt;
-    
-    &lt;a href=&quot;https://letsencrypt.org/&quot; class=&quot;button &quot;&gt;let's encrypt!&lt;/a&gt;
-    
 &lt;/div&gt;
 
   &lt;/div&gt;

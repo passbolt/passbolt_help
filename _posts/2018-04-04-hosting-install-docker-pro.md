@@ -31,14 +31,6 @@ permalink: /:categories/:slug.html
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/docker.html %}
-
-{% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when installing passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
-%}
+{% include aside/pro-support.html %}
 
 {% include layout/row_end.html %}

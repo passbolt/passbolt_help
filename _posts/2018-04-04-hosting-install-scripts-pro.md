@@ -3,7 +3,7 @@ title: Installation with install scripts
 card_title: Install scripts
 card_teaser: Install passbolt easily with the install scripts
 card_position: 1
-date: 2017-03-20 00:00:00 Z
+date: 2018-04-09 00:00:00 Z
 description: Install passbolt using the install scripts
 icon: fa-server
 categories: [hosting,install,pro]

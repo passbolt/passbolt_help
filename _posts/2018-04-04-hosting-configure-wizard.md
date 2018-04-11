@@ -1,6 +1,6 @@
 ---
 title: Configure passbolt with the wizard
-date: 2017-03-20 00:00:00 Z
+date: 2018-04-09 00:00:00 Z
 description: Configure passbolt with the wizard
 icon: fa-server
 categories: [hosting,install]

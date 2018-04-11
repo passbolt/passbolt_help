@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Upgrade to passbolt API version 2</title>
+    <title>Upgrade Passbolt from v1 to Pro on the same server</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -17,15 +17,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Upgrade to passbolt API version 2" />
+    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Upgrade Passbolt from v1 to Pro on the same server" />
     <meta property="og:description" content="" />
 
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/ce/upgrade">
-    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
+    <link rel="canonical" href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
 
 </head>
 <body>
@@ -72,7 +72,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-03-14-hosting-upgrade-v2.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-04-04-hosting-upgrade-pro-from-ce-v1-same-server.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -91,29 +91,29 @@
         <li><h2>Hosting</h2></li>
         
         <li >
-            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+            <a href="http://localhost:4000/faq/hosting">Hosting FAQ</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+            <a href="http://localhost:4000/hosting/install">Installation</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/update">Update</a>
+            <a href="http://localhost:4000/hosting/update">Update</a>
         </li>
         
         
         <li class="selected">
-            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+            <a href="http://localhost:4000/hosting/upgrade">Upgrade</a>
         </li>
         
             
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+            <a href="http://localhost:4000/hosting/backup">Backup</a>
         </li>
         
         
@@ -153,12 +153,12 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                        <a href="http://localhost:4000/hosting"><span>hosting</span></a>
                     </div>
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
+                        <a href="http://localhost:4000/hosting/upgrade"><span>upgrade</span></a>
                     </div>
                 </li>
                 
@@ -166,7 +166,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/ce/upgrade.html"><span>upgrade</span></a>
+                        <a href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html"><span>upgrade-pro-from-ce-v1-same-server</span></a>
                     </div>
                 </li>
                 
@@ -177,15 +177,25 @@
 
                     <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Upgrade to passbolt API version 2</h1>
+<h1>Upgrade Passbolt from v1 to Pro on the same server</h1>
 </div>
 </div>
 
                     <div class="row">
   <div class="col7">
 
-    <h2 id="system-requirements">System requirements</h2>
+    <p>This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server.</p>
 
+    <p>If you want to use a new server, <a href="/hosting/upgrade/pro/upgrade-ce-v1-to-pro-new-server">follow this link</a>.</p>
+
+    <div class="message warning">
+    <p>
+        <strong>Important:</strong> Please take a full <a href="/hosting/backup-v1">backup</a> of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database.
+    </p>
+    
+</div>
+
+    <h2 id="system-requirements">System requirements</h2>
     <p>Passbolt is reported to work on a large variety of operating system configurations. 
 Therefore this help page is a generic guide that should work for most environments.</p>
 
@@ -214,31 +224,21 @@ Maybe someone else has had your issue. If not, make a post and the community wil
       <li>&amp; more depending on your configuration (for example if you want to use memcache for sessions).</li>
     </ul>
 
-    <h2 id="upgrade-with-a-new-server">Upgrade with a new server</h2>
-
-    <p>Considering that the system requirements haved it may make sense for you to upgrade on a fresh server.
-If that is what you want to do, you can perform a <a href="/hosting/backup-v1">backup</a> of your database,
-gpg key and avatar first. Then copy the v1 files to your new server, and proceed like you were upgrading on the 
-same server, with the process described bellow.</p>
-
-    <h2 id="upgrade-from-the-same-server">Upgrade from the same server</h2>
-
-    <p>In the following examples we assume you are running passbolt v1 using apache in the <code class="highlighter-rouge">/var/www/passbolt</code>
+    <h2 id="upgrade-to-passbolt-pro">Upgrade to Passbolt Pro</h2>
+    <p>In the following examples we assume you are running passbolt CE v1 using apache in the <code class="highlighter-rouge">/var/www/passbolt</code>
 directory. You will need to replace these values with your local environment settings.</p>
 
     <h3 id="make-sure-you-have-the-latest-v1x-version">1. Make sure you have the latest v1.x version</h3>
-
     <p>If you do not have the latest version, please follow the regular <a href="/hosting/update">v1 udpate process</a>.
 We’ll also assume you have a web server that match the system requirements.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt<span class="nv">$ </span><span class="nb">cat </span>app/Config/version.php  | <span class="nb">grep </span>number
-<span class="s1">'number'</span> <span class="o">=&gt;</span> <span class="s1">'1.6.9'</span>
+<span class="s1">'number'</span> <span class="o">=&gt;</span> <span class="s1">'1.6.10'</span>
 </code></pre></div>    </div>
 
     <h3 id="take-your-site-offline">2. Take your site offline</h3>
-
     <p>There are multiple ways of doing that, the simplest is sending a notice by email to your users
-and stopping your webserver. The better approach would be to create a temporary html file and 
+and stopping your webserver. The better approach would be to create a temporary html file and
 redirect your passbolt user there, for example:</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">mkdir </span>wip
@@ -270,94 +270,78 @@ redirect your passbolt user there, for example:</p>
 /var/www<span class="nv">$ </span>service apache2 restart
 </code></pre></div>    </div>
 
-    <h3 id="make-a-database-backup">3. Make a database backup</h3>
+    <h3 id="download-passbolt-pro">3. Download Passbolt Pro</h3>
+    <p>Open a shell with the same user as your web server user. (usually, www-data for apache, nginx for nginx)</p>
 
-    <p>Make sure you have a database backup so that you can revert if something goes wrong.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>mysqldump <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>pass] db <span class="o">&gt;</span> /path/to/passbolt-backup.sql
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>su <span class="nt">-s</span> /bin/bash www-data
 </code></pre></div>    </div>
 
-    <h3 id="create-a-new-directory-and-copy-the-v2">4. Create a new directory and copy the v2.</h3>
+    <p>Replace the previous passbolt by the new version.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">mv</span> ./passbolt ./passbolt_old
+/var/www<span class="nv">$ </span>git clone https://bitbucket.org/passbolt_pro/passbolt_pro_api.git ./passbolt
+</code></pre></div>    </div>
+
+    <h3 id="install-the-dependencies">4. Install the dependencies</h3>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">cd</span> ./passbolt
+/var/www/passbolt<span class="nv">$ </span>composer <span class="nb">install</span>
+</code></pre></div>    </div>
+
+    <h3 id="copy-the-avatar-folder">5. Copy the avatar folder</h3>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt<span class="nv">$ </span><span class="nb">cp</span> <span class="nt">-R</span> ../passbolt_old/app/webroot/img/public/<span class="k">*</span> ./webroot/img/public/.
+/var/www/passbolt<span class="nv">$ </span><span class="nb">mv</span> ./webroot/img/public/images/ProfileAvatar ./webroot/img/public/images/Avatar
+</code></pre></div>    </div>
+
+    <h3 id="configure-passbolt-pro">6. Configure Passbolt Pro</h3>
+    <p>To configure Passbolt Pro, the easiest way is to use the in-built configuration wizard.
+Just point your browser to your passbolt url.</p>
+
+    <p>You will be greeted by a welcome screen. Click on the Configure with wizard option and follow the instructions.</p>
+
+    <figure>
+    <img src="/assets/img/help/2018/04/passbolt-welcome-page.png" alt="passbolt welcome page before configuration" style="max-width:586px;" />
+    <span class="legend">fig. passbolt welcome page before configuration</span>
+</figure>
 
     <div class="message warning">
     <p>
-        Note: We will use the development branch for deployment for release candidates. 
-When v2 is released the last line can be omitted.
-
+        <strong>Note:</strong> Enter the same configuration details as the the ones that were used for your Passbolt CE.
+    This includes your database, smtp details, as well as your server GPG key that you’ll need to import (<strong>Do not generate a new one</strong>).
     </p>
     
 </div>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">mv </span>passbolt passbolt_v1
-/var/www<span class="nv">$ </span>git clone git@github.com:passbolt/passbolt_api.git
-/var/www<span class="nv">$ </span><span class="nb">mv </span>passbolt_api passbolt_v2 <span class="o">&amp;&amp;</span> <span class="nb">cd </span>passbolt_v2
-/var/www/passbolt_v2<span class="nv">$ </span>git fetch <span class="o">&amp;&amp;</span> git checkout develop
+    <figure>
+    <img src="/assets/img/help/2018/04/wizard-key-import.png" alt="Wizard - import key screen" style="max-width:586px;" />
+    <span class="legend">fig. Wizard - import key screen</span>
+</figure>
+
+    <h3 id="your-server-is-now-ready-to-run-passbolt">7. Your server is now ready to run passbolt</h3>
+
+    <p>Once you have followed all the steps of the wizard, Passbolt Pro is ready to run. You will be redirected
+automatically to the login page where you can log in.</p>
+
+    <h3 id="final-step-modify-the-cron-job-to-send-emails">8. Final step: modify the cron job to send emails</h3>
+
+    <p>Modify the cronjob entry you had added for passbolt CE v1 :</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender &gt; /var/log/passbolt.log
 </code></pre></div>    </div>
 
-    <h3 id="install-the-dependencies">5. Install the dependencies</h3>
-
-    <p>The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
-in the code on the official repository. Fret not, composer will manage this for us.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt_v2<span class="nv">$ </span>composer <span class="nb">install</span>
+    <p>into this one:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt; /var/log/passbolt.log
 </code></pre></div>    </div>
 
-    <h3 id="copy-your-v1-server-gpg-key-and-avatars">6. Copy your v1 server gpg key and avatars</h3>
+    <h2 id="thats-it">That’s it!</h2>
 
-    <p>The <code class="highlighter-rouge">config</code> and <code class="highlighter-rouge">webroot</code> directory has been moved to the root directory. The <code class="highlighter-rouge">ProfileAvatar</code> directory have been
-renamed to <code class="highlighter-rouge">Avatar</code>. You will need to copy your old files in these new respective places, for example:</p>
+    <p>At this stage, Passbolt Pro should be working perfectly.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt_v2<span class="nv">$ </span><span class="nb">cp</span> ../passbolt_v1/app/Config/gpg/<span class="k">*</span> config/gpg/.
-/var/www/passbolt_v2<span class="nv">$ </span><span class="nb">cp</span> <span class="nt">-R</span> ../passbolt_v1/app/webroot/img/public/<span class="k">*</span> webroot/img/public/.
-/var/www/passbolt_v2<span class="nv">$ </span><span class="nb">mv </span>webroot/img/public/images/ProfileAvatar webroot/img/public/images/Avatar
-</code></pre></div>    </div>
-
-    <h3 id="create-a-passbolt-configuration-file">7. Create a passbolt configuration file</h3>
-
-    <p>The name and values in the main configuration file have changed. Everything is now located in one file called
-<code class="highlighter-rouge">config/passbolt.php</code>. Do not copy your v1 configuration files, instead you need to create a new one:</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>config/passbolt.default.php config/passbolt.php
-<span class="nv">$ </span>nano config/passbolt.php
-</code></pre></div>    </div>
-
-    <p>Even if the format has changed the information needed are pretty much the same than v1.
-You will need to set at least the following:</p>
-    <ul>
-      <li>Application full base url</li>
-      <li>Database configuration</li>
-      <li>Email settings</li>
-      <li>Server OpenPGP key fingerprint.</li>
-    </ul>
-
-    <p>You can also set your configuration using environment variables.
-Check <code class="highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
-
-    <h3 id="run-the-migration-script">8. Run the migration script</h3>
-
-    <p>The structure of the database changed in version 2. Make sure you run the following script to migrate your 
-data to the new format.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt_v2<span class="nv">$ </span>./bin/cake passbolt migrate
-</code></pre></div>    </div>
-
-    <p>Optionally you can also run the health check to see if everything is fine.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span> www-data
-</code></pre></div>    </div>
-
-    <h3 id="get-your-service-back-online">9. Get your service back online</h3>
-
-    <p>Edit your apache or nginx to point to the new directory and bring your service back online.</p>
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /etc/apache2/sites-enabled/001-default.conf
-<span class="nv">$ </span>service apache2 restart
-</code></pre></div>    </div>
+    <p>Any issue? Do contact us on the <a href="mailto:contact@passbolt.com">Passbolt Pro support</a> with the email provided during your purchase.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-March
-14th,
+April
+9th,
 2018.</p>
     </div>
 
@@ -365,36 +349,10 @@ March
   <div class="col4 last push1">
 
     <div class="message tldr notice">
-    <p>Are you experiencing issues when installing passbolt?</p>
-    
-    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
-    
-</div>
+    <p>Are you experiencing issues with Passbolt Pro?</p>
+    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
+    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
 
-    <div class="tldr">
-    <h4 class="visuallyhidden">Available on docker hub</h4>
-    <p>
-        <a href="https://hub.docker.com/r/passbolt/passbolt/" target="_blank" rel="noopener nofollow">
-            <img alt="Docker Logo" src="/assets/img/third_party/docker_small_h.png" style="" />
-        </a>
-    </p>
-    <a href="https://hub.docker.com/r/passbolt/passbolt/" class="primary button">
-        Get passbolt container!
-    </a>
-</div>
-
-    <div class="message tldr">
-    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
-    
-    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
-    
-</div>
-
-    <div class="message tldr notice">
-    <p>We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative.</p>
-    
-    <a href="https://letsencrypt.org/" class="button ">let's encrypt!</a>
-    
 </div>
 
   </div>
@@ -431,6 +389,6 @@ March
 <!-- End Piwik Code -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
-<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+<script src="http://localhost:4000/assets/js/greedynav.js"></script>
 </body>
 </html>

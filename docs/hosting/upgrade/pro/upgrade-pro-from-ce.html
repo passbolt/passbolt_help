@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Upgrade from CE v2.x to Pro on same server</title>
+    <title>Upgrade to Passbolt Pro</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -17,15 +17,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Upgrade from CE v2.x to Pro on same server" />
+    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Upgrade to Passbolt Pro" />
     <meta property="og:description" content="" />
 
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-ce-v2-to-pro-same-server">
-    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
+    <link rel="canonical" href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
 
 </head>
 <body>
@@ -72,7 +72,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-04-04-hosting-upgrade-ce-v2-to-pro-same-server.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-04-04-hosting-upgrade-pro-from-ce.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -91,29 +91,29 @@
         <li><h2>Hosting</h2></li>
         
         <li >
-            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+            <a href="http://localhost:4000/faq/hosting">Hosting FAQ</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+            <a href="http://localhost:4000/hosting/install">Installation</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/update">Update</a>
+            <a href="http://localhost:4000/hosting/update">Update</a>
         </li>
         
         
         <li class="selected">
-            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+            <a href="http://localhost:4000/hosting/upgrade">Upgrade</a>
         </li>
         
             
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+            <a href="http://localhost:4000/hosting/backup">Backup</a>
         </li>
         
         
@@ -153,12 +153,12 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                        <a href="http://localhost:4000/hosting"><span>hosting</span></a>
                     </div>
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
+                        <a href="http://localhost:4000/hosting/upgrade"><span>upgrade</span></a>
                     </div>
                 </li>
                 
@@ -166,7 +166,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-ce-v2-to-pro-same-server.html"><span>upgrade-ce-v2-to-pro-same-server</span></a>
+                        <a href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html"><span>upgrade-pro-from-ce</span></a>
                     </div>
                 </li>
                 
@@ -177,21 +177,56 @@
 
                     <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Upgrade from CE v2.x to Pro on same server</h1>
+<h1>Upgrade to Passbolt Pro</h1>
 </div>
 </div>
 
                     <div class="row">
   <div class="col7">
 
-    <h2 id="coming-soon">COMING SOON</h2>
+    <h2 id="system-requirements">System requirements</h2>
+    <ul>
+      <li>Apache or Nginx</li>
+      <li>HTTPS</li>
+      <li>PHP &gt;= 7.0.0</li>
+      <li>Mysql &gt;= 5.5.59</li>
+      <li>Composer</li>
+      <li>GnuPG for PHP: for key verification and authentication.</li>
+      <li>PHP extensions (that may or may not come by default):
+        <ul>
+          <li>Cakephp default requirements: Intl, mbstring, simplexml</li>
+          <li>Image manipulation: gd or imagick</li>
+          <li>Database: Mysqlnd, pdo, pdo_mysql</li>
+          <li>Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.</li>
+        </ul>
+      </li>
+      <li>&amp; more depending on your configuration (for example if you want to use memcache for sessions).</li>
+    </ul>
+
+    <h2 id="upgrade-passbolt-ce-to-passbolt-pro">Upgrade Passbolt CE to Passbolt Pro</h2>
+
+    <p>There are two ways you can upgrade your Passbolt Community Edition (CE) to Passbolt Pro.</p>
+
+    <h3 id="upgrade-on-the-same-server">1. Upgrade on the same server</h3>
+    <p>If the server running Passbolt CE matches the requirements listed above, you can upgrade to Passbolt Pro on the same server.
+If it doesn’t match, you can also upgrade your distribution packages. The main missing dependency is usually PHP7. (In Debian, using dotdeb replacements work like a charm).</p>
+
+    <ul>
+      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server">Upgrade CE v1.x to Pro on the same server</a></li>
+      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v2">Upgrade CE v2.x to Pro</a></li>
+    </ul>
+
+    <h3 id="upgrade-on-a-new-server">2. Upgrade on a new server</h3>
+    <p>If the server running Passbolt CE doesn’t and cannot match the requirements listed above, you will need a new server to upgrade to Passbolt Pro.</p>
+
+    <p>This documentation is coming soon.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-March
-20th,
-2017.</p>
+April
+9th,
+2018.</p>
     </div>
 
   </div>
@@ -238,6 +273,6 @@ March
 <!-- End Piwik Code -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
-<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+<script src="http://localhost:4000/assets/js/greedynav.js"></script>
 </body>
 </html>

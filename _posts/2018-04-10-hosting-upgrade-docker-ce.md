@@ -145,7 +145,7 @@ $ docker run --name passbolt --net passbolt_network \
              -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
              -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.0-debian
+             passbolt/passbolt:2.0.1-debian
 ```
 
 ### Using docker volumes
@@ -163,7 +163,7 @@ $ docker run --name passbolt --net passbolt_network \
              -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
              -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.0-debian
+             passbolt/passbolt:2.0.1-debian
 ```
 
 {% include updated.html %}

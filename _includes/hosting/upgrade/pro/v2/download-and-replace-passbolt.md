@@ -8,5 +8,5 @@ Replace the previous passbolt by the new version.
 
 ```shell
 /var/www$ mv ./passbolt ./passbolt_old
-/var/www$ git clone https://bitbucket.org/passbolt_pro/passbolt_pro_api.git ./passbolt
+/var/www$ git clone {{ include.repo_url }} ./passbolt
 ```

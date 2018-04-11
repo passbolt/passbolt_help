@@ -37,7 +37,9 @@ directory. You will need to replace these values with your local environment set
 {% include hosting/upgrade/take-your-site-offline.md %}
 
 ### 3. Download Passbolt Pro
-{% include hosting/upgrade/pro/v2/download-and-replace-passbolt.md %}
+{% include hosting/upgrade/pro/v2/download-and-replace-passbolt.md 
+    repo_url="https://bitbucket.org/passbolt_pro/passbolt_pro_api.git"
+%}
 
 ### 4. Install the dependencies
 {% include hosting/install/install-composer-dependencies.md %}

@@ -283,9 +283,22 @@ If you are using docker volumes to persist your images directory, or not persist
 
     <p>This will output a gpg_keys_backup directory with the contents of the gpg configuration folder of passbolt.</p>
 
+    <h2 id="getting-passbolt-container">Getting passbolt container</h2>
+
+    <p>Passbolt containers follow the following tagging:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;version_number&gt;-&lt;build_number&gt;-debian
+</code></pre></div>    </div>
+
+    <p>Nobody is perfect so we also provide a  <em>latest</em> tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions.</p>
+
+    <p>Get passbolt  2.0.1 docker container:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull passbolt/passbolt:2.0.1-debian
+</code></pre></div>    </div>
+
     <h2 id="upgrade-using-latest-v1-version-1610">Upgrade using latest v1 version (1.6.10)</h2>
 
-    <p>Passbolt v2 will run the database migrations if needed when starting up. Users just need to provide the gpg keys, configuration files/env variables and images.
+    <p>Passbolt  v2 will run the database migrations if needed when starting up. Users just need to provide the gpg keys, configuration files/env variables and images.
 Following some examples:</p>
 
     <h3 id="using-host-bind-mounts">Using host bind mounts</h3>

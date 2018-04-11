@@ -558,6 +558,18 @@
 "content": "System requirements Spin up a new fresh server with Debian 9 (Stretch). Make sure that it is up-to-date. Installation steps 1. Base packages No need to install any particular package such as the webserver (apache) during the setup. Let’s stick to the bare minimum for now, as we will do the rest manually. Since we will need administrator privileges to perform most of the steps, you could either setup sudo for your default user, or log in the terminal as root. sudo bash We can install some basic utilities: Git, composer, unzip, make, the linux kernel headers and a compiler, as will all be needed later on. $ apt-get install make git-core composer unzip g++ linux-headers-amd64 -y 2. Database installation Once the installation is complete and you are logged in, open a terminal. We can start by installing the database server. We will use mariadb here, but you could also...",
 "url": "https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html"
 },
+"hosting-upgrade-pro-upgrade-pro-from-ce-v2-docker-html": {
+"title": "Upgrade from CE v2 to Pro using docker",
+"category": "",
+"content": "This tutorial covers the case where you want to upgrade from your passbolt CE v2.x into Passbolt Pro when using docker. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. In order to upgrade from v2 CE to Pro users just need to download the pro container and mount their corresponding subscription key. Getting passbolt container Passbolt containers follow the following tagging: &lt;version_number&gt;-&lt;build_number&gt;-pro-debian Nobody is perfect so we also provide a latest tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions. Get passbolt Pro 2.0.1 docker container: $ docker pull passbolt/passbolt:2.0.1-pro-debian Using host bind mounts Users that use host bind mounts from host machine into docker file must adjust paths of the mounted files: In the following snippet: passbolt_images_dir: path to a host directory that contains...",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html"
+},
+"hosting-upgrade-pro-upgrade-pro-from-ce-v1-docker-html": {
+"title": "Upgrade from CE v1 to Pro using docker",
+"category": "",
+"content": "This tutorial covers the case where you want to upgrade from your passbolt CE v1.x into Passbolt Pro when using docker. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. The upgrading process is very similar to the one listed in the ce section. The main difference is that Passbolt Pro requires a subscription key towork. Upgrade from v1.6.10-debian Passbolt v2 introduces several changes that are important to keep in mind when upgrading: Changes: Environment variables The set of environment variables have changed and users should take some time to get familiar with the new ones. For example in case of the database env variables: DB_USER is now DATASOURCES_DEFAULT_USERNAMEDB_HOST is now DATASOURCES_DEFAULT_HOST There is a more detailed list in passbolt_docker README file. Changes: Configuration files No more core.php, email.php or database.php.Any user that does not...",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker.html"
+},
 "hosting-upgrade-pro-upgrade-pro-from-ce-html": {
 "title": "Upgrade to Passbolt Pro",
 "category": "",

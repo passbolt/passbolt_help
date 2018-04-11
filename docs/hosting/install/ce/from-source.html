@@ -184,6 +184,17 @@
                     <div class="row">
   <div class="col7">
 
+    <h2 id="introduction">Introduction</h2>
+    <p>This tutorial is distribution agnostic. It details the installation steps at a high level, without
+taking into account the specifics related to each and every linux distribution.</p>
+
+    <p>For system specific step by step guide, you can refer to the following documentation:</p>
+    <ul>
+      <li><a href="/hosting/install/ce/debian-9-stretch.html">Debian 9 “Stretch” step by step guide</a></li>
+      <li>Centos 7 (coming soon)</li>
+      <li>Ubuntu 16.04.4 LTS (coming soon)</li>
+    </ul>
+
     <h2 id="system-requirements">System requirements</h2>
 
     <p>Passbolt is reported to work on a large variety of operating system configurations. 
@@ -246,8 +257,7 @@ mysql&gt; <span class="nb">exit</span><span class="p">;</span>
     <p>Cloning the code using git will allow you to keep the source under version control and facilitate
 subsequent updates.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>git clone git@github.com:passbolt/passbolt_api.git
-/var/www/passbolt_api<span class="nv">$ </span>git fetch <span class="o">&amp;&amp;</span> git checkout develop
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>git clone https://github.com/passbolt/passbolt_api.git
 </code></pre></div>    </div>
 
     <h3 id="generate-an-openpgp-key">4. Generate an OpenPGP key</h3>
@@ -260,7 +270,7 @@ php module.</p>
 </code></pre></div>    </div>
 
     <p>After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
-You can get the server key fringerprint as follow:</p>
+You can get the server key fingerprint as follow:</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--list-keys</span> <span class="nt">--fingerprint</span> | <span class="nb">grep</span> <span class="nt">-i</span> <span class="nt">-B</span> 2 <span class="s1">'SERVER_KEY@EMAIL.TEST'</span>
 </code></pre></div>    </div>
@@ -336,7 +346,7 @@ Check <code class="highlighter-rouge">config/default.php</code> to get the names
 
     <p>You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt_api/bin/cake EmailQueue.sender <span class="o">&gt;</span> /var/log/passbolt.log
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt_api/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>And you are done!</p>
@@ -617,6 +627,12 @@ April
     
 </div>
 
+    <div class="message tldr notice">
+    <p><strong>Don't want the hassle of a manual installation?</strong> Passbolt Pro comes with out of the box install scripts and a ready-to-use VM.</p>
+    <a href="https://www.passbolt.com/pricing/pro" class="button primary">Get Passbolt Pro</a>
+
+</div>
+
   </div>
 </div>
 
@@ -634,7 +650,21 @@ April
         </div>
     </footer>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>

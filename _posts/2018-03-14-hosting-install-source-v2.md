@@ -16,6 +16,15 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+## Introduction
+This tutorial is distribution agnostic. It details the installation steps at a high level, without
+taking into account the specifics related to each and every linux distribution.
+
+For system specific step by step guide, you can refer to the following documentation:
+- [Debian 9 "Stretch" step by step guide](/hosting/install/ce/debian-9-stretch.html)
+- Centos 7 (coming soon)
+- Ubuntu 16.04.4 LTS (coming soon)
+
 ## System requirements
 
 {% include hosting/v2-requirements.md %}
@@ -51,8 +60,7 @@ Cloning the code using git will allow you to keep the source under version contr
 subsequent updates.
 
 ```shell
-/var/www$ git clone git@github.com:passbolt/passbolt_api.git
-/var/www/passbolt_api$ git fetch && git checkout develop
+/var/www$ git clone https://github.com/passbolt/passbolt_api.git
 ```
 
 ### 4. Generate an OpenPGP key
@@ -66,7 +74,7 @@ $ gpg --gen-key
 ```
 
 After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
-You can get the server key fringerprint as follow:
+You can get the server key fingerprint as follow:
 
 ```shell
 $ gpg --list-keys --fingerprint | grep -i -B 2 'SERVER_KEY@EMAIL.TEST'
@@ -149,7 +157,7 @@ $ ./bin/cake EmailQueue.sender
 You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:
 ```bash
- * * * * * /var/www/passbolt_api/bin/cake EmailQueue.sender > /var/log/passbolt.log
+ * * * * * /var/www/passbolt_api/bin/cake EmailQueue.sender >> /var/log/passbolt.log
 ```
 
 And you are done!
@@ -181,5 +189,7 @@ Feel free to ask for help on the [community forum](https://community.passbolt.co
     link="https://www.github.com/passbolt/passbolt_help"
     ask="View on github"
 %}
+
+{% include aside/ce-install-pro-cta.html %}
 
 {% include layout/row_end.html %}

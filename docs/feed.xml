@@ -1,5 +1,695 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-04-09T22:56:31+02:00</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install passbolt API from source</title><link href="https://help.passbolt.com/hosting/install/ce/from-source.html" rel="alternate" type="text/html" title="Install passbolt API from source" /><published>2018-04-09T02:00:00+02:00</published><updated>2018-04-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/from-source.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-04-11T11:27:36+02:00</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install passbolt from scratch on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install passbolt from scratch on Debian 9 (Stretch)" /><published>2018-04-09T02:00:00+02:00</published><updated>2018-04-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
+
+    &lt;p&gt;Spin up a new fresh server with Debian 9 (Stretch). Make sure that it is up-to-date.&lt;/p&gt;
+
+    &lt;h2 id=&quot;installation-steps&quot;&gt;Installation steps&lt;/h2&gt;
+
+    &lt;h3 id=&quot;base-packages&quot;&gt;1. Base packages&lt;/h3&gt;
+    &lt;p&gt;No need to install any particular package such as the webserver (apache) during the setup. Let’s stick to the bare minimum for now, as we will do the rest manually.&lt;/p&gt;
+
+    &lt;p&gt;Since we will need administrator privileges to perform most of the steps, you could either setup sudo for your default user, or log in the terminal as root.&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;bash
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;We can install some basic utilities: Git, composer, unzip, make, the linux kernel headers and a compiler, as will all be needed later on.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;make git-core composer unzip g++ linux-headers-amd64 &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;database-installation&quot;&gt;2. Database installation&lt;/h3&gt;
+    &lt;p&gt;Once the installation is complete and you are logged in, open a terminal. We can start by installing the database server. We will use mariadb here, but you could also use mysql.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;mariadb-server &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;By default, MariaDB / MySQL is installed with basic security, and no root password. Let’s fix this.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mysql_secure_installation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Answer the questions and set a strong root password.&lt;/p&gt;
+
+    &lt;p&gt;Let’s now create a specific passbolt user and database.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;
+mysql &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; create database passbolt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+mysql &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; create user passbolt&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+mysql &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; grant all on passbolt.&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; to &lt;span class=&quot;s1&quot;&gt;'passbolt'&lt;/span&gt;@&lt;span class=&quot;s1&quot;&gt;'localhost'&lt;/span&gt; identified by &lt;span class=&quot;s1&quot;&gt;'strong_db_password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+mysql &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; flush privileges&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+mysql &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; quit&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;webserver-installation-apache2&quot;&gt;3. Webserver installation (apache2)&lt;/h3&gt;
+    &lt;p&gt;Next we will want to install the apache webserver that will serve our php application.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;apache2 &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Passbolt needs the mod_rewrite module to function properly.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;a2enmod rewrite
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;We can see if this worked by opening up the web browser and going to the url: http://localhost (or whatever hostname / ip used by your machine). 
+By default apache stores the web pages in /var/www/html so we can see and edit the default html page in this directory if needed.&lt;/p&gt;
+
+    &lt;h3 id=&quot;php-installation&quot;&gt;4. PHP installation&lt;/h3&gt;
+    &lt;p&gt;Now let’s install php 7 and its dependencies. By default the command line interface (php5-cli) and the apache mod for php (libapache2-mod-php5) will be also installed as dependencies. We will need them later on.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;php7.0 php7.0-cli php7.0-common libapache2-mod-php7.0 php7.0-json php7.0-readline php7.0-mysqlnd libonig4 libqdbm14 &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Passbolt needs some extra dependencies to run properly:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;php7.0-gd php7.0-intl php7.0-simplexml php7.0-curl php7.0-dom php7.0-mbstring &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Passbolt needs GnuPG and it corresponding php module to run.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;libgpgme11-dev php7.0-gnupg &lt;span class=&quot;nt&quot;&gt;-y&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You will need to restart your apache server for the changes to take place.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;systemctl restart apache2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;virtual-host-config&quot;&gt;5. Virtual host config&lt;/h3&gt;
+    &lt;p&gt;For apache to work with passbolt we need to edit the virtual host configuration file to add the passbolt folder and rewrite rules.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/apache2/sites-enabled/000-default.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;This is what a minimal configuration without ssl looks like (we’ll get to the ssl part later). Of course you will need to replace your administrator email address (ServerAdmin setting) and server name (ServerName setting).&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;VirtualHost *:80&amp;gt;
+    ServerAdmin webmaster@localhost
+    ServerName passbolt.dev
+
+    DocumentRoot /var/www/passbolt
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    &amp;lt;Directory /var/www/passbolt&amp;gt;
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+    &amp;lt;/Directory&amp;gt;
+&amp;lt;/VirtualHost&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;domain-name-setup&quot;&gt;6. Domain name setup&lt;/h3&gt;
+    &lt;p&gt;For the sake of keeping this demonstration short we will use passbolt.dev as domain name
+(we added the IP to domain name mapping with a manual entry in the /etc/hosts file after a quick lookup on ifconfig).&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/hosts
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Add this line to the file&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;127.0.0.1 passbolt.dev
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Of course, replace 127.0.0.1 by whichever ip is used by your host.&lt;/p&gt;
+
+    &lt;h3 id=&quot;download-passbolt&quot;&gt;7. Download passbolt&lt;/h3&gt;
+
+    &lt;p&gt;In the virtual host configuration file we are pointing to /var/www/passbolt but obviously it does not exist yet! 
+Let’s create it, by cloning passbolt official repository. This way we can pull new releases easily in the future.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/passbolt/passbolt_api.git ./passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;generate-an-openpgp-key&quot;&gt;8. Generate an OpenPGP key&lt;/h3&gt;
+    &lt;p&gt;Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Running gpg –gen-key on a virtual machine can take a while because /dev/random does not have enough “randomness” aka entropy. You can speed up the gpg key creation with the &lt;strong&gt;haveged&lt;/strong&gt; package to improve the entropy generation : &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install haveged -y&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;Now generate an OpenPGP key&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Important: Currently php-gnupg does not support keys with a passphrase so you will need to leave that field empty.&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg &lt;span class=&quot;nt&quot;&gt;--gen-key&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; if you do not run this command as www-data the result will be stored in /root/.gnupg. Thankfully passbolt does import the keys at runtime into the www-data keyring if it is not already present.&lt;/p&gt;
+
+    &lt;p&gt;It’s a good idea to fill in the details properly and not press enter frantically. Make sure you have decent name and email for the key. This will come in handy to identify and verify it down the line.&lt;/p&gt;
+
+    &lt;p&gt;After creating the key &lt;strong&gt;make sure you note down the fingerprint&lt;/strong&gt;, it will be requested later in the install process.
+You can get the server key fingerprint as follows:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg &lt;span class=&quot;nt&quot;&gt;--list-keys&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--fingerprint&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt; 2 &lt;span class=&quot;s1&quot;&gt;'SERVER_KEY@EMAIL.TEST'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Copy the public and private keys to the passbolt config location:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export-secret-keys&lt;/span&gt; SERVER_KEY@EMAIL.TEST &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /var/www/passbolt/config/gpg/serverkey_private.asc
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export&lt;/span&gt; SERVER_KEY@EMAIL.TEST &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /var/www/passbolt/config/gpg/serverkey.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;We don’t want those keys to be readable by anyone, except the webserver.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;640 /var/www/passbolt/config/gpg/serverkey&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;initialize-the-gpg-keyring&quot;&gt;9. Initialize the gpg keyring&lt;/h3&gt;
+    &lt;p&gt;In order for passbolt authentication to work your server key needs to be in the keyring used by the web server.
+It is likely that there is none, so you can create one by interacting with gpg with the web server user&lt;/p&gt;
+
+    &lt;p&gt;In debian 9, the home directory of the www-data user is /var/www. We need to give ownership of this folder to www-data, since it is not there by default.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;www-data:www-data /var/www
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Now we create the keyring for the webserver:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;gpg --list-keys&quot;&lt;/span&gt; www-data
+gpg: directory &lt;span class=&quot;s1&quot;&gt;'/var/www/.gnupg'&lt;/span&gt; created
+gpg: keybox &lt;span class=&quot;s1&quot;&gt;'/var/www/.gnupg/pubring.kbx'&lt;/span&gt; created
+gpg: /var/www/.gnupg/trustdb.gpg: trustdb created
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;set-passbolt-file-permissions&quot;&gt;9. Set passbolt file permissions&lt;/h3&gt;
+    &lt;p&gt;We need to set the right permissions on the passbolt files. It should belong to the same owner as the webserver.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt;  www-data:www-data /var/www/passbolt
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; For the following steps, we’ll also need to use the same user as the one running the webserver. In our case (apache), it is www-data.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;install-the-dependencies&quot;&gt;10. Install the dependencies&lt;/h3&gt;
+
+    &lt;p&gt;The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
+in the code on the official repository. Fret not, composer will manage this for us.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;create-a-passbolt-configuration-file&quot;&gt;11. Create a passbolt configuration file&lt;/h3&gt;
+
+    &lt;p&gt;Everything is located in one configuration file called
+&lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;config/passbolt.default.php config/passbolt.php
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano config/passbolt.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You will need to set at least the following:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Application full base url&lt;/li&gt;
+      &lt;li&gt;Database configuration&lt;/li&gt;
+      &lt;li&gt;Server OpenPGP key fingerprint (you noted it down before)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Ignore the email configuration for now. We will take care of it later.&lt;/p&gt;
+
+    &lt;p&gt;For now, we will also deactivate the force_ssl parameter for the sake of having a functional passbolt
+quickly. We’ll activate ssl later.&lt;/p&gt;
+
+    &lt;p&gt;The sections of your configuration file should look similar to this:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;return [
+    'App' =&amp;gt; [
+        'fullBaseUrl' =&amp;gt; 'http://passbolt.dev',
+    ],
+
+    // Database configuration.
+    'Datasources' =&amp;gt; [
+        'default' =&amp;gt; [
+            'host' =&amp;gt; 'localhost',
+            'username' =&amp;gt; 'passbolt',
+            'password' =&amp;gt; 'your_password',
+            'database' =&amp;gt; 'passbolt',
+        ],
+    ],
+    'passbolt' =&amp;gt; [
+        'ssl' =&amp;gt; [
+            'force' =&amp;gt; false,
+        ],
+        'gpg' =&amp;gt; [ 
+            // Main server key.
+            'serverKey' =&amp;gt; [
+                // Server private key fingerprint.
+                'fingerprint' =&amp;gt; '1C765F5273EC9AF56300BC6F6C76DA6B9F23C8BB',
+                //'public' =&amp;gt; CONFIG . 'gpg' . DS . 'serverkey.asc',
+                //'private' =&amp;gt; CONFIG . 'gpg' . DS . 'serverkey_private.asc',
+            ],
+        ],
+    ],
+]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can also set your configuration using environment variables.
+Check &lt;code class=&quot;highlighter-rouge&quot;&gt;config/default.php&lt;/code&gt; to get the names of the environment variables.&lt;/p&gt;
+
+    &lt;h3 id=&quot;run-the-install-script&quot;&gt;12. Run the install script&lt;/h3&gt;
+
+    &lt;p&gt;Let’s install passbolt tables and data in the database.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake passbolt &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;The install script will ask you to create an admin user. Enter your first name, last name and email. In return, the script will
+provide you with an activation link that you will user later to activate and configure your user. You can go to this url now or later, but we
+recommend that you configure SSL before.&lt;/p&gt;
+
+    &lt;p&gt;Optionally you can also run the health check to see if everything is fine.&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake passbolt healthcheck
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You should see a majority of green ok. However, some SSL related alerts should still appear.&lt;/p&gt;
+
+    &lt;p&gt;At this stage, passbolt is running as it should, but https is still missing. It is strongly recommended
+that you configure https before using passbolt.&lt;/p&gt;
+
+    &lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
+
+    &lt;h3 id=&quot;setup-the-emails&quot;&gt;1. Setup the emails&lt;/h3&gt;
+
+    &lt;p&gt;For passbolt to be able to send emails, you must first configure properly the “EmailTransport” and “Email” section in the 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt; file to match your provider smtp details.&lt;/p&gt;
+
+    &lt;p&gt;To send a test email and debug your smtp settings, you can use the following command:&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake passbolt send_test_email
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;When an email is sent, it is first placed in a queue that needs to be processed by the following shell.&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake EmailQueue.sender
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;In order to have your emails sent automatically, you can add a cron call to the script so the emails will be sent every minute. 
+Add the following line to you crontab:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; su &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/passbolt/bin/cake EmailQueue.sender &amp;gt;&amp;gt; /var/log/passbolt.log&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;configure-https&quot;&gt;2. Configure https&lt;/h3&gt;
+    &lt;p&gt;It is recommended to use https with passbolt (and, well, pretty much &lt;a href=&quot;everything&quot;&gt;https://www.eff.org/encrypt-the-web&lt;/a&gt;). 
+To setup SSL we need a certificate. Here for the sake of brevity we will create a self-signed certificate. 
+Of course you are free to use a &lt;a href=&quot;proper free certificate&quot;&gt;https://letsencrypt.org/getting-started/&lt;/a&gt; and tidy up the server supported cypher suites.&lt;/p&gt;
+
+    &lt;p&gt;In the following steps, we’ll generate a self signed certificate and configure nginx and passbolt to use https.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;2.1 Generate the self signed certificate&lt;/strong&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;openssl req &lt;span class=&quot;nt&quot;&gt;-new&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-newkey&lt;/span&gt; rsa:4096 &lt;span class=&quot;nt&quot;&gt;-days&lt;/span&gt; 365 &lt;span class=&quot;nt&quot;&gt;-nodes&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x509&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-subj&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/C=FR/ST=Denial/L=Springfield/O=Dis/CN=passbolt.dev&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-keyout&lt;/span&gt; /etc/ssl/certs/passbolt.key &lt;span class=&quot;nt&quot;&gt;-out&lt;/span&gt; /etc/ssl/certs/passbolt.crt
+Generating a 4096 bit RSA private key
+................++
+...++
+writing new private key to &lt;span class=&quot;s1&quot;&gt;'/etc/ssl/certs/passbolt.key'&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;-----&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;2.2 Make sure the certificate is readable by apache&lt;/strong&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;root:www-data /etc/ssl/certs/passbolt.crt
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chown &lt;/span&gt;root:www-data /etc/ssl/certs/passbolt.key
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;640 /etc/ssl/certs/passbolt.crt
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;640 /etc/ssl/certs/passbolt.key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;2.3 Enable SSL apache module and site&lt;/strong&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;a2enmod ssl
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;a2enmod headers
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;a2ensite default-ssl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;2.4 Configure virtual host&lt;/strong&gt;
+Let’s add the rewrite and SSL rules and certificates.&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/apache2/sites-enabled/default-ssl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Your file should look like this:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;IfModule mod_ssl.c&amp;gt;
+    &amp;lt;VirtualHost _default_:443&amp;gt;
+        ServerAdmin webmaster@localhost
+        ServerName passbolt.dev
+
+        DocumentRoot /var/www/passbolt
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        SSLEngine on
+        SSLCertificateFile /etc/ssl/certs/passbolt.crt
+        SSLCertificateKeyFile /etc/ssl/certs/passbolt.key
+ 
+        &amp;lt;Directory /var/www/passbolt&amp;gt;
+            Options FollowSymLinks
+            AllowOverride All
+            Require all granted
+        &amp;lt;/Directory&amp;gt;
+    
+        &amp;lt;FilesMatch “\.(php)$”&amp;gt;
+            SSLOptions +StdEnvVars
+        &amp;lt;/FilesMatch&amp;gt;
+
+        BrowserMatch “MSIE [2–6]” \
+          nokeepalive ssl-unclean-shutdown \
+          downgrade-1.0 force-response-1.0
+        BrowserMatch “MSIE [17–9]” ssl-unclean-shutdown
+
+    &amp;lt;/VirtualHost&amp;gt;
+&amp;lt;/IfModule&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;&lt;strong&gt;2.5 Restart Apache&lt;/strong&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;systemctl reload apache2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;2.6 Force SSL&lt;/strong&gt;
+We’ll need to change the passbolt configuration to make him use https instead of http,
+and force the redirection to https:&lt;/p&gt;
+
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /var/www/passbolt/config/passbolt.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Set fullBaseUrl to https&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'App' =&amp;gt; [
+    'fullBaseUrl' =&amp;gt; 'https://passbolt.dev',
+],
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Set ssl.force config parameter to true, instead of false. You can also remove the line as it will be set to true by default.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'ssl' =&amp;gt; [
+    'force' =&amp;gt; true,
+],
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;That’s it! Passbolt is now ready to be used with https.&lt;/p&gt;
+
+    &lt;p&gt;If you have already done the setup of your user, you will notice that passbolt tells you that the plugin is not configured to work with this domain. This is normal since it was already configured to work with http, and not https.&lt;/p&gt;
+
+    &lt;p&gt;That’s not an issue, you can fix this easily by clicking on “recover an existing account”&lt;/p&gt;
+
+    &lt;h2 id=&quot;thats-it&quot;&gt;That’s it&lt;/h2&gt;
+    &lt;p&gt;Do let us know if you run into problems following this tutorial on the &lt;a href=&quot;support forum&quot;&gt;https://community.passbolt.com/c/installation-issues&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Thank you for trying out Passbolt CE!&lt;/p&gt;
+
+    &lt;h3 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h3&gt;
+
+    &lt;p&gt;Here are some frequently asked questions related to passbolt installation:&lt;/p&gt;
+    &lt;ul&gt;
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+        
+            
+                
+    &lt;li&gt;
+        &lt;a href=&quot;/faq/hosting/why-unsafe&quot;&gt;Why do I see an unsafe mode banner in the footer?&lt;/a&gt;
+    &lt;/li&gt;
+                
+            
+        
+    
+    
+    
+        
+            
+                
+    &lt;li&gt;
+        &lt;a href=&quot;/faq/hosting/why-email-not-sent&quot;&gt;Why are my emails not being sent?&lt;/a&gt;
+    &lt;/li&gt;
+                
+            
+        
+    
+    
+    
+    
+    
+        
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+&lt;/ul&gt;
+
+    &lt;p&gt;Feel free to ask for help on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+April
+9th,
+2018.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with out of the box install scripts and a ready-to-use VM.&lt;/p&gt;
+    &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt API from source</title><link href="https://help.passbolt.com/hosting/install/ce/from-source.html" rel="alternate" type="text/html" title="Install passbolt API from source" /><published>2018-04-09T02:00:00+02:00</published><updated>2018-04-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/from-source.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;This tutorial is distribution agnostic. It details the installation steps at a high level, without
+taking into account the specifics related to each and every linux distribution.&lt;/p&gt;
+
+    &lt;p&gt;For system specific step by step guide, you can refer to the following documentation:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/hosting/install/ce/debian-9-stretch.html&quot;&gt;Debian 9 “Stretch” step by step guide&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Centos 7 (coming soon)&lt;/li&gt;
+      &lt;li&gt;Ubuntu 16.04.4 LTS (coming soon)&lt;/li&gt;
+    &lt;/ul&gt;
 
     &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
 
@@ -63,8 +753,7 @@ mysql&amp;gt; &lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;&lt;span class=&
     &lt;p&gt;Cloning the code using git will allow you to keep the source under version control and facilitate
 subsequent updates.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone git@github.com:passbolt/passbolt_api.git
-/var/www/passbolt_api&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; git checkout develop
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone https://github.com/passbolt/passbolt_api.git
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;generate-an-openpgp-key&quot;&gt;4. Generate an OpenPGP key&lt;/h3&gt;
@@ -77,7 +766,7 @@ php module.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
-You can get the server key fringerprint as follow:&lt;/p&gt;
+You can get the server key fingerprint as follow:&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gpg &lt;span class=&quot;nt&quot;&gt;--list-keys&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--fingerprint&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt; 2 &lt;span class=&quot;s1&quot;&gt;'SERVER_KEY@EMAIL.TEST'&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -153,7 +842,7 @@ Check &lt;code class=&quot;highlighter-rouge&quot;&gt;config/default.php&lt;/cod
 
     &lt;p&gt;You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; /var/www/passbolt_api/bin/cake EmailQueue.sender &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /var/log/passbolt.log
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; /var/www/passbolt_api/bin/cake EmailQueue.sender &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /var/log/passbolt.log
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;And you are done!&lt;/p&gt;
@@ -432,6 +1121,12 @@ April
     
     &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
     
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with out of the box install scripts and a ready-to-use VM.&lt;/p&gt;
+    &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
+
 &lt;/div&gt;
 
   &lt;/div&gt;
@@ -1280,122 +1975,6 @@ March
     
     &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
     
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Installation with install scripts</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Installation with install scripts" /><published>2017-03-20T01:00:00+01:00</published><updated>2017-03-20T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;The install scripts are shell scripts that are designed to do the heavy lifting for you. They will configure your
-operating system to be passbolt ready and will take care of the web server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
-
-    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
-    &lt;p&gt;The install scripts will work on any of these servers:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Debian 9 (Etch)&lt;/li&gt;
-      &lt;li&gt;CentOS 7&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;server-configuration-steps&quot;&gt;Server configuration steps&lt;/h2&gt;
-    &lt;h3 id=&quot;create-a-web-server-matching-the-requirements&quot;&gt;1. Create a web server matching the requirements.&lt;/h3&gt;
-    &lt;p&gt;Spin up a new fresh server with one of the supported linux distributions (Debian 9 or CentOS 7). You can do this on a bare-metal server, on a virtual machine or a container (docker).
-In this tutorial, we are using a the official Debian 9 image on Vagrant.&lt;/p&gt;
-
-    &lt;h3 id=&quot;download-the-installation-script&quot;&gt;2. Download the installation script&lt;/h3&gt;
-    &lt;p&gt;You can download the installation scripts from these respective urls:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Debian 9: &lt;a href=&quot;https://www.passbolt.com/pro/download/installers/debian/latest&quot;&gt;https://www.passbolt.com/pro/download/installers/debian/latest&lt;/a&gt; (&lt;a href=&quot;https://www.passbolt.com/pro/download/installers/debian/latest-checksum&quot;&gt;Checksum&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Centos 7: &lt;a href=&quot;https://www.passbolt.com/pro/download/installers/centos/latest&quot;&gt;https://www.passbolt.com/pro/download/installers/centos/latest&lt;/a&gt; (&lt;a href=&quot;https://www.passbolt.com/pro/download/installers/centos/latest-checksum&quot;&gt;Checksum&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; ./passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;figure&gt;
-    &lt;img src=&quot;/assets/img/help/2018/04/download-install-script.png&quot; alt=&quot;download the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. download the install script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;execute-the-installation-script&quot;&gt;3. Execute the installation script&lt;/h3&gt;
-    &lt;p&gt;First, unpack it:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar zxvf ./passbolt-pro-installer-debian-9.tar.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Then, execute it:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./passbolt_pro_debian_installer.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;figure&gt;
-    &lt;img src=&quot;/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;answer-the-questions&quot;&gt;4. Answer the questions&lt;/h3&gt;
-    &lt;p&gt;The install script will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Do you want to install a local mariadb server on this machine?&lt;/strong&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Hostname&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
-the address (domain, hostname or ip) at which you are planning to access your passbolt after installation&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;SSL Setup&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option 
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;strong&gt;GnuPG entropy&lt;/strong&gt;
-On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system. 
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
-
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
-
-    &lt;p&gt;At the end, the install script will confirm you that the environment has been configured and will ask you to point your browser to 
-the hostname or ip address previously entered.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;your-server-is-now-ready-to-run-passbolt&quot;&gt;Your server is now ready to run passbolt&lt;/h2&gt;
-
-    &lt;p&gt;The next step is to configure passbolt. You can do this quite easily with the configuration wizard.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/hosting/install/wizard&quot; class=&quot;button primary&quot;&gt;Configure passbolt with the wizard&lt;/a&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-March
-20th,
-2017.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
 &lt;/div&gt;
 
   &lt;/div&gt;

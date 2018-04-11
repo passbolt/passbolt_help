@@ -540,10 +540,16 @@
 "content": "Upcoming new funtionalities are advertised on the roadmap.Passbolt users can propose and upvote for new ideas on the community forum.The more financial contributors (and supporters in general) the quicker we can develop new functionalities.Security vulnerabilities and bugs fixes are to be given a higher priority than new features.Core libraries and framework maintenance upgrade also need to be dealt with proactively.",
 "url": "https://help.passbolt.com/faq/discover/feature-priority"
 },
+"hosting-install-ce-debian-9-stretch-html": {
+"title": "Install passbolt from scratch on Debian 9 (Stretch)",
+"category": "",
+"content": "System requirements Spin up a new fresh server with Debian 9 (Stretch). Make sure that it is up-to-date. Installation steps 1. Base packages No need to install any particular package such as the webserver (apache) during the setup. Let’s stick to the bare minimum for now, as we will do the rest manually. Since we will need administrator privileges to perform most of the steps, you could either setup sudo for your default user, or log in the terminal as root. sudo bash We can install some basic utilities: Git, composer, unzip, make, the linux kernel headers and a compiler, as will all be needed later on. $ apt-get install make git-core composer unzip g++ linux-headers-amd64 -y 2. Database installation Once the installation is complete and you are logged in, open a terminal. We can start by installing the database server. We will use mariadb here, but you could also...",
+"url": "https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html"
+},
 "hosting-install-ce-from-source-html": {
 "title": "Install passbolt API from source",
 "category": "",
-"content": "System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following PHP extensions (that may or may not come by default): PHP-GNUPG: for key verification and authentication. Cakephp default requirements: Intl, mbstring, simplexml Image manipulation: gd or imagick Database: Mysqlnd, pdo, pdo_mysql Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json. &amp; more depending on your configuration (for example if you want to use memcache for...",
+"content": "Introduction This tutorial is distribution agnostic. It details the installation steps at a high level, withouttaking into account the specifics related to each and every linux distribution. For system specific step by step guide, you can refer to the following documentation: Debian 9 “Stretch” step by step guide Centos 7 (coming soon) Ubuntu 16.04.4 LTS (coming soon) System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following...",
 "url": "https://help.passbolt.com/hosting/install/ce/from-source.html"
 },
 "hosting-install-ce-docker-html": {
@@ -634,7 +640,21 @@
 </script>
 <script src="/assets/js/lunr.min.js"></script>
 <script src="/assets/js/search.js"></script>
-
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>

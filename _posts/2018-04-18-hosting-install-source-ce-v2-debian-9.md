@@ -1,8 +1,10 @@
 ---
 title: Install passbolt from scratch on Debian 9 (Stretch)
-ignore_card: true
 date: 2018-04-09 00:00:00 Z
 description: How to install Passbolt CE on your server from the source code.
+card_title: Debian 9 tutorial
+card_teaser: Step by step guide to install passbolt on Debian 9 
+card_position: 2
 icon: fa-server
 categories: [hosting,install,ce]
 sidebar: hosting

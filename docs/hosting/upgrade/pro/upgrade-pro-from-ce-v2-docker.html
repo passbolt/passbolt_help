@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Upgrade from CE v2 to Pro using docker</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2018 Passbolt SARL
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Upgrade from CE v2 to Pro using docker" />
+    <meta property="og:description" content="" />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-04-11-hosting-upgrade-pro-from-v2-docker.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            
+            
+
+
+
+
+
+<div class="navigation wizard" role="navigation">
+    <ul>
+        <li><h2>Hosting</h2></li>
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
+        </li>
+        
+        
+        <li class="selected">
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
+        
+            
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+            
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html"><span>upgrade-pro-from-ce-v2-docker</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                    <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Upgrade from CE v2 to Pro using docker</h1>
+</div>
+</div>
+
+                    <div class="row">
+  <div class="col7">
+
+    <p>This tutorial covers the case where you want to upgrade from your passbolt CE v2.x into Passbolt Pro when using docker.</p>
+
+    <div class="message warning">
+    <p>
+        <strong>Important:</strong> Please take a full <a href="/hosting/backup-v1">backup</a> of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database.
+    </p>
+    
+</div>
+
+    <p>In order to upgrade from v2 CE to Pro users just need to download the pro container and mount their corresponding subscription key.</p>
+
+    <h2 id="getting-passbolt-container">Getting passbolt container</h2>
+
+    <p>Passbolt containers follow the following tagging:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;version_number&gt;-&lt;build_number&gt;-pro-debian
+</code></pre></div>    </div>
+
+    <p>Nobody is perfect so we also provide a  <em>latest</em> tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions.</p>
+
+    <p>Get passbolt Pro 2.0.1 docker container:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull passbolt/passbolt:2.0.1-pro-debian
+</code></pre></div>    </div>
+
+    <h3 id="using-host-bind-mounts">Using host bind mounts</h3>
+
+    <p>Users that use host bind mounts from host machine into docker file must adjust paths of the mounted files:</p>
+
+    <p>In the following snippet:</p>
+    <ul>
+      <li>passbolt_images_dir: path to a host directory that contains passbolt images Avatar directory.</li>
+      <li>gpg_host_dir: path to a host directory that contains serverkey.asc and serverkey_private.asc</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt-pro <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>, <span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;passbolt_images_dir&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>, <span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;gpg_host_dir&gt;, <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
+             passbolt/passbolt:2.0.1-pro-debian
+</code></pre></div>    </div>
+
+    <h3 id="using-docker-volumes">Using docker volumes</h3>
+
+    <p>Users that use docker volumes should adjust their volumes paths.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt-pro <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>&lt;passbolt_images_volume&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
+               <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>&lt;gpg_keys_volume&gt;, <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
+             passbolt/passbolt:2.0.1-pro-debian
+</code></pre></div>    </div>
+  </div>
+</div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

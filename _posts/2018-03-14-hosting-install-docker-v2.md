@@ -2,7 +2,7 @@
 title: Docker passbolt installation
 card_title: Docker install
 card_teaser: Install passbolt using docker
-card_position: 2
+card_position: 3
 date: 2018-04-02 00:00:00 Z
 description: Install passbolt using docker
 icon: fa-server

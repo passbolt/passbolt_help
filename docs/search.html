@@ -540,11 +540,59 @@
 "content": "Upcoming new funtionalities are advertised on the roadmap.Passbolt users can propose and upvote for new ideas on the community forum.The more financial contributors (and supporters in general) the quicker we can develop new functionalities.Security vulnerabilities and bugs fixes are to be given a higher priority than new features.Core libraries and framework maintenance upgrade also need to be dealt with proactively.",
 "url": "https://help.passbolt.com/faq/discover/feature-priority"
 },
+"hosting-upgrade-ce-upgrade-docker-ce-html": {
+"title": "Upgrade Passbolt docker from v1",
+"category": "",
+"content": "This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. Upgrade from v1.6.10-debian Passbolt v2 introduces several changes that are important to keep in mind when upgrading: Changes: Environment variables The set of environment variables have changed and users should take some time to get familiar with the new ones. For example in case of the database env variables: DB_USER is now DATASOURCES_DEFAULT_USERNAMEDB_HOST is now DATASOURCES_DEFAULT_HOST There is a more detailed list in passbolt_docker README file. Changes: Configuration files No more core.php, email.php or database.php.Any user that does not want to use environment variables must configure passbolt using: /var/www/passbolt/config/passbolt.php Passbolt will look for for configuration values in passbolt.php. Wether passbolt.php does not exist or...",
+"url": "https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html"
+},
+"hosting-install-pro-vm-html": {
+"title": "Using Passbolt pro virtual machine appliance",
+"category": "",
+"content": "Description Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.The VM includes the following software: Debian 9.4 Nginx Php-fpm Mariadb Passbolt Pro preinstalled certbot haveged to fill the entropy pool faster Scripts to easy managing SSL setup of the VM Getting Passbolt Pro VM Download the ova and the SHA512SUM.txt: Passbolt Pro VM SHA512SUM.txt Import the ova file using virtualbox, vmware or any other platform that supports OVA files. Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.However it is encouraged that users log in the VM and start the SSL setup proces. VM login credentials:username: passboltpassword: admin SSL setup process: Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts...",
+"url": "https://help.passbolt.com/hosting/install/pro/vm.html"
+},
 "hosting-install-ce-debian-9-stretch-html": {
 "title": "Install passbolt from scratch on Debian 9 (Stretch)",
 "category": "",
 "content": "System requirements Spin up a new fresh server with Debian 9 (Stretch). Make sure that it is up-to-date. Installation steps 1. Base packages No need to install any particular package such as the webserver (apache) during the setup. Let’s stick to the bare minimum for now, as we will do the rest manually. Since we will need administrator privileges to perform most of the steps, you could either setup sudo for your default user, or log in the terminal as root. sudo bash We can install some basic utilities: Git, composer, unzip, make, the linux kernel headers and a compiler, as will all be needed later on. $ apt-get install make git-core composer unzip g++ linux-headers-amd64 -y 2. Database installation Once the installation is complete and you are logged in, open a terminal. We can start by installing the database server. We will use mariadb here, but you could also...",
 "url": "https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html"
+},
+"hosting-upgrade-pro-upgrade-pro-from-ce-html": {
+"title": "Upgrade to Passbolt Pro",
+"category": "",
+"content": "System requirements Apache or Nginx HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG for PHP: for key verification and authentication. PHP extensions (that may or may not come by default): Cakephp default requirements: Intl, mbstring, simplexml Image manipulation: gd or imagick Database: Mysqlnd, pdo, pdo_mysql Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json. &amp; more depending on your configuration (for example if you want to use memcache for sessions). Upgrade Passbolt CE to Passbolt Pro There are two ways you can upgrade your Passbolt Community Edition (CE) to Passbolt Pro. 1. Upgrade on the same server If the server running Passbolt CE matches the requirements listed above, you can upgrade to Passbolt Pro on the same server.If it doesn’t match, you can also upgrade your distribution packages. The main missing dependency is usually PHP7. (In Debian, using dotdeb replacements work like a charm). Upgrade CE v1.x...",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html"
+},
+"hosting-upgrade-pro-upgrade-pro-from-ce-v1-same-server-html": {
+"title": "Upgrade Passbolt from v1 to Pro on the same server",
+"category": "",
+"content": "This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server. If you want to use a new server, follow this link. Important: Please take a full backup of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database. System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG...",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html"
+},
+"hosting-upgrade-pro-upgrade-pro-from-ce-v1-new-server-html": {
+"title": "Upgrade Passbolt from v1 to Pro on a new server",
+"category": "",
+"content": "      This tutorial will be available soon.          Last updated      This article was last updated on April9th,2018.                Are you experiencing issues when installing passbolt?        Ask the community!      ",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html"
+},
+"hosting-install-pro-install-scripts-html": {
+"title": "Installation with install scripts",
+"category": "",
+"content": "The install scripts are shell scripts that are designed to do the heavy lifting for you. They will configure youroperating system to be passbolt ready and will take care of the web server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration. System requirements The install scripts will work on any of these servers: Debian 9 (Etch) CentOS 7 Please note: It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server. Server configuration steps 1. Create a web server matching the requirements. Spin up a new fresh server with one of the supported linux distributions (Debian 9 or CentOS 7). You can do this on a bare-metal server, on a virtual machine or a container (docker).In this tutorial, we are using a the official Debian 9 image on Vagrant....",
+"url": "https://help.passbolt.com/hosting/install/pro/install-scripts.html"
+},
+"hosting-install-pro-docker-html": {
+"title": "Docker install",
+"category": "",
+"content": "System requirements Docker CE Optional system requirements MySQL &gt;= 5.0 if you plan not to host mysql on a docker container. docker-compose if you plan to use a docker-compose.yml file to run passbolt container. rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. Important considerations Getting passbolt container Passbolt containers follow the following tagging: &lt;version_number&gt;-&lt;build_number&gt;-pro-debian Nobody is perfect so we also provide a latest tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions. Get passbolt Pro 2.0.1 docker container: $ docker pull passbolt/passbolt:2.0.1-pro-debian Using passbolt container Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container. A subscription key file is also...",
+"url": "https://help.passbolt.com/hosting/install/pro/docker.html"
+},
+"hosting-install-wizard-html": {
+"title": "Configure passbolt with the wizard",
+"category": "",
+"content": "Configuration steps Once your server is configured, you need to point your browser to the hostname / ip where passbolt can be reached. You will reach a welcome page. fig. passbolt welcome page before configuration Two options are available: Manual configuration and Wizard configuration. Choose Wizard configuration. This tutorial will guide you through the different steps of the wizard. The manual configuration is not covered in this article. 1. Healthcheck The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script, then it’s onlya formality. Click on “Start configuration”. fig. wizard - healthcheck 2. Subscription key At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.Enter it in the box. fig. wizard - subscription key 3. Database This step is about telling passbolt which database...",
+"url": "https://help.passbolt.com/hosting/install/wizard.html"
 },
 "hosting-install-ce-from-source-html": {
 "title": "Install passbolt API from source",
@@ -552,17 +600,23 @@
 "content": "Introduction This tutorial is distribution agnostic. It details the installation steps at a high level, withouttaking into account the specifics related to each and every linux distribution. For system specific step by step guide, you can refer to the following documentation: Debian 9 “Stretch” step by step guide Centos 7 (coming soon) Ubuntu 16.04.4 LTS (coming soon) System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following...",
 "url": "https://help.passbolt.com/hosting/install/ce/from-source.html"
 },
+"hosting-upgrade-pro-upgrade-pro-from-ce-v2-html": {
+"title": "Upgrade Passbolt from community edition v2 to Pro",
+"category": "",
+"content": "This tutorial covers the case where you want to upgrade your current instance of passbolt CE v2.x into Passbolt Pro. Important: Please take a full backup of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database. System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following PHP extensions (that may or may not come by default): PHP-GNUPG: for...",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2.html"
+},
 "hosting-install-ce-docker-html": {
 "title": "Docker passbolt installation",
 "category": "",
-"content": "System requirements Docker CE Optional system requirements MySQL &gt;= 5.0 if you plan not to host mysql on a docker container. docker-compose if you plan to use a docker-compose.yml file to run passbolt container. rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. Important considerations Getting passbolt container Passbolt containers follow the following tagging: &lt;version_number&gt;-&lt;build_number&gt;-debian Nobody is perfect so we also provide a latest tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions. Get passbolt 2.0.0 docker container: $ docker pull passbolt/passbolt:2.0.0-debian Using passbolt container Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container. Manually run passbolt container and mysql container...",
+"content": "System requirements Docker CE Optional system requirements MySQL &gt;= 5.0 if you plan not to host mysql on a docker container. docker-compose if you plan to use a docker-compose.yml file to run passbolt container. rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. Important considerations Getting passbolt container Passbolt containers follow the following tagging: &lt;version_number&gt;-&lt;build_number&gt;-debian Nobody is perfect so we also provide a latest tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions. Get passbolt 2.0.1 docker container: $ docker pull passbolt/passbolt:2.0.1-debian Using passbolt container Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container. Manually run passbolt container and mysql container...",
 "url": "https://help.passbolt.com/hosting/install/ce/docker.html"
 },
-"hosting-upgrade-ce-upgrade-html": {
-"title": "Upgrade to passbolt API version 2",
+"hosting-upgrade-ce-upgrade-ce-html": {
+"title": "Upgrade Passbolt CE from v1 to v2",
 "category": "",
-"content": "System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following PHP extensions (that may or may not come by default): PHP-GNUPG: for key verification and authentication. Cakephp default requirements: Intl, mbstring, simplexml Image manipulation: gd or imagick Database: Mysqlnd, pdo, pdo_mysql Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json. &amp; more depending on your configuration (for example if you want to use memcache for...",
-"url": "https://help.passbolt.com/hosting/upgrade/ce/upgrade.html"
+"content": "This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into passbolt CE v2.x. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG Git The following PHP extensions (that may or may not come by default): PHP-GNUPG: for...",
+"url": "https://help.passbolt.com/hosting/upgrade/ce/upgrade-ce.html"
 },
 "hosting-backup-html": {
 "title": "Backing up a passbolt installation (v2)",
@@ -575,48 +629,6 @@
 "category": "hosting",
 "content": "Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a backup strategy in place. As a passbolt administrator it is your responsibility to define how often and when to perform backups. Please automate and customize this process to match the needs and policies of your organization. Here are some best practices to keep in mind: Ensure that the backups are taken at intervals that match your usage Take these backups off-site, or to another environment than the live one Make sure the backup is encrypted and stored in a safe location Practice drills and test the backups to make sure they work What to backup? There are several elements you need to backup: 1. The database This can be easily scripted using mysqldump for example: mysqldump -u[user] -p[pass] db &gt; /path/to/backup.sql 2. The avatars The images...",
 "url": "https://help.passbolt.com/hosting/backup-v1.html"
-},
-"hosting-upgrade-pro-upgrade-ce-to-pro-html": {
-"title": "Upgrade to Passbolt Pro",
-"category": "",
-"content": "System requirements Apache or Nginx HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG for PHP: for key verification and authentication. PHP extensions (that may or may not come by default): Cakephp default requirements: Intl, mbstring, simplexml Image manipulation: gd or imagick Database: Mysqlnd, pdo, pdo_mysql Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json. &amp; more depending on your configuration (for example if you want to use memcache for sessions). Upgrade Passbolt CE to Passbolt Pro There are two ways you can upgrade your Passbolt Community Edition (CE) to Passbolt Pro. 1. Upgrade on the same server If the server running Passbolt CE matches the requirements listed above, you can upgrade to Passbolt Pro on the same server.If it doesn’t match, you can also upgrade your distribution packages. The main missing dependency is usually PHP7. (In Debian, using dotdeb replacements work like a charm). Upgrade CE v1.x...",
-"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-ce-to-pro.html"
-},
-"hosting-upgrade-pro-upgrade-ce-v2-to-pro-same-server-html": {
-"title": "Upgrade from CE v2.x to Pro on same server",
-"category": "",
-"content": "      COMING SOON          Last updated      This article was last updated on March20th,2017.                Are you experiencing issues with Passbolt Pro?    Contact Pro support    or ask the community  ",
-"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-ce-v2-to-pro-same-server.html"
-},
-"hosting-upgrade-pro-upgrade-ce-v1-to-pro-same-server-html": {
-"title": "Upgrade from CE v1.x to Pro on same server",
-"category": "",
-"content": "This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server. If you want to use a new server, follow this link. Important: Please take a full backup of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database. System requirements Passbolt is reported to work on a large variety of operating system configurations. Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration, please check the forum. Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG...",
-"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-ce-v1-to-pro-same-server.html"
-},
-"hosting-upgrade-pro-upgrade-ce-v1-to-pro-new-server-html": {
-"title": "Upgrade from CE v1.x to Pro on a new server",
-"category": "",
-"content": "      This tutorial will be available soon.          Last updated      This article was last updated on March20th,2017.                Are you experiencing issues when installing passbolt?        Ask the community!      ",
-"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-ce-v1-to-pro-new-server.html"
-},
-"hosting-install-pro-install-scripts-html": {
-"title": "Installation with install scripts",
-"category": "",
-"content": "The install scripts are shell scripts that are designed to do the heavy lifting for you. They will configure youroperating system to be passbolt ready and will take care of the web server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration. System requirements The install scripts will work on any of these servers: Debian 9 (Etch) CentOS 7 Please note: It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server. Server configuration steps 1. Create a web server matching the requirements. Spin up a new fresh server with one of the supported linux distributions (Debian 9 or CentOS 7). You can do this on a bare-metal server, on a virtual machine or a container (docker).In this tutorial, we are using a the official Debian 9 image on Vagrant....",
-"url": "https://help.passbolt.com/hosting/install/pro/install-scripts.html"
-},
-"hosting-install-pro-docker-html": {
-"title": "Docker install",
-"category": "",
-"content": "System requirements Docker CE Optional system requirements MySQL &gt;= 5.0 if you plan not to host mysql on a docker container. docker-compose if you plan to use a docker-compose.yml file to run passbolt container. rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. Important considerations Getting passbolt container Passbolt containers follow the following tagging: &lt;version_number&gt;-&lt;build_number&gt;-pro-debian Nobody is perfect so we also provide a latest tag for Passbolt containers. However, it is recommended that users pull the tags pointing to specific passbolt versions. Get passbolt Pro 2.0.0 docker container: $ docker pull passbolt/passbolt:2.0.0-pro-debian Using passbolt container Passbolt requires a database backend to store the information. In this section we will be using a MySQL database packaged as a docker container. A subscription key file is also...",
-"url": "https://help.passbolt.com/hosting/install/pro/docker.html"
-},
-"hosting-install-wizard-html": {
-"title": "Configure passbolt with the wizard",
-"category": "",
-"content": "Configuration steps Once your server is configured, you need to point your browser to the hostname / ip where passbolt can be reached. You will reach a welcome page. fig. passbolt welcome page before configuration Two options are available: Manual configuration and Wizard configuration. Choose Wizard configuration. This tutorial will guide you through the different steps of the wizard. The manual configuration is not covered in this article. 1. Healthcheck The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script, then it’s onlya formality. Click on “Start configuration”. fig. wizard - healthcheck 2. Subscription key At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.Enter it in the box. fig. wizard - subscription key 3. Database This step is about telling passbolt which database...",
-"url": "https://help.passbolt.com/hosting/install/wizard.html"
 },
 "hosting-install-v1-html": {
 "title": "Install passbolt API version 1",

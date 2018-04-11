@@ -17,15 +17,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Upgrade Passbolt docker from v1" />
     <meta property="og:description" content="" />
 
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
-    <link rel="canonical" href="http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce">
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
 </head>
 <body>
@@ -91,29 +91,29 @@
         <li><h2>Hosting</h2></li>
         
         <li >
-            <a href="http://localhost:4000/faq/hosting">Hosting FAQ</a>
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
         </li>
         
         
         <li >
-            <a href="http://localhost:4000/hosting/install">Installation</a>
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
         </li>
         
         
         <li >
-            <a href="http://localhost:4000/hosting/update">Update</a>
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
         <li class="selected">
-            <a href="http://localhost:4000/hosting/upgrade">Upgrade</a>
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
         </li>
         
             
         
         
         <li >
-            <a href="http://localhost:4000/hosting/backup">Backup</a>
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
         </li>
         
         
@@ -153,12 +153,12 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting"><span>hosting</span></a>
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
                     </div>
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting/upgrade"><span>upgrade</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
                     </div>
                 </li>
                 
@@ -166,7 +166,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce.html"><span>upgrade-docker-ce</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html"><span>upgrade-docker-ce</span></a>
                     </div>
                 </li>
                 
@@ -310,7 +310,7 @@ Following some examples:</p>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
-             passbolt/passbolt:2.0.0-debian
+             passbolt/passbolt:2.0.1-debian
 </code></pre></div>    </div>
 
     <h3 id="using-docker-volumes">Using docker volumes</h3>
@@ -327,7 +327,7 @@ Following some examples:</p>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
-             passbolt/passbolt:2.0.0-debian
+             passbolt/passbolt:2.0.1-debian
 </code></pre></div>    </div>
 
     <div class="last-updated">
@@ -391,9 +391,23 @@ April
         </div>
     </footer>
 </div>
-
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
-<script src="http://localhost:4000/assets/js/greedynav.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 </html>

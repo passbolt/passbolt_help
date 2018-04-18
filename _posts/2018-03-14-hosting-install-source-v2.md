@@ -22,7 +22,7 @@ taking into account the specifics related to each and every linux distribution.
 
 For system specific step by step guide, you can refer to the following documentation:
 - [Debian 9 "Stretch" step by step guide](/hosting/install/ce/debian-9-stretch.html)
-- Centos 7 (coming soon)
+- [CentOS 7 step by step guide](/hosting/install/ce/centos-7.html)
 - Ubuntu 16.04.4 LTS (coming soon)
 
 ## System requirements

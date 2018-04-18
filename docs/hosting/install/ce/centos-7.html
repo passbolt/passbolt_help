@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Install passbolt from scratch on Debian 9 (Stretch)</title>
+    <title>Install passbolt from scratch on CentOS 7</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install passbolt from scratch on Debian 9 (Stretch)" />
+    <meta property="og:title" content="Install passbolt from scratch on CentOS 7" />
     <meta property="og:description" content="" />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/centos-7">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -72,7 +72,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-04-18-hosting-install-source-ce-v2-debian-9.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-04-18-hosting-install-source-ce-v2-centos-7.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -166,7 +166,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html"><span>from-source</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/ce/centos-7.html"><span>from-source</span></a>
                     </div>
                 </li>
                 
@@ -177,7 +177,7 @@
 
                     <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install passbolt from scratch on Debian 9 (Stretch)</h1>
+<h1>Install passbolt from scratch on CentOS 7</h1>
 </div>
 </div>
 
@@ -186,26 +186,43 @@
 
     <h2 id="system-requirements">System requirements</h2>
 
-    <p>Spin up a new fresh server with Debian 9 (Stretch). Make sure that it is up-to-date.</p>
+    <p>Spin up a new fresh server with CentOS 7. Make sure that it is up-to-date.</p>
 
     <h2 id="installation-steps">Installation steps</h2>
 
     <h3 id="base-packages">1. Base packages</h3>
-    <p>No need to install any particular package such as the webserver (apache) during the setup. Let’s stick to the bare minimum for now, as we will do the rest manually.</p>
+    <p>No need to install any particular package such as the webserver (nginx) during the initial setup. Let’s stick to the bare minimum for now, as we will do the rest manually.</p>
 
     <p>Since we will need administrator privileges to perform most of the steps, you could either setup sudo for your default user, or log in the terminal as root.</p>
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>bash
 </code></pre></div>    </div>
 
-    <p>We can install some basic utilities: Git, composer, unzip, make, the linux kernel headers and a compiler, as will all be needed later on.</p>
+    <p>Let’s first update our yum database and enable EPEL repositories to 
+install all the required passbolt components:</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>apt-get <span class="nb">install </span>make git-core composer unzip g++ linux-headers-amd64 <span class="nt">-y</span>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum update
+<span class="nv">$ </span>yum <span class="nt">-y</span> <span class="nb">install </span>yum-utils epel-release
+</code></pre></div>    </div>
+    <p>We also install remi’s repositories which will be helpful for PHP 7.2</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum <span class="nt">-y</span> <span class="nb">install</span> <span class="s1">'http://rpms.remirepo.net/enterprise/remi-release-7.rpm'</span>
+<span class="nv">$ </span>yum-config-manager <span class="nt">--enable</span> <span class="s1">'remi-php72'</span>
+</code></pre></div>    </div>
+
+    <p>Finally, we can install some basic utilities:</p>
+    <ul>
+      <li>gcc is required to build php-gnupg extension throuhg PECL.</li>
+      <li>git will be required to clone passbolt source code</li>
+      <li>policycoreutils-python will install some binaries to easily manage selinux policies such as semanage.</li>
+    </ul>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum <span class="nt">-y</span> <span class="nb">install </span>unzip wget composer policycoreutils-python git gcc 
 </code></pre></div>    </div>
 
     <h3 id="database-installation">2. Database installation</h3>
     <p>Then, we can install the database server. We will use mariadb here, but you could also use mysql.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>apt-get <span class="nb">install </span>mariadb-server <span class="nt">-y</span>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum <span class="nb">install </span>mariadb-server <span class="nt">-y</span>
 </code></pre></div>    </div>
 
     <p>Let’s make sure that the database is started</p>
@@ -230,70 +247,110 @@ mysql <span class="o">&gt;</span> flush privileges<span class="p">;</span>
 mysql <span class="o">&gt;</span> quit<span class="p">;</span>
 </code></pre></div>    </div>
 
-    <h3 id="webserver-installation-apache2">3. Webserver installation (apache2)</h3>
-    <p>Next we will want to install the apache webserver that will serve our php application.</p>
+    <h3 id="webserver-installation-nginx">3. Webserver installation (Nginx)</h3>
+    <p>Next we will want to install the Nginx webserver that will serve our php application.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>apt-get <span class="nb">install </span>apache2 <span class="nt">-y</span>
-</code></pre></div>    </div>
-
-    <p>Passbolt needs the mod_rewrite module to function properly.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>a2enmod rewrite
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum <span class="nb">install </span>nginx <span class="nt">-y</span>
+<span class="nv">$ </span>systemctl start nginx
 </code></pre></div>    </div>
 
     <p>We can see if this worked by opening up the web browser and going to the url: http://localhost (or whatever hostname / ip used by your machine). 
-By default apache stores the web pages in /var/www/html so we can see and edit the default html page in this directory if needed.</p>
+By default nginx stores the web pages in /usr/share/nginx/html/ so we can see and edit the default html page in this directory if needed.</p>
 
     <h3 id="php-installation">4. PHP installation</h3>
-    <p>Now let’s install php 7 and its dependencies. By default the command line interface (php5-cli) and the apache mod for php (libapache2-mod-php5) will be also installed as dependencies. We will need them later on.</p>
+    <p>Now let’s install php 7 and its dependencies. By default the command line interface (php5-cli) will be also installed as dependencies. We will need them later on.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>apt-get <span class="nb">install </span>php7.0 php7.0-cli php7.0-common libapache2-mod-php7.0 php7.0-json php7.0-readline php7.0-mysqlnd libonig4 libqdbm14 <span class="nt">-y</span>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum <span class="nt">-y</span> <span class="nb">install </span>php-intl php-gd php-mysql php-mcrypt php-pear php-devel php-mbstring php-fpm gpgme-devel
 </code></pre></div>    </div>
 
-    <p>Passbolt needs some extra dependencies to run properly:</p>
+    <p>Install php-fpm</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>apt-get <span class="nb">install </span>php7.0-gd php7.0-intl php7.0-simplexml php7.0-curl php7.0-dom php7.0-mbstring <span class="nt">-y</span>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>yum <span class="nb">install</span> <span class="nt">-y</span> php-fpm
+<span class="nv">$ </span>systemctl <span class="nb">enable </span>php-fpm
+<span class="nv">$ </span>systemctl start php-fpm
 </code></pre></div>    </div>
 
-    <p>Passbolt needs GnuPG and it corresponding php module to run.</p>
+    <p>We will be making use of the default nginx user to run both nginx and php-fpm. FPM out of the box uses the apache user but it is easy to change:</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>apt-get <span class="nb">install </span>libgpgme11-dev php7.0-gnupg <span class="nt">-y</span>
+    <p>Edit /etc/php-fpm.d/www.conf with your preferred editor and modify the user/group configuration parameter to ‘nginx’:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi /etc/php-fpm.d/www.conf
 </code></pre></div>    </div>
 
-    <p>You will need to restart your apache server for the changes to take place.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl restart apache2
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>user = nginx
+group = nginx
 </code></pre></div>    </div>
 
-    <h3 id="virtual-host-config">5. Virtual host config</h3>
-    <p>For apache to work with passbolt we need to edit the virtual host configuration file to add the passbolt folder and rewrite rules.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /etc/apache2/sites-enabled/000-default.conf
+    <p>We also need to change the default group owner of the default php session directory so that it belongs to nginx.</p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chgrp </span>nginx /var/lib/php/session
 </code></pre></div>    </div>
 
-    <p>This is what a minimal configuration without ssl looks like (we’ll get to the ssl part later). Of course you will need to replace your administrator email address (ServerAdmin setting) and server name (ServerName setting).</p>
+    <p>Passbolt needs GnuPG and it corresponding php module to run</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;VirtualHost *:80&gt;
-    ServerAdmin webmaster@localhost
-    ServerName passbolt.dev
-
-    DocumentRoot /var/www/passbolt
-
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-    &lt;Directory /var/www/passbolt&gt;
-        Options FollowSymLinks
-        AllowOverride All
-        Require all granted
-    &lt;/Directory&gt;
-&lt;/VirtualHost&gt;
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>pecl <span class="nb">install </span>gnupg
+<span class="nv">$ </span><span class="nb">echo</span> <span class="s2">"extension=gnupg.so"</span> <span class="o">&gt;</span> /etc/php.d/gnupg.ini
 </code></pre></div>    </div>
+
+    <p>You will need to restart your nginx server, and php-fpm for the changes to take place.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl restart nginx
+<span class="nv">$ </span>systemctl restart php-fpm
+</code></pre></div>    </div>
+
+    <h3 id="web-server-configuration">5. Web server configuration</h3>
+    <p>For nginx to work with passbolt we need to edit its configuration file to point to the passbolt folder (which will be created later) and rewrite rules.
+We also consider that passbolt will be reachable on the hostname <code class="highlighter-rouge">passbolt.dev</code>.</p>
+
+    <p>For now, we will configure it without SSL for the sake of keeping it simple.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi /etc/nginx/conf.d/default.conf
+</code></pre></div>    </div>
+
+    <p>Below is an example of configuration you can use in <code class="highlighter-rouge">/etc/nginx/conf.d/default.conf</code></p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+  listen 80;
+  server_name passbolt.dev;
+  client_body_buffer_size     100K;
+  client_header_buffer_size   1k;
+  client_max_body_size        100k;
+  client_body_timeout   10;
+  client_header_timeout 10;
+  keepalive_timeout     5 5;
+  send_timeout          10;
+  root /var/www/passbolt;
+# X-Frame-Options is to prevent from clickJacking attack
+  add_header X-Frame-Options SAMEORIGIN;
+#  disable content-type sniffing on some browsers.
+  add_header X-Content-Type-Options nosniff;
+# This header enables the Cross-site scripting (XSS) filter
+  add_header X-XSS-Protection "1; mode=block";
+
+location / {
+    try_files $uri $uri/ /index.php?$args;
+    index index.php;
+  }
+location ~ \.php$ {
+    fastcgi_index           index.php;
+    fastcgi_pass            127.0.0.1:9000;
+    fastcgi_split_path_info ^(.+\.php)(.+)$;
+    include                 fastcgi_params;
+    fastcgi_param           SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param           SERVER_NAME $http_host;
+  }
+location ~* \.(jpe?g|woff|woff2|ttf|gif|png|bmp|ico|css|js|json|pdf|zip|htm|html|docx?|xlsx?|pptx?|txt|wav|swf|svg|avi|mp\d)$ {
+    access_log off;
+    log_not_found off;
+    try_files $uri /webroot/$uri /index.php?$args;
+  }
+}
+</code></pre></div>    </div>
+
     <h3 id="domain-name-setup">6. Domain name setup</h3>
     <p>For the sake of keeping this demonstration short we will use passbolt.dev as domain name
 (we added the IP to domain name mapping with a manual entry in the /etc/hosts file after a quick lookup on ifconfig).</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /etc/hosts
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi /etc/hosts
 </code></pre></div>    </div>
 
     <p>Add this line to the file</p>
@@ -303,7 +360,7 @@ By default apache stores the web pages in /var/www/html so we can see and edit t
 
     <p>Of course, replace 127.0.0.1 by whichever ip is used by your host.</p>
 
-    <h3 id="download-passbolt">7. Download passbolt</h3>
+    <h3 id="download-passbolt-source-code">7. Download passbolt source code</h3>
     <p>In the web server configuration file, we are pointing to <code class="highlighter-rouge">/var/www/passbolt</code> but obviously it does not exist yet! 
 Let’s create it, by cloning passbolt official repository. This way we can pull new releases easily in the future.</p>
 
@@ -323,7 +380,7 @@ Let’s create it, by cloning passbolt official repository. This way we can pull
 </div>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Only in case of container or VM</span>
-<span class="nv">$ </span>apt-get <span class="nb">install </span>haveged <span class="nt">-y</span>
+<span class="nv">$ </span>yum <span class="nb">install </span>haveged <span class="nt">-y</span>
 <span class="nv">$ </span>systemctl start haveged
 </code></pre></div>    </div>
 
@@ -334,7 +391,7 @@ Let’s create it, by cloning passbolt official repository. This way we can pull
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--gen-key</span>
 </code></pre></div>    </div>
 
-    <p><strong>Note:</strong> if you do not run this command as <code class="highlighter-rouge">www-data</code> the result will be stored in <code class="highlighter-rouge">/root/.gnupg</code>. Thankfully passbolt does import the keys at runtime into the <code class="highlighter-rouge">www-data</code> keyring if it is not already present.</p>
+    <p><strong>Note:</strong> if you do not run this command as <code class="highlighter-rouge">nginx</code> the result will be stored in <code class="highlighter-rouge">/root/.gnupg</code>. Thankfully passbolt does import the keys at runtime into the <code class="highlighter-rouge">nginx</code> keyring if it is not already present.</p>
 
     <p>It’s a good idea to fill in the details properly and not press enter frantically. Make sure you have decent name and email for the key. This will come in handy to identify and verify it down the line.</p>
 
@@ -362,45 +419,40 @@ uid                  firstname lastname &lt;SERVER_KEY@EMAIL.TEST&gt;
     <p>In order for passbolt authentication to work your server key needs to be in the keyring used by the web server.
 It is likely that there is none, so you can create one by interacting with gpg with the web server user</p>
 
-    <p>In debian 9, the home directory of the web server user www-data is /var/www.</p>
-
-    <p>We need to give ownership of this folder to www-data , since it is not there by default.</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chown </span>www-data:www-data /var/www
-</code></pre></div>    </div>
+    <p>In centos 7, the home directory of the web server user nginx is /var/lib/nginx.</p>
 
     <p>We create the keyring for the webserver:</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span> www-data
-gpg: directory <span class="s1">'/var/www/.gnupg'</span> created
-gpg: keybox <span class="s1">'/var/www/.gnupg/pubring.kbx'</span> created
-gpg: /var/www/.gnupg/trustdb.gpg: trustdb created
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span> nginx
+gpg: directory <span class="s1">'/var/lib/nginx/.gnupg'</span> created
+gpg: keybox <span class="s1">'/var/lib/nginx/.gnupg/pubring.kbx'</span> created
+gpg: /var/lib/nginx/.gnupg/trustdb.gpg: trustdb created
 </code></pre></div>    </div>
 
-    <h3 id="set-passbolt-file-permissions">9. Set passbolt file permissions</h3>
+    <h3 id="set-passbolt-file-permissions">10. Set passbolt file permissions</h3>
     <p>We need to set the right permissions on the passbolt files. It should belong to the same owner as the webserver.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chown</span> <span class="nt">-R</span>  www-data:www-data /var/www/passbolt
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chown</span> <span class="nt">-R</span>  nginx:nginx /var/www/passbolt
 <span class="nv">$ </span><span class="nb">cd</span> /var/www/passbolt
 </code></pre></div>    </div>
 
-    <p><strong>Important:</strong> For the following steps, we’ll also need to use the same user as the one running the webserver. In our case (apache), it is www-data.</p>
+    <p><strong>Important:</strong> For the following steps, we’ll also need to use the same user as the one running the webserver. In our case (nginx), it is nginx.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>su <span class="nt">-s</span> /bin/bash www-data
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>su <span class="nt">-s</span> /bin/bash nginx
 </code></pre></div>    </div>
 
-    <h3 id="install-the-dependencies">10. Install the dependencies</h3>
+    <h3 id="install-the-dependencies">11. Install the dependencies</h3>
     <p>The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
 in the code on the official repository. Fret not, composer will manage this for us.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer <span class="nb">install</span>
 </code></pre></div>    </div>
 
-    <h3 id="create-a-passbolt-configuration-file">11. Create a passbolt configuration file</h3>
+    <h3 id="create-a-passbolt-configuration-file">12. Create a passbolt configuration file</h3>
     <p>Everything is located in one configuration file called <code class="highlighter-rouge">config/passbolt.php</code>.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>config/passbolt.default.php config/passbolt.php
-<span class="nv">$ </span>nano config/passbolt.php
+<span class="nv">$ </span>vi config/passbolt.php
 </code></pre></div>    </div>
 
     <p>You will need to set at least the following:</p>
@@ -457,7 +509,7 @@ quickly. We’ll activate ssl later.</p>
     <p>You can also set your configuration using environment variables.
 Check <code class="highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
 
-    <h3 id="run-the-install-script">12. Run the install script</h3>
+    <h3 id="run-the-install-script">13. Run the install script</h3>
     <p>Let’s install passbolt tables and data in the database.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake passbolt <span class="nb">install</span>
@@ -474,7 +526,51 @@ recommend that you configure SSL before.</p>
 
     <p>You should see a majority of green ok. However, some SSL related alerts should still appear.</p>
 
-    <h3 id="its-running">13. It’s running</h3>
+    <h3 id="set-selinux-permissions">14. Set Selinux permissions</h3>
+    <p>If your CentOS installation comes with SElinux enabled please follow this steps to make sure that passbolt works with it. If SElinux is disabled, there is no need to enable it in order for passbolt to work.</p>
+
+    <p>Check that selinux is enabled using (as root):</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>sestatus
+SELinux status:                 enabled
+SELinuxfs mount:                /sys/fs/selinux
+SELinux root directory:         /etc/selinux
+Loaded policy name:             targeted
+Current mode:                   enforcing
+Mode from config file:          enforcing
+Policy MLS status:              enabled
+Policy deny_unknown status:     allowed
+Max kernel policy version:      28
+</code></pre></div>    </div>
+
+    <p>First we grant access to the httpd service (nginx) access to the files under <code class="highlighter-rouge">/var/www</code> recursively so it will also have access to <code class="highlighter-rouge">/var/www/passbolt</code> files.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>semanage fcontext <span class="nt">-a</span> <span class="nt">-t</span> httpd_sys_content_t <span class="s1">'/var/www(/.*)?'</span>
+</code></pre></div>    </div>
+
+    <p>Passbolt will need to write on the tmp directory (for file caching for example) we grant read and write access to the httpd service to these directories:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>semanage fcontext <span class="nt">-a</span> <span class="nt">-t</span> httpd_sys_rw_content_t <span class="s1">'/var/www/passbolt/tmp(/.*)?'</span>
+</code></pre></div>    </div>
+    <p>Passbolt will also need to write on the logs directory. We grant read and write access to the httpd service to these directories:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>semanage fcontext <span class="nt">-a</span> <span class="nt">-t</span> httpd_sys_rw_content_t <span class="s1">'/var/www/passbolt/logs(/.*)?'</span>
+</code></pre></div>    </div>
+
+    <p>Once the permissions are in place we tell SELinux to upgrade the file tags that we have just changed:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>restorecon <span class="nt">-Rv</span> /var/www
+</code></pre></div>    </div>
+
+    <p>Passbolt and therefore the httpd service require read and write access to nginx gnupg keyring:</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>semanage fcontext <span class="nt">-a</span> <span class="nt">-t</span> httpd_sys_rw_content_t <span class="s1">'/var/lib/nginx/.gnupg(/.*)?'</span>
+<span class="nv">$ </span>restorecon <span class="nt">-Rv</span> /var/lib/nginx/.gnupg
+</code></pre></div>    </div>
+
+    <p>For more information on SELinux: <a href="https://wiki.centos.org/HowTos/SELinux">https://wiki.centos.org/HowTos/SELinux</a></p>
+
+    <h3 id="its-running">15. It’s running</h3>
     <p>At this stage, passbolt is running as it should, but https is still missing. It is strongly recommended
 that you configure https before using passbolt. We will go through it in the next section, as well as the emails configuration.</p>
 
@@ -517,7 +613,7 @@ that you configure https before using passbolt. We will go through it in the nex
 
     <p>In order to have your emails sent automatically, you can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake EmailQueue.sender &gt;&gt; /var/log/passbolt.log"</span> <span class="nt">-s</span> /bin/bash www-data
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake EmailQueue.sender &gt;&gt; /var/log/passbolt.log"</span> <span class="nt">-s</span> /bin/bash nginx
 </code></pre></div>    </div>
 
     <h3 id="configure-https">2. Configure https</h3>
@@ -525,7 +621,7 @@ Add the following line to you crontab:</p>
 To setup SSL we need a certificate. Here for the sake of brevity we will create a self-signed certificate. 
 Of course you are free to use a <a href="https://letsencrypt.org/getting-started/">proper free certificate</a> and tidy up the server supported cypher suites.</p>
 
-    <p>In the following steps, we’ll generate a self signed certificate and configure apache and passbolt to use https.</p>
+    <p>In the following steps, we’ll generate a self signed certificate and configure nginx and passbolt to use https.</p>
 
     <p><strong>a. Generate the self signed certificate</strong></p>
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>openssl req <span class="nt">-new</span> <span class="nt">-newkey</span> rsa:4096 <span class="nt">-days</span> 365 <span class="nt">-nodes</span> <span class="nt">-x509</span> <span class="nt">-subj</span> <span class="s2">"/C=FR/ST=Denial/L=Springfield/O=Dis/CN=passbolt.dev"</span> <span class="nt">-keyout</span> /etc/ssl/certs/passbolt.key <span class="nt">-out</span> /etc/ssl/certs/passbolt.crt
@@ -537,70 +633,69 @@ writing new private key to <span class="s1">'/etc/ssl/certs/passbolt.key'</span>
 <span class="nt">-----</span>
 </code></pre></div>    </div>
 
-    <p><strong>b. Make sure the certificate is readable by apache</strong></p>
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chown </span>root:www-data /etc/ssl/certs/passbolt.crt
-<span class="nv">$ </span><span class="nb">chown </span>root:www-data /etc/ssl/certs/passbolt.key
+    <p><strong>b. Make sure the certificate is readable by nginx</strong></p>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">chown </span>root:nginx /etc/ssl/certs/passbolt.crt
+<span class="nv">$ </span><span class="nb">chown </span>root:nginx /etc/ssl/certs/passbolt.key
 <span class="nv">$ </span><span class="nb">chmod </span>640 /etc/ssl/certs/passbolt.crt
 <span class="nv">$ </span><span class="nb">chmod </span>640 /etc/ssl/certs/passbolt.key
 </code></pre></div>    </div>
 
-    <p><strong>Enable SSL apache module and site</strong></p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>a2enmod ssl
-<span class="nv">$ </span>a2enmod headers
-<span class="nv">$ </span>a2ensite default-ssl
-</code></pre></div>    </div>
-
-    <p><strong>c. Configure virtual host</strong></p>
+    <p><strong>c. Configure ssl in nginx</strong></p>
 
     <p>Let’s add the rewrite and SSL rules and certificates.</p>
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /etc/apache2/sites-enabled/default-ssl.conf
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi /etc/nginx/conf.d/default.conf
 </code></pre></div>    </div>
 
-    <p>Your file should look like this:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;IfModule mod_ssl.c&gt;
-    &lt;VirtualHost _default_:443&gt;
-        ServerAdmin webmaster@localhost
-        ServerName passbolt.dev
-
-        DocumentRoot /var/www/passbolt
-
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
-
-        SSLEngine on
-        SSLCertificateFile /etc/ssl/certs/passbolt.crt
-        SSLCertificateKeyFile /etc/ssl/certs/passbolt.key
- 
-        &lt;Directory /var/www/passbolt&gt;
-            Options FollowSymLinks
-            AllowOverride All
-            Require all granted
-        &lt;/Directory&gt;
-    
-        &lt;FilesMatch “\.(php)$”&gt;
-            SSLOptions +StdEnvVars
-        &lt;/FilesMatch&gt;
-
-        BrowserMatch “MSIE [2–6]” \
-          nokeepalive ssl-unclean-shutdown \
-          downgrade-1.0 force-response-1.0
-        BrowserMatch “MSIE [17–9]” ssl-unclean-shutdown
-
-    &lt;/VirtualHost&gt;
-&lt;/IfModule&gt;
+    <p>Add this to your file, or replace the whole current content.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+  listen 443;
+  server_name passbolt.dev;
+  ssl on;
+  ssl_certificate     /etc/ssl/certs/passbolt.crt;
+  ssl_certificate_key /etc/ssl/certs/passbolt.key;
+  ssl_protocols TLSv1.2;
+  ssl_prefer_server_ciphers on;
+  ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
+  ssl_session_tickets off;
+  root /var/www/passbolt;
+# X-Frame-Options is to prevent from clickJacking attack
+  add_header X-Frame-Options SAMEORIGIN;
+#  disable content-type sniffing on some browsers.
+  add_header X-Content-Type-Options nosniff;
+# This header enables the Cross-site scripting (XSS) filter
+  add_header X-XSS-Protection "1; mode=block";
+# This will enforce HTTP browsing into HTTPS and avoid ssl stripping attack
+  add_header Strict-Transport-Security "max-age=31536000; includeSubdomains;";
+location / {
+    try_files $uri $uri/ /index.php?$args;
+    index index.php;
+  }
+location ~ \.php$ {
+    fastcgi_index           index.php;
+    fastcgi_pass            127.0.0.1:9000;
+    fastcgi_split_path_info ^(.+\.php)(.+)$;
+    include                 fastcgi_params;
+    fastcgi_param           SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param           SERVER_NAME $http_host;
+  }
+location ~* \.(jpe?g|woff|woff2|ttf|gif|png|bmp|ico|css|js|json|pdf|zip|htm|html|docx?|xlsx?|pptx?|txt|wav|swf|svg|avi|mp\d)$ {
+    access_log off;
+    log_not_found off;
+    try_files $uri /webroot/$uri /index.php?$args;
+  }
+}
 </code></pre></div>    </div>
 
-    <p><strong>d. Restart Apache</strong></p>
+    <p><strong>d. Restart Nginx</strong></p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl reload apache2
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>systemctl restart nginx
 </code></pre></div>    </div>
 
     <p><strong>e. Force SSL in passbolt configuration</strong>
 We’ll need to change the passbolt configuration to make him use https instead of http,
 and force the redirection to https:</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /var/www/passbolt/config/passbolt.php
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>vi /var/www/passbolt/config/passbolt.php
 </code></pre></div>    </div>
 
     <p>Set fullBaseUrl to https</p>

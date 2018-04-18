@@ -1,0 +1,2 @@
+At this stage, passbolt is running as it should, but https is still missing. It is strongly recommended
+that you configure https before using passbolt. We will go through it in the next section, as well as the emails configuration.

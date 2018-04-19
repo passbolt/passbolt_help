@@ -36,7 +36,7 @@ You can check `app/Config/version.php` to know the version number for your local
 
 ## Major update
 
-Please see the following documentation to [Update from v1 to v2](/hosting/upgrade-v2)
+Please see the following documentation to [Update from v1 to v2](/hosting/upgrade)
 
 ## Minor update
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-04-18T18:24:21+05:30</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-04-19T14:41:03+05:30</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x.&lt;/p&gt;
@@ -1476,19 +1476,13 @@ writing new private key to &lt;span class=&quot;s1&quot;&gt;'/etc/ssl/certs/pass
   ssl_ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS;
   ssl_session_tickets off;
   root /var/www/passbolt;
-# X-Frame-Options is to prevent from clickJacking attack
-  add_header X-Frame-Options SAMEORIGIN;
-#  disable content-type sniffing on some browsers.
-  add_header X-Content-Type-Options nosniff;
-# This header enables the Cross-site scripting (XSS) filter
-  add_header X-XSS-Protection &quot;1; mode=block&quot;;
-# This will enforce HTTP browsing into HTTPS and avoid ssl stripping attack
-  add_header Strict-Transport-Security &quot;max-age=31536000; includeSubdomains;&quot;;
-location / {
+  
+  location / {
     try_files $uri $uri/ /index.php?$args;
     index index.php;
   }
-location ~ \.php$ {
+  
+  location ~ \.php$ {
     fastcgi_index           index.php;
     fastcgi_pass            127.0.0.1:9000;
     fastcgi_split_path_info ^(.+\.php)(.+)$;
@@ -1496,7 +1490,8 @@ location ~ \.php$ {
     fastcgi_param           SCRIPT_FILENAME $document_root$fastcgi_script_name;
     fastcgi_param           SERVER_NAME $http_host;
   }
-location ~* \.(jpe?g|woff|woff2|ttf|gif|png|bmp|ico|css|js|json|pdf|zip|htm|html|docx?|xlsx?|pptx?|txt|wav|swf|svg|avi|mp\d)$ {
+       
+  location ~* \.(jpe?g|woff|woff2|ttf|gif|png|bmp|ico|css|js|json|pdf|zip|htm|html|docx?|xlsx?|pptx?|txt|wav|swf|svg|avi|mp\d)$ {
     access_log off;
     log_not_found off;
     try_files $uri /webroot/$uri /index.php?$args;

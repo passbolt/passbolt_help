@@ -21,18 +21,13 @@ server {
   keepalive_timeout     5 5;
   send_timeout          10;
   root /var/www/passbolt;
-# X-Frame-Options is to prevent from clickJacking attack
-  add_header X-Frame-Options SAMEORIGIN;
-#  disable content-type sniffing on some browsers.
-  add_header X-Content-Type-Options nosniff;
-# This header enables the Cross-site scripting (XSS) filter
-  add_header X-XSS-Protection "1; mode=block";
 
-location / {
+  location / {
     try_files $uri $uri/ /index.php?$args;
     index index.php;
   }
-location ~ \.php$ {
+  
+  location ~ \.php$ {
     fastcgi_index           index.php;
     fastcgi_pass            127.0.0.1:9000;
     fastcgi_split_path_info ^(.+\.php)(.+)$;
@@ -40,7 +35,8 @@ location ~ \.php$ {
     fastcgi_param           SCRIPT_FILENAME $document_root$fastcgi_script_name;
     fastcgi_param           SERVER_NAME $http_host;
   }
-location ~* \.(jpe?g|woff|woff2|ttf|gif|png|bmp|ico|css|js|json|pdf|zip|htm|html|docx?|xlsx?|pptx?|txt|wav|swf|svg|avi|mp\d)$ {
+  
+  location ~* \.(jpe?g|woff|woff2|ttf|gif|png|bmp|ico|css|js|json|pdf|zip|htm|html|docx?|xlsx?|pptx?|txt|wav|swf|svg|avi|mp\d)$ {
     access_log off;
     log_not_found off;
     try_files $uri /webroot/$uri /index.php?$args;

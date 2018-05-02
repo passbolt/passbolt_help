@@ -1,4 +1,157 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-04-19T18:17:53+05:30</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-05-02T11:35:57+05:30</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2018-05-02T05:30:00+05:30</published><updated>2018-05-02T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;which-update-process-to-follow&quot;&gt;Which update process to follow?&lt;/h2&gt;
+
+    &lt;p&gt;Each passbolt release follows the concept of &lt;a href=&quot;http://www.semver.org&quot;&gt;Semantic Versioning&lt;/a&gt;. Given a version number MAJOR.MINOR.PATCH, we increment as follow:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;PATCH&lt;/strong&gt; version when we make backwards-compatible bug fixes. So let’s say you are running passbolt v2.0.2 and the latest one available is v2.1.0 you will need to perform a patch update.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;MINOR&lt;/strong&gt; version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.2 installed and the latest version available is v2.0.3, you will need to perform a minor version update.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;MAJOR&lt;/strong&gt; version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1 to v2 for example.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;where-to-find-the-latest-release-version-number&quot;&gt;Where to find the latest release version number?&lt;/h2&gt;
+
+    &lt;p&gt;You can find information about which version is the latest in the &lt;a href=&quot;?php echo Router::url('/release/notes',true); ?&quot;&gt;release notes&lt;/a&gt;. It is generally a good idea to check these notes before running an update. You can also find it on the official &lt;a href=&quot;https://github.com/passbolt/passbolt_api/blob/master/app/Config/version.php&quot;&gt;GIT repository&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;where-to-find-the-version-number-for-a-given-installation&quot;&gt;Where to find the version number for a given installation?&lt;/h2&gt;
+
+    &lt;p&gt;You can check &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/version.php&lt;/code&gt; to know the version number for your local instance. You can also hover on the &lt;em&gt;&lt;span class=&quot;visuallyhidden&quot;&gt;heart&lt;/span&gt;&lt;/em&gt; icon at the bottom right corner of any passbolt screen. The first item is the server version, the second the one from the browser extension.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/help/2018/05/AN_footer_version_help.png&quot; alt=&quot;footer version helper&quot; style=&quot;max-width:210px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. footer version helper&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;major-update&quot;&gt;Major update&lt;/h2&gt;
+
+    &lt;p&gt;Please see the following documentation to &lt;a href=&quot;/hosting/upgrade&quot;&gt;Update from v1 to v2&lt;/a&gt;&lt;/p&gt;
+
+    &lt;h2 id=&quot;minor-update&quot;&gt;Minor update&lt;/h2&gt;
+
+    &lt;p&gt;Every now and again some releases will introduce some database and/or configuration files changes. 
+Here is a step by step guide on how to perform a minor update. Just replace the version numbers where necessary.&lt;/p&gt;
+
+    &lt;h4 id=&quot;take-your-site-down&quot;&gt;1. Take your site down&lt;/h4&gt;
+
+    &lt;p&gt;Create a temporary webserver configuration to redirect all the requests to a maintenance page. 
+You can find resources how to do this online: &lt;a href=&quot;http://stackoverflow.com/questions/21709026/apache-enable-maintenance-mode-across-all-virtual-hosts&quot;&gt;here is an example for apache&lt;/a&gt; .&lt;/p&gt;
+
+    &lt;h4 id=&quot;get-the-latest-release&quot;&gt;2. Get the latest release&lt;/h4&gt;
+
+    &lt;p&gt;You can also pull the latest version directly from master:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can also pull specific versions:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.0.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;update-the-libraries&quot;&gt;3. Update the libraries&lt;/h4&gt;
+
+    &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on 
+what is recommended in the composer.lock. This file is provided by passbolt.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;run-the-migration-script&quot;&gt;4. Run the migration script&lt;/h4&gt;
+
+    &lt;p&gt;You can run the database migration scripts as follow:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake passbolt migrate &lt;span class=&quot;nt&quot;&gt;--backup&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;As you can see with the command above you can optional ask the application to create a database backup.
+This is usefull in case you run into any issues with the new version and need to revert to an old but working one.&lt;/p&gt;
+
+    &lt;p&gt;This backup will be placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;h4 id=&quot;put-your-site-back-online&quot;&gt;5. Put your site back online!&lt;/h4&gt;
+
+    &lt;p&gt;As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see 
+if your instance configuration is looking good.&lt;/p&gt;
+
+    &lt;h2 id=&quot;patch-update&quot;&gt;Patch update&lt;/h2&gt;
+
+    &lt;p&gt;Performing a patch update is the easiest. All you need to do is checkout the latest version.&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can also checkout a specific version and use branches to switch versions. For example for version 2.0.3:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch &lt;span class=&quot;nt&quot;&gt;--tags&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.0.3 &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; tags/v2.0.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+
+    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
+    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You can also run the following command:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake passbolt healthcheck
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
+
+    &lt;p&gt;If you run into some issues:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
+      &lt;li&gt;Check for error message in the &lt;code class=&quot;highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
+      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
+      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
+      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
+      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Where to get help:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
+      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
+the easiest it will be for people to help you.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+May
+2nd,
+2018.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Are you still using passbolt v1? Check out the previous version of this article.&lt;/p&gt;
+    
+    &lt;a href=&quot;/hosting/update-v1&quot; class=&quot;button &quot;&gt;See previous version&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x.&lt;/p&gt;
@@ -2298,122 +2451,6 @@ April
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial will be available soon.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-April
-9th,
-2018.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Installation with install scripts</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Installation with install scripts" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;The install scripts are shell scripts that are designed to do the heavy lifting for you. They will configure your
-operating system to be passbolt ready and will take care of the web server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
-
-    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
-    &lt;p&gt;The install scripts will work on any of these servers:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Debian 9 (Etch)&lt;/li&gt;
-      &lt;li&gt;CentOS 7&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;server-configuration-steps&quot;&gt;Server configuration steps&lt;/h2&gt;
-    &lt;h3 id=&quot;create-a-web-server-matching-the-requirements&quot;&gt;1. Create a web server matching the requirements.&lt;/h3&gt;
-    &lt;p&gt;Spin up a new fresh server with one of the supported linux distributions (Debian 9 or CentOS 7). You can do this on a bare-metal server, on a virtual machine or a container (docker).
-In this tutorial, we are using a the official Debian 9 image on Vagrant.&lt;/p&gt;
-
-    &lt;h3 id=&quot;download-the-installation-script&quot;&gt;2. Download the installation script&lt;/h3&gt;
-    &lt;p&gt;You can download the installation scripts from these respective urls:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Debian 9: &lt;a href=&quot;https://www.passbolt.com/pro/download/installers/debian/latest&quot;&gt;https://www.passbolt.com/pro/download/installers/debian/latest&lt;/a&gt; (&lt;a href=&quot;https://www.passbolt.com/pro/download/installers/debian/latest-checksum&quot;&gt;Checksum&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Centos 7: &lt;a href=&quot;https://www.passbolt.com/pro/download/installers/centos/latest&quot;&gt;https://www.passbolt.com/pro/download/installers/centos/latest&lt;/a&gt; (&lt;a href=&quot;https://www.passbolt.com/pro/download/installers/centos/latest-checksum&quot;&gt;Checksum&lt;/a&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; ./passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;figure&gt;
-    &lt;img src=&quot;/assets/img/help/2018/04/download-install-script.png&quot; alt=&quot;download the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. download the install script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;execute-the-installation-script&quot;&gt;3. Execute the installation script&lt;/h3&gt;
-    &lt;p&gt;First, unpack it:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar zxvf ./passbolt-pro-installer-debian-9.tar.gz
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Then, execute it:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./passbolt_pro_debian_installer.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;figure&gt;
-    &lt;img src=&quot;/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;answer-the-questions&quot;&gt;4. Answer the questions&lt;/h3&gt;
-    &lt;p&gt;The install script will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Do you want to install a local mariadb server on this machine?&lt;/strong&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Hostname&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
-the address (domain, hostname or ip) at which you are planning to access your passbolt after installation&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;SSL Setup&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option 
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;strong&gt;GnuPG entropy&lt;/strong&gt;
-On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system. 
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
-
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
-
-    &lt;p&gt;At the end, the install script will confirm you that the environment has been configured and will ask you to point your browser to 
-the hostname or ip address previously entered.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;your-server-is-now-ready-to-run-passbolt&quot;&gt;Your server is now ready to run passbolt&lt;/h2&gt;
-
-    &lt;p&gt;The next step is to configure passbolt. You can do this quite easily with the configuration wizard.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/hosting/install/wizard&quot; class=&quot;button primary&quot;&gt;Configure passbolt with the wizard&lt;/a&gt;&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;

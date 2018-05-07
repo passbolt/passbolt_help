@@ -318,7 +318,7 @@ We also consider that passbolt will be reachable on the hostname <code class="hi
   client_header_timeout 10;
   keepalive_timeout     5 5;
   send_timeout          10;
-  root /var/www/passbolt;
+  root /var/www/passbolt/webroot;
 
   location / {
     try_files $uri $uri/ /index.php?$args;

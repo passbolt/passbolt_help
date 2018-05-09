@@ -6,7 +6,9 @@ Passbolt provides a [docker-compose{{ page.docker_tag}}.yaml](https://github.com
 The easiest way to use passbolt provided docker-compose{{ page.docker_tag }}.yaml is to:
 ```bash
 $ git clone https://github.com/passbolt/passbolt_docker
+{% if page.passbolt_version == 'Pro' -%}
 $ cp your_subscription_license_file passbolt_docker/license
+{% endif -%}
 $ cd passbolt_docker
 ```
 

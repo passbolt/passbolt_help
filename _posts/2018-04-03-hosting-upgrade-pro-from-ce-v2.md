@@ -1,6 +1,6 @@
 ---
 title: Upgrade Passbolt from community edition v2 to Pro
-card_title: From v2
+card_title: From CE v2 (source)
 card_teaser: Upgrade from community edition v2 to Pro
 date: 2018-04-03 00:00:00 Z
 description: Upgrade from CE v2 to Pro

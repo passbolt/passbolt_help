@@ -352,8 +352,14 @@
 "hosting-update-html": {
 "title": "Update passbolt server component (v2)",
 "category": "hosting",
-"content": "Which update process to follow? Each passbolt release follows the concept of Semantic Versioning. Given a version number MAJOR.MINOR.PATCH, we increment as follow: PATCH version when we make backwards-compatible bug fixes. So let’s say you are running passbolt v2.0.2 and the latest one available is v2.1.0 you will need to perform a patch update. MINOR version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.2 installed and the latest version available is v2.0.3, you will need to perform a minor version update. MAJOR version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1 to v2 for example. Where to find the latest release version number? You can find information about which version is the latest in the release notes. It is generally a good idea to check these notes before running an update. You...",
+"content": "Which update process to follow? Each passbolt release follows the concept of Semantic Versioning. Given a version number MAJOR.MINOR.PATCH, we increment as follow: PATCH version when we make backwards-compatible bug fixes. So let’s say you are running passbolt v2.0.2 and the latest one available is v2.0.3 you will need to perform a patch update. MINOR version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.3 installed and the latest version available is v2.1.0, you will need to perform a minor version update. MAJOR version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1 to v2 for example. Where to find the latest release version number? You can find information about which version is the latest in the release notes. It is generally a good idea to check these notes before running an update. You...",
 "url": "https://help.passbolt.com/hosting/update.html"
+},
+"hosting-upgrade-pro-upgrade-pro-from-ce-html": {
+"title": "Upgrade to Passbolt Pro",
+"category": "",
+"content": "There are many ways you can upgrade your version 1 or version 2 Community Edition (CE) to Passbolt Pro.This page list the options and will point you to the right manual. Upgrade from CE v2 Upgrade CE v2.x to Pro using source Upgrade CE v2.x to Pro using docker Upgrade from v1 Using docker Upgrade CE v2.x to Pro using docker Using source If the server running Passbolt V1 doesn’t and cannot match the requirements listed bellow, you will need a new server to upgrade to Passbolt Pro. Upgrade CE v1.x to Pro on the same server Upgrade CE v1.x to Pro on a new server Can I upgrade on the same server? If the server running Passbolt v1 matches the requirements listed bellow, you can upgrade to Passbolt Pro on the same server.If it does not match, you can also upgrade your distribution packages, or install on a new...",
+"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html"
 },
 "hosting-upgrade-ce-upgrade-docker-ce-html": {
 "title": "Upgrade Passbolt docker from v1",
@@ -390,12 +396,6 @@
 "category": "",
 "content": "This tutorial covers the case where you want to upgrade from your passbolt CE v1.x into Passbolt Pro when using docker. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. The upgrading process is very similar to the one listed in the ce section. The main difference is that Passbolt Pro requires a subscription key towork. Upgrade from v1.6.10-debian Passbolt v2 introduces several changes that are important to keep in mind when upgrading: Changes: Environment variables The set of environment variables have changed and users should take some time to get familiar with the new ones. For example in case of the database env variables: DB_USER is now DATASOURCES_DEFAULT_USERNAMEDB_HOST is now DATASOURCES_DEFAULT_HOST There is a more detailed list in passbolt_docker README file. Changes: Configuration files No more core.php, email.php or database.php.Any user that does not...",
 "url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker.html"
-},
-"hosting-upgrade-pro-upgrade-pro-from-ce-html": {
-"title": "Upgrade to Passbolt Pro",
-"category": "",
-"content": "System requirements Apache or Nginx HTTPS PHP &gt;= 7.0.0 Mysql &gt;= 5.5.59 Composer GnuPG for PHP: for key verification and authentication. PHP extensions (that may or may not come by default): Cakephp default requirements: Intl, mbstring, simplexml Image manipulation: gd or imagick Database: Mysqlnd, pdo, pdo_mysql Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json. &amp; more depending on your configuration (for example if you want to use memcache for sessions). Upgrade Passbolt CE to Passbolt Pro There are two ways you can upgrade your Passbolt Community Edition (CE) to Passbolt Pro. 1. Upgrade on the same server If the server running Passbolt CE matches the requirements listed above, you can upgrade to Passbolt Pro on the same server.If it doesn’t match, you can also upgrade your distribution packages. The main missing dependency is usually PHP7. (In Debian, using dotdeb replacements work like a charm). Upgrade CE v1.x...",
-"url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html"
 },
 "hosting-upgrade-pro-upgrade-pro-from-ce-v1-same-server-html": {
 "title": "Upgrade Passbolt from v1 to Pro on the same server",

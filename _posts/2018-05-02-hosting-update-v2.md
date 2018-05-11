@@ -16,8 +16,8 @@ permalink: /:categories/:slug.html
 
 Each passbolt release follows the concept of [Semantic Versioning](http://www.semver.org). Given a version number MAJOR.MINOR.PATCH, we increment as follow:
 
-* **PATCH** version when we make backwards-compatible bug fixes. So let's say you are running passbolt v2.0.2 and the latest one available is v2.1.0 you will need to perform a patch update.
-* **MINOR** version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.2 installed and the latest version available is v2.0.3, you will need to perform a minor version update.
+* **PATCH** version when we make backwards-compatible bug fixes. So let's say you are running passbolt v2.0.2 and the latest one available is v2.0.3 you will need to perform a patch update.
+* **MINOR** version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.3 installed and the latest version available is v2.1.0, you will need to perform a minor version update.
 * **MAJOR** version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1 to v2 for example.
 
 {% include hosting/update/version-helper.md %}

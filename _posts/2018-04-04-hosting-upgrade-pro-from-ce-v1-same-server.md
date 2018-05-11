@@ -1,6 +1,6 @@
 ---
 title: Upgrade Passbolt from v1 to Pro on the same server
-card_title: From v1 same server
+card_title: From v1 (same machine)
 card_teaser: Upgrade from v1 to Pro on the same server
 date: 2018-04-09 00:00:00 Z
 description: Upgrade from Passbolt v1 to Pro on the same server

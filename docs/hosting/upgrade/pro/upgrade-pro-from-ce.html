@@ -36,10 +36,8 @@
                 <div class="top navigation primary">
                     <ul class="links clearfix">
                         <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
-                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
                         <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
-                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
-                        <li class="left"><a href="https://community.passbolt.com"><span>forum</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
                         <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
                         <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
                     </ul>
@@ -184,48 +182,71 @@
                     <div class="row">
   <div class="col7">
 
-    <h2 id="system-requirements">System requirements</h2>
+    <p>There are many ways you can upgrade your version 1 or version 2 Community Edition (CE) to Passbolt Pro.
+This page list the options and will point you to the right manual.</p>
+
+    <h3 id="upgrade-from-ce-v2">Upgrade from CE v2</h3>
+
     <ul>
-      <li>Apache or Nginx</li>
-      <li>HTTPS</li>
-      <li>PHP &gt;= 7.0.0</li>
-      <li>Mysql &gt;= 5.5.59</li>
-      <li>Composer</li>
-      <li>GnuPG for PHP: for key verification and authentication.</li>
-      <li>PHP extensions (that may or may not come by default):
-        <ul>
-          <li>Cakephp default requirements: Intl, mbstring, simplexml</li>
-          <li>Image manipulation: gd or imagick</li>
-          <li>Database: Mysqlnd, pdo, pdo_mysql</li>
-          <li>Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.</li>
-        </ul>
-      </li>
-      <li>&amp; more depending on your configuration (for example if you want to use memcache for sessions).</li>
+      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v2">Upgrade CE v2.x to Pro using source</a></li>
+      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-v2-docker">Upgrade CE v2.x to Pro using docker</a></li>
     </ul>
 
-    <h2 id="upgrade-passbolt-ce-to-passbolt-pro">Upgrade Passbolt CE to Passbolt Pro</h2>
+    <h3 id="upgrade-from-v1">Upgrade from v1</h3>
 
-    <p>There are two ways you can upgrade your Passbolt Community Edition (CE) to Passbolt Pro.</p>
+    <h4 id="using-docker">Using docker</h4>
+    <ul>
+      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-v1-docker">Upgrade CE v2.x to Pro using docker</a></li>
+    </ul>
 
-    <h3 id="upgrade-on-the-same-server">1. Upgrade on the same server</h3>
-    <p>If the server running Passbolt CE matches the requirements listed above, you can upgrade to Passbolt Pro on the same server.
-If it doesn’t match, you can also upgrade your distribution packages. The main missing dependency is usually PHP7. (In Debian, using dotdeb replacements work like a charm).</p>
+    <h4 id="using-source">Using source</h4>
+    <p>If the server running Passbolt V1 doesn’t and cannot match the requirements listed bellow, you will need a new server 
+to upgrade to Passbolt Pro.</p>
 
     <ul>
       <li><a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server">Upgrade CE v1.x to Pro on the same server</a></li>
-      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v2">Upgrade CE v2.x to Pro</a></li>
+      <li><a href="/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server">Upgrade CE v1.x to Pro on a new server</a></li>
     </ul>
 
-    <h3 id="upgrade-on-a-new-server">2. Upgrade on a new server</h3>
-    <p>If the server running Passbolt CE doesn’t and cannot match the requirements listed above, you will need a new server to upgrade to Passbolt Pro.</p>
+    <h3 id="can-i-upgrade-on-the-same-server">Can I upgrade on the same server?</h3>
+    <p>If the server running Passbolt v1 matches the requirements listed bellow, you can upgrade to Passbolt Pro on the same server.
+If it does not match, you can also upgrade your distribution packages, or install on a new server.
+Generally the major dependency upgrade is PHP7. (In Debian, using dotdeb replacements work like a charm).</p>
 
-    <p>This documentation is coming soon.</p>
+    <h4 id="requirements">Requirements</h4>
+    <p>Passbolt is reported to work on a large variety of operating system configurations. 
+Therefore this help page is a generic guide that should work for most environments.</p>
+
+    <p>If you run into any issues with your particular configuration, 
+<a href="https://community.passbolt.com/c/installation-issues">please check the forum</a>. 
+Maybe someone else has had your issue. If not, make a post and the community will try to help you.</p>
+
+    <ul>
+      <li>Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)</li>
+      <li>A webserver (Apache or Nginx)</li>
+      <li>A TLS server certificate for HTTPS</li>
+      <li>PHP &gt;= 7.0.0</li>
+      <li>Mysql &gt;= 5.5.59</li>
+      <li><a href="https://getcomposer.org/download/">Composer</a></li>
+      <li><a href="https://gnupg.org/">GnuPG</a></li>
+      <li><a href="https://git-scm.com/">Git</a></li>
+    </ul>
+
+    <p>The following PHP extensions (that may or may not come by default):</p>
+    <ul>
+      <li><a href="http://php.net/manual/en/gnupg.installation.php">PHP-GNUPG</a>: for key verification and authentication.</li>
+      <li>Cakephp default requirements: Intl, mbstring, simplexml</li>
+      <li>Image manipulation: gd or imagick</li>
+      <li>Database: Mysqlnd, pdo, pdo_mysql</li>
+      <li>Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.</li>
+      <li>&amp; more depending on your configuration (for example if you want to use memcache for sessions).</li>
+    </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
 April
-9th,
+15th,
 2018.</p>
     </div>
 

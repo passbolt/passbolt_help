@@ -1,6 +1,6 @@
 ---
 title: Upgrade from CE v2 to Pro using docker
-card_title: Upgrade from v2 docker
+card_title: From CE v2 (docker)
 card_teaser: Upgrade from CE v2 to Pro using docker
 date: 2018-04-09 00:00:00 Z
 description: Upgrade from CE v2.x to Passbolt Pro using docker

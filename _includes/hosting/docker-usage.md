@@ -36,7 +36,7 @@ $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
              -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
              -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.1{{page.docker_tag}}-debian
+             passbolt/passbolt:latest{{page.docker_tag}}
 ```
 
 Note: strings between '<' and '>' are variables that the users should fill with their data.

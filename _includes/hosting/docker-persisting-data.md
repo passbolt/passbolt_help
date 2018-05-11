@@ -33,7 +33,7 @@ $ docker run --name passbolt{{ page.docker_tag }} --net passbolt_network \
              -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
              -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.1{{ page.docker_tag }}-debian
+             passbolt/passbolt:latest{{ page.docker_tag }}
 ```
 
 Bind volumes are usually useful when, for instance, the SSL certificates or GnuPG keys have been already created in the host machine:
@@ -53,7 +53,7 @@ $ docker run --name passbolt --net passbolt_network \
              -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
              -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
-             passbolt/passbolt:2.0.0{{ page.docker_tag }}-debian
+             passbolt/passbolt:latest{{ page.docker_tag }}
 ```
 
 An example of the above using docker-compose can be found [here](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose{{ page.docker_tag }}.yml) where bind mounts and volumes are used.

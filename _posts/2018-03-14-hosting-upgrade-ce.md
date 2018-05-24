@@ -43,7 +43,7 @@ directory. You will need to replace these values with your local environment set
 {% include hosting/upgrade/take-your-site-offline.md %}
 
 ### 3. Download the v2
-{% include hosting/upgrade/pro/v2/download-and-replace-passbolt.md 
+{% include hosting/upgrade/pro/v2/download-and-replace-passbolt.md
     repo_url="https://github.com/passbolt/passbolt_api.git"
 %}
 
@@ -78,7 +78,7 @@ Check `config/default.php` to get the names of the environment variables.
 
 ### 8. Run the migration script
 
-The structure of the database changed in version 2. Make sure you run the following script to migrate your 
+The structure of the database changed in version 2. Make sure you run the following script to migrate your
 data to the new format.
 
 ```shell
@@ -91,7 +91,19 @@ Optionally you can also run the health check to see if everything is fine.
 $ sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
 ```
 
-### 9. Get your service back online
+### 9. Modify the cron job to send emails
+
+Modify the cronjob entry you had added for passbolt CE v1 :
+```
+* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender > /var/log/passbolt.log
+```
+
+into this one:
+```
+* * * * * /var/www/passbolt/bin/cake EmailQueue.sender > /var/log/passbolt.log
+```
+
+### 10. Get your service back online
 
 Edit your apache or nginx to point to the new directory and bring your service back online.
 ```shell

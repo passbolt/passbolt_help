@@ -323,7 +323,7 @@ Check <code class="highlighter-rouge">config/default.php</code> to get the names
 
     <h3 id="run-the-migration-script">8. Run the migration script</h3>
 
-    <p>The structure of the database changed in version 2. Make sure you run the following script to migrate your 
+    <p>The structure of the database changed in version 2. Make sure you run the following script to migrate your
 data to the new format.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt<span class="nv">$ </span>./bin/cake passbolt migrate
@@ -334,7 +334,17 @@ data to the new format.</p>
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span> www-data
 </code></pre></div>    </div>
 
-    <h3 id="get-your-service-back-online">9. Get your service back online</h3>
+    <h3 id="modify-the-cron-job-to-send-emails">9. Modify the cron job to send emails</h3>
+
+    <p>Modify the cronjob entry you had added for passbolt CE v1 :</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender &gt; /var/log/passbolt.log
+</code></pre></div>    </div>
+
+    <p>into this one:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt; /var/log/passbolt.log
+</code></pre></div>    </div>
+
+    <h3 id="get-your-service-back-online">10. Get your service back online</h3>
 
     <p>Edit your apache or nginx to point to the new directory and bring your service back online.</p>
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /etc/apache2/sites-enabled/001-default.conf

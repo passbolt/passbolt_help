@@ -1,0 +1,22 @@
+---
+title: Release notes
+layout: rss
+permalink: /release/notes.rss
+---
+<rss version="2.0">
+<channel>
+<title>Release Notes</title>
+<link>http://www.passbolt.com/release/notes</link>
+<description>Most recent release notes.</description>
+<language>en-us</language>
+{% for item in site.releases reversed %}
+<item>
+    <title>{{ item.version }} | {{ item.title }}</title>
+    <link>{{ item.permalink | absolute_url }}</link>
+    <guid isPermaLink="true">{{ item.permalink | absolute_url }}</guid>
+    <description>{{ item.content | strip_html | truncatewords: 50 }}</description>
+    <pubDate>{{ item.date | date_to_rfc822 }}</pubDate>
+</item>
+{% endfor %}
+</channel>
+</rss>

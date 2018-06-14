@@ -1,4 +1,4 @@
 <figure>
-    <img src="{{ include.url }}" alt="{{ include.legend }}" style="max-width:{{ include.width }};"/>
+    <img src="{{ include.url | absolute_url }}" alt="{{ include.legend }}" style="max-width:{{ include.width }};"/>
     <span class="legend">fig. {{ include.legend }}</span>
 </figure>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sittin&#39; on the dock</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2018 Passbolt SARL
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release most notable improvement is a health-check page that can help administrators diagnose what is the status of their installation. This week we are...">
+    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Sittin&#39; on the dock" />
+    <meta property="og:description" content="This release most notable improvement is a health-check page that can help administrators diagnose what is the status of their installation. This week we are..." />
+
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
+    <link rel="canonical" href="http://localhost:4000/releases/ce/v1010-dockofthebay">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
+
+</head>
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v1.0.10.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation wizard scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases</h2></li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="http://localhost:4000/releases/ce/v207-struggle" >v2.0.7</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="http://localhost:4000/releases/ce/v205-everydaystruggle" >v2.0.5</a>
+                    </li>
+                    
+                    
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="http://localhost:4000/release/notes.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="http://localhost:4000/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="http://localhost:4000/releases/ce"><span>ce</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="http://localhost:4000/releases/ce/v1010-dockofthebay"><span>dockofthebay</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v1.0.10 ~ Sittin' on the dock (ce)</h1>
+                            <p>Release date: 
+May
+3rd,
+2016.
+</p>
+                            <p>This release most notable improvement is a health-check page that can help administrators diagnose what is 
+the status of their installation. This week we are still ironing out a few bugs and environment related issues.</p>
+
+<figure>
+    <img src="http://localhost:4000/assets/img/screenshots/AD_healthcheck.jpg" alt="example /healthcheck screen" style="max-width:;" />
+    <span class="legend">fig. example /healthcheck screen</span>
+</figure>
+
+<p>A big thank you to <a href="https://github.com/gunhu">Alexis Vachette</a> and <a href="https://github.com/imami">Ebrahim Imami</a> who
+are helping us with these, and all of you who sent us bug reports and suggestions!</p>
+
+<h3 id="passbolt-api">Passbolt API</h3>
+<h4 id="added-improvements">Added improvements</h4>
+
+<ul>
+  <li>PASSBOLT-1419: Cleanup config.json for js client and remove useless config.</li>
+  <li>PASSBOLT-1514: By default passbolt app should not be indexed by search engines.</li>
+  <li>PASSBOLT-1474: API: Upgrade cakephp to 2.8.3.</li>
+  <li>PASSBOLT-1288: As an AD during install I should have status page to help me.</li>
+</ul>
+
+<h4 id="fixed-bugs">Fixed bugs</h4>
+<ul>
+  <li>PASSBOLT-1502: String is depracated in Cakephp since version 2.7 use CakeText instead.</li>
+  <li>PASSBOLT-1466: GET /auth/verify.json Content-Type should not be text/html but JSON.</li>
+  <li>PASSBOLT-1443: Copy to clipboard icon is misleading</li>
+</ul>
+
+<h3 id="passbolt-firefox-add-on">Passbolt Firefox Add-on</h3>
+<h4 id="added-improvements-1">Added improvements</h4>
+
+<ul>
+  <li>PASSBOLT-1316: As a AP trying to register again, I should sbe informed that the plugin is already configured.</li>
+</ul>
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"I can't do what ten people tell me to do so I guess I'll remain the same!"</p>
+                                <a href="https://youtu.be/6Z66wVo7uNw" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="http://localhost:4000/assets/js/greedynav.js"></script>
+</body>
+</html>

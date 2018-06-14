@@ -1,0 +1,113 @@
+<rss version="2.0">
+<channel>
+<title>Release Notes</title>
+<link>http://www.passbolt.com/release/notes</link>
+<description>Most recent release notes.</description>
+<language>en-us</language>
+
+<item>
+    <title>v2.1.1 | Loungin</title>
+    <link>http://localhost:4000/releases/ce/v211-loungin</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v211-loungin</guid>
+    <description>fig. Passbolt night mode This release introduce a new dark theme called ‘midgar’ that you can use in the place of the black on white default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long period...</description>
+    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v2.0.7 | Struggle</title>
+    <link>http://localhost:4000/releases/pro/v207-struggle</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/pro/v207-struggle</guid>
+    <description>Security notice: Nginx user, please review your configuration file to make sure you are using the correct application root. It should be: /var/www/passbolt/webroot Read more This release fixes issues introduced by the v2.0.5 both in the webextension and in the API. As you can see version v2.0.6 is skipped in...</description>
+    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v2.0.7 | Struggle</title>
+    <link>http://localhost:4000/releases/ce/v207-struggle</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v207-struggle</guid>
+    <description>Security notice: Nginx user, please review your configuration file to make sure you are using the correct application root. It should be: /var/www/passbolt/webroot Read more This release fixes issues introduced by the v2.0.5 both in the webextension and in the API. As you can see version v2.0.6 is skipped in...</description>
+    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v2.0.5 | Everyday struggle</title>
+    <link>http://localhost:4000/releases/pro/v205-everydaystruggle</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/pro/v205-everydaystruggle</guid>
+    <description>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias vd Meent, considering the use of an unsecure pseudo random number generator when generating passwords. You can learn more about the issue on the dedicated...</description>
+    <pubDate>Tue, 08 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v2.0.5 | Everyday struggle</title>
+    <link>http://localhost:4000/releases/ce/v205-everydaystruggle</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v205-everydaystruggle</guid>
+    <description>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias vd Meent, considering the use of an unsecure pseudo random number generator when generating passwords. You can learn more about the issue on the dedicated...</description>
+    <pubDate>Tue, 08 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.12 | Brick House</title>
+    <link>http://localhost:4000/releases/ce/v1012-brickhouse</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v1012-brickhouse</guid>
+    <description>This release brings an interesting new feature: the possibility to see the list of the users a password is shared with at a glance, directly from the sidebar. v1.0.12 also comes with its fair share of bug fixes, and some UI improvements. As usual, we have also worked on increasing...</description>
+    <pubDate>Tue, 31 May 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.11 | Soul Makossa</title>
+    <link>http://localhost:4000/releases/ce/v1011-soulmakossa</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v1011-soulmakossa</guid>
+    <description>This release brings some new email notifications. Until now you could only receive a notification when someone was sharing a password with you. With this new set of features you will also receive a nudge when someone comment, edit or delete a password that you own (or that is shared...</description>
+    <pubDate>Mon, 16 May 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.10 | Sittin' on the dock</title>
+    <link>http://localhost:4000/releases/ce/v1010-dockofthebay</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v1010-dockofthebay</guid>
+    <description>This release most notable improvement is a health-check page that can help administrators diagnose what is the status of their installation. This week we are still ironing out a few bugs and environment related issues. fig. example /healthcheck screen A big thank you to Alexis Vachette and Ebrahim Imami who...</description>
+    <pubDate>Tue, 03 May 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.9 | Let's stay together</title>
+    <link>http://localhost:4000/releases/ce/v109-letsstaytogether</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v109-letsstaytogether</guid>
+    <description>This release was mainly about bug fixes. Also, thanks to an article in the awesome magazine LinuxFR more people are trying to install passbolt on their own machine, so we published a new page containing updated installation instructions. Passbolt API Added improvements PASSBOLT-1495: Update installation instructions in README file. Passbolt...</description>
+    <pubDate>Mon, 25 Apr 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.8 | Lovely Day</title>
+    <link>http://localhost:4000/releases/ce/v108-lovelyday</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v108-lovelyday</guid>
+    <description>This is a small release, as we are busy collecting feedbacks from all of our early users. Thanks for all the positive vibes! Passbolt API Fixed bugs PASSBOLT-1445: As a LU viewing someone else comment I should not see the delete comment button. PASSBOLT-1402: As LU, In the comment thread...</description>
+    <pubDate>Fri, 15 Apr 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.7 | Ring my bell</title>
+    <link>http://localhost:4000/releases/ce/v107-ringmybell</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v107-ringmybell</guid>
+    <description>This week we rolled out a new homepage as you may have noticed. We also revamped the password workspace when no password are present. The nest illustration you can now see in place of the original void is a courtesy of our beloved Arthur Duarte. Check out his work. A...</description>
+    <pubDate>Tue, 05 Apr 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.6 | Boogie Wonderland</title>
+    <link>http://localhost:4000/releases/ce/v106-boogiewonderland</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v106-boogiewonderland</guid>
+    <description>Another release mostly focusing on bug fixes. Big shout out to our testers: Lilian, Nikki, Marcin and Vrindha! The only major new functionality is the release of a first version of a slack plugin for passbolt. You can now track the signup in slack. Get in touch with us if...</description>
+    <pubDate>Tue, 29 Mar 2016 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v1.0.5 | Move On Up</title>
+    <link>http://localhost:4000/releases/ce/v105-moveonup</link>
+    <guid isPermaLink="true">http://localhost:4000/releases/ce/v105-moveonup</guid>
+    <description>That’s one small release for both the browser add-on and the API but a giant leap for the project. Passbolt officially in Private Alpha and the first testers are starting to give us feedback. A big thank you to our first testers: Karthik, Lilian, Amitav and Parbhjot! It is also...</description>
+    <pubDate>Tue, 22 Mar 2016 05:30:00 +0530</pubDate>
+</item>
+
+</channel>
+</rss>

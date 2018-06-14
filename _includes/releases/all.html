@@ -1,0 +1,41 @@
+<div class="panel main">
+    <div class="panel left">
+        {% include sidebar/main.html selected=page.slug %}
+    </div>
+    <div class="panel middle">
+        <div class="grid grid-responsive-12">
+            <div class="row">
+                <article>
+                    <h1>All the releases</h1>
+                    <div class="col5">
+                        <h3>Passbolt Pro Edition</h3>
+                        <ul>
+                            {% assign items = site.releases | sort: 'date' %}
+                            {% for item in items reversed %}
+                            {% if item.product == 'pro' %}
+                            <li>
+                                <span style="width:60%; display:inline-block"><a href="{{ item.url }}">{{ item.version }} - {{ item.title }}</a></span>
+                                <span style="color:#888">{% include format-date.html date=item.date %}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col5 push1 last">
+                        <h3>Passbolt Community Edition</h3>
+                        <ul>
+                            {% for item in items reversed %}
+                            {% if item.product == 'ce' %}
+                            <li>
+                                <span style="width:60%; display:inline-block"><a href="{{ item.url }}">{{ item.version }} - {{ item.title }}</a></span>
+                                <span style="color:#888">{% include format-date.html date=item.date %}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

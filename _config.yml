@@ -41,6 +41,11 @@ collections:
     output: true
     default:
       layout: default
+  releases:
+    category: nil
+    output: true
+    default:
+      layout: default
 
 destination: docs
 

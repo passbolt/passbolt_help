@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-06-14T20:16:32+05:30</updated><id>http://localhost:4000/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="http://localhost:4000/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2018-05-02T05:30:00+05:30</published><updated>2018-05-02T05:30:00+05:30</updated><id>http://localhost:4000/hosting/update</id><content type="html" xml:base="http://localhost:4000/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-06-14T20:19:45+05:30</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2018-05-02T05:30:00+05:30</published><updated>2018-05-02T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;which-update-process-to-follow&quot;&gt;Which update process to follow?&lt;/h2&gt;
@@ -20,7 +20,7 @@
     &lt;p&gt;You can check &lt;code class=&quot;highlighter-rouge&quot;&gt;app/Config/version.php&lt;/code&gt; to know the version number for your local instance. You can also hover on the &lt;em&gt;&lt;span class=&quot;visuallyhidden&quot;&gt;heart&lt;/span&gt;&lt;/em&gt; icon at the bottom right corner of any passbolt screen. The first item is the server version, the second the one from the browser extension.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/05/AN_footer_version_help.png&quot; alt=&quot;footer version helper&quot; style=&quot;max-width:210px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/05/AN_footer_version_help.png&quot; alt=&quot;footer version helper&quot; style=&quot;max-width:210px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. footer version helper&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -91,7 +91,7 @@ if your instance configuration is looking good.&lt;/p&gt;
     &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -151,7 +151,7 @@ May
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Upgrade to Passbolt Pro</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html" rel="alternate" type="text/html" title="Upgrade to Passbolt Pro" /><published>2018-04-15T05:30:00+05:30</published><updated>2018-04-15T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Upgrade to Passbolt Pro</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html" rel="alternate" type="text/html" title="Upgrade to Passbolt Pro" /><published>2018-04-15T05:30:00+05:30</published><updated>2018-04-15T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;There are many ways you can upgrade your version 1 or version 2 Community Edition (CE) to Passbolt Pro.
@@ -233,7 +233,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt docker from v1</title><link href="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html" rel="alternate" type="text/html" title="Upgrade Passbolt docker from v1" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x.&lt;/p&gt;
@@ -441,7 +441,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Using Passbolt pro virtual machine appliance</title><link href="http://localhost:4000/hosting/install/pro/vm.html" rel="alternate" type="text/html" title="Using Passbolt pro virtual machine appliance" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>http://localhost:4000/hosting/install/pro/vm</id><content type="html" xml:base="http://localhost:4000/hosting/install/pro/vm.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Using Passbolt pro virtual machine appliance</title><link href="https://help.passbolt.com/hosting/install/pro/vm.html" rel="alternate" type="text/html" title="Using Passbolt pro virtual machine appliance" /><published>2018-04-10T05:30:00+05:30</published><updated>2018-04-10T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/vm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/vm.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;description&quot;&gt;Description&lt;/h2&gt;
@@ -507,7 +507,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt from scratch on Debian 9 (Stretch)</title><link href="http://localhost:4000/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install passbolt from scratch on Debian 9 (Stretch)" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/install/ce/from-source</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt from scratch on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install passbolt from scratch on Debian 9 (Stretch)" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
@@ -1239,7 +1239,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt from scratch on CentOS 7</title><link href="http://localhost:4000/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install passbolt from scratch on CentOS 7" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/install/ce/from-source</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt from scratch on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install passbolt from scratch on CentOS 7" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
@@ -2057,7 +2057,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v2 to Pro using docker</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html" rel="alternate" type="text/html" title="Upgrade from CE v2 to Pro using docker" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v2 to Pro using docker</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html" rel="alternate" type="text/html" title="Upgrade from CE v2 to Pro using docker" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade from your passbolt CE v2.x into Passbolt Pro when using docker.&lt;/p&gt;
@@ -2133,7 +2133,7 @@ However, it is recommended that users pull the tags pointing to specific passbol
              passbolt/passbolt:latest-pro
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v1 to Pro using docker</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker.html" rel="alternate" type="text/html" title="Upgrade from CE v1 to Pro using docker" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE v1 to Pro using docker</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker.html" rel="alternate" type="text/html" title="Upgrade from CE v1 to Pro using docker" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade from your passbolt CE v1.x into Passbolt Pro when using docker.&lt;/p&gt;
@@ -2306,7 +2306,7 @@ Following some examples:&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from v1 to Pro on the same server</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html" rel="alternate" type="text/html" title="Upgrade Passbolt from v1 to Pro on the same server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from v1 to Pro on the same server</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html" rel="alternate" type="text/html" title="Upgrade Passbolt from v1 to Pro on the same server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server.&lt;/p&gt;
@@ -2424,7 +2424,7 @@ Just point your browser to your passbolt url.&lt;/p&gt;
     &lt;p&gt;You will be greeted by a welcome screen. Click on the Configure with wizard option and follow the instructions.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/passbolt-welcome-page.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/passbolt-welcome-page.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2437,7 +2437,7 @@ Just point your browser to your passbolt url.&lt;/p&gt;
 &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-key-import.png&quot; alt=&quot;Wizard - import key screen&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-key-import.png&quot; alt=&quot;Wizard - import key screen&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Wizard - import key screen&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2481,7 +2481,7 @@ April
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from v1 to Pro on a new server</title><link href="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html" rel="alternate" type="text/html" title="Upgrade Passbolt from v1 to Pro on a new server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server</id><content type="html" xml:base="http://localhost:4000/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from v1 to Pro on a new server</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html" rel="alternate" type="text/html" title="Upgrade Passbolt from v1 to Pro on a new server" /><published>2018-04-09T05:30:00+05:30</published><updated>2018-04-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This tutorial will be available soon.&lt;/p&gt;

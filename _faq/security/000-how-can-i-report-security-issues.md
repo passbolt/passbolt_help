@@ -6,4 +6,4 @@ category: security
 permalink: /faq/security/:slug
 date: 2017-01-20 00:00:00 Z
 ---
-{% include report-security-issue.md %}
+{% include faq/report-security-issue.md %}

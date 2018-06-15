@@ -45,7 +45,7 @@ Generally the major dependency upgrade is PHP7. (In Debian, using dotdeb replace
 #### Requirements
 {% include hosting/v2-requirements.md %}
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

@@ -16,7 +16,7 @@ date: 2017-01-20 00:00:00 Z
 6. Enter your master password. Press OK to continue.
 7. Wait until encryption is done
 
-{% include warning.html content="Make sure you **press the save button every time** you make changes" %}
+{% include messages/warning.html content="Make sure you **press the save button every time** you make changes" %}
 
 ## Removing yourself from a password shared with you
 1. Log in to your passbolt account.

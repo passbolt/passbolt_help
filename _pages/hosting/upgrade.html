@@ -13,9 +13,9 @@ permalink: /hosting/upgrade
         <div class="grid grid-responsive-12">
             {% include breadcrumbs/default.html slug=page.slug %}
             {% assign ceCategories = "hosting|upgrade|ce" | split: "|" %}
-            {% include jmy-section-cards.html section='hosting' sub='upgrade' title='Community edition' categories=ceCategories %}
+            {% include cards/jmy-section-cards.html section='hosting' sub='upgrade' title='Community edition' categories=ceCategories %}
             {% assign proCategories = "hosting|upgrade|pro" | split: "|" %}
-            {% include jmy-section-cards.html section='hosting' sub='upgrade' title='Pro edition' categories=proCategories %}
+            {% include cards/jmy-section-cards.html section='hosting' sub='upgrade' title='Pro edition' categories=proCategories %}
         </div>
     </div>
 </div>

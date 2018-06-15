@@ -24,7 +24,7 @@ The install scripts will work on any of these servers:
 - Debian 9 (Etch)
 - CentOS 7
 
-{% include warning.html
+{% include messages/warning.html
     content="**Please note:** It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."
 %}
 
@@ -41,7 +41,7 @@ You can download the installation scripts from these respective urls:
 ```shell
 $ wget -O ./passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
 ```
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/04/download-install-script.png"
     legend="download the install script"
     width="586px"
@@ -56,7 +56,7 @@ Then, execute it:
 ```
 sudo ./passbolt_pro_debian_installer.sh
 ```
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/04/execute-install-script.png"
     legend="execute the install script"
     width="586px"
@@ -93,7 +93,7 @@ For each question, depending on your answer, some more precisions can be asked. 
 At the end, the install script will confirm you that the environment has been configured and will ask you to point your browser to 
 the hostname or ip address previously entered.
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/04/end-install-script.png"
     legend="completion of the install script"
     width="586px"
@@ -105,7 +105,7 @@ The next step is to configure passbolt. You can do this quite easily with the co
 
 <a href="/hosting/install/wizard" class="button primary">Configure passbolt with the wizard</a>
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

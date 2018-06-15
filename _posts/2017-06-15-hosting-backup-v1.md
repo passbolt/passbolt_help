@@ -53,7 +53,7 @@ As an administrator you should stress the importance of backing up secret keys t
 
 It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

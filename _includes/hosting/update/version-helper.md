@@ -6,7 +6,7 @@ You can find information about which version is the latest in the [release notes
 
 You can check `app/Config/version.php` to know the version number for your local instance. You can also hover on the _<span class="visuallyhidden">heart</span>_ icon at the bottom right corner of any passbolt screen. The first item is the server version, the second the one from the browser extension.
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/05/AN_footer_version_help.png"
     legend="footer version helper"
     width="210px"

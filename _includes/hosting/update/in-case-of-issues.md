@@ -3,7 +3,7 @@
 #### Verifying the status of the application
 Optionally, you can login as an administrator and check the status on the healthcheck page:
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/screenshots/AD_healthcheck.jpg"
     legend="Example of healthcheck screen"
 %}

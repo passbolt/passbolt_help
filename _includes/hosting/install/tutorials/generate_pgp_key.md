@@ -1,7 +1,7 @@
 Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.
 {% capture warning_text %}**Note:** Running gpg --gen-key on a virtual machine can take a while because /dev/random does not have enough “randomness” aka entropy. You can speed up the gpg key creation with the **haveged** package to improve the entropy generation :
 {% endcapture %}
-{% include warning.html content= warning_text %}
+{% include messages/warning.html content= warning_text %}
 ```shell
 # Only in case of container or VM
 $ {{ include.package_manager }} install haveged -y

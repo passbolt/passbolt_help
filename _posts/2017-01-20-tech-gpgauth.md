@@ -28,7 +28,7 @@ most still support a form based authentication by default.
 
 The process goes as follow:
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/diagrams/sequence_diagram_form_authenticate.png"
     legend="Sequence diagram of a form based authentication"
 %}
@@ -69,7 +69,7 @@ This process will follow the gpgAuth protocol. This authentication mechanism use
 
 The authentication process is as follow:
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/diagrams/sequence_diagram_gpg_authenticate.png"
     legend="Sequence diagram of a GPGAuth based authentication"
 %}
@@ -90,7 +90,7 @@ user that the server identity cannot be verified.
  around this topic on the 
  [community forum](https://community.passbolt.com/t/is-the-gpgauth-server-key-verification-a-placebo/212/2). 
 {% endcapture %}
-{% include warning.html content=warning_content %}
+{% include messages/warning.html content=warning_content %}
 
 ### Login steps
 
@@ -151,7 +151,7 @@ example an email previously captured by an attacker. To mitigate this the encryp
 authentication method, as form authentication is also vulnerable to this class of attack.
 * **Both: Key revocation and expiracy.** There is no facility at the moment to replace and revoke keys.
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

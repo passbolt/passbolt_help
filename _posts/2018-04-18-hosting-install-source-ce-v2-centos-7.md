@@ -113,7 +113,7 @@ Here are some frequently asked questions related to passbolt installation:
 
 Feel free to ask for help on the [community forum](https://community.passbolt.com/c/installation-issues).
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

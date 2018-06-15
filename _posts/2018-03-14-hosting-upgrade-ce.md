@@ -17,7 +17,7 @@ permalink: /:categories/:slug.html
 
 This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into passbolt CE v2.x.
 
-{% include warning.html
+{% include messages/warning.html
     content="**Important:** Please take a full [backup](/hosting/backup-v1) of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database."
 %}
 
@@ -111,7 +111,7 @@ $ nano /etc/apache2/sites-enabled/001-default.conf
 $ service apache2 restart
 ```
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

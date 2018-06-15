@@ -60,7 +60,7 @@ However, if you know what you are doing, and wish to disable https, you can chan
 
 ### Database requirements
 
-{% include warning.html
+{% include messages/warning.html
     content="Currently passbolt only works with Mysql due to the view we use to check permissions. If you want to help us make it work on postgresql, do get in touch!"
 %}
 
@@ -234,7 +234,7 @@ The healthcheck is a tool that can help you identify what are the problems with 
 ```
 When the application is on debug mode (or if you are logged in as an administrator), a simplified dashboard version is also accessible directly in the browser at the url : /healthcheck
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/screenshots/AD_healthcheck.jpg"
     legend="example /healthcheck screen"
 %}
@@ -281,7 +281,7 @@ This can indicate that the fullBaseUrl is not set right in the app/Config/core.p
 
 ### Last updated
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

@@ -37,7 +37,7 @@ Spin up a new fresh server with your favorite distribution, install a database s
 and a webserver with a TLS certificate. If you are using apache as web server make sure you 
 have mod_rewrite module enabled.
 
-{% include warning.html
+{% include messages/warning.html
     content="We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative."
     link="https://letsencrypt.org/"
     ask="let's encrypt!"
@@ -170,7 +170,7 @@ Here are some frequently asked questions related to passbolt installation:
 
 Feel free to ask for help on the [community forum](https://community.passbolt.com/c/installation-issues).
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

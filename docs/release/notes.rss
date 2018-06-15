@@ -7,10 +7,18 @@
 
 <item>
     <title>v2.1.1 | Loungin</title>
-    <link>https://help.passbolt.com/releases/ce/v211-loungin</link>
-    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v211-loungin</guid>
-    <description>fig. Passbolt night mode This release introduce a new dark theme called ‘midgar’ that you can use in the place of the black on white default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long period...</description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <link>https://help.passbolt.com/releases/pro/v211-loungin</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v211-loungin</guid>
+    <description>fig. Passbolt night mode This release introduce a new dark theme that you can use in the place of the black on white default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long period of time....</description>
+    <pubDate>Thu, 14 Jun 2018 05:30:00 +0530</pubDate>
+</item>
+
+<item>
+    <title>v2.1.0 | Loungin</title>
+    <link>https://help.passbolt.com/releases/ce/v210-loungin</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v210-loungin</guid>
+    <description>This release includes a major rewrite of the javascript front-end code with an upgrade to CanJS version 3. We are very pleased by this upgrade as it will also us to ship features faster in the near futures. Another simple but notable improvement is the ability to copy the username...</description>
+    <pubDate>Thu, 14 Jun 2018 05:30:00 +0530</pubDate>
 </item>
 
 <item>

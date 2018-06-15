@@ -22,4 +22,4 @@ something not quite right, please file an issue on our github repo.
 
 ## Reporting a security Issue
 
-{% include report-security-issue.md %}
+{% include faq/report-security-issue.md %}

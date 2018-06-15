@@ -116,7 +116,7 @@ $ git fetch --tags
 $ git checkout tags/v1.0.9 -b tags/v1.0.9
 ```
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

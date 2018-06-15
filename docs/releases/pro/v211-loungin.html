@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Loungin</title>
+    <title>Passbolt Help | Loungin</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v211-loungin">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v211-loungin">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -70,7 +70,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.1.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.1.1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -84,8 +84,10 @@
                     
                     
                     <li class="selected">
-                        <a href="https://help.passbolt.com/releases/ce/v211-loungin" >v2.1.1</a>
+                        <a href="https://help.passbolt.com/releases/pro/v211-loungin" >v2.1.1</a>
                     </li>
+                    
+                    
                     
                     
                     
@@ -100,8 +102,6 @@
                     <li class="">
                         <a href="https://help.passbolt.com/releases/pro/v205-everydaystruggle" >v2.0.5</a>
                     </li>
-                    
-                    
                     
                     
                 </ul>
@@ -147,7 +147,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v211-loungin"><span>loungin</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/v211-loungin"><span>loungin</span></a>
                     </div>
                 </li>
                 
@@ -158,8 +158,8 @@
 
                             <h1>v2.1.1 ~ Loungin (pro)</h1>
                             <p>Release date: 
-May
-9th,
+June
+14th,
 2018.
 </p>
                             <figure>
@@ -167,24 +167,34 @@ May
     <span class="legend">fig. Passbolt night mode</span>
 </figure>
 
-<p>This release introduce a new dark theme called ‘midgar’ that you can use in the place of the black on white
+<p>This release introduce a new dark theme that you can use in the place of the black on white
 default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long
-period of time. To switch to the dark theme, click on your profile and select the theme option. 
-Let us know if you like it!</p>
+period of time. To switch to the dark theme, click on your profile and select the theme option in the navigation. 
+Because of this new feature, a database migration is required for this release.
+Make sure you follow the <a href="/hosting/upgrade">upgrade procedure</a>.</p>
 
 <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/06/LU_themes_midgar.png" alt="Switching themes" style="max-width:;" />
     <span class="legend">fig. Switching themes</span>
 </figure>
 
-<p>Because of this new feature a database migration is required in order to be able to save the user settings.
-Make sure you follow the <a href="/hosting/upgrade">upgrade procedure</a>.</p>
+<p>This release includes a major rewrite of the javascript front-end code with an upgrade to CanJS version 3.
+We are very pleased by this upgrade as it will also us to ship features faster in the near futures.</p>
+
+<p>Another simple but notable improvement is the ability to copy the username to the clipboard with one click on the
+username in the table view cells or the right sidebar.</p>
+
+<p>Another new feature, during setup, the key passphrase will now be checked against a dictionary using 
+the <a href="https://haveibeenpwned.com/API/v2">Pwned Passwords</a> range API. This secure and anonymous check is only 
+performed if the passphrase is longer than 8 character, as any passphrase shorter than this cannot be 
+considered secure anyway.</p>
+
+<p>Next stop: the much awaited LDAP integration!</p>
 
 <h3 id="passbolt-api">Passbolt API</h3>
 <h4 id="added">Added</h4>
 <ul>
   <li>PASSBOLT-2878: Add support for dark theme</li>
-  <li>PASSBOLT-2878: Add default theme</li>
   <li>PASSBOLT-2861: Add copy username to clipboard on click</li>
 </ul>
 
@@ -206,7 +216,7 @@ Make sure you follow the <a href="/hosting/upgrade">upgrade procedure</a>.</p>
   <li>PASSBOLT-1337: Wordsmithing healthcheck GPG feedback</li>
 </ul>
 
-<h3 id="passbolt-api-1">Passbolt API</h3>
+<h3 id="passbolt-web-extension">Passbolt Web extension</h3>
 <h4 id="added-improvements">Added improvements</h4>
 <ul>
   <li>PASSBOLT-2878: Add support for dark theme</li>
@@ -215,12 +225,12 @@ Make sure you follow the <a href="/hosting/upgrade">upgrade procedure</a>.</p>
 
 <h4 id="fixed-bugs">Fixed bugs</h4>
 <ul>
-  <li>Fix press escape to close master password dialog regression</li>
-  <li>GITHUB-268 Fix remember me checkbox label should be clickable</li>
-  <li>GITHUB-46 Fix security token validation regression</li>
-  <li>PASSBOLT-2854 Fix bug tags imported are always the same</li>
-  <li>PASSBOLT-2887 Fix iframe resize issue</li>
-  <li>PASSBOLT-2883 Fix logout link and remember me cleanup</li>
+  <li>GITHUB-268: Fix remember me checkbox label should be clickable</li>
+  <li>GITHUB-46: Fix security token validation regression</li>
+  <li>PASSBOLT-1773: Fix press escape to close master password dialog regression</li>
+  <li>PASSBOLT-2854: Fix bug tags imported are always the same</li>
+  <li>PASSBOLT-2887: Fix iframe resize issue</li>
+  <li>PASSBOLT-2883: Fix logout link and remember me cleanup</li>
 </ul>
 
                         </div>

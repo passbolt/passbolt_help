@@ -7,7 +7,7 @@ permalink: /faq/discover/:slug
 date: 2017-01-20 00:00:00 Z
 ---
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/diagrams/howitworks.svg"
     legend="password exchange using passbolt"
 %}

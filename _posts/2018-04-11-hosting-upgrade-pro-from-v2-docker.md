@@ -19,7 +19,7 @@ permalink: /:categories/:slug.html
 
 This tutorial covers the case where you want to upgrade from your passbolt CE v2.x into Passbolt Pro when using docker.
 
-{% include warning.html
+{% include messages/warning.html
     content="**Important:** Please take a full [backup](/hosting/backup-v1) of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database."
 %}
 

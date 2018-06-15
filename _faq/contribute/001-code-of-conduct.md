@@ -9,4 +9,4 @@ sidebar: aside/code-of-conduct.html
 ---
 You can find the code of conduct bellow.
 
-{% include code-of-conduct.md %}
+{% include legal/code-of-conduct.md %}

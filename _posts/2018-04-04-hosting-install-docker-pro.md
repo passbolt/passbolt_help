@@ -26,7 +26,7 @@ permalink: /:categories/:slug.html
 {% include hosting/docker-persisting-data.md %}
 
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

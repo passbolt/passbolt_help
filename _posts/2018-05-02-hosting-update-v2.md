@@ -88,7 +88,7 @@ $ git checkout tags/v2.0.3 -b tags/v2.0.3
 
 {% include hosting/update/in-case-of-issues.md %}
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

@@ -23,7 +23,7 @@ or use the demo environment. Here is the procedure to try out the demo:
 this is to allow testing "sharing" functionality), so you can use a throw-away email account if you are not confortable with this.
 
 **Step 6.** Passbolt sent you an email that contains a link allowing you to login.
-{% include warning.html
+{% include messages/warning.html
     content="The link is only valid for a short duration (72h by default, but this can be vary).
     If you registration email token expired you can request another one using the recovery feature at `https://[your_passbolt]/recover`"
 %}
@@ -34,7 +34,7 @@ this is to allow testing "sharing" functionality), so you can use a throw-away e
 
 **Step 2.** passbolt will ask you to check the URL passbolt is associated with 
 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/01/url-check.png"
     legend="Validation of the domain"
     width="450px"
@@ -43,7 +43,7 @@ this is to allow testing "sharing" functionality), so you can use a throw-away e
 **Step 3.** If you recognize the domain name, check the checkbox and then click Next. 
 
 **Step 4.** Passbolt will ask you to create a new key on the following screen:
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/01/create-new-key.png"
     legend="creating a new key"
     width="450px"
@@ -51,7 +51,7 @@ this is to allow testing "sharing" functionality), so you can use a throw-away e
 
 **Step 5.** Next, passbolt will help you create a new master password. Choose this password wisely, 
 it will be the gatekeeper to all your other passwords. 
-{% include figure.html
+{% include articles/figure.html
     url="/assets/img/help/2018/01/set-passphrase.png"
     legend="setting a passphrase"
     width="450px"

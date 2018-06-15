@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
-{% include head.html %}
+{% include common/head.html %}
 <body>
 <div id="container" class="help page background">
-{% include header.html %}
+{% include common/header.html %}
     <div class="panel main" aria-label="Content">
         <div class="panel left">
             {% if page.categories[1] %}
@@ -16,14 +16,14 @@
             <div class="grid grid-responsive-12">
                 <article>
                     {% include breadcrumbs/default.html %}
-                    {% include page-title.html %}
+                    {% include common/page-title.html %}
                     {{ content }}
                 </article>
             </div>
         </div>
     </div>
-{% include footer.html %}
+{% include common/footer.html %}
 </div>
-{% include analytics.html %}
+{% include common/analytics.html %}
 </body>
 </html>

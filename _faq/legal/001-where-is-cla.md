@@ -10,4 +10,4 @@ We use the [Harmony CLA](http://harmonyagreements.org/faqs.html) to protect your
 contribution you make to our open source projects. 
 You can find our version bellow:
 
-{% include cla.md %}
+{% include legal/cla.md %}

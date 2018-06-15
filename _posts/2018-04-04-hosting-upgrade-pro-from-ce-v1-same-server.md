@@ -19,7 +19,7 @@ This tutorial covers the case where you want to upgrade your current instance of
 
 If you want to use a new server, [follow this link](/hosting/upgrade/pro/upgrade-ce-v1-to-pro-new-server).
 
-{% include warning.html
+{% include messages/warning.html
     content="**Important:** Please take a full [backup](/hosting/backup-v1) of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database."
 %}
 
@@ -73,7 +73,7 @@ At this stage, Passbolt Pro should be working perfectly.
 
 Any issue? Do contact us on the [Passbolt Pro support](mailto:contact@passbolt.com) with the email provided during your purchase.
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

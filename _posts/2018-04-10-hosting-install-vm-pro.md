@@ -61,7 +61,7 @@ Executing the following command the script will guide you through the SSL setup:
 $ sudo /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
 ```
 
-{% include updated.html %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

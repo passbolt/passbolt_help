@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Planète mars</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2018 Passbolt SARL
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This releases fixes a few issues reported by the passbolt users that have switched to the v2.0.0-RC1. It also ships with a few cosmetic improvements as well ...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Planète mars" />
+    <meta property="og:description" content="This releases fixes a few issues reported by the passbolt users that have switched to the v2.0.0-RC1. It also ships with a few cosmetic improvements as well ..." />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v200-rc2-planete-mars">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.0.0-rc2.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation wizard scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (ce)</h2></li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v210-loungin" >v2.1.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v209-cold-vein" >v2.0.9</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v207-struggle" >v2.0.7</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v208-untitled" >v2.0.8</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v205-everydaystruggle" >v2.0.5</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v204-somethingwealladore" >v2.0.4</a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/ce.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/ce"><span>ce</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/ce/v200-rc2-planete-mars"><span>planete-mars</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v2.0.0-rc2 ~ Planète mars (ce)</h1>
+                            <p>Release date: 
+February
+20th,
+2018.
+</p>
+                            <p>This releases fixes a few issues reported by the passbolt users that have switched to the v2.0.0-RC1. 
+It also ships with a few cosmetic improvements as well as new healthchecks and debug tools to ease the 
+installation process. For example you can now call the following command to send a test email and get 
+some information to debug your setup:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ./bin/cake passbolt send_test_email
+---------------------------------------------------------------
+ Debug email shell
+---------------------------------------------------------------
+Email configuration
+---------------------------------------------------------------
+Host: localhost
+Port: 25
+Username: user
+Password: *********
+TLS: false
+Sending email from:  (y)
+Sending email to: doesnotexist@passboltdummydomain.com
+---------------------------------------------------------------
+A test email could not be sent.
+Error: Connection refused
+</code></pre></div></div>
+
+<p>To report any bug / feedback / improvement suggestion regarding passbolt v2.0.0-rc2, you can do it 
+through the traditional channels (github and community forum). Please add v2.0.0-rc2 in the title 
+so we can identify it more easily. This release candidate is a major version upgrade, so it requires 
+more steps compared to a usual update.</p>
+
+<p>What next? We are currently putting the finishing touches on new features, including export, import, a 
+web installer, and tags. Stay tuned!</p>
+
+<h3 id="passbolt-api">Passbolt API</h3>
+<h4 id="added">Added</h4>
+
+<ul>
+  <li>PASSBOLT-2638: Added command to test email configuration and SMTP communication</li>
+  <li>PASSBOLT-2608: Implement Sidebar v2 in the Appjs</li>
+  <li>PASSBOLT-2660: Add codacy badge</li>
+  <li>PASSBOLT-1741: Add more GPG healthchecks</li>
+  <li>PASSBOLT-1741: Add PHP extension checks to the healthcheck</li>
+  <li>PASSBOLT-2597: Add check before upgrade to ensure passbolt is already in latest 1.x</li>
+  <li>PASSBOLT-2631: Add an env var to control which email transport to use and defaults to Smtp</li>
+  <li>PASSBOLT-2601: Add Travis v2: phpunit, coverage, phpcs</li>
+</ul>
+
+<h4 id="fixed">Fixed</h4>
+
+<ul>
+  <li>PASSBOLT-2618: Fixes for PHP 7.2 compatibility</li>
+  <li>PASSBOLT-2624: PR#219 Fixed use CONFIG instead of “ROOT . DS . ‘config’” (by OdyX)</li>
+  <li>PASSBOLT-2631: Fixed default class for EmailTransport to Smtp in configuration</li>
+  <li>PASSBOLT-2640: Fixed incomplete urls in email templates</li>
+  <li>PASSBOLT-2640: Fixed escaping of non safe characters in emails</li>
+  <li>PASSBOLT-2667: Fixed regression: create a user that has been deleted previously returns an error</li>
+  <li>PASSBOLT-2673: Fixed regression: as AD I cannot create a group with the name of previously deleted group</li>
+  <li>PASSBOLT-2545: Fixed regression: As AD deleting a group I should be notified that all members of the group gonna lose access to the passwords shared with the group</li>
+  <li>PASSBOLT-2139: Fixed check sessions calls are logged as error</li>
+  <li>PASSBOLT-2139: Fixed not found image on password workspace</li>
+  <li>PASSBOLT-1741: Fixed set license to AGPL-3.0-or-later for composer compatibility</li>
+  <li>PASSBOLT-2589: Fixed App-js should check request response code from the http response header and not from the body header</li>
+  <li>PASSBOLT-2533: Fixed resource name, username, uri, description min length should be 1 char not 3</li>
+  <li>PASSBOLT-2660: Fixed remove flash message from login layout</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"Nés dans le ciel, vivant dans le soleil"</p>
+                                <a href="https://www.youtube.com/watch?v=kgxKuRO21AU" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

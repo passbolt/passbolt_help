@@ -1,0 +1,165 @@
+<rss version="2.0">
+<channel>
+<title>Passbolt Pro Edition Release notes</title>
+<link></link>
+<description>Most recent release notes.</description>
+<language>en-us</language>
+
+
+<item>
+    <title>v2.1.1 | Loungin</title>
+    <link>https://help.passbolt.com/releases/pro/v211-loungin</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v211-loungin</guid>
+    <description>fig. Passbolt night mode This release introduces a new dark theme that you can use in the place of the black on white default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long period of time...</description>
+    <pubDate>Thu, 14 Jun 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v2.0.9 | Cold Vein</title>
+    <link>https://help.passbolt.com/releases/pro/v209-cold-vein</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v209-cold-vein</guid>
+    <description>This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not be inserted if they are already present. Fix auth pagemod should insert script when a redirection is set in url Fix json.headers should be json.header...</description>
+    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+<item>
+    <title>v2.0.8 | They Reminisce</title>
+    <link>https://help.passbolt.com/releases/pro/v208-untitled</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v208-untitled</guid>
+    <description>This is a maintenance release for passbolt web extension that fixes issues reported by the community.
+
+Web Extension
+Bug fixes
+
+  Fix backward compatibility issue with search user API v1.
+
+
+</description>
+    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+<item>
+    <title>v2.0.7 | Struggle</title>
+    <link>https://help.passbolt.com/releases/pro/v207-struggle</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v207-struggle</guid>
+    <description>Security notice: Nginx user, please review your configuration file to make sure you are using the correct application root. It should be: /var/www/passbolt/webroot Read more This release fixes issues introduced by the v2.0.5 both in the webextension and in the API. As you can see version v2.0.6 is skipped in...</description>
+    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+
+
+
+
+<item>
+    <title>v2.0.5 | Everyday struggle</title>
+    <link>https://help.passbolt.com/releases/pro/v205-everydaystruggle</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v205-everydaystruggle</guid>
+    <description>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias vd Meent, considering the use of an unsecure pseudo random number generator when generating passwords. You can learn more about the issue on the dedicated...</description>
+    <pubDate>Tue, 08 May 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v2.0.4 | Something we all adore</title>
+    <link>https://help.passbolt.com/releases/pro/v204-somethingwealladore</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v204-somethingwealladore</guid>
+    <description>This is a maintenance release that fixes issues reported by the community.
+
+Passbolt API
+Fixed
+
+  COMMUNITY-599: Make email MX validation optional and not enabled by default
+  GITHUB-247: Fix secrets are not deleted when deleting a group or a user
+
+
+</description>
+    <pubDate>Thu, 26 Apr 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v2.0.3 | Definition</title>
+    <link>https://help.passbolt.com/releases/pro/v203-definition</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v203-definition</guid>
+    <description>This is a maintenance release that improves compatibility with CentOS 7.
+
+Passbolt API
+Fixed
+
+  PASSBOLT-2849: Fix issue with the permissions query and MariaDB 5.5
+  PASSBOLT-2848: Fix unsafe mode and ssl offloading
+
+
+</description>
+    <pubDate>Fri, 20 Apr 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v2.0.2 | Mass Appeal</title>
+    <link>https://help.passbolt.com/releases/pro/v202-mass-appeal</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v202-mass-appeal</guid>
+    <description>This is a maintenance release that fixes a bug related to the v1 database migration. Thanks to @shochdoerfer for his contribution. Passbolt API Improved GITHUB-242: Add Auto-Submitted header to the email notifications Fixed PASSBOLT-2806: Force database columns charset and collation PASSBOLT-2781: Increase length of resource uri field in model validation...</description>
+    <pubDate>Tue, 17 Apr 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v2.0.1 | Knock You Out</title>
+    <link>https://help.passbolt.com/releases/pro/v201-knock-you-out</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v201-knock-you-out</guid>
+    <description>This is a maintenance release that fixes a regression introduced in v2.0.0. Many thanks to @odyx for his blazing fast reaction at reporting the bug and submitting a fix. Passbolt API Improved PASSBOLT-2511: Improve healthcheck tables list so that tables are listed per major version Fixed GITHUB-239: Fix unsafe mode...</description>
+    <pubDate>Tue, 10 Apr 2018 05:30:00 +0530</pubDate>
+</item>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</channel>
+</rss>

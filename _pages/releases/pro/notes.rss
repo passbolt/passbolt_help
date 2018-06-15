@@ -1,15 +1,16 @@
 ---
-title: Release notes
+title: Passbolt Pro Edition Release notes
 layout: rss
-permalink: /release/notes.rss
+permalink: /releases/pro.rss
 ---
 <rss version="2.0">
 <channel>
-<title>Release Notes</title>
-<link>http://www.passbolt.com/release/notes</link>
+<title>{{ page.title }}</title>
+<link>{{ item.permalink | absolute_url }}</link>
 <description>Most recent release notes.</description>
 <language>en-us</language>
 {% for item in site.releases reversed %}
+{% if item.product == 'pro' %}
 <item>
     <title>{{ item.version }} | {{ item.title }}</title>
     <link>{{ item.permalink | absolute_url }}</link>
@@ -17,6 +18,7 @@ permalink: /release/notes.rss
     <description>{{ item.content | strip_html | truncatewords: 50 }}</description>
     <pubDate>{{ item.date | date_to_rfc822 }}</pubDate>
 </item>
+{% endif %}
 {% endfor %}
 </channel>
 </rss>

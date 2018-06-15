@@ -8,19 +8,22 @@
         <div class="panel left">
             <div class="navigation wizard scrollspy" role="navigation">
                 <ul class="nav">
-                    <li><h2>Last releases</h2></li>
+                    <li><h2>Last releases ({{page.product}})</h2></li>
                     {% assign items = site.releases | sort: 'date' | reverse %}
-                    {% for item in items limit:5  %}
+                    {% for item in items limit:12  %}
                     {% if item.product == page.product %}
                     <li class="{%if item.version == page.version %}selected{% endif %}">
                         <a href="{{ item.permalink | absolute_url }}" >{{ item.version }}</a>
                     </li>
                     {% endif %}
                     {% endfor %}
+                    <li>
+                        <a href="{{ '/releases' | absolute_url }}" >all releases</a>
+                    </li>
                 </ul>
             </div>
             <div style="margin:1em;">
-                <a href="{{ 'release/notes.rss' | absolute_url  }}" class="primary button">
+                <a href="{{ 'releases/' | absolute_url  }}{{ page.product }}.rss" class="primary button">
                     <i class="fa fa-rss fa-fw"></i>RSS feed</a>
             </div>
         </div>
@@ -37,7 +40,7 @@
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
                                 <p>"{{ page.quote }}"</p>
-                                <a href="https://youtu.be/6Z66wVo7uNw" target="_blank" rel="noopener nofollow" class="button primary">
+                                <a href="{{ page.song }}" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

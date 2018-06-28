@@ -325,6 +325,12 @@
 "content": "When running the site with debug mode on, or without enforcing https, your passbolt instance cannot be considered secure. These settings can be useful for example when doing some local testing or development,but should not be used for production.To disable the warning a passbolt administrator can edit your configuration to set debug to false and passbolt.ssl.force to true.",
 "url": "https://help.passbolt.com/faq/hosting/why-unsafe"
 },
+"faq-start-account-recover": {
+"title": "How to recover an account",
+"category": "start",
+"content": "The account recovery functionality can be used if you are setting up a passbolt client on a new machinebecause you lost, upgraded, reinstalled the previous one. You can also use this method to configure apassbolt client on an additional machine.This procedure can only be completed if you are in possession of an active user account and a copy of the privatekey associated with that account.Step 1. In order to recover you will need to go to your domain URL and add /recover at the end of the url,for example https://yourpassbolt.com/recover.Step 2. Complete the form by providing your email address.Step 3. Follow the link in your mailbox.Step 4. Follow the recovery steps, which is much like the initial setup. You will need to import your private key.Step 5. Login!",
+"url": "https://help.passbolt.com/faq/start/account-recover"
+},
 "faq-hosting-why-email-not-sent": {
 "title": "Why are my emails not being sent?",
 "category": "hosting",

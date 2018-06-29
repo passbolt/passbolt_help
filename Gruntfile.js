@@ -47,7 +47,7 @@ module.exports = function(grunt) {
           // Icons
           nonull: true,
           cwd: path.node_modules + 'passbolt-styleguide/src/img/logo',
-          src: ['logo.png', 'logo@2x.png'],
+          src: ['logo.png', 'logo@2x.png', 'logo.svg'],
           dest: path.images + 'logo',
           expand: true
         }, {

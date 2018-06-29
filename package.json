@@ -1,6 +1,6 @@
 {
   "name": "passbolt_help",
-  "version": "0.1.0",
+  "version": "2.0.0",
   "description": "The help site for the open source password manager for teams",
   "repository": {
     "url": "https://github.com/passbolt/passbolt_help"
@@ -16,6 +16,6 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "passbolt-styleguide": "^2.0.9"
+    "passbolt-styleguide": "^2.1.11"
   }
 }

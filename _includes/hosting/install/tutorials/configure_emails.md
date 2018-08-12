@@ -35,8 +35,17 @@ When an email is sent, it is first placed in a queue that needs to be processed 
 $ ./bin/cake EmailQueue.sender
 ```
 
-In order to have your emails sent automatically, you can add a cron call to the script so the emails will be sent every minute. 
-Add the following line to you crontab:
+In order to have your emails sent automatically, you can add a cron call to the script so the emails will be sent every minute. Run the following command to edit the crontab for the _nginx_ user:
+```shell
+$ crontab -u nginx -e
+```
+
+Add the following line to the crontab:
 ```bash
- * * * * * su -c "/var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log" -s /bin/bash {{ include.webserver_user }}
+* * * * * /var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log
+```
+
+If the log file does not yet exist, you can create it with the following command:
+```shell
+$ touch /var/log/passbolt.log && chown nginx:nginx /var/log/passbolt.log
 ```

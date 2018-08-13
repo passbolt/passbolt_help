@@ -9,11 +9,23 @@
 
 
 <item>
+    <title>v2.2.0 | I want to break free</title>
+    <link>https://help.passbolt.com/releases/ce/v220-i-want-to-break-free</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v220-i-want-to-break-free</guid>
+    <description>Please note that Passbolt API V1.x will be officially unmaintained from 1st of September 2018. If you haven’t upgraded to V2.x yet, it is strongly advised to do it now since the next versions of the browser extension will not be compatible anymore with V1.x branch. This release is mainly...</description>
+    <pubDate>Mon, 13 Aug 2018 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.1.0 | Loungin</title>
     <link>https://help.passbolt.com/releases/ce/v210-loungin</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v210-loungin</guid>
     <description>This release includes a major rewrite of the javascript front-end code with an upgrade to CanJS version 3. We are very pleased by this upgrade as it will also us to ship features faster in the future. Another simple but notable improvement is the ability to copy the username to...</description>
-    <pubDate>Thu, 14 Jun 2018 05:30:00 +0530</pubDate>
+    <pubDate>Thu, 14 Jun 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -29,7 +41,7 @@
     <link>https://help.passbolt.com/releases/ce/v209-cold-vein</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v209-cold-vein</guid>
     <description>This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not be inserted if they are already present. Fix auth pagemod should insert script when a redirection is set in url Fix json.headers should be json.header...</description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -47,7 +59,7 @@ Bug fixes
 
 
 </description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -57,7 +69,7 @@ Bug fixes
     <link>https://help.passbolt.com/releases/ce/v207-struggle</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v207-struggle</guid>
     <description>Security notice: Nginx user, please review your configuration file to make sure you are using the correct application root. It should be: /var/www/passbolt/webroot Read more This release fixes issues introduced by the v2.0.5 both in the webextension and in the API. As you can see version v2.0.6 is skipped in...</description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -69,7 +81,7 @@ Bug fixes
     <link>https://help.passbolt.com/releases/ce/v205-everydaystruggle</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v205-everydaystruggle</guid>
     <description>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias vd Meent, considering the use of an unsecure pseudo random number generator when generating passwords. You can learn more about the issue on the dedicated...</description>
-    <pubDate>Tue, 08 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 08 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -90,7 +102,7 @@ Fixed
 
 
 </description>
-    <pubDate>Thu, 26 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Thu, 26 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -111,7 +123,7 @@ Fixed
 
 
 </description>
-    <pubDate>Fri, 20 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Fri, 20 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -123,7 +135,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v202-mass-appeal</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v202-mass-appeal</guid>
     <description>This is a maintenance release that fixes a bug related to the v1 database migration. Thanks to @shochdoerfer for his contribution. Passbolt API Improved GITHUB-242: Add Auto-Submitted header to the email notifications Fixed PASSBOLT-2806: Force database columns charset and collation PASSBOLT-2781: Increase length of resource uri field in model validation...</description>
-    <pubDate>Tue, 17 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 17 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -135,7 +147,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v201-knock-you-out</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v201-knock-you-out</guid>
     <description>This is a maintenance release that fixes a regression introduced in v2.0.0. Many thanks to @odyx for his blazing fast reaction at reporting the bug and submitting a fix. Passbolt API Improved PASSBOLT-2511: Improve healthcheck tables list so that tables are listed per major version Fixed GITHUB-239: Fix unsafe mode...</description>
-    <pubDate>Tue, 10 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 10 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -145,7 +157,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v200-insomnia</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v200-insomnia</guid>
     <description>This is not an April fool! Passbolt v2.0.0 is ready and available for download. Kindly note that this is a major version release. If you are still running on the v1.x branch, you will need to follow a specific upgrade procedure. The main aspect of this release is the upgrade...</description>
-    <pubDate>Tue, 10 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 10 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -155,7 +167,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v200-rc2-planete-mars</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v200-rc2-planete-mars</guid>
     <description>This releases fixes a few issues reported by the passbolt users that have switched to the v2.0.0-RC1. It also ships with a few cosmetic improvements as well as new healthchecks and debug tools to ease the installation process. For example you can now call the following command to send a...</description>
-    <pubDate>Tue, 20 Feb 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 20 Feb 2018 01:00:00 +0100</pubDate>
 </item>
 
 
@@ -165,7 +177,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v200-rc1-the-messsage</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v200-rc1-the-messsage</guid>
     <description>The main aspect of this release is the upgrade of the passbolt api code base to CakePHP v3. It also ships with improvements such as a simplified configuration system, a better XSS protection and more tolerant validation rules. See the full list below. This release is a complete rewrite of...</description>
-    <pubDate>Sat, 13 Jan 2018 05:30:00 +0530</pubDate>
+    <pubDate>Sat, 13 Jan 2018 01:00:00 +0100</pubDate>
 </item>
 
 
@@ -175,7 +187,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v1012-brickhouse</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v1012-brickhouse</guid>
     <description>This release brings an interesting new feature: the possibility to see the list of the users a password is shared with at a glance, directly from the sidebar. v1.0.12 also comes with its fair share of bug fixes, and some UI improvements. As usual, we have also worked on increasing...</description>
-    <pubDate>Tue, 31 May 2016 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 31 May 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -185,7 +197,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v1011-soulmakossa</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v1011-soulmakossa</guid>
     <description>This release brings some new email notifications. Until now you could only receive a notification when someone was sharing a password with you. With this new set of features you will also receive a nudge when someone comment, edit or delete a password that you own (or that is shared...</description>
-    <pubDate>Mon, 16 May 2016 05:30:00 +0530</pubDate>
+    <pubDate>Mon, 16 May 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -195,7 +207,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v1010-dockofthebay</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v1010-dockofthebay</guid>
     <description>This release most notable improvement is a health-check page that can help administrators diagnose what is the status of their installation. This week we are still ironing out a few bugs and environment related issues. fig. example /healthcheck screen A big thank you to Alexis Vachette and Ebrahim Imami who...</description>
-    <pubDate>Tue, 03 May 2016 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 03 May 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -205,7 +217,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v109-letsstaytogether</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v109-letsstaytogether</guid>
     <description>This release was mainly about bug fixes. Also, thanks to an article in the awesome magazine LinuxFR more people are trying to install passbolt on their own machine, so we published a new page containing updated installation instructions. Passbolt API Added improvements PASSBOLT-1495: Update installation instructions in README file. Passbolt...</description>
-    <pubDate>Mon, 25 Apr 2016 05:30:00 +0530</pubDate>
+    <pubDate>Mon, 25 Apr 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -215,7 +227,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v108-lovelyday</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v108-lovelyday</guid>
     <description>This is a small release, as we are busy collecting feedbacks from all of our early users. Thanks for all the positive vibes! Passbolt API Fixed bugs PASSBOLT-1445: As a LU viewing someone else comment I should not see the delete comment button. PASSBOLT-1402: As LU, In the comment thread...</description>
-    <pubDate>Fri, 15 Apr 2016 05:30:00 +0530</pubDate>
+    <pubDate>Fri, 15 Apr 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -225,7 +237,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v107-ringmybell</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v107-ringmybell</guid>
     <description>This week we rolled out a new homepage as you may have noticed. We also revamped the password workspace when no password are present. The nest illustration you can now see in place of the original void is a courtesy of our beloved Arthur Duarte. Check out his work. A...</description>
-    <pubDate>Tue, 05 Apr 2016 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 05 Apr 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -235,7 +247,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v106-boogiewonderland</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v106-boogiewonderland</guid>
     <description>Another release mostly focusing on bug fixes. Big shout out to our testers: Lilian, Nikki, Marcin and Vrindha! The only major new functionality is the release of a first version of a slack plugin for passbolt. You can now track the signup in slack. Get in touch with us if...</description>
-    <pubDate>Tue, 29 Mar 2016 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 29 Mar 2016 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -245,7 +257,7 @@ Fixed
     <link>https://help.passbolt.com/releases/ce/v105-moveonup</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v105-moveonup</guid>
     <description>That’s one small release for both the browser add-on and the API but a giant leap for the project. Passbolt officially in Private Alpha and the first testers are starting to give us feedback. A big thank you to our first testers: Karthik, Lilian, Amitav and Parbhjot! It is also...</description>
-    <pubDate>Tue, 22 Mar 2016 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 22 Mar 2016 01:00:00 +0100</pubDate>
 </item>
 
 

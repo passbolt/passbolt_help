@@ -7,11 +7,23 @@
 
 
 <item>
+    <title>v2.2.0 | I want to break free</title>
+    <link>https://help.passbolt.com/releases/pro/v220-i-want-to-break-free</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v220-i-want-to-break-free</guid>
+    <description>Please note that Passbolt API V1.x will be officially unmaintained from 1st of September 2018. If you haven’t upgraded to V2.x yet, it is strongly advised to do it now since the next versions of the browser extension will not be compatible anymore with V1.x branch. This release is mainly...</description>
+    <pubDate>Mon, 13 Aug 2018 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.1.1 | Loungin</title>
     <link>https://help.passbolt.com/releases/pro/v211-loungin</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v211-loungin</guid>
     <description>fig. Passbolt night mode This release introduces a new dark theme that you can use in the place of the black on white default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long period of time...</description>
-    <pubDate>Thu, 14 Jun 2018 05:30:00 +0530</pubDate>
+    <pubDate>Thu, 14 Jun 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -23,7 +35,7 @@
     <link>https://help.passbolt.com/releases/pro/v209-cold-vein</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v209-cold-vein</guid>
     <description>This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not be inserted if they are already present. Fix auth pagemod should insert script when a redirection is set in url Fix json.headers should be json.header...</description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -41,7 +53,7 @@ Bug fixes
 
 
 </description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -51,7 +63,7 @@ Bug fixes
     <link>https://help.passbolt.com/releases/pro/v207-struggle</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v207-struggle</guid>
     <description>Security notice: Nginx user, please review your configuration file to make sure you are using the correct application root. It should be: /var/www/passbolt/webroot Read more This release fixes issues introduced by the v2.0.5 both in the webextension and in the API. As you can see version v2.0.6 is skipped in...</description>
-    <pubDate>Wed, 09 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -67,7 +79,7 @@ Bug fixes
     <link>https://help.passbolt.com/releases/pro/v205-everydaystruggle</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v205-everydaystruggle</guid>
     <description>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias vd Meent, considering the use of an unsecure pseudo random number generator when generating passwords. You can learn more about the issue on the dedicated...</description>
-    <pubDate>Tue, 08 May 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 08 May 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -88,7 +100,7 @@ Fixed
 
 
 </description>
-    <pubDate>Thu, 26 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Thu, 26 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -109,7 +121,7 @@ Fixed
 
 
 </description>
-    <pubDate>Fri, 20 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Fri, 20 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -121,7 +133,7 @@ Fixed
     <link>https://help.passbolt.com/releases/pro/v202-mass-appeal</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v202-mass-appeal</guid>
     <description>This is a maintenance release that fixes a bug related to the v1 database migration. Thanks to @shochdoerfer for his contribution. Passbolt API Improved GITHUB-242: Add Auto-Submitted header to the email notifications Fixed PASSBOLT-2806: Force database columns charset and collation PASSBOLT-2781: Increase length of resource uri field in model validation...</description>
-    <pubDate>Tue, 17 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 17 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 
@@ -133,7 +145,7 @@ Fixed
     <link>https://help.passbolt.com/releases/pro/v201-knock-you-out</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v201-knock-you-out</guid>
     <description>This is a maintenance release that fixes a regression introduced in v2.0.0. Many thanks to @odyx for his blazing fast reaction at reporting the bug and submitting a fix. Passbolt API Improved PASSBOLT-2511: Improve healthcheck tables list so that tables are listed per major version Fixed GITHUB-239: Fix unsafe mode...</description>
-    <pubDate>Tue, 10 Apr 2018 05:30:00 +0530</pubDate>
+    <pubDate>Tue, 10 Apr 2018 02:00:00 +0200</pubDate>
 </item>
 
 

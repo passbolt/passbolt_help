@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v2.3.0 | Shine On You Crazy Diamond</title>
+    <link>https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond</guid>
+    <description>This release introduces a much awaited improvement which now allows when deleting a user to transfer blocking permissions. This release brings a few small user interfaces and improvements, such as placeholder labels when something, like the resource description, is empty. fig. Example of user delete screen with permissions transfer Thanks...</description>
+    <pubDate>Wed, 05 Sep 2018 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.2.0 | I want to break free</title>
     <link>https://help.passbolt.com/releases/ce/v220-i-want-to-break-free</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v220-i-want-to-break-free</guid>

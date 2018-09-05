@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v2.3.0 | Shine On You Crazy Diamond</title>
+    <link>https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond</guid>
+    <description>We are happy to announce the availability of passbolt directory synchronization feature. With this feature you can add and remove groups and users directly from your OpenLDAP or Active Directory and the changes will be reflected in passbolt. It is currently available as an experimental plugin for Passbolt Pro Edition...</description>
+    <pubDate>Wed, 05 Sep 2018 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.2.0 | I want to break free</title>
     <link>https://help.passbolt.com/releases/pro/v220-i-want-to-break-free</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v220-i-want-to-break-free</guid>

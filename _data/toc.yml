@@ -15,7 +15,7 @@
       icon: fa-shield
       teaser: Learn more about the security and threat model.
     - title: Release notes
-      url: https://www.passbolt.com/release/notes
+      url: /releases
       icon: fa-tags
       teaser: Find out what have changed since last time!
     - title: Incident reports

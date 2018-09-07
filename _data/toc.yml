@@ -82,6 +82,14 @@
       url: https://community.passbolt.com/c/installation-issues
       icon: fa-life-saver
       teaser: Do you need help installing passbolt?
+- title: Configure
+  slug: configure
+  teaser: Configure your passbolt instance
+  items:
+    - title: Configure LDAP
+      url: /configure/ldap
+      icon: fa-address-book-o
+      teaser: How to configure the directory sync plugin
 - title: Contribute
   slug: contribute
   teaser: Are you doing your part?

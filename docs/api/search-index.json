@@ -355,6 +355,12 @@
 "content": "Upcoming new funtionalities are advertised on the roadmap.Passbolt users can propose and upvote for new ideas on the community forum.The more financial contributors (and supporters in general) the quicker we can develop new functionalities.Security vulnerabilities and bugs fixes are to be given a higher priority than new features.Core libraries and framework maintenance upgrade also need to be dealt with proactively.",
 "url": "https://help.passbolt.com/faq/discover/feature-priority"
 },
+"configure-ldap-html": {
+"title": "Configure Ldap plugin",
+"category": "",
+"content": "Important: the Ldap connector is currently distributed as an experimental plugin. Although it was tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt installation. It is highly recommended not to use it in a production instance of passbolt. Introduction What is it? The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt administrator to synchronize a list of groups and users, as well as the associated group memberships. Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future we will also support other non ldap based user directories such as Google API User Directory. How does it work? In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal involvement of the administrators and group...",
+"url": "https://help.passbolt.com/configure/ldap.html"
+},
 "hosting-update-html": {
 "title": "Update passbolt server component (v2)",
 "category": "hosting",

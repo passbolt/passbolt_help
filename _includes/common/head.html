@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
-    <meta property="og:image" content="{{ '/assets/img/background/og_preview.jpg' | absolute_url }}" />
+    <meta property="og:image" content="{% if page.ogimage %}{{ page.ogimage | absolute_url }}{% else %}{{ '/assets/img/background/og_preview.jpg' | absolute_url }}{% endif %}" />
     <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
     <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
 

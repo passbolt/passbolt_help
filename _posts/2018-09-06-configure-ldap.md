@@ -7,6 +7,7 @@ categories: [configure]
 sidebar: configure
 layout: default
 slug: ldap
+ogimage: /assets/img/help/2018/09/AD_ldap_overview.png
 permalink: /:categories/:slug.html
 ---
 

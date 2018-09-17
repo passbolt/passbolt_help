@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-09-17T11:20:58+02:00</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-09-17T11:32:36+02:00</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -65,6 +65,7 @@ update or install. You can get it the same way than other php dependencies using
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
 git pull origin master
 composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+./bin/cake passbolt migrate
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;To run, the ldap plugin needs to have at least one active admin user existing inside passbolt.&lt;/p&gt;
@@ -402,7 +403,7 @@ You can find resources how to do this online: &lt;a href=&quot;http://stackoverf
 
     &lt;p&gt;You can also pull specific versions:&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.0.3
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.3.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h4 id=&quot;update-the-libraries&quot;&gt;3. Update the libraries&lt;/h4&gt;
@@ -438,7 +439,7 @@ if your instance configuration is looking good.&lt;/p&gt;
     &lt;p&gt;You can also checkout a specific version and use branches to switch versions. For example for version 2.0.3:&lt;/p&gt;
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch &lt;span class=&quot;nt&quot;&gt;--tags&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.0.3 &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; tags/v2.0.3
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.3.0 &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; tags/v2.3.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;

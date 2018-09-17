@@ -81,6 +81,7 @@ update or install. You can get it the same way than other php dependencies using
 cd /var/www/passbolt
 git pull origin master
 composer install
+./bin/cake passbolt migrate
 ```
 
 To run, the ldap plugin needs to have at least one active admin user existing inside passbolt.

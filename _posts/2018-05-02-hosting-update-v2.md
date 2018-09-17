@@ -43,7 +43,7 @@ $ git pull origin master
 You can also pull specific versions:
 ```bash
 $ git fetch
-$ git checkout tags/v2.0.3
+$ git checkout tags/v2.3.0
 ```
 
 #### 3. Update the libraries
@@ -83,7 +83,7 @@ You can also checkout a specific version and use branches to switch versions. Fo
 
 ```bash
 $ git fetch --tags
-$ git checkout tags/v2.0.3 -b tags/v2.0.3
+$ git checkout tags/v2.3.0 -b tags/v2.3.0
 ```
 
 {% include hosting/update/in-case-of-issues.md %}

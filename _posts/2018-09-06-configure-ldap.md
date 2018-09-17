@@ -18,39 +18,68 @@ permalink: /:categories/:slug.html
 
 
 {% include messages/warning.html
-    content="**Important:** the Ldap connector is currently distributed as an experimental plugin. Although it was tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt installation. It is highly recommended not to use it in a production instance of passbolt."
+    content="**Important:** the Ldap connector is currently distributed as an experimental plugin. Although it was 
+    tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt 
+    installation. It is highly recommended not to use it in a production instance of passbolt."
 %}
 
 ## Introduction
 
 ### What is it?
 
-The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt administrator to synchronize a list of groups and users, as well as the associated group memberships. 
+The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt 
+administrator to synchronize a list of groups and users, as well as the associated group memberships. 
 
-Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future we will also support other non ldap based user directories such as Google API User Directory.
+Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future 
+we will also support other non ldap based user directories such as Google API User Directory.
 
 
 ### How does it work?
 
-In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal involvement of the administrators and group managers. However if an action is not possible, such as, deleting a user that is the sole password owner, the process triggers will trigger relevant email notifications so that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the next synchronization round, if the issue does not need to be resolved.
+In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal 
+involvement of the administrators and group managers. However if an action is not possible, such as, deleting 
+a user that is the sole password owner, the process triggers will trigger relevant email notifications so 
+that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the 
+next synchronization round, if the issue does not need to be resolved.
 
 ### Requirements
 
-This plugin requires the [php-ldap extension](https://secure.php.net/manual/en/book.ldap.php). If you use passbolt pro edition docker image or virtual machine image, the extension will be loaded for you by default since v2.3.0. If you built your own server the way you install [php-ldap](https://packages.debian.org/stretch/php-ldap) will depend on your system flavor. On Debian using apache for example you can do:
+{% include messages/notice.html
+    content="If you use Passbolt Pro Edition docker image or virtual machine image, the extension will be 
+    loaded for you by default since v2.3.0. so you can skip these steps."
+%}
+
+The directory synchronization tools requires the [php-ldap extension](https://secure.php.net/manual/en/book.ldap.php)
+to be present on the server. If you built your own server the way you install 
+[php-ldap](https://packages.debian.org/stretch/php-ldap) will depend on your system flavor. 
+
+On Debian using nginx for example you can do:
 ```bash
 sudo apt-get install php-ldap 
-sudo service apache2 restart
+sudo service nginx restart
 ```
 
-For testing purpose, it might be handy to have the some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils) installed on your system. On Debian you can use ldapsearch for example to search for and display entries:
+Make sure the ldap extension is present in the php-cli.ini file. 
+You should add `extension=ldap.so` if it is not already present:
+```bash
+$ php -i |grep php\.ini
+Configuration File (php.ini) Path => /etc/php/7.0/cli
+Loaded Configuration File => /etc/php/7.0/cli/php.ini
+$ nano /etc/php/7.0/cli/php.ini
+```
+
+For testing purpose, it might be handy to have the some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils) 
+installed on your system. On Debian you can use ldapsearch for example to search for and display entries:
 ```bash
 sudo apt-get install ldap-utils
 ldapsearch -b'dc=example,dc=com' -x
 ```
 
-The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt update or install. You can get it the same way than other php dependencies using composer:
+The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt 
+update or install. You can get it the same way than other php dependencies using composer:
 ```bash
-cd /var/www/passbolt_api
+cd /var/www/passbolt
+git pull origin master
 composer install
 ```
 
@@ -58,9 +87,13 @@ To run, the ldap plugin needs to have at least one active admin user existing in
 
 ## Limitations
 
-The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, once groups inside groups is supported by passbolt.
+The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, 
+once groups inside groups is supported by passbolt.
 
-A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently not supported (and is not a trivial problem) but could still be considered in the future. If you are interested in this feature you can join the discussion on the [community forum](https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159).
+A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently 
+not supported (and is not a trivial problem) but could still be considered in the future. If you are interested 
+in this feature you can join the discussion on the 
+[community forum](https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159).
 
 The following improvements will also be shipped gradually and will be available soon:
 - LDAP settings screen: it will be possible to configure and test ldap directly from an admin interface inside passbolt.
@@ -74,6 +107,7 @@ The plugin is deactivated by default. You need to activate it to be able to use 
 
 To do so, simply copy the file `/config/ldap.default.php` into `ldap.php`.
 ```bash
+cd /var/www/passbolt
 mv ./config/ldap.default.php ./config/ldap.php
 ```
 

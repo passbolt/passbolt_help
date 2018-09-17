@@ -61,6 +61,7 @@ subsequent updates.
 
 ```shell
 /var/www$ git clone https://github.com/passbolt/passbolt_api.git
+/var/www$ mv passbolt_api passbolt
 ```
 
 ### 4. Generate an OpenPGP key
@@ -83,8 +84,8 @@ $ gpg --list-keys --fingerprint | grep -i -B 2 'SERVER_KEY@EMAIL.TEST'
 Copy the public and private keys to the passbolt config location:
 
 ```shell
-$ gpg --armor --export-secret-keys SERVER_KEY@EMAIL.TEST > /var/www/passbolt_api/config/gpg/serverkey_private.asc
-$ gpg --armor --export SERVER_KEY@EMAIL.TEST > /var/www/passbolt_api/config/gpg/serverkey.asc
+$ gpg --armor --export-secret-keys SERVER_KEY@EMAIL.TEST > /var/www/passbolt/config/gpg/serverkey_private.asc
+$ gpg --armor --export SERVER_KEY@EMAIL.TEST > /var/www/passbolt/config/gpg/serverkey.asc
 ```
 
 ### 5. Initialize the gpg keyring
@@ -107,7 +108,7 @@ The project dependencies such as the plugin to manage the images, emails, etc. a
 in the code on the official repository. Fret not, composer will manage this for us.
 
 ```shell
-/var/www/passbolt_api$ composer install
+/var/www/passbolt$ composer install
 ```
 
 ### 7. Create a passbolt configuration file
@@ -157,7 +158,7 @@ $ ./bin/cake EmailQueue.sender
 You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:
 ```bash
- * * * * * /var/www/passbolt_api/bin/cake EmailQueue.sender >> /var/log/passbolt.log
+ * * * * * /var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log
 ```
 
 And you are done!

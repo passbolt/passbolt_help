@@ -258,6 +258,7 @@ mysql&gt; <span class="nb">exit</span><span class="p">;</span>
 subsequent updates.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>git clone https://github.com/passbolt/passbolt_api.git
+/var/www<span class="nv">$ </span><span class="nb">mv </span>passbolt_api passbolt
 </code></pre></div>    </div>
 
     <h3 id="generate-an-openpgp-key">4. Generate an OpenPGP key</h3>
@@ -277,8 +278,8 @@ You can get the server key fingerprint as follow:</p>
 
     <p>Copy the public and private keys to the passbolt config location:</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export-secret-keys</span> SERVER_KEY@EMAIL.TEST <span class="o">&gt;</span> /var/www/passbolt_api/config/gpg/serverkey_private.asc
-<span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export</span> SERVER_KEY@EMAIL.TEST <span class="o">&gt;</span> /var/www/passbolt_api/config/gpg/serverkey.asc
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export-secret-keys</span> SERVER_KEY@EMAIL.TEST <span class="o">&gt;</span> /var/www/passbolt/config/gpg/serverkey_private.asc
+<span class="nv">$ </span>gpg <span class="nt">--armor</span> <span class="nt">--export</span> SERVER_KEY@EMAIL.TEST <span class="o">&gt;</span> /var/www/passbolt/config/gpg/serverkey.asc
 </code></pre></div>    </div>
 
     <h3 id="initialize-the-gpg-keyring">5. Initialize the gpg keyring</h3>
@@ -299,7 +300,7 @@ uid   Passbolt Server Test Key &lt;no-reply@passbolt.com&gt;
     <p>The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
 in the code on the official repository. Fret not, composer will manage this for us.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt_api<span class="nv">$ </span>composer <span class="nb">install</span>
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt<span class="nv">$ </span>composer <span class="nb">install</span>
 </code></pre></div>    </div>
 
     <h3 id="create-a-passbolt-configuration-file">7. Create a passbolt configuration file</h3>
@@ -346,7 +347,7 @@ Check <code class="highlighter-rouge">config/default.php</code> to get the names
 
     <p>You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt_api/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>And you are done!</p>

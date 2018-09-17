@@ -163,7 +163,9 @@
 
     <div class="message warning">
     <p>
-        <strong>Important:</strong> the Ldap connector is currently distributed as an experimental plugin. Although it was tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt installation. It is highly recommended not to use it in a production instance of passbolt.
+        <strong>Important:</strong> the Ldap connector is currently distributed as an experimental plugin. Although it was 
+    tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt 
+    installation. It is highly recommended not to use it in a production instance of passbolt.
     </p>
     
 </div>
@@ -172,28 +174,54 @@
 
     <h3 id="what-is-it">What is it?</h3>
 
-    <p>The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt administrator to synchronize a list of groups and users, as well as the associated group memberships.</p>
+    <p>The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt 
+administrator to synchronize a list of groups and users, as well as the associated group memberships.</p>
 
-    <p>Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future we will also support other non ldap based user directories such as Google API User Directory.</p>
+    <p>Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future 
+we will also support other non ldap based user directories such as Google API User Directory.</p>
 
     <h3 id="how-does-it-work">How does it work?</h3>
 
-    <p>In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal involvement of the administrators and group managers. However if an action is not possible, such as, deleting a user that is the sole password owner, the process triggers will trigger relevant email notifications so that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the next synchronization round, if the issue does not need to be resolved.</p>
+    <p>In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal 
+involvement of the administrators and group managers. However if an action is not possible, such as, deleting 
+a user that is the sole password owner, the process triggers will trigger relevant email notifications so 
+that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the 
+next synchronization round, if the issue does not need to be resolved.</p>
 
     <h3 id="requirements">Requirements</h3>
 
-    <p>This plugin requires the <a href="https://secure.php.net/manual/en/book.ldap.php">php-ldap extension</a>. If you use passbolt pro edition docker image or virtual machine image, the extension will be loaded for you by default since v2.3.0. If you built your own server the way you install <a href="https://packages.debian.org/stretch/php-ldap">php-ldap</a> will depend on your system flavor. On Debian using apache for example you can do:</p>
+    <p class="message notice">
+    If you use Passbolt Pro Edition docker image or virtual machine image, the extension will be 
+    loaded for you by default since v2.3.0. so you can skip these steps.
+</p>
+
+    <p>The directory synchronization tools requires the <a href="https://secure.php.net/manual/en/book.ldap.php">php-ldap extension</a>
+to be present on the server. If you built your own server the way you install 
+<a href="https://packages.debian.org/stretch/php-ldap">php-ldap</a> will depend on your system flavor.</p>
+
+    <p>On Debian using nginx for example you can do:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>php-ldap 
-<span class="nb">sudo </span>service apache2 restart
+<span class="nb">sudo </span>service nginx restart
 </code></pre></div>    </div>
 
-    <p>For testing purpose, it might be handy to have the some <a href="https://wiki.debian.org/LDAP/LDAPUtils">ldap utilities</a> installed on your system. On Debian you can use ldapsearch for example to search for and display entries:</p>
+    <p>Make sure the ldap extension is present in the php-cli.ini file. 
+You should add <code class="highlighter-rouge">extension=ldap.so</code> if it is not already present:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php <span class="nt">-i</span> |grep php<span class="se">\.</span>ini
+Configuration File <span class="o">(</span>php.ini<span class="o">)</span> Path <span class="o">=&gt;</span> /etc/php/7.0/cli
+Loaded Configuration File <span class="o">=&gt;</span> /etc/php/7.0/cli/php.ini
+<span class="nv">$ </span>nano /etc/php/7.0/cli/php.ini
+</code></pre></div>    </div>
+
+    <p>For testing purpose, it might be handy to have the some <a href="https://wiki.debian.org/LDAP/LDAPUtils">ldap utilities</a> 
+installed on your system. On Debian you can use ldapsearch for example to search for and display entries:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>ldap-utils
 ldapsearch <span class="nt">-b</span><span class="s1">'dc=example,dc=com'</span> <span class="nt">-x</span>
 </code></pre></div>    </div>
 
-    <p>The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt update or install. You can get it the same way than other php dependencies using composer:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/passbolt_api
+    <p>The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt 
+update or install. You can get it the same way than other php dependencies using composer:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/passbolt
+git pull origin master
 composer <span class="nb">install</span>
 </code></pre></div>    </div>
 
@@ -201,9 +229,13 @@ composer <span class="nb">install</span>
 
     <h2 id="limitations">Limitations</h2>
 
-    <p>The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, once groups inside groups is supported by passbolt.</p>
+    <p>The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, 
+once groups inside groups is supported by passbolt.</p>
 
-    <p>A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently not supported (and is not a trivial problem) but could still be considered in the future. If you are interested in this feature you can join the discussion on the <a href="https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159">community forum</a>.</p>
+    <p>A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently 
+not supported (and is not a trivial problem) but could still be considered in the future. If you are interested 
+in this feature you can join the discussion on the 
+<a href="https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159">community forum</a>.</p>
 
     <p>The following improvements will also be shipped gradually and will be available soon:</p>
     <ul>
@@ -218,7 +250,8 @@ composer <span class="nb">install</span>
     <p>The plugin is deactivated by default. You need to activate it to be able to use it.</p>
 
     <p>To do so, simply copy the file <code class="highlighter-rouge">/config/ldap.default.php</code> into <code class="highlighter-rouge">ldap.php</code>.</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mv</span> ./config/ldap.default.php ./config/ldap.php
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/passbolt
+<span class="nb">mv</span> ./config/ldap.default.php ./config/ldap.php
 </code></pre></div>    </div>
 
     <h3 id="configure-the-plugin">Configure the plugin</h3>

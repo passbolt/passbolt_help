@@ -44,11 +44,6 @@ next synchronization round, if the issue does not need to be resolved.
 
 ### Requirements
 
-{% include messages/notice.html
-    content="If you use Passbolt Pro Edition docker image or virtual machine image, the extension will be 
-    loaded for you by default since v2.3.0. so you can skip these steps."
-%}
-
 The directory synchronization tools requires the [php-ldap extension](https://secure.php.net/manual/en/book.ldap.php)
 to be present on the server. If you built your own server the way you install 
 [php-ldap](https://packages.debian.org/stretch/php-ldap) will depend on your system flavor. 

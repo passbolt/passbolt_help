@@ -206,6 +206,14 @@ a final stable status for this feature.</p>
 This will help us make sure this version meets your requirements as well as provides you with the right amount of
 information on how to setup the connector.</p>
 
+<p>Please note that the php ldap extension is now a requirement. I should be straightforward to install on most systems.
+For example on Debian:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo apt-get install php-ldap
+</code></pre></div></div>
+<p>Or on Centos</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo yum install php-ldap
+</code></pre></div></div>
+
 <p>This release introduces a much <a href="https://community.passbolt.com/t/as-an-admin-while-deleting-a-user-who-is-the-sole-owner-of-a-password-that-is-shared-i-should-be-able-to-transfer-the-ownership-to-another-user-in-order-to-be-able-to-perform-the-deletion/45">awaited improvement</a>
 which now allows when deleting a user to transfer blocking permissions. This release brings a few small user interfaces
 and  improvements, such as placeholder labels when something, like the resource description, is empty.</p>

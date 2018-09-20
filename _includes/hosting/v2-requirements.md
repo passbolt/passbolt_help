@@ -20,4 +20,5 @@ The following PHP extensions (that may or may not come by default):
 - Image manipulation: gd or imagick
 - Database: Mysqlnd, pdo, pdo_mysql
 - Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.
+- [Ldap](https://secure.php.net/manual/en/ldap.installation.php)
 - & more depending on your configuration (for example if you want to use memcache for sessions).

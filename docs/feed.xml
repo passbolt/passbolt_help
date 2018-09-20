@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-09-17T11:37:19+02:00</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-09-20T10:01:19+02:00</updated><id>https://help.passbolt.com/</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -406,7 +406,7 @@ You can find resources how to do this online: &lt;a href=&quot;http://stackoverf
     &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on 
 what is recommended in the composer.lock. This file is provided by passbolt.&lt;/p&gt;
 
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h4 id=&quot;run-the-migration-script&quot;&gt;4. Run the migration script&lt;/h4&gt;
@@ -563,6 +563,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
       &lt;li&gt;Image manipulation: gd or imagick&lt;/li&gt;
       &lt;li&gt;Database: Mysqlnd, pdo, pdo_mysql&lt;/li&gt;
       &lt;li&gt;Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://secure.php.net/manual/en/ldap.installation.php&quot;&gt;Ldap&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&amp;amp; more depending on your configuration (for example if you want to use memcache for sessions).&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -1071,7 +1072,7 @@ gpg: /var/www/.gnupg/trustdb.gpg: trustdb created
     &lt;p&gt;The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
 in the code on the official repository. Fret not, composer will manage this for us.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;create-a-passbolt-configuration-file&quot;&gt;11. Create a passbolt configuration file&lt;/h3&gt;
@@ -1857,7 +1858,7 @@ gpg: /var/lib/nginx/.gnupg/trustdb.gpg: trustdb created
     &lt;p&gt;The project dependencies such as the plugin to manage the images, emails, etc. are not included anymore
 in the code on the official repository. Fret not, composer will manage this for us.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;create-a-passbolt-configuration-file&quot;&gt;12. Create a passbolt configuration file&lt;/h3&gt;
@@ -2710,6 +2711,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
       &lt;li&gt;Image manipulation: gd or imagick&lt;/li&gt;
       &lt;li&gt;Database: Mysqlnd, pdo, pdo_mysql&lt;/li&gt;
       &lt;li&gt;Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://secure.php.net/manual/en/ldap.installation.php&quot;&gt;Ldap&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&amp;amp; more depending on your configuration (for example if you want to use memcache for sessions).&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -2773,7 +2775,7 @@ redirect your passbolt user there, for example:&lt;/p&gt;
 
     &lt;h3 id=&quot;install-the-dependencies&quot;&gt;4. Install the dependencies&lt;/h3&gt;
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/var/www&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ./passbolt
-/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
+/var/www/passbolt&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;copy-the-avatar-folder&quot;&gt;5. Copy the avatar folder&lt;/h3&gt;

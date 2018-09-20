@@ -108,7 +108,7 @@ The project dependencies such as the plugin to manage the images, emails, etc. a
 in the code on the official repository. Fret not, composer will manage this for us.
 
 ```shell
-/var/www/passbolt$ composer install
+/var/www/passbolt$ composer install --no-dev
 ```
 
 ### 7. Create a passbolt configuration file

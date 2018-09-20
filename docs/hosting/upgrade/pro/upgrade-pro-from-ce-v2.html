@@ -219,6 +219,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
       <li>Image manipulation: gd or imagick</li>
       <li>Database: Mysqlnd, pdo, pdo_mysql</li>
       <li>Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.</li>
+      <li><a href="https://secure.php.net/manual/en/ldap.installation.php">Ldap</a></li>
       <li>&amp; more depending on your configuration (for example if you want to use memcache for sessions).</li>
     </ul>
 
@@ -274,7 +275,7 @@ redirect your passbolt user there, for example:</p>
 
     <h3 id="install-the-dependencies">3. Install the dependencies</h3>
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">cd</span> ./passbolt
-/var/www/passbolt<span class="nv">$ </span>composer <span class="nb">install</span>
+/var/www/passbolt<span class="nv">$ </span>composer <span class="nb">install</span> <span class="nt">--no-dev</span>
 </code></pre></div>    </div>
 
     <h3 id="copy-the-avatar-folder">4. Copy the avatar folder</h3>

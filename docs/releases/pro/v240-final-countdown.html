@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Final Countdown</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2018 Passbolt SARL
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Final Countdown" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th..." />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v240-final-countdown">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.4.0.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation wizard scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (pro)</h2></li>
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/pro/v240-final-countdown" >v2.4.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond" >v2.3.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v220-i-want-to-break-free" >v2.2.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v211-loungin" >v2.1.1</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v209-cold-vein" >v2.0.9</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v208-untitled" >v2.0.8</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v207-struggle" >v2.0.7</a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/pro.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro"><span>pro</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro/v240-final-countdown"><span>final-countdown</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v2.4.0 ~ Final Countdown (pro)</h1>
+                            <p>Release date: 
+October
+11th,
+2018.
+</p>
+                            <div class="message warning">
+    <p>
+        This release introduces some new dependencies and database changes. Make sure you follow 
+    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
+
+<p><br />
+This release introduce the ability for users to select multiple passwords and perform a bulk action such as delete 
+or share. This was a much awaited productivity feature requested on the 
+<a href="https://community.passbolt.com/t/as-a-user-i-want-to-select-multiple-records-and-perform-a-bulk-action-these-entries/72/4">community forum</a> 
+and is available for both pro and community edition. You can use the keyboard keys (command and shift) to select 
+a few items at once.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2018/10/LU_multiple_share.png" alt="Example of bulk share" style="max-width:;" />
+    <span class="legend">fig. Example of bulk share</span>
+</figure>
+
+<p><br /></p>
+
+<p>We have argued in the past that the current authentication scheme already supported multiple factor: 
+something your know (the passphrase) and something you got (the secret key and email activation link for new setup).
+Today we can all stop arguing as an additional authentication factor using TOTP (Google Authenticator, 
+Authy, FreeOTP). Head to your profile to enable it!</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2018/10/mfa_how_it_works.png" alt="how does TOTP work?" style="max-width:;" />
+    <span class="legend">fig. how does TOTP work?</span>
+</figure>
+
+<p><br /></p>
+
+<p>We will be adding support for additional factors such as Yubikey or Duo in the following 
+weeks, as well as more administrator features to get usage reports and enforce multiple factor authentication 
+for all passbolt users.</p>
+
+<p>This release as usual fixes a few small issues, the most notable one being able to transfer resource ownerships 
+when deleting a group that is the sole owner of some passwords.</p>
+
+<p>A special thanks to this release contributors, who reported bugs or submitted pull requests, keep them coming!</p>
+<ul>
+  <li><a href="https://github.com/bjozet">Björn Zettergren</a></li>
+  <li><a href="https://github.com/bappr">Benjamin Appréderisse</a></li>
+  <li>Janosch Sander</li>
+  <li><a href="https://github.com/kraynel">Kevin Raynel</a></li>
+  <li><a href="https://github.com/shochdoerfer">Stephan Shochdoerfer</a></li>
+</ul>
+
+<h3 id="passbolt-api-pro-edition">Passbolt API (Pro Edition)</h3>
+<h4 id="added">Added</h4>
+<ul>
+  <li>PASSBOLT-3022: Fix the “import tag” is not associated to passwords imported from a csv where have no category</li>
+</ul>
+
+<h4 id="added-1">Added</h4>
+<ul>
+  <li>PASSBOLT-3009: Add support multiple factor authentication using TOTP (Google Authenticator, Authy, FreeOTP)</li>
+  <li>PASSBOLT-2981: Add import batch throttling on imports to prevent deadlocks on resource limited instances</li>
+  <li>PASSBOLT-3024: Add url to the theme settings screen via /settings/theme</li>
+</ul>
+
+<h3 id="passbolt-api-all">Passbolt API (All)</h3>
+<h4 id="added-2">Added</h4>
+<ul>
+  <li>PASSBOLT-2972: As LU I should be able to delete multiple passwords in bulk</li>
+  <li>PASSBOLT-2951: Merge the remember me on CE</li>
+  <li>PASSBOLT-2329: As an administrator deleting a group which is sole owner of one or several passwords, I should be requested to select a new owner for these passwords</li>
+  <li>PASSBOLT-2972: As LU I should be able to select multiple passwords with standard keyboard interactions (command and shift keys)</li>
+</ul>
+
+<h4 id="improved">Improved</h4>
+<p>GITHUB#275: Adding SSL configuration environment variables for cake mysql driver</p>
+<ul>
+  <li>PASSBOLT-2534: As LU I should not be able to copy to clipboard empty login/url</li>
+  <li>PASSBOLT-2017: As LU when I save a password (create/edit) the dialog shouldn’t persist until the request is processed by the API</li>
+  <li>PASSBOLT-3073: As LU I should get a visual feedback directly after filtering the passwords or the users workspace</li>
+  <li>PASSBOLT-3009 Add types to authentication tokens</li>
+</ul>
+
+<h4 id="fixed">Fixed</h4>
+<ul>
+  <li>PASSBOLT-2966: As LU I can’t see passwords shared with me clicking on the “shared with me” shortcut filter</li>
+  <li>GITHUB#246: Fix healthcheck tips relative to tmp folder</li>
+  <li>PASSBOLT-3063: Fix appjs base url and subfolder</li>
+  <li>PASSBOLT-3074: As a logged in user selecting a “remember me” duration the checkbox should be selected automatically</li>
+  <li>PASSBOLT-2976: Fix API requests issues when the user is going to another workspace</li>
+  <li>PASSBOLT-3082: ezyang/htmlpurifier cache should be stored in the application cache directory</li>
+  <li>PASSBOLT-2982: Fix session expired check</li>
+  <li>PASSBOLT-3086: As LU when I have 100+ passwords I cannot see the passwords after the 100th more than once</li>
+</ul>
+
+<h4 id="passbolt-cli">Passbolt CLI</h4>
+<ul>
+  <li>#17 Display more meaningful error messages on configuration issues</li>
+  <li>#16 Fix user index when current user is an admin</li>
+  <li>Update dependencies and improve Readme</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"With so many light years to go and things to be found"</p>
+                                <a href="https://www.youtube.com/watch?v=9jK-NcRmVcw" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//passbolt.piwikpro.com/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', 1]);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

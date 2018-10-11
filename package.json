@@ -16,6 +16,6 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
-    "passbolt-styleguide": "^2.1.11"
+    "passbolt-styleguide": "^2.4.2"
   }
 }

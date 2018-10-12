@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-10-11T15:09:29+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-10-12T15:37:10+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -420,7 +420,13 @@ This is usefull in case you run into any issues with the new version and need to
 
     &lt;p&gt;This backup will be placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
 
-    &lt;h4 id=&quot;put-your-site-back-online&quot;&gt;5. Put your site back online!&lt;/h4&gt;
+    &lt;h4 id=&quot;clear-the-cache&quot;&gt;5. Clear the cache&lt;/h4&gt;
+    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
+reflected in model cache files:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake cache clear_all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;put-your-site-back-online&quot;&gt;6. Put your site back online!&lt;/h4&gt;
 
     &lt;p&gt;As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see 
 if your instance configuration is looking good.&lt;/p&gt;

@@ -67,7 +67,14 @@ This is usefull in case you run into any issues with the new version and need to
 
 This backup will be placed in `./tmp/cache/database/backup/backup_timestamp.sql`.
 
-#### 5. Put your site back online!
+#### 5. Clear the cache
+Finally make sure you clear the application cache, to make sure any changes in the database structure are
+reflected in model cache files:
+```bash
+$ ./bin/cake cache clear_all
+```
+
+#### 6. Put your site back online!
 
 As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see 
 if your instance configuration is looking good.

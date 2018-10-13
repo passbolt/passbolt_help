@@ -193,7 +193,7 @@
     <h2 id="optional-system-requirements">Optional system requirements</h2>
 
     <ul>
-      <li>MySQL &gt;= 5.0 if you plan not to host mysql on a docker container.</li>
+      <li>MariaDB.</li>
       <li>docker-compose if you plan to use a docker-compose.yml file to run passbolt container.</li>
       <li>rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. <a href="https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine">Important considerations</a></li>
     </ul>

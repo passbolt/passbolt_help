@@ -6,4 +6,4 @@ A special thanks to this release contributors, who reported bugs or submitted pu
 - [Benjamin Appréderisse](https://github.com/bappr)
 - Janosch Sander
 - [Kevin Raynel](https://github.com/kraynel)
-- [Stephan Shochdoerfer](https://github.com/shochdoerfer)
+- [Stephan Hochdörfer](https://github.com/shochdoerfer)

@@ -232,7 +232,7 @@ However, it is recommended that users pull the tags pointing to specific passbol
 </code></pre></div>    </div>
 
     <p>Now we can run the passbolt container:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="nt">-p</span> 443:443 <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>

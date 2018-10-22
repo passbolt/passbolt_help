@@ -25,6 +25,8 @@ $ docker run --name passbolt{{ page.docker_tag }} --net passbolt_network \
              --mount type=bind, \
                source=<gpg_host_dir>, \
                target=/var/www/passbolt/config/gpg \
+             -p 443:443 \
+             -p 80:80 \
              -e DATASOURCES_DEFAULT_HOST=mariadb \
              -e DATASOURCES_DEFAULT_PASSWORD=<mariadb_password> \
              -e DATASOURCES_DEFAULT_USERNAME=<mariadb_user> \
@@ -49,6 +51,8 @@ $ docker run --name passbolt{{ page.docker_tag }} --net passbolt_network \
              {% endif -%}
              --mount source=<gpg_keys_volume>, \
                target=/var/www/passbolt/config/gpg \
+             -p 443:443 \
+             -p 80:80 \
              -e DATASOURCES_DEFAULT_HOST=mariadb \
              -e DATASOURCES_DEFAULT_PASSWORD=<mariadb_password> \
              -e DATASOURCES_DEFAULT_USERNAME=<mariadb_user> \

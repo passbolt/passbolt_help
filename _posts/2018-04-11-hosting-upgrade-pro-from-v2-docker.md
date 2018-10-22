@@ -49,10 +49,12 @@ $ docker run --name passbolt{{ page.docker_tag }} --net passbolt_network \
              --mount type=bind, \
                source=<gpg_host_dir>, \
                target=/var/www/passbolt/config/gpg \
-             -e DATASOURCES_DEFAULT_HOST=mysql \
-             -e DATASOURCES_DEFAULT_PASSWORD=<mysql_password> \
-             -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
-             -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
+             -p 443:443 \
+             -p 80:80 \
+             -e DATASOURCES_DEFAULT_HOST=mariadb \
+             -e DATASOURCES_DEFAULT_PASSWORD=<mariadb_password> \
+             -e DATASOURCES_DEFAULT_USERNAME=<mariadb_user> \
+             -e DATASOURCES_DEFAULT_DATABASE=<mariadb_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
              passbolt/passbolt:latest{{ page.docker_tag }}
 ```
@@ -73,10 +75,12 @@ $ docker run --name passbolt{{ page.docker_tag }} --net passbolt_network \
              {% endif -%}
              --mount source=<gpg_keys_volume>, \
                target=/var/www/passbolt/config/gpg \
-             -e DATASOURCES_DEFAULT_HOST=mysql \
-             -e DATASOURCES_DEFAULT_PASSWORD=<mysql_password> \
-             -e DATASOURCES_DEFAULT_USERNAME=<mysql_user> \
-             -e DATASOURCES_DEFAULT_DATABASE=<mysql_database> \
+             -p 443:443 \
+             -p 80:80 \
+             -e DATASOURCES_DEFAULT_HOST=mariadb \
+             -e DATASOURCES_DEFAULT_PASSWORD=<mariadb_password> \
+             -e DATASOURCES_DEFAULT_USERNAME=<mariadb_user> \
+             -e DATASOURCES_DEFAULT_DATABASE=<mariadb_database> \
              -e APP_FULL_BASE_URL=https://mydomain.com \
              passbolt/passbolt:latest{{ page.docker_tag }}
 ```

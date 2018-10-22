@@ -245,7 +245,7 @@ Gpg config directory has changed slightly its path from:</p>
 
     <p>Now that we have a better overview of the changes let’s start with the upgrading process!</p>
 
-    <h3 id="backup-mysql-database">Backup mysql database</h3>
+    <h3 id="backup-mariadb-database">Backup MariaDB database</h3>
 
     <p>First of all is encouraged to backup all the relevant data that is:</p>
     <ul>
@@ -319,10 +319,12 @@ Following some examples:</p>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>, <span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;gpg_host_dir&gt;, <span class="se">\</span>
                <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-p</span> 443:443 <span class="se">\</span>
+             <span class="nt">-p</span> 80:80 <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mariadb_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
              passbolt/passbolt:latest
 </code></pre></div>    </div>
@@ -336,10 +338,12 @@ Following some examples:</p>
                <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>&lt;gpg_keys_volume&gt;, <span class="se">\</span>
                <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mysql <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mysql_password&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mysql_user&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mysql_database&gt; <span class="se">\</span>
+             <span class="nt">-p</span> 443:443 <span class="se">\</span>
+             <span class="nt">-p</span> 80:80 <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mariadb_password&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>
+             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
              passbolt/passbolt:latest
 </code></pre></div>    </div>

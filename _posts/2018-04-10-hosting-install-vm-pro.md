@@ -51,6 +51,8 @@ password: admin
 
 ## SSL setup process:
 
+**Important note:** It is recommended to run the SSL setup before running the installation wizard to avoid secrets to be transmitted unencrypted during the installation process.
+
 Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts are located in:
 ```bash
 /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh

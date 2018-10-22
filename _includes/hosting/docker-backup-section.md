@@ -1,4 +1,4 @@
-### Backup mysql database
+### Backup MariaDB database
 
 First of all is encouraged to backup all the relevant data that is:
 - Database

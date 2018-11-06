@@ -192,6 +192,7 @@ operating system to be passbolt ready and will take care of the web server (Ngin
     <ul>
       <li>Debian 9 (Etch)</li>
       <li>CentOS 7</li>
+      <li>Ubuntu 18.10 (Cosmic Cuttlefish)</li>
     </ul>
 
     <div class="message warning">
@@ -203,14 +204,15 @@ operating system to be passbolt ready and will take care of the web server (Ngin
 
     <h2 id="server-configuration-steps">Server configuration steps</h2>
     <h3 id="create-a-web-server-matching-the-requirements">1. Create a web server matching the requirements.</h3>
-    <p>Spin up a new fresh server with one of the supported linux distributions (Debian 9 or CentOS 7). You can do this on a bare-metal server, on a virtual machine or a container (docker).
-In this tutorial, we are using a the official Debian 9 image on Vagrant.</p>
+    <p>Spin up a new fresh server with one of the supported linux distributions. You can do this on a bare-metal server, on a virtual machine or a container (docker).
+In this tutorial, we are using the official Debian 9 image on Vagrant.</p>
 
     <h3 id="download-the-installation-script">2. Download the installation script</h3>
     <p>You can download the installation scripts from these respective urls:</p>
     <ul>
       <li>Debian 9: <a href="https://www.passbolt.com/pro/download/installers/debian/latest">https://www.passbolt.com/pro/download/installers/debian/latest</a> (<a href="https://www.passbolt.com/pro/download/installers/debian/latest-checksum">Checksum</a>)</li>
       <li>Centos 7: <a href="https://www.passbolt.com/pro/download/installers/centos/latest">https://www.passbolt.com/pro/download/installers/centos/latest</a> (<a href="https://www.passbolt.com/pro/download/installers/centos/latest-checksum">Checksum</a>)</li>
+      <li>Ubuntu 18.10: <a href="https://www.passbolt.com/pro/download/installers/ubuntu/latest">https://www.passbolt.com/pro/download/installers/ubuntu/latest</a> (<a href="https://www.passbolt.com/pro/download/installers/ubuntu/latest-checksum">Checksum</a>)</li>
     </ul>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>wget <span class="nt">-O</span> ./passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
@@ -246,25 +248,34 @@ In this tutorial, we are using a the official Debian 9 image on Vagrant.</p>
     <p><strong>Hostname</strong></p>
 
     <p>To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
-the address (domain, hostname or ip) at which you are planning to access your passbolt after installation</p>
+the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.</p>
+
+    <div class="message warning">
+    <p>
+        <strong>Please note:</strong> If you are configuring a production server it is important that you use the production
+    hostname / ip address you are planning to access your passbolt after installation. Once your server will be configured
+    this setting cannot be changed easily.
+    </p>
+    
+</div>
 
     <p><strong>SSL Setup</strong></p>
 
     <ul>
       <li>manual: (recommended) choose manual if you have your own ssl certificates.</li>
-      <li>auto: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. Use this option 
+      <li>auto: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.</li>
       <li>none: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
     </ul>
 
     <p><strong>GnuPG entropy</strong>
 On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system. 
+The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
 Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.</p>
 
     <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.</p>
 
-    <p>At the end, the install script will confirm you that the environment has been configured and will ask you to point your browser to 
+    <p>At the end, the install script will confirm you that the environment has been configured and will ask you to point your browser to
 the hostname or ip address previously entered.</p>
 
     <figure>
@@ -276,13 +287,13 @@ the hostname or ip address previously entered.</p>
 
     <p>The next step is to configure passbolt. You can do this quite easily with the configuration wizard.</p>
 
-    <p><a href="/hosting/install/wizard" class="button primary">Configure passbolt with the wizard</a></p>
+    <p><a href="/hosting/install/pro/wizard" class="button primary">Configure passbolt with the wizard</a></p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-April
-9th,
+November
+6th,
 2018.</p>
     </div>
 

@@ -23,7 +23,7 @@ This repository contains the code used for the knowledge base and help section o
 Find out more about passbolt here:
 [https://www.passbolt.com](https://www.passbolt.com "Passbolt Homepage")
 
-### Quick start
+## Quick start
 This site is developed using Jekyll.
 To get started please read Jekyll [quick start guide](https://jekyllrb.com/docs/quickstart/).
 
@@ -33,6 +33,16 @@ git clone https://github.com/passbolt/passbolt_help.git
 cd passbolt_help
 bundle exec jekyll build
 ```
+
+## Contributing
+Jekyll offers all the tooling to make the local development easier.
+
+```
+bundle exec jekyll serve
+```
+
+Open the link given in the console with your web browser. Jekyll will rebuild the help site for you
+after each change.
 
 ### Editing the look and feel
 Do not edit the style directly by editing the CSS on this repository.

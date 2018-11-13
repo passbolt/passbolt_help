@@ -1,7 +1,7 @@
 ---
-title: Configure passbolt with the wizard
-date: 2018-11-06 00:00:00 Z
-description: Configure passbolt with the wizard
+title: Install Passbolt Pro
+date: 2018-11-13 00:00:00 Z
+description: Install Passbolt Pro
 icon: fa-server
 categories: [hosting,install,pro]
 ignore_card: true
@@ -14,7 +14,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/install/web_installer/index.md column="7" %}
+### Choose the guide corresponding to your distribution
+- Debian 9: [https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html](/hosting/install/pro/debian-9-stretch.html)
+- Centos 7: [https://www.passbolt.com/hosting/install/pro/centos-7.html](/hosting/install/pro/centos-7.html)
+- Ubuntu 18.10: [https://www.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html](/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html)
 
 {% include date/updated.html %}
 

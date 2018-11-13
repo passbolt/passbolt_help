@@ -1,12 +1,10 @@
 ---
-title: Installation with install scripts
-card_title: Install scripts
-card_teaser: Install passbolt easily with the install scripts
-card_position: 1
-date: 2018-11-06 00:00:00 Z
-description: Install passbolt using the install scripts
+title: Install passbolt Pro
+date: 2018-11-13 00:00:00 Z
+description:  Install passbolt Pro
 icon: fa-server
 categories: [hosting,install,pro]
+ignore_card: true
 sidebar: hosting
 layout: default
 slug: install-scripts
@@ -16,7 +14,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/install/scripts/install.md column="7" %}
+### Choose the guide corresponding to your distribution
+- Debian 9: [https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html](/hosting/install/pro/debian-9-stretch.html)
+- Centos 7: [https://www.passbolt.com/hosting/install/pro/centos-7.html](/hosting/install/pro/centos-7.html)
+- Ubuntu 18.10: [https://www.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html](/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html)
 
 {% include date/updated.html %}
 

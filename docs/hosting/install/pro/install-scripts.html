@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Installation with install scripts</title>
+    <title>Passbolt Help | Install passbolt Pro</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Installation with install scripts" />
+    <meta property="og:title" content="Install passbolt Pro" />
     <meta property="og:description" content="" />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
@@ -177,123 +177,25 @@
 
                     <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Installation with install scripts</h1>
+<h1>Install passbolt Pro</h1>
 </div>
 </div>
 
                     <div class="row">
   <div class="col7">
 
-    <p>The install scripts are shell scripts that are designed to do the heavy lifting for you. They will configure your
-operating system to be passbolt ready and will take care of the web server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
-
-    <h2 id="system-requirements">System requirements</h2>
-    <p>The install scripts will work on any of these servers:</p>
+    <h3 id="choose-the-guide-corresponding-to-your-distribution">Choose the guide corresponding to your distribution</h3>
     <ul>
-      <li>Debian 9 (Etch)</li>
-      <li>CentOS 7</li>
-      <li>Ubuntu 18.10 (Cosmic Cuttlefish)</li>
+      <li>Debian 9: <a href="/hosting/install/pro/debian-9-stretch.html">https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html</a></li>
+      <li>Centos 7: <a href="/hosting/install/pro/centos-7.html">https://www.passbolt.com/hosting/install/pro/centos-7.html</a></li>
+      <li>Ubuntu 18.10: <a href="/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html">https://www.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html</a></li>
     </ul>
-
-    <div class="message warning">
-    <p>
-        <strong>Please note:</strong> It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
-    </p>
-    
-</div>
-
-    <h2 id="server-configuration-steps">Server configuration steps</h2>
-    <h3 id="create-a-web-server-matching-the-requirements">1. Create a web server matching the requirements.</h3>
-    <p>Spin up a new fresh server with one of the supported linux distributions. You can do this on a bare-metal server, on a virtual machine or a container (docker).
-In this tutorial, we are using the official Debian 9 image on Vagrant.</p>
-
-    <h3 id="download-the-installation-script">2. Download the installation script</h3>
-    <p>You can download the installation scripts from these respective urls:</p>
-    <ul>
-      <li>Debian 9: <a href="https://www.passbolt.com/pro/download/installers/debian/latest">https://www.passbolt.com/pro/download/installers/debian/latest</a> (<a href="https://www.passbolt.com/pro/download/installers/debian/latest-checksum">Checksum</a>)</li>
-      <li>Centos 7: <a href="https://www.passbolt.com/pro/download/installers/centos/latest">https://www.passbolt.com/pro/download/installers/centos/latest</a> (<a href="https://www.passbolt.com/pro/download/installers/centos/latest-checksum">Checksum</a>)</li>
-      <li>Ubuntu 18.10: <a href="https://www.passbolt.com/pro/download/installers/ubuntu/latest">https://www.passbolt.com/pro/download/installers/ubuntu/latest</a> (<a href="https://www.passbolt.com/pro/download/installers/ubuntu/latest-checksum">Checksum</a>)</li>
-    </ul>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>wget <span class="nt">-O</span> ./passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
-</code></pre></div>    </div>
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/download-install-script.png" alt="download the install script" style="max-width:586px;" />
-    <span class="legend">fig. download the install script</span>
-</figure>
-
-    <h3 id="execute-the-installation-script">3. Execute the installation script</h3>
-    <p>First, unpack it:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar zxvf ./passbolt-pro-installer-debian-9.tar.gz
-</code></pre></div>    </div>
-    <p>Then, execute it:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo ./passbolt_pro_debian_installer.sh
-</code></pre></div>    </div>
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png" alt="execute the install script" style="max-width:586px;" />
-    <span class="legend">fig. execute the install script</span>
-</figure>
-
-    <h3 id="answer-the-questions">4. Answer the questions</h3>
-    <p>The install script will ask you a few questions to adapt the environment to your needs.</p>
-
-    <p><strong>Do you want to install a local mariadb server on this machine?</strong></p>
-    <ul>
-      <li>Yes: if you are not planning on using an external mysql / mariadb server.</li>
-      <li>No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.</li>
-    </ul>
-
-    <p>The script will then ask you for the database details: root password, database name, and password.</p>
-
-    <p><strong>Hostname</strong></p>
-
-    <p>To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
-the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.</p>
-
-    <div class="message warning">
-    <p>
-        <strong>Please note:</strong> If you are configuring a production server it is important that you use the production
-    hostname / ip address you are planning to access your passbolt after installation. Once your server will be configured
-    this setting cannot be changed easily.
-    </p>
-    
-</div>
-
-    <p><strong>SSL Setup</strong></p>
-
-    <ul>
-      <li>manual: (recommended) choose manual if you have your own ssl certificates.</li>
-      <li>auto: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.</li>
-      <li>none: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
-    </ul>
-
-    <p><strong>GnuPG entropy</strong>
-On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.</p>
-
-    <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.</p>
-
-    <p>At the end, the install script will confirm you that the environment has been configured and will ask you to point your browser to
-the hostname or ip address previously entered.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png" alt="completion of the install script" style="max-width:586px;" />
-    <span class="legend">fig. completion of the install script</span>
-</figure>
-
-    <h2 id="your-server-is-now-ready-to-run-passbolt">Your server is now ready to run passbolt</h2>
-
-    <p>The next step is to configure passbolt. You can do this quite easily with the configuration wizard.</p>
-
-    <p><a href="/hosting/install/pro/wizard" class="button primary">Configure passbolt with the wizard</a></p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
 November
-6th,
+13th,
 2018.</p>
     </div>
 

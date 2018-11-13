@@ -2,8 +2,8 @@
 title: Install passbolt API from source
 card_title: From source code
 card_teaser: Install passbolt from the source code
-card_position: 1
-date: 2018-04-09 00:00:00 Z
+card_position: 5
+date: 2018-11-13 00:00:00 Z
 description: How to install passbolt on your server from the source.
 icon: fa-server
 categories: [hosting,install,ce]
@@ -20,10 +20,9 @@ permalink: /:categories/:slug.html
 This tutorial is distribution agnostic. It details the installation steps at a high level, without
 taking into account the specifics related to each and every linux distribution.
 
-For system specific step by step guide, you can refer to the following documentation:
-- [Debian 9 "Stretch" step by step guide](/hosting/install/ce/debian-9-stretch.html)
-- [CentOS 7 step by step guide](/hosting/install/ce/centos-7.html)
-- Ubuntu 16.04.4 LTS (coming soon)
+{% include messages/warning.html
+    content="**Please note:** This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution [here](/hosting/install)."
+%}
 
 ## System requirements
 
@@ -176,20 +175,10 @@ Feel free to ask for help on the [community forum](https://community.passbolt.co
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when installing passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
-%}
 
-{% include aside/message.html
-    class="tldr"
-    content="Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!"
-    link="https://www.github.com/passbolt/passbolt_help"
-    ask="View on github"
-%}
+{% include aside/ce-install-community-forum-cta.md %}
+
+{% include aside/contribute.html %}
 
 {% include aside/ce-install-pro-cta.html %}
 

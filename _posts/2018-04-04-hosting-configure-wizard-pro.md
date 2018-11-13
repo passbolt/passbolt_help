@@ -17,7 +17,7 @@ permalink: /:categories/:slug.html
 ### Choose the guide corresponding to your distribution
 - Debian 9: [https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html](/hosting/install/pro/debian-9-stretch.html)
 - Centos 7: [https://www.passbolt.com/hosting/install/pro/centos-7.html](/hosting/install/pro/centos-7.html)
-- Ubuntu 18.10: [https://www.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html](/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html)
+- Ubuntu 18.04: [https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html](/hosting/install/pro/ubuntu-18-04-bionic-beaver.html)
 
 {% include date/updated.html %}
 

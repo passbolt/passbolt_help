@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-13T16:36:50+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-13T19:34:38+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
     &lt;ul&gt;
       &lt;li&gt;Debian 9: &lt;a href=&quot;/hosting/install/pro/debian-9-stretch.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;Centos 7: &lt;a href=&quot;/hosting/install/pro/centos-7.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/centos-7.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Ubuntu 18.10: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Ubuntu 18.04: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
@@ -499,7 +499,7 @@ November
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
@@ -608,8 +608,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.&lt;/p&gt;
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -789,18 +789,18 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.10 (Cosmic Cuttlefish)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.10 (Cosmic Cuttlefish)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.10%20(Cosmic%20Cuttlefish)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Ubuntu 18.10 (Cosmic Cuttlefish) server. This tutorial will use scripts to do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Ubuntu 18.04 (Bionic Beaver) server. This tutorial will use scripts to do
 the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
 
@@ -812,7 +812,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Ubuntu 18.10 (Cosmic Cuttlefish) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Ubuntu 18.04 (Bionic Beaver) server.&lt;/li&gt;
       &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -836,10 +836,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-ubuntu-18-10.tar.gz https://www.passbolt.com/pro/download/installers/ubuntu/latest
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-ubuntu-18.04.tar.gz https://www.passbolt.com/pro/download/installers/ubuntu/latest
 wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/ubuntu/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-ubuntu-18-10.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-ubuntu-18.04.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_ubuntu_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -905,8 +905,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.&lt;/p&gt;
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1093,7 +1093,7 @@ November
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
@@ -1202,8 +1202,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.&lt;/p&gt;
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1383,18 +1383,18 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.10 (Cosmic Cuttlefish)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-10-cosmic-cuttlefish.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.10 (Cosmic Cuttlefish)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.10%20(Cosmic%20Cuttlefish)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-10-cosmic-cuttlefish.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal Ubuntu 18.10 (Cosmic Cuttlefish) server. This tutorial will use scripts to do
+    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal Ubuntu 18.04 (Bionic Beaver) server. This tutorial will use scripts to do
 the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
 
@@ -1406,7 +1406,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Ubuntu 18.10 (Cosmic Cuttlefish) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Ubuntu 18.04 (Bionic Beaver) server.&lt;/li&gt;
       &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -1430,10 +1430,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-ce-installer-ubuntu-18-10.tar.gz https://www.passbolt.com/ce/download/installers/ubuntu/latest
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-ce-installer-ubuntu-18.04.tar.gz https://www.passbolt.com/ce/download/installers/ubuntu/latest
 wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/ubuntu/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-ce-installer-ubuntu-18-10.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-ce-installer-ubuntu-18.04.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_ce_ubuntu_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -1499,8 +1499,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.&lt;/p&gt;
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1690,7 +1690,7 @@ November
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
@@ -1799,8 +1799,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.&lt;/p&gt;
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1990,7 +1990,7 @@ November
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
@@ -2099,8 +2099,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.&lt;/p&gt;
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -2283,14 +2283,14 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Install passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
     &lt;ul&gt;
       &lt;li&gt;Debian 9: &lt;a href=&quot;/hosting/install/pro/debian-9-stretch.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;Centos 7: &lt;a href=&quot;/hosting/install/pro/centos-7.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/centos-7.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Ubuntu 18.10: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Ubuntu 18.04: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;

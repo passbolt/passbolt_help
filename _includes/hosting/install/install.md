@@ -2,7 +2,7 @@
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 -->
 
@@ -43,11 +43,7 @@ tar -xzf passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz
 sudo ./passbolt_{{ product }}_{{ distribution }}_installer.sh
 ```
 
-{% include articles/figure.html
-    url="/assets/img/help/2018/04/execute-install-script.png"
-    legend="execute the install script"
-    width="586px"
-%}
+{% include articles/figure.html url="/assets/img/help/2018/04/execute-install-script.png" legend="execute the install script" width="586px" %}
 
 ### 1.2. Do you want to install a local mariadb server on this machine?
 
@@ -97,8 +93,8 @@ covered in this article.
 {% assign stepNumber = 1 %}
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Healthcheck
 
-The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it's only a formality. Click on "Start configuration".
+The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+"Start configuration" when ready.
 
 {% if product == 'pro' %}
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-pro-healthcheck.png" legend="wizard - healthcheck" width="586px" %}

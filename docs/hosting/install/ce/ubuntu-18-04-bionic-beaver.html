@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Install Passbolt Pro on Ubuntu 18.10 (Cosmic Cuttlefish)</title>
+    <title>Passbolt Help | Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install Passbolt Pro on Ubuntu 18.10 (Cosmic Cuttlefish)" />
+    <meta property="og:title" content="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" />
     <meta property="og:description" content="" />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -70,7 +70,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-11-13-hosting-install-pro-ubuntu-18-10.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2018-11-13-hosting-install-ce-ubuntu-18-04.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -166,7 +166,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-10-cosmic-cuttlefish.html"><span>Ubuntu 18.10 (Cosmic Cuttlefish)</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html"><span>Ubuntu 18.04 (Bionic Beaver)</span></a>
                     </div>
                 </li>
                 
@@ -177,7 +177,7 @@
 
                     <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install Passbolt Pro on Ubuntu 18.10 (Cosmic Cuttlefish)</h1>
+<h1>Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</h1>
 </div>
 </div>
 
@@ -189,11 +189,11 @@
 Required variables for this page to be displayed properly.
 product (string): The product this page will be rendered for:  ce or pro
 distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.10. It will be used in the url to target script
+distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 -->
 
-    <p>This tutorial describes how to install Passbolt PRO on a minimal Ubuntu 18.10 (Cosmic Cuttlefish) server. This tutorial will use scripts to do
+    <p>This tutorial describes how to install Passbolt CE on a minimal Ubuntu 18.04 (Bionic Beaver) server. This tutorial will use scripts to do
 the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
 
@@ -205,7 +205,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Ubuntu 18.10 (Cosmic Cuttlefish) server.</li>
+      <li>A minimal Ubuntu 18.04 (Bionic Beaver) server.</li>
       <li>A domain name pointed at your server or a static IP address.</li>
     </ul>
 
@@ -229,11 +229,11 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
     <p>The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> passbolt-pro-installer-ubuntu-18-10.tar.gz https://www.passbolt.com/pro/download/installers/ubuntu/latest
-wget <span class="nt">-O</span> passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/ubuntu/latest-checksum
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> passbolt-ce-installer-ubuntu-18.04.tar.gz https://www.passbolt.com/ce/download/installers/ubuntu/latest
+wget <span class="nt">-O</span> passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/ubuntu/latest-checksum
 <span class="nb">sha512sum</span> <span class="nt">-c</span> passbolt-installer-checksum
-<span class="nb">tar</span> <span class="nt">-xzf</span> passbolt-pro-installer-ubuntu-18-10.tar.gz
-<span class="nb">sudo</span> ./passbolt_pro_ubuntu_installer.sh
+<span class="nb">tar</span> <span class="nt">-xzf</span> passbolt-ce-installer-ubuntu-18.04.tar.gz
+<span class="nb">sudo</span> ./passbolt_ce_ubuntu_installer.sh
 </code></pre></div>    </div>
 
     <figure>
@@ -298,34 +298,24 @@ covered in this article.</p>
 
     <h3 id="healthcheck">2.1. Healthcheck</h3>
 
-    <p>The first page of the wizard will tell you if your environment is ready for passbolt. If you used the install script,
-then it’s only a formality. Click on “Start configuration”.</p>
+    <p>The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png" alt="wizard - healthcheck" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png" alt="wizard - healthcheck" style="max-width:586px;" />
     <span class="legend">fig. wizard - healthcheck</span>
 </figure>
 
-    <h3 id="subscription-key">2.2. Subscription key</h3>
-
-    <p>At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png" alt="wizard - subscription key" style="max-width:586px;" />
-    <span class="legend">fig. wizard - subscription key</span>
-</figure>
-
-    <h3 id="database">2.3. Database</h3>
+    <h3 id="database">2.2. Database</h3>
 
     <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png" alt="wizard - database" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png" alt="wizard - database" style="max-width:586px;" />
     <span class="legend">fig. wizard - database</span>
 </figure>
 
-    <h3 id="gpg-key">2.4. GPG key</h3>
+    <h3 id="gpg-key">2.3. GPG key</h3>
 
     <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
 authentication handshake process.</p>
@@ -333,23 +323,23 @@ authentication handshake process.</p>
     <p>Generate a key if you don’t have one.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-generate.png" alt="wizard - generate a key pair" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png" alt="wizard - generate a key pair" style="max-width:586px;" />
     <span class="legend">fig. wizard - generate a key pair</span>
 </figure>
 
     <p>Import a key if you already have one and you want your server to use it.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />
     <span class="legend">fig. wizard - import a key pair</span>
 </figure>
 
-    <h3 id="mail-server-smtp">2.5. Mail server (SMTP)</h3>
+    <h3 id="mail-server-smtp">2.4. Mail server (SMTP)</h3>
 
     <p>At this stage, the wizard will ask you to enter the details of your SMTP server.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-email.png" alt="wizard - smtp mail server details" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png" alt="wizard - smtp mail server details" style="max-width:586px;" />
     <span class="legend">fig. wizard - smtp mail server details</span>
 </figure>
 
@@ -361,32 +351,32 @@ the email address at which you want the wizard to send you a test email and clic
     <span class="legend">fig. wizard - test smtp settings</span>
 </figure>
 
-    <h3 id="preferences">2.6. Preferences</h3>
+    <h3 id="preferences">2.5. Preferences</h3>
 
     <p>The wizard will then ask you what preferences you prefer for your instance of passbolt. The recommended defaults are already pre-populated
 but you can also change them if you know what you are doing.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-options.png" alt="wizard - preferences" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png" alt="wizard - preferences" style="max-width:586px;" />
     <span class="legend">fig. wizard - preferences</span>
 </figure>
 
-    <h3 id="first-user-creation">2.7. First user creation</h3>
+    <h3 id="first-user-creation">2.6. First user creation</h3>
 
     <p>You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-first-user.png" alt="wizard - first user" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png" alt="wizard - first user" style="max-width:586px;" />
     <span class="legend">fig. wizard - first user</span>
 </figure>
 
-    <h3 id="installation">2.8. Installation</h3>
+    <h3 id="installation">2.7. Installation</h3>
 
     <p>That’s it. The wizard has now enough information to proceed with the configuration of passbolt. Sit back and relax for a few seconds while
 the configuration process is going on.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-install.png" alt="wizard - installation" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png" alt="wizard - installation" style="max-width:586px;" />
     <span class="legend">fig. wizard - installation</span>
 </figure>
 
@@ -394,7 +384,7 @@ the configuration process is going on.</p>
 to the user setup process so that you can configure your user account.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-completed.png" alt="wizard - completion and redirection" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png" alt="wizard - completion and redirection" style="max-width:586px;" />
     <span class="legend">fig. wizard - completion and redirection</span>
 </figure>
 
@@ -472,9 +462,22 @@ November
   <div class="col4 last push1">
 
     <div class="message tldr notice">
-    <p>Are you experiencing issues with Passbolt Pro?</p>
-    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
-    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
+    <p>Are you experiencing issues when installing passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
+</div>
+
+    <div class="message tldr notice">
+    <p><strong>Don't want the hassle of a manual installation?</strong> Passbolt Pro comes with out of the box a ready-to-use VM.</p>
+    <a href="https://www.passbolt.com/pricing/pro" class="button primary">Get Passbolt Pro</a>
 
 </div>
 

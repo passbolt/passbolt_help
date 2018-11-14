@@ -592,6 +592,12 @@
 "content": "This tutorial describes how to install Passbolt CE on a minimal CentOS 7 server. This tutorial will use scripts to dothe heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the webserver (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration. Installation time: 15 minutes If you prefer to install passbolt manually please refer to this documentation: Install passbolt from source Prerequisites For this tutorial, you will need: A minimal CentOS 7 server. A domain name pointed at your server or a static IP address. The Passbolt hardware requirements recommend using a server with: 2 cores 2GB of RAM Please note: It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server. 1. Configure your server 1.1. Download and execute...",
 "url": "https://help.passbolt.com/hosting/install/ce/centos-7.html"
 },
+"hosting-install-pro-vm-html": {
+"title": "Using Passbolt pro virtual machine appliance",
+"category": "",
+"content": "Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.The VM includes the following software: Debian 9.4 Nginx Php-fpm Mariadb Passbolt Pro preinstalled certbot haveged to fill the entropy pool faster Scripts to easy managing SSL setup of the VM 1. Getting started with Passbolt Pro VM 1.1 Download Download the ova and the SHA512SUM.txt: Passbolt Pro VM SHA512SUM.txt Import the ova file using virtualbox, vmware or any other platform that supports OVA files. Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.However it is encouraged that users log in the VM and start the SSL setup proces. VM login credentials:username: passboltpassword: admin 1.2. SSL setup process: Important note: It is recommended to run the SSL...",
+"url": "https://help.passbolt.com/hosting/install/pro/vm.html"
+},
 "hosting-install-pro-install-scripts-html": {
 "title": "Install Passbolt Pro",
 "category": "",
@@ -633,12 +639,6 @@
 "category": "",
 "content": "This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x. Important: Please take a full backup of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database. Upgrade from v1.6.10-debian Passbolt v2 introduces several changes that are important to keep in mind when upgrading: Changes: Environment variables The set of environment variables have changed and users should take some time to get familiar with the new ones. For example in case of the database env variables: DB_USER is now DATASOURCES_DEFAULT_USERNAMEDB_HOST is now DATASOURCES_DEFAULT_HOST There is a more detailed list in passbolt_docker README file. Changes: Configuration files No more core.php, email.php or database.php.Any user that does not want to use environment variables must configure passbolt using: /var/www/passbolt/config/passbolt.php Passbolt will look for for configuration values in passbolt.php. Wether passbolt.php does not exist or...",
 "url": "https://help.passbolt.com/hosting/upgrade/ce/upgrade-docker-ce.html"
-},
-"hosting-install-pro-vm-html": {
-"title": "Using Passbolt pro virtual machine appliance",
-"category": "",
-"content": "Description Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.The VM includes the following software: Debian 9.4 Nginx Php-fpm Mariadb Passbolt Pro preinstalled certbot haveged to fill the entropy pool faster Scripts to easy managing SSL setup of the VM Getting Passbolt Pro VM Download the ova and the SHA512SUM.txt: Passbolt Pro VM SHA512SUM.txt Import the ova file using virtualbox, vmware or any other platform that supports OVA files. Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.However it is encouraged that users log in the VM and start the SSL setup proces. VM login credentials:username: passboltpassword: admin SSL setup process: Important note: It is recommended to run the SSL setup before running the installation...",
-"url": "https://help.passbolt.com/hosting/install/pro/vm.html"
 },
 "hosting-upgrade-pro-upgrade-pro-from-ce-v2-docker-html": {
 "title": "Upgrade from CE v2 to Pro using docker",

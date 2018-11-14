@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-13T19:34:38+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-14T13:14:37+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
@@ -2283,15 +2283,233 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Using Passbolt pro virtual machine appliance</title><link href="https://help.passbolt.com/hosting/install/pro/vm.html" rel="alternate" type="text/html" title="Using Passbolt pro virtual machine appliance" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/vm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/vm.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
-    &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
+    &lt;p&gt;Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
+The VM includes the following software:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;Debian 9: &lt;a href=&quot;/hosting/install/pro/debian-9-stretch.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Centos 7: &lt;a href=&quot;/hosting/install/pro/centos-7.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/centos-7.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Ubuntu 18.04: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Debian 9.4&lt;/li&gt;
+      &lt;li&gt;Nginx&lt;/li&gt;
+      &lt;li&gt;Php-fpm&lt;/li&gt;
+      &lt;li&gt;Mariadb&lt;/li&gt;
+      &lt;li&gt;Passbolt Pro preinstalled&lt;/li&gt;
+      &lt;li&gt;certbot&lt;/li&gt;
+      &lt;li&gt;haveged to fill the entropy pool faster&lt;/li&gt;
+      &lt;li&gt;Scripts to easy managing SSL setup of the VM&lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;h2 id=&quot;getting-started-with-passbolt-pro-vm&quot;&gt;1. Getting started with Passbolt Pro VM&lt;/h2&gt;
+
+    &lt;h3 id=&quot;download&quot;&gt;1.1 Download&lt;/h3&gt;
+
+    &lt;p&gt;Download the ova and the SHA512SUM.txt:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.passbolt.com/pro/download/vm/debian/latest&quot;&gt;Passbolt Pro VM&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://www.passbolt.com/pro/download/vm/debian/latest-checksum&quot;&gt;SHA512SUM.txt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Import the ova file using virtualbox, vmware or any other platform that supports OVA files.&lt;/p&gt;
+
+    &lt;p&gt;Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
+However it is encouraged that users log in the VM and start the SSL setup proces.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;VM login credentials:
+username: passbolt
+password: admin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;ssl-setup-process&quot;&gt;1.2. SSL setup process:&lt;/h3&gt;
+
+    &lt;p&gt;&lt;strong&gt;Important note:&lt;/strong&gt; It is recommended to run the SSL setup before running the installation wizard to avoid secrets to be transmitted unencrypted during the installation process.&lt;/p&gt;
+
+    &lt;p&gt;Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts are located in:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Executing the following command the script will guide you through the SSL setup:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
+be reached. You will reach a getting started page.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Two options are available: &lt;strong&gt;Manual configuration&lt;/strong&gt; and &lt;strong&gt;Wizard configuration&lt;/strong&gt;. Choose Wizard configuration.&lt;/p&gt;
+
+    &lt;p&gt;This tutorial will guide you through the different steps of the wizard. The manual configuration is not
+covered in this article.&lt;/p&gt;
+
+    &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
+
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+“Start configuration” when ready.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;subscription-key&quot;&gt;2.2. Subscription key&lt;/h3&gt;
+
+    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
+Enter it in the box.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - subscription key&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;database&quot;&gt;2.3. Database&lt;/h3&gt;
+
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;gpg-key&quot;&gt;2.4. GPG key&lt;/h3&gt;
+
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
+authentication handshake process.&lt;/p&gt;
+
+    &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;mail-server-smtp&quot;&gt;2.5. Mail server (SMTP)&lt;/h3&gt;
+
+    &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You can also test that your configuration is correct by using the test email feature at the right of your screen. Enter
+the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;preferences&quot;&gt;2.6. Preferences&lt;/h3&gt;
+
+    &lt;p&gt;The wizard will then ask you what preferences you prefer for your instance of passbolt. The recommended defaults are already pre-populated
+but you can also change them if you know what you are doing.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;first-user-creation&quot;&gt;2.7. First user creation&lt;/h3&gt;
+
+    &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;installation&quot;&gt;2.8. Installation&lt;/h3&gt;
+
+    &lt;p&gt;That’s it. The wizard has now enough information to proceed with the configuration of passbolt. Sit back and relax for a few seconds while
+the configuration process is going on.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Your user account is now created. You will see a redirection page for a few second and then will be redirected
+to the user setup process so that you can configure your user account.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;configure-your-administrator-account&quot;&gt;3. Configure your administrator account&lt;/h2&gt;
+
+    &lt;h3 id=&quot;download-the-plugin&quot;&gt;3.1. Download the plugin&lt;/h3&gt;
+
+    &lt;p&gt;Before continuing passbolt will require you to download its plugin. If you already have it installed you can go to the
+next step.&lt;/p&gt;
+
+    &lt;h3 id=&quot;check-the-server-identity&quot;&gt;3.2. Check the server identity&lt;/h3&gt;
+
+    &lt;p&gt;Passbolt will ask you to check the URL passbolt is associated with.&lt;/p&gt;
+
+    &lt;p&gt;If you recognize the domain name, check the checkbox and then click “Next”. It is a formality here, but it is a security
+mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;create-a-new-key&quot;&gt;3.3. Create a new key&lt;/h3&gt;
+
+    &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;choose-a-password&quot;&gt;3.4. Choose a password&lt;/h3&gt;
+
+    &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;backup-your-key&quot;&gt;3.5. Backup your key&lt;/h3&gt;
+
+    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
+or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
+passphrase.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;define-your-security-token&quot;&gt;3.6. Define your security token&lt;/h3&gt;
+
+    &lt;p&gt;Choosing a color and a three character token is a secondary security mechanism that helps you to mitigate phishing
+attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;thats-it&quot;&gt;3.6. That’s it!&lt;/h3&gt;
+
+    &lt;p&gt;Your administrator account is configured. You will be redirected to the login page of passbolt. Enjoy!&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
@@ -2312,344 +2530,21 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T05:30:00+05:30</published><updated>2018-09-07T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
-    &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; the Ldap connector is currently distributed as an experimental plugin. Although it was 
-    tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt 
-    installation. It is highly recommended not to use it in a production instance of passbolt.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-    &lt;h3 id=&quot;what-is-it&quot;&gt;What is it?&lt;/h3&gt;
-
-    &lt;p&gt;The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt 
-administrator to synchronize a list of groups and users, as well as the associated group memberships.&lt;/p&gt;
-
-    &lt;p&gt;Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future 
-we will also support other non ldap based user directories such as Google API User Directory.&lt;/p&gt;
-
-    &lt;h3 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h3&gt;
-
-    &lt;p&gt;In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal 
-involvement of the administrators and group managers. However if an action is not possible, such as, deleting 
-a user that is the sole password owner, the process triggers will trigger relevant email notifications so 
-that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the 
-next synchronization round, if the issue does not need to be resolved.&lt;/p&gt;
-
-    &lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
-
-    &lt;p&gt;The directory synchronization tools requires the &lt;a href=&quot;https://secure.php.net/manual/en/book.ldap.php&quot;&gt;php-ldap extension&lt;/a&gt;
-to be present on the server. If you built your own server the way you install 
-&lt;a href=&quot;https://packages.debian.org/stretch/php-ldap&quot;&gt;php-ldap&lt;/a&gt; will depend on your system flavor.&lt;/p&gt;
-
-    &lt;p&gt;On Debian using nginx for example you can do:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;php-ldap 
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Make sure the ldap extension is present in the php-cli.ini file. 
-You should add &lt;code class=&quot;highlighter-rouge&quot;&gt;extension=ldap.so&lt;/code&gt; if it is not already present:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; |grep php&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;ini
-Configuration File &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;php.ini&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Path &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; /etc/php/7.0/cli
-Loaded Configuration File &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; /etc/php/7.0/cli/php.ini
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/php/7.0/cli/php.ini
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;For testing purpose, it might be handy to have the some &lt;a href=&quot;https://wiki.debian.org/LDAP/LDAPUtils&quot;&gt;ldap utilities&lt;/a&gt; 
-installed on your system. On Debian you can use ldapsearch for example to search for and display entries:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ldap-utils
-ldapsearch &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'dc=example,dc=com'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt 
-update or install. You can get it the same way than other php dependencies using composer:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
-git pull origin master
-composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-./bin/cake passbolt migrate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;To run, the ldap plugin needs to have at least one active admin user existing inside passbolt.&lt;/p&gt;
-
-    &lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
-
-    &lt;p&gt;The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, 
-once groups inside groups is supported by passbolt.&lt;/p&gt;
-
-    &lt;p&gt;A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently 
-not supported (and is not a trivial problem) but could still be considered in the future. If you are interested 
-in this feature you can join the discussion on the 
-&lt;a href=&quot;https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;p&gt;The following improvements will also be shipped gradually and will be available soon:&lt;/p&gt;
+    &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
     &lt;ul&gt;
-      &lt;li&gt;LDAP settings screen: it will be possible to configure and test ldap directly from an admin interface inside passbolt.&lt;/li&gt;
-      &lt;li&gt;Report screens: the synchronization reports will be available in the admin user interface.&lt;/li&gt;
+      &lt;li&gt;Debian 9: &lt;a href=&quot;/hosting/install/pro/debian-9-stretch.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Centos 7: &lt;a href=&quot;/hosting/install/pro/centos-7.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/centos-7.html&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Ubuntu 18.04: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-
-    &lt;h2 id=&quot;how-to-use&quot;&gt;How to use?&lt;/h2&gt;
-
-    &lt;h3 id=&quot;activate-the-plugin&quot;&gt;Activate the plugin&lt;/h3&gt;
-
-    &lt;p&gt;The plugin is deactivated by default. You need to activate it to be able to use it.&lt;/p&gt;
-
-    &lt;p&gt;To do so, simply copy the file &lt;code class=&quot;highlighter-rouge&quot;&gt;/config/ldap.default.php&lt;/code&gt; into &lt;code class=&quot;highlighter-rouge&quot;&gt;ldap.php&lt;/code&gt;.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
-&lt;span class=&quot;nb&quot;&gt;mv&lt;/span&gt; ./config/ldap.default.php ./config/ldap.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;configure-the-plugin&quot;&gt;Configure the plugin&lt;/h3&gt;
-
-    &lt;p&gt;Edit the file &lt;code class=&quot;highlighter-rouge&quot;&gt;ldap.php&lt;/code&gt; and modify the configuration to match your needs. The available options are:&lt;/p&gt;
-
-    &lt;table class=&quot;table-parameters&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th width=&quot;25%&quot;&gt;Parameter&lt;/th&gt;
-        &lt;th width=&quot;33%&quot;&gt;Details&lt;/th&gt;
-        &lt;th&gt;Example&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        defaultUser&lt;br /&gt;
-        &lt;em&gt;(required)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        Enter here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools. 
-        &lt;br /&gt;&lt;br /&gt;You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
-        &lt;/td&gt;
-        &lt;td&gt;
-        &lt;code&gt;passboltadmin@domain.com&lt;/code&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        defaultGroupAdminUser &lt;br /&gt;
-        &lt;em&gt;(required)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        Enter here the username of the default group manager. It is the user that will be assigned as a group manager to all new groups created by ldap.
-        &lt;/td&gt;
-        &lt;td&gt;
-        &lt;code&gt;passboltadmin@domain.com&lt;/code&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        fieldsMapping &lt;br /&gt;
-        &lt;em&gt;(optional)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        In case of OpenLdap, the default mapping between the passbolt and directory record fields might not be the one that will work for you. In this section you can redefine the default mapping for your directory.
-        &lt;/td&gt;
-        &lt;td&gt;&lt;pre&gt;'openldap' =&amp;gt; [
-  'user' =&amp;gt; [
-     'id' =&amp;gt; 'entryUUID',
-     'firstname' =&amp;gt; 'firstName',
-     'lastname' =&amp;gt; 'lastName',
-     'username' =&amp;gt; 'mail',
-     'created' =&amp;gt; 'created',
-     'modified' =&amp;gt; 'modified',
-  ],
-  'group' =&amp;gt; [
-     'id' =&amp;gt; 'entryUUID',
-     'name' =&amp;gt; 'cn',
-     'created' =&amp;gt; 'created',
-     'modified' =&amp;gt; 'modified',
-     'users' =&amp;gt; 'members',
-  ],
-],&lt;/pre&gt;&lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-         &lt;td&gt;
-         groupObjectClass&lt;br /&gt;
-         &lt;em&gt;(optional)&lt;/em&gt;
-         &lt;/td&gt;
-         &lt;td&gt;
-         For OpenLdap only, you can specify here the name of the group object class that you are using in your openldap.
-         &lt;br /&gt;&lt;br /&gt;Default value: groupOfUniqueNames
-         &lt;/td&gt;
-         &lt;td&gt;
-         &lt;code&gt;groupOfUniqueNames&lt;/code&gt;
-         &lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-          &lt;td&gt;
-          userObjectClass&lt;br /&gt;
-          &lt;em&gt;(optional)&lt;/em&gt;
-          &lt;/td&gt;
-          &lt;td&gt;
-          For OpenLdap only, you can specify here the name of the user object class that you are using in your openldap.
-          &lt;br /&gt;&lt;br /&gt;Default value: inetOrgPerson
-          &lt;/td&gt;
-          &lt;td&gt;
-          &lt;code&gt;inetOrgPerson&lt;/code&gt;
-          &lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-        &lt;td&gt;
-        groupPath&lt;br /&gt;
-        &lt;em&gt;(optional)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        If your groups are located in a different path than your base DN, you can specify here the complementary path.
-        &lt;br /&gt;&lt;br /&gt;Default value: none
-        &lt;/td&gt;
-        &lt;td&gt;&lt;code&gt;OU=MyGroups&lt;/code&gt;&lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-         &lt;td&gt;
-         userPath&lt;br /&gt;
-         &lt;em&gt;(optional)&lt;/em&gt;
-         &lt;/td&gt;
-         &lt;td&gt;
-         If your users are located in a different path than your base DN, you can specify here the complementary path.
-         &lt;br /&gt;&lt;br /&gt;Default value: none
-         &lt;/td&gt;
-         &lt;td&gt;&lt;code&gt;OU=MyUsers&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-           &lt;td&gt;
-           jobs&lt;br /&gt;
-           &lt;em&gt;(optional)&lt;/em&gt;
-           &lt;/td&gt;
-           &lt;td&gt;
-           By default, the synchronization will be done for all created / deleted users and groups in your directory and all edited group members. You can enable / disable some tasks here.
-           &lt;br /&gt;&lt;br /&gt;Default value: see example
-           &lt;/td&gt;
-           &lt;td&gt;&lt;pre&gt;'jobs' =&amp;gt; [
-    'users' =&amp;gt; [
-        'create' =&amp;gt; true,
-        'delete' =&amp;gt; true,
-    ],
-    'groups' =&amp;gt; [
-        'create' =&amp;gt; true,
-        'update' =&amp;gt; true,
-        'delete' =&amp;gt; true,
-    ],
-],
-&lt;/pre&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-             &lt;td&gt;
-             ldap&lt;br /&gt;
-             &lt;em&gt;(required)&lt;/em&gt;
-             &lt;/td&gt;
-             &lt;td&gt;
-             This contains the ldap connection details such as the domain name, username, password, base DN, servers, port, etc..
-             The options in the config file are self explanatory.
-             &lt;/td&gt;
-             &lt;td&gt;&lt;pre&gt;'ldap' =&amp;gt; [
-  'domains' =&amp;gt; [
-      // Active directory.
-     'mydomain.local' =&amp;gt; [
-          'domain_name' =&amp;gt; 'mydomain.local',
-          'username' =&amp;gt; 'johndoe',
-          'password' =&amp;gt; 'Compl!c4t3dP4ssw0rD',
-          'base_dn' =&amp;gt; 'OU=OrgUsers,DC=mydomain,DC=local',
-          'servers' =&amp;gt; ['35.225.111.241'],
-          'port' =&amp;gt; 389,
-          'use_ssl' =&amp;gt; false,
-         'ldap_type' =&amp;gt; 'ad',
-      ],
-   ],
-]&lt;/pre&gt;&lt;/td&gt;
-          &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-    &lt;h3 id=&quot;test-the-connection&quot;&gt;Test the connection&lt;/h3&gt;
-
-    &lt;p&gt;Once the configuration options have been entered in ldap.php, you can test that the connection is working and that the objects are retrieved correctly from your directory:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake directory_sync &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;An output similar to the one below should be observed:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/09/AD_ldap_command_test.png&quot; alt=&quot;Screenshot of directory synchronization test&quot; style=&quot;max-width:750px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Screenshot of directory synchronization test&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;&lt;strong&gt;What you should pay attention to:&lt;/strong&gt;&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Make sure that you can see the same groups and users as the ones available in your directory.&lt;/li&gt;
-      &lt;li&gt;Make sure that each user has an email address. If not, they will not validate in passbolt.&lt;/li&gt;
-      &lt;li&gt;Make sure that each group is shown with the right number of users.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h3 id=&quot;first-synchronization&quot;&gt;First synchronization&lt;/h3&gt;
-    &lt;p&gt;Before we actually do a real synchronization, we will first simulate one:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake directory_sync all &lt;span class=&quot;nt&quot;&gt;--dry-run&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;This command will simulate what will happen when the synchronization will be done for real.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/09/AD_ldap_command_dry_run.png&quot; alt=&quot;Screenshot of directory synchronization sync in dry run&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Screenshot of directory synchronization sync in dry run&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;If the result displayed is similar to what you expect to happen, you can proceed with the actual synchronization:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake directory_sync all
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/09/AD_ldap_command_sync.png&quot; alt=&quot;Screenshot of directory synchronization running&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Screenshot of directory synchronization running&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p class=&quot;message notice&quot;&gt;
-    Please note that a user can be added into a group only once his account is activated.
-&lt;/p&gt;
-
-    &lt;h3 id=&quot;run-it-automatically&quot;&gt;Run it automatically&lt;/h3&gt;
-    &lt;p&gt;To synchronize the changes automatically you will need to add a cron job. We recommend to execute the job once a day, but you can choose as per your preference.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 0 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; su &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/passbolt/bin/cake directory_sync all&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash www-data &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /var/log/cron.log 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ignoring-records&quot;&gt;Ignoring records&lt;/h3&gt;
-    &lt;p&gt;It is possible for you to individually ignore synchronization of some of your directory records and/or some users/groups in passbolt, especially when there are some problematics records you do not want to keep in sync. Such records and the command to ignore them will be displayed in the reports.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/09/AD_ldap_ignore_option.png&quot; alt=&quot;Screenshot of directory synchronization with items to ignore&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Screenshot of directory synchronization with items to ignore&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; ./bin/cake directory_sync ignore-create &lt;span class=&quot;nt&quot;&gt;--id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;55872084-ed6f-4e96-b401-479dd86ca357 &lt;span class=&quot;nt&quot;&gt;--model&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;DirectoryEntries
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You can also view all the records that are being ignored.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/09/AD_ldap_command_view_ignored.png&quot; alt=&quot;Screenshot of directory synchronization view ignored command&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Screenshot of directory synchronization view ignored command&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake directory_sync ignore-list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You can also stop ignoring them:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake directory_sync ignore-delete --id=16789f75-2cf7-4755-9bd9-634d1ff42240 --model=DirectoryEntries
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;how-to-report-bugs&quot;&gt;How to report bugs&lt;/h2&gt;
-    &lt;p&gt;You can contact us directly at &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;contact@passbolt.com&lt;/a&gt;. Please mention [LDAP] in the subject so that we can prioritize your message correctly.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
       &lt;p&gt;This article was last updated on 
-September
-7th,
+November
+13th,
 2018.&lt;/p&gt;
     &lt;/div&gt;
 

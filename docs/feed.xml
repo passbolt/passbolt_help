@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-13T19:34:38+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-14T11:57:38+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
@@ -27,7 +27,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt API from source</title><link href="https://help.passbolt.com/hosting/install/ce/from-source.html" rel="alternate" type="text/html" title="Install passbolt API from source" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/from-source.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt API from source</title><link href="https://help.passbolt.com/hosting/install/ce/from-source.html" rel="alternate" type="text/html" title="Install passbolt API from source" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/from-source.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -486,13 +486,13 @@ November
 &lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with out of the box a ready-to-use VM.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with an out of the box ready-to-use VM.&lt;/p&gt;
     &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
 
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -503,23 +503,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
-    &lt;p&gt;Installation time: 15 minutes&lt;/p&gt;
+    &lt;p&gt;Installation time: 15 minutes.&lt;/p&gt;
 
-    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
-      &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The Passbolt hardware requirements recommend using a server with:&lt;/p&gt;
+    &lt;p&gt;The recommended server requirement are:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;2 cores&lt;/li&gt;
       &lt;li&gt;2GB of RAM&lt;/li&gt;
@@ -527,7 +527,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -535,6 +535,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+
+    &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
@@ -554,8 +556,8 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt;: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
@@ -570,17 +572,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
+      &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
 
     &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
 
@@ -608,7 +611,7 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
@@ -789,7 +792,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -800,23 +803,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Ubuntu 18.04 (Bionic Beaver) server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Ubuntu 18.04 (Bionic Beaver) server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
-    &lt;p&gt;Installation time: 15 minutes&lt;/p&gt;
+    &lt;p&gt;Installation time: 15 minutes.&lt;/p&gt;
 
-    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;A minimal Ubuntu 18.04 (Bionic Beaver) server.&lt;/li&gt;
-      &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The Passbolt hardware requirements recommend using a server with:&lt;/p&gt;
+    &lt;p&gt;The recommended server requirement are:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;2 cores&lt;/li&gt;
       &lt;li&gt;2GB of RAM&lt;/li&gt;
@@ -824,7 +827,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -832,6 +835,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+
+    &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
@@ -851,8 +856,8 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt;: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
@@ -867,17 +872,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
+      &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
 
     &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
 
@@ -905,7 +911,7 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
@@ -1086,7 +1092,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/pro/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt Pro on CentOS 7" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/pro/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt Pro on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1097,23 +1103,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal CentOS 7 server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal CentOS 7 server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
-    &lt;p&gt;Installation time: 15 minutes&lt;/p&gt;
+    &lt;p&gt;Installation time: 15 minutes.&lt;/p&gt;
 
-    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;A minimal CentOS 7 server.&lt;/li&gt;
-      &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The Passbolt hardware requirements recommend using a server with:&lt;/p&gt;
+    &lt;p&gt;The recommended server requirement are:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;2 cores&lt;/li&gt;
       &lt;li&gt;2GB of RAM&lt;/li&gt;
@@ -1121,7 +1127,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -1130,11 +1136,13 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
 
+    &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-centos-7.tar.gz https://www.passbolt.com/pro/download/installers/centos/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/centos/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-pro-installer-centos-7.tar.gz https://www.passbolt.com/pro/download/installers/centos/latest
+curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/centos/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
 &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-centos-7.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_centos_installer.sh
@@ -1148,8 +1156,8 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt;: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
@@ -1164,17 +1172,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
+      &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
 
     &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
 
@@ -1202,7 +1211,7 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
@@ -1383,7 +1392,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1394,23 +1403,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal Ubuntu 18.04 (Bionic Beaver) server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
+    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal Ubuntu 18.04 (Bionic Beaver) server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
-    &lt;p&gt;Installation time: 15 minutes&lt;/p&gt;
+    &lt;p&gt;Installation time: 15 minutes.&lt;/p&gt;
 
-    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;A minimal Ubuntu 18.04 (Bionic Beaver) server.&lt;/li&gt;
-      &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The Passbolt hardware requirements recommend using a server with:&lt;/p&gt;
+    &lt;p&gt;The recommended server requirement are:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;2 cores&lt;/li&gt;
       &lt;li&gt;2GB of RAM&lt;/li&gt;
@@ -1418,7 +1427,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -1426,6 +1435,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+
+    &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
@@ -1445,8 +1456,8 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt;: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
@@ -1461,17 +1472,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
+      &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
 
     &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
 
@@ -1499,7 +1511,7 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
@@ -1677,13 +1689,13 @@ November
 &lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with out of the box a ready-to-use VM.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with an out of the box ready-to-use VM.&lt;/p&gt;
     &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
 
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 9 (Stretch)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1694,23 +1706,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal Debian 9 (Stretch) server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
+    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
-    &lt;p&gt;Installation time: 15 minutes&lt;/p&gt;
+    &lt;p&gt;Installation time: 15 minutes.&lt;/p&gt;
 
-    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
-      &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The Passbolt hardware requirements recommend using a server with:&lt;/p&gt;
+    &lt;p&gt;The recommended server requirement are:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;2 cores&lt;/li&gt;
       &lt;li&gt;2GB of RAM&lt;/li&gt;
@@ -1718,7 +1730,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -1726,6 +1738,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+
+    &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
@@ -1745,8 +1759,8 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt;: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
@@ -1761,17 +1775,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
+      &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
 
     &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
 
@@ -1799,7 +1814,7 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
@@ -1977,13 +1992,13 @@ November
 &lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with out of the box a ready-to-use VM.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with an out of the box ready-to-use VM.&lt;/p&gt;
     &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
 
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt CE on CentOS 7" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt CE on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1994,23 +2009,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal CentOS 7 server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/p&gt;
+    &lt;p&gt;This tutorial describes how to install Passbolt CE on a minimal CentOS 7 server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
-    &lt;p&gt;Installation time: 15 minutes&lt;/p&gt;
+    &lt;p&gt;Installation time: 15 minutes.&lt;/p&gt;
 
-    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;If you prefer to install passbolt manually please refer to this documentation: &lt;a href=&quot;/hosting/install/ce/from-source.html&quot;&gt;Install passbolt from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;A minimal CentOS 7 server.&lt;/li&gt;
-      &lt;li&gt;A domain name pointed at your server or a static IP address.&lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;The Passbolt hardware requirements recommend using a server with:&lt;/p&gt;
+    &lt;p&gt;The recommended server requirement are:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;2 cores&lt;/li&gt;
       &lt;li&gt;2GB of RAM&lt;/li&gt;
@@ -2018,7 +2033,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -2027,11 +2042,13 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.&lt;/
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
 
+    &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+
     &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-ce-installer-centos-7.tar.gz https://www.passbolt.com/ce/download/installers/centos/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/centos/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-ce-installer-centos-7.tar.gz https://www.passbolt.com/ce/download/installers/centos/latest
+curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/centos/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
 &lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-ce-installer-centos-7.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_ce_centos_installer.sh
@@ -2045,8 +2062,8 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;Yes: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
-      &lt;li&gt;No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt;: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
@@ -2061,17 +2078,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;manual: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;auto: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
+      &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
-      &lt;li&gt;none: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
 
     &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
 
@@ -2099,7 +2117,7 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
 
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
@@ -2277,13 +2295,13 @@ November
 &lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with out of the box a ready-to-use VM.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with an out of the box ready-to-use VM.&lt;/p&gt;
     &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
 
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/install-scripts.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
@@ -2312,7 +2330,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T05:30:00+05:30</published><updated>2018-09-07T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-09-07T02:00:00+02:00</published><updated>2018-09-07T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;

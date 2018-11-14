@@ -6,38 +6,51 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 -->
 
-This tutorial describes how to install Passbolt {{ product | upcase }} on a minimal {{ distributionLabel }} server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.
+{% if distribution == 'centos' %}
+    {% assign downloadCmd = 'curl -L -o' %}
+{% else %}
+    {% assign downloadCmd = 'wget -O' %}
+{% endif %}
 
-Installation time: 15 minutes
+This tutorial describes how to install Passbolt {{ product | upcase }} on a minimal {{ distributionLabel }} server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.
 
-If you prefer to install passbolt manually please refer to this documentation: [Install passbolt from source](/hosting/install/ce/from-source.html)
+Installation time: 15 minutes.
+
+If you prefer to install passbolt manually please refer to this documentation: [Install passbolt from source](/hosting/install/ce/from-source.html).
 
 ## Prerequisites
 
 For this tutorial, you will need:
 - A minimal {{ distributionLabel }} server.
-- A domain name pointed at your server or a static IP address.
+- A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.
 
-The Passbolt hardware requirements recommend using a server with:
+The recommended server requirement are:
 - 2 cores
 - 2GB of RAM
 
 {% include messages/warning.html
-    content="**Please note:** It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."
+    content="**Please note:** It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."
 %}
 
 ## 1. Configure your server
 
 ### 1.1. Download and execute the installation script
 
+{% if product == 'ce' %}
+    {% assign scriptSourceUrl = 'https://github.com/passbolt/passbolt_install_scripts' %}
+{% else %}
+    {% assign scriptSourceUrl = 'https://bitbucket.org/passbolt/passbolt_install_scripts' %}
+{% endif %}
+*Note that you can find the source code of the install scripts on our [git repository]({{scriptSourceUrl}}).*
+
 The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.
 
 ```shell
-wget -O passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest
-wget -O passbolt-installer-checksum https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest-checksum
+{{downloadCmd}} passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest
+{{downloadCmd}} passbolt-installer-checksum https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest-checksum
 sha512sum -c passbolt-installer-checksum
 tar -xzf passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz
 sudo ./passbolt_{{ product }}_{{ distribution }}_installer.sh
@@ -47,8 +60,8 @@ sudo ./passbolt_{{ product }}_{{ distribution }}_installer.sh
 
 ### 1.2. Do you want to install a local mariadb server on this machine?
 
-- Yes: if you are not planning on using an external mysql / mariadb server.
-- No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.
+- **Yes**: if you are not planning on using an external mysql / mariadb server.
+- **No**: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.
 
 The script will then ask you for the database details: root password, database name, and password.
 
@@ -61,15 +74,16 @@ example: www.passbolt.local
 
 ### 1.4. SSL Setup
 
-- manual: (recommended) choose manual if you have your own ssl certificates.
-- auto: this option will issue a SSL certificate automatically through [Let's Encrypt](https://letsencrypt.org). Use this option
+- **manual**: (recommended) choose manual if you have your own ssl certificates.
+- **auto**: this option will issue a SSL certificate automatically through [Let's Encrypt](https://letsencrypt.org). Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.
-- none: choose this option if you don't want your webserver to run https. This is not recommended.
+- **none**: choose this option if you don't want your webserver to run https. This is not recommended.
 
 ### 1.5. GnuPG entropy
 
-On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
+On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.
+
 Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.
 
 For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.
@@ -93,7 +107,7 @@ covered in this article.
 {% assign stepNumber = 1 %}
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Healthcheck
 
-The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 "Start configuration" when ready.
 
 {% if product == 'pro' %}

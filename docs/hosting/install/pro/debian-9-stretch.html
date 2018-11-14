@@ -193,23 +193,23 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 -->
 
-    <p>This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. This tutorial will use scripts to do
-the heavy lifting for you, they will configure your operating system to be passbolt ready and will take care of the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
+    <p>This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
+the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
+server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
 
-    <p>Installation time: 15 minutes</p>
+    <p>Installation time: 15 minutes.</p>
 
-    <p>If you prefer to install passbolt manually please refer to this documentation: <a href="/hosting/install/ce/from-source.html">Install passbolt from source</a></p>
+    <p>If you prefer to install passbolt manually please refer to this documentation: <a href="/hosting/install/ce/from-source.html">Install passbolt from source</a>.</p>
 
     <h2 id="prerequisites">Prerequisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
       <li>A minimal Debian 9 (Stretch) server.</li>
-      <li>A domain name pointed at your server or a static IP address.</li>
+      <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
     </ul>
 
-    <p>The Passbolt hardware requirements recommend using a server with:</p>
+    <p>The recommended server requirement are:</p>
     <ul>
       <li>2 cores</li>
       <li>2GB of RAM</li>
@@ -217,7 +217,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
 
     <div class="message warning">
     <p>
-        <strong>Please note:</strong> It is important that you use a bare server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+        <strong>Please note:</strong> It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
     </p>
     
 </div>
@@ -225,6 +225,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring configuration.</p>
     <h2 id="configure-your-server">1. Configure your server</h2>
 
     <h3 id="download-and-execute-the-installation-script">1.1. Download and execute the installation script</h3>
+
+    <p><em>Note that you can find the source code of the install scripts on our <a href="https://bitbucket.org/passbolt/passbolt_install_scripts">git repository</a>.</em></p>
 
     <p>The script will prepare your operating system to be passbolt ready and will take care of installing all the services
 required by passbolt. It will ask you a few questions to adapt the environment to your needs.</p>
@@ -244,8 +246,8 @@ wget <span class="nt">-O</span> passbolt-installer-checksum https://www.passbolt
     <h3 id="do-you-want-to-install-a-local-mariadb-server-on-this-machine">1.2. Do you want to install a local mariadb server on this machine?</h3>
 
     <ul>
-      <li>Yes: if you are not planning on using an external mysql / mariadb server.</li>
-      <li>No: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.</li>
+      <li><strong>Yes</strong>: if you are not planning on using an external mysql / mariadb server.</li>
+      <li><strong>No</strong>: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.</li>
     </ul>
 
     <p>The script will then ask you for the database details: root password, database name, and password.</p>
@@ -260,17 +262,18 @@ the address (domain, hostname or ip) at which you are planning to access your pa
     <h3 id="ssl-setup">1.4. SSL Setup</h3>
 
     <ul>
-      <li>manual: (recommended) choose manual if you have your own ssl certificates.</li>
-      <li>auto: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. Use this option
+      <li><strong>manual</strong>: (recommended) choose manual if you have your own ssl certificates.</li>
+      <li><strong>auto</strong>: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. Use this option
 only if you have a domain name that is reachable by the outside world, or it will not work.</li>
-      <li>none: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
+      <li><strong>none</strong>: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
     </ul>
 
     <h3 id="gnupg-entropy">1.5. GnuPG entropy</h3>
 
-    <p>On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt cannot not run properly.
-The script needs to know if you want to fix this by installing Haveged in order to speed up the entropy generation on your system.
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.</p>
+    <p>On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
+The script needs to know if you want to fix this by installing Haveged.</p>
+
+    <p>Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.</p>
 
     <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.</p>
 
@@ -298,7 +301,7 @@ covered in this article.</p>
 
     <h3 id="healthcheck">2.1. Healthcheck</h3>
 
-    <p>The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    <p>The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.</p>
 
     <figure>

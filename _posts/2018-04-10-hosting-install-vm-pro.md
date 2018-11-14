@@ -22,7 +22,7 @@ permalink: /:categories/:slug.html
 
 Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
 The VM includes the following software:
-- Debian 9.4
+- Debian 9.6
 - Nginx
 - Php-fpm
 - Mariadb
@@ -49,6 +49,15 @@ However it is encouraged that users log in the VM and start the SSL setup proces
 VM login credentials:
 username: passbolt
 password: admin
+```
+
+The appliance comes with a example empty database to quickly test Passbolt Pro. However it is encouraged to change password for this database:
+
+```bash
+Database default credentials:
+database name: passbolt
+username: passbolt
+password: passbolt
 ```
 
 ### 1.2. SSL setup process:

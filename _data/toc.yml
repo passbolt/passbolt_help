@@ -90,6 +90,14 @@
       url: /configure/ldap
       icon: fa-address-book-o
       teaser: How to configure the directory sync plugin
+    - title: Configure Yubikey
+      url: /configure/mfa/yubikey
+      icon: fa-key
+      teaser: Use Yubikey OTP as multi factor authentication provider
+    - title: Configure Duo
+      url: /configure/mfa/duo
+      icon: fa-key
+      teaser: Use Duo as multi factor authentication provider
 - title: Contribute
   slug: contribute
   teaser: Are you doing your part?

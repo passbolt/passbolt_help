@@ -36,6 +36,22 @@ The recommended server requirement are:
 
 ## 1. Configure your server
 
+{% if distribution == 'ubuntu' %}
+If you are using ubuntu server image make sure the universe repository are present.
+```
+sudo add-apt-repository universe
+sudo apt-get update
+```
+
+In doubt you can check as follow:
+```
+sudo cat /etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu bionic main universe
+deb http://archive.ubuntu.com/ubuntu bionic-security main universe
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+```
+{% endif %}
+
 ### 1.1. Download and execute the installation script
 
 {% if product == 'ce' %}

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-15T12:13:03+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-15T14:25:07+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
@@ -1135,6 +1135,18 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
+    &lt;p&gt;If you are using ubuntu server image make sure the universe repository are present.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository universe
+sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;In doubt you can check as follow:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cat /etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu bionic main universe
+deb http://archive.ubuntu.com/ubuntu bionic-security main universe
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
@@ -1734,6 +1746,18 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 &lt;/div&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
+
+    &lt;p&gt;If you are using ubuntu server image make sure the universe repository are present.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository universe
+sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;In doubt you can check as follow:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cat /etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu bionic main universe
+deb http://archive.ubuntu.com/ubuntu bionic-security main universe
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
 

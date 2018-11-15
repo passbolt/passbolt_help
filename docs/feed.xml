@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-15T14:25:07+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-15T14:33:18+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
@@ -839,8 +839,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
+    &lt;p&gt;The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
 wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
@@ -874,19 +874,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.&lt;/p&gt;
 
-    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.&lt;/p&gt;
 
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
+    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.&lt;/p&gt;
 
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
@@ -897,8 +900,8 @@ The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.&lt;/p&gt;
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -922,8 +925,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;subscription-key&quot;&gt;2.2. Subscription key&lt;/h3&gt;
 
-    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.&lt;/p&gt;
+    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -932,7 +935,8 @@ Enter it in the box.&lt;/p&gt;
 
     &lt;h3 id=&quot;database&quot;&gt;2.3. Database&lt;/h3&gt;
 
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -941,8 +945,8 @@ Enter it in the box.&lt;/p&gt;
 
     &lt;h3 id=&quot;gpg-key&quot;&gt;2.4. GPG key&lt;/h3&gt;
 
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.&lt;/p&gt;
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
 
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
@@ -1135,7 +1139,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
-    &lt;p&gt;If you are using ubuntu server image make sure the universe repository are present.&lt;/p&gt;
+    &lt;p&gt;If you are using ubuntu server image make sure the universe repository is present.&lt;/p&gt;
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository universe
 sudo apt-get update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -1151,8 +1155,8 @@ deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
+    &lt;p&gt;The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-ubuntu-18.04.tar.gz https://www.passbolt.com/pro/download/installers/ubuntu/latest
 wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/ubuntu/latest-checksum
@@ -1186,19 +1190,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.&lt;/p&gt;
 
-    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.&lt;/p&gt;
 
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
+    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.&lt;/p&gt;
 
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
@@ -1209,8 +1216,8 @@ The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.&lt;/p&gt;
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1234,8 +1241,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;subscription-key&quot;&gt;2.2. Subscription key&lt;/h3&gt;
 
-    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.&lt;/p&gt;
+    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1244,7 +1251,8 @@ Enter it in the box.&lt;/p&gt;
 
     &lt;h3 id=&quot;database&quot;&gt;2.3. Database&lt;/h3&gt;
 
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1253,8 +1261,8 @@ Enter it in the box.&lt;/p&gt;
 
     &lt;h3 id=&quot;gpg-key&quot;&gt;2.4. GPG key&lt;/h3&gt;
 
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.&lt;/p&gt;
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
 
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
@@ -1451,8 +1459,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
+    &lt;p&gt;The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-pro-installer-centos-7.tar.gz https://www.passbolt.com/pro/download/installers/centos/latest
 curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/centos/latest-checksum
@@ -1486,19 +1494,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.&lt;/p&gt;
 
-    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.&lt;/p&gt;
 
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
+    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.&lt;/p&gt;
 
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
@@ -1509,8 +1520,8 @@ The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.&lt;/p&gt;
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1534,8 +1545,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;subscription-key&quot;&gt;2.2. Subscription key&lt;/h3&gt;
 
-    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.&lt;/p&gt;
+    &lt;p&gt;At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1544,7 +1555,8 @@ Enter it in the box.&lt;/p&gt;
 
     &lt;h3 id=&quot;database&quot;&gt;2.3. Database&lt;/h3&gt;
 
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1553,8 +1565,8 @@ Enter it in the box.&lt;/p&gt;
 
     &lt;h3 id=&quot;gpg-key&quot;&gt;2.4. GPG key&lt;/h3&gt;
 
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.&lt;/p&gt;
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
 
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
@@ -1747,7 +1759,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
-    &lt;p&gt;If you are using ubuntu server image make sure the universe repository are present.&lt;/p&gt;
+    &lt;p&gt;If you are using ubuntu server image make sure the universe repository is present.&lt;/p&gt;
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo add-apt-repository universe
 sudo apt-get update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -1763,8 +1775,8 @@ deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
+    &lt;p&gt;The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-ce-installer-ubuntu-18.04.tar.gz https://www.passbolt.com/ce/download/installers/ubuntu/latest
 wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/ubuntu/latest-checksum
@@ -1798,19 +1810,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.&lt;/p&gt;
 
-    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.&lt;/p&gt;
 
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
+    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.&lt;/p&gt;
 
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
@@ -1821,8 +1836,8 @@ The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.&lt;/p&gt;
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1846,7 +1861,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;database&quot;&gt;2.2. Database&lt;/h3&gt;
 
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1855,8 +1871,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;gpg-key&quot;&gt;2.3. GPG key&lt;/h3&gt;
 
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.&lt;/p&gt;
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
 
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
@@ -2066,8 +2082,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
+    &lt;p&gt;The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-ce-installer-debian-9.tar.gz https://www.passbolt.com/ce/download/installers/debian/latest
 wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/debian/latest-checksum
@@ -2101,19 +2117,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.&lt;/p&gt;
 
-    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.&lt;/p&gt;
 
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
+    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.&lt;/p&gt;
 
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
@@ -2124,8 +2143,8 @@ The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.&lt;/p&gt;
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -2149,7 +2168,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;database&quot;&gt;2.2. Database&lt;/h3&gt;
 
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -2158,8 +2178,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;gpg-key&quot;&gt;2.3. GPG key&lt;/h3&gt;
 
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.&lt;/p&gt;
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
 
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
@@ -2369,8 +2389,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
-    &lt;p&gt;The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.&lt;/p&gt;
+    &lt;p&gt;The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
     &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-ce-installer-centos-7.tar.gz https://www.passbolt.com/ce/download/installers/centos/latest
 curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/centos/latest-checksum
@@ -2404,19 +2424,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;auto&lt;/strong&gt;: this option will issue a SSL certificate automatically through &lt;a href=&quot;https://letsencrypt.org&quot;&gt;Let’s Encrypt&lt;/a&gt;. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.&lt;/li&gt;
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
 
-    &lt;p&gt;On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt;
+    &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.&lt;/p&gt;
 
-    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.&lt;/p&gt;
+    &lt;p&gt;Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.&lt;/p&gt;
 
-    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.&lt;/p&gt;
+    &lt;p&gt;For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.&lt;/p&gt;
 
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
@@ -2427,8 +2450,8 @@ The script needs to know if you want to fix this by installing Haveged.&lt;/p&gt
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.&lt;/p&gt;
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -2452,7 +2475,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;database&quot;&gt;2.2. Database&lt;/h3&gt;
 
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.&lt;/p&gt;
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -2461,8 +2485,8 @@ covered in this article.&lt;/p&gt;
 
     &lt;h3 id=&quot;gpg-key&quot;&gt;2.3. GPG key&lt;/h3&gt;
 
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.&lt;/p&gt;
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
 
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 

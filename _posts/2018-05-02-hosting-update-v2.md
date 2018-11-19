@@ -52,7 +52,7 @@ Some libraries are not packaged with the software but need to be updated using c
 what is recommended in the composer.lock. This file is provided by passbolt.
 
 ```bash
-$ composer install --no-dev
+$ composer install --no-dev -o
 ```
 
 #### 4. Run the migration script

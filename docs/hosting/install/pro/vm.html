@@ -28,6 +28,7 @@
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
 </head>
+
 <body>
 <div id="container" class="help page background">
     <header>
@@ -188,7 +189,7 @@
     <p>Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
 The VM includes the following software:</p>
     <ul>
-      <li>Debian 9.4</li>
+      <li>Debian 9.6</li>
       <li>Nginx</li>
       <li>Php-fpm</li>
       <li>Mariadb</li>
@@ -217,6 +218,14 @@ However it is encouraged that users log in the VM and start the SSL setup proces
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VM login credentials:
 username: passbolt
 password: admin
+</code></pre></div>    </div>
+
+    <p>The appliance comes with a example empty database to quickly test Passbolt Pro. However it is encouraged to change password for this database:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Database default credentials:
+database name: passbolt
+username: passbolt
+password: passbolt
 </code></pre></div>    </div>
 
     <h3 id="ssl-setup-process">1.2. SSL setup process:</h3>
@@ -422,7 +431,7 @@ November
   <div class="col4 last push1">
 
     <div class="message tldr notice">
-    <p>Are you experiencing issues with Passbolt Pro?</p>
+    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
     <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
     <p>or <a href="https://community.passbolt.com">ask the community</a></p>
 

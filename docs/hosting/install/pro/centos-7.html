@@ -28,6 +28,7 @@
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
 </head>
+
 <body>
 <div id="container" class="help page background">
     <header>
@@ -228,8 +229,8 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
 
     <p><em>Note that you can find the source code of the install scripts on our <a href="https://bitbucket.org/passbolt/passbolt_install_scripts">git repository</a>.</em></p>
 
-    <p>The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.</p>
+    <p>The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-L</span> <span class="nt">-o</span> passbolt-pro-installer-centos-7.tar.gz https://www.passbolt.com/pro/download/installers/centos/latest
 curl <span class="nt">-L</span> <span class="nt">-o</span> passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/centos/latest-checksum
@@ -263,19 +264,22 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 
     <ul>
       <li><strong>manual</strong>: (recommended) choose manual if you have your own ssl certificates.</li>
-      <li><strong>auto</strong>: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.</li>
+      <li><strong>auto</strong>: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.</li>
       <li><strong>none</strong>: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
     </ul>
 
     <h3 id="gnupg-entropy">1.5. GnuPG entropy</h3>
 
-    <p>On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.</p>
+    <p>On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.</p>
 
-    <p>Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.</p>
+    <p>Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.</p>
 
-    <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.</p>
+    <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.</p>
 
     <p>Your environment is now ready to support passbolt.</p>
 
@@ -286,8 +290,8 @@ The script needs to know if you want to fix this by installing Haveged.</p>
 
     <h2 id="configure-passbolt">2. Configure passbolt</h2>
 
-    <p>Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.</p>
+    <p>Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png" alt="passbolt welcome page before configuration" style="max-width:586px;" />
@@ -311,8 +315,8 @@ covered in this article.</p>
 
     <h3 id="subscription-key">2.2. Subscription key</h3>
 
-    <p>At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.</p>
+    <p>At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png" alt="wizard - subscription key" style="max-width:586px;" />
@@ -321,7 +325,8 @@ Enter it in the box.</p>
 
     <h3 id="database">2.3. Database</h3>
 
-    <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.</p>
+    <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png" alt="wizard - database" style="max-width:586px;" />
@@ -330,8 +335,8 @@ Enter it in the box.</p>
 
     <h3 id="gpg-key">2.4. GPG key</h3>
 
-    <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.</p>
+    <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.</p>
 
     <p>Generate a key if you don’t have one.</p>
 
@@ -475,7 +480,7 @@ November
   <div class="col4 last push1">
 
     <div class="message tldr notice">
-    <p>Are you experiencing issues with Passbolt Pro?</p>
+    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
     <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
     <p>or <a href="https://community.passbolt.com">ask the community</a></p>
 

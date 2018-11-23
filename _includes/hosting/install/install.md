@@ -40,6 +40,22 @@ The recommended server requirement are:
 
 ## 1. Configure your server
 
+{% if distribution == 'ubuntu' %}
+If you are using ubuntu server image make sure the universe repository is present.
+```
+sudo add-apt-repository universe
+sudo apt-get update
+```
+
+In doubt you can check as follow:
+```
+sudo cat /etc/apt/sources.list
+deb http://archive.ubuntu.com/ubuntu bionic main universe
+deb http://archive.ubuntu.com/ubuntu bionic-security main universe
+deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
+```
+{% endif %}
+
 ### 1.1. Download and execute the installation script
 
 {% if product == 'ce' %}
@@ -49,8 +65,8 @@ The recommended server requirement are:
 {% endif %}
 *Note that you can find the source code of the install scripts on our [git repository]({{scriptSourceUrl}}).*
 
-The script will prepare your operating system to be passbolt ready and will take care of installing all the services
-required by passbolt. It will ask you a few questions to adapt the environment to your needs.
+The script will take care of installing all the services required by passbolt.
+It will ask you a few questions in order to adapt the environment to your needs.
 
 ```shell
 {{downloadCmd}} passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest
@@ -79,18 +95,21 @@ example: www.passbolt.local
 ### 1.4. SSL Setup
 
 - **manual**: (recommended) choose manual if you have your own ssl certificates.
-- **auto**: this option will issue a SSL certificate automatically through [Let's Encrypt](https://letsencrypt.org). Use this option
-only if you have a domain name that is reachable by the outside world, or it will not work.
+- **auto**: this option will issue a SSL certificate automatically through [Let's Encrypt](https://letsencrypt.org). 
+Use this option only if you have a domain name that is reachable by the outside world, or it will not work.
 - **none**: choose this option if you don't want your webserver to run https. This is not recommended.
 
 ### 1.5. GnuPG entropy
 
-On virtualized environments GnuPG happen not to find enough entropy to generate a key. Therefore, Passbolt cannot run properly.
-The script needs to know if you want to fix this by installing Haveged.
+On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
+Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
+ Haveged.
 
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand the risks before answering yes to this question.
+Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+the risks before answering yes to this question.
 
-For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go with the flow.
+For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
+with the flow.
 
 Your environment is now ready to support passbolt.
 
@@ -98,8 +117,8 @@ Your environment is now ready to support passbolt.
 
 ## 2. Configure passbolt
 
-Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.
+Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.
 
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-getting-started.png" legend="passbolt welcome page before configuration" width="586px" %}
 
@@ -123,15 +142,16 @@ The first page of the wizard will tell you if your environment is ready for pass
 {% if product == 'pro' %}
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Subscription key
 
-At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.
+At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.
 
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-pro-subscription-key.png" legend="wizard - subscription key" width="586px" %}
 {% endif %}
 
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Database
 
-This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.
+This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.
 
 {% if product == 'pro' %}
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-pro-database.png" legend="wizard - database" width="586px" %}
@@ -141,8 +161,8 @@ This step is about telling passbolt which database to use. Enter the host name, 
 
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. GPG key
 
-In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.
+In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.
 
 Generate a key if you don't have one.
 

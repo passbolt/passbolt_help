@@ -355,6 +355,18 @@
 "content": "How to import passwords in passboltSteps  Make sure you have an edition of passbolt that supports import (at the time of writing this, it is only shipped with Passbolt Pro)  Click on the “import” button at the top left, next to the “create” button.  Select a file (supported files are kdbx or csv. More details below.)  Click on “continue import”  For kdbx files, you might need to enter a password. Enter it and click “Ok”.  The import will start. You will see a progress bar.  At the end of the import, you will see a report. After closing this window, you will see the passwords imported in your workspace.Supported file formatsPassbolt import system supports the following file formats:  Kdbx (file format used by Keepass 2.x)  Csv - keepass export  Csv - 1password export  Csv - Lastpass exportIf you’d like to request the support of a specific format, you can open a request on the community forum.File format examplesCsv (Lastpass)url,username,password,extra,name,grouping,favhttps://test.url,account1,P4ssw0Rd!,,Account1,,0https://test.url,account1,P4ssw0Rd!,,Account2,,0,,P4ssw0Rd!,,Account3,,1Csv (1Password)Title,Username,URL,Password,Notes,TypeAccount1,account1,https://test.url,P4ssw0Rd!,Notes Account2,server,Account2,account2,https://test.url,P4ssw0Rd!,Notes Account2,shell,Account3,,,P4ssw0Rd!,Notes Account3,serverCsv (Keepass / KeepassX)\"Group\",\"Title\",\"Username\",\"Password\",\"URL\",\"Notes\"\"My Servers\",\"Account1\",\"account1\",\"P4ssw0Rd!\",\"https://test.url\",\"this is the description\"\"My Servers\",\"Account2\",\"account2\",\"P4ssw0Rd!\",\"https://test.url\",\"this is the description\"\"My Servers\",\"Account2\",\"\",\"P4ssw0Rd!\",\"https://test.url\",\"\"Keepass filedownload example (the file is not password protected)",
 "url": "https://help.passbolt.com/faq/start/import-passwords"
 },
+"configure-mfa-yubikey-html": {
+"title": "How to configure passbolt to use Yubikey OTP",
+"category": "",
+"content": "Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box. fig. Using a Yubikey at login Security considerations It is important to enable and setup at least one additional multi factor authentication provider in case the user lose its Yubikey or the the Yubicloud service becomes temporarily not available. During a login attempt the passbolt will check if the key ID used by the user is the same that was used during setup. To change key (if the key was lost for example) a user will need to first disable the Yubikey provider in their settings. Get a Yubikey cloud api key In order to use Yubikey OTP you need get an API key for Yubicloud, Yubico’s web service for verifying OTPs. Please note that while it is possible to host yourself...",
+"url": "https://help.passbolt.com/configure/mfa/yubikey.html"
+},
+"configure-mfa-duo-html": {
+"title": "How to configure passbolt to use Duo OTP",
+"category": "",
+"content": "Passbolt Pro Edition since v2.5 supports Duo as a multi factor authentication option.Duo is a proprietary solution that is free for up to 10 users, and supports a bundleof authentication channels (such as HOTP, mobile push, phone calls, etc.) configurableby the Duo account administrator. fig. Duo website Security considerations It is important to enable and setup at least one additional multi factor authentication provider in case Duo service becomes temporarily not available. In order to use Duo authentication the user will need to interact with an iframewith content served by passbolt. Make sure your users have access to internet or donot enable this authentication provider if you are running passbolt on a private networkthat is not connected to internet. Install Duo app In order to use this authentication provider each of your users will need to installthe Duo mobile app on their phone or tablet. Duo Mobile for Android on...",
+"url": "https://help.passbolt.com/configure/mfa/duo.html"
+},
 "hosting-install-pro-ubuntu-18-04-bionic-beaver-html": {
 "title": "Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)",
 "category": "",
@@ -394,19 +406,19 @@
 "hosting-install-pro-vm-html": {
 "title": "Using Passbolt pro virtual machine appliance",
 "category": "",
-"content": "Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.The VM includes the following software: Debian 9.4 Nginx Php-fpm Mariadb Passbolt Pro preinstalled certbot haveged to fill the entropy pool faster Scripts to easy managing SSL setup of the VM 1. Getting started with Passbolt Pro VM 1.1 Download Download the ova and the SHA512SUM.txt: Passbolt Pro VM SHA512SUM.txt Import the ova file using virtualbox, vmware or any other platform that supports OVA files. Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.However it is encouraged that users log in the VM and start the SSL setup proces. VM login credentials:username: passboltpassword: admin 1.2. SSL setup process: Important note: It is recommended to run the SSL...",
+"content": "Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.The VM includes the following software: Debian 9.6 Nginx Php-fpm Mariadb Passbolt Pro preinstalled certbot haveged to fill the entropy pool faster Scripts to easy managing SSL setup of the VM 1. Getting started with Passbolt Pro VM 1.1 Download Download the ova and the SHA512SUM.txt: Passbolt Pro VM SHA512SUM.txt Import the ova file using virtualbox, vmware or any other platform that supports OVA files. Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.However it is encouraged that users log in the VM and start the SSL setup proces. VM login credentials:username: passboltpassword: admin The appliance comes with a example empty database to quickly test Passbolt Pro....",
 "url": "https://help.passbolt.com/hosting/install/pro/vm.html"
 },
 "hosting-install-pro-install-scripts-html": {
 "title": "Install Passbolt Pro",
 "category": "",
-"content": "      Choose the guide corresponding to your distribution          Debian 9: https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html      Centos 7: https://www.passbolt.com/hosting/install/pro/centos-7.html      Ubuntu 18.04: https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html              Last updated      This article was last updated on November13th,2018.                Are you experiencing issues with Passbolt Pro?    Contact Pro support    or ask the community  ",
+"content": "      Choose the guide corresponding to your distribution          Debian 9: https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html      Centos 7: https://www.passbolt.com/hosting/install/pro/centos-7.html      Ubuntu 18.04: https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html              Last updated      This article was last updated on November13th,2018.                Are you experiencing issues with Passbolt Pro Edition?    Contact Pro support    or ask the community  ",
 "url": "https://help.passbolt.com/hosting/install/pro/install-scripts.html"
 },
 "hosting-install-pro-wizard-html": {
 "title": "Install Passbolt Pro",
 "category": "",
-"content": "      Choose the guide corresponding to your distribution          Debian 9: https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html      Centos 7: https://www.passbolt.com/hosting/install/pro/centos-7.html      Ubuntu 18.04: https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html              Last updated      This article was last updated on November13th,2018.                Are you experiencing issues with Passbolt Pro?    Contact Pro support    or ask the community  ",
+"content": "      Choose the guide corresponding to your distribution          Debian 9: https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html      Centos 7: https://www.passbolt.com/hosting/install/pro/centos-7.html      Ubuntu 18.04: https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html              Last updated      This article was last updated on November13th,2018.                Are you experiencing issues with Passbolt Pro Edition?    Contact Pro support    or ask the community  ",
 "url": "https://help.passbolt.com/hosting/install/pro/wizard.html"
 },
 "hosting-install-ce-from-source-html": {
@@ -460,7 +472,7 @@
 "hosting-upgrade-pro-upgrade-pro-from-ce-v1-new-server-html": {
 "title": "Upgrade Passbolt from v1 to Pro on a new server",
 "category": "",
-"content": "      This tutorial will be available soon.          Last updated      This article was last updated on April9th,2018.                Are you experiencing issues with Passbolt Pro?    Contact Pro support    or ask the community  ",
+"content": "      This tutorial will be available soon.          Last updated      This article was last updated on April9th,2018.                Are you experiencing issues with Passbolt Pro Edition?    Contact Pro support    or ask the community  ",
 "url": "https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server.html"
 },
 "hosting-install-pro-docker-html": {

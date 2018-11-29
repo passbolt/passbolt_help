@@ -22,6 +22,10 @@ Yubico OTP is a simple authentication mechanism that is supported by all YubiK
     width="450px"
 %}
 
+{% include messages/warning.html
+    content="**Important:** Multi Factor Authentication is part of [Passbolt Pro](https://www.passbolt.com/pricing/pro) only and is not available in the Community Edition."
+%}
+
 ## Security considerations
 
 It is important to enable and setup at least one additional multi factor authentication provider in 

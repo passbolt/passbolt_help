@@ -235,9 +235,24 @@ them to configure the integration.</p>
 
     <h2 id="set-the-configuration-in-passbolt">Set the configuration in passbolt</h2>
 
-    <p>You can either configure Duo in passbolt using files or environment variables.
-You will need to generate a random 40 character string to be used as salt, to help
+    <p>You can either configure Duo in passbolt using the user interface, or files or environment variables.
+If multiple settings provider are used the settings in the UI will override the one used in files.
+Similarly The settings in files will override environment variables.</p>
+
+    <p>You will need to generate a random 40 character string to be used as salt, to help
 secure your integration.</p>
+
+    <h3 id="using-admin-user-interface">Using admin user interface</h3>
+
+    <p>Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
+You can then enable or disable the Yubikey provider by providing the user id and secret key that
+you gathered in the previous steps. Click “save settings” when you are done.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_duo.png" alt="MFA organization settings for Duo" style="max-width:550px;" />
+    <span class="legend">fig. MFA organization settings for Duo</span>
+</figure>
 
     <h3 id="using-environment-variables">Using environment variables</h3>
 
@@ -284,7 +299,7 @@ like other variables such as the database name, for example:</p>
              -e etc.
 </code></pre></div>    </div>
 
-    <h3 id="using-config-fields">Using config fields</h3>
+    <h3 id="using-config-file">Using config file</h3>
 
     <p>In your install directory you can add the following section in <code class="highlighter-rouge">config/passbolt.php</code>
 and replace the</p>

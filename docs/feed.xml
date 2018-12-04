@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-11-29T15:04:59+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-12-04T11:48:48+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
@@ -56,7 +56,21 @@ If you prevent outgoing connection from Passbolt server to the following domains
 
     &lt;h2 id=&quot;set-the-configuration-in-passbolt&quot;&gt;Set the configuration in passbolt&lt;/h2&gt;
 
-    &lt;p&gt;You can either configure Yubikey OTP in passbolt using files or environment variables.&lt;/p&gt;
+    &lt;p&gt;You can either configure Yubikey OTP in passbolt the UI or using files or environment variables.
+If multiple settings provider are used the settings in the UI will override the one used in files.
+Similarly The settings in files will override environment variables.&lt;/p&gt;
+
+    &lt;h3 id=&quot;using-admin-user-interface&quot;&gt;Using admin user interface&lt;/h3&gt;
+
+    &lt;p&gt;Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
+You can then enable or disable the Yubikey provider by providing the user id and secret key that
+you gathered in the previous steps. Click “save settings” when you are done.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_yubikey.png&quot; alt=&quot;MFA organization settings for Yubikey&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. MFA organization settings for Yubikey&lt;/span&gt;
+&lt;/figure&gt;
 
     &lt;h3 id=&quot;using-environment-variables&quot;&gt;Using environment variables&lt;/h3&gt;
 
@@ -93,7 +107,7 @@ like other variables such as the database name, for example:&lt;/p&gt;
              -e PASSBOLT_PLUGINS_MFA_YUBIKEY_SECRETKEY=&quot;xx/xxxxxx/xxxxxxxxxxxx=&quot; \
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h3 id=&quot;using-config-fields&quot;&gt;Using config fields&lt;/h3&gt;
+    &lt;h3 id=&quot;using-config-file&quot;&gt;Using config file&lt;/h3&gt;
 
     &lt;p&gt;In your install directory you can add the following section in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;&lt;/p&gt;
 
@@ -225,9 +239,24 @@ them to configure the integration.&lt;/p&gt;
 
     &lt;h2 id=&quot;set-the-configuration-in-passbolt&quot;&gt;Set the configuration in passbolt&lt;/h2&gt;
 
-    &lt;p&gt;You can either configure Duo in passbolt using files or environment variables.
-You will need to generate a random 40 character string to be used as salt, to help
+    &lt;p&gt;You can either configure Duo in passbolt using the user interface, or files or environment variables.
+If multiple settings provider are used the settings in the UI will override the one used in files.
+Similarly The settings in files will override environment variables.&lt;/p&gt;
+
+    &lt;p&gt;You will need to generate a random 40 character string to be used as salt, to help
 secure your integration.&lt;/p&gt;
+
+    &lt;h3 id=&quot;using-admin-user-interface&quot;&gt;Using admin user interface&lt;/h3&gt;
+
+    &lt;p&gt;Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
+You can then enable or disable the Yubikey provider by providing the user id and secret key that
+you gathered in the previous steps. Click “save settings” when you are done.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_duo.png&quot; alt=&quot;MFA organization settings for Duo&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. MFA organization settings for Duo&lt;/span&gt;
+&lt;/figure&gt;
 
     &lt;h3 id=&quot;using-environment-variables&quot;&gt;Using environment variables&lt;/h3&gt;
 
@@ -274,7 +303,7 @@ like other variables such as the database name, for example:&lt;/p&gt;
              -e etc.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h3 id=&quot;using-config-fields&quot;&gt;Using config fields&lt;/h3&gt;
+    &lt;h3 id=&quot;using-config-file&quot;&gt;Using config file&lt;/h3&gt;
 
     &lt;p&gt;In your install directory you can add the following section in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;
 and replace the&lt;/p&gt;

@@ -223,7 +223,21 @@ If you prevent outgoing connection from Passbolt server to the following domains
 
     <h2 id="set-the-configuration-in-passbolt">Set the configuration in passbolt</h2>
 
-    <p>You can either configure Yubikey OTP in passbolt using files or environment variables.</p>
+    <p>You can either configure Yubikey OTP in passbolt the UI or using files or environment variables.
+If multiple settings provider are used the settings in the UI will override the one used in files.
+Similarly The settings in files will override environment variables.</p>
+
+    <h3 id="using-admin-user-interface">Using admin user interface</h3>
+
+    <p>Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
+You can then enable or disable the Yubikey provider by providing the user id and secret key that
+you gathered in the previous steps. Click “save settings” when you are done.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_yubikey.png" alt="MFA organization settings for Yubikey" style="max-width:550px;" />
+    <span class="legend">fig. MFA organization settings for Yubikey</span>
+</figure>
 
     <h3 id="using-environment-variables">Using environment variables</h3>
 
@@ -260,7 +274,7 @@ like other variables such as the database name, for example:</p>
              -e PASSBOLT_PLUGINS_MFA_YUBIKEY_SECRETKEY="xx/xxxxxx/xxxxxxxxxxxx=" \
 </code></pre></div>    </div>
 
-    <h3 id="using-config-fields">Using config fields</h3>
+    <h3 id="using-config-file">Using config file</h3>
 
     <p>In your install directory you can add the following section in <code class="highlighter-rouge">config/passbolt.php</code></p>
 

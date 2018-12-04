@@ -66,7 +66,23 @@ One or more of these domains may be used to try to validate an OTP.
 
 ## Set the configuration in passbolt
 
-You can either configure Yubikey OTP in passbolt using files or environment variables.
+You can either configure Yubikey OTP in passbolt the UI or using files or environment variables.
+If multiple settings provider are used the settings in the UI will override the one used in files.
+Similarly The settings in files will override environment variables.
+
+### Using admin user interface
+
+Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Click on "administration" in the top menu, then "multi factor authentication" on the left menu.
+You can then enable or disable the Yubikey provider by providing the user id and secret key that
+you gathered in the previous steps. Click "save settings" when you are done.
+
+{% include articles/figure.html
+    url="/assets/img/help/2018/12/AD_mfa_org_settings_yubikey.png"
+    legend="MFA organization settings for Yubikey"
+    width="550px"
+%}
+
 
 ### Using environment variables
 
@@ -104,7 +120,7 @@ $ docker run --name passbolt \
              -e PASSBOLT_PLUGINS_MFA_YUBIKEY_SECRETKEY="xx/xxxxxx/xxxxxxxxxxxx=" \
 ```
 
-### Using config fields
+### Using config file
 
 In your install directory you can add the following section in `config/passbolt.php`
 

@@ -7,10 +7,10 @@
 
 
 <item>
-    <title>v2.6.0 | tbd</title>
-    <link>https://help.passbolt.com/releases/pro/v260-tbd</link>
-    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v260-tbd</guid>
-    <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This new release of Passbolt Pro Edition introduces a new workspace for administrator. In this workspace it would be possible now to enable and...</description>
+    <title>v2.6.0 | Start Me Up</title>
+    <link>https://help.passbolt.com/releases/pro/v260-start-me-up</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v260-start-me-up</guid>
+    <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This new release of Passbolt Pro Edition introduces a new workspace for administrators. In this workspace it is now possible for an admin to...</description>
     <pubDate>Thu, 15 Nov 2018 01:00:00 +0100</pubDate>
 </item>
 

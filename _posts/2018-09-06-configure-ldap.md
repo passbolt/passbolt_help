@@ -1,6 +1,6 @@
 ---
 title: Configure Ldap plugin
-date: 2018-09-07 00:00:00 Z
+date: 2018-12-04 00:00:00 Z
 description: Configure Ldap plugin (directory sync)
 icon: fa-address-book-o
 categories: [configure]
@@ -15,7 +15,6 @@ permalink: /:categories/:slug.html
 {% include layout/col_start.html column="7" %}
 
 <img src="/assets/img/help/2018/09/AD_ldap_overview.png" alt="ldap illustration" style="margin: auto;"/>
-
 
 {% include messages/warning.html
     content="**Important:** The Ldap plugin is part of [Passbolt Pro](https://www.passbolt.com/pricing/pro) only and is not available in the Community Edition."
@@ -61,7 +60,7 @@ Loaded Configuration File => /etc/php/7.0/cli/php.ini
 $ nano /etc/php/7.0/cli/php.ini
 ```
 
-For testing purpose, it might be handy to have the some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils) 
+For testing purpose, it might be handy to have some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils) 
 installed on your system. On Debian you can use ldapsearch for example to search for and display entries:
 ```bash
 sudo apt-get install ldap-utils
@@ -90,25 +89,41 @@ in this feature you can join the discussion on the
 [community forum](https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159).
 
 The following improvements will also be shipped gradually and will be available soon:
-- LDAP settings screen: it will be possible to configure and test ldap directly from an admin interface inside passbolt.
-- Report screens: the synchronization reports will be available in the admin user interface.
+- Test mode: the capability to test the configuration and mapping directly from the configuration screen.
+- Report screens: the synchronization reports will be available in the admin workspace.
 
 ## How to use?
+
+{% include messages/warning.html
+    content="**Please note:** This guide explains how to configure the Ldap connector through the UI. For complex configurations (for example custom field mapping in openldap) you will need to [configure ldap directly through the configuration file](/configure/ldap-from-configuration-file)."
+%}
 
 ### Activate the plugin
 
 The plugin is deactivated by default. You need to activate it to be able to use it. 
+While logged in as an admin, click on the administration menu item in the top menu, and then click on "Users Directory"
 
-To do so, simply copy the file `/config/ldap.default.php` into `ldap.php`.
-```bash
-cd /var/www/passbolt
-mv ./config/ldap.default.php ./config/ldap.php
-```
+{% include articles/figure.html
+    url="/assets/img/help/2018/12/AD_directory_sync_settings_disabled.png"
+    legend="Ldap directory settings screen (disabled)"
+    width="660px"
+%}
+
+Click on the switch next to "Users Directory" to enable the plugin.
+
+{% include articles/figure.html
+    url="/assets/img/help/2018/12/AD_directory_sync_settings_enabled.png"
+    legend="Ldap directory settings screen (enabled)"
+    width="660px"
+%}
+
+You will need to fill the configuration parameters with your connection details before you can save the settings and
+actually activate it.
+
 
 ### Configure the plugin
 
-Edit the file `ldap.php` and modify the configuration to match your needs. The available options are:
-
+The available options are:
 
 <table class="table-parameters">
   <thead>
@@ -121,84 +136,66 @@ Edit the file `ldap.php` and modify the configuration to match your needs. The a
   <tbody>
     <tr>
         <td>
-        defaultUser<br>
+        Directory Type<br>
         <em>(required)</em>
         </td>
         <td>
-        Enter here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools. 
-        <br><br>You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
+        Choose here the type of your directory. Currently only Active Directory and OpenLdap are supported.
         </td>
         <td>
-        <code>passboltadmin@domain.com</code>
+        <code>Active Directory</code>
         </td>
     </tr>
     <tr>
         <td>
-        defaultGroupAdminUser <br>
+        Domain<br>
         <em>(required)</em>
         </td>
         <td>
-        Enter here the username of the default group manager. It is the user that will be assigned as a group manager to all new groups created by ldap.
+        The domain your directory is configured with.
         </td>
         <td>
-        <code>passboltadmin@domain.com</code>
+        <code>mydomain.local</code>
         </td>
     </tr>
     <tr>
         <td>
-        fieldsMapping <br>
-        <em>(optional)</em>
+        Server URL<br>
+        <em>(required)</em>
         </td>
         <td>
-        In case of OpenLdap, the default mapping between the passbolt and directory record fields might not be the one that will work for you. In this section you can redefine the default mapping for your directory.
+        The full url to reach your server.
         </td>
-        <td><pre>'openldap' => [
-  'user' => [
-     'id' => 'entryUUID',
-     'firstname' => 'firstName',
-     'lastname' => 'lastName',
-     'username' => 'mail',
-     'created' => 'created',
-     'modified' => 'modified',
-  ],
-  'group' => [
-     'id' => 'entryUUID',
-     'name' => 'cn',
-     'created' => 'created',
-     'modified' => 'modified',
-     'users' => 'members',
-  ],
-],</pre></td>
+        <td>
+        <code>ldap://198.163.0.1:389</code>
+        </td>
      </tr>
      <tr>
          <td>
-         groupObjectClass<br>
-         <em>(optional)</em>
+         Username and password<br>
+         <em>(required)</em>
          </td>
          <td>
-         For OpenLdap only, you can specify here the name of the group object class that you are using in your openldap.
-         <br><br>Default value: groupOfUniqueNames
+         Username and password to authentify on your directory
          </td>
          <td>
-         <code>groupOfUniqueNames</code>
          </td>
      </tr>
      <tr>
           <td>
-          userObjectClass<br>
-          <em>(optional)</em>
+          Base DN<br>
+          <em>(required)</em>
           </td>
           <td>
-          For OpenLdap only, you can specify here the name of the user object class that you are using in your openldap.
-          <br><br>Default value: inetOrgPerson
+          The base DN (default naming context) for the domain.
           </td>
           <td>
-          <code>inetOrgPerson</code>
+          <code>OU=OrgUsers,DC=mydomain,DC=local</code>
           </td>
      </tr>
      <tr>
         <td>
-        groupPath<br>
+        Group path<br>
         <em>(optional)</em>
         </td>
         <td>
@@ -209,7 +206,7 @@ Edit the file `ldap.php` and modify the configuration to match your needs. The a
      </tr>
      <tr>
          <td>
-         userPath<br>
+         User path<br>
          <em>(optional)</em>
          </td>
          <td>
@@ -219,137 +216,143 @@ Edit the file `ldap.php` and modify the configuration to match your needs. The a
          <td><code>OU=MyUsers</code></td>
       </tr>
       <tr>
+      <td>
+           Group object class<br>
+           <em>(optional)</em>
+           </td>
            <td>
-           jobs<br>
+           For OpenLdap only, you can specify here the name of the group object class that you are using in your openldap.
+           <br><br>Default value: groupOfUniqueNames
+           </td>
+           <td>
+           <code>groupOfUniqueNames</code>
+           </td>
+        </tr>
+        <tr>
+            <td>
+            User object class<br>
+            <em>(optional)</em>
+            </td>
+            <td>
+            For OpenLdap only, you can specify here the name of the user object class that you are using in your openldap.
+            <br><br>Default value: inetOrgPerson
+            </td>
+            <td>
+            <code>inetOrgPerson</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Default admin<br>
+            <em>(required)</em>
+            </td>
+            <td>
+            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools. 
+            <br><br>You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
+            </td>
+            <td>
+            <code>passboltadmin@domain.com</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Default group admin <br>
+            <em>(required)</em>
+            </td>
+            <td>
+            Choose here the username of the default group manager. It is the user that will be assigned as a group manager to all new groups created by ldap.
+            </td>
+            <td>
+            <code>passboltadmin@domain.com</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Groups parent group <br>
+            <em>(optional)</em>
+            </td>
+            <td>
+            Using this filter will list only groups that are part of the given parent group (recursively). Enter the parent group name.
+            </td>
+            <td>
+            <code>MyGroupName</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Users parent group <br>
+            <em>(optional)</em>
+            </td>
+            <td>
+            Using this filter will list only users that are part of the given parent group (recursively). Enter the parent group name.
+            </td>
+            <td>
+            <code>MyGroupName</code>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Enabled users only <br>
+            <em>(optional)</em>
+            </td>
+            <td>
+            Only for AD. Synchronize only the users that are enabled (=not disabled).
+            </td>
+            <td>
+            </td>
+        </tr>
+      <tr>
+           <td>
+           Sync operations<br>
            <em>(optional)</em>
            </td>
            <td>
            By default, the synchronization will be done for all created / deleted users and groups in your directory and all edited group members. You can enable / disable some tasks here.
-           <br><br>Default value: see example
+           <br><br>Default value: everything is enabled.
            </td>
-           <td><pre>'jobs' => [
-    'users' => [
-        'create' => true,
-        'delete' => true,
-    ],
-    'groups' => [
-        'create' => true,
-        'update' => true,
-        'delete' => true,
-    ],
-],
-</pre></td>
+           <td>
+           </td>
         </tr>
-        <tr>
-             <td>
-             ldap<br>
-             <em>(required)</em>
-             </td>
-             <td>
-             This contains the ldap connection details such as the domain name, username, password, base DN, servers, port, etc..
-             The options in the config file are self explanatory.
-             </td>
-             <td><pre>'ldap' => [
-  'domains' => [
-      // Active directory.
-     'mydomain.local' => [
-          'domain_name' => 'mydomain.local',
-          'username' => 'johndoe',
-          'password' => 'Compl!c4t3dP4ssw0rD',
-          'base_dn' => 'OU=OrgUsers,DC=mydomain,DC=local',
-          'servers' => ['35.225.111.241'],
-          'port' => 389,
-          'use_ssl' => false,
-         'ldap_type' => 'ad',
-      ],
-   ],
-]</pre></td>
-          </tr>
   </tbody>
 </table>
 
-### Test the connection
+### Save configuration
 
-Once the configuration options have been entered in ldap.php, you can test that the connection is working and that the objects are retrieved correctly from your directory:
-```bash
-./bin/cake directory_sync test
-```
-
-An output similar to the one below should be observed:
+Once the configuration is entered, do not forgetto save it by clicking on the "save settings" at the top. The configuration will be saved
+only if passbolt managed to connect to your directory. If not, it will display an error message.
 
 {% include articles/figure.html
-    url="/assets/img/help/2018/09/AD_ldap_command_test.png"
-    legend="Screenshot of directory synchronization test"
-    width="750px"
+    url="/assets/img/help/2018/12/AD_directory_sync_settings_saved.png"
+    legend="Ldap directory settings have been saved"
+    width="660px"
 %}
 
-**What you should pay attention to:**
-- Make sure that you can see the same groups and users as the ones available in your directory.
-- Make sure that each user has an email address. If not, they will not validate in passbolt.
-- Make sure that each group is shown with the right number of users.
+### Test configuration and simulate sync
+
+Once the settings have been saved, the buttons "simulate synchronize" and "synchronize" at the top have become clickable.
+
+Before we actually do a real synchronization, we will first simulate one. Click on "simulate synchronize" and wait a few seconds. Once the simulation is complete,
+a report such as the one below will be displayed.
+
+{% include articles/figure.html
+    url="/assets/img/help/2018/12/AD_directory_sync_simulation.png"
+    legend="Ldap directory sync simulation"
+    width="660px"
+%}
+
+In this report, you will be able to see what will actually happen when you will synchronize your directory for real. You will also be 
+able to take corrective measures before an error actually happens.
 
 ### First synchronization
-Before we actually do a real synchronization, we will first simulate one:
-```bash
-./bin/cake directory_sync all --dry-run
-```
-This command will simulate what will happen when the synchronization will be done for real.
 
-{% include articles/figure.html
-    url="/assets/img/help/2018/09/AD_ldap_command_dry_run.png"
-    legend="Screenshot of directory synchronization sync in dry run"
-%}
+To do the first synchronization, repeat the same process as above. Only, click on "synchronize" this time. A similar report to the one that was displayed during a simulate 
+will appear and let you know what happened exactly.
 
-If the result displayed is similar to what you expect to happen, you can proceed with the actual synchronization:
-```bash
-./bin/cake directory_sync all
-```
-
-{% include articles/figure.html
-    url="/assets/img/help/2018/09/AD_ldap_command_sync.png"
-    legend="Screenshot of directory synchronization running"
-%}
-
-{% include messages/notice.html
-    content="Please note that a user can be added into a group only once his account is activated."
-%}
-
-### Run it automatically
-To synchronize the changes automatically you will need to add a cron job. We recommend to execute the job once a day, but you can choose as per your preference.
+### How to synchronize my directory automatically?
+To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.
 ```bash
 0 0 * * * su -c "/var/www/passbolt/bin/cake directory_sync all" -s /bin/bash www-data >> /var/log/cron.log 2>&1
 ```
-
-### Ignoring records
-It is possible for you to individually ignore synchronization of some of your directory records and/or some users/groups in passbolt, especially when there are some problematics records you do not want to keep in sync. Such records and the command to ignore them will be displayed in the reports.
-
-{% include articles/figure.html
-    url="/assets/img/help/2018/09/AD_ldap_ignore_option.png"
-    legend="Screenshot of directory synchronization with items to ignore"
-%}
-
-```bash
- ./bin/cake directory_sync ignore-create --id=55872084-ed6f-4e96-b401-479dd86ca357 --model=DirectoryEntries
-```
-
-You can also view all the records that are being ignored.
-
-{% include articles/figure.html
-    url="/assets/img/help/2018/09/AD_ldap_command_view_ignored.png"
-    legend="Screenshot of directory synchronization view ignored command"
-%}
-
-```
-./bin/cake directory_sync ignore-list
-```
-
-You can also stop ignoring them:
-```
-./bin/cake directory_sync ignore-delete --id=16789f75-2cf7-4755-9bd9-634d1ff42240 --model=DirectoryEntries
-```
-
-## How to report bugs
-You can contact us directly at <a href="mailto:contact@passbolt.com">contact@passbolt.com</a>. Please mention [LDAP] in the subject so that we can prioritize your message correctly.
 
 
 {% include date/updated.html %}

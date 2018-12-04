@@ -355,6 +355,12 @@
 "content": "How to import passwords in passboltSteps  Make sure you have an edition of passbolt that supports import (at the time of writing this, it is only shipped with Passbolt Pro)  Click on the “import” button at the top left, next to the “create” button.  Select a file (supported files are kdbx or csv. More details below.)  Click on “continue import”  For kdbx files, you might need to enter a password. Enter it and click “Ok”.  The import will start. You will see a progress bar.  At the end of the import, you will see a report. After closing this window, you will see the passwords imported in your workspace.Supported file formatsPassbolt import system supports the following file formats:  Kdbx (file format used by Keepass 2.x)  Csv - keepass export  Csv - 1password export  Csv - Lastpass exportIf you’d like to request the support of a specific format, you can open a request on the community forum.File format examplesCsv (Lastpass)url,username,password,extra,name,grouping,favhttps://test.url,account1,P4ssw0Rd!,,Account1,,0https://test.url,account1,P4ssw0Rd!,,Account2,,0,,P4ssw0Rd!,,Account3,,1Csv (1Password)Title,Username,URL,Password,Notes,TypeAccount1,account1,https://test.url,P4ssw0Rd!,Notes Account2,server,Account2,account2,https://test.url,P4ssw0Rd!,Notes Account2,shell,Account3,,,P4ssw0Rd!,Notes Account3,serverCsv (Keepass / KeepassX)\"Group\",\"Title\",\"Username\",\"Password\",\"URL\",\"Notes\"\"My Servers\",\"Account1\",\"account1\",\"P4ssw0Rd!\",\"https://test.url\",\"this is the description\"\"My Servers\",\"Account2\",\"account2\",\"P4ssw0Rd!\",\"https://test.url\",\"this is the description\"\"My Servers\",\"Account2\",\"\",\"P4ssw0Rd!\",\"https://test.url\",\"\"Keepass filedownload example (the file is not password protected)",
 "url": "https://help.passbolt.com/faq/start/import-passwords"
 },
+"configure-ldap-html": {
+"title": "Configure Ldap plugin",
+"category": "",
+"content": "Important: The Ldap plugin is part of Passbolt Pro only and is not available in the Community Edition. Introduction What is it? The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt administrator to synchronize a list of groups and users, as well as the associated group memberships. Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future we will also support other non ldap based user directories such as Google API User Directory. How does it work? In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal involvement of the administrators and group managers. However if an action is not possible, such as, deleting a user that is the sole password owner, the process triggers will trigger relevant email notifications so that a...",
+"url": "https://help.passbolt.com/configure/ldap.html"
+},
 "configure-mfa-yubikey-html": {
 "title": "How to configure passbolt to use Yubikey OTP",
 "category": "",
@@ -427,11 +433,11 @@
 "content": "Introduction This tutorial is distribution agnostic. It details the installation steps at a high level, withouttaking into account the specifics related to each and every linux distribution. Please note: This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution here. System requirements Passbolt is reported to work on a large variety of operating system configurations.Therefore this help page is a generic guide that should work for most environments. If you run into any issues with your particular configuration,please check the forum.Maybe someone else has had your issue. If not, make a post and the community will try to help you. Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD) A webserver (Apache or Nginx) A TLS server certificate for HTTPS PHP &gt;= 7.0.0 MariaDB/Mysql &gt;= 5.5.59 Composer GnuPG Git The following PHP extensions (that may or may not come by default): PHP-GNUPG:...",
 "url": "https://help.passbolt.com/hosting/install/ce/from-source.html"
 },
-"configure-ldap-html": {
+"configure-ldap-from-configuration-file-html": {
 "title": "Configure Ldap plugin",
 "category": "",
 "content": "Important: The Ldap plugin is part of Passbolt Pro only and is not available in the Community Edition. Introduction What is it? The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt administrator to synchronize a list of groups and users, as well as the associated group memberships. Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future we will also support other non ldap based user directories such as Google API User Directory. How does it work? In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal involvement of the administrators and group managers. However if an action is not possible, such as, deleting a user that is the sole password owner, the process triggers will trigger relevant email notifications so that a...",
-"url": "https://help.passbolt.com/configure/ldap.html"
+"url": "https://help.passbolt.com/configure/ldap-from-configuration-file.html"
 },
 "hosting-update-html": {
 "title": "Update passbolt server component (v2)",

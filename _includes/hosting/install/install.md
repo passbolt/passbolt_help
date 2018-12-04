@@ -16,7 +16,11 @@ This tutorial describes how to install Passbolt {{ product | upcase }} on a mini
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.
 
-Installation time: 15 minutes.
+Installation time: 10 minutes.
+
+{% if distribution == 'debian' %}
+Any doubt? Check out this [step by step video of the installation](https://youtu.be/rMgCQaAfJwE).
+{% endif %}
 
 If you prefer to install passbolt manually please refer to this documentation: [Install passbolt from source](/hosting/install/ce/from-source.html).
 

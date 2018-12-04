@@ -18,9 +18,7 @@ permalink: /:categories/:slug.html
 
 
 {% include messages/warning.html
-    content="**Important:** the Ldap connector is currently distributed as an experimental plugin. Although it was 
-    tested with the greatest care, it is possible that some bugs are still present that could harm your passbolt 
-    installation. It is highly recommended not to use it in a production instance of passbolt."
+    content="**Important:** The Ldap plugin is part of [Passbolt Pro](https://www.passbolt.com/pricing/pro) only and is not available in the Community Edition."
 %}
 
 ## Introduction

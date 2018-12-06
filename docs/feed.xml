@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-12-04T18:35:50+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T01:00:00+01:00</published><updated>2018-12-04T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2018-12-06T17:03:07+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T05:30:00+05:30</published><updated>2018-12-04T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -357,7 +357,7 @@ December
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2018-11-15T05:30:00+05:30</published><updated>2018-11-15T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Duo as a multi factor authentication option.
@@ -559,7 +559,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T05:30:00+05:30</published><updated>2018-11-15T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
@@ -730,7 +730,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt API from source</title><link href="https://help.passbolt.com/hosting/install/ce/from-source.html" rel="alternate" type="text/html" title="Install passbolt API from source" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/from-source.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install passbolt API from source</title><link href="https://help.passbolt.com/hosting/install/ce/from-source.html" rel="alternate" type="text/html" title="Install passbolt API from source" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/from-source</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/from-source.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -1195,7 +1195,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1501,7 +1501,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1817,7 +1817,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/pro/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt Pro on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/pro/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt Pro on CentOS 7" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -2121,7 +2121,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -2440,7 +2440,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 9 (Stretch)" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -2749,7 +2749,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt CE on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt CE on CentOS 7" /><published>2018-11-13T05:30:00+05:30</published><updated>2018-11-13T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---

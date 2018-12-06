@@ -4,7 +4,7 @@ Just point your browser to your passbolt url.
 You will be greeted by a welcome screen. Click on the Configure with wizard option and follow the instructions.
 
 {% include articles/figure.html
-    url="/assets/img/help/2018/04/passbolt-welcome-page.png"
+    url="/assets/img/help/2018/11/web-installer-getting-started.png"
     legend="passbolt welcome page before configuration"
     width="586px"
 %}
@@ -15,7 +15,7 @@ You will be greeted by a welcome screen. Click on the Configure with wizard opti
 %}
 
 {% include articles/figure.html
-    url="/assets/img/help/2018/04/wizard-key-import.png"
+    url="/assets/img/help/2018/11/web-installer-pro-server-key-import.png"
     legend="Wizard - import key screen"
     width="586px"
 %}

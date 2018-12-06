@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Cold Vein</title>
+    <title>Passbolt Help | Stairway to Heaven</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not ...">
+    <meta name="description" content="This is a maintenance release that fixes some issues introduced by the previous release. It also gives more flexibility during the installation to skip provi...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Cold Vein" />
-    <meta property="og:description" content="This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not ..." />
+    <meta property="og:title" content="Stairway to Heaven" />
+    <meta property="og:description" content="This is a maintenance release that fixes some issues introduced by the previous release. It also gives more flexibility during the installation to skip provi..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v209-cold-vein">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v261-stairway-to-heaven">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -71,7 +71,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.0.9.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.6.1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -84,7 +84,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/v261-stairway-to-heaven" >v2.6.1</a>
                     </li>
                     
@@ -181,7 +181,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v209-cold-vein"><span>cold-vein</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/v261-stairway-to-heaven"><span>stairway-to-heaven</span></a>
                     </div>
                 </li>
                 
@@ -190,28 +190,37 @@
     </div>
 </div>
 
-                            <h1>v2.0.9 ~ Cold Vein (pro)</h1>
+                            <h1>v2.6.1 ~ Stairway to Heaven (pro)</h1>
                             <p>Release date: 
-May
-9th,
+December
+6th,
 2018.
 </p>
-                            <p>This is a maintenance release for passbolt web extension that fixes issues reported by the community.</p>
+                            <p>This is a maintenance release that fixes some issues introduced by the previous release.
+It also gives more flexibility during the installation to skip providing some email settings.</p>
 
-<h3 id="web-extension">Web Extension</h3>
-<h4 id="bug-fixes">Bug fixes</h4>
+<p>A big thank you to Julius Haake, Alain Devarieux and Nate Curry for reporting these issues.</p>
+
+<h3 id="passbolt-api-pro-edition">Passbolt API (Pro Edition)</h3>
+<h3 id="improved">Improved</h3>
 <ul>
-  <li>Fix content scripts should not be inserted if they are already present.</li>
-  <li>Fix auth pagemod should insert script when a redirection is set in url</li>
-  <li>Fix json.headers should be json.header</li>
+  <li>PASSBOLT-3273: Username and password should not be compulsory in email settings, in web installer</li>
 </ul>
 
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>PASSBOLT-3281: LDAP: fixed case issue in AllSync tasks calls</li>
+  <li>PASSBOLT-3282: LDAP: defaultUser or defaultGroupAdminUser should not break the form if corresponding to a non existing user</li>
+  <li>PASSBOLT-3267: The exceptions thrown by the DirectorySync controllers should be explicit</li>
+  <li>PASSBOLT-3268: BaseDN should not be mandatory</li>
+  <li>PASSBOLT-3269: Search on administration screen should be disabled</li>
+</ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"But I ain't going to whet that and get all stressed out"</p>
-                                <a href="https://www.youtube.com/watch?v=pr6Q730gB24" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"And it makes me wonder"</p>
+                                <a href="https://www.youtube.com/watch?v=xbhCPt6PZIU" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

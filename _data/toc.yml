@@ -44,7 +44,7 @@
       teaser: Creating, editing, sharing and deleting passwords
     - title: Sharing passwords
       url: /faq/start/share-password
-      icon: fa-share
+      icon: fa-paper-plane
       teaser: Sharing is caring (but only if you really have to).
     - title: Forum
       url: https://community.passbolt.com
@@ -90,14 +90,17 @@
       url: /configure/ldap
       icon: fa-address-book-o
       teaser: How to configure the directory sync plugin
+      version: pro
     - title: Configure Yubikey
       url: /configure/mfa/yubikey
       icon: fa-key
       teaser: Use Yubikey OTP as multi factor authentication provider
+      version: pro
     - title: Configure Duo
       url: /configure/mfa/duo
       icon: fa-key
       teaser: Use Duo as multi factor authentication provider
+      version: pro
 - title: Contribute
   slug: contribute
   teaser: Are you doing your part?
@@ -122,6 +125,10 @@
       url: https://github.com/passbolt/passbolt_api/issues/new
       icon: fa-bug
       teaser: Who knows, maybe it is a feature?
+    - title: Get a job!
+      url: https://careers.passbolt.com
+      icon: fa-money
+      teaser: Careers oportunity at passbolt.
 - title: Small print
   slug: legal
   teaser: The small print

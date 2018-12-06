@@ -14,6 +14,9 @@
             {% else %}
             <a class="tile" href="{{ site.baseurl }}/{{ item.slug }}/{{ subitem.slug }}">
                 {% endif %}
+                {% if subitem.version contains 'pro' %}
+                <div class="ribbon"><span>PRO</span></div>
+                {% endif %}
                 <span class="tile-teaser"><i class="fa {{ subitem.icon }} fa-fw"></i></span>
                 <span class="tile-title">{{ subitem.title }}</span>
                 <span class="tile-description">{{ subitem.teaser }}</span>

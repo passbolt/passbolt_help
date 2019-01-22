@@ -4,7 +4,7 @@ We ask that you keep the issue confidential until we have a fix and an announcem
 
 You can encrypt the content of your email using GPG with the following key:
 
-[017F E21B F15D 5825 6A3E  17AA 2494 727D EC92 2EA0](https://keys.mailvelope.com/pks/lookup?op=get&search=security%40passbolt.com)
+[3170 ED11 688A 3CBC 39B8  9AE9 602D EB11 7E48 90F0](https://keys.mailvelope.com/pks/lookup?op=get&search=0x602DEB117E4890F0)
 
 Once the security issue confirmed, our team will take the following actions: 
 * Try to first reproduce the issue and confirm the vulnerability.

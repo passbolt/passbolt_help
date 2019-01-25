@@ -194,7 +194,7 @@
     <h2 id="optional-system-requirements">Optional system requirements</h2>
 
     <ul>
-      <li>MySQL &lt; 8.x or MariaDB if you plan not to host mysql on a docker container.</li>
+      <li>MySQL &lt; 8.x or MariaDB as separated containers or host installation.</li>
       <li>docker-compose if you plan to use a docker-compose.yml file to run passbolt container.</li>
       <li>rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. <a href="https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine">Important considerations</a></li>
     </ul>
@@ -219,6 +219,14 @@ However, it is recommended that users pull the tags pointing to specific passbol
 
     <p>A subscription key file is also required to use Passbolt Pro. You can get the subscription key <a href="https://www.passbolt.com/">here</a></p>
 
+    <div class="message warning">
+    <p>
+        <strong>Please note:</strong> Passbolt uses Mariadb/MySQL as a storage backend for encrypted passwords. It is mandatory to persist <code class="highlighter-rouge">/var/lib/mysql</code>
+if you are running Mariadb/MySQL on a docker container to avoid data loss when restarting such containers.
+    </p>
+    
+</div>
+
     <h3 id="manually-run-passbolt-container-and-mariadb-container">Manually run passbolt container and mariadb container</h3>
 
     <p>It is recommended to create a user defined network to ease the container name resolution. Using a user defined network will provide a method to access containers using their names instead ip addresses:</p>
@@ -226,7 +234,14 @@ However, it is recommended that users pull the tags pointing to specific passbol
 </code></pre></div>    </div>
 
     <p>First run the mariadb container:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> mariadb <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+
+    <p>As we want all the data in mariadb to survive container restarts it is recommended to create either a docker
+volume or a host directory and mount it at <code class="highlighter-rouge">/var/lib/mysql</code></p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create mariadb_passbolt_data
+<span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> mariadb <span class="nt">--net</span> passbolt_network <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>mariadb_passbolt_data, <span class="se">\</span>
+             <span class="nv">target</span><span class="o">=</span>/var/lib/mysql <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>&lt;root_password&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">MYSQL_USER</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>

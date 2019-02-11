@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v2.7.0 | Jump</title>
+    <link>https://help.passbolt.com/releases/pro/v270-jump</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v270-jump</guid>
+    <description>This release introduces some security fixes, new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version as soon as possible. Update documentation The main focus of this release was about the performance and reactivity of the application, as well as addressing...</description>
+    <pubDate>Mon, 11 Feb 2019 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.6.1 | Stairway to Heaven</title>
     <link>https://help.passbolt.com/releases/pro/v261-stairway-to-heaven</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v261-stairway-to-heaven</guid>

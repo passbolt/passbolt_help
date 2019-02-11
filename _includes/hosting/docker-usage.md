@@ -5,6 +5,11 @@ Passbolt requires a database backend to store the information. In this section w
   A subscription key file is also required to use Passbolt Pro. You can get the subscription key [here](https://www.passbolt.com/)
 {% endif %}
 
+{% include messages/warning.html
+  content="**Please note:** Passbolt uses Mariadb/MySQL as a storage backend for encrypted passwords. It is mandatory to persist `/var/lib/mysql`
+if you are running Mariadb/MySQL on a docker container to avoid data loss when restarting such containers."
+%}
+
 ### Manually run passbolt container and mariadb container
 
 It is recommended to create a user defined network to ease the container name resolution. Using a user defined network will provide a method to access containers using their names instead ip addresses:
@@ -13,8 +18,15 @@ $ docker network create passbolt_network
 ```
 
 First run the mariadb container:
+
+As we want all the data in mariadb to survive container restarts it is recommended to create either a docker
+volume or a host directory and mount it at `/var/lib/mysql`
+
 ```bash
+$ docker volume create mariadb_passbolt_data
 $ docker run -d --name mariadb --net passbolt_network \
+             --mount source=mariadb_passbolt_data, \
+             target=/var/lib/mysql \
              -e MYSQL_ROOT_PASSWORD=<root_password> \
              -e MYSQL_DATABASE=<mariadb_database> \
              -e MYSQL_USER=<mariadb_user> \

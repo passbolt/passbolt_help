@@ -3,7 +3,7 @@
  *
  * @licence MIT License
  * @copyright Copyright (c) 2017 CloudCannon
- * @copyright Copyright (c) 2018 Passbolt SARL
+ * @copyright Copyright (c) 2019 Passbolt SA
  */
 (function() {
   function displaySearchResults(results, store) {

@@ -12,7 +12,7 @@
     <title>v2.7.0 | Jump</title>
     <link>https://help.passbolt.com/releases/ce/v270-jump</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v270-jump</guid>
-    <description>This release introduces some security fixes, new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version as soon as possible. Update documentation The main focus of this release was about the performance and reactivity of the application, as well as addressing...</description>
+    <description>This release introduces some security fixes, new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version as soon as possible. Update documentation The main focus of this release was to improve the performance and reactivity of the application, as well as...</description>
     <pubDate>Mon, 11 Feb 2019 01:00:00 +0100</pubDate>
 </item>
 

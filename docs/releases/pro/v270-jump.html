@@ -207,23 +207,23 @@ February
 </div>
 
 <p><br />
-The main focus of this release was about the performance and reactivity of the application, as well as 
-addressing some minor security issues.</p>
+The main focus of this release was to improve the performance and reactivity of the application, as well as 
+address some minor security issues.</p>
 
 <p>The only feature that was added is a better support for url sharing,
 e.g. if you look at the sidebar when clicking on a resource you will be presented with a link. You can use it
 to send the url to a given resource to a colleague: if they have access to this resource they will be able to 
-navigate directly to it. Similarly links in email related to a secret will take you directly to this record.</p>
+navigate directly to it. Similarly links in emails pointing to a resource will take you directly to the corresponding record.</p>
 
 <figure>
     <img src="https://help.passbolt.com/assets/img/help/2019/02/LU_application_urls.png" alt="Application urls are now more usable" style="max-width:;" />
     <span class="legend">fig. Application urls are now more usable</span>
 </figure>
 
-<p>The team also worked hard to speed up the performance the application most 
+<p>The team also worked hard to speed up the performances of the application, most 
 notably by starting to load OpenPGP secrets asynchronously (instead of within the resource index calls).
-This strategy allow to reduce the loading time of the homepage from 12 to 2 seconds, in our tests with a database containing 2000 passwords shared 
-over 400 users. This ground work was also necessary in order to provide a more granular audit log coming up in the next release.</p>
+This strategy allows to reduce the loading time of the homepage from 12 to 2 seconds, in our tests with a database containing 2000 passwords shared 
+over 400 users. This ground work was also necessary in order to be able to trace accesses to secrets and provide a more granular audit log coming up in the next release.</p>
 
 <p>This release also includes fixes for the LDAP synchronization tools. Namely a fixe for the user and group
 filter for OpenLDAP, as well as a fix a bug triggered during group synchronization when a user was deleted

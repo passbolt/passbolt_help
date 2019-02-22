@@ -54,6 +54,11 @@ password: admin
 The appliance comes with a example empty database to quickly test Passbolt Pro. However it is encouraged to change password for this database:
 
 ```bash
+Database root default credentials:
+username: root
+password: admin
+```
+```bash
 Database default credentials:
 database name: passbolt
 username: passbolt

@@ -1,15 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2019-02-28T11:22:28+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE Digital Ocean</title><link href="https://help.passbolt.com/hosting/install/ce/digital-ocean" rel="alternate" type="text/html" title="Install Passbolt CE Digital Ocean" /><published>2019-02-28T01:00:00+01:00</published><updated>2019-02-28T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/digital-ocean</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/digital-ocean">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2019-03-01T17:11:20+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE Digital Ocean</title><link href="https://help.passbolt.com/hosting/install/ce/digital-ocean" rel="alternate" type="text/html" title="Install Passbolt CE Digital Ocean" /><published>2019-03-01T01:00:00+01:00</published><updated>2019-03-01T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/digital-ocean</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/digital-ocean">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
-    &lt;h2 id=&quot;coming-soon&quot;&gt;Coming soon!&lt;/h2&gt;
-    &lt;p&gt;This is a placeholder for a future documentation entry.
-Stay tuned!&lt;/p&gt;
+    &lt;p&gt;Since march 2019 it is possible to install passbolt easily directly from Digital Ocean.
+Digital Ocean is an hosting provider based in the USA. In order to run passbolt
+you will need the following:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A Digital Ocean account&lt;/li&gt;
+      &lt;li&gt;A domain name for example passbolt.yourdomain.com&lt;/li&gt;
+      &lt;li&gt;Some level of access to point your DNS records to the new passbolt server&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h1 id=&quot;create-the-droplet-in-digital-ocean&quot;&gt;Create the droplet in Digital Ocean&lt;/h1&gt;
+
+    &lt;p&gt;The first step is to login in &lt;a href=&quot;https://cloud.digitalocean.com&quot;&gt;Digital Ocean&lt;/a&gt; (or create and setup an account).
+You can then head to Marketplace and search for passbolt.&lt;/p&gt;
+
+    &lt;p&gt;It is recommended at the point that you have domain name (or subdomain). It is not mandatory but
+highly encouraged. Since passbolt web extension is tied to a domain name it will be easier to get 
+it right upfront rather than using the IP address and changing the proper domain name later.&lt;/p&gt;
+
+    &lt;p&gt;Go to the marketplace and search for passbolt, select the card and click on create
+droplet.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/001_create_droplet.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Create droplet&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Choose a plan and the associated server matching at least the following requirements:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;2 GB&lt;/li&gt;
+      &lt;li&gt;2 CPU&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/002_choose_plan.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Create droplet&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Select your preferred datacenter region, and select additional options.
+You can upload your SSH keys to login into the machine once it’s created.
+Choose a hostname and click create.&lt;/p&gt;
+
+    &lt;p&gt;Grab a cup of coffee and get ready.&lt;/p&gt;
+
+    &lt;p&gt;Once created you can see the droplet was assigned an IP address.
+You can copy it and check if it is reachable and up and running.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/005_highlight_copy_ip.png&quot; alt=&quot;Copy the IP address&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Copy the IP address&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;setup-your-dns-to-point-to-the-droplet&quot;&gt;Setup your DNS to point to the droplet&lt;/h2&gt;
+
+    &lt;p&gt;Next you need to point your domain DNS to this machine IP address. Please check 
+&lt;a href=&quot;https://www.digitalocean.com/docs/networking/dns/&quot;&gt;Digital Ocean DNS documentation&lt;/a&gt;
+or your domain name provider help for this.&lt;/p&gt;
+
+    &lt;p&gt;Wait until the DNS propagation is done. To check if it is done, ping your domain and it should 
+resolve to this droplet IP. You can also check the propagation using 
+&lt;a href=&quot;https://www.whatsmydns.net/&quot;&gt;online tools&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;login-in-the-machine-and-get-the-mysql-credentials&quot;&gt;Login in the machine and get the mysql credentials&lt;/h2&gt;
+    &lt;p&gt;Ssh into this droplet as root:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh root@this_droplet_ip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;or ssh root@your_domain.com. Use this same ssh connection to gather the randomly generated mysql 
+credentials in &lt;code class=&quot;highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt; you will need them for the web installation wizard.&lt;/p&gt;
+
+    &lt;h2 id=&quot;launch-the-install-script-and-follow-the-instructions&quot;&gt;Launch the install script and follow the instructions.&lt;/h2&gt;
+    &lt;p&gt;A script will be launched, choose the automatic configuration option and let the script guide you. 
+Once you’re done, point your browser to the DNS assigned to this droplet: https://your_domain.com 
+and you will then see the web installation wizard.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
       &lt;p&gt;This article was last updated on 
-February
-28th,
+March
+1st,
 2019.&lt;/p&gt;
     &lt;/div&gt;
 
@@ -805,7 +875,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
-    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
@@ -824,7 +894,7 @@ curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&qu
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
+    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
@@ -833,14 +903,14 @@ curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&qu
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
 
-    &lt;h3 id=&quot;hostname&quot;&gt;1.3. Hostname&lt;/h3&gt;
+    &lt;h3 id=&quot;hostname&quot;&gt;Hostname&lt;/h3&gt;
 
     &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.&lt;/p&gt;
 
-    &lt;p&gt;example: www.passbolt.local&lt;/p&gt;
+    &lt;p&gt;example: my-passbolt.acme.com&lt;/p&gt;
 
-    &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup&quot;&gt;SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
@@ -849,7 +919,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
+    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;GnuPG entropy&lt;/h3&gt;
 
     &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -1121,7 +1191,7 @@ deb http://archive.ubuntu.com/ubuntu bionic-security main universe
 deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
@@ -1140,7 +1210,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
+    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
@@ -1149,14 +1219,14 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
 
-    &lt;h3 id=&quot;hostname&quot;&gt;1.3. Hostname&lt;/h3&gt;
+    &lt;h3 id=&quot;hostname&quot;&gt;Hostname&lt;/h3&gt;
 
     &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.&lt;/p&gt;
 
-    &lt;p&gt;example: www.passbolt.local&lt;/p&gt;
+    &lt;p&gt;example: my-passbolt.acme.com&lt;/p&gt;
 
-    &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup&quot;&gt;SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
@@ -1165,7 +1235,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
+    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;GnuPG entropy&lt;/h3&gt;
 
     &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -1430,7 +1500,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
-    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
@@ -1449,7 +1519,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
+    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
@@ -1458,14 +1528,14 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
 
-    &lt;h3 id=&quot;hostname&quot;&gt;1.3. Hostname&lt;/h3&gt;
+    &lt;h3 id=&quot;hostname&quot;&gt;Hostname&lt;/h3&gt;
 
     &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.&lt;/p&gt;
 
-    &lt;p&gt;example: www.passbolt.local&lt;/p&gt;
+    &lt;p&gt;example: my-passbolt.acme.com&lt;/p&gt;
 
-    &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup&quot;&gt;SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
@@ -1474,7 +1544,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
+    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;GnuPG entropy&lt;/h3&gt;
 
     &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -1749,7 +1819,7 @@ deb http://archive.ubuntu.com/ubuntu bionic-security main universe
 deb http://archive.ubuntu.com/ubuntu bionic-updates main universe
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
@@ -1768,7 +1838,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
+    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
@@ -1777,14 +1847,14 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
 
-    &lt;h3 id=&quot;hostname&quot;&gt;1.3. Hostname&lt;/h3&gt;
+    &lt;h3 id=&quot;hostname&quot;&gt;Hostname&lt;/h3&gt;
 
     &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.&lt;/p&gt;
 
-    &lt;p&gt;example: www.passbolt.local&lt;/p&gt;
+    &lt;p&gt;example: my-passbolt.acme.com&lt;/p&gt;
 
-    &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup&quot;&gt;SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
@@ -1793,7 +1863,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
+    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;GnuPG entropy&lt;/h3&gt;
 
     &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -2055,7 +2125,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
-    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://bitbucket.org/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
@@ -2074,7 +2144,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
+    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
@@ -2083,14 +2153,14 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
 
-    &lt;h3 id=&quot;hostname&quot;&gt;1.3. Hostname&lt;/h3&gt;
+    &lt;h3 id=&quot;hostname&quot;&gt;Hostname&lt;/h3&gt;
 
     &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.&lt;/p&gt;
 
-    &lt;p&gt;example: www.passbolt.local&lt;/p&gt;
+    &lt;p&gt;example: my-passbolt.acme.com&lt;/p&gt;
 
-    &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup&quot;&gt;SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
@@ -2099,7 +2169,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
+    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;GnuPG entropy&lt;/h3&gt;
 
     &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -2359,7 +2429,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;h2 id=&quot;configure-your-server&quot;&gt;1. Configure your server&lt;/h2&gt;
 
-    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;1.1. Download and execute the installation script&lt;/h3&gt;
+    &lt;h3 id=&quot;download-and-execute-the-installation-script&quot;&gt;Download and execute the installation script&lt;/h3&gt;
 
     &lt;p&gt;&lt;em&gt;Note that you can find the source code of the install scripts on our &lt;a href=&quot;https://github.com/passbolt/passbolt_install_scripts&quot;&gt;git repository&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
 
@@ -2378,7 +2448,7 @@ curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&qu
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;1.2. Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
+    &lt;h3 id=&quot;do-you-want-to-install-a-local-mariadb-server-on-this-machine&quot;&gt;Do you want to install a local mariadb server on this machine?&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt;: if you are not planning on using an external mysql / mariadb server.&lt;/li&gt;
@@ -2387,14 +2457,14 @@ curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&qu
 
     &lt;p&gt;The script will then ask you for the database details: root password, database name, and password.&lt;/p&gt;
 
-    &lt;h3 id=&quot;hostname&quot;&gt;1.3. Hostname&lt;/h3&gt;
+    &lt;h3 id=&quot;hostname&quot;&gt;Hostname&lt;/h3&gt;
 
     &lt;p&gt;To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.&lt;/p&gt;
 
-    &lt;p&gt;example: www.passbolt.local&lt;/p&gt;
+    &lt;p&gt;example: my-passbolt.acme.com&lt;/p&gt;
 
-    &lt;h3 id=&quot;ssl-setup&quot;&gt;1.4. SSL Setup&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup&quot;&gt;SSL Setup&lt;/h3&gt;
 
     &lt;ul&gt;
       &lt;li&gt;&lt;strong&gt;manual&lt;/strong&gt;: (recommended) choose manual if you have your own ssl certificates.&lt;/li&gt;
@@ -2403,7 +2473,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       &lt;li&gt;&lt;strong&gt;none&lt;/strong&gt;: choose this option if you don’t want your webserver to run https. This is not recommended.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;1.5. GnuPG entropy&lt;/h3&gt;
+    &lt;h3 id=&quot;gnupg-entropy&quot;&gt;GnuPG entropy&lt;/h3&gt;
 
     &lt;p&gt;On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing

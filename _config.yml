@@ -32,6 +32,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-redirect-from
 
 # Additional folders and collections
 include: ['_pages']

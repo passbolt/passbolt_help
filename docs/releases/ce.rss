@@ -9,9 +9,9 @@
 
 
 <item>
-    <title>v2.8.1 | Blue Monday</title>
-    <link>https://help.passbolt.com/releases/ce/v281-blue-monday</link>
-    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v281-blue-monday</guid>
+    <title>v2.8.2 | Blue Monday</title>
+    <link>https://help.passbolt.com/releases/ce/v282-blue-monday</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v282-blue-monday</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This release ships with the much awaited “quick access” and “auto-fill” features. It is now possible to access your passwords directly from the browser...</description>
     <pubDate>Mon, 01 Apr 2019 02:00:00 +0200</pubDate>
 </item>

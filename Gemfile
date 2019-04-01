@@ -17,6 +17,7 @@ gem "jekyll", "~> 3.8.4"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.11"
+  gem 'jekyll-redirect-from'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

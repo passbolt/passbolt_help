@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Something we all adore</title>
+    <title>Passbolt Help | Blue Monday</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a maintenance release that fixes issues reported by the community. Passbolt API Fixed COMMUNITY-599: Make email MX validation optional and not enable...">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Something we all adore" />
-    <meta property="og:description" content="This is a maintenance release that fixes issues reported by the community. Passbolt API Fixed COMMUNITY-599: Make email MX validation optional and not enable..." />
+    <meta property="og:title" content="Blue Monday" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v204-somethingwealladore">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v282-blue-monday">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -71,7 +71,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.0.4.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.8.2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -84,7 +84,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/v282-blue-monday" >v2.8.2</a>
                     </li>
                     
@@ -181,7 +181,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v204-somethingwealladore"><span>somethingwealladore</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/v282-blue-monday"><span>blue-monday</span></a>
                     </div>
                 </li>
                 
@@ -190,27 +190,105 @@
     </div>
 </div>
 
-                            <h1>v2.0.4 ~ Something we all adore (pro)</h1>
+                            <h1>v2.8.2 ~ Blue Monday (pro)</h1>
                             <p>Release date: 
 April
-26th,
-2018.
+1st,
+2019.
 </p>
-                            <p>This is a maintenance release that fixes issues reported by the community.</p>
+                            <div class="message warning">
+    <p>
+        This release introduces some new dependencies and database changes. Make sure you follow 
+    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
 
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="fixed">Fixed</h4>
+<p><br /></p>
+
+<p>This new release of Passbolt Pro Edition ships with “passwords activity”, 
+which takes care of providing the activity history corresponding to a password. 
+With it, it is possible to track who created / edited / accessed or shared a password, and when. 
+You can find this new section in the right sidebar after selecting a password.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/04/LU_resource_activity_screenshot.png" alt="Audit log: resource activity screenshot" style="max-width:574px;" />
+    <span class="legend">fig. Audit log: resource activity screenshot</span>
+</figure>
+
+<p>Password activity lays the foundations of the “Audit Log” feature which will follow in the coming weeks.</p>
+
+<p>This release also ships with the much awaited “quick access” and “auto-fill” features. 
+It is now possible to access your passwords directly from the browser extension, 
+and have your forms auto-filled in a click.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/04/LU_quick_access_screenshot.png" alt="Quick access screenshot" style="max-width:;" />
+    <span class="legend">fig. Quick access screenshot</span>
+</figure>
+
+<p>“Quick access” will keep evolving in the coming weeks with some improvements on the “auto-fill” part, 
+or the possibility to add / edit a password directly from it.</p>
+
+<p>The Ldap connector also comes with a few improvements, most notably the possibility to test the connection
+ and browse the objects returned by the directory before actually using the synchronization.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/04/AD_ldap_test_settings_screenshot.png" alt="Ldap: test settings screenshot" style="max-width:475px;" />
+    <span class="legend">fig. Ldap: test settings screenshot</span>
+</figure>
+
+<p>This release also includes an upgrade to the latest cakephp version : <a href="https://bakery.cakephp.org/2018/12/08/cakephp_370_released.html">3.7</a>, which means that passbolt is now compatible for 
+most parts with PHP 7.3. We will keep supporting 7.0 until the next Debian stable release, 
+but we invite you to switch to 7.2 as soon as possible.</p>
+
+<p>Another improvement is the possibility to disable import / export manually, by adding some configuration in passbolt.php.</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="s1">'plugins'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+     <span class="s1">'export'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+         <span class="s1">'enabled'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+     <span class="p">]</span>
+ <span class="p">]</span>
+</code></pre></div></div>
+
+<p>Finally the Passbolt OpenAPI specifications are also available. You can find the API specifications in a swagger compatible format 
+<a href="https://github.com/passbolt/passbolt_openapi_specs">on this new repository</a>. It will be updated soon with a more detailed documentation, including code examples, to ease the learning curve.</p>
+
+<h2 id="passbolt-web-extension">Passbolt Web Extension</h2>
+<h3 id="added">Added</h3>
 <ul>
-  <li>COMMUNITY-599: Make email MX validation optional and not enabled by default</li>
-  <li>GITHUB-247: Fix secrets are not deleted when deleting a group or a user</li>
+  <li>PB-3: Quickaccess: Simplified app to access passwords from the browser extension</li>
+</ul>
+
+<h2 id="passbolt-api">Passbolt API</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-1: Audit Logs - Browse the resources and see the activity logs to see who is doing what on them</li>
+</ul>
+
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>PASSBOLT-3327: LDAP: Improve administration UI</li>
+  <li>PASSBOLT-3328: LDAP: Add test connection option</li>
+  <li>PB-2: Upgrade to CakePHP 3.7</li>
+  <li>PB-60: Performance - Add index on tags table</li>
+  <li>PB-95: Implement Import / Export enable switch</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>PASSBOLT-3409: LDAP: Fix “error should be explicit when ldap module is not installed”</li>
+  <li>PASSBOLT-3443: LDAP: Fix “in settings, username and password should not be compulsory fields”</li>
+  <li>PASSBOLT-2121: Fix passbolt should run in a subdirectory</li>
 </ul>
 
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Win or lose, red or blue, we must all stay true"</p>
-                                <a href="https://www.youtube.com/watch?v=J8PnEXw7hkc" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"They'll turn away no more"</p>
+                                <a href="https://youtu.be/FYH8DsU2WCk" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

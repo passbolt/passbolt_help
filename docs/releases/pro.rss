@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v2.8.0 | Blue Monday</title>
+    <link>https://help.passbolt.com/releases/pro/v280-blue-monday</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v280-blue-monday</guid>
+    <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This new release of Passbolt Pro Edition ships with “passwords activity”, which takes care of providing the activity history corresponding to a password. With...</description>
+    <pubDate>Mon, 01 Apr 2019 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.7.2 | Welcome To The Jungle</title>
     <link>https://help.passbolt.com/releases/pro/v272-welcome-to-the-jungle</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v272-welcome-to-the-jungle</guid>

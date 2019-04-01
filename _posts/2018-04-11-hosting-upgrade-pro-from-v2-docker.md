@@ -25,7 +25,7 @@ This tutorial covers the case where you want to upgrade from your passbolt CE v2
 
 In order to upgrade from v2 CE to Pro users just need to download the pro container and mount their corresponding subscription key.
 
-{% include hosting/docker-getting-containers.md %}
+{% include hosting/docker/docker-getting-containers.md %}
 
 ### Using host bind mounts
 

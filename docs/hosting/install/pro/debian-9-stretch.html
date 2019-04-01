@@ -227,7 +227,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
 
     <h2 id="configure-your-server">1. Configure your server</h2>
 
-    <h3 id="download-and-execute-the-installation-script">1.1. Download and execute the installation script</h3>
+    <h3 id="download-and-execute-the-installation-script">Download and execute the installation script</h3>
 
     <p><em>Note that you can find the source code of the install scripts on our <a href="https://bitbucket.org/passbolt/passbolt_install_scripts">git repository</a>.</em></p>
 
@@ -246,7 +246,7 @@ wget <span class="nt">-O</span> passbolt-installer-checksum https://www.passbolt
     <span class="legend">fig. execute the install script</span>
 </figure>
 
-    <h3 id="do-you-want-to-install-a-local-mariadb-server-on-this-machine">1.2. Do you want to install a local mariadb server on this machine?</h3>
+    <h3 id="do-you-want-to-install-a-local-mariadb-server-on-this-machine">Do you want to install a local mariadb server on this machine?</h3>
 
     <ul>
       <li><strong>Yes</strong>: if you are not planning on using an external mysql / mariadb server.</li>
@@ -255,14 +255,14 @@ wget <span class="nt">-O</span> passbolt-installer-checksum https://www.passbolt
 
     <p>The script will then ask you for the database details: root password, database name, and password.</p>
 
-    <h3 id="hostname">1.3. Hostname</h3>
+    <h3 id="hostname">Hostname</h3>
 
     <p>To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
 the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.</p>
 
-    <p>example: www.passbolt.local</p>
+    <p>example: my-passbolt.acme.com</p>
 
-    <h3 id="ssl-setup">1.4. SSL Setup</h3>
+    <h3 id="ssl-setup">SSL Setup</h3>
 
     <ul>
       <li><strong>manual</strong>: (recommended) choose manual if you have your own ssl certificates.</li>
@@ -271,7 +271,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       <li><strong>none</strong>: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
     </ul>
 
-    <h3 id="gnupg-entropy">1.5. GnuPG entropy</h3>
+    <h3 id="gnupg-entropy">GnuPG entropy</h3>
 
     <p>On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing

@@ -26,7 +26,7 @@ This tutorial covers the case where you want to upgrade from your passbolt CE v1
 The upgrading process is very similar to the one listed in the [ce section](/hosting/upgrade/ce/upgrade-docker-ce.html). The main difference is that Passbolt Pro requires a subscription key to
 work.
 
-{% include hosting/docker-changes-section.md %}
-{% include hosting/docker-backup-section.md %}
-{% include hosting/docker-getting-containers.md %}
-{% include hosting/docker-upgrade-section.md %}
+{% include hosting/docker/docker-changes-section.md %}
+{% include hosting/docker/docker-backup-section.md %}
+{% include hosting/docker/docker-getting-containers.md %}
+{% include hosting/docker/docker-upgrade-section.md %}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Loungin</title>
+    <title>Passbolt Help | Blue Monday</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="fig. Passbolt night mode">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Loungin" />
-    <meta property="og:description" content="fig. Passbolt night mode" />
+    <meta property="og:title" content="Blue Monday" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v211-loungin">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v283-blue-monday">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -71,7 +71,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.1.1.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.8.3.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -84,7 +84,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/v283-blue-monday" >v2.8.3</a>
                     </li>
                     
@@ -181,7 +181,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v211-loungin"><span>loungin</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/v283-blue-monday"><span>blue-monday</span></a>
                     </div>
                 </li>
                 
@@ -190,89 +190,105 @@
     </div>
 </div>
 
-                            <h1>v2.1.1 ~ Loungin (pro)</h1>
+                            <h1>v2.8.3 ~ Blue Monday (pro)</h1>
                             <p>Release date: 
-June
-14th,
-2018.
+April
+1st,
+2019.
 </p>
-                            <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/06/LU_passwords_midgar.png" alt="Passbolt night mode" style="max-width:;" />
-    <span class="legend">fig. Passbolt night mode</span>
-</figure>
+                            <div class="message warning">
+    <p>
+        This release introduces some new dependencies and database changes. Make sure you follow 
+    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
 
-<p>This release introduces a new dark theme that you can use in the place of the black on white
-default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long
-period of time (sounds familiar?).</p>
+<p><br /></p>
 
-<p>To switch to this new dark theme, click on your profile and select the theme option in the navigation. 
-Because of this new feature, a database migration is required for this release.
-Make sure you follow the <a href="/hosting/update">updade procedure</a>.</p>
+<p>This new release of Passbolt Pro Edition ships with “passwords activity”, 
+which takes care of providing the activity history corresponding to a password. 
+With it, it is possible to track who created / edited / accessed or shared a password, and when. 
+You can find this new section in the right sidebar after selecting a password.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/06/LU_themes_midgar.png" alt="Switching themes" style="max-width:;" />
-    <span class="legend">fig. Switching themes</span>
+    <img src="https://help.passbolt.com/assets/img/help/2019/04/LU_resource_activity_screenshot.png" alt="Audit log: resource activity screenshot" style="max-width:574px;" />
+    <span class="legend">fig. Audit log: resource activity screenshot</span>
 </figure>
 
-<p>This release includes a major rewrite of the javascript front-end code with an upgrade to CanJS version 3.
-We are very pleased by this upgrade as it will also us to ship features faster in the future.</p>
+<p>Password activity lays the foundations of the “Audit Log” feature which will follow in the coming weeks.</p>
 
-<p>Another simple but notable improvement is the ability to copy the username to the clipboard with one click on the
-username in the table view cells or the right sidebar.</p>
+<p>This release also ships with the much awaited “quick access” and “auto-fill” features. 
+It is now possible to access your passwords directly from the browser extension, 
+and have your forms auto-filled in a click.</p>
 
-<p>Another new feature: during setup, the key passphrase will now be checked against a dictionary of recent password
-leaks using the <a href="https://haveibeenpwned.com/API/v2">Pwned Passwords</a> range API. This secure and anonymous check is only 
-performed if the passphrase is longer than 8 character, as any passphrase shorter is not secure anyway.</p>
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/04/LU_quick_access_screenshot.png" alt="Quick access screenshot" style="max-width:;" />
+    <span class="legend">fig. Quick access screenshot</span>
+</figure>
 
-<p>Next stop: the much awaited LDAP integration!</p>
+<p>“Quick access” will keep evolving in the coming weeks with some improvements on the “auto-fill” part, 
+or the possibility to add / edit a password directly from it.</p>
 
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="added">Added</h4>
+<p>The Ldap connector also comes with a few improvements, most notably the possibility to test the connection
+ and browse the objects returned by the directory before actually using the synchronization.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/04/AD_ldap_test_settings_screenshot.png" alt="Ldap: test settings screenshot" style="max-width:475px;" />
+    <span class="legend">fig. Ldap: test settings screenshot</span>
+</figure>
+
+<p>This release also includes an upgrade to the latest cakephp version : <a href="https://bakery.cakephp.org/2018/12/08/cakephp_370_released.html">3.7</a>, which means that passbolt is now compatible for 
+most parts with PHP 7.3. We will keep supporting 7.0 until the next Debian stable release, 
+but we invite you to switch to 7.2 as soon as possible.</p>
+
+<p>Another improvement is the possibility to disable import / export manually, by adding some configuration in passbolt.php.</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="s1">'plugins'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+     <span class="s1">'export'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+         <span class="s1">'enabled'</span> <span class="o">=&gt;</span> <span class="kc">false</span><span class="p">,</span>
+     <span class="p">]</span>
+ <span class="p">]</span>
+</code></pre></div></div>
+
+<p>Finally the Passbolt OpenAPI specifications are also available. You can find the API specifications in a swagger compatible format 
+<a href="https://github.com/passbolt/passbolt_openapi_specs">on this new repository</a>. It will be updated soon with a more detailed documentation, including code examples, to ease the learning curve.</p>
+
+<h2 id="passbolt-web-extension">Passbolt Web Extension</h2>
+<h3 id="added">Added</h3>
 <ul>
-  <li>PASSBOLT-2878: Add support for dark theme</li>
-  <li>PASSBOLT-2861: Add copy username to clipboard on click</li>
+  <li>PB-3: Quickaccess: Simplified app to access passwords from the browser extension</li>
 </ul>
 
-<h4 id="fixed">Fixed</h4>
+<h2 id="passbolt-api">Passbolt API</h2>
+<h3 id="added-1">Added</h3>
 <ul>
-  <li>GITHUB-101: Fix the readme should point to the documentation for how to upgrade passbolt</li>
-  <li>PASSBOLT-2682: Fix healthcheck entry point when logged in as admin and debug is false</li>
-  <li>PASSBOLT-2869: Fix GPG wrapper should recognize the correct type and bit length</li>
-  <li>PASSBOLT-1917: Migrate to canjs 3.x</li>
-  <li>PASSBOLT-2883: Fix logout link should not prevent event propagation</li>
-  <li>PASSBOLT-2886: Fix fingerprint tooltips in user group management dialog</li>
-  <li>PASSBOLT-2894: Fix missing div breaking elipsis on long url in password workspace</li>
-  <li>PASSBOLT-2891: Fix group edit users tooltips</li>
-  <li>PASSBOLT-2884: Update header left menu. Remove home and add help.</li>
-  <li>PASSBOLT-2885: Update user settings menus</li>
-  <li>PASSBOLT-2895: Fix notifications homogeneity</li>
-  <li>PASSBOLT-1337: Fix a logged in user should not be allowed to login or recover</li>
-  <li>PASSBOLT-1337: Remove gpg json sign middleware</li>
-  <li>PASSBOLT-1337: Wordsmithing healthcheck GPG feedback</li>
+  <li>PB-1: Audit Logs - Browse the resources and see the activity logs to see who is doing what on them</li>
 </ul>
 
-<h3 id="passbolt-web-extension">Passbolt Web extension</h3>
-<h4 id="added-improvements">Added improvements</h4>
+<h3 id="improved">Improved</h3>
 <ul>
-  <li>PASSBOLT-2878: Add support for dark theme</li>
-  <li>PASSBOLT-1773: Add check if passphrase is part of a dictionary</li>
+  <li>PASSBOLT-3327: LDAP: Improve administration UI</li>
+  <li>PASSBOLT-3328: LDAP: Add test connection option</li>
+  <li>PB-2: Upgrade to CakePHP 3.7</li>
+  <li>PB-60: Performance - Add index on tags table</li>
+  <li>PB-95: Implement Import / Export enable switch</li>
 </ul>
 
-<h4 id="fixed-bugs">Fixed bugs</h4>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>GITHUB-268: Fix remember me checkbox label should be clickable</li>
-  <li>GITHUB-46: Fix security token validation regression</li>
-  <li>PASSBOLT-1773: Fix press escape to close master password dialog regression</li>
-  <li>PASSBOLT-2854: Fix bug tags imported are always the same</li>
-  <li>PASSBOLT-2887: Fix iframe resize issue</li>
-  <li>PASSBOLT-2883: Fix logout link and remember me cleanup</li>
+  <li>PASSBOLT-3409: LDAP: Fix “error should be explicit when ldap module is not installed”</li>
+  <li>PASSBOLT-3443: LDAP: Fix “in settings, username and password should not be compulsory fields”</li>
+  <li>PASSBOLT-2121: Fix passbolt should run in a subdirectory</li>
 </ul>
+
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Many legacies of brothers who get buzy"</p>
-                                <a href="https://www.youtube.com/watch?v=8FzV21Lqd3A" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"They'll turn away no more"</p>
+                                <a href="https://youtu.be/FYH8DsU2WCk" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Can I commercially host and distribute Passbolt?</title>
+    <title>Passbolt Help | How can I enable or disable import / export plugins</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="For Passbolt Community Edition you can if you abide by the AGPL license terms! For the Passbolt Pro Edition you also need to to abide to the Passbolt subscri...">
+    <meta name="description" content="By default, the import and export plugins are enabled for all your users, which can be an issue for some admins.">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Can I commercially host and distribute Passbolt?" />
-    <meta property="og:description" content="For Passbolt Community Edition you can if you abide by the AGPL license terms! For the Passbolt Pro Edition you also need to to abide to the Passbolt subscri..." />
+    <meta property="og:title" content="How can I enable or disable import / export plugins" />
+    <meta property="og:description" content="By default, the import and export plugins are enabled for all your users, which can be an issue for some admins." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/faq/legal/commercial-use">
+    <link rel="canonical" href="https://help.passbolt.com/faq/configure/enable-disable-import-export-plugins">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -71,7 +71,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/legal/001-can-i-commercially-distribute-passbolt.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/configure/000-how-can-i-disable-import-export-plugin.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -120,7 +120,7 @@
         
 
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/faq/legal">Legal</a>
         </li>
@@ -153,7 +153,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>Can I commercially host and distribute Passbolt?</span></a>
+                        <a href=""><span>How can I enable or disable import / export plugins</span></a>
                     </div>
                 </li>
             </ul>
@@ -164,17 +164,37 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>Can I commercially host and distribute Passbolt?</h1>
-                            <p>For Passbolt Community Edition you can if you abide by the AGPL license terms! For the Passbolt Pro Edition
-you also need to to abide to the Passbolt subscription terms (tldr: pay the fees, have a valid number of users, etc.).</p>
+                         <h1>How can I enable or disable import / export plugins</h1>
+                            <p>By default, the import and export plugins are enabled for all your users, which can be an issue for some admins.</p>
 
-<p>Our goal in selecting the AGPL v3.0, as our default license is to require that the source code is distributed to the 
-end users, so that enhancements can be released back to the community. Traditional open source licenses such as GPL 
-often do not achieve this when the software is runs as a web application, e.g. as hosted application available 
-through a network.</p>
+<h2 id="disable-the-import-or-export-plugin">Disable the import or export plugin</h2>
 
-<p>If the AGPL v3 does not satisfy your organisation, an alternative open source license (OSI compatible) can be purchased.
-Feel free to contact us for more details.</p>
+<p>It is quite simple. Just write the following configuration in <code class="highlighter-rouge">config/passbolt.php</code>, inside the main ‘passbolt’ section:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
+    'import' =&gt; [
+        'enabled' =&gt; false,
+    ],
+    'export' =&gt; [
+        'enabled' =&gt; false,
+    ],
+],
+</code></pre></div></div>
+
+<h2 id="enable-the-import-or-export-plugin">Enable the import or export plugin</h2>
+
+<p>You can either remove the corresponding entries inside the plugins section, since the plugins are activated by default.
+Otherwise, if you prefer it to be explicit, you can add the section below to your <code class="highlighter-rouge">config/passbolt.php</code> file, inside the main ‘passbolt’ section:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
+    'import' =&gt; [
+        'enabled' =&gt; true,
+    ],
+    'export' =&gt; [
+        'enabled' =&gt; true,
+    ],
+],
+</code></pre></div></div>
 
                         </div>
 
@@ -199,155 +219,135 @@ Feel free to contact us for more details.</p>
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <li>
-        <a href="/faq/legal/which-license">Under which license is passbolt distributed?</a>
+        <a href="/faq/configure/enable-disable-import-export-plugins">How can I enable or disable import / export plugins</a>
     </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/legal/commercial-use">Can I commercially host and distribute Passbolt?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/legal/review-modify-share">Can I review, modify and share passbolt source code?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/legal/how-to-sign-cla">How do I sign the Contributor Licence Agreement?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/legal/where-is-cla">Where can I find the Contributor Licence Agreement?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/legal/why-cla">Why do we need a Contributor Licence Agreement?</a>
-    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

@@ -7,10 +7,9 @@ permalink: /faq/security/:slug
 date: 2017-01-20 00:00:00 Z
 ---
 
-Currently passbolt is in “alpha”, which means it is not yet a completely finished product. While we encourage you to try it out, the answer to whether you should store critical information with it depends on your security level requirements.
+Passbolt is currently considered as "stable" and has already undergone several security audits.
+It is used by thousands of companies that trust it for storing their passwords. The strict end-to-end and asymmetric encryption model, associated with the robustness of OpenPGP ensure that the solution implements some of the best known standards in terms of security.
+However, the answer to whether you should store critical information with it depends on your security level requirements. 
 
-For instance, if your team currently stores its passwords in plaintext, passbolt will definitely be an improvement. Similarly, if you plan to host passbolt in way that it is only accessible on your local machine or network or via a VPN, then the security level is also likely to be appropriate.
+We will publish soon a white paper explaining passbolt security model in depth. Until then, you are welcome to contact us directly and ask your questions.
 
-On the other hand if you have very high security requirements, for example if you are dealing with systems holding credit card information, or if you are a human-rights organisation, you may want to wait before starting using passbolt!
-
-In the future we will be publishing a comprehensive risk analysis to give you a complete picture of the threat model.

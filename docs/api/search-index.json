@@ -25,6 +25,12 @@
 "content": "Passbolt instead of a classic form based authentication uses GPGAuth to perform a challenge based authentication based on OpenPGP keys set during the setup.",
 "url": "https://www.passbolt.com/help/tech/auth"
 },
+"faq-configure-enable-disable-import-export-plugins": {
+"title": "How can I enable or disable import / export plugins",
+"category": "configure",
+"content": "By default, the import and export plugins are enabled for all your users, which can be an issue for some admins.Disable the import or export pluginIt is quite simple. Just write the following configuration in config/passbolt.php, inside the main ‘passbolt’ section:'plugins' =&gt; [    'import' =&gt; [        'enabled' =&gt; false,    ],    'export' =&gt; [        'enabled' =&gt; false,    ],],Enable the import or export pluginYou can either remove the corresponding entries inside the plugins section, since the plugins are activated by default.Otherwise, if you prefer it to be explicit, you can add the section below to your config/passbolt.php file, inside the main ‘passbolt’ section:'plugins' =&gt; [    'import' =&gt; [        'enabled' =&gt; true,    ],    'export' =&gt; [        'enabled' =&gt; true,    ],],",
+"url": "https://help.passbolt.com/faq/configure/enable-disable-import-export-plugins"
+},
 "faq-contribute-code-contribution": {
 "title": "How can I contribute with code?",
 "category": "contribute",
@@ -208,7 +214,7 @@
 "faq-security-is-passbolt-secure": {
 "title": "Is it secure to use passbolt in its current version?",
 "category": "security",
-"content": "Currently passbolt is in “alpha”, which means it is not yet a completely finished product. While we encourage you to try it out, the answer to whether you should store critical information with it depends on your security level requirements.For instance, if your team currently stores its passwords in plaintext, passbolt will definitely be an improvement. Similarly, if you plan to host passbolt in way that it is only accessible on your local machine or network or via a VPN, then the security level is also likely to be appropriate.On the other hand if you have very high security requirements, for example if you are dealing with systems holding credit card information, or if you are a human-rights organisation, you may want to wait before starting using passbolt!In the future we will be publishing a comprehensive risk analysis to give you a complete picture of the threat model.",
+"content": "Passbolt is currently considered as “stable” and has already undergone several security audits.It is used by thousands of companies that trust it for storing their passwords. The strict end-to-end and asymmetric encryption model, associated with the robustness of OpenPGP ensure that the solution implements some of the best known standards in terms of security.However, the answer to whether you should store critical information with it depends on your security level requirements.We will publish soon a white paper explaining passbolt security model in depth. Until then, you are welcome to contact us directly and ask your questions.",
 "url": "https://help.passbolt.com/faq/security/is-passbolt-secure"
 },
 "faq-security-what-is-encrypted": {

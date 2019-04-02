@@ -414,12 +414,6 @@
 "content": "Please send us an email at security@passbolt.com.Do not use Github or any other public channels. We ask that you keep the issue confidential until we have a fix and an announcement ready.You can encrypt the content of your email using GPG with the following key:3170 ED11 688A 3CBC 39B8  9AE9 602D EB11 7E48 90F0Once the security issue confirmed, our team will take the following actions:  Try to first reproduce the issue and confirm the vulnerability.  Acknowledge to the reporter that we’ve received the issue and are working on a fix.  Get a fix/patch prepared and create associated automated tests.  Prepare a post describing the vulnerability, and the possible exploits.  Release new versions of all affected major versions.  Prominently feature the problem in the release announcement.  Provide credits in the release announcement to the reporter if they so desire.",
 "url": "https://help.passbolt.com/faq/security/security-vulnerability"
 },
-"faq-security-is-passbolt-secure": {
-"title": "Is it secure to use passbolt in its current version?",
-"category": "security",
-"content": "Passbolt is currently considered as “stable” and has already undergone several security audits.It is used by thousands of companies that trust it for storing their passwords. The strict end-to-end and asymmetric encryption model, associated with the robustness of OpenPGP ensure that the solution implements some of the best known standards in terms of security.However, the answer to whether you should store critical information with it depends on your security level requirements.We will publish soon a white paper explaining passbolt security model in depth. Until then, you are welcome to contact us directly and ask your questions.",
-"url": "https://help.passbolt.com/faq/security/is-passbolt-secure"
-},
 "faq-security-what-is-encrypted": {
 "title": "What data is encrypted in passbolt?",
 "category": "security",
@@ -569,6 +563,12 @@
 "category": "hosting",
 "content": "Passbolt uses Gnupg as the encryption engine. Encryption operations such as creating a private key require an enough amount of entropy on the system’s entropy pool.A good and fast source of entropy is important to generate high quality random numbers. Poor quality on the random numbers could lead to weak private keys thatcould compromise the security of your setup.Random number generation is a complex topic that has been discussed widely on the community [1]Virtualisation strongly affects the quantity of produced entropy and. In other words, when you run a virtualised system such as a virtual machine or a container you likelywill find yourself in a situation where the entropy pool is low and it is filling slowly. There are few remediations for this situation:  Use a hardware random number generation and use rng-tools  Use HavegedAs stated in [1] and [2], haveged could leadto generation of poor entropy so, in order to stay safe, the recommendation would be to:  Use rng-tools if you trust your hardware random number generator  If rng-tools is not enough then use Haveged as well.",
 "url": "https://help.passbolt.com/faq/hosting/why-haveged-virtual-env"
+},
+"faq-security-is-passbolt-secure": {
+"title": "Is it secure to use passbolt in its current version?",
+"category": "security",
+"content": "Passbolt is currently considered as “stable” and has already undergone several security audits.It is used by thousands of companies that trust it for storing their passwords. The strict end-to-end and asymmetric encryption model, associated with the robustness of OpenPGP ensure that the solution implements some of the best known standards in terms of security.However, the answer to whether you should store critical information with it depends on your security level requirements.We will publish soon a white paper explaining passbolt security model in depth. Until then, you are welcome to contact us directly and ask your questions.",
+"url": "https://help.passbolt.com/faq/security/is-passbolt-secure"
 },
 "hosting-install-ce-digital-ocean": {
 "title": "Install Passbolt CE Digital Ocean",

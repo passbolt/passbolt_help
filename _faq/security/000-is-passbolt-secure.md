@@ -4,7 +4,7 @@ slug: is-passbolt-secure
 layout: faq
 category: security
 permalink: /faq/security/:slug
-date: 2017-01-20 00:00:00 Z
+date: 2019-04-02 00:00:00 Z
 ---
 
 Passbolt is currently considered as "stable" and has already undergone several security audits.

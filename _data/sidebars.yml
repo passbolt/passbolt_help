@@ -17,3 +17,14 @@ faq:
   - title: Legal
     slug: legal
     url: /faq/legal
+
+api:
+  - title: Introduction
+    slug: introduction
+    url: /api/introduction
+  - title: Encryption
+    slug: encryption
+    url: /api/encryption
+  - title: Authentication
+    slug: authentication
+    url: /api/authentication

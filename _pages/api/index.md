@@ -10,9 +10,6 @@ Below are detailed documentation of these endpoints, their request/response sche
 
 If you are familiar with the APIs and only looking for their implementation details, there is a repo with our latest OpenAPI 2.0 specifications published at:  
 
-```shell
-test
-test
-```
+[Getting Started](/api/introduction)
 
 

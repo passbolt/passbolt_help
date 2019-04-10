@@ -15,17 +15,13 @@
                     {% include breadcrumbs/default.html selected=page.category %}
 
                     {% include layout/row_start.html %}
-                        {% include layout/col_start.html column="7" %}
+                        {% include layout/col_start.html column="12" %}
                          <h1>{{ page.title }}</h1>
                             {{ content }}
                         {% include layout/col_end.html %}
 
                     {% include layout/col_start.html column="4 last push1" %}
-                        {% if page.sidebar %}
-                            {% include {{ page.sidebar }} %}
-                        {% else %}
-                            {% include aside/community.html %}
-                        {% endif %}
+                        
                     {% include layout/col_end.html %}
                     {% include layout/row_end.html %}
 

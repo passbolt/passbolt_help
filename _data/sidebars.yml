@@ -22,14 +22,11 @@ api:
   - title: Introduction
     slug: introduction
     url: /api/introduction
-  - title: Encryption
-    slug: encryption
-    url: /api/encryption
   - title: Authentication
     slug: authentication
     url: /api/authentication
   - title: Resources
-    slug: resource
+    slug: resources
     url: /api/resources
   - title: Users
     slug: users
@@ -37,9 +34,9 @@ api:
   - title: Groups
     slug: groups
     url: /api/groups
-  - title: Comments
-    slug: comments
-    url: /api/comments
   - title: GPG Keys
     slug: gpgkeys
     url: /api/gpgkeys
+  - title: Comments
+    slug: comments
+    url: /api/comments

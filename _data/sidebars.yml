@@ -28,3 +28,18 @@ api:
   - title: Authentication
     slug: authentication
     url: /api/authentication
+  - title: Resources
+    slug: resource
+    url: /api/resources
+  - title: Users
+    slug: users
+    url: /api/users
+  - title: Groups
+    slug: groups
+    url: /api/groups
+  - title: Comments
+    slug: comments
+    url: /api/comments
+  - title: GPG Keys
+    slug: gpgkeys
+    url: /api/gpgkeys

@@ -14,7 +14,7 @@ Instead of a conventional form based login system, passbolt uses the [gpgAuth](h
 GpgAuth uses a set of custom HTTP headers to send information to the client.
 
 
-<table>
+<table class="table-parameters">
   <tr>
    <td>X-GPGAuth-Verify-Response
    </td>
@@ -91,9 +91,13 @@ As mentioned earlier it is recommended, but optional, for a client to verify the
 
 Step 1:
 
+```bash
+gpg --fingerprint
+```
+
 {% include articles/figure.html
-    url="/assets/img/help/2019/04/image22.png"
-    legend="HTTP Error Schema"
+    url="/assets/img/help/2019/04/gpg_fingerprint_console_output.png"
+    legend="GPG fingerprint console output"
 %}
 
 
@@ -116,24 +120,23 @@ The request body looks like
 ```
 
 
-Step 1.1: A matching key is not found. The server returns a NOT FOUND response.
+Step 1.1: A matching key is not found. The server returns a `HTTP NOT FOUND` response.
 
 Step 1.2: A matching key is found. The server then generates a random token, stores and encrypts it with the user’s public key found in the previous step. The encrypted token is then sent in the `X-GPGAuth-User-Auth-Token` header to the client.
 
 
 
 {% include articles/figure.html
-    url="/assets/img/help/2019/04/image13.png"
+    url="/assets/img/help/2019/04/server_response_after_login_step_1.2.png"
     legend="Server response after login step 1.2"
 %}
 
 
 Step 1.3: The client then decrypts the encrypted token
 
-{% include articles/figure.html
-    url="/assets/img/help/2019/04/image3.png"
-    legend="Client decrypts server token"
-%}
+```bash
+echo "<encrypted_token_from_server>" | gpg -d
+```
 
 
 Hence verifying the ownership of the fingerprint sent in step 1. You’ll require to enter your GPG key passphrase to decrypt the token.
@@ -152,7 +155,7 @@ POST /auth/login.json
 'data' => [
     'gpg_auth' => [
         'keyid' => <same_fingerprint_as_step1>,
-        'user_token_result' => <decrypted_token> 
+        'user_token_result' => <decrypted_token_in_plaintext> 
     ]
 ]
 ```

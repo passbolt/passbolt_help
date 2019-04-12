@@ -15,6 +15,12 @@ GpgAuth uses a set of custom HTTP headers to send information to the client.
 
 
 <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Header</th>
+      <th>Description</th>
+    </tr>
+  </thead>
   <tr>
    <td>X-GPGAuth-Verify-Response
    </td>
@@ -91,15 +97,22 @@ As mentioned earlier it is recommended, but optional, for a client to verify the
 
 Step 1:
 
-```bash
-gpg --fingerprint
+```shell
+$ gpg --fingerprint
+
+/Users/abhinav/.gnupg/pubring.kbx
+---------------------------------
+pub   dsa2048 2010-08-19 [SC] [expires: 2020-06-15]
+      85E3 8F69 046B 44C1 EC9F  B07B 76D7 8F05 00D0 26C4
+uid           [ unknown] GPGTools Team <team@gpgtools.org>
+sub   elg2048 2010-08-19 [E] [expires: 2020-06-15]
+sub   rsa4096 2014-04-08 [S] [expires: 2024-01-02]
+
+pub   rsa4096 2019-03-13 [SC] [expires: 2023-03-13]
+      E240 E31A FE3D 92A8 33A7  F2FE C98B E203 3795 B6B6
+uid           [ultimate] Abhinav Kumar <abhinav@passbolt.com>
+sub   rsa4096 2019-03-13 [E] [expires: 2023-03-13]
 ```
-
-{% include articles/figure.html
-    url="/assets/img/help/2019/04/gpg_fingerprint_console_output.png"
-    legend="GPG fingerprint console output"
-%}
-
 
 The client sends the fingerprint of the user’s key via a POST request. 
 

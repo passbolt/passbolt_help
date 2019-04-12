@@ -11,21 +11,23 @@ Groups are logical collection of users. Think of them like departments in an org
 ## The Group object
 
 <table class="table-parameters">
-    <tbody>
+    <thead>
         <tr>
-            <td>
+            <th>
                 Attribute
-            </td>
-            <td>
+            </th>
+            <th>
                 Type
-            </td>
-            <td>
+            </th>
+            <th>
                 Description
-            </td>
-            <td>
+            </th>
+            <th>
                 Format
-            </td>
+            </th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <td>
                 id
@@ -208,28 +210,30 @@ A successful response will have an array of json objects. Each representing a si
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
-
-Request went through. The response payload will contain a list of matching groups.
+   <td>OK<br/>
+   Request went through. The response payload will contain a list of matching groups.
    </td>
   </tr>
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
-
-The user making the request is not authenticated.
+   <td>Authentication Failure<br/>
+   The user making the request does not have the Admin role.
    </td>
   </tr>
+  </tbody>
 </table>
 
 
@@ -240,16 +244,19 @@ Please note that only users with Admin role can create a group. To create a new 
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Parameter
-   </td>
-   <td>Description
-   </td>
-   <td>Required
-   </td>
-   <td>Validation Constraints
-   </td>
+   <th>Parameter
+   </th>
+   <th>Description
+   </th>
+   <th>Required
+   </th>
+   <th>Validation Constraints
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>name
    </td>
@@ -257,11 +264,12 @@ Please note that only users with Admin role can create a group. To create a new 
    </td>
    <td>Yes
    </td>
-   <td>1. Valid utf8 string
-
-2. Must be unique
-
-3. Must not exceed 255 characters
+   <td>
+   <ol>
+    <li>Valid utf8 string</li>
+    <li>Must be unique</li>
+    <li>Must not exceed 255 characters</li>
+   </ol>
    </td>
   </tr>
   <tr>
@@ -281,9 +289,11 @@ Please note that only users with Admin role can create a group. To create a new 
    </td>
    <td>Yes
    </td>
-   <td>1. A valid UUID
-
-2. A valid user id
+   <td>
+    <ol>
+        <li>A valid UUID</li>
+        <li>A valid user id</li>
+    </ol>
    </td>
   </tr>
   <tr>
@@ -296,6 +306,7 @@ Please note that only users with Admin role can create a group. To create a new 
    <td>Boolean
    </td>
   </tr>
+  </tbody>
 </table>
 
 
@@ -377,36 +388,37 @@ And a valid request body will look like
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
-
-The Group was created. The response body will contain the newly created group object
+   <td>OK<br/>
+   The Group was created. The response body will contain the newly created group object
    </td>
   </tr>
   <tr>
    <td>400
    </td>
-   <td>Bad Request
-
-Some of the data validation failed. Check debug headers for more info
+   <td>Bad Request<br/>
+   Some of the data validation failed. Check debug headers for more info
    </td>
   </tr>
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
-
-The user making the request is not authenticated
+   <td>Authentication Failure<br/>
+   The user making the request does not have the Admin role.
    </td>
   </tr>
+  </tbody>
 </table>
 
 
@@ -423,44 +435,44 @@ GET /groups/<groupId>.json
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
-
-Response includes the group object.
+   <td>OK<br/>
+   Response includes the group object.
    </td>
   </tr>
   <tr>
    <td>400
    </td>
-   <td>Bad Request
-
-The groupId supplied is not a valid UUID
+   <td>Bad Request<br/>
+   The groupId supplied is not a valid UUID
    </td>
   </tr>
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
-
-The user making the request is not authenticated
+   <td>Authentication Failure<br/>
+   The user making the request does not have the Admin role.
    </td>
   </tr>
   <tr>
    <td>404
    </td>
-   <td>Not Found
-
-The group either does not exist or the user making the request does not have access permission.
+   <td>Not Found<br/>
+   The group either does not exist or the user making the request does not have access permission.
    </td>
   </tr>
+  </tbody>
 </table>
 
 
@@ -471,7 +483,15 @@ A Group can be updated by sending the PUT request to /groups/<groupId>.json.
 
 The request body contains the new data to be updated. The request body schema is same as that of [creating a new Group](#creating-a-new-group).
 
-In order to be able to update, the user making the request must have sufficient permission to update it.
+When you update a group which has passwords shared with you also need to provide secrets for the new users. The dry-run gives information about this.
+
+### Dry Run
+
+A dry run can also be performed before actually attempting to update a group. This works by sending a PUT request to /groups/<groupId>/dry-run.json. This will check all the constraints and return a 200 OK response if the group can be updated safely.
+
+```
+PUT /groups/<groupId>/dry-run.json
+```
 
 
 ### Possible Responses
@@ -501,44 +521,44 @@ A dry run can also be performed before actually attempting to delete a group. Th
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
-
-Group deleted successfully.
+   <td>OK<br/>
+   Group deleted successfully.
    </td>
   </tr>
   <tr>
    <td>400
    </td>
-   <td>Bad Request
-
-The groupId supplied is not a valid UUID
+   <td>Bad Request<br/>
+   The groupId supplied is not a valid UUID
    </td>
   </tr>
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
-
-The user making the request is not authenticated
+   <td>Authentication Failure<br/>
+   The user making the request does not have the Admin role.
    </td>
   </tr>
   <tr>
    <td>404
    </td>
-   <td>Not Found
-
-The group either does not exist or the user making the request does not have delete permission.
+   <td>Not Found<br/>
+   The group either does not exist or the user making the request does not have delete permission.
    </td>
   </tr>
+  </tbody>
 </table>
 
 

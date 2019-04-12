@@ -12,21 +12,23 @@ In passbolt, passwords are split into two different entities: Resources and Secr
 ## The Resource object
 
 <table class="table-parameters">
-    <tbody>
+    <thead>
         <tr>
-            <td>
+            <th>
                 Attribute
-            </td>
-            <td>
+            </th>
+            <th>
                 Type
-            </td>
-            <td>
+            </th>
+            <th>
                 Description
-            </td>
-            <td>
+            </th>
+            <th>
                 Format
-            </td>
+            </th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <td>
                 id
@@ -52,8 +54,7 @@ In passbolt, passwords are split into two different entities: Resources and Secr
                 Datetime when the resource was created
             </td>
             <td>
-                <a 
-                            href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189888000">ISO
+                <a href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189888000">ISO
                             8601</a>Datetime format<br/>
                 2014-02-01T09:28:56.321-10:00
             </td>
@@ -138,8 +139,7 @@ In passbolt, passwords are split into two different entities: Resources and Secr
                 Datetime when the resource was last modified
             </td>
             <td>
-                <a
-                            href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189897000">ISO
+                <a href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189897000">ISO
                             8601</a>&nbsp;Datetime format<br/>
                 2014-02-01T09:28:56.321-10:00
             </td>
@@ -242,7 +242,66 @@ To fetch a list of all the password the user has access to, you can make a **GET
 The endpoint takes the following parameters
 
 
-<table class="table-parameters"><tbody><tr><td>Param</td><td>Description</td><td>Required</td><td>Type</td></tr><tr><td>api-version</td><td>The API version to target</td><td>No</td><td>string</td></tr><tr><td>contain[]</td><td>Controls the fields that must be returned</td><td></td><td>Array</td></tr><tr><td>contain[creator]</td><td>Whether or not to include the resource creator</td><td>No</td><td>Boolean</td></tr><tr><td>contain[favorite]</td><td>Whether or not to include the favorite detail for this resource</td><td>No</td><td>Boolean</td></tr><tr><td>contain[modifier]</td><td>Whether or not to include the modifier detail for this resource</td><td>No</td><td>Boolean</td></tr><tr><td>contain[permission]</td><td>Whether or not to include the permission detail for this resource</td><td>No</td><td>Boolean</td></tr><tr><td>contain[tag]</td><td>Whether or not to include the tags for this resource</td><td>No</td><td>Boolean</td></tr><tr><td>order[]</td><td>How should the results be sorted. For example Resource.modified DESC<sup><a href="#cmnt9" id="cmnt_ref9">[i]</a></sup></td><td>No</td><td>String</td></tr></tbody></table>
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Param</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>api-version</td>
+            <td>The API version to target</td>
+            <td>No</td>
+            <td>string</td>
+        </tr>
+        <tr>
+            <td>contain[]</td>
+            <td>Controls the fields that must be returned</td>
+            <td></td>
+            <td>Array</td>
+        </tr>
+        <tr>
+            <td>contain[creator]</td>
+            <td>Whether or not to include the resource creator</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>contain[favorite]</td>
+            <td>Whether or not to include the favorite detail for this resource</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>contain[modifier]</td>
+            <td>Whether or not to include the modifier detail for this resource</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>contain[permission]</td>
+            <td>Whether or not to include the permission detail for this resource</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>contain[tag]</td>
+            <td>Whether or not to include the tags for this resource</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>order[]</td>
+            <td>How should the results be sorted. For example Resource.modified DESC</td>
+            <td>No</td>
+            <td>String</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
@@ -271,11 +330,177 @@ https://api.passbolt.com/resources.json?
 
 A successful response will have an array of json objects. Each representing a single resource. Something like this example below
 
+```json
+{
+    "header": {
+        "id": "886a798f-11cd-4340-b488-70e57d56f5db",
+        "status": "success",
+        "servertime": 1555054043,
+        "title": "app_resources_index_success",
+        "action": "c506210f-7866-5691-8fc1-58772e8f49f1",
+        "message": "The operation was successful.",
+        "url": "\/resources.json?contain%5Bcreator%5D=1\u0026contain%5Bfavorite%5D=1\u0026contain%5Bmodifier%5D=1\u0026contain%5Bpermission%5D=1\u0026contain%5Btag%5D=1\u0026order%5B%5D=Resource.modified+DESC\u0026silentLoading=false\u0026api-version=v2",
+        "code": 200
+    },
+    "body": [
+        {
+            "id": "daaf057e-7fc3-5537-a8a9-e8c151890878",
+            "name": "cakephp",
+            "username": "cake",
+            "uri": "cakephp.org",
+            "description": "The rapid and tasty php development framework",
+            "deleted": false,
+            "created": "2019-04-04T10:05:58+00:00",
+            "modified": "2019-04-11T08:53:06+00:00",
+            "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "modified_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "favorite": null,
+            "modifier": {
+                "id": "f848277c-5398-58f8-a82a-72397af2d450",
+                "role_id": "a58de6d3-f52c-5080-b79b-a601a647ac85",
+                "username": "ada@passbolt.com",
+                "active": true,
+                "deleted": false,
+                "created": "2019-02-04T12:05:44+00:00",
+                "modified": "2019-03-04T12:05:44+00:00",
+                "last_logged_in": ""
+            },
+            "creator": {
+                "id": "f848277c-5398-58f8-a82a-72397af2d450",
+                "role_id": "a58de6d3-f52c-5080-b79b-a601a647ac85",
+                "username": "ada@passbolt.com",
+                "active": true,
+                "deleted": false,
+                "created": "2019-02-04T12:05:44+00:00",
+                "modified": "2019-03-04T12:05:44+00:00",
+                "last_logged_in": ""
+            },
+            "tags": [
+                {
+                    "id": "9a2d0c7e-8bf6-5a85-a733-ea737d9fdea2",
+                    "slug": "#bravo",
+                    "is_shared": true
+                },
+                {
+                    "id": "54d4d6e4-982e-5b50-a739-313104c800df",
+                    "slug": "firefox",
+                    "is_shared": false
+                },
+                {
+                    "id": "14ae2fc4-a235-588f-8f19-98cce08808aa",
+                    "slug": "fox-trot",
+                    "is_shared": false
+                },
+                {
+                    "id": "0507cbbb-eb14-5121-9105-05380dbe64ff",
+                    "slug": "\u092a\u0930\u0926\u0947\u0936\u0940-\u092a\u0930\u0926\u0947\u0936\u0940",
+                    "is_shared": false
+                }
+            ],
+            "permission": {
+                "id": "972bf3fc-0d5b-579c-9097-56d86394c255",
+                "aco": "Resource",
+                "aco_foreign_key": "daaf057e-7fc3-5537-a8a9-e8c151890878",
+                "aro": "User",
+                "aro_foreign_key": "f848277c-5398-58f8-a82a-72397af2d450",
+                "type": 15,
+                "created": "2019-04-04T12:06:00+00:00",
+                "modified": "2019-04-04T12:06:00+00:00"
+            }
+        },
+        {
+            "id": "ecf0ed85-3bfc-5f45-b11d-74e9a86aa313",
+            "name": "Grogle",
+            "username": "googleusername",
+            "uri": "http:\/\/fr.groland.wikia.com\/wiki\/Grogle",
+            "description": "",
+            "deleted": false,
+            "created": "2019-04-04T12:05:58+00:00",
+            "modified": "2019-04-11T07:23:00+00:00",
+            "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "modified_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "favorite": null,
+            "modifier": {
+                "id": "f848277c-5398-58f8-a82a-72397af2d450",
+                "role_id": "a58de6d3-f52c-5080-b79b-a601a647ac85",
+                "username": "ada@passbolt.com",
+                "active": true,
+                "deleted": false,
+                "created": "2019-02-04T12:05:44+00:00",
+                "modified": "2019-03-04T12:05:44+00:00",
+                "last_logged_in": ""
+            },
+            "creator": {
+                "id": "f848277c-5398-58f8-a82a-72397af2d450",
+                "role_id": "a58de6d3-f52c-5080-b79b-a601a647ac85",
+                "username": "ada@passbolt.com",
+                "active": true,
+                "deleted": false,
+                "created": "2019-02-04T12:05:44+00:00",
+                "modified": "2019-03-04T12:05:44+00:00",
+                "last_logged_in": ""
+            },
+            "tags": [
+                {
+                    "id": "9a2d0c7e-8bf6-5a85-a733-ea737d9fdea2",
+                    "slug": "#bravo",
+                    "is_shared": true
+                },
+                {
+                    "id": "1c8afebc-7e23-51bd-a0b6-2e695afeb32f",
+                    "slug": "#charlie",
+                    "is_shared": true
+                },
+                {
+                    "id": "54d4d6e4-982e-5b50-a739-313104c800df",
+                    "slug": "firefox",
+                    "is_shared": false
+                },
+                {
+                    "id": "14ae2fc4-a235-588f-8f19-98cce08808aa",
+                    "slug": "fox-trot",
+                    "is_shared": false
+                }
+            ],
+            "permission": {
+                "id": "36366a82-3d75-5e0e-97d3-0437ad4ee2cf",
+                "aco": "Resource",
+                "aco_foreign_key": "ecf0ed85-3bfc-5f45-b11d-74e9a86aa313",
+                "aro": "User",
+                "aro_foreign_key": "f848277c-5398-58f8-a82a-72397af2d450",
+                "type": 15,
+                "created": "2019-04-04T12:06:01+00:00",
+                "modified": "2019-04-04T12:06:01+00:00"
+            }
+        },
+    ]
+}
+```
+
 
 ### Possible Responses:
 
 
-<table class="table-parameters"><tbody><tr><td>Code</td><td>Description</td></tr><tr><td>200</td><td>OKRequest went through. The response payload will contain a list of resources.</td></tr><tr><td>403</td><td>Authentication FailureThe user making the request is not authenticated</td></tr></tbody></table>
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br/>
+            Request went through. The response payload will contain a list of resources.</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br/>
+            The user making the request is not authenticated</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
@@ -284,7 +509,61 @@ A successful response will have an array of json objects. Each representing a si
 To create a new Resource, make a POST request to /resources.json with the resource data in request body. The request body expects the following parameters
 
 
-<table class="table-parameters"><tbody><tr><td>Parameter</td><td>Description</td><td>Required</td><td>Validation Constraints</td></tr><tr><td>name[String]</td><td>Name for the new resource.</td><td>Yes</td><td>1. Valid utf8 string2. Must not exceed 64 characters3. Empty string not allowed.</td></tr><tr><td>description[String]</td><td>Description for the new resource.</td><td>No</td><td>1. Valid utf8 string2. Must not exceed 10000 characters</td></tr><tr><td>username</td><td>Username for this login</td><td>No</td><td>Valid utf8 string2. Must not exceed 64 characters</td></tr><tr><td>uri</td><td>URI/URL for the new resource.</td><td>String</td><td>Valid utf8 string<sup><a href="#cmnt11" id="cmnt_ref11">[k]</a></sup>2. Must not exceed 1024 characters</td></tr><tr><td>secrets</td><td>An array of secrets in object format</td><td>Array</td><td>Exactly one secret must be provided.</td></tr><tr><td>secrets.user_id</td><td>User ID of the user</td><td>String</td><td>UUID</td></tr><tr><td>secrets.data</td><td>Encrypted plaintext password using client’s private keys</td><td>String</td><td><sup><a href="#cmnt12" id="cmnt_ref12">[l]</a></sup></td></tr></tbody></table>
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Parameter</th>
+            <th>Description</th>
+            <th>Required</th>
+            <th>Validation Constraints</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>name[String]</td>
+            <td>Name for the new resource.</td>
+            <td>Yes</td>
+            <td>1. Valid utf8 string2. Must not exceed 64 characters3. Empty string not allowed.</td>
+        </tr>
+        <tr>
+            <td>description[String]</td>
+            <td>Description for the new resource.</td>
+            <td>No</td>
+            <td>1. Valid utf8 string2. Must not exceed 10000 characters</td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td>Username for this login</td>
+            <td>No</td>
+            <td>Valid utf8 string2. Must not exceed 64 characters</td>
+        </tr>
+        <tr>
+            <td>uri</td>
+            <td>URI/URL for the new resource.</td>
+            <td>String</td>
+            <td>Valid utf8 string<sup><a href="#cmnt11" id="cmnt_ref11">[k]</a></sup>2. Must not exceed 1024 characters
+            </td>
+        </tr>
+        <tr>
+            <td>secrets</td>
+            <td>An array of secrets in object format</td>
+            <td>Array</td>
+            <td>Exactly one secret must be provided.</td>
+        </tr>
+        <tr>
+            <td>secrets.user_id</td>
+            <td>User ID of the user</td>
+            <td>String</td>
+            <td>UUID</td>
+        </tr>
+        <tr>
+            <td>secrets.data</td>
+            <td>Encrypted plaintext password using client’s private keys</td>
+            <td>String</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
 
 
 A successful request must pass all the validation checks. For example sending a blank request body will return
@@ -360,11 +639,59 @@ And a valid request body will look like
 }
 ```
 
+and will return a json response like below
 
+```json
+{
+    "header": {
+        "id": "799c69c7-1789-4d87-9fbf-02529b0d21dc",
+        "status": "success",
+        "servertime": 1554909967,
+        "title": "app_secrets_view_success",
+        "action": "ad71952e-7842-599e-a19e-3a82e6974b23",
+        "message": "The operation was successful.",
+        "url": "\/secrets\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2",
+        "code": 200
+    },
+    "body": {
+        "id": "eede75ff-316a-511c-8317-51e8339b6dcc",
+        "user_id": "f848277c-5398-58f8-a82a-72397af2d450",
+        "resource_id": "8e3874ae-4b40-590b-968a-418f704b9d9a",
+        "data": "-----BEGIN PGP MESSAGE-----",
+        "created": "2019-04-04T12:06:50+00:00",
+        "modified": "2019-04-04T12:06:50+00:00"
+    }
+}
+```
 
 ### Possible Responses:
 
-<table class="table-parameters"><tbody><tr><td>Code</td><td>Description</td></tr><tr><td>200</td><td>OKThe Resource was created. The response body will contain the newly created resource object.</td></tr><tr><td>400</td><td>Bad RequestSome of the data validation failed. Check debug headers for more info<sup><a href="#cmnt13" id="cmnt_ref13">[m]</a></sup></td></tr><tr><td>403</td><td>Authentication FailureThe user making the request is not authenticated</td></tr></tbody></table>
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br/>
+            The Resource was created. The response body will contain the newly created resource object.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request<br/>
+            Some of the data validation failed. Check debug headers for more info<sup><a href="#cmnt13"
+                        id="cmnt_ref13">[m]</a></sup></td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br/>
+            The user making the request is not authenticated</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
@@ -381,7 +708,36 @@ GET /resource/<resourceId>.json
 ### Possible Responses:
 
 
-<table class="table-parameters"><tbody><tr><td>Code</td><td>Description</td></tr><tr><td>200</td><td>OKResponse includes the resource metadata object.</td></tr><tr><td>400</td><td>Bad RequestThe resourceId supplied is not a valid UUID</td></tr><tr><td>403</td><td>Authentication FailureThe user making the request is not authenticated</td></tr><tr><td>404</td><td>Not FoundThe resource either does not exist or the user does not have access permission.</td></tr></tbody></table>
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br/>
+            Response includes the resource metadata object.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request<br/>
+            The resourceId supplied is not a valid UUID</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br/>
+            The user making the request is not authenticated</td>
+        </tr>
+        <tr>
+            <td>404</td>
+            <td>Not Found<br/>
+            The resource either does not exist or the user does not have access permission.</td>
+        </tr>
+    </tbody>
+</table>
 
 
 
@@ -421,7 +777,7 @@ Upon success this will return a payload like this
         "id": "eede75ff-316a-511c-8317-51e8339b6dcc",
         "user_id": "f848277c-5398-58f8-a82a-72397af2d450",
         "resource_id": "8e3874ae-4b40-590b-968a-418f704b9d9a",
-        "data": "-----BEGIN PGP MESSAGE-----\n\nhQIMA1P90Qk1JHA+AQ\/7B2Wpn4b2nS\/rvKSEWPcVTarPbTXHEfU8+2\/dDQ5lBUo8\nGGqmn6VUSO4IyvjusVKKjSYQ4ckkRVDzfZFO4rgcIedjo6oZDGQpJCcG6+ON4VnC\nl7RaaxzQFMiYvOxlxgIdmJo6oRPcV9pL\/GqrhuU2TdlbeLIPrpw0fN9+ejOeSqfm\nF43GJFXuOVW2IJfY8tqKC5AJV+aOJ8uCeg7gN8EeVJxs3sa2G1UaH5PZfdAVuanj\n0EdNRy0tPNMvc0b9ozWNKMs5pYJoFlraPUIWbApZctr7Mzc\/56QSYo+TPMtBmiT\/\n2UVTqC3KBv5pZTnl66QcNm4NTm7IeCTQkBrNshtrlJZ21GSAisw55nB3lBy7QGMi\n9g7IxdF\/VGQJGdtT1hG58NZ+0SpvwXNUMEcuzgxvnIxqSn87S3n8JWa34UQrpxxy\nXtRt1vLLINuZTrMmItq\/QFOkQRT9bllxFeYmGFhOqxe+x0ryiBYlJ4sQdPadlk6J\npHW9nfnT1tiibb\/00h1mhchzXOhaQogGluo0TgDlZfSHbxs3mKOQbqWIW\/oDfAI1\nxkvwVL3MK5invhNjbwrjtISCLV9VlUyMRSYRT059hyfgw99RaARJwjl137v0vNaj\nQBmYsZJMeSLxATfRLHcfFnoI3G9Jgd3QLzH+aysmdVVjBSC2YFtTuznJ6\/SRlZPS\nUgFv2onsHmt2QfzIu1cUaYQqLob8uKnDmg+GXJZiwP8IwZ2Gem5fUcRbEMQL0ecB\n0RR\/BqgXVsfPVtRau8V9jXa8RNrqT7g9IZPdvxtpC2EJWGE=\n=t2uZ\n-----END PGP MESSAGE-----",
+        "data": "-----BEGIN PGP MESSAGE-----",
         "created": "2019-04-04T12:06:50+00:00",
         "modified": "2019-04-04T12:06:50+00:00"
     }
@@ -579,7 +935,7 @@ The response returned will have an array or json objects, each representing eith
             "gpgkey": {
                 "id": "04481719-5d9d-5e22-880a-a6b9270601d2",
                 "user_id": "f848277c-5398-58f8-a82a-72397af2d450",
-                "armored_key": "-----BEGIN PGP PUBLIC KEY BLOCK-----\nVersion: GnuPG\/MacGPG2 v2.0.22 (Darwin)\nComment: GPGTools - https:\/\/gpgtools.org\n\nmQINBFXHTB8BEADAaRMUn+ rest of the key data... +pcgU1wQ\n=Zopv\n-----END PGP PUBLIC KEY BLOCK-----\n",
+                "armored_key": "-----BEGIN PGP PUBLIC KEY BLOCK-----",
                 "bits": 4096,
                 "uid": "Ada Lovelace \u003Cada@passbolt.com\u003E",
                 "key_id": "5D9B054F",
@@ -610,11 +966,14 @@ POST /share/simulate/resource/{resourceId}.json
 The paylod takes a json array where each object represents a permission. The `Permission` object may contain the following fields.
 
 <table class="table-parameters">
+<thead>
   <tr>
-    <td>Attribute</td>
-    <td>Type</td>
-    <td>Description</td>
+    <th>Attribute</th>
+    <th>Type</th>
+    <th>Description</th>
   </tr>
+</thead>
+<tbody>
   <tr>
     <td>id</td>
     <td>UUID</td>
@@ -652,7 +1011,7 @@ The paylod takes a json array where each object represents a permission. The `Pe
     <td>Boolean</td>
     <td>Whether to delete this permission. Only required when deleting an existing permission.</td>
   </tr>
-  
+  </tbody>
 </table>
 
 So the request body will look like
@@ -749,42 +1108,42 @@ DELETE /resources/<resourceId>.json
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
-
-Resource deleted successfully.
+   <td>OK<br/>
+   Resource deleted successfully.
    </td>
   </tr>
   <tr>
    <td>400
    </td>
-   <td>Bad Request
-
-The resourceId supplied is not a valid UUID
+   <td>Bad Request<br/>
+   The resourceId supplied is not a valid UUID
    </td>
   </tr>
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
-
-The user making the request is not authenticated
+   <td>Authentication Failure<br/>
+   The user making the request is not authenticated
    </td>
   </tr>
   <tr>
    <td>404
    </td>
-   <td>Not Found
-
-The resource either does not exist or the user does not have delete permission.
+   <td>Not Found<br/>
+   The resource either does not exist or the user does not have delete permission.
    </td>
   </tr>
+  </tbody>
 </table>

@@ -11,21 +11,23 @@ The Comments endpoint is used manage comments posted on Resources.
 ## The Comment Object
 
 <table class="table-parameters">
-    <tbody>
+    <thead>
         <tr>
-            <td>
+            <th>
                 Attribute
-            </td>
-            <td>
+            </th>
+            <th>
                 Type
-            </td>
-            <td>
+            </th>
+            <th>
                 Description
-            </td>
-            <td>
+            </th>
+            <th>
                 Format
-            </td>
+            </th>
         </tr>
+    </thead>
+    <tbody>
         <tr>
             <td>
                 id
@@ -203,16 +205,19 @@ The endpoint takes the following parameters
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Param
-   </td>
-   <td>Description
-   </td>
-   <td>Required
-   </td>
-   <td>Type
-   </td>
+   <th>Param
+   </th>
+   <th>Description
+   </th>
+   <th>Required
+   </th>
+   <th>Type
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>api-version
    </td>
@@ -253,6 +258,7 @@ The endpoint takes the following parameters
    <td>Boolean
    </td>
   </tr>
+  </tbody>
 </table>
 
 
@@ -339,16 +345,19 @@ A successful response will have an array of json objects. Each representing a si
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
+   <td>OK<br/>
 
 Request went through. The response payload will contain a list of matching comments.
    </td>
@@ -356,11 +365,12 @@ Request went through. The response payload will contain a list of matching comme
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
+   <td>Authentication Failure<br/>
 
 The user making the request is not authenticated.
    </td>
   </tr>
+  </tbody>
 </table>
 
 
@@ -375,16 +385,19 @@ POST /comments/resource/<resourceId>.json
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Parameter
-   </td>
-   <td>Description
-   </td>
-   <td>Required
-   </td>
-   <td>Validation Constraints
-   </td>
+   <th>Parameter
+   </th>
+   <th>Description
+   </th>
+   <th>Required
+   </th>
+   <th>Validation Constraints
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>content
    </td>
@@ -392,11 +405,14 @@ POST /comments/resource/<resourceId>.json
    </td>
    <td>Yes
    </td>
-   <td>1. Valid utf8 string
-
-2. Must not exceed 255 characters
+   <td>
+    <ol>
+        <li>Valid utf8 string</li>
+        <li>Must not exceed 255 characters</li>
+    </ol>
    </td>
   </tr>
+</tbody>
 </table>
 
 
@@ -435,16 +451,19 @@ And a valid request body will look like
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
-   <td>OK
+   <td>OK<br/>
 
 The Comment was created. The response body will contain the newly created comment object
    </td>
@@ -452,7 +471,7 @@ The Comment was created. The response body will contain the newly created commen
   <tr>
    <td>400
    </td>
-   <td>Bad Request
+   <td>Bad Request<br/>
 
 Some of the data validation failed. Check debug headers for more info
    </td>
@@ -460,11 +479,12 @@ Some of the data validation failed. Check debug headers for more info
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
+   <td>Authentication Failure<br/>
 
 The user making the request is not authenticated
    </td>
   </tr>
+</tbody>
 </table>
 
 
@@ -485,12 +505,15 @@ In order to be able to update, the user making the request must have sufficient 
 ### Possible Responses:
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
@@ -511,19 +534,18 @@ The Comment was created. The response body will contain the newly created commen
   <tr>
    <td>403
    </td>
-   <td>Authentication Failure
-
-The user making the request is not authenticated
+   <td>Authentication Failure<br/>
+   The user making the request is not authenticated
    </td>
   </tr>
   <tr>
    <td>404
    </td>
-   <td>Not Found
-
-A Comment with the given commentId was not found.
+   <td>Not Found<br/>
+   A Comment with the given commentId was not found.
    </td>
   </tr>
+</tbody>
 </table>
 
 
@@ -545,12 +567,15 @@ A Comment can only be deleted by it’s owner.
 
 
 <table class="table-parameters">
+<thead>
   <tr>
-   <td>Code
-   </td>
-   <td>Description
-   </td>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
   </tr>
+</thead>
+<tbody>
   <tr>
    <td>200
    </td>
@@ -583,6 +608,7 @@ The user making the request is not authenticated
 The comment either does not exist or the user making the request does not have delete permission.
    </td>
   </tr>
+</tbody>
 </table>
 
 

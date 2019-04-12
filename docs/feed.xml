@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-10T12:24:02+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE Digital Ocean</title><link href="http://localhost:4000/hosting/install/ce/digital-ocean" rel="alternate" type="text/html" title="Install Passbolt CE Digital Ocean" /><published>2019-03-01T01:00:00+01:00</published><updated>2019-03-01T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/ce/digital-ocean</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/digital-ocean">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2019-04-11T17:17:25+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE Digital Ocean</title><link href="https://help.passbolt.com/hosting/install/ce/digital-ocean" rel="alternate" type="text/html" title="Install Passbolt CE Digital Ocean" /><published>2019-03-01T01:00:00+01:00</published><updated>2019-03-01T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/digital-ocean</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/digital-ocean">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Since march 2019 it is possible to install passbolt easily directly from Digital Ocean.
@@ -23,7 +23,7 @@ it right upfront rather than using the IP address and changing the proper domain
 droplet.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2019/03/digital-ocean/001_create_droplet.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/001_create_droplet.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Create droplet&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -34,7 +34,7 @@ droplet.&lt;/p&gt;
     &lt;/ul&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2019/03/digital-ocean/002_choose_plan.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/002_choose_plan.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Create droplet&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -48,7 +48,7 @@ Choose a hostname and click create.&lt;/p&gt;
 You can copy it and check if it is reachable and up and running.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2019/03/digital-ocean/005_highlight_copy_ip.png&quot; alt=&quot;Copy the IP address&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/005_highlight_copy_ip.png&quot; alt=&quot;Copy the IP address&quot; style=&quot;max-width:;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Copy the IP address&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -75,12 +75,12 @@ Once you’re done, point your browser to the DNS assigned to the droplet: https
 and you will then see the web installation wizard.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2019/03/digital-ocean/007_domain.png&quot; alt=&quot;Provide the DNS name for the SSL script&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/007_domain.png&quot; alt=&quot;Provide the DNS name for the SSL script&quot; style=&quot;max-width:;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Provide the DNS name for the SSL script&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2019/03/digital-ocean/008_select_auto.png&quot; alt=&quot;Choose auto for letsencrypt setup&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/008_select_auto.png&quot; alt=&quot;Choose auto for letsencrypt setup&quot; style=&quot;max-width:;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Choose auto for letsencrypt setup&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -115,7 +115,7 @@ March
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="http://localhost:4000/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T01:00:00+01:00</published><updated>2018-12-04T01:00:00+01:00</updated><id>http://localhost:4000/configure/ldap</id><content type="html" xml:base="http://localhost:4000/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T01:00:00+01:00</published><updated>2018-12-04T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -211,14 +211,14 @@ in this feature you can join the discussion on the
 While logged in as an admin, click on the administration menu item in the top menu, and then click on “Users Directory”&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/12/AD_directory_sync_settings_disabled.png&quot; alt=&quot;Ldap directory settings screen (disabled)&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_settings_disabled.png&quot; alt=&quot;Ldap directory settings screen (disabled)&quot; style=&quot;max-width:660px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory settings screen (disabled)&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Click on the switch next to “Users Directory” to enable the plugin.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/12/AD_directory_sync_settings_enabled.png&quot; alt=&quot;Ldap directory settings screen (enabled)&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_settings_enabled.png&quot; alt=&quot;Ldap directory settings screen (enabled)&quot; style=&quot;max-width:660px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory settings screen (enabled)&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -426,7 +426,7 @@ actually activate it.&lt;/p&gt;
 only if passbolt managed to connect to your directory. If not, it will display an error message.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/12/AD_directory_sync_settings_saved.png&quot; alt=&quot;Ldap directory settings have been saved&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_settings_saved.png&quot; alt=&quot;Ldap directory settings have been saved&quot; style=&quot;max-width:660px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory settings have been saved&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -438,7 +438,7 @@ only if passbolt managed to connect to your directory. If not, it will display a
 a report such as the one below will be displayed.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/12/AD_directory_sync_simulation.png&quot; alt=&quot;Ldap directory sync simulation&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_simulation.png&quot; alt=&quot;Ldap directory sync simulation&quot; style=&quot;max-width:660px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory sync simulation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -474,7 +474,7 @@ December
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="http://localhost:4000/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>http://localhost:4000/configure/mfa/duo</id><content type="html" xml:base="http://localhost:4000/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Duo as a multi factor authentication option.
@@ -483,7 +483,7 @@ of authentication channels (such as HOTP, mobile push, phone calls, etc.) config
 by the Duo account administrator.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-duo-website.png&quot; alt=&quot;Duo website&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-website.png&quot; alt=&quot;Duo website&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Duo website&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -515,7 +515,7 @@ the Duo mobile app on their phone or tablet.&lt;/p&gt;
     &lt;/ul&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-duo-login.png&quot; alt=&quot;Duo mobile application&quot; style=&quot;max-width:250px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-login.png&quot; alt=&quot;Duo mobile application&quot; style=&quot;max-width:250px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Duo mobile application&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -532,7 +532,7 @@ Then log in to the Duo Admin panel at &lt;a href=&quot;https://admin.duosecurity
 you will need to create a passbolt application in Duo.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-duo-admin.png&quot; alt=&quot;Duo administration&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-admin.png&quot; alt=&quot;Duo administration&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Duo administration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -559,7 +559,7 @@ You can then enable or disable the Yubikey provider by providing the user id and
 you gathered in the previous steps. Click “save settings” when you are done.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/12/AD_mfa_org_settings_duo.png&quot; alt=&quot;MFA organization settings for Duo&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_duo.png&quot; alt=&quot;MFA organization settings for Duo&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. MFA organization settings for Duo&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -638,7 +638,7 @@ can proceed with enabling Duo as provider for your user account. It is important
 this to make sure the integration works.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-duo-setup.png&quot; alt=&quot;Passbolt duo setup&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-setup.png&quot; alt=&quot;Passbolt duo setup&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Passbolt duo setup&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -653,7 +653,7 @@ instructions provided by Duo and you should be all set.&lt;/p&gt;
 authentication prompt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-duo-login2.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-login2.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Login prompt&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -676,14 +676,14 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="http://localhost:4000/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>http://localhost:4000/configure/mfa/yubikey</id><content type="html" xml:base="http://localhost:4000/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
 Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-yubikey-login.jpg&quot; alt=&quot;Using a Yubikey at login&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-yubikey-login.jpg&quot; alt=&quot;Using a Yubikey at login&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Using a Yubikey at login&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -710,7 +710,7 @@ Please note that while it is possible to &lt;a href=&quot;https://developers.yub
 this approach is not supported by Passbolt at the moment.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-yubikey-admin.png&quot; alt=&quot;Yubicloud registration&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-yubikey-admin.png&quot; alt=&quot;Yubicloud registration&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Yubicloud registration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -746,7 +746,7 @@ You can then enable or disable the Yubikey provider by providing the user id and
 you gathered in the previous steps. Click “save settings” when you are done.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/12/AD_mfa_org_settings_yubikey.png&quot; alt=&quot;MFA organization settings for Yubikey&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_yubikey.png&quot; alt=&quot;MFA organization settings for Yubikey&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. MFA organization settings for Yubikey&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -811,7 +811,7 @@ can proceed with enabling Yubikey as provider for your user account. It is impor
 this to make sure the integration works.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-providers.png&quot; alt=&quot;MFA provider selection for passbolt user&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-providers.png&quot; alt=&quot;MFA provider selection for passbolt user&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. MFA provider selection for passbolt user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -824,7 +824,7 @@ to enter a one time password.&lt;/p&gt;
 authentication prompt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/mfa-yubikey-login2.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-yubikey-login2.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Login prompt&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -847,7 +847,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on CentOS 7</title><link href="http://localhost:4000/hosting/install/pro/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt Pro on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/pro/CentOS%207</id><content type="html" xml:base="http://localhost:4000/hosting/install/pro/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/pro/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt Pro on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -904,7 +904,7 @@ curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&qu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -948,7 +948,7 @@ with the flow.&lt;/p&gt;
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -958,7 +958,7 @@ with the flow.&lt;/p&gt;
 can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -973,7 +973,7 @@ covered in this article.&lt;/p&gt;
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -983,7 +983,7 @@ covered in this article.&lt;/p&gt;
 your online purchase. Enter it in the box.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - subscription key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -993,7 +993,7 @@ your online purchase. Enter it in the box.&lt;/p&gt;
 and password.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1005,14 +1005,14 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1021,7 +1021,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1029,7 +1029,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
 the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1039,7 +1039,7 @@ the email address at which you want the wizard to send you a test email and clic
 but you can also change them if you know what you are doing.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1048,7 +1048,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
     &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1058,7 +1058,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
 the configuration process is going on.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1066,7 +1066,7 @@ the configuration process is going on.&lt;/p&gt;
 to the user setup process so that you can configure your user account.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1085,7 +1085,7 @@ next step.&lt;/p&gt;
 mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1094,7 +1094,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1103,7 +1103,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1114,7 +1114,7 @@ or losing your computer and not having a backup for example), your encrypted dat
 passphrase.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1124,7 +1124,7 @@ passphrase.&lt;/p&gt;
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1151,7 +1151,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="http://localhost:4000/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1220,7 +1220,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1264,7 +1264,7 @@ with the flow.&lt;/p&gt;
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1274,7 +1274,7 @@ with the flow.&lt;/p&gt;
 can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1289,7 +1289,7 @@ covered in this article.&lt;/p&gt;
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1299,7 +1299,7 @@ covered in this article.&lt;/p&gt;
 and password.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1311,14 +1311,14 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1327,7 +1327,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1335,7 +1335,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
 the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1345,7 +1345,7 @@ the email address at which you want the wizard to send you a test email and clic
 but you can also change them if you know what you are doing.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1354,7 +1354,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
     &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1364,7 +1364,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
 the configuration process is going on.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1372,7 +1372,7 @@ the configuration process is going on.&lt;/p&gt;
 to the user setup process so that you can configure your user account.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1391,7 +1391,7 @@ next step.&lt;/p&gt;
 mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1400,7 +1400,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1409,7 +1409,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1420,7 +1420,7 @@ or losing your computer and not having a backup for example), your encrypted dat
 passphrase.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1430,7 +1430,7 @@ passphrase.&lt;/p&gt;
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1470,7 +1470,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 9 (Stretch)</title><link href="http://localhost:4000/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/ce/Debian%209%20(Stretch)</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1529,7 +1529,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1573,7 +1573,7 @@ with the flow.&lt;/p&gt;
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1583,7 +1583,7 @@ with the flow.&lt;/p&gt;
 can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1598,7 +1598,7 @@ covered in this article.&lt;/p&gt;
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1608,7 +1608,7 @@ covered in this article.&lt;/p&gt;
 and password.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1620,14 +1620,14 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1636,7 +1636,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1644,7 +1644,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
 the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1654,7 +1654,7 @@ the email address at which you want the wizard to send you a test email and clic
 but you can also change them if you know what you are doing.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1663,7 +1663,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
     &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1673,7 +1673,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
 the configuration process is going on.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1681,7 +1681,7 @@ the configuration process is going on.&lt;/p&gt;
 to the user setup process so that you can configure your user account.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1700,7 +1700,7 @@ next step.&lt;/p&gt;
 mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1709,7 +1709,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1718,7 +1718,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1729,7 +1729,7 @@ or losing your computer and not having a backup for example), your encrypted dat
 passphrase.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1739,7 +1739,7 @@ passphrase.&lt;/p&gt;
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1779,7 +1779,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="http://localhost:4000/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="http://localhost:4000/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/Ubuntu%2018.04%20(Bionic%20Beaver)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1848,7 +1848,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1892,7 +1892,7 @@ with the flow.&lt;/p&gt;
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1902,7 +1902,7 @@ with the flow.&lt;/p&gt;
 can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1917,7 +1917,7 @@ covered in this article.&lt;/p&gt;
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1927,7 +1927,7 @@ covered in this article.&lt;/p&gt;
 your online purchase. Enter it in the box.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - subscription key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1937,7 +1937,7 @@ your online purchase. Enter it in the box.&lt;/p&gt;
 and password.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1949,14 +1949,14 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1965,7 +1965,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1973,7 +1973,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
 the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1983,7 +1983,7 @@ the email address at which you want the wizard to send you a test email and clic
 but you can also change them if you know what you are doing.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -1992,7 +1992,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
     &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2002,7 +2002,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
 the configuration process is going on.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2010,7 +2010,7 @@ the configuration process is going on.&lt;/p&gt;
 to the user setup process so that you can configure your user account.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2029,7 +2029,7 @@ next step.&lt;/p&gt;
 mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2038,7 +2038,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2047,7 +2047,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2058,7 +2058,7 @@ or losing your computer and not having a backup for example), your encrypted dat
 passphrase.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2068,7 +2068,7 @@ passphrase.&lt;/p&gt;
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2095,7 +2095,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="http://localhost:4000/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="http://localhost:4000/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -2154,7 +2154,7 @@ wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2198,7 +2198,7 @@ with the flow.&lt;/p&gt;
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2208,7 +2208,7 @@ with the flow.&lt;/p&gt;
 can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2223,7 +2223,7 @@ covered in this article.&lt;/p&gt;
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2233,7 +2233,7 @@ covered in this article.&lt;/p&gt;
 your online purchase. Enter it in the box.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png&quot; alt=&quot;wizard - subscription key&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - subscription key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2243,7 +2243,7 @@ your online purchase. Enter it in the box.&lt;/p&gt;
 and password.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2255,14 +2255,14 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2271,7 +2271,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2279,7 +2279,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
 the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2289,7 +2289,7 @@ the email address at which you want the wizard to send you a test email and clic
 but you can also change them if you know what you are doing.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2298,7 +2298,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
     &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2308,7 +2308,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
 the configuration process is going on.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2316,7 +2316,7 @@ the configuration process is going on.&lt;/p&gt;
 to the user setup process so that you can configure your user account.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2335,7 +2335,7 @@ next step.&lt;/p&gt;
 mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2344,7 +2344,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2353,7 +2353,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2364,7 +2364,7 @@ or losing your computer and not having a backup for example), your encrypted dat
 passphrase.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2374,7 +2374,7 @@ passphrase.&lt;/p&gt;
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2401,7 +2401,7 @@ November
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on CentOS 7</title><link href="http://localhost:4000/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt CE on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>http://localhost:4000/hosting/install/ce/CentOS%207</id><content type="html" xml:base="http://localhost:4000/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on CentOS 7</title><link href="https://help.passbolt.com/hosting/install/ce/centos-7.html" rel="alternate" type="text/html" title="Install Passbolt CE on CentOS 7" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/CentOS%207</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/centos-7.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -2458,7 +2458,7 @@ curl &lt;span class=&quot;nt&quot;&gt;-L&lt;/span&gt; &lt;span class=&quot;nt&qu
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png&quot; alt=&quot;execute the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. execute the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2502,7 +2502,7 @@ with the flow.&lt;/p&gt;
     &lt;p&gt;Your environment is now ready to support passbolt.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png&quot; alt=&quot;completion of the install script&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. completion of the install script&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2512,7 +2512,7 @@ with the flow.&lt;/p&gt;
 can be reached. You will reach a getting started page.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2527,7 +2527,7 @@ covered in this article.&lt;/p&gt;
 “Start configuration” when ready.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2537,7 +2537,7 @@ covered in this article.&lt;/p&gt;
 and password.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2549,14 +2549,14 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;Import a key if you already have one and you want your server to use it.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2565,7 +2565,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
     &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2573,7 +2573,7 @@ authenticate itself during the login handshake process.&lt;/p&gt;
 the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2583,7 +2583,7 @@ the email address at which you want the wizard to send you a test email and clic
 but you can also change them if you know what you are doing.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2592,7 +2592,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
     &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2602,7 +2602,7 @@ but you can also change them if you know what you are doing.&lt;/p&gt;
 the configuration process is going on.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2610,7 +2610,7 @@ the configuration process is going on.&lt;/p&gt;
 to the user setup process so that you can configure your user account.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2629,7 +2629,7 @@ next step.&lt;/p&gt;
 mesure that will help later your users to identify you passbolt instance.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/url-check.png&quot; alt=&quot;Validation of the domain&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Validation of the domain&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2638,7 +2638,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png&quot; alt=&quot;Generate a key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Generate a key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2647,7 +2647,7 @@ mesure that will help later your users to identify you passbolt instance.&lt;/p&
     &lt;p&gt;Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png&quot; alt=&quot;setting a passphrase&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. setting a passphrase&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2658,7 +2658,7 @@ or losing your computer and not having a backup for example), your encrypted dat
 passphrase.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png&quot; alt=&quot;backup your key&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. backup your key&lt;/span&gt;
 &lt;/figure&gt;
 
@@ -2668,7 +2668,7 @@ passphrase.&lt;/p&gt;
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
 
     &lt;figure&gt;
-    &lt;img src=&quot;http://localhost:4000/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:450px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
 &lt;/figure&gt;
 

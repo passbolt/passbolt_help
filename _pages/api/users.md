@@ -515,7 +515,7 @@ The user making the request is not authenticated.
 ## Creating a new User
 
 {% include messages/notice.html
-    content="**Important:** Only users with Admin role can create other users."
+    content="<b>Important:</b> Only users with Admin role can create other users."
 %}
 
 To create a new User, make a POST request to /users.json?api-version=v2 with the user data in request body.
@@ -729,7 +729,7 @@ GET /users/<userId>.json
 ```
 
 {% include messages/notice.html
-    content="**Pro Tip:** Making a GET request to /users/me.json will return the currently logged in user."
+    content="<b>Pro Tip:</b> Making a <code>GET</code> request to <code>/users/me.json</code> will return the currently logged in user."
 %}
 
 

@@ -1,6 +1,6 @@
 ---
 title: Permission
-layout: api
+layout: api_resource
 category: api
 slug: permissions
 permalink: /api/resources/permissions/index.html

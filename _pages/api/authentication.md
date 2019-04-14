@@ -78,7 +78,7 @@ As mentioned earlier it is recommended, but optional, for a client to verify the
 
 
 1. Creating a cryptographically secure random token and store it locally.
-2. Encrypt it for the server using the broadcasted public key.
+2. Encrypt it for the server using the [broadcasted public key](/api#accessing-passbolt-server-public-key).
 3. Make a POST request to /auth/verify.json and send the token in request body under gpg_auth[‘server_verify_token’]
 
 ```php
@@ -90,7 +90,7 @@ As mentioned earlier it is recommended, but optional, for a client to verify the
 ]
 ```
 
-4. In the response look for the “X-GPGAuth-Verify-Response” header and check if it’s value matches with the locally stored value in step a.
+4. In the response look for the “X-GPGAuth-Verify-Response” header and check if it’s value matches with the locally stored value in step 1.
 5. Proceed to the login step only if they match. 
 
 ### Login Steps
@@ -137,11 +137,22 @@ Step 1.1: A matching key is not found. The server returns a `HTTP NOT FOUND` res
 
 Step 1.2: A matching key is found. The server then generates a random token, stores and encrypts it with the user’s public key found in the previous step. The encrypted token is then sent in the `X-GPGAuth-User-Auth-Token` header to the client.
 
+```
+x-frame-options: sameorigin
+X-GPGAuth-Authenticated: false
+X-GPGAuth-Login-URL: /auth/login
+X-GPGAuth-Logout-URL: /auth/logout
+X-GPGAuth-Progress: stage1
+X-GPGAuth-Pubkey-URL: /auth/verify.json
+X-GPGAuth-User-Auth-Token: -----BEGIN\+PGP\+MESSAGE-----
+X-GPGAuth-Verify-URL: /auth/verify
+X-GPGAuth-Version: 1.3.0
+x-permitted-cross-domain-policies: all
+x-xss-protection: 1; mode=block
+```
 
-
-{% include articles/figure.html
-    url="/assets/img/help/2019/04/server_response_after_login_step_1.2.png"
-    legend="Server response after login step 1.2"
+{% include messages/notice.html
+    content="For better readability the usual response headers like <code>Cache-Control, Content-Type, Date, Expires</code> etc. are omitted above."
 %}
 
 

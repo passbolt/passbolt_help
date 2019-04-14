@@ -1,12 +1,12 @@
 ---
 title: Favorite
-layout: api
+layout: api_resource
 category: api
 slug: favorites
 permalink: /api/resources/favorites/index.html
 ---
 
-Favorite endpoints are used to add or remove a resource from your favorites.
+The Favorite endpoints are used to add or remove a Resource from your favorites.
 
 
 ## The Favorite object

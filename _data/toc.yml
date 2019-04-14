@@ -101,8 +101,8 @@
       icon: fa-key
       teaser: Use Duo as multi factor authentication provider
       version: pro
-- title: Api
-  slug: api
+- title: API
+  slug: /api
   teaser: Use Passbolt API
   items:
     - title: Introduction to API

@@ -275,7 +275,7 @@ Please note that only users with Admin role can create a group. To create a new 
   <tr>
    <td>groups_users
    </td>
-   <td>An array of group_user objects.
+   <td>An array of GroupsUser objects.
    </td>
    <td>Yes
    </td>
@@ -373,7 +373,7 @@ And a valid request body will look like
 ```json
 {
   "name": "newgroup",
-  "group_users": [{
+  "groups_users": [{
     "user_id": "<uuid_of_the_user_to_add>",
     "is_admin": true
   }, {

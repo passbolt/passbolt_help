@@ -6,16 +6,22 @@ notsearchable: true
 slug: introduction
 permalink: /api/index.html
 ---
-Passbolt provides a bunch of REST API endpoints that can be used to access and interact with almost all the aspects of it. Below are detailed documentation of these endpoints, their request/response schema and some relevant code examples to get you started. 
+
+This document describes passbolt backend APIs. They work over HTTPS so they are language/framework agnostic. You can integrate passbolt services into your existing workflow using the language of your choice.
+
+
+## API Reference
 
 If you are familiar with the APIs and only looking for their implementation details, there is a repo with our latest OpenAPI 2.0 specifications published at:
 
 [https://github.com/passbolt/passbolt_openapi_specs](https://github.com/passbolt/passbolt_openapi_specs)
 
+## Base URL
 
-## Structure of this document
+The API is served over HTTPS. All URLs referenced in the documentation have the following base: <code>https://&lt;passbolt.your_org.com&gt;</code> where <code>passbolt.your_org.com</code> is your passbolt installation domain.
 
-The APIs are grouped around the data that they interact with.
+
+
 
 ## Getting Started
 
@@ -23,8 +29,8 @@ To get started with the passbolt REST API (hence referred to as “APIs”) you 
 
 
 
-*   a running passbolt server instance.
-*   Ability to use GnuPG (directly or via GpgMe) or an independant OpenPGP implementation in your favorite language. There are various language libraries available that let you do it, like OpenPGP.js for Javascript and Php Gnupg/Openpgp-php for PHP.
+*   A running passbolt server instance (Duh!).
+*   Ability to use GnuPG (directly or via [GpgMe](https://www.gnupg.org/software/gpgme/index.html)) or an independant OpenPGP implementation in your favorite language. There are various [language libraries](https://www.gnupg.org/software/libraries.html) available that let you do it, like [OpenPGP.js](https://openpgpjs.org/) for Javascript and [Php Gnupg](https://www.php.net/manual/en/book.gnupg.php)/[Openpgp-php](https://github.com/singpolyma/openpgp-php) for PHP.
 *   A passbolt user account if you want to access protected data. Their public, private keys as well as their passphrase.
 
 ## Response Schema
@@ -59,7 +65,7 @@ passbolt API endpoints return data in an envelope with “header” and “body�
 ```
 
 {% include messages/notice.html
-    content="<b>Important:</b> The <code>title</code> under header in deprecated and will be removed in future release."
+    content="<b>Deprecated:</b> The <code>title</code> under header in deprecated and will be removed in future release."
 %}
 
 

@@ -65,7 +65,7 @@ passbolt API endpoints return data in an envelope with “header” and “body�
 ```
 
 {% include messages/notice.html
-    content="<b>Deprecated:</b> The <code>title</code> under header in deprecated and will be removed in future release."
+    content="<b>Notice:</b> The <code>title</code> under header in deprecated and will be removed in future release."
 %}
 
 
@@ -101,9 +101,9 @@ As you can see, the response body contains two keys, “name” and “secrets�
 
 ## API Versions
 
-Historically passbolt supports two different formats for interacting with the API in order to maintain backward compatibility. 
+Passbolt APIs are versioned. It currently supports version 2 and 1, where v1 is the default and both are supported to ensure backward compatibility. However this will change in the future so please use (or switch) to API version 2 as soon as possible to minimize future refactoring in your application.
 
-Passbolt APIs are versioned. It currently supports version 2 and 1, where v1 is the default, and both are supported to ensure backward compatibility. However this will change in the future so please use (or switch) to API version 2 as soon as possible to minimize future refactoring in your application.
+Historically passbolt supports two different formats for interacting with the API in order to maintain backward compatibility. 
 
 You can  target a specific API version by including a query string `api-version` in your requests. For example to get a list of all resources using version 1, you can do
 
@@ -128,20 +128,6 @@ It’ll result in something like
     "body": [
         {
             "Resource": {
-                "id": "603ac201-d5cb-4097-98b7-ac59d5269a4e",
-                "name": "      f",
-                "username": null,
-                "uri": null,
-                "description": null,
-                "deleted": false,
-                "created": "2019-04-06 09:41:33",
-                "modified": "2019-04-06 09:41:33",
-                "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
-                "modified_by": "f848277c-5398-58f8-a82a-72397af2d450"
-            }
-        },
-        {
-            "Resource": {
                 "id": "8e3874ae-4b40-590b-968a-418f704b9d9a",
                 "name": "apache",
                 "username": "www-data",
@@ -153,7 +139,21 @@ It’ll result in something like
                 "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
                 "modified_by": "f848277c-5398-58f8-a82a-72397af2d450"
             }
-        }
+        },
+        {
+            "Resource": {
+                "id": "09c790c0-c003-53c8-a640-25d33cfebc22",
+                "name": "bower",
+                "username": "bower",
+                "uri": "bower.io",
+                "description": "A package manager for the web!",
+                "deleted": false,
+                "created": "2017-04-04 12:05:58",
+                "modified": "2018-04-04 12:05:58",
+                "created_by": "640ebc06-5ec1-5322-a1ae-6120ed2f3a74",
+                "modified_by": "640ebc06-5ec1-5322-a1ae-6120ed2f3a74"
+            }
+        },
     ]
 }
 ```
@@ -182,18 +182,6 @@ And will return a response body like
     },
     "body": [
         {
-            "id": "603ac201-d5cb-4097-98b7-ac59d5269a4e",
-            "name": "      f",
-            "username": null,
-            "uri": null,
-            "description": null,
-            "deleted": false,
-            "created": "2019-04-06T09:41:33+00:00",
-            "modified": "2019-04-06T09:41:33+00:00",
-            "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
-            "modified_by": "f848277c-5398-58f8-a82a-72397af2d450"
-        },
-        {
             "id": "8e3874ae-4b40-590b-968a-418f704b9d9a",
             "name": "apache",
             "username": "www-data",
@@ -204,12 +192,24 @@ And will return a response body like
             "modified": "2019-04-03T12:05:58+00:00",
             "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
             "modified_by": "f848277c-5398-58f8-a82a-72397af2d450"
-        }
+        },
+        {
+            "id": "09c790c0-c003-53c8-a640-25d33cfebc22",
+            "name": "bower",
+            "username": "bower",
+            "uri": "bower.io",
+            "description": "A package manager for the web!",
+            "deleted": false,
+            "created": "2017-04-04T12:05:58+00:00",
+            "modified": "2018-04-04T12:05:58+00:00",
+            "created_by": "640ebc06-5ec1-5322-a1ae-6120ed2f3a74",
+            "modified_by": "640ebc06-5ec1-5322-a1ae-6120ed2f3a74"
+        },
     ]
 }
 ```
 
-This time the associated fields like “modifier”, “creator” and “tags” are all part of the single “Resource” object they belong to. This is just one of the major changes over `v1`. To see  the complete changelog please visit the repo.
+This time the associated fields like “modifier”, “creator” and “tags” are all part of the single “Resource” object they belong to. This is just one of the major changes over `v1`. To see  the complete [changelog](https://github.com/passbolt/passbolt_api/blob/master/CHANGELOG.md) please visit the [repo](https://github.com/passbolt/passbolt_api).
 
 # Encryption
 

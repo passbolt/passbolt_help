@@ -84,7 +84,7 @@ In passbolt, passwords are split into two different entities: Resources and Secr
                 Object containing the user details of the creator
             </td>
             <td>
-                Check User object
+                Check <a href="/api/users/#the-user-object">User object</a>
             </td>
         </tr>
         <tr>
@@ -125,7 +125,7 @@ In passbolt, passwords are split into two different entities: Resources and Secr
                 Favorite details of the resource
             </td>
             <td>
-                Check Favorite object
+                Check <a href="/api/resources/favorites/#the-favorite-object">Favorite object</a>
             </td>
         </tr>
         <tr>
@@ -169,7 +169,7 @@ In passbolt, passwords are split into two different entities: Resources and Secr
                 Object containing the user details of the modifier 
             </td>
             <td>
-                Check User object
+                Check <a href="/api/users/#the-user-object">User object</a>
             </td>
         </tr>
         <tr>
@@ -196,7 +196,7 @@ In passbolt, passwords are split into two different entities: Resources and Secr
                 Permission details as applied on the resource
             </td>
             <td>
-                Check Permission object
+                Check <a href="/api/resources/permissions/#the-permission-object">Permission object</a>
             </td>
         </tr>
         <tr>
@@ -513,7 +513,7 @@ A successful response will have an array of json objects. Each representing a si
 
 ## Create a new Resource:
 
-To create a new Resource, make a POST request to /resources.json with the resource data in request body. The request body expects the following parameters
+To create a new Resource, make a `POST` request to `/resources.json` with the resource data in request body. The request body expects the following parameters
 
 
 <table class="table-parameters">
@@ -689,8 +689,7 @@ and will return a json response like below
         <tr>
             <td>400</td>
             <td>Bad Request<br/>
-            Some of the data validation failed. Check debug headers for more info<sup><a href="#cmnt13"
-                        id="cmnt_ref13">[m]</a></sup></td>
+            Some of the data validation failed. Check debug headers for more info.</td>
         </tr>
         <tr>
             <td>403</td>

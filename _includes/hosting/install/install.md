@@ -76,6 +76,6 @@ tar -xzf passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz
 sudo ./passbolt_{{ product }}_{{ distribution }}_installer.sh
 ```
 
-{% include /hosting/install/wizard/install-scripts.md %}
+{% include hosting/install/wizard/install-scripts.md %}
 {% include hosting/install/wizard/server.md %}
 {% include hosting/install/wizard/admin.md %}

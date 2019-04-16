@@ -269,6 +269,13 @@ subsequent updates.</p>
 For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
 php module.</p>
 
+    <p><div class="message warning">
+    <strong>Do not set a passphrase or an expiration date</strong>
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    Similarly do not set an expiration date. Otherwise all your users will need to
+    perform an account recovery when you will eventually need to update the key.
+</div></p>
+
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gpg <span class="nt">--gen-key</span>
 </code></pre></div>    </div>
 

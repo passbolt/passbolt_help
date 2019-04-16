@@ -58,6 +58,8 @@ Generate a key if you don't have one.
 
 Import a key if you already have one and you want your server to use it.
 
+{% include hosting/install/warning-gpg-key-generation.html %}
+
 {% if product == 'pro' %}
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-pro-server-key-import.png" legend="wizard - import a key pair" width="586px" %}
 {% else %}

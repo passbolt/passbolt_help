@@ -281,7 +281,7 @@ Use this option only if you have a domain name that is reachable by the outside 
       <li><strong>none</strong>: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
     </ul>
 
-    <h3 id="gnupg-entropy">GnuPG entropy</h3>
+    <h3 id="common-gnupg-issues">Common GnuPG issues</h3>
 
     <p>On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -289,6 +289,13 @@ Therefore, Passbolt will not run properly. The script needs to know if you want 
 
     <p>Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
 the risks before answering yes to this question.</p>
+
+    <p><div class="message warning">
+    <strong>Do not set a passphrase or an expiration date</strong>
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    Similarly do not set an expiration date. Otherwise all your users will need to
+    perform an account recovery when you will eventually need to update the key.
+</div></p>
 
     <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
 with the flow.</p>
@@ -348,6 +355,13 @@ authenticate itself during the login handshake process.</p>
 </figure>
 
     <p>Import a key if you already have one and you want your server to use it.</p>
+
+    <p><div class="message warning">
+    <strong>Do not set a passphrase or an expiration date</strong>
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    Similarly do not set an expiration date. Otherwise all your users will need to
+    perform an account recovery when you will eventually need to update the key.
+</div></p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />

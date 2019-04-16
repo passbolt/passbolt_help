@@ -26,7 +26,7 @@ example: my-passbolt.acme.com
 Use this option only if you have a domain name that is reachable by the outside world, or it will not work.
 - **none**: choose this option if you don't want your webserver to run https. This is not recommended.
 
-### GnuPG entropy
+### Common GnuPG issues
 
 On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
@@ -34,6 +34,8 @@ Therefore, Passbolt will not run properly. The script needs to know if you want 
 
 Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
 the risks before answering yes to this question.
+
+{% include hosting/install/warning-gpg-key-generation.html %}
 
 For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
 with the flow.

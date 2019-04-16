@@ -69,6 +69,8 @@ Passbolt API uses an OpenPGP key for the server in order to authenticate and sig
 For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
 php module. 
 
+{% include hosting/install/warning-gpg-key-generation.html %}
+
 ```shell
 $ gpg --gen-key
 ```

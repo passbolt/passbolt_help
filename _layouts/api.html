@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{% include common/head.html %}
+<body>
+<div id="container" class="help page background">
+{% include common/header.html %}
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            {% include sidebar/api.html selected=page.category %}
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    {% include breadcrumbs/default.html selected=page.category %}
+
+                    {% include layout/row_start.html %}
+                        {% include layout/col_start.html column="8" %}
+                         <h1>{{ page.title }}</h1>
+                            {{ content }}
+                        {% include layout/col_end.html %}
+
+                    {% include layout/col_start.html column="4 last push1" %}
+                        
+                    {% include layout/col_end.html %}
+                    {% include layout/row_end.html %}
+
+                    {% if page.notsearchable %}{% else %}
+                    {% include layout/row_start.html %}
+                        {% include layout/col_start.html column="7" %}
+                            {% include faq/list-by-category.html category=page.category %}
+                        {% include layout/col_end.html %}
+
+                    {% include layout/col_start.html column="4 last push1" %}
+                    {% include layout/col_end.html %}
+
+                    {% include layout/col_end.html %}
+
+                    {% include layout/row_end.html %}
+                    {% endif %}
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+{% include common/footer.html %}
+</div>
+{% include common/analytics.html %}
+</body>
+</html>

@@ -17,3 +17,43 @@ faq:
   - title: Legal
     slug: legal
     url: /faq/legal
+
+api:
+  - title: Introduction
+    slug: introduction
+    url: /api
+  - title: Authentication
+    slug: authentication
+    url: /api/authentication
+  - title: Resources
+    slug: resources
+    url: /api/resources
+  - title: Users
+    slug: users
+    url: /api/users
+  - title: Groups
+    slug: groups
+    url: /api/groups
+  - title: GPG Keys
+    slug: gpgkeys
+    url: /api/gpgkeys
+  - title: Comments
+    slug: comments
+    url: /api/comments
+
+api_resource:
+  - title: Resources
+    slug: resources
+    url: /api/resources
+  - title: Sharing
+    slug: sharing
+    url: /api/resources/sharing/
+  - title: Permission
+    slug: permissions
+    url: /api/resources/permissions/
+  - title: Favorite
+    slug: favorites
+    url: api/resources/favorites/
+  - title: Back to API
+    slug: api
+    url: api

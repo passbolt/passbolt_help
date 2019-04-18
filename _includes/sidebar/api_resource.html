@@ -1,0 +1,16 @@
+<div class="navigation wizard" role="navigation">
+    <ul>
+        <li><h2>Resources</h2></li>
+        {% for item in site.data.sidebars.api_resource %}
+  
+        {% if item.slug == page.slug %}
+        <li class="selected">
+        {% else %}
+        <li>
+        {% endif %}
+            <a href="{{ item.url | absolute_url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+  </div>
+  

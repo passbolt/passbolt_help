@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v2.8.4 | Where is my mind</title>
+    <link>https://help.passbolt.com/releases/ce/v284-where-is-my-mind</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v284-where-is-my-mind</guid>
+    <description>This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs reported by the community. The API has also now been fully documented. It is in 2 parts: the API documentation which is available on our help website, and the API reference which...</description>
+    <pubDate>Wed, 17 Apr 2019 19:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.8.3 | Blue Monday</title>
     <link>https://help.passbolt.com/releases/ce/v283-blue-monday</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v283-blue-monday</guid>

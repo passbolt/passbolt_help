@@ -1,0 +1,38 @@
+<div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="{{ absolute_url }}"><span>help</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="{{ absolute_url }}/api"><span>api</span></a>
+                    </div>
+                </li>
+                {% assign categories = page.category | split: "," %}
+                {% if categories[1] %}
+                <li>
+                    <div class="main-cell">
+                        <a href="{{ absolute_url }}/api/{{ categories[1] }}"><span>{{ categories[1] }}</span></a>
+                    </div>
+                </li>
+                {% endif %}
+                {% if categories[2] %}
+                <li>
+                    <div class="main-cell">
+                        <a href="{{ page.url | absolute_url }}"><span>{{ categories[2] }}</span></a>
+                    </div>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

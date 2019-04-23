@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Passbolt | Help</title>
+    <title>Passbolt Help | Help homepage</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Passbolt | Help" />
+    <meta property="og:title" content="Help homepage" />
     <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
@@ -78,7 +78,7 @@
     </div>
 <div class="panel main">
     <div class="panel left">
-        <div class="navigation wizard" role="navigation">
+        <div class="navigation-help" role="navigation">
     <ul>
         <li><h2>Passbolt Help</h2></li>
         
@@ -108,7 +108,7 @@
         
         <li >
             
-            <a href="https://help.passbolt.com/api">API</a>
+            <a href="https://help.passbolt.com/extend">Extend</a>
             
         </li>
         
@@ -524,6 +524,79 @@
 
 
 
+<div class="row">
+    <div class="col12">
+        <h2>Extend</h2>
+    </div>
+</div>
+<div class="row">
+    
+    
+    <div class="col4 ">
+        
+        <a class="tile" href="https://help.passbolt.com/api">
+            
+                
+                <span class="tile-teaser"><i class="fa fa-code fa-fw"></i></span>
+                <span class="tile-title">API Documentation</span>
+                <span class="tile-description">Build on top of passbolt</span>
+            </a>
+    </div>
+    
+    
+    <div class="col4 ">
+        
+        <a class="tile" href="https://api-reference.passbolt.com/">
+            
+                
+                <span class="tile-teaser"><i class="fa fa-plug fa-fw"></i></span>
+                <span class="tile-title">API Reference</span>
+                <span class="tile-description">Browse API in Swagger UI</span>
+            </a>
+    </div>
+    
+    
+    <div class="col4 last">
+        
+        <a class="tile" href="https://help.passbolt.com/tech/auth">
+            
+                
+                <span class="tile-teaser"><i class="fa fa-sign-in fa-fw"></i></span>
+                <span class="tile-title">Authentication</span>
+                <span class="tile-description">How does GPG Authentication work?</span>
+            </a>
+    </div>
+    
+    
+    <div class="col4 ">
+        
+        <a class="tile" href="https://www.github.com/passbolt">
+            
+                
+                <span class="tile-teaser"><i class="fa fa-github fa-fw"></i></span>
+                <span class="tile-title">Github</span>
+                <span class="tile-description">Want to see the code? This way!</span>
+            </a>
+    </div>
+    
+</div>
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+
+
+
 
 
 <div class="row">
@@ -560,30 +633,6 @@
     
     <div class="col4 last">
         
-        <a class="tile" href="https://help.passbolt.com/tech/auth">
-            
-                
-                <span class="tile-teaser"><i class="fa fa-lock fa-fw"></i></span>
-                <span class="tile-title">Authentication</span>
-                <span class="tile-description">How does GPG Authentication work?</span>
-            </a>
-    </div>
-    
-    
-    <div class="col4 ">
-        
-        <a class="tile" href="https://www.github.com/passbolt">
-            
-                
-                <span class="tile-teaser"><i class="fa fa-github fa-fw"></i></span>
-                <span class="tile-title">Github</span>
-                <span class="tile-description">Want to see the code? This way!</span>
-            </a>
-    </div>
-    
-    
-    <div class="col4 ">
-        
         <a class="tile" href="https://github.com/passbolt/passbolt_api/issues/new">
             
                 
@@ -594,7 +643,7 @@
     </div>
     
     
-    <div class="col4 last">
+    <div class="col4 ">
         
         <a class="tile" href="https://careers.passbolt.com">
             
@@ -723,23 +772,14 @@
         </div>
     </footer>
 </div>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//passbolt.piwikpro.com/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
 </script>
-<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 </html>

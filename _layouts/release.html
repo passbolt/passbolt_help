@@ -6,7 +6,7 @@
 {% include common/header.html %}
     <div class="panel main" aria-label="Content">
         <div class="panel left">
-            <div class="navigation wizard scrollspy" role="navigation">
+            <div class="navigation-help scrollspy" role="navigation">
                 <ul class="nav">
                     <li><h2>Last releases ({{page.product}})</h2></li>
                     {% assign items = site.releases | sort: 'date' | reverse %}

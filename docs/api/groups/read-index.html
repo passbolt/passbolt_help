@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | List all groups</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="List all groups" />
+    <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/api/groups/read-index">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+        <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/api/groups/groups-read-index.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+  <ul>
+      <li><h2>API Documentation</h2></li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api">Introduction</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/resources">Resources</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/users">Users</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/groups">Groups</a>
+
+          
+          
+          <ul>
+              
+              
+              <li class="selected">
+              
+                  <a id='groups-read-index' href="https://help.passbolt.com/api/groups/read-index">Index</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-read' href="https://help.passbolt.com/api/groups/read">Read</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-create' href="https://help.passbolt.com/api/groups/create">Create</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-update' href="https://help.passbolt.com/api/groups/update">Update</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-delete' href="https://help.passbolt.com/api/groups/delete">Delete</a>
+              </li>
+              
+          </ul>
+          
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/comments">Comments</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+
+          
+
+      </li>
+      
+  </ul>
+</div>
+
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href=""><span>help</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/api"><span>api</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="/api/groups"><span>groups</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/api/groups/read-index"><span>read-index</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                    <div class="row" markdown="1">
+                    <div class="col8" markdown="1">
+                    <h1>List all groups</h1>
+                    <p>To fetch a list of all the groups the current user making the request has access to, you can make 
+a <code class="highlighter-rouge">GET</code> request to <code class="highlighter-rouge">/groups.json</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /groups.json?api-version=v2
+</code></pre></div></div>
+<h3 id="parameters">Parameters</h3>
+
+<p>The endpoint takes the following parameters:</p>
+
+<table class="table-parameters">
+<thead>
+  <tr>
+   <th>Param
+   </th>
+   <th>Description
+   </th>
+   <th>Required
+   </th>
+   <th>Type
+   </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+   <td>api-version
+   </td>
+   <td>The API version to target
+   </td>
+   <td>No
+   </td>
+   <td>String
+   </td>
+  </tr>
+  <tr>
+   <td>filter
+   </td>
+   <td>Filters the result
+   </td>
+   <td>No
+   </td>
+   <td>Array
+   </td>
+  </tr>
+  <tr>
+   <td>filter[has-users]
+   </td>
+   <td>List all the groups that contain a specific user.
+   </td>
+   <td>No
+   </td>
+   <td>Array of user UUID
+   </td>
+  </tr>
+  <tr>
+   <td>filter[has-manager]
+   </td>
+   <td>List all the groups that contain a specific user as their group manager.
+   </td>
+   <td>No
+   </td>
+   <td>Array of user UUID
+   </td>
+  </tr>
+  <tr>
+   <td>contain[modifier]
+   </td>
+   <td>Passing 1 will include the info of the user that last modified the group
+   </td>
+   <td>No
+   </td>
+   <td>Boolean
+   </td>
+  </tr>
+  <tr>
+     <td>contain[user]
+     </td>
+     <td>Passing 1 will include the info of the users belonging to the group
+     </td>
+     <td>No
+     </td>
+     <td>Boolean
+     </td>
+  </tr>
+  <tr>
+   <td>contain[group_user]
+   </td>
+   <td>Passing 1 will include the info of the relationship of the users with the group.
+    Usefull to know if they are admin or not for example.
+   </td>
+   <td>No
+   </td>
+   <td>Boolean
+   </td>
+  </tr>
+  <tr>
+   <td>order[Group.name]
+   </td>
+   <td>Sort by group name
+   </td>
+   <td>No
+   </td>
+   <td>ASC|DESC
+   </td>
+  </tr>
+  </tbody>
+</table>
+
+<h3 id="possible-responses">Possible responses</h3>
+
+<table class="table-parameters">
+<thead>
+  <tr>
+   <th>Code
+   </th>
+   <th>Description
+   </th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+   <td>200
+   </td>
+   <td>OK<br />
+Request went through. The response payload will contain a list of matching users.
+   </td>
+  </tr>
+  <tr>
+   <td>403
+   </td>
+   <td>Authentication Failure<br />
+The user making the request is not authenticated.
+   </td>
+  </tr>
+  </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+<h3 id="request-with-filters">Request with filters</h3>
+
+<p>So a request to fetch list of groups and to</p>
+
+<ul>
+  <li>include <strong>Users</strong></li>
+  <li>Sort ASCending by group name</li>
+  <li>Using api-version v2</li>
+</ul>
+
+<p>will look like this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /groups.json?api-version=v2
+  &amp;contain[user]=1
+  &amp;order[]=Group.name+ASC
+  
+</code></pre></div></div>
+
+<h3 id="response-success">Response success</h3>
+<p>A successful response will have an array of json objects. Each representing a single group. 
+Something like this example below:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f5f4aceb-6919-4b7d-8b33-2c22f463192d"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554983137</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_groups_index_success"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3cffe6ef-ea4c-5bc3-869b-945f26e2601a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">groups.json?contain%5Buser%5D=1</span><span class="se">\u</span><span class="s2">0026order%5B%5D=Group.name+ASC</span><span class="se">\u</span><span class="s2">0026api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b7cbce9f-6a20-545b-b20a-fcf4092307df"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource planning"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-29T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-29T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d51c3a8-5e67-5e3d-882f-e1868966d817"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"admin@passbolt.com"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"_joinData"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d100fc5d-6685-50aa-897b-87ac816e28c8"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b7cbce9f-6a20-545b-b20a-fcf4092307df"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:52+00:00"</span><span class="w">
+                    </span><span class="p">},</span><span class="w">
+                    </span><span class="s2">"last_logged_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+
+                    <div class="last-updated" markdown="1">
+<h3>Last updated</h3>
+This article was last updated on 
+April
+23rd,
+2019.
+</div>
+                    </div>
+
+                    <div class="col4 last" markdown="1">
+                    <div class="tldr" style="margin-top:3em;">
+                        <p>If you are familiar with the high level API concepts and only looking for the endpoint implementation details,
+                            there is a repository with the latest OpenAPI 2.0 specifications (compatible with Swagger).</p>
+                        <a href="https://github.com/passbolt/passbolt_openapi_specs" class="button primary">
+                            OpenAPI Specs
+                        </a>
+                    </div>
+                    </div>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+</script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

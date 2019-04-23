@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | View a users record</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="View a users record" />
+    <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/api/users/read">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+        <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/api/users/users-read.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+  <ul>
+      <li><h2>API Documentation</h2></li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api">Introduction</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/resources">Resources</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/users">Users</a>
+
+          
+          
+          <ul>
+              
+              
+              <li>
+              
+                  <a id='users-read-index' href="https://help.passbolt.com/api/users/read-index">Index</a>
+              </li>
+              
+              
+              <li class="selected">
+              
+                  <a id='users-read' href="https://help.passbolt.com/api/users/read">Read</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='users-create' href="https://help.passbolt.com/api/users/create">Create</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='users-update' href="https://help.passbolt.com/api/users/update">Update</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='users-delete' href="https://help.passbolt.com/api/users/delete">Delete</a>
+              </li>
+              
+          </ul>
+          
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/groups">Groups</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/comments">Comments</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+
+          
+
+      </li>
+      
+  </ul>
+</div>
+
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href=""><span>help</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/api"><span>api</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="/api/users"><span>users</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/api/users/read"><span>read</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                    <div class="row" markdown="1">
+                    <div class="col8" markdown="1">
+                    <h1>View a users record</h1>
+                    <p>You can request information for a given user using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/&lt;userId&gt;.json?api-version=v2
+</code></pre></div></div>
+
+<p>Alternatively you can request information about the current user using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/me.json?api-version=v2
+</code></pre></div></div>
+
+<h3 id="possible-responses">Possible responses</h3>
+
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br />
+            Response includes the user object.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request<br />
+            The user id supplied is not a valid UUID</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br />
+            The user making the request is not authenticated</td>
+        </tr>
+        <tr>
+            <td>404</td>
+            <td>Not Found<br />
+            The users either does not exist.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="examples">Examples</h2>
+<h3 id="success-response">Success response</h3>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"header"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"468aeafe-e1a0-4982-9f13-da9ce1081ab3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"servertime"</span><span class="p">:</span><span class="mi">1556045509</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="s2">"app_users_view_success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="s2">"881ab948-e40f-5a72-91aa-54b442270029"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="s2">"</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">f848277c-5398-58f8-a82a-72397af2d450.json?api-version=v2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"code"</span><span class="p">:</span><span class="mi">200</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"body"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"role_id"</span><span class="p">:</span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="s2">"ada@passbolt.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"active"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deleted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="s2">"2019-02-17T14:45:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="s2">"2019-03-17T14:45:22+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profile"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"99522cc9-0acc-5ae2-b996-d03bded3c0a6"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"Ada"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_name"</span><span class="p">:</span><span class="s2">"Lovelace"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="s2">"2019-04-17T14:45:23+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="s2">"2019-04-17T14:45:23+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"avatar"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"6727ccef-a6c4-4c38-ac57-a1152784e0a1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"foreign_key"</span><span class="p">:</span><span class="s2">"99522cc9-0acc-5ae2-b996-d03bded3c0a6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"model"</span><span class="p">:</span><span class="s2">"Avatar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filename"</span><span class="p">:</span><span class="s2">"ada.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"filesize"</span><span class="p">:</span><span class="mi">170049</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mime_type"</span><span class="p">:</span><span class="s2">"image</span><span class="se">\/</span><span class="s2">png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"extension"</span><span class="p">:</span><span class="s2">"png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"hash"</span><span class="p">:</span><span class="s2">"97e36ab6528e26e3b9f988444ef490f125f49a39"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"path"</span><span class="p">:</span><span class="s2">"Avatar</span><span class="se">\/</span><span class="s2">f4</span><span class="se">\/</span><span class="s2">18</span><span class="se">\/</span><span class="s2">05</span><span class="se">\/</span><span class="s2">6727ccefa6c44c38ac57a1152784e0a1</span><span class="se">\/</span><span class="s2">6727ccefa6c44c38ac57a1152784e0a1.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"adapter"</span><span class="p">:</span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created"</span><span class="p">:</span><span class="s2">"2019-04-15T14:11:46+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"modified"</span><span class="p">:</span><span class="s2">"2019-04-15T14:11:46+00:00"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:{</span><span class="w">
+        </span><span class="s2">"medium"</span><span class="p">:</span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">f4</span><span class="se">\/</span><span class="s2">18</span><span class="se">\/</span><span class="s2">05</span><span class="se">\/</span><span class="s2">6727ccefa6c44c38ac57a1152784e0a1</span><span class="se">\/</span><span class="s2">6727ccefa6c44c38ac57a1152784e0a1.a99472d5.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"small"</span><span class="p">:</span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">f4</span><span class="se">\/</span><span class="s2">18</span><span class="se">\/</span><span class="s2">05</span><span class="se">\/</span><span class="s2">6727ccefa6c44c38ac57a1152784e0a1</span><span class="se">\/</span><span class="s2">6727ccefa6c44c38ac57a1152784e0a1.65a0ba70.png"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"groups_users"</span><span class="p">:[</span><span class="w">
+
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"role"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="s2">"Logged in user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"gpgkey"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="s2">"04481719-5d9d-5e22-880a-a6b9270601d2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"armored_key"</span><span class="p">:</span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"bits"</span><span class="p">:</span><span class="mi">4096</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"uid"</span><span class="p">:</span><span class="s2">"Ada Lovelace </span><span class="se">\u</span><span class="s2">003Cada@passbolt.com</span><span class="se">\u</span><span class="s2">003E"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"key_id"</span><span class="p">:</span><span class="s2">"5D9B054F"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="s2">"03F60E958F4CB29723ACDF761353B5B15D9B054F"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expires"</span><span class="p">:</span><span class="s2">"2019-08-09T12:48:31+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"key_created"</span><span class="p">:</span><span class="s2">"2015-08-09T12:48:31+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"deleted"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created"</span><span class="p">:</span><span class="s2">"2019-04-17T14:45:26+00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"modified"</span><span class="p">:</span><span class="s2">"2019-04-17T14:45:26+00:00"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"last_logged_in"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+                    <div class="last-updated" markdown="1">
+<h3>Last updated</h3>
+This article was last updated on 
+April
+23rd,
+2019.
+</div>
+                    </div>
+
+                    <div class="col4 last" markdown="1">
+                    <div class="tldr" style="margin-top:3em;">
+                        <p>If you are familiar with the high level API concepts and only looking for the endpoint implementation details,
+                            there is a repository with the latest OpenAPI 2.0 specifications (compatible with Swagger).</p>
+                        <a href="https://github.com/passbolt/passbolt_openapi_specs" class="button primary">
+                            OpenAPI Specs
+                        </a>
+                    </div>
+                    </div>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+</script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

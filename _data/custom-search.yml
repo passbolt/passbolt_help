@@ -20,7 +20,8 @@
   content: Passbolt could not exist without the support of the open source community and patience of our families and friends. A special thank you to all of you who gave us a hand and are spreading the word.
   category: legal
 
-- title: How does authentication works in passbolt?
-  url: https://www.passbolt.com/help/tech/auth
-  content: Passbolt instead of a classic form based authentication uses GPGAuth to perform a challenge based authentication based on OpenPGP keys set during the setup.
-  category: legal
+- title: Career
+  url: http://careers.passbolt.com/
+  content: Look for a new job oportunity? Come and work at passbolt.
+  category: careers
+

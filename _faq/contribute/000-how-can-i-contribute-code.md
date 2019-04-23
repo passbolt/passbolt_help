@@ -17,7 +17,7 @@ We currently have 16 repos, only 8 are likely useful to you. However, see all of
 * [Command line interface](https://github.com/passbolt/passbolt_cli) -  Command line interface for passbolt API
 * [Docker](https://github.com/passbolt/passbolt_docker) - Get started with passbolt using docker!
 * [Gatling](https://github.com/passbolt/passbolt_gatling) - Gatling tests for passbolt API performance benchmarking
-* [Javascript framework](https://github.com/passbolt/passbolt-mad) -  The javascript framework of passbolt based on CanJS
+* [JavaScript framework](https://github.com/passbolt/passbolt-mad) -  The javascript framework of passbolt based on CanJS
 * [Selenium](https://github.com/passbolt/passbolt_selenium) - Passbolt Selenium Tests
 * [Styleguide](https://github.com/passbolt/passbolt_styleguide) -  Our style guide :)
 

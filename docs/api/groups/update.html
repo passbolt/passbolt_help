@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Update a group</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Update a group" />
+    <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/api/groups/update">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+        <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/api/groups/groups-update.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+  <ul>
+      <li><h2>API Documentation</h2></li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api">Introduction</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/resources">Resources</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/users">Users</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/groups">Groups</a>
+
+          
+          
+          <ul>
+              
+              
+              <li>
+              
+                  <a id='groups-read-index' href="https://help.passbolt.com/api/groups/read-index">Index</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-read' href="https://help.passbolt.com/api/groups/read">Read</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-create' href="https://help.passbolt.com/api/groups/create">Create</a>
+              </li>
+              
+              
+              <li class="selected">
+              
+                  <a id='groups-update' href="https://help.passbolt.com/api/groups/update">Update</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='groups-delete' href="https://help.passbolt.com/api/groups/delete">Delete</a>
+              </li>
+              
+          </ul>
+          
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/comments">Comments</a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+
+          
+
+      </li>
+      
+  </ul>
+</div>
+
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href=""><span>help</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/api"><span>api</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="/api/groups"><span>groups</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/api/groups/update"><span>update</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                    <div class="row" markdown="1">
+                    <div class="col8" markdown="1">
+                    <h1>Update a group</h1>
+                    <p>A Group can be updated by sending the <code class="highlighter-rouge">PUT</code> request to <code class="highlighter-rouge">/groups/&lt;groupId&gt;.json</code>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;.json?api-version=v2
+</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newgroup"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;existing_userId&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;new_userId&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"secrets"</span><span class="p">:[{</span><span class="w">
+    </span><span class="s2">"resource_id"</span><span class="p">:</span><span class="s2">"&lt;resource_shared_with_group"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="s2">"&lt;new_userId&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="w">
+  </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>When you update a group which has passwords shared with you also need to provide secrets for the new users. 
+The dry-run gives information about this.</p>
+
+<p>A dry run can also be performed before actually attempting to update a group:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;/dry-run.json?api-version=v2
+</code></pre></div></div>
+
+<p>This will check all the constraints and return a 200 OK response if the group can be updated safely.</p>
+
+<h3 id="possible-responses">Possible responses</h3>
+
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br />
+            The group was updated.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request<br />
+            Some of the data validation failed.</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br />
+            The user making the request is not authenticated</td>
+        </tr>
+    </tbody>
+</table>
+
+                    <div class="last-updated" markdown="1">
+<h3>Last updated</h3>
+This article was last updated on 
+April
+23rd,
+2019.
+</div>
+                    </div>
+
+                    <div class="col4 last" markdown="1">
+                    <div class="tldr" style="margin-top:3em;">
+                        <p>If you are familiar with the high level API concepts and only looking for the endpoint implementation details,
+                            there is a repository with the latest OpenAPI 2.0 specifications (compatible with Swagger).</p>
+                        <a href="https://github.com/passbolt/passbolt_openapi_specs" class="button primary">
+                            OpenAPI Specs
+                        </a>
+                    </div>
+                    </div>
+                    </div>
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+        <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+</script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

@@ -101,14 +101,26 @@
       icon: fa-key
       teaser: Use Duo as multi factor authentication provider
       version: pro
-- title: API
-  slug: /api
-  teaser: Use Passbolt API
+- title: Extend
+  slug: extend
+  teaser: Build on top of passbolt
   items:
-    - title: Introduction to API
-      url: /api/introduction
-      icon: fa-address-book-o
-      teaser: introduction to api
+    - title: API Documentation
+      url: /api
+      icon: fa-code
+      teaser: Build on top of passbolt
+    - title: API Reference
+      url: https://api-reference.passbolt.com/
+      icon: fa-plug
+      teaser: Browse API in Swagger UI
+    - title: Authentication
+      url: https://help.passbolt.com/tech/auth
+      icon: fa-sign-in
+      teaser: How does GPG Authentication work?
+    - title: Github
+      url: https://www.github.com/passbolt
+      icon: fa-github
+      teaser: Want to see the code? This way!
 - title: Contribute
   slug: contribute
   teaser: Are you doing your part?
@@ -121,14 +133,6 @@
       url: https://community.passbolt.com/c/backlog
       icon: fa-plus-circle
       teaser: Propose and vote for new ideas!
-    - title: Authentication
-      url: https://help.passbolt.com/tech/auth
-      icon: fa-lock
-      teaser: How does GPG Authentication work?
-    - title: Github
-      url: https://www.github.com/passbolt
-      icon: fa-github
-      teaser: Want to see the code? This way!
     - title: Bug report
       url: https://github.com/passbolt/passbolt_api/issues/new
       icon: fa-bug

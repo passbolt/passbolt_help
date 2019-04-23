@@ -1,6 +1,6 @@
 {% for section in site.data.toc %}
 {% if section.slug == include.categories[0] %}
-<div class="navigation wizard" role="navigation">
+<div class="navigation-help" role="navigation">
     <ul>
         <li><h2>{{ section.title }}</h2></li>
         {% for subsection in section.items %}

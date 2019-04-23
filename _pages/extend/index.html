@@ -1,0 +1,17 @@
+---
+title: Extend
+layout: home
+slug: extend
+permalink: /extend/index.html
+---
+<div class="panel main">
+    <div class="panel left">
+        {% include sidebar/main.html selected=page.slug %}
+    </div>
+    <div class="panel middle">
+        <div class="grid grid-responsive-12">
+            {% include breadcrumbs/default.html slug=page.slug %}
+            {% include cards/section-cards.html slug=page.slug %}
+        </div>
+    </div>
+</div>

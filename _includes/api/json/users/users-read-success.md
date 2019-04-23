@@ -1,0 +1,76 @@
+```json
+{
+  "header":{
+    "id":"468aeafe-e1a0-4982-9f13-da9ce1081ab3",
+    "status":"success",
+    "servertime":1556045509,
+    "title":"app_users_view_success",
+    "action":"881ab948-e40f-5a72-91aa-54b442270029",
+    "message":"The operation was successful.",
+    "url":"\/users\/f848277c-5398-58f8-a82a-72397af2d450.json?api-version=v2",
+    "code":200
+  },
+  "body":{
+    "id":"f848277c-5398-58f8-a82a-72397af2d450",
+    "role_id":"a58de6d3-f52c-5080-b79b-a601a647ac85",
+    "username":"ada@passbolt.com",
+    "active":true,
+    "deleted":false,
+    "created":"2019-02-17T14:45:22+00:00",
+    "modified":"2019-03-17T14:45:22+00:00",
+    "profile":{
+    "id":"99522cc9-0acc-5ae2-b996-d03bded3c0a6",
+    "user_id":"f848277c-5398-58f8-a82a-72397af2d450",
+    "first_name":"Ada",
+    "last_name":"Lovelace",
+    "created":"2019-04-17T14:45:23+00:00",
+    "modified":"2019-04-17T14:45:23+00:00",
+    "avatar":{
+      "id":"6727ccef-a6c4-4c38-ac57-a1152784e0a1",
+      "user_id":"f848277c-5398-58f8-a82a-72397af2d450",
+      "foreign_key":"99522cc9-0acc-5ae2-b996-d03bded3c0a6",
+      "model":"Avatar",
+      "filename":"ada.png",
+      "filesize":170049,
+      "mime_type":"image\/png",
+      "extension":"png",
+      "hash":"97e36ab6528e26e3b9f988444ef490f125f49a39",
+      "path":"Avatar\/f4\/18\/05\/6727ccefa6c44c38ac57a1152784e0a1\/6727ccefa6c44c38ac57a1152784e0a1.png",
+      "adapter":"Local",
+      "created":"2019-04-15T14:11:46+00:00",
+      "modified":"2019-04-15T14:11:46+00:00",
+      "url":{
+        "medium":"img\/public\/Avatar\/f4\/18\/05\/6727ccefa6c44c38ac57a1152784e0a1\/6727ccefa6c44c38ac57a1152784e0a1.a99472d5.png",
+        "small":"img\/public\/Avatar\/f4\/18\/05\/6727ccefa6c44c38ac57a1152784e0a1\/6727ccefa6c44c38ac57a1152784e0a1.65a0ba70.png"
+      }
+    }
+  },
+  "groups_users":[
+
+  ],
+  "role":{
+    "id":"a58de6d3-f52c-5080-b79b-a601a647ac85",
+    "name":"user",
+    "description":"Logged in user",
+    "created":"2012-07-04T13:39:25+00:00",
+    "modified":"2012-07-04T13:39:25+00:00"
+  },
+  "gpgkey":{
+    "id":"04481719-5d9d-5e22-880a-a6b9270601d2",
+    "user_id":"f848277c-5398-58f8-a82a-72397af2d450",
+    "armored_key":"-----BEGIN PGP PUBLIC KEY BLOCK-----",
+    "bits":4096,
+    "uid":"Ada Lovelace \u003Cada@passbolt.com\u003E",
+    "key_id":"5D9B054F",
+    "fingerprint":"03F60E958F4CB29723ACDF761353B5B15D9B054F",
+    "type":"RSA",
+    "expires":"2019-08-09T12:48:31+00:00",
+    "key_created":"2015-08-09T12:48:31+00:00",
+    "deleted":false,
+    "created":"2019-04-17T14:45:26+00:00",
+    "modified":"2019-04-17T14:45:26+00:00"
+    },
+    "last_logged_in":""
+  }
+}
+```

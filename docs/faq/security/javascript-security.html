@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Javascript cryptography is hard but not impossible. If you are new to this topic you can have a look at the articles from Thomas Ptacek or Nate Lawson.">
+    <meta name="description" content="JavaScript cryptography is hard but not impossible. If you are new to this topic you can have a look at the articles from Thomas Ptacek or Nate Lawson.">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Is javascript cryptographically secure?" />
-    <meta property="og:description" content="Javascript cryptography is hard but not impossible. If you are new to this topic you can have a look at the articles from Thomas Ptacek or Nate Lawson." />
+    <meta property="og:description" content="JavaScript cryptography is hard but not impossible. If you are new to this topic you can have a look at the articles from Thomas Ptacek or Nate Lawson." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -79,7 +79,7 @@
 
     <div class="panel main" aria-label="Content">
         <div class="panel left">
-            <div class="navigation wizard" role="navigation">
+            <div class="navigation-help" role="navigation">
     <ul>
         <li><h2>All FAQs</h2></li>
         
@@ -165,7 +165,7 @@
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
                          <h1>Is javascript cryptographically secure?</h1>
-                            <p>Javascript cryptography is hard but not impossible.
+                            <p>JavaScript cryptography is hard but not impossible.
 If you are new to this topic you can have a look at the articles from 
 <a href="https://www.nccgroup.trust/us/about-us/newsroom-and-events/blog/2011/august/javascript-cryptography-considered-harmful/">Thomas Ptacek</a> 
 or 
@@ -177,7 +177,7 @@ number generator. Currently, the recommendation to solve these problems is to us
 Passbolt follows this recommendation.</p>
 
 <p>The other issue has to do with the quality of the javascript implementation of the cryptographic 
-functionalities and the fact that Javascript has its fair share of pitfalls. This is true for any 
+functionalities and the fact that JavaScript has its fair share of pitfalls. This is true for any 
 programming languages and can only be addressed through careful code review. Passbolt uses 
 <a href="https://github.com/openpgpjs/openpgpjs">OpenPGP.js</a> for 
 its cryptographic functionalities which have been reviewed multiple times by 
@@ -531,23 +531,14 @@ its cryptographic functionalities which have been reviewed multiple times by
         </div>
     </footer>
 </div>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//passbolt.piwikpro.com/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
 </script>
-<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 </html>

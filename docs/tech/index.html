@@ -78,7 +78,7 @@
     </div>
 <div class="panel main">
     <div class="panel left">
-        <div class="navigation wizard" role="navigation">
+        <div class="navigation-help" role="navigation">
     <ul>
         <li><h2>Passbolt Help</h2></li>
         
@@ -108,7 +108,7 @@
         
         <li >
             
-            <a href="https://help.passbolt.com/api">API</a>
+            <a href="https://help.passbolt.com/extend">Extend</a>
             
         </li>
         
@@ -174,23 +174,14 @@
         </div>
     </footer>
 </div>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//passbolt.piwikpro.com/";
-    _paq.push(['setTrackerUrl', u+'piwik.php']);
-    _paq.push(['setSiteId', 1]);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
 </script>
-<noscript><p><img src="//passbolt.piwikpro.com//piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
-<!-- End Piwik Code -->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 </html>

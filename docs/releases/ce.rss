@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v2.9.0 | Paint it black</title>
+    <link>https://help.passbolt.com/releases/ce/v290-paint-it-black</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v290-paint-it-black</guid>
+    <description>This release introduces some security fixes. Make sure you follow the minor update documentation to roll out this new version as soon as possible. Update documentation This release introduces the ability to create entries directly from the quickaccess menu, in the browser toolbar. fig. Creating an entry from quickaccess It...</description>
+    <pubDate>Wed, 24 Apr 2019 14:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.8.4 | Where is my mind</title>
     <link>https://help.passbolt.com/releases/ce/v284-where-is-my-mind</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v284-where-is-my-mind</guid>

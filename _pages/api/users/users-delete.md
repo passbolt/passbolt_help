@@ -389,6 +389,6 @@ As you can see there are two problems with this operation.
 - User is sole owner of a Resource
 - User is sole manager of a Group
 
-The response body also details those gorups and resources so you can do needed changes.
+The response body also details those groups and resources so you can do needed changes.
 Like in this case transfer ownership of those groups and resources.
 

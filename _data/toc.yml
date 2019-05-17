@@ -101,6 +101,10 @@
       icon: fa-key
       teaser: Use Duo as multi factor authentication provider
       version: pro
+    - title: Environment variable reference
+      url: /configure/reference
+      icon: fa-bookmark
+      teaser: Reference list of all environment variables
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

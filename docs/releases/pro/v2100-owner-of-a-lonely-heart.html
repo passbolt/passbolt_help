@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Owner of a Lonely Heart</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release ships with some nice improvements on the LDAP connector, administration interface and quick access features.">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Owner of a Lonely Heart" />
+    <meta property="og:description" content="This release ships with some nice improvements on the LDAP connector, administration interface and quick access features." />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.10.0.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (pro)</h2></li>
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart" >v2.10.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v290-paint-it-black" >v2.9.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v284-where-is-my-mind" >v2.8.4</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v283-blue-monday" >v2.8.3</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v272-welcome-to-the-jungle" >v2.7.2</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v270-jump" >v2.7.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/pro.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro"><span>pro</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart"><span>owner-of-a-lonely-heart</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v2.10.0 ~ Owner of a Lonely Heart (pro)</h1>
+                            <p>Release date: 
+May
+16th,
+2019.
+</p>
+                            <p>This release ships with some nice improvements on the LDAP connector, administration interface and quick access features.</p>
+
+<p>The Ldap connector configuration UI and mapping rules have been revamped to provide a better experience, mainly for OpenLdap and FreeIPA users.</p>
+
+<p>The connector should now be compatible with most cases and configurations. 
+We have added the possibility to add a custom mapping when the directory has been heavily customized, 
+a better error reporting in the UI (when the directory entries follow an incorrect format), 
+and the possibility to handle entries without a valid email address (through a prefix / suffix system). 
+We believe these improvements will smoothen the user experience with the LDAP connector.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/AD_ldap_email_prefix_suffix_filter.png" alt="Use email prefix / suffix option in ldap" style="max-width:750px;" />
+    <span class="legend">fig. Use email prefix / suffix option in ldap</span>
+</figure>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/AD_ldap_better_error_reporting.png" alt="Better error reporting for ldap entries" style="max-width:500px;" />
+    <span class="legend">fig. Better error reporting for ldap entries</span>
+</figure>
+
+<p>Another improvement is the email notification settings section in the administration dashboard.
+ As an administrator, you can now configure the email notifications from the admin UI.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/AD_administration_dashboard_email_notifications_pro.png" alt="Email notifications configuration screen" style="max-width:;" />
+    <span class="legend">fig. Email notifications configuration screen</span>
+</figure>
+
+<p>Finally, it is now possible to browse passwords using filters in the browser extension “quick access”. 
+The filters that were already accessible through the web UI are now available in the “quick access”: 
+Favorites, Items I own, Recently modified, Shared with me or even Groups and Tags. Check it out.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/LU_quick_access_filters_pro.png" alt="Quick access with filters" style="max-width:596px;" />
+    <span class="legend">fig. Quick access with filters</span>
+</figure>
+
+<p>We hope you’ll enjoy this update!</p>
+
+<p><strong>What next?</strong> Our current focus for Passbolt Pro is to add some requested improvements to 
+the Tags feature (rename, delete, drag and drop passwords directly in a tag) 
+and audit logs (with users activity and custom reporting). 
+We have also started the ground work on the next much awaited new feature: folders. Stay tuned!</p>
+
+<h2 id="2100---2019-05-16">2.10.0 - 2019-05-16</h2>
+<h2 id="added">Added</h2>
+<ul>
+  <li>PB-165: As AD I should be able to change my organization email notification settings via an administration screen.</li>
+</ul>
+
+<h2 id="improved">Improved</h2>
+<ul>
+  <li>PB-276: Merge organization settings code into CE. Ground work for administration features.</li>
+  <li>PB-169: LDAP: Implement email prefix/suffix on the User Directory Settings administration screen.</li>
+  <li>PB-188: LDAP: Implement ignored entries in “test connection” popup.</li>
+</ul>
+
+<h2 id="fixed">Fixed</h2>
+<ul>
+  <li>PB-231: LDAP - ignored entries should not be validated during test connection.</li>
+  <li>PB-226: LDAP - Fix “Openldap doesn’t work with UI configuration”.</li>
+  <li>PB-37: LDAP - implement user feedback: usersParentGroup and groupsParentGroup filters should be case insensitive</li>
+</ul>
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"You're every move you make."</p>
+                                <a href="https://youtu.be/IG_VDj8Eh_g" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+</script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

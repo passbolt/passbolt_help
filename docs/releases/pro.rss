@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v2.10.0 | Owner of a Lonely Heart</title>
+    <link>https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart</guid>
+    <description>This release ships with some nice improvements on the LDAP connector, administration interface and quick access features. The Ldap connector configuration UI and mapping rules have been revamped to provide a better experience, mainly for OpenLdap and FreeIPA users. The connector should now be compatible with most cases and configurations....</description>
+    <pubDate>Thu, 16 May 2019 14:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.9.0 | Paint it black</title>
     <link>https://help.passbolt.com/releases/pro/v290-paint-it-black</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v290-paint-it-black</guid>

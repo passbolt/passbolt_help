@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2019-05-17T17:15:59+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Passbolt reference environment variables</title><link href="https://help.passbolt.com/configure/reference.html" rel="alternate" type="text/html" title="Passbolt reference environment variables" /><published>2019-05-15T02:00:00+02:00</published><updated>2019-05-15T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/reference</id><content type="html" xml:base="https://help.passbolt.com/configure/reference.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2019-05-20T11:26:44+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Passbolt reference environment variables</title><link href="https://help.passbolt.com/configure/reference.html" rel="alternate" type="text/html" title="Passbolt reference environment variables" /><published>2019-05-15T02:00:00+02:00</published><updated>2019-05-15T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/reference</id><content type="html" xml:base="https://help.passbolt.com/configure/reference.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
     &lt;p&gt;Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values.&lt;/p&gt;
 
@@ -1845,39 +1845,49 @@ The VM includes the following software:&lt;/p&gt;
       &lt;li&gt;&lt;a href=&quot;https://www.passbolt.com/pro/download/vm/debian/latest-checksum&quot;&gt;SHA512SUM.txt&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;Import the ova file using virtualbox, vmware or any other platform that supports OVA files.&lt;/p&gt;
+    &lt;p&gt;Import the ova file using virtualbox, vmware (ESXi &amp;gt;= 6.0) or any other platform that supports import OVA files.&lt;/p&gt;
 
-    &lt;p&gt;Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
-However it is encouraged that users log in the VM and start the SSL setup proces.&lt;/p&gt;
+    &lt;p&gt;Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.&lt;/p&gt;
+
+    &lt;h3 id=&quot;credentials&quot;&gt;1.2 Credentials&lt;/h3&gt;
+
+    &lt;p&gt;The appliance performs some actions on the first boot:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Creates ssh host keys&lt;/li&gt;
+      &lt;li&gt;Enables ssh&lt;/li&gt;
+      &lt;li&gt;Creates a set of random mariadb credentials for the mariadb server installed on the appliance&lt;/li&gt;
+      &lt;li&gt;Creates an empty database where passbolt can be installed.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;For the first login the appliance comes with the following ssh default credentials:&lt;/p&gt;
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;VM login credentials:
 username: passbolt
 password: admin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;The appliance comes with a example empty database to quickly test Passbolt Pro. However it is encouraged to change password for this database:&lt;/p&gt;
+    &lt;p&gt;Mariadb credentials are stored on &lt;strong&gt;/root/.mysql_credentials&lt;/strong&gt; the file should contain:&lt;/p&gt;
 
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Database root default credentials:
-username: root
-password: admin
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Database default credentials:
-database name: passbolt
-username: passbolt
-password: passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Random password for root user&lt;/li&gt;
+      &lt;li&gt;Empty database name. It follows the pattern passbolt_random_id&lt;/li&gt;
+      &lt;li&gt;Random user and password with permissions for the passbolt database&lt;/li&gt;
+    &lt;/ul&gt;
 
-    &lt;h3 id=&quot;ssl-setup-process&quot;&gt;1.2. SSL setup process:&lt;/h3&gt;
+    &lt;h3 id=&quot;ssl-setup-process&quot;&gt;1.3. SSL setup process:&lt;/h3&gt;
+
+    &lt;p&gt;On the first login through SSH a script will automatically run to configure SSL that will ask you some questions.
+Keep in mind that unless you don’t complete all the steps the SSL script will prompt on every login.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Important note:&lt;/strong&gt; It is recommended to run the SSL setup before running the installation wizard to avoid secrets to be transmitted unencrypted during the installation process.&lt;/p&gt;
 
-    &lt;p&gt;Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts are located in:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;If you just want to test the appliance or you don’t need
+SSL:&lt;/p&gt;
 
-    &lt;p&gt;Executing the following command the script will guide you through the SSL setup:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Provide a hostname for the script&lt;/li&gt;
+      &lt;li&gt;Select (3) for ‘none’ on the second question to setup nginx without SSL&lt;/li&gt;
+    &lt;/ul&gt;
 
     &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
 

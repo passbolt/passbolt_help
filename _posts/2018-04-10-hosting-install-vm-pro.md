@@ -40,10 +40,20 @@ Download the ova and the SHA512SUM.txt:
 - [Passbolt Pro VM](https://www.passbolt.com/pro/download/vm/debian/latest)
 - [SHA512SUM.txt](https://www.passbolt.com/pro/download/vm/debian/latest-checksum)
 
-Import the ova file using virtualbox, vmware or any other platform that supports OVA files.
+Import the ova file using virtualbox, vmware (ESXi >= 6.0) or any other platform that supports import OVA files.
 
 Once imported into users should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
-However it is encouraged that users log in the VM and start the SSL setup proces.
+
+
+### 1.2 Credentials
+
+The appliance performs some actions on the first boot:
+- Creates ssh host keys
+- Enables ssh
+- Creates a set of random mariadb credentials for the mariadb server installed on the appliance
+- Creates an empty database where passbolt can be installed.
+
+For the first login the appliance comes with the following ssh default credentials:
 
 ```bash
 VM login credentials:
@@ -51,33 +61,25 @@ username: passbolt
 password: admin
 ```
 
-The appliance comes with a example empty database to quickly test Passbolt Pro. However it is encouraged to change password for this database:
+Mariadb credentials are stored on **/root/.mysql_credentials** the file should contain:
 
-```bash
-Database root default credentials:
-username: root
-password: admin
-```
-```bash
-Database default credentials:
-database name: passbolt
-username: passbolt
-password: passbolt
-```
+- Random password for root user
+- Empty database name. It follows the pattern passbolt_random_id
+- Random user and password with permissions for the passbolt database
 
-### 1.2. SSL setup process:
+
+### 1.3. SSL setup process:
+
+On the first login through SSH a script will automatically run to configure SSL that will ask you some questions.
+Keep in mind that unless you don't complete all the steps the SSL script will prompt on every login.
 
 **Important note:** It is recommended to run the SSL setup before running the installation wizard to avoid secrets to be transmitted unencrypted during the installation process.
 
-Passbolt Pro provides a set of ssl scripts to easily setup SSL. This scripts are located in:
-```bash
-/home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
-```
+If you just want to test the appliance or you don't need
+SSL:
 
-Executing the following command the script will guide you through the SSL setup:
-```bash
-$ sudo /home/passbolt/passbolt_ssl_setup/passbolt_pro_debian_ssl_installer.sh
-```
+- Provide a hostname for the script
+- Select (3) for 'none' on the second question to setup nginx without SSL
 
 ## 2. Configure passbolt
 

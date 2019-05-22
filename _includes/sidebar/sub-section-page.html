@@ -2,13 +2,16 @@
 {% if section.slug == include.categories[0] %}
 <div class="navigation-help" role="navigation">
     <ul>
-        <li><h2>{{ section.title }}</h2></li>
+        <li>
+            <h2>{{ section.title }}</h2>
+        </li>
         {% for subsection in section.items %}
-        <li {% if subsection.slug == include.categories[1] %}class="selected"{% endif %}>
+        <li {% if subsection.slug == include.slug || subsection.slug == include.categories[1] %}class="selected"
+            {% endif %}>
             <a href="{{ subsection.url | absolute_url }}">{{ subsection.title }}</a>
         </li>
         {% if subsection.slug == include.categories[1] %}
-            {% if subsection.items[0] %}
+        {% if subsection.items[0] %}
         <li>
             <ul>
                 {% for entry in subsection.items %}
@@ -18,7 +21,7 @@
                 {% endfor %}
             </ul>
         </li>
-            {% endif %}
+        {% endif %}
         {% endif %}
         {% endfor %}
     </ul>

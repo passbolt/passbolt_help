@@ -66,13 +66,11 @@ One or more of these domains may be used to try to validate an OTP.
 
 ## Set the configuration in passbolt
 
-You can either configure Yubikey OTP in passbolt the UI or using files or environment variables.
-If multiple settings provider are used the settings in the UI will override the one used in files.
-Similarly The settings in files will override environment variables.
+You can configure Yubikey OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.
 
 ### Using admin user interface
 
-Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on "administration" in the top menu, then "multi factor authentication" on the left menu.
 You can then enable or disable the Yubikey provider by providing the user id and secret key that
 you gathered in the previous steps. Click "save settings" when you are done.

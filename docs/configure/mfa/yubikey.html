@@ -29,9 +29,10 @@
 
 </head>
 
+
 <body>
-<div id="container" class="help page background">
-    <header>
+    <div id="container" class="help page background">
+            <header>
         <div class="header first ">
             <nav class="greedy">
                 <div class="top navigation primary">
@@ -76,10 +77,10 @@
             </div>
         </div>
     </div>
-    <div class="panel main" aria-label="Content">
-        <div class="panel left">
-            
-            
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
 
 
 
@@ -89,20 +90,28 @@
 
 <div class="navigation-help" role="navigation">
     <ul>
-        <li><h2>Configure</h2></li>
+        <li>
+            <h2>Configure</h2>
+        </li>
         
         <li >
             <a href="https://help.passbolt.com/configure/ldap">Configure LDAP</a>
         </li>
         
         
-        <li >
+        <li class="selected"
+            >
             <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
         </li>
         
         
         <li >
             <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
         </li>
         
         
@@ -121,12 +130,12 @@
 
 
 
-            
-        </div>
-        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
-            <div class="grid grid-responsive-12">
-                <article>
-                    <div class="row" id="introduction">
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
     <div class="col12">
         <div class="breadcrumbs">
             <ul>
@@ -166,13 +175,13 @@
     </div>
 </div>
 
-                    <div class="row" markdown="1">
+                        <div class="row" markdown="1">
 <div class="col7" markdown="1">
 <h1>How to configure passbolt to use Yubikey OTP</h1>
 </div>
 </div>
 
-                    <div class="row">
+                        <div class="row">
   <div class="col7">
 
     <p>Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
@@ -230,13 +239,11 @@ If you prevent outgoing connection from Passbolt server to the following domains
 
     <h2 id="set-the-configuration-in-passbolt">Set the configuration in passbolt</h2>
 
-    <p>You can either configure Yubikey OTP in passbolt the UI or using files or environment variables.
-If multiple settings provider are used the settings in the UI will override the one used in files.
-Similarly The settings in files will override environment variables.</p>
+    <p>You can configure Yubikey OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.</p>
 
     <h3 id="using-admin-user-interface">Using admin user interface</h3>
 
-    <p>Since v2.6 a user interface it provided for administrators to setup MFA providers.
+    <p>Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
 You can then enable or disable the Yubikey provider by providing the user id and secret key that
 you gathered in the previous steps. Click “save settings” when you are done.</p>
@@ -345,11 +352,11 @@ November
   </div>
 </div>
 
-                </article>
+                    </article>
+                </div>
             </div>
         </div>
-    </div>
-    <footer>
+            <footer>
         <div class="footer">
             <ul class="footer-links">
                 <li><a href="https://www.passbolt.com/licence">Terms</a></li>
@@ -359,8 +366,8 @@ November
             </ul>
         </div>
     </footer>
-</div>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -370,4 +377,5 @@ November
 <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
+
 </html>

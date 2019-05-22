@@ -91,20 +91,30 @@
       icon: fa-address-book-o
       teaser: How to configure the directory sync plugin
       version: pro
+      slug: ldap
     - title: Configure Yubikey
       url: /configure/mfa/yubikey
       icon: fa-key
       teaser: Use Yubikey OTP as multi factor authentication provider
       version: pro
+      slug: yubikey
     - title: Configure Duo
       url: /configure/mfa/duo
       icon: fa-key
       teaser: Use Duo as multi factor authentication provider
       version: pro
+      slug: duo
+    - title: Configure Email Notifications
+      url: /configure/notification/email
+      icon: fa-envelope-o
+      teaser: How to manage email notification settings
+      version: pro
+      slug: email
     - title: Environment variable reference
       url: /configure/reference
       icon: fa-bookmark
       teaser: Reference list of all environment variables
+      slug: reference
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt
@@ -144,7 +154,7 @@
     - title: Get a job!
       url: https://careers.passbolt.com
       icon: fa-money
-      teaser: Careers oportunity at passbolt.
+      teaser: Careers opportunity at passbolt.
 - title: Small print
   slug: legal
   teaser: The small print

@@ -54,7 +54,7 @@ the Duo mobile app on their phone or tablet.
 
 ## Get a Duo account
 
-If do not have one account, first sign up at [https://signup.duo.com/](https://signup.duo.com/)
+If you do not have a Duo account, first sign up at [https://signup.duo.com/](https://signup.duo.com/)
 Then log in to the Duo Admin panel at [https://admin.duosecurity.com/login](https://admin.duosecurity.com/login)
 
 Configure your Duo policies as required by your organization.
@@ -78,18 +78,16 @@ them to configure the integration.
 
 ## Set the configuration in passbolt
 
-You can either configure Duo in passbolt using the user interface, or files or environment variables.
-If multiple settings provider are used the settings in the UI will override the one used in files.
-Similarly The settings in files will override environment variables.
+You can configure Duo OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.
 
 You will need to generate a random 40 character string to be used as salt, to help
 secure your integration.
 
 ### Using admin user interface
 
-Since v2.6 a user interface it provided for administrators to setup MFA providers.
+Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on "administration" in the top menu, then "multi factor authentication" on the left menu.
-You can then enable or disable the Yubikey provider by providing the user id and secret key that
+You can then enable or disable the Duo provider by providing the user id and secret key that
 you gathered in the previous steps. Click "save settings" when you are done.
 
 {% include articles/figure.html

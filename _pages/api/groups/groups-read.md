@@ -7,7 +7,7 @@ slug: groups-read
 permalink: /api/groups/read
 ---
 
-It is possible to get the data for single group identified by the unique UUID. 
+It is possible to get data for a single group identified by the unique UUID. 
 All you need is to make a `GET` request to `/groups/<groupId>.json`.
 
 ```

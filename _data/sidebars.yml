@@ -47,6 +47,9 @@ api:
       - title: Share
         slug: resources-share
         url: /api/resources/share
+  - title: Secrets
+    slug: secrets
+    url: /api/secrets
   - title: Permissions
     slug: permissions
     url: /api/permissions

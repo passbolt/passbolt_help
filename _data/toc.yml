@@ -108,7 +108,6 @@
       url: /configure/notification/email
       icon: fa-envelope-o
       teaser: How to manage email notification settings
-      version: pro
       slug: email
     - title: Environment variable reference
       url: /configure/reference

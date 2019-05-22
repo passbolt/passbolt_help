@@ -35,13 +35,13 @@
       "mime_type":"image\/png",
       "extension":"png",
       "hash":"97e36ab6528e26e3b9f988444ef490f125f49a39",
-      "path":"Avatar\/f4\/18\/05\/6727ccefa6c44c38ac57a1152784e0a1\/6727ccefa6c44c38ac57a1152784e0a1.png",
+      "path":"Avatar\/6727ccefa6c44c38ac57a1152784e0a1.png",
       "adapter":"Local",
       "created":"2019-04-15T14:11:46+00:00",
       "modified":"2019-04-15T14:11:46+00:00",
       "url":{
-        "medium":"img\/public\/Avatar\/f4\/18\/05\/6727ccefa6c44c38ac57a1152784e0a1\/6727ccefa6c44c38ac57a1152784e0a1.a99472d5.png",
-        "small":"img\/public\/Avatar\/f4\/18\/05\/6727ccefa6c44c38ac57a1152784e0a1\/6727ccefa6c44c38ac57a1152784e0a1.65a0ba70.png"
+        "medium":"img\/public\/6727ccefa6c44c38ac57a1152784e0a1.a99472d5.png",
+        "small":"img\/public\/6727ccefa6c44c38ac57a1152784e0a1.65a0ba70.png"
       }
     }
   },

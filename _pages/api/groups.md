@@ -54,7 +54,6 @@ They are especially useful when you want to share [Resources](/api/resources) wi
             <td>
                 Datetime when the group was created
             </td>
-           
             <td>
                 <a href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189897000">ISO 8601</a>
                 Datetime format<br/>

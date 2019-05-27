@@ -218,6 +218,11 @@
     <p>Every now and again some releases will introduce some database and/or configuration files changes. 
 Here is a step by step guide on how to perform a minor update. Just replace the version numbers where necessary.</p>
 
+    <h4 id="get-ready">Get ready</h4>
+    <p>All the commands below should be done from inside your passbolt directory:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /var/www/passbolt
+</code></pre></div>    </div>
+
     <h4 id="take-your-site-down">1. Take your site down</h4>
 
     <p>Create a temporary webserver configuration to redirect all the requests to a maintenance page. 
@@ -241,6 +246,8 @@ what is recommended in the composer.lock. This file is provided by passbolt.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer <span class="nb">install</span> <span class="nt">--no-dev</span>
 </code></pre></div>    </div>
+
+    <p>If for some reason the command above fails because you don’t have composer installed, you can check the <a href="https://getcomposer.org/download/">composer installation instructions</a>.</p>
 
     <h4 id="run-the-migration-script">4. Run the migration script</h4>
 

@@ -28,6 +28,12 @@ Each passbolt release follows the concept of [Semantic Versioning](http://www.se
 Every now and again some releases will introduce some database and/or configuration files changes. 
 Here is a step by step guide on how to perform a minor update. Just replace the version numbers where necessary.
 
+#### Get ready
+All the commands below should be done from inside your passbolt directory:
+```bash
+$ cd /var/www/passbolt
+```
+
 #### 1. Take your site down
 
 Create a temporary webserver configuration to redirect all the requests to a maintenance page. 
@@ -54,6 +60,8 @@ what is recommended in the composer.lock. This file is provided by passbolt.
 ```bash
 $ composer install --no-dev
 ```
+
+If for some reason the command above fails because you don't have composer installed, you can check the [composer installation instructions](https://getcomposer.org/download/).
 
 #### 4. Run the migration script
 

@@ -275,8 +275,7 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>Share</h1>
-                    <p>A <a href="/api/resources">Resource</a> can be shared with another <a href="/api/users">User</a> or <a href="/api/groups">Group</a>. 
-Passbolt provides the following endpoints to manage sharing of a Resource.</p>
+                    <p>A <a href="/api/resources">Resource</a> can be shared with another <a href="/api/users">User</a> or <a href="/api/groups">Group</a>. Which essentially means adding permissions to the Resource for the User/Group.</p>
 
 <p>Permissions in passbolt use some Access Control List (ACL) lingo. Mostly two concepts:</p>
 <ul>
@@ -286,16 +285,14 @@ Passbolt provides the following endpoints to manage sharing of a Resource.</p>
 
 <h3 id="get-all-aros">Get all AROs</h3>
 
-<p>In order to know the list of AROs with whom a Resource is be shared with, you can use the search endpoint.
-This endpoint can be usefull for example prior editing a secret it is required that the client produce a 
-version for all the users.</p>
+<p>In order to know the list of AROs with whom a Resource can be shared, you can use the <code class="highlighter-rouge">search-aros</code> endpoint.</p>
 
 <p>To get the ARO list make a GET request to /share/search-aros.json</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /share/search-aros.json?api-version=v2
 </code></pre></div></div>
 
-<p>The response returned will have an array or json objects, each representing either a Group or a User.</p>
+<p>The response returned will have an array of json objects, each representing either a Group or a User.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -327,33 +324,7 @@ version for all the users.</p>
             </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99522cc9-0acc-5ae2-b996-d03bded3c0a6"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ada"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Lovelace"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fd3c78ad-50b4-4968-b0d7-f609ddcb0498"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"99522cc9-0acc-5ae2-b996-d03bded3c0a6"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avatar"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ada.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"filesize"</span><span class="p">:</span><span class="w"> </span><span class="mi">170049</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"mime_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image</span><span class="se">\/</span><span class="s2">png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"97e36ab6528e26e3b9f988444ef490f125f49a39"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">....a99472d5.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"adapter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:48+00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:48+00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">....a99472d5.png"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">....65a0ba70.png"</span><span class="w">
-                    </span><span class="p">}</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">},</span><span class="w">
+            </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">User</span><span class="w"> </span><span class="err">profile</span><span class="w"> </span><span class="err">object</span><span class="w">
             </span><span class="s2">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f2a3f6e-1a3f-4f4a-a523-46c6b6d0f763"</span><span class="p">,</span><span class="w">
@@ -397,121 +368,89 @@ version for all the users.</p>
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-<p>Your passwords can be shared with them.</p>
 
-<h3 id="simulate-sharing">Simulate Sharing</h3>
+<p class="message notice">
+    Take a note of the <code>user_count</code> key under group type AROs as that's the exact number of secrets you'll need to send in order to share a resource with that group.
+</p>
 
-<p>Passbolt API allows you to simulate a share before actually going through with this. This way you can see if the 
-params pass the validation checks or for example if a secret is missing for somebody. To simulate sharing a resource 
-you can make a <code class="highlighter-rouge">POST</code> request to <code class="highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="highlighter-rouge">resourceId</code> is the id of the 
-<a href="/api/resources">Resource</a> you wish to share.</p>
+<h2 id="sharing-a-resource">Sharing a Resource</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /share/simulate/resource/&lt;resourceId&gt;.json?api-version=v2
+<p>Sharing a Resource involves the following steps.</p>
+
+<ol>
+  <li>Get the id of the Resource you want to share.</li>
+  <li>Get the id of the ARO you want to share it with.</li>
+  <li>Encrypt the plaintext secret for all users using their public keys.</li>
+  <li>Send the ASCII armored encrypted message for each of the affected users to the API.</li>
+</ol>
+
+<p>The payload takes a json object with keys for “permissions” and “secrets”. The “permission” key contains a json array where each object represents a <a href="/api/permissions">Permission</a> object for a user. While the “secrets” key contains a json array where each object represents a Secret object. At the very least, it contains the user_id and OpenPGP encrypted armored message.</p>
+
+<p>To generate the encrypted message, you can use</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> &lt;plaintext_password&gt; | gpg <span class="nt">-r</span> &lt;gpg_uid&gt; <span class="nt">-e</span> <span class="nt">-a</span>
 </code></pre></div></div>
 
-<p>The payload takes a json array where each object represents a permission. The <code class="highlighter-rouge">Permission</code> object may contain 
-the following fields.</p>
+<p>The <code class="highlighter-rouge">search-aros</code> endpoint described above outputs the gpg details for individual users like their <code class="highlighter-rouge">armored_key</code>, <code class="highlighter-rouge">uid</code>, <code class="highlighter-rouge">key_id</code> and <code class="highlighter-rouge">fingerprint</code>. For Groups, you can make a GET request to <code class="highlighter-rouge">/groups/&lt;group_id&gt;.json</code> endpoint. For more info, check the <a href="/api/groups/read">View a group</a> page.</p>
 
-<table class="table-parameters">
-<thead>
-  <tr>
-    <th>Attribute</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>id</td>
-    <td>UUID</td>
-    <td>ID of the permission object. Only required when updating an existing share/permission</td>
-  </tr>
-  <tr>
-    <td>aco</td>
-    <td>String</td>
-    <td>Access Control Object<br />Always "Resource"</td>
-  </tr>
-  <tr>
-    <td>aco_foreign_key</td>
-    <td>UUID</td>
-    <td>UUID of the Resource to share</td>
-  </tr>
-  <tr>
-    <td>aro</td>
-    <td>String</td>
-    <td>Access Resource Object<br />Can be `User` or `Group`</td>
-  </tr>
-  <tr>
-    <td>aro_foreign_key</td>
-    <td>UUID</td>
-    <td>UUID of the User/Group to share with</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>int</td>
-    <td>Permission type<br />
-    1 =&gt; Read, 7 =&gt; Update and 15 =&gt; Owner
-    </td>
-  </tr>
-  <tr>
-    <td>delete</td>
-    <td>Boolean</td>
-    <td>Whether to delete this permission. Only required when deleting an existing permission.</td>
-  </tr>
-  </tbody>
-</table>
+<p class="message notice">
+    Based on the trust level of the public key gpg might complain about <code>There is no assurance this key belongs to the named user</code> If you trust the key, you can proceed by responding 'y'
+</p>
 
-<p>So the request body will look like</p>
+<p>Upon confirmation, gpg outputs the ascii armored message</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> &lt;plaintext_password&gt; | gpg <span class="nt">-r</span> &lt;gpg_uid&gt; <span class="nt">-e</span> <span class="nt">-a</span>
+
+<span class="nt">-----BEGIN</span> PGP MESSAGE-----
+
+hQIMAxWrZ+ffF0kbARAAxGsQGv+ev9YNepCSmZKgVyLz9wtGmdy9In/nbVDPds3k
+RSIrq5w9bNEx2h3HCdoR1tb5mii57GZ4kkqj/vN0dZRxbMJi7GAZuoPq+0N/KyKW
+8MUlauobLsPmRW5HNbR5qMr8M3362nYsqDfDq+hJYng6Dg50Jpo3nTZmDqiLfcgz
+n8x4i8BlNjZcy1DYOuQPP9CYSAnaK3QiFPIlaW3eJl9lkgpzlBirJLqPkwNcrB2V
+BsVjjqIUnYFMZMe6ttm+JYNX4x8jjOAxOTWJeT8Do4nwyAuXgMoUL7YpDrPMb93F
+AhNZs9WlF43Fh5UhpaZo0fagc3nNWPIXlNL7zGBPhM1U53oOer+CqGWlrEFaFfaf
++ImVZkiodITchymABK5CW4/YvwBQec7uLQcj+JC2IpsHKflar+43q6wVI5lwTvb7
+p499DLdFmRyGZtbtgX5FhKWJWLvRxhGq3b5D5Wfix8S9kq4lyQArM4kkb1AT3u1j
+diriLrRuJRz6BpRSat2WiAxh1moBf9/E7ymZe2Goi0F4sdtBoRwWbMoG3QMAWxNd
+pHufLw57IjasIE8b4zlVnyodVrfaNAKnuQfCIl0Ocq6QP+FkQPZ9p2g3V/DIjh1h
+qaEoKyzbQ83IGXyas5hYXJQtdJRiQCdBxpME00BFV+Gcsay2JPmjndsA/8U21E/S
+QQG/c0kJXrdOsSwhDuu1ssCn79ayjoWo1OT70+Mg0yygeEgokVGHdp1O5vS9BTmo
+NUYjWplniE9MhkzVaYqjng8n
+<span class="o">=</span>2F87
+<span class="nt">-----END</span> PGP MESSAGE-----
+</code></pre></div></div>
+
+<p>This needs to be done for each user gaining access to the secret
+So the request body will look like</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"is_new"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aro_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1ebc0060-9274-5451-aa12-ad0f31bc29dd"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aro_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36563004-3f25-50c0-b22e-6554c3ccc4e7"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"aco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aco_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daaf057e-7fc3-5537-a8a9-e8c151890878"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"aco_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-    </span><span class="p">},</span><span class="w">
+    </span><span class="p">}],</span><span class="w">
+  </span><span class="s2">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb03409b-9cd6-5d64-8df5-ff60a8a38a41"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aco_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"daaf057e-7fc3-5537-a8a9-e8c151890878"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aro_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"904bcd9f-ff51-5cfd-9de8-d2c876ade498"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:00+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:00+00:00"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"904bcd9f-ff51-5cfd-9de8-d2c876ade498"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"irene@passbolt.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c551fc12-59b4-51ad-ae73-1659812e9ba5"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"904bcd9f-ff51-5cfd-9de8-d2c876ade498"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Irene"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Greif"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img/avatar/user_medium.png"</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img/avatar/user.png"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"last_logged_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="s2">"group"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d04cf98-716b-5f6d-9fe8-c130f8992646"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
+
+<h3 id="simulate-sharing">Simulate Sharing</h3>
+
+<p>Passbolt API allows you to simulate a share before actually going through with this. This way you can see if the 
+params pass the validation checks. To simulate sharing a resource 
+you can make a <code class="highlighter-rouge">POST</code> request to <code class="highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="highlighter-rouge">resourceId</code> is the id of the 
+<a href="/api/resources">Resource</a> you wish to share.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /share/simulate/resource/&lt;resourceId&gt;.json?api-version=v2
+</code></pre></div></div>
 
 <p>If the resource can be shared safely, this returns an associative array that contains a list of new users who 
 will have access to the resource and a list of users who will lose their access. These lists can be used to 
@@ -537,11 +476,50 @@ encrypt the secrets for the users who get access and to remove the secrets of th
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<h3 id="share-a-resource">Share a Resource</h3>
+<h3 id="final-sharing">Final sharing</h3>
 
-<p>After verifying the dry run and to go ahead with sharing, you can make a <code class="highlighter-rouge">PUT</code> request to
- <code class="highlighter-rouge">/share/resource/&lt;resourceId&gt;.json</code>. The request and response schema for this is same as the one described above in
-<a href="#simulate-sharing">Simulate Sharing</a></p>
+<p>If the simulation returns a success response, you can go ahead with sharing your resource. To share a resource 
+you can make a <code class="highlighter-rouge">PUT</code> request to <code class="highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="highlighter-rouge">resourceId</code> is the id of the 
+<a href="/api/resources">Resource</a> you wish to share.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /share/resource/&lt;resourceId&gt;.json?api-version=v2
+</code></pre></div></div>
+
+<p>The request schema is same as above while the response can be either of the following.</p>
+
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br />
+            The resource is shared successfully.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request<br />
+            The resourceId supplied is not a valid UUID</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br />
+            The user making the request is not authenticated</td>
+        </tr>
+        <tr>
+            <td>404</td>
+            <td>Not Found<br />
+            The resource either does not exist or<br />
+            The user does not have access permission or<br />
+            Invalid number of secrets sent.
+            </td>
+        </tr>
+    </tbody>
+</table>
 
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>

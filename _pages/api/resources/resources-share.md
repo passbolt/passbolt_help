@@ -7,8 +7,7 @@ slug: resources-share
 permalink: /api/resources/share
 ---
 
-A [Resource](/api/resources) can be shared with another [User](/api/users) or [Group](/api/groups). 
-Passbolt provides the following endpoints to manage sharing of a Resource.
+A [Resource](/api/resources) can be shared with another [User](/api/users) or [Group](/api/groups). Which essentially means adding permissions to the Resource for the User/Group.
 
 Permissions in passbolt use some Access Control List (ACL) lingo. Mostly two concepts:
 - Access Control Object (ACO) that represents something that is wanted, like a resource and its secrets.
@@ -16,9 +15,7 @@ Permissions in passbolt use some Access Control List (ACL) lingo. Mostly two con
 
 ### Get all AROs
 
-In order to know the list of AROs with whom a Resource is be shared with, you can use the search endpoint.
-This endpoint can be usefull for example prior editing a secret it is required that the client produce a 
-version for all the users. 
+In order to know the list of AROs with whom a Resource can be shared, you can use the `search-aros` endpoint.
 
 To get the ARO list make a GET request to /share/search-aros.json
 
@@ -26,7 +23,7 @@ To get the ARO list make a GET request to /share/search-aros.json
 GET /share/search-aros.json?api-version=v2
 ```
 
-The response returned will have an array or json objects, each representing either a Group or a User.
+The response returned will have an array of json objects, each representing either a Group or a User.
 
 ```json
 {
@@ -59,33 +56,7 @@ The response returned will have an array or json objects, each representing eith
             "deleted": false,
             "created": "2019-02-04T12:05:44+00:00",
             "modified": "2019-03-04T12:05:44+00:00",
-            "profile": {
-                "id": "99522cc9-0acc-5ae2-b996-d03bded3c0a6",
-                "user_id": "f848277c-5398-58f8-a82a-72397af2d450",
-                "first_name": "Ada",
-                "last_name": "Lovelace",
-                "created": "2019-04-04T12:05:45+00:00",
-                "modified": "2019-04-04T12:05:45+00:00",
-                "avatar": {
-                    "id": "fd3c78ad-50b4-4968-b0d7-f609ddcb0498",
-                    "user_id": "f848277c-5398-58f8-a82a-72397af2d450",
-                    "foreign_key": "99522cc9-0acc-5ae2-b996-d03bded3c0a6",
-                    "model": "Avatar",
-                    "filename": "ada.png",
-                    "filesize": 170049,
-                    "mime_type": "image\/png",
-                    "extension": "png",
-                    "hash": "97e36ab6528e26e3b9f988444ef490f125f49a39",
-                    "path": "img\/public\/Avatar\/....a99472d5.png",
-                    "adapter": "Local",
-                    "created": "2019-04-04T12:05:48+00:00",
-                    "modified": "2019-04-04T12:05:48+00:00",
-                    "url": {
-                        "medium": "img\/public\/Avatar\/....a99472d5.png",
-                        "small": "img\/public\/Avatar\/....65a0ba70.png"
-                    }
-                }
-            },
+            "profile": {}, // User profile object
             "groups_users": [
                 {
                     "id": "4f2a3f6e-1a3f-4f4a-a523-46c6b6d0f763",
@@ -129,71 +100,59 @@ The response returned will have an array or json objects, each representing eith
     ]
 }
 ```
-Your passwords can be shared with them.
 
-### Simulate Sharing
+{% include messages/notice.html
+    content="Take a note of the <code>user_count</code> key under group type AROs as that's the exact number of secrets you'll need to send in order to share a resource with that group."
+%}
 
-Passbolt API allows you to simulate a share before actually going through with this. This way you can see if the 
-params pass the validation checks or for example if a secret is missing for somebody. To simulate sharing a resource 
-you can make a `POST` request to `/share/simulate/resource/<resourceId>.json` where `resourceId` is the id of the 
-[Resource](/api/resources) you wish to share.
+## Sharing a Resource
 
+Sharing a Resource involves the following steps.
+
+1. Get the id of the Resource you want to share.
+2. Get the id of the ARO you want to share it with.
+3. Encrypt the plaintext secret for all users using their public keys.
+4. Send the ASCII armored encrypted message for each of the affected users to the API.
+
+The payload takes a json object with keys for "permissions" and "secrets". The "permission" key contains a json array where each object represents a [Permission](/api/permissions) object for a user. While the "secrets" key contains a json array where each object represents a Secret object. At the very least, it contains the user_id and OpenPGP encrypted armored message. 
+
+To generate the encrypted message, you can use 
+
+```bash
+$ echo <plaintext_password> | gpg -r <gpg_uid> -e -a
 ```
-POST /share/simulate/resource/<resourceId>.json?api-version=v2
+
+The `search-aros` endpoint described above outputs the gpg details for individual users like their `armored_key`, `uid`, `key_id` and `fingerprint`. For Groups, you can make a GET request to `/groups/<group_id>.json` endpoint. For more info, check the [View a group](/api/groups/read) page.
+
+{% include messages/notice.html
+    content="Based on the trust level of the public key gpg might complain about <code>There is no assurance this key belongs to the named user</code> If you trust the key, you can proceed by responding 'y'"
+%}
+
+Upon confirmation, gpg outputs the ascii armored message
+
+```bash
+$ echo <plaintext_password> | gpg -r <gpg_uid> -e -a
+
+-----BEGIN PGP MESSAGE-----
+
+hQIMAxWrZ+ffF0kbARAAxGsQGv+ev9YNepCSmZKgVyLz9wtGmdy9In/nbVDPds3k
+RSIrq5w9bNEx2h3HCdoR1tb5mii57GZ4kkqj/vN0dZRxbMJi7GAZuoPq+0N/KyKW
+8MUlauobLsPmRW5HNbR5qMr8M3362nYsqDfDq+hJYng6Dg50Jpo3nTZmDqiLfcgz
+n8x4i8BlNjZcy1DYOuQPP9CYSAnaK3QiFPIlaW3eJl9lkgpzlBirJLqPkwNcrB2V
+BsVjjqIUnYFMZMe6ttm+JYNX4x8jjOAxOTWJeT8Do4nwyAuXgMoUL7YpDrPMb93F
+AhNZs9WlF43Fh5UhpaZo0fagc3nNWPIXlNL7zGBPhM1U53oOer+CqGWlrEFaFfaf
++ImVZkiodITchymABK5CW4/YvwBQec7uLQcj+JC2IpsHKflar+43q6wVI5lwTvb7
+p499DLdFmRyGZtbtgX5FhKWJWLvRxhGq3b5D5Wfix8S9kq4lyQArM4kkb1AT3u1j
+diriLrRuJRz6BpRSat2WiAxh1moBf9/E7ymZe2Goi0F4sdtBoRwWbMoG3QMAWxNd
+pHufLw57IjasIE8b4zlVnyodVrfaNAKnuQfCIl0Ocq6QP+FkQPZ9p2g3V/DIjh1h
+qaEoKyzbQ83IGXyas5hYXJQtdJRiQCdBxpME00BFV+Gcsay2JPmjndsA/8U21E/S
+QQG/c0kJXrdOsSwhDuu1ssCn79ayjoWo1OT70+Mg0yygeEgokVGHdp1O5vS9BTmo
+NUYjWplniE9MhkzVaYqjng8n
+=2F87
+-----END PGP MESSAGE-----
 ```
 
-The payload takes a json array where each object represents a permission. The `Permission` object may contain 
-the following fields.
-
-<table class="table-parameters">
-<thead>
-  <tr>
-    <th>Attribute</th>
-    <th>Type</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>id</td>
-    <td>UUID</td>
-    <td>ID of the permission object. Only required when updating an existing share/permission</td>
-  </tr>
-  <tr>
-    <td>aco</td>
-    <td>String</td>
-    <td>Access Control Object<br/>Always "Resource"</td>
-  </tr>
-  <tr>
-    <td>aco_foreign_key</td>
-    <td>UUID</td>
-    <td>UUID of the Resource to share</td>
-  </tr>
-  <tr>
-    <td>aro</td>
-    <td>String</td>
-    <td>Access Resource Object<br/>Can be `User` or `Group`</td>
-  </tr>
-  <tr>
-    <td>aro_foreign_key</td>
-    <td>UUID</td>
-    <td>UUID of the User/Group to share with</td>
-  </tr>
-  <tr>
-    <td>type</td>
-    <td>int</td>
-    <td>Permission type<br/>
-    1 => Read, 7 => Update and 15 => Owner
-    </td>
-  </tr>
-  <tr>
-    <td>delete</td>
-    <td>Boolean</td>
-    <td>Whether to delete this permission. Only required when deleting an existing permission.</td>
-  </tr>
-  </tbody>
-</table>
-
+This needs to be done for each user gaining access to the secret
 So the request body will look like
 
 ```json
@@ -201,50 +160,30 @@ So the request body will look like
   "permissions": [
     {
       "is_new": true,
-      "aro": "User",
-      "aro_foreign_key": "1ebc0060-9274-5451-aa12-ad0f31bc29dd",
+      "aro": "Group",
+      "aro_foreign_key": "36563004-3f25-50c0-b22e-6554c3ccc4e7",
       "aco": "Resource",
-      "aco_foreign_key": "daaf057e-7fc3-5537-a8a9-e8c151890878",
+      "aco_foreign_key": "8e3874ae-4b40-590b-968a-418f704b9d9a",
       "type": 7
-    },
+    }],
+  "secrets": [
     {
-      "id": "cb03409b-9cd6-5d64-8df5-ff60a8a38a41",
-      "aco": "Resource",
-      "aco_foreign_key": "daaf057e-7fc3-5537-a8a9-e8c151890878",
-      "aro": "User",
-      "aro_foreign_key": "904bcd9f-ff51-5cfd-9de8-d2c876ade498",
-      "type": 1,
-      "created": "2019-04-04T12:06:00+00:00",
-      "modified": "2019-04-04T12:06:00+00:00",
-      "user": {
-        "id": "904bcd9f-ff51-5cfd-9de8-d2c876ade498",
-        "role_id": "a58de6d3-f52c-5080-b79b-a601a647ac85",
-        "username": "irene@passbolt.com",
-        "active": true,
-        "deleted": false,
-        "created": "2019-04-04T12:05:44+00:00",
-        "modified": "2019-04-04T12:05:44+00:00",
-        "profile": {
-          "id": "c551fc12-59b4-51ad-ae73-1659812e9ba5",
-          "user_id": "904bcd9f-ff51-5cfd-9de8-d2c876ade498",
-          "first_name": "Irene",
-          "last_name": "Greif",
-          "created": "2019-04-04T12:05:45+00:00",
-          "modified": "2019-04-04T12:05:45+00:00",
-          "avatar": {
-            "url": {
-              "medium": "img/avatar/user_medium.png",
-              "small": "img/avatar/user.png"
-            }
-          }
-        },
-        "last_logged_in": ""
-      },
-      "group": null,
-      "delete": true
+      "user_id": "8d04cf98-716b-5f6d-9fe8-c130f8992646",
+      "data":"-----BEGIN PGP MESSAGE-----"
     }
   ]
 }
+```
+
+### Simulate Sharing
+
+Passbolt API allows you to simulate a share before actually going through with this. This way you can see if the 
+params pass the validation checks. To simulate sharing a resource 
+you can make a `POST` request to `/share/simulate/resource/<resourceId>.json` where `resourceId` is the id of the 
+[Resource](/api/resources) you wish to share.
+
+```
+POST /share/simulate/resource/<resourceId>.json?api-version=v2
 ```
 
 If the resource can be shared safely, this returns an associative array that contains a list of new users who 
@@ -272,8 +211,48 @@ encrypt the secrets for the users who get access and to remove the secrets of th
 }
 ```
 
-### Share a Resource
+### Final sharing
 
-After verifying the dry run and to go ahead with sharing, you can make a `PUT` request to
- `/share/resource/<resourceId>.json`. The request and response schema for this is same as the one described above in
-[Simulate Sharing](#simulate-sharing)
+If the simulation returns a success response, you can go ahead with sharing your resource. To share a resource 
+you can make a `PUT` request to `/share/simulate/resource/<resourceId>.json` where `resourceId` is the id of the 
+[Resource](/api/resources) you wish to share.
+
+```
+PUT /share/resource/<resourceId>.json?api-version=v2
+```
+
+The request schema is same as above while the response can be either of the following.
+
+<table class="table-parameters">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>200</td>
+            <td>OK<br/>
+            The resource is shared successfully.</td>
+        </tr>
+        <tr>
+            <td>400</td>
+            <td>Bad Request<br/>
+            The resourceId supplied is not a valid UUID</td>
+        </tr>
+        <tr>
+            <td>403</td>
+            <td>Authentication Failure<br/>
+            The user making the request is not authenticated</td>
+        </tr>
+        <tr>
+            <td>404</td>
+            <td>Not Found<br/>
+            The resource either does not exist or<br/>
+            The user does not have access permission or<br/>
+            Invalid number of secrets sent.
+            </td>
+        </tr>
+    </tbody>
+</table>

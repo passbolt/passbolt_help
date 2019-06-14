@@ -12,13 +12,12 @@ date: 2018-04-23 00:00:00 Z
 <video controls=""><source src="https://raw.githubusercontent.com/passbolt/passbolt_styleguide/master/src/video/lu_import_passwords_864.mp4" type="video/mp4"></video>
 
 ### Steps
-1. 	Make sure you have an edition of passbolt that supports import (at the time of writing this, it is only shipped with Passbolt Pro)
-2.  Click on the "import" button at the top left, next to the "create" button.
-3.  Select a file (supported files are kdbx or csv. More details below.)
-4.  Click on "continue import"
-5.  For kdbx files, you might need to enter a password. Enter it and click "Ok".
-6.  The import will start. You will see a progress bar.
-7.  At the end of the import, you will see a report. After closing this window, you will see the passwords imported in your workspace.
+1.  Click on the "import" button at the top left, next to the "create" button.
+2.  Select a file (supported files are kdbx or csv. More details below.)
+3.  Click on "continue import"
+4.  For kdbx files, you might need to enter a password. Enter it and click "Ok".
+5.  The import will start. You will see a progress bar.
+6.  At the end of the import, you will see a report. After closing this window, you will see the passwords imported in your workspace.
 
 ### Supported file formats
 Passbolt import system supports the following file formats:

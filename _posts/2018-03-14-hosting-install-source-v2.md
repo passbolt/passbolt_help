@@ -152,14 +152,27 @@ For passbolt to be able to send emails, you must first configure properly the â€
 `config/passbolt.php` file to match your provider smtp details.
 
 Emails are placed in a queue that needs to be processed by the following shell.
-```shell
+```bash
 $ ./bin/cake EmailQueue.sender
 ```
 
+In order to have your emails sent automatically, you can add a cron call to the script so the emails 
+will be sent every minute. Run the following command to edit the crontab for the www-data user:
+```bash
+$ crontab -u www-data -e
+```
+
+Add the following line to the crontab:
+```bash
 You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:
 ```bash
  * * * * * /var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log
+```
+
+If the log file does not yet exist, you can create it with the following command:
+```bash
+$ touch /var/log/passbolt.log && chown www-data:www-data /var/log/passbolt.log
 ```
 
 And you are done!

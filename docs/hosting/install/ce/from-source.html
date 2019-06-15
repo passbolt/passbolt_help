@@ -38,8 +38,9 @@
                 <div class="top navigation primary">
                     <ul class="links clearfix">
                         <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
-                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
                         <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
                         <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
                         <li class="left selected"><a href="//help.passbolt.com/"><span>help</span></a></li>
                     </ul>
@@ -77,6 +78,7 @@
             </div>
         </div>
     </div>
+
         <div class="panel main" aria-label="Content">
             <div class="panel left">
                 
@@ -356,12 +358,23 @@ Check <code class="highlighter-rouge">config/default.php</code> to get the names
 <code class="highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
 
     <p>Emails are placed in a queue that needs to be processed by the following shell.</p>
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake EmailQueue.sender
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake EmailQueue.sender
 </code></pre></div>    </div>
 
-    <p>You can add a cron call to the script so the emails will be sent every minute. 
-Add the following line to you crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+    <p>In order to have your emails sent automatically, you can add a cron call to the script so the emails 
+will be sent every minute. Run the following command to edit the crontab for the www-data user:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
+</code></pre></div>    </div>
+
+    <p>Add the following line to the crontab:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute. 
+Add the following line to you crontab:
+<span class="sb">```</span>bash
+ <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+</code></pre></div>    </div>
+
+    <p>If the log file does not yet exist, you can create it with the following command:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">touch</span> /var/log/passbolt.log <span class="o">&amp;&amp;</span> <span class="nb">chown </span>www-data:www-data /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>And you are done!</p>

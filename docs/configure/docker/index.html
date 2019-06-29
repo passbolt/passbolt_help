@@ -269,10 +269,12 @@
 </div>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+    if (!navigator.doNotTrack) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+    }
 </script>
 <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>

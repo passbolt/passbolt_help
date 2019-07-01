@@ -40,8 +40,8 @@ https://test.url,account1,P4ssw0Rd!,,Account2,,0
 **Csv (1Password)**
 ```
 Title,Username,URL,Password,Notes,Type
-Account1,account1,https://test.url,P4ssw0Rd!,Notes Account2,server,
-Account2,account2,https://test.url,P4ssw0Rd!,Notes Account2,shell,
+Account1,account1,https://test.url,P4ssw0Rd!,Notes Account2,server
+Account2,account2,https://test.url,P4ssw0Rd!,Notes Account2,shell
 Account3,,,P4ssw0Rd!,Notes Account3,server
 ```
 

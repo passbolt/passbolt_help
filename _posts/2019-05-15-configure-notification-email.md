@@ -7,7 +7,9 @@ categories: [configure,notification]
 sidebar: configure
 layout: default
 slug: email
-permalink: /:categories/:slug.html
+permalink: /:categories/:slug.htm
+redirect_from: 
+    - /configure/notifications/email
 ---
 
 {% include layout/row_start.html %}

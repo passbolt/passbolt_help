@@ -30,7 +30,7 @@ For this tutorial, you will need:
 - A minimal {{ distributionLabel }} server.
 - A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.
 
-The recommended server requirement are:
+The recommended server requirements are:
 - 2 cores
 - 2GB of RAM
 

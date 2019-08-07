@@ -20,11 +20,17 @@ the address (domain, hostname or ip) at which you are planning to access your pa
 example: my-passbolt.acme.com
 
 ### SSL Setup
+Because passbolt is designed to run with HTTPS by default it is best to try to setup passbolt 
+with SSL even if this is just a test instance.
 
 - **manual**: (recommended) choose manual if you have your own ssl certificates.
 - **auto**: this option will issue a SSL certificate automatically through [Let's Encrypt](https://letsencrypt.org). 
 Use this option only if you have a domain name that is reachable by the outside world, or it will not work.
 - **none**: choose this option if you don't want your webserver to run https. This is not recommended.
+
+**Important:** if you choose 'none' and want to test the MFA, later on you will need to set 
+PASSBOLT_SECURITY_COOKIE_SECURE environment variable to false. This is to prevent a misconfigured
+server with both HTTP and HTTPS enabled from leaking sensitive cookie.
 
 ### Common GnuPG issues
 

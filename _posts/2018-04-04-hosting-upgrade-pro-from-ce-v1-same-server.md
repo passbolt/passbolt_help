@@ -15,12 +15,14 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server.
+This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on 
+the same server.
 
 If you want to use a new server, [follow this link](/hosting/upgrade/pro/upgrade-ce-v1-to-pro-new-server).
 
 {% include messages/warning.html
-    content="**Important:** Please take a full [backup](/hosting/backup-v1) of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database."
+    content="**Important:** Please take a full [backup](/hosting/backup-v1) of your Passbolt CE before proceeding 
+    with the upgrade. Backup should include passbolt files as well as the database."
 %}
 
 ## System requirements

@@ -193,13 +193,15 @@
                         <div class="row">
   <div class="col7">
 
-    <p>This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on the same server.</p>
+    <p>This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into Passbolt Pro on 
+the same server.</p>
 
     <p>If you want to use a new server, <a href="/hosting/upgrade/pro/upgrade-ce-v1-to-pro-new-server">follow this link</a>.</p>
 
     <div class="message warning">
     <p>
-        <strong>Important:</strong> Please take a full <a href="/hosting/backup-v1">backup</a> of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database.
+        <strong>Important:</strong> Please take a full <a href="/hosting/backup-v1">backup</a> of your Passbolt CE before proceeding 
+    with the upgrade. Backup should include passbolt files as well as the database.
     </p>
     
 </div>
@@ -249,36 +251,7 @@ We’ll also assume you have a web server that match the system requirements.</p
     <h3 id="take-your-site-offline">2. Take your site offline</h3>
     <p>There are multiple ways of doing that, the simplest is sending a notice by email to your users
 and stopping your webserver. The better approach would be to create a temporary html file and
-redirect your passbolt user there, for example:</p>
-
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span><span class="nb">mkdir </span>wip
-/var/www<span class="nv">$ </span><span class="nb">touch </span>wip/index.html
-/var/www<span class="nv">$ </span><span class="nb">echo</span> <span class="s1">'&lt;html&gt;&lt;head&gt;&lt;title&gt;Maintenance in progress&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Maintenance in progress&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;'</span> <span class="o">&gt;&gt;</span> wip/index.html
-/var/www<span class="nv">$ </span>nano /etc/apache2/sites-enabled/001-default.conf
-
-&lt;IfModule mod_ssl.c&gt;
-        &lt;VirtualHost _default_:443&gt;
-                ServerAdmin webmaster@localhost
-                ServerName www.passbolt.test
-                DocumentRoot /var/www/wip
-
-                ErrorLog <span class="k">${</span><span class="nv">APACHE_LOG_DIR</span><span class="k">}</span>/error.log
-                CustomLog <span class="k">${</span><span class="nv">APACHE_LOG_DIR</span><span class="k">}</span>/access.log combined
-
-                SSLEngine on
-                SSLCertificateFile /etc/apache2/ssl/passbolt.crt
-                SSLCertificateKeyFile /etc/apache2/ssl/passbolt.key
-
-        &lt;Directory /var/www/wip&gt;
-            Options FollowSymLinks
-            AllowOverride All
-            Require all granted
-        &lt;/Directory&gt;
-
-        &lt;/VirtualHost&gt;
-&lt;/IfModule&gt;
-/var/www<span class="nv">$ </span>service apache2 restart
-</code></pre></div>    </div>
+redirect your passbolt user there.</p>
 
     <h3 id="download-passbolt-pro">3. Download Passbolt Pro</h3>
     <p>Open a shell with the same user as your web server user. (usually, www-data for apache, nginx for nginx)</p>

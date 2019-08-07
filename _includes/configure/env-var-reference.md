@@ -76,6 +76,8 @@ Following there is a list of the environment variables supported in passbolt bot
 | PASSBOLT_PLUGINS_IMPORT_ENABLED          | Enable import plugin                                                      | true                                               |
 | PASSBOLT_REGISTRATION_PUBLIC             | Defines if users can register                                             | false                                              |
 | PASSBOLT_SECURITY_SET_HEADERS            | Send CSP Headers                                                          | true                                               |
+| PASSBOLT_SECURITY_CSP                    | CSP Headers (true, false or custom CSP string)                            | true                                               |
+| PASSBOLT_SECURITY_COOOKIE_SECURE         | Set MFA cookie secure flag                                                | true                                               |
 | PASSBOLT_SSL_FORCE                       | Redirects http to https                                                   | true                                               |
 | PASSBOLT_SUBKEY_LENGTH                   | Gpg desired subkey length                                                 | 2048                                               |
 | SECURITY_SALT                            | CakePHP security salt                                                     | __SALT__                                           |

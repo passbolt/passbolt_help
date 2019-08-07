@@ -3,7 +3,7 @@ title: Using Passbolt pro virtual machine appliance
 card_title: Virtual machine
 card_teaser: Use passbolt Pro virtual appliance
 card_position: 1
-date: 2018-11-13 00:00:00 Z
+date: 2019-08-07 00:00:00 Z
 description: Start using passbolt pro virtual machine
 icon: fa-server
 categories: [hosting,install,pro]
@@ -80,6 +80,7 @@ SSL:
 
 - Provide a hostname for the script
 - Select (3) for 'none' on the second question to setup nginx without SSL
+- Later on make sure you set PASSBOLT_SECURITY_COOKIE_SECURE environment variable to false if you want to test MFA.
 
 ## 2. Configure passbolt
 

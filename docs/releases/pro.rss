@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v2.11.0 | Don't You (Forget about me)</title>
+    <link>https://help.passbolt.com/releases/pro/v2110-dont-you</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2110-dont-you</guid>
+    <description>Passbolt v2.11 is maintenance release containing security fixes. Extension update will be rolled out automatically to your users like usual, but as an administrator you will need to update your server. This release introduces some security fixes. Make sure you follow the minor update documentation to roll out this new...</description>
+    <pubDate>Wed, 07 Aug 2019 08:30:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.10.0 | Owner of a Lonely Heart</title>
     <link>https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart</guid>

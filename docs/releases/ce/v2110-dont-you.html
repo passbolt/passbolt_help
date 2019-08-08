@@ -234,23 +234,28 @@ email at <a href="mailto:sales@passbolt.com">sales@passbolt.com</a>. Or you can 
 <h2 id="api">API</h2>
 <h3 id="security-fixes">Security fixes</h3>
 <ul>
-  <li>PB-661: Fix XSS on tag autocomplete</li>
   <li>PB-661: Fix tab nabbing when clicking on “open in a new tab” in password grid</li>
   <li>PB-607: Fix XSS on first name or last name during setup</li>
 </ul>
 
+<h3 id="improvements">Improvements</h3>
+<ul>
+  <li>PB-587: Add baseline support for multiple openpgp backends</li>
+  <li>PB-391: Display the name and email of the user an admin is going to delete in the delete dialog</li>
+  <li>PB-396: Display the label of the password a user is going to delete in the delete dialog</li>
+  <li>PB-397: Display a relevant feedback in the user details group section if the user is not member of any group</li>
+  <li>PB-533: Add a new session check endpoint that does not extend the session expiry</li>
+  <li>PB-607: Add option for an administrator to configure CSP using environment variable</li>
+  <li>PB-242: Improve the passwords grid (passwords fetch peformance, search reactivity, selectbox area enlarged)</li>
+</ul>
+
 <h3 id="fixes">Fixes</h3>
 <ul>
-  <li>PB-607: Add option for an administrator to configure CSP using environment variable</li>
-  <li>PB-533: Add a new session check endpoint that does not extend the session expiry</li>
-  <li>PB-587: Add baseline support for multiple openpgp backends</li>
   <li>PB-349: Fix health check fails if using custom GNUPGHOME env set by application</li>
   <li>PB-330: Fix migration issue from CE to PRO in v2.10</li>
   <li>PB-567: Fix appjs auto logout</li>
   <li>PB-601: Fix some incomplete unit tests</li>
   <li>PB-427: Fix email sender shell task and organization settings table unnecessary coupling</li>
-  <li>PB-242: Fix password grid performance</li>
-  <li>PB-391: Fix as an admin deleting a user I should see the name and email of the user</li>
   <li>PB-349: Fix OpenPGP results health checks</li>
 </ul>
 
@@ -262,18 +267,25 @@ email at <a href="mailto:sales@passbolt.com">sales@passbolt.com</a>. Or you can 
 </ul>
 
 <h2 id="web-extension">Web extension</h2>
-<h3 id="fixes-1">Fixes</h3>
+<h3 id="improved">Improved</h3>
 <ul>
-  <li>PB-503: Fix math.random() when generating first security token/color</li>
-  <li>PB-485: Fix autofill input triggering (github #79) and misc autofill issues</li>
-  <li>PB-533: Fix session auto logout issues</li>
-  <li>PB-544: Fix login passphrase remember me and quick access</li>
+  <li>PB-242: Add local storage resources capabilities to manipulate the resources (add, delete, update)</li>
+  <li>GITHUB-79: Improve autofill compatibility, trigger an input event instead of a change event while filling forms</li>
+  <li>GITHUB-61: Improve autofill compatibility, support Docker and AWS forms</li>
+  <li>PB-432: Improve autofill compatibility, support reddit.com</li>
+  <li>PB-433: Improve autofill compatibility, support Zoho CRM</li>
+  <li>GITHUB-78: Improve autofill compatibility, fill only username if no password field present</li>
+  <li>PB-494: Improve autofill compatibility, ignore hidden fields</li>
+  <li>PB-514: Improve autofill compatibility, fill iframe forms fields</li>
+  <li>PB-609: Update library used for CSV export</li>
 </ul>
 
-<h3 id="maintenance-1">Maintenance</h3>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-242: Refactor resource events: add, delete, update</li>
-  <li>PB-609: Update library used for CSV export</li>
+  <li>PB-544: Fix login passphrase remember me and quickaccess</li>
+  <li>PB-533: Fix session expired management</li>
+  <li>PB-515: Autofill should not fill if the url in the tab have changed between the time the user clicked on the button to fill and the data is sent to the page.</li>
+  <li>PB-503: Fix math.random() when generating first security token/color</li>
 </ul>
 
                         </div>

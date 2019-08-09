@@ -15,6 +15,7 @@ permalink: hosting/install/pro/ubuntu-18-04-bionic-beaver.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'ubuntu' %}
+{% assign distributionVersion = 'latest' %}
 {% assign distributionSlug = 'ubuntu-18.04' %}
 {% assign distributionLabel = 'Ubuntu 18.04 (Bionic Beaver)' %}
 

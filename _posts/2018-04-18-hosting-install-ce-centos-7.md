@@ -15,6 +15,7 @@ permalink: hosting/install/ce/centos-7.html
 
 {% assign product = 'ce' %}
 {% assign distribution = 'centos' %}
+{% assign distributionVersion = 'latest' %}
 {% assign distributionSlug = 'centos-7' %}
 {% assign distributionLabel = 'CentOS 7' %}
 

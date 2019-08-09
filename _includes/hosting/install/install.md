@@ -69,8 +69,13 @@ The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.
 
 ```shell
+{%- if distributionVersion == 'latest' %}
 {{downloadCmd}} passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest
 {{downloadCmd}} passbolt-installer-checksum https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/latest-checksum
+{% else %}
+{{downloadCmd}} passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/{{ distributionVersion }}/latest
+{{downloadCmd}} passbolt-installer-checksum https://www.passbolt.com/{{ product }}/download/installers/{{ distribution }}/{{ distributionVersion }}/latest-checksum
+{% endif -%}
 sha512sum -c passbolt-installer-checksum
 tar -xzf passbolt-{{ product }}-installer-{{ distributionSlug }}.tar.gz
 sudo ./passbolt_{{ product }}_{{ distribution }}_installer.sh

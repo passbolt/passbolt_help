@@ -1,23 +1,23 @@
 ---
-title: Install Passbolt Pro on CentOS 7
-date: 2018-11-13 00:00:00 Z
-description: How to install Passbolt Pro on CentOS 7
-card_title: CentOS 7  guide
-card_teaser: Step by step guide to install passbolt on CentOS 7
-card_position: 3
+title: Install Passbolt Pro on Debian 10 (Buster)
+date: 2019-08-09 00:00:00 Z
+description: How to install Passbolt Pro on Debian 10 (Buster)
+card_title: Debian 10 guide
+card_teaser: Step by step guide to install passbolt on Debian 10
+card_position: 2
 icon: fa-server
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
-slug: CentOS 7
-permalink: hosting/install/pro/centos-7.html
+slug: Debian 10 (Buster)
+permalink: hosting/install/pro/debian-10-buster.html
 ---
 
 {% assign product = 'pro' %}
-{% assign distribution = 'centos' %}
+{% assign distribution = 'debian' %}
 {% assign distributionVersion = 'latest' %}
-{% assign distributionSlug = 'centos-7' %}
-{% assign distributionLabel = 'CentOS 7' %}
+{% assign distributionSlug = 'debian-10' %}
+{% assign distributionLabel = 'Debian 10 (Buster)' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

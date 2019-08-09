@@ -15,6 +15,7 @@ permalink: hosting/install/ce/debian-9-stretch.html
 
 {% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
+{% assign distributionVersion = '9' %}
 {% assign distributionSlug = 'debian-9' %}
 {% assign distributionLabel = 'Debian 9 (Stretch)' %}
 

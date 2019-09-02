@@ -84,3 +84,8 @@ sudo ./passbolt_{{ product }}_{{ distribution }}_installer.sh
 {% include hosting/install/wizard/install-scripts.md %}
 {% include hosting/install/wizard/server.md %}
 {% include hosting/install/wizard/admin.md %}
+
+### Frequently asked questions
+- [Why are my emails not being sent?](/faq/hosting/why-email-not-sent)
+- [How to I increase auto logout timeout?](/faq/hosting/how-to-increase-auto-logout-time)
+- [How do I make backups](/faq/hosting/how-to-backup)

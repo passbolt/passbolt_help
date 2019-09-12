@@ -29,7 +29,7 @@ This tutorial covers the case where you want to upgrade your current instance of
 
 Considering that the system requirements haved it may make sense for you to upgrade on a fresh server.
 If that is what you want to do, copy the v1 [backup](/hosting/backup-v1) files to your new server, import your passbolt
-database into your new server and proceed like you were upgrading on the same server, with the process described bellow.
+database into your new server and proceed like you were upgrading on the same server, with the process described below.
 
 ## Upgrade from the same server
 

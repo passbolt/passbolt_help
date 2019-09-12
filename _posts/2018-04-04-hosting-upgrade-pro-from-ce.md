@@ -31,14 +31,14 @@ This page list the options and will point you to the right manual.
 
 
 #### Using source
-If the server running Passbolt V1 doesn't and cannot match the requirements listed bellow, you will need a new server 
+If the server running Passbolt V1 doesn't and cannot match the requirements listed below, you will need a new server 
 to upgrade to Passbolt Pro.
 
 - [Upgrade CE v1.x to Pro on the same server](/hosting/upgrade/pro/upgrade-pro-from-ce-v1-same-server)
 - [Upgrade CE v1.x to Pro on a new server](/hosting/upgrade/pro/upgrade-pro-from-ce-v1-new-server)
 
 ### Can I upgrade on the same server?
-If the server running Passbolt v1 matches the requirements listed bellow, you can upgrade to Passbolt Pro on the same server.
+If the server running Passbolt v1 matches the requirements listed below, you can upgrade to Passbolt Pro on the same server.
 If it does not match, you can also upgrade your distribution packages, or install on a new server.
 Generally the major dependency upgrade is PHP7. (In Debian, using dotdeb replacements work like a charm).
 

@@ -13,7 +13,7 @@ or use the demo environment. Here is the procedure to try out the demo:
 
 **Step 1.** Open the demo page: [https://demo.passbolt.com](https://demo.passbolt.com).
 
-**Step 2.** An add-on is required to use passbolt, click on the linke to install the plugin for Firefox or Chrome.
+**Step 2.** An add-on is required to use passbolt, click on the link to install the plugin for Firefox or Chrome.
 
 **Step 3.** You will see a small red key icon in the upper right hand corner of your browser. Click on it.
 

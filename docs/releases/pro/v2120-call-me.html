@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Cold Vein</title>
+    <title>Passbolt Help | Call Me</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not ...">
+    <meta name="description" content="This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version con...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Cold Vein" />
-    <meta property="og:description" content="This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not ..." />
+    <meta property="og:title" content="Call Me" />
+    <meta property="og:description" content="This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version con..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v209-cold-vein">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v2120-call-me">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.0.9.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.12.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/v2120-call-me" >v2.12.0</a>
                     </li>
                     
@@ -180,7 +180,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v209-cold-vein"><span>cold-vein</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/v2120-call-me"><span>call-me</span></a>
                     </div>
                 </li>
                 
@@ -189,28 +189,102 @@
     </div>
 </div>
 
-                            <h1>v2.0.9 ~ Cold Vein (pro)</h1>
+                            <h1>v2.12.0 ~ Call Me (pro)</h1>
                             <p>Release date: 
-May
-9th,
-2018.
+December
+6th,
+2019.
 </p>
-                            <p>This is a maintenance release for passbolt web extension that fixes issues reported by the community.</p>
+                            <p>This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. 
+The previously published extension version contained some security fix for an issue in the quick access suggestion system reported by security researcher Rene Kroka. 
+You can learn more about it on the <a href="https://www.passbolt.com/incidents">incident page</a>.</p>
 
-<h3 id="web-extension">Web Extension</h3>
-<h4 id="bug-fixes">Bug fixes</h4>
+<p>It also ships with a much demanded improvement: the possibility to resend a new invitation to a user.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_resend_invitation.png" alt="Resend invitation menu" style="max-width:;" />
+    <span class="legend">fig. Resend invitation menu</span>
+</figure>
+
+<p>Another improvement is the integration of the MFA status for each user in the user workspace. It is now possible for an admin to see at a glance which users have activated their MFA, and which ones have not.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_mfa_status.png" alt="MFA status in the user workspace" style="max-width:;" />
+    <span class="legend">fig. MFA status in the user workspace</span>
+</figure>
+
+<p>Moreover, for users who can’t access Passbolt anymore due to a lost or inaccessible MFA device, we added the possibility for the admin to disable MFA for the given user.
+This will give them the possibility to reset their MFA settings and be able to access Passbolt again.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_disable_mfa.png" alt="Disable MFA option menu" style="max-width:;" />
+    <span class="legend">fig. Disable MFA option menu</span>
+</figure>
+
+<p>Finally, it is now possible for users to manage their personal tags. They can rename and delete them directly from the tags list component.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/12//LU_tag_contextual_menu.png" alt="Manage personal tags from the contextual menu" style="max-width:300px;" />
+    <span class="legend">fig. Manage personal tags from the contextual menu</span>
+</figure>
+
+<p>We hope you’ll enjoy this update!</p>
+
+<p><strong>What next?</strong> The team focus is currently on the upcoming folders feature. 
+It is taking a substantial amount of energy to implement but the result should be matching your expectations.
+It is now a matter of weeks before the feature is available. If you are interested to know how it will work, you can have a look at <a href="https://docs.google.com/document/d/1pSR97b5emJH5XxMME_lN4CqLUfYFuDw6DGCMJ_XjF-o/edit?usp=sharing">the specifications</a> (feedback is welcome). 
+The screenshot below will give you a glimpse of its look and feel:</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/12/LU_folder_preview.png" alt="Folders feature overview" style="max-width:;" />
+    <span class="legend">fig. Folders feature overview</span>
+</figure>
+
+<p>The team wishes you great end-of-year celebrations, merry christmas &amp; happy new year in advance, and good holidays if you are lucky enough to take some!</p>
+
+<h2 id="api">API</h2>
+
+<h3 id="added">Added</h3>
 <ul>
-  <li>Fix content scripts should not be inserted if they are already present.</li>
-  <li>Fix auth pagemod should insert script when a redirection is set in url</li>
-  <li>Fix json.headers should be json.header</li>
+  <li>PB-575: As AD I can see the MFA status of each user in the users grid</li>
+  <li>PB-639: As LU I can delete a personal tag</li>
+  <li>PB-687: As an admin I can resend an invitation for a user that didn’t complete the setup</li>
+  <li>PB-698: As an admin I can disable MFA for a user</li>
 </ul>
 
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>PB-893: Update CakePHP to v3.8.6</li>
+  <li>PB-894: Improve subscription key checks and output details</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>PB-771: Added purify subject for the email subscribers</li>
+  <li>PB-856: Added migration fix to remove unused tables</li>
+  <li>GITHUB-84: Fix gc_maxlifetime versus Session.timeout units</li>
+  <li>PB-767: Fix LDAP sync issue “when multiple users are added to a group, failed validation of one should not impact validation of others”</li>
+</ul>
+
+<h2 id="web-extension">Web extension</h2>
+
+<h3 id="improved-1">Improved</h3>
+<ul>
+  <li>PB-878: Update OpenPGP.js to v4.7</li>
+  <li>PB-649: The quickaccess passphrase field text and background colors should remain as default when the field is not focused.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-883: The quickaccess should filter passwords by uri protocol and port if provided.</li>
+  <li>PB-766: Fix 414 server issues for features that work with batch of resources. Reduce the size of the batches.</li>
+</ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"But I ain't going to whet that and get all stressed out"</p>
-                                <a href="https://www.youtube.com/watch?v=pr6Q730gB24" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"When you're ready we can share the wine."</p>
+                                <a href="https://youtu.be/StKVS0eI85I" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

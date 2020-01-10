@@ -3,7 +3,7 @@
 There are several locations that might be interesting for the users to persist data between container restarts:
 * Images directory: /var/www/passbolt/webroot/img
 * Gnupg serverkeys directory: /var/www/passbolt/config/gpg
-* SSL certificate files: /etc/ssl/certs/certiticate.crt /etc/ssl/certs/certificate.key
+* SSL certificate files: /etc/ssl/certs/certificate.crt /etc/ssl/certs/certificate.key
 {% if page.passbolt_version == 'Pro' %}
 * Subscription key file: /var/www/passbolt/config/license
 {% endif %}

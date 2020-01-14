@@ -6,10 +6,10 @@ category: api,resources,read
 slug: resources-read
 permalink: /api/resources/read
 ---
-It is possible to get data for a single resource identified by the unique UUID. All you need is to make a GET request to /resource/<resourceId>.json.
+It is possible to get data for a single resource identified by the unique UUID. All you need is to make a GET request to /resources/<resourceId>.json.
 
 ```
-GET /resource/<resourceId>.json?api-version=v2
+GET /resources/<resourceId>.json?api-version=v2
 ```
 
 ### Possible responses

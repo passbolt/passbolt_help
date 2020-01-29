@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://help.passbolt.com/faq/configure/enable-disable-import-export-plugins</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/configure/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/code-contribution</loc>
@@ -38,7 +38,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/what-is-passbolt</loc>
@@ -70,11 +70,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/are-we-there-yet</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/feature-priority</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/where-to-get-help</loc>
@@ -82,7 +82,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/hosting/how-to-install</loc>
@@ -110,11 +110,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/hosting/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/legal/which-license</loc>
@@ -142,7 +142,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/legal/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/security-vulnerability</loc>
@@ -194,7 +194,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/start/browser-extensions</loc>
@@ -266,7 +266,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/start/</loc>
-<lastmod>2019-12-06T17:55:07+01:00</lastmod>
+<lastmod>2020-01-29T15:11:54+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/hosting/update-v1.html</loc>
@@ -393,7 +393,7 @@
 <lastmod>2019-05-15T02:00:00+02:00</lastmod>
 </url>
 <url>
-<loc>https://help.passbolt.com/configure/notification/email.htm</loc>
+<loc>https://help.passbolt.com/configure/notification/email</loc>
 <lastmod>2019-05-22T02:00:00+02:00</lastmod>
 </url>
 <url>
@@ -792,6 +792,6 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/assets/files/Security%20White%20Paper%20-%20Passbolt%20Pro%20Edition.pdf</loc>
-<lastmod>2019-12-06T15:55:52+01:00</lastmod>
+<lastmod>2019-08-07T17:35:28+02:00</lastmod>
 </url>
 </urlset>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | How to configure email notification settings for your organization</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="How to configure email notification settings for your organization" />
+    <meta property="og:description" content="" />
+
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="canonical" href="https://help.passbolt.com/configure/notification/email">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2019-05-15-configure-notification-email.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li>
+            <h2>Configure</h2>
+        </li>
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap">Configure LDAP</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
+        </li>
+        
+        
+        <li class="selected"
+            >
+            <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/reference">Environment variable reference</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure"><span>configure</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/notification"><span>notification</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/notification/email"><span>email</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>How to configure email notification settings for your organization</h1>
+</div>
+</div>
+
+                        <div class="row">
+  <div class="col7">
+
+    <p>Some actions in passbolt, such as a user sharing a password with someone else, trigger an email notification. As passbolt admin, you can control which events result in an email notification and which events are ignored. Similarly you can control whether or not a piece of information is included in those notification emails.</p>
+
+    <h2 id="passbolt-events-that-trigger-email-notification">Passbolt events that trigger email notification</h2>
+
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Recipients</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>When a comment is posted on a password.</td>
+      <td>All the users having access to the given password.</td>
+    </tr>
+    <tr>
+      <td>When a password is created.</td>
+      <td>The user creating the password.</td>
+    </tr>
+    <tr>
+      <td>When a password is shared.</td>
+      <td>The users gaining access to the given password.</td>
+    </tr>
+    <tr>
+      <td>When a password is updated.</td>
+      <td>All the users having access to the given password.</td>
+    </tr>
+    <tr>
+      <td>When a password is deleted.</td>
+      <td>All the users who had access to the given password.</td>
+    </tr>
+    <tr>
+      <td>When a new user is invited.</td>
+      <td>The invited user.</td>
+    </tr>
+    <tr>
+      <td>When users try to recover their passbolt account.</td>
+      <td>The user trying to recover their account.</td>
+    </tr>
+    <tr>
+      <td>When a group is deleted.</td>
+      <td>Group's members.</td>
+    </tr>
+    <tr>
+      <td>A user is added to a group.</td>
+      <td>The user getting added.</td>
+    </tr>
+    <tr>
+      <td>A user is removed from a group.</td>
+      <td>The user getting removed.</td>
+    </tr>
+    <tr>
+      <td>When user roles change in a group.</td>
+      <td>The affected users.</td>
+    </tr>
+    <tr>
+      <td>When members of a group change.</td>
+      <td>The group's manager.</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h2 id="information-that-can-be-shownhidden-from-the-outgoing-emails">Information that can be shown/hidden from the outgoing emails.</h2>
+
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Config</th>
+      <th>Show / Hide what</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Username</td>
+      <td>Resource username</td>
+    </tr>
+    <tr>
+      <td>URI</td>
+      <td>Resource URI/URL</td>
+    </tr>
+    <tr>
+      <td>Encrypted Secret</td>
+      <td>PGP encrypted password</td>
+    </tr>
+    <tr>
+      <td>Description</td>
+      <td>Resource description</td>
+    </tr>
+    <tr>
+      <td>Comment</td>
+      <td>Comment content</td>
+    </tr>
+  </tbody>
+</table>
+
+    <h2 id="default-behavior">Default behavior</h2>
+
+    <p>By default all the settings are <code class="highlighter-rouge">true</code> which means all the notifications are set to be broadcasted and all the information blocks are set to be shown.</p>
+
+    <h2 id="configuring-email-notification-settings">Configuring Email Notification Settings</h2>
+
+    <p>You can configure email notification settings using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.</p>
+
+    <h2 id="using-admin-user-interface">Using admin user interface</h2>
+
+    <p>Since v2.10 a user interface is provided for administrators to setup email notification settings. Click on “administration” in the top menu, then “Email Notifications” on the left menu.</p>
+
+    <p>The settings are divided into two sections.</p>
+
+    <h3 id="email-delivery">Email Delivery</h3>
+    <p>These settings control whether or not an email is sent on a given event.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/AD_email_notification_send_settings.png" alt="Email Notification Settings - Email Delivery" style="max-width:;" />
+    <span class="legend">fig. Email Notification Settings - Email Delivery</span>
+</figure>
+
+    <h3 id="email-content-visibility">Email content visibility</h3>
+
+    <p>These settings control whether a piece of information is included in the emails sent.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/AD_email_notification_show_settings.png" alt="Email Notification Settings - Email Content Visibility" style="max-width:;" />
+    <span class="legend">fig. Email Notification Settings - Email Content Visibility</span>
+</figure>
+
+    <h2 id="using-environment-variables">Using Environment variables</h2>
+
+    <p>You can use the following environment variables to control the email delivery settings. They are all boolean and accepts 1 or 0. Setting the variable to 1 (one) will mean that email will be sent for that event and setting it 0 (zero) will ignore the event.</p>
+
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Environment variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>When a comment is posted on a password.</td>
+      <td>PASSBOLT_EMAIL_SEND_COMMENT_ADD</td>
+    </tr>
+    <tr>
+      <td>When a password is created.</td>
+      <td>PASSBOLT_EMAIL_SEND_PASSWORD_CREATE</td>
+    </tr>
+    <tr>
+      <td>When a password is shared.</td>
+      <td>PASSBOLT_EMAIL_SEND_PASSWORD_SHARE</td>
+    </tr>
+    <tr>
+      <td>When a password is updated</td>
+      <td>PASSBOLT_EMAIL_SEND_PASSWORD_UPDATE</td>
+    </tr>
+    <tr>
+      <td>When a password is deleted</td>
+      <td>PASSBOLT_EMAIL_SEND_PASSWORD_DELETE</td>
+    </tr>
+    <tr>
+      <td>When a new user is invited.</td>
+      <td>PASSBOLT_EMAIL_SEND_USER_CREATE</td>
+    </tr>
+    <tr>
+      <td>When users try to recover their passbolt account.</td>
+      <td>PASSBOLT_EMAIL_SEND_USER_RECOVER</td>
+    </tr>
+    <tr>
+      <td>When a group is deleted.</td>
+      <td>PASSBOLT_EMAIL_SEND_GROUP_DELETE</td>
+    </tr>
+    <tr>
+      <td>A user is added to a group.</td>
+      <td>PASSBOLT_EMAIL_SEND_GROUP_USER_ADD</td>
+    </tr>
+    <tr>
+      <td>A user is removed from a group.</td>
+      <td>PASSBOLT_EMAIL_SEND_GROUP_USER_DELETE</td>
+    </tr>
+    <tr>
+      <td>When user roles change in a group.</td>
+      <td>PASSBOLT_EMAIL_SEND_GROUP_USER_UPDATE</td>
+    </tr>
+    <tr>
+      <td>When members of a group change.</td>
+      <td>PASSBOLT_EMAIL_SEND_GROUP_MANAGER_UPDATE</td>
+    </tr>
+  </tbody>
+</table>
+
+    <p>Similarly, for changing the email content visibility, you can use the following environment variables . They are all boolean and accepts 1 or 0. Setting the variable to 1 (one) will mean that information will be included in outgoing mails and setting it to 0 (zero) will result in not including that.</p>
+
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Show/Hide</th>
+      <th>Environment variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Resource username</td>
+      <td>PASSBOLT_EMAIL_SHOW_USERNAME</td>
+    </tr>
+    <tr>
+      <td>Resource URI/URL</td>
+      <td>PASSBOLT_EMAIL_SHOW_URI</td>
+    </tr>
+    <tr>
+      <td>PGP encrypted password</td>
+      <td>PASSBOLT_EMAIL_SHOW_SECRET</td>
+    </tr>
+    <tr>
+      <td>Resource description</td>
+      <td>PASSBOLT_EMAIL_SHOW_DESCRIPTION</td>
+    </tr>
+    <tr>
+      <td>Comment content</td>
+      <td>PASSBOLT_EMAIL_SHOW_COMMENT</td>
+    </tr>
+  </tbody>
+</table>
+
+    <p>When you using docker to set these environment variable you can pass them as arguments,
+like other variables such as the database name, for example:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
+             -p 80:80 \
+             -p 443:443 \
+             -e PASSBOLT_EMAIL_SHOW_COMMENT=0 \
+             -e PASSBOLT_EMAIL_SHOW_DESCRIPTION=0 \
+             -e PASSBOLT_EMAIL_SEND_COMMENT_ADD=0 \
+             -e PASSBOLT_EMAIL_SEND_PASSWORD_CREATE=0 \
+</code></pre></div>    </div>
+
+    <h2 id="using-config-file">Using config file</h2>
+
+    <p>Email notification settings can also be managed by updating the <code class="highlighter-rouge">config/passbolt.php</code> file in your install directory. These settings live in the <code class="highlighter-rouge">email</code> key under <code class="highlighter-rouge">passbolt</code>.</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'passbolt' =&gt; [
+    'email' =&gt; [
+        // For Email Delivery configs
+        'send' =&gt; [
+            'comment' =&gt; [
+              'add' =&gt; false
+            ],
+            'password' =&gt; [
+              'create' =&gt; 'false'
+            ]
+        ],
+        // For content visibility configs
+        'show' =&gt; [
+            'comment' =&gt; false,
+            'description' =&gt; false
+        ]
+    ]
+]
+</code></pre></div>    </div>
+
+    <p>If a config variable doesn’t exist in your config file, it’s default value will be picked.</p>
+
+    <p>You can use the following config variables to control the email delivery settings. They are all boolean and accepts <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. Setting the variable to <code class="highlighter-rouge">true</code> will mean that email will be sent for that event and setting it <code class="highlighter-rouge">false</code> will ignore the event.</p>
+
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Event</th>
+      <th>Config variable</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>when a comment is posted on a password.</td>
+      <td><code>passbolt.email.send.comment.add</code></td>
+    </tr>
+    <tr>
+      <td>when a password is created.</td>
+      <td><code>passbolt.email.send.password.create</code></td>
+    </tr>
+    <tr>
+      <td>when a password is shared.</td>
+      <td><code>passbolt.email.send.password.share</code></td>
+    </tr>
+    <tr>
+      <td>when a password is updated</td>
+      <td><code>passbolt.email.send.password.update</code></td>
+    </tr>
+    <tr>
+      <td>when a password is deleted</td>
+      <td><code>passbolt.email.send.password.delete</code></td>
+    </tr>
+    <tr>
+      <td>when a new user is invited.</td>
+      <td><code>passbolt.email.send.user.create</code></td>
+    </tr>
+    <tr>
+      <td>when users try to recover their passbolt account.</td>
+      <td><code>passbolt.email.send.user.recover</code></td>
+    </tr>
+    <tr>
+      <td>when a group is deleted.</td>
+      <td><code>passbolt.email.send.group.delete</code></td>
+    </tr>
+    <tr>
+      <td>a user is added to a group.</td>
+      <td><code>passbolt.email.send.group.user.add</code></td>
+    </tr>
+    <tr>
+      <td>a user is removed from a group.</td>
+      <td><code>passbolt.email.send.group.user.delete</code></td>
+    </tr>
+    <tr>
+      <td>when user roles change in a group.</td>
+      <td><code>passbolt.email.send.group.user.update</code></td>
+    </tr>
+    <tr>
+      <td>when members of a group change.</td>
+      <td><code>passbolt.email.send.group.manager.update</code></td>
+    </tr>
+  </tbody>
+</table>
+
+    <p>Similarly, for changing the email content visibility, you can use the following config variables . They are all boolean and accepts <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. Setting the variable to <code class="highlighter-rouge">true</code> will mean that information will be included in outgoing mails and setting it to <code class="highlighter-rouge">false</code> will result in not including that.</p>
+
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>Show/Hide</th>
+      <th>Variable name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Resource username</td>
+      <td><code>passbolt.email.show.username</code></td>
+    </tr>
+    <tr>
+      <td>Resource URI/URL</td>
+      <td><code>passbolt.email.show.uri</code></td>
+    </tr>
+    <tr>
+      <td>PGP encrypted password</td>
+      <td><code>passbolt.email.show.secret</code></td>
+    </tr>
+    <tr>
+      <td>Resource description</td>
+      <td><code>passbolt.email.show.description</code></td>
+    </tr>
+    <tr>
+      <td>Comment content</td>
+      <td><code>passbolt.email.show.comment</code></td>
+    </tr>
+  </tbody>
+</table>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+May
+22nd,
+2019.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
+    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
+    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
+
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script>
+    if (!navigator.doNotTrack) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
+    }
+</script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

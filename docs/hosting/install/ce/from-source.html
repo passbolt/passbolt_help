@@ -82,8 +82,8 @@
 
         <div class="panel main" aria-label="Content">
             <div class="panel left">
-                
-                
+
+
 
 
 
@@ -94,39 +94,39 @@
         <li>
             <h2>Hosting</h2>
         </li>
-        
+
         <li >
             <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
         </li>
-        
-        
+
+
         <li >
             <a href="https://help.passbolt.com/hosting/install">Installation</a>
         </li>
-        
-        
-        
-        
+
+
+
+
         <li >
             <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
-        
-        
+
+
         <li >
             <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
         </li>
-        
-        
+
+
         <li >
             <a href="https://help.passbolt.com/hosting/backup">Backup</a>
         </li>
-        
-        
+
+
         <li >
             <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
         </li>
-        
-        
+
+
     </ul>
 </div>
 
@@ -139,7 +139,7 @@
 
 
 
-                
+
             </div>
             <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
                 <div class="grid grid-responsive-12">
@@ -158,8 +158,8 @@
                         <a href="/"><span>help</span></a>
                     </div>
                 </li>
-                
-                
+
+
                 <li>
                     <div class="main-cell">
                         <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
@@ -170,15 +170,15 @@
                         <a href="https://help.passbolt.com/hosting/install"><span>install</span></a>
                     </div>
                 </li>
-                
-                
-                
+
+
+
                 <li>
                     <div class="main-cell">
                         <a href="https://help.passbolt.com/hosting/install/ce/from-source.html"><span>from-source</span></a>
                     </div>
                 </li>
-                
+
             </ul>
         </div>
     </div>
@@ -201,7 +201,7 @@ taking into account the specifics related to each and every linux distribution.<
     <p>
         <strong>Please note:</strong> This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution <a href="/hosting/install">here</a>.
     </p>
-    
+
 </div>
 
     <h2 id="system-requirements">System requirements</h2>
@@ -216,6 +216,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     <ul>
       <li>Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)</li>
       <li>A webserver (Apache or Nginx)</li>
+      <li>The webserver needs an active mod_rewrite module</li>
       <li>A TLS server certificate for HTTPS</li>
       <li>PHP &gt;= 7.0.0</li>
       <li>MariaDB/Mysql &gt;= 5.5.59</li>
@@ -240,16 +241,17 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     <h3 id="create-a-web-server-matching-the-system-requirements">1. Create a web server matching the system requirements.</h3>
 
     <p>Spin up a new fresh server with your favorite distribution, install a database server
-and a webserver with a TLS certificate. If you are using apache as web server make sure you 
+and a webserver with a TLS certificate. If you are using apache as web server make sure you
 have mod_rewrite module enabled.</p>
 
     <div class="message warning">
     <p>
-        We highly recommend that you install https on your server. You can get a free SSL certificate with the let’s encrypt initiative.
+        We highly recommend that you install https on your server. You can get a free SSL certificate with the let’s encrypt initiative. Another option is a SSL terminator/accelerator that adds https in front of an unencrypted webserver. Both Nginx or HAPROXY can handle this.
     </p>
-    
+
     <a href="https://letsencrypt.org/" class="button">let's encrypt!</a>
-    
+
+    <a href="https://serversforhackers.com/c/letsencrypt-with-haproxy" class="button">HAPROXY with let's encrypt</a>
 </div>
 
     <h3 id="create-an-empty-database">2. Create an empty database</h3>
@@ -274,7 +276,7 @@ subsequent updates.</p>
     <h3 id="generate-an-openpgp-key">4. Generate an OpenPGP key</h3>
 
     <p>Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.
-For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
+For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the
 php module.</p>
 
     <p><div class="message warning">
@@ -355,20 +357,20 @@ Check <code class="highlighter-rouge">config/default.php</code> to get the names
 
     <h3 id="setup-the-emails">9. Setup the emails</h3>
 
-    <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the 
+    <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the
 <code class="highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
 
     <p>Emails are placed in a queue that needs to be processed by the following shell.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake EmailQueue.sender
 </code></pre></div>    </div>
 
-    <p>In order to have your emails sent automatically, you can add a cron call to the script so the emails 
+    <p>In order to have your emails sent automatically, you can add a cron call to the script so the emails
 will be sent every minute. Run the following command to edit the crontab for the www-data user:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
 </code></pre></div>    </div>
 
     <p>Add the following line to the crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute. 
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute.
 Add the following line to you crontab:
 <span class="sb">```</span>bash
  <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
@@ -384,290 +386,290 @@ Add the following line to you crontab:
 
     <p>Here are some frequently asked questions related to passbolt installation:</p>
     <ul>
-    
-    
-        
-    
-    
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-    
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-            
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <li>
         <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
     </li>
-                
-            
-        
-    
-    
-    
-        
-    
-    
-    
-        
-            
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
     <li>
         <a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a>
     </li>
-                
-            
-        
-    
-    
-    
-        
-    
-    
-    
-        
-            
-                
+
+
+
+
+
+
+
+
+
+
+
+
+
     <li>
         <a href="/faq/hosting/why-haveged-virtual-env">Why should I install haveged on virtual environments?</a>
     </li>
-                
-            
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-        
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ul>
 
     <p>Feel free to ask for help on the <a href="https://community.passbolt.com/c/installation-issues">community forum</a>.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
-      <p>This article was last updated on 
+      <p>This article was last updated on
 November
 13th,
 2018.</p>
@@ -678,16 +680,16 @@ November
 
     <div class="message tldr notice">
     <p>Are you experiencing issues when installing passbolt?</p>
-    
+
     <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
-    
+
 </div>
 
     <div class="message tldr">
     <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
-    
+
     <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
-    
+
 </div>
 
     <div class="message tldr notice">

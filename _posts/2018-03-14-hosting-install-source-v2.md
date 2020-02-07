@@ -33,13 +33,19 @@ taking into account the specifics related to each and every linux distribution.
 ### 1. Create a web server matching the system requirements.
 
 Spin up a new fresh server with your favorite distribution, install a database server
-and a webserver with a TLS certificate. If you are using apache as web server make sure you 
+and a webserver with a TLS certificate. If you are using apache as web server make sure you
 have mod_rewrite module enabled.
 
 {% include messages/warning.html
     content="We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative."
     link="https://letsencrypt.org/"
     ask="let's encrypt!"
+%}
+
+{% include messages/notice.html
+    content="It is also possible to install passbolt on an uncrypted webserver and use a reverse proxy in front to provide the https encryption with let's encrypt! on a separate machine (e.g. Nginx or HAPROXY)."
+    link="https://serversforhackers.com/c/letsencrypt-with-haproxy"
+    ask="HAPROXY with let's encrypt!"
 %}
 
 ### 2. Create an empty database
@@ -66,8 +72,8 @@ subsequent updates.
 ### 4. Generate an OpenPGP key
 
 Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.
-For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
-php module. 
+For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the
+php module.
 
 {% include hosting/install/warning-gpg-key-generation.html %}
 
@@ -148,7 +154,7 @@ $ sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
 
 ### 9. Setup the emails
 
-For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the 
+For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the
 `config/passbolt.php` file to match your provider smtp details.
 
 Emails are placed in a queue that needs to be processed by the following shell.
@@ -156,7 +162,7 @@ Emails are placed in a queue that needs to be processed by the following shell.
 $ ./bin/cake EmailQueue.sender
 ```
 
-In order to have your emails sent automatically, you can add a cron call to the script so the emails 
+In order to have your emails sent automatically, you can add a cron call to the script so the emails
 will be sent every minute. Run the following command to edit the crontab for the www-data user:
 ```bash
 $ crontab -u www-data -e
@@ -164,7 +170,7 @@ $ crontab -u www-data -e
 
 Add the following line to the crontab:
 ```bash
-You can add a cron call to the script so the emails will be sent every minute. 
+You can add a cron call to the script so the emails will be sent every minute.
 Add the following line to you crontab:
 ```bash
  * * * * * /var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log

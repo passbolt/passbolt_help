@@ -28,8 +28,12 @@ This tutorial covers the case where you want to upgrade your current instance of
 In the following examples we assume you are running passbolt using apache in the `/var/www/passbolt`
 directory. You will need to replace these values with your local environment settings.
 
-### 1. Take your site offline
+### 1. Take your site offline & install the required modules
 {% include hosting/upgrade/take-your-site-offline.md %}
+
+If you are planning to use LDAP integration you will need to make sure the PHP extension for LDAP
+is installed and enabled (for example: `apt-get install php-ldap`). Make sure you restart your webserver
+when you add new PHP extensions (for example with: `sudo service restart php-fpm`).
 
 ### 2. Download Passbolt Pro
 {% include hosting/upgrade/pro/v2/download-and-replace-passbolt.md 

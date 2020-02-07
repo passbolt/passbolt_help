@@ -236,10 +236,14 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     <p>In the following examples we assume you are running passbolt using apache in the <code class="highlighter-rouge">/var/www/passbolt</code>
 directory. You will need to replace these values with your local environment settings.</p>
 
-    <h3 id="take-your-site-offline">1. Take your site offline</h3>
+    <h3 id="take-your-site-offline--install-the-required-modules">1. Take your site offline &amp; install the required modules</h3>
     <p>There are multiple ways of doing that, the simplest is sending a notice by email to your users
 and stopping your webserver. The better approach would be to create a temporary html file and
 redirect your passbolt user there.</p>
+
+    <p>If you are planning to use LDAP integration you will need to make sure the PHP extension for LDAP
+is installed and enabled (for example: <code class="highlighter-rouge">apt-get install php-ldap</code>). Make sure you restart your webserver
+when you add new PHP extensions (for example with: <code class="highlighter-rouge">sudo service restart php-fpm</code>).</p>
 
     <h3 id="download-passbolt-pro">2. Download Passbolt Pro</h3>
     <p>Open a shell with the same user as your web server user. (usually, www-data for apache, nginx for nginx)</p>

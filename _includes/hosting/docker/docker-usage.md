@@ -25,7 +25,7 @@ volume or a host directory and mount it at `/var/lib/mysql`
 ```bash
 $ docker volume create mariadb_passbolt_data
 $ docker run -d --name mariadb --net passbolt_network \
-             --mount source=mariadb_passbolt_data, \
+             --mount source=mariadb_passbolt_data,\
              target=/var/lib/mysql \
              -e MYSQL_ROOT_PASSWORD=<root_password> \
              -e MYSQL_DATABASE=<mariadb_database> \

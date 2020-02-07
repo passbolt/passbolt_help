@@ -45,6 +45,12 @@ You can copy the server OpenPGP key in `config/gpg` or export it directly from G
 ```bash
 gpg --export-secret-key -a "passbolt server" > private.key
 ```
+
+##### Note
+
+Be sure to **remove the expiration time** before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.
+
+
 #### 4. The application configuration
 
 The file located in `config/passbolt.php`. It is optional, but it can save you some time if you need to rebuild a new instance.

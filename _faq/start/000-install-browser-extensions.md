@@ -7,6 +7,13 @@ permalink: /faq/start/:slug
 date: 2017-01-20 00:00:00 Z
 ---
 
+## Chrome
+### Install the Chrome add-on
+
+1. Go to [https://chrome.google.com/webstore/detail/passbolt-extension/didegimhafipceonhjepacocaffmoppf](https://chrome.google.com/webstore/detail/passbolt-extension/didegimhafipceonhjepacocaffmoppf)
+2. Click on the "Add to Chrome" button
+3. Click "Add extension"
+
 ## Firefox
 ### Install the Firefox add-on
 

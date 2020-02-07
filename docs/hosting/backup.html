@@ -222,6 +222,11 @@ Please automate and customize this process to match the needs and policies of yo
     <p>You can copy the server OpenPGP key in <code class="highlighter-rouge">config/gpg</code> or export it directly from GnuPG.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--export-secret-key</span> <span class="nt">-a</span> <span class="s2">"passbolt server"</span> <span class="o">&gt;</span> private.key
 </code></pre></div>    </div>
+
+    <h5 id="note">Note</h5>
+
+    <p>Be sure to <strong>remove the expiration time</strong> before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.</p>
+
     <h4 id="the-application-configuration">4. The application configuration</h4>
 
     <p>The file located in <code class="highlighter-rouge">config/passbolt.php</code>. It is optional, but it can save you some time if you need to rebuild a new instance.</p>

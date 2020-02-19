@@ -1,4 +1,164 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-02-07T15:26:31+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-02-19T17:16:58+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T01:00:00+01:00</published><updated>2020-02-07T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+    &lt;p&gt;To run LDAPS your LDAP server must offer a valid SSL certificate to the client which in this case that client is the passbolt server.
+It is also required that the SSL certificate is trusted by your passbolt instance.&lt;/p&gt;
+
+    &lt;p&gt;There are two ways of obtaining your SSL certificate, listed below.&lt;/p&gt;
+
+    &lt;h3 id=&quot;your-ldap-server-is-offering-a-ssl-certificate-obtained-by-a-public-certificate-authority&quot;&gt;Your LDAP server is offering a SSL certificate obtained by a public Certificate Authority&lt;/h3&gt;
+
+    &lt;p&gt;If your SSL certificate has been obtained through a public and well known SSL certificate authority such as &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s encrypt&lt;/a&gt; your certificate would
+be automatically trusted by the passbolt instance unless otherwise specified by your SSL provider.&lt;/p&gt;
+
+    &lt;p&gt;Most of the time in this scenario your passbolt instance will not require any extra configuration.&lt;/p&gt;
+
+    &lt;h3 id=&quot;your-ldap-server-is-offering-a-ssl-certificate-obtained-from-a-private-certficate-authority&quot;&gt;Your LDAP server is offering a SSL certificate obtained from a private Certficate Authority&lt;/h3&gt;
+
+    &lt;p&gt;Some organizations run LDAP on a private network on premises. In these scenarios it is very common that your organization has a private SSL certificate authority that
+generates SSL certificates valid only on the private network.&lt;/p&gt;
+
+    &lt;p&gt;If this is your scenario you probably will need a CA certificate to trust the private SSL certificate offered by your LDAP server if the LDAP SSL certificate is not chained correctly.&lt;/p&gt;
+
+    &lt;p&gt;If the LDAP SSL certificate is not chained correctly meaning that it is not offering both the CA certificate and SSL certificate on connection you must obtain and upload the CA certificate
+to your passbolt instance.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/01/AD_ldaps_ssl_certificate_error.png&quot; alt=&quot;LDAP with ssl - certificate error message&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. LDAP with ssl - certificate error message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;configure-passbolt-server-to-trust-a-private-ldaps-certificate&quot;&gt;Configure passbolt server to trust a private LDAPS certificate&lt;/h2&gt;
+
+    &lt;h3 id=&quot;step-1-ping-the-server&quot;&gt;Step 1: ping the server&lt;/h3&gt;
+
+    &lt;p&gt;The first step is to understand what is causing the issue and be sure that it’s related to a certificate issue.&lt;/p&gt;
+
+    &lt;p&gt;We first try to ping the server and see if it goes through.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ping your_ldap_server.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If it does not go through, check that there is a corresponding entry for your domain / server ip in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;. If it’s not there add it.&lt;/p&gt;
+
+    &lt;p&gt;If it goes through, we will then try to execute a similar ldap query to what passbolt does using ldapsearch.&lt;/p&gt;
+
+    &lt;h3 id=&quot;step-2-connect-with-ldapsearch&quot;&gt;Step 2: Connect with ldapsearch&lt;/h3&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ldapsearch &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;username&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-W&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; ldaps://your_ldap_server.com &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dc=domain,dc=com&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; 9
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Do not forget to replace the ‘username’, ‘your_ldap_server.com’ ‘domain’ and ‘com’ variables with the real ones.&lt;/p&gt;
+
+    &lt;p&gt;If after this command is executed you see your objects returned, it means that the LDAPS connection is going through and that
+there must be an issue with the parameters you entered in passbolt LDAP plugin. You should check them again and make sure that they are alright.&lt;/p&gt;
+
+    &lt;p&gt;If this command returns something as displayed below, then you most likely have a LDAPS certificate issue.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@cee4a6876f55:/var/www/passbolt# ldapsearch &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-D&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;ada&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-W&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; ldaps://your_ldap_server.com &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;dc=passbolt,dc=local&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; 9
+ldap_url_parse_ext&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ldaps://your_ldap_server.com&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+ldap_create
+ldap_url_parse_ext&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;ldaps://your_ldap_server.com:636/??base&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+Enter LDAP Password:
+ldap_sasl_bind
+ldap_send_initial_request
+ldap_new_connection 1 1 0
+ldap_int_open_connection
+ldap_connect_to_host: TCP your_ldap_server.com:636
+ldap_new_socket: 3
+ldap_prepare_socket: 3
+ldap_connect_to_host: Trying 34.77.243.127:636
+ldap_pvt_connect: fd: 3 tm: &lt;span class=&quot;nt&quot;&gt;-1&lt;/span&gt; async: 0
+attempting to connect:
+connect success
+ldap_err2string
+ldap_sasl_bind&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;SIMPLE&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;: Can&lt;span class=&quot;s1&quot;&gt;'t contact LDAP server (-1)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If that’s the case, the good news is that it’s quite easy to fix. The issue is that the client is not trusting the certificate provided by the server.
+Let’s fix this by moving forward to the next step.&lt;/p&gt;
+
+    &lt;h3 id=&quot;step-3-download-a-correctly-chained-ssl-certificate&quot;&gt;Step 3: Download a correctly chained SSL certificate&lt;/h3&gt;
+
+    &lt;p&gt;Openldap requires usually the entire chained certificate. We have developed a quick utility that aims to help retrieve all the parts of a ldaps certificate and bundle them together.
+You can access this tool &lt;a href=&quot;https://github.com/passbolt/ldaps_cert_util&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;Follow the README instructions, retrieve your certificate and move to step 2.&lt;/p&gt;
+
+    &lt;h3 id=&quot;step-4-tell-openldap-to-use-the-right-certificate&quot;&gt;Step 4: tell openldap to use the right certificate&lt;/h3&gt;
+
+    &lt;p&gt;In Debian:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano /etc/ldap/ldap.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;em&gt;Note that the ldap.conf can also be found in /etc/ldap/ldap.conf, depending on your distro&lt;/em&gt;&lt;/p&gt;
+
+    &lt;p&gt;The content of the file should look like:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#
+# LDAP Defaults
+#
+
+# See ldap.conf(5) for details
+# This file should be world readable but not world writable.
+
+#BASE   dc=example,dc=com
+#URI    ldap://ldap.example.com ldap://ldap-master.example.com:666
+
+#SIZELIMIT      12
+#TIMELIMIT      15
+#DEREF          never
+
+# TLS certificates (needed for GnuTLS)
+TLS_CACERT      /etc/ssl/certs/cert.crt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Edit the line with &lt;code class=&quot;highlighter-rouge&quot;&gt;TLS_CACERT&lt;/code&gt; to make it point to the right certificate.&lt;/p&gt;
+
+    &lt;p&gt;That’s it. It should now work. Go back to step 1 and execute the ldapsearch command again. You should see a
+successful connection to your ldaps server happening. If that’s the case, you can get back to Passbolt and try the synchronization again.&lt;/p&gt;
+
+    &lt;h3 id=&quot;alternatively&quot;&gt;Alternatively&lt;/h3&gt;
+
+    &lt;p&gt;If for some obscure reasons openldap was still refusing to cooperate, you can try telling him to ignore the certificate.&lt;/p&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Warning:&lt;/strong&gt; Do this for tests purpose only. This practice is insecure and could make your server prone to MITM attacks.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano /etc/ldap/ldap.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then add the line: &lt;code class=&quot;highlighter-rouge&quot;&gt;TLS_REQCERT never&lt;/code&gt;, and try again.&lt;/p&gt;
+
+    &lt;p&gt;If now the connection is going through, it means that there is still an issue with your certificate.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+7th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -9,7 +169,7 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
@@ -23,7 +183,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Debian 10 (Buster) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
       &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -49,10 +209,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
     &lt;p&gt;The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/9/latest
+wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/9/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_debian_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -331,7 +491,7 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -342,7 +502,7 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
@@ -356,7 +516,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Debian 10 (Buster) server.&lt;/li&gt;
       &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -382,10 +542,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
     &lt;p&gt;The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/9/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/9/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
+wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_debian_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -1870,7 +2030,7 @@ March
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; The Ldap plugin is part of &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot;&gt;Passbolt Pro&lt;/a&gt; only and is not available in the Community Edition.
+        &lt;strong&gt;Important:&lt;/strong&gt; The LDAP connector will send an invitation email to all the users matching your configuration during a synchronization. If you are simply testing it, make sure not to perform an actual synchronization (use simulate sync instead), or disable the cron job to send emails first.
     &lt;/p&gt;
     
 &lt;/div&gt;
@@ -2202,6 +2362,9 @@ will appear and let you know what happened exactly.&lt;/p&gt;
     &lt;p&gt;To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 0 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; su &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/passbolt/bin/cake directory_sync all&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash www-data &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /var/log/cron.log 2&amp;gt;&amp;amp;1
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;configure-ldap-with-ssl-ldaps&quot;&gt;Configure ldap with SSL (ldaps)&lt;/h2&gt;
+    &lt;p&gt;If your configuration doesn’t run out of the box with ldaps, you can refer to the &lt;a href=&quot;/configure/ldap-with-ssl&quot;&gt;ldap with ssl&lt;/a&gt; documentation in order to adjust your config or throubleshoot your issue.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
@@ -2577,35 +2740,6 @@ authentication prompt.&lt;/p&gt;
       &lt;p&gt;This article was last updated on 
 November
 15th,
-2018.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro</title><link href="https://help.passbolt.com/hosting/install/pro/wizard.html" rel="alternate" type="text/html" title="Install Passbolt Pro" /><published>2018-11-13T01:00:00+01:00</published><updated>2018-11-13T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/wizard</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/wizard.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h3 id=&quot;choose-the-guide-corresponding-to-your-distribution&quot;&gt;Choose the guide corresponding to your distribution&lt;/h3&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Debian 9: &lt;a href=&quot;/hosting/install/pro/debian-9-stretch.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/debian-9-stretch.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Centos 7: &lt;a href=&quot;/hosting/install/pro/centos-7.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/centos-7.html&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Ubuntu 18.04: &lt;a href=&quot;/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&quot;&gt;https://www.passbolt.com/hosting/install/pro/ubuntu-18-04-bionic-beaver.html&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-November
-13th,
 2018.&lt;/p&gt;
     &lt;/div&gt;
 

@@ -122,6 +122,12 @@
         
         <li>
         
+            <a href="https://help.passbolt.com/configure/ldap-with-ssl">Configure LDAP with ssl</a>
+        </li>
+        
+        
+        <li>
+        
             <a href="https://help.passbolt.com/configure/reference">Environment variable reference</a>
         </li>
         
@@ -194,7 +200,7 @@
 
     <div class="message warning">
     <p>
-        <strong>Important:</strong> The Ldap plugin is part of <a href="https://www.passbolt.com/pricing/pro">Passbolt Pro</a> only and is not available in the Community Edition.
+        <strong>Important:</strong> The LDAP connector will send an invitation email to all the users matching your configuration during a synchronization. If you are simply testing it, make sure not to perform an actual synchronization (use simulate sync instead), or disable the cron job to send emails first.
     </p>
     
 </div>
@@ -526,6 +532,9 @@ will appear and let you know what happened exactly.</p>
     <p>To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake directory_sync all"</span> <span class="nt">-s</span> /bin/bash www-data <span class="o">&gt;&gt;</span> /var/log/cron.log 2&gt;&amp;1
 </code></pre></div>    </div>
+
+    <h2 id="configure-ldap-with-ssl-ldaps">Configure ldap with SSL (ldaps)</h2>
+    <p>If your configuration doesn’t run out of the box with ldaps, you can refer to the <a href="/configure/ldap-with-ssl">ldap with ssl</a> documentation in order to adjust your config or throubleshoot your issue.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>

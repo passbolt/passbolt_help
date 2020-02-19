@@ -17,7 +17,7 @@ permalink: /:categories/:slug.html
 <img src="/assets/img/help/2018/09/AD_ldap_overview.png" alt="ldap illustration" style="margin: auto;"/>
 
 {% include messages/warning.html
-    content="**Important:** The Ldap plugin is part of [Passbolt Pro](https://www.passbolt.com/pricing/pro) only and is not available in the Community Edition."
+    content="**Important:** The LDAP connector will send an invitation email to all the users matching your configuration during a synchronization. If you are simply testing it, make sure not to perform an actual synchronization (use simulate sync instead), or disable the cron job to send emails first."
 %}
 
 ## Introduction
@@ -354,6 +354,8 @@ To synchronize the changes automatically you will need to add a cron job on your
 0 0 * * * su -c "/var/www/passbolt/bin/cake directory_sync all" -s /bin/bash www-data >> /var/log/cron.log 2>&1
 ```
 
+## Configure ldap with SSL (ldaps)
+If your configuration doesn't run out of the box with ldaps, you can refer to the [ldap with ssl](/configure/ldap-with-ssl) documentation in order to adjust your config or throubleshoot your issue.
 
 {% include date/updated.html %}
 

@@ -109,6 +109,12 @@
       icon: fa-envelope-o
       teaser: How to manage email notification settings
       slug: email
+    - title: Configure LDAP with ssl
+      url: /configure/ldap-with-ssl
+      icon: fa-address-book-o
+      teaser: How to configure the LDAP plugin with ssl (ldaps)
+      version: pro
+      slug: ldap-with-ssl
     - title: Environment variable reference
       url: /configure/reference
       icon: fa-bookmark

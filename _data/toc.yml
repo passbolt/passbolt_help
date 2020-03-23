@@ -87,7 +87,7 @@
   teaser: Configure your passbolt instance
   items:
     - title: Configure LDAP
-      url: /configure/ldap
+      url: /configure/ldap/setup
       icon: fa-address-book-o
       teaser: How to configure the directory sync plugin
       version: pro
@@ -110,16 +110,21 @@
       teaser: How to manage email notification settings
       slug: email
     - title: Configure LDAP with ssl
-      url: /configure/ldap-with-ssl
+      url: /configure/ldap/ldap-with-ssl
       icon: fa-address-book-o
       teaser: How to configure the LDAP plugin with ssl (ldaps)
       version: pro
       slug: ldap-with-ssl
     - title: Environment variable reference
-      url: /configure/reference
+      url: /configure/environment/reference
       icon: fa-bookmark
       teaser: Reference list of all environment variables
       slug: reference
+    - title: Configure Email providers
+      url: /configure/email/setup
+      icon: fa-envelope-o
+      teaser: How to setup email providers
+      slug: email-setup
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

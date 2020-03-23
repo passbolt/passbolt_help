@@ -3,12 +3,14 @@ title: Configure LDAP plugin with SSL (ldaps)
 date: 2020-02-07 00:00:00 Z
 description: Configure LDAP plugin with ssl (ldaps)
 icon: fa-address-book-o
-categories: [configure]
+categories: [configure,ldap]
 sidebar: configure
 layout: default
 slug: ldap-with-ssl
 ogimage: /assets/img/help/2018/09/AD_ldap_overview.png
 permalink: /:categories/:slug.html
+redirect_from:
+  - /configure/ldap-with-ssl
 ---
 
 {% include layout/row_start.html %}

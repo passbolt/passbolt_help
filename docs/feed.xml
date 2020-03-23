@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-02-19T17:16:58+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T01:00:00+01:00</published><updated>2020-02-07T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-03-23T17:12:55+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+    &lt;p&gt;Passbolt relies heavily on emails:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Account creation&lt;/li&gt;
+      &lt;li&gt;Account recovery&lt;/li&gt;
+      &lt;li&gt;Notifications on different user actions&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Having a working email setup is essential if you want to use passbolt at its best. There are many email providers
+and each one has its own setup process. The aim of this help page is to provide the basic concepts so each admin
+can setup their provider adjusting to their particular case.&lt;/p&gt;
+
+    &lt;h2 id=&quot;tls-email-providers&quot;&gt;TLS email providers&lt;/h2&gt;
+
+    &lt;p&gt;If your email provider supports TLS encryption your setup should look like this in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;s1&quot;&gt;'EmailTransport'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;'default'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'host'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'your.smtp.provider.host.com'&lt;/span&gt;,
+            &lt;span class=&quot;s1&quot;&gt;'port'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 587,
+            &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'user'&lt;/span&gt;,
+            &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'secret'&lt;/span&gt;,
+            &lt;span class=&quot;s1&quot;&gt;'tls'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;,
+        &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Or, if you are using environment variables:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;your.smtp.provider.host.com
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;587
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;user
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;secret
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_TLS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Replace ‘your.smtp.provider.host.com’, ‘user’ and ‘secret’ with the actual values for your provider.
+Usually email providers that support TLS use port 587 however you should check with your provider specific
+requirements.&lt;/p&gt;
+
+    &lt;h2 id=&quot;ssl-email-providers&quot;&gt;SSL email providers&lt;/h2&gt;
+
+    &lt;p&gt;Some providers support SSL encryption and the setup is slightly different from the TLS case. Just change
+your &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt; file to look like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;s1&quot;&gt;'EmailTransport'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s1&quot;&gt;'default'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s1&quot;&gt;'host'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ssl://your.smtp.provider.host.com'&lt;/span&gt;,
+            &lt;span class=&quot;s1&quot;&gt;'port'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 465,
+            &lt;span class=&quot;s1&quot;&gt;'username'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'user'&lt;/span&gt;,
+            &lt;span class=&quot;s1&quot;&gt;'password'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'secret'&lt;/span&gt;,
+            &lt;span class=&quot;s1&quot;&gt;'tls'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; null,
+        &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+    &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;,
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;In the case of using env variables:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_HOST&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;ssl://your.smtp.provider.host.com
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_PORT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;465
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_USERNAME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;user
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;secret
+&lt;span class=&quot;nv&quot;&gt;EMAIL_TRANSPORT_DEFAULT_TLS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;null
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+6th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T01:00:00+01:00</published><updated>2020-02-07T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -158,7 +239,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -169,7 +250,7 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
@@ -183,7 +264,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Debian 10 (Buster) server.&lt;/li&gt;
       &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -209,10 +290,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
     &lt;p&gt;The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/9/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/9/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
+wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_debian_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -491,7 +572,7 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -502,7 +583,7 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
@@ -516,7 +597,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Debian 10 (Buster) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
       &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -542,10 +623,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
     &lt;p&gt;The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/9/latest
+wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/9/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_debian_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -1471,7 +1552,7 @@ May
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Passbolt reference environment variables</title><link href="https://help.passbolt.com/configure/reference.html" rel="alternate" type="text/html" title="Passbolt reference environment variables" /><published>2019-05-15T02:00:00+02:00</published><updated>2019-05-15T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/reference</id><content type="html" xml:base="https://help.passbolt.com/configure/reference.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Passbolt reference environment variables</title><link href="https://help.passbolt.com/configure/environment/reference.html" rel="alternate" type="text/html" title="Passbolt reference environment variables" /><published>2019-05-15T02:00:00+02:00</published><updated>2019-05-15T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/environment/reference</id><content type="html" xml:base="https://help.passbolt.com/configure/environment/reference.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
     &lt;p&gt;Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values.&lt;/p&gt;
 
@@ -2023,7 +2104,7 @@ March
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T01:00:00+01:00</published><updated>2018-12-04T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap/setup.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T01:00:00+01:00</published><updated>2018-12-04T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/setup.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -2039,32 +2120,32 @@ March
 
     &lt;h3 id=&quot;what-is-it&quot;&gt;What is it?&lt;/h3&gt;
 
-    &lt;p&gt;The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt 
+    &lt;p&gt;The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt
 administrator to synchronize a list of groups and users, as well as the associated group memberships.&lt;/p&gt;
 
-    &lt;p&gt;Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future 
+    &lt;p&gt;Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future
 we will also support other non ldap based user directories such as Google API User Directory.&lt;/p&gt;
 
     &lt;h3 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h3&gt;
 
-    &lt;p&gt;In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal 
-involvement of the administrators and group managers. However if an action is not possible, such as, deleting 
-a user that is the sole password owner, the process triggers will trigger relevant email notifications so 
-that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the 
+    &lt;p&gt;In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal
+involvement of the administrators and group managers. However if an action is not possible, such as, deleting
+a user that is the sole password owner, the process triggers will trigger relevant email notifications so
+that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the
 next synchronization round, if the issue does not need to be resolved.&lt;/p&gt;
 
     &lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
 
     &lt;p&gt;The directory synchronization tools requires the &lt;a href=&quot;https://secure.php.net/manual/en/book.ldap.php&quot;&gt;php-ldap extension&lt;/a&gt;
-to be present on the server. If you built your own server the way you install 
+to be present on the server. If you built your own server the way you install
 &lt;a href=&quot;https://packages.debian.org/stretch/php-ldap&quot;&gt;php-ldap&lt;/a&gt; will depend on your system flavor.&lt;/p&gt;
 
     &lt;p&gt;On Debian using nginx for example you can do:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;php-ldap 
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;php-ldap
 &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx restart
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Make sure the ldap extension is present in the php-cli.ini file. 
+    &lt;p&gt;Make sure the ldap extension is present in the php-cli.ini file.
 You should add &lt;code class=&quot;highlighter-rouge&quot;&gt;extension=ldap.so&lt;/code&gt; if it is not already present:&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; |grep php&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;ini
 Configuration File &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;php.ini&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Path &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; /etc/php/7.0/cli
@@ -2072,13 +2153,13 @@ Loaded Configuration File &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt;
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/php/7.0/cli/php.ini
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;For testing purpose, it might be handy to have some &lt;a href=&quot;https://wiki.debian.org/LDAP/LDAPUtils&quot;&gt;ldap utilities&lt;/a&gt; 
+    &lt;p&gt;For testing purpose, it might be handy to have some &lt;a href=&quot;https://wiki.debian.org/LDAP/LDAPUtils&quot;&gt;ldap utilities&lt;/a&gt;
 installed on your system. On Debian you can use ldapsearch for example to search for and display entries:&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ldap-utils
 ldapsearch &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'dc=example,dc=com'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt 
+    &lt;p&gt;The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt
 update or install. You can get it the same way than other php dependencies using composer:&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
 git pull origin master
@@ -2090,12 +2171,12 @@ composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
 
     &lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
 
-    &lt;p&gt;The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, 
+    &lt;p&gt;The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later,
 once groups inside groups is supported by passbolt.&lt;/p&gt;
 
-    &lt;p&gt;A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently 
-not supported (and is not a trivial problem) but could still be considered in the future. If you are interested 
-in this feature you can join the discussion on the 
+    &lt;p&gt;A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently
+not supported (and is not a trivial problem) but could still be considered in the future. If you are interested
+in this feature you can join the discussion on the
 &lt;a href=&quot;https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
 
     &lt;p&gt;The following improvements will also be shipped gradually and will be available soon:&lt;/p&gt;
@@ -2108,14 +2189,14 @@ in this feature you can join the discussion on the
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; This guide explains how to configure the Ldap connector through the UI. For complex configurations (for example custom field mapping in openldap) you will need to &lt;a href=&quot;/configure/ldap-from-configuration-file&quot;&gt;configure ldap directly through the configuration file&lt;/a&gt;.
+        &lt;strong&gt;Please note:&lt;/strong&gt; This guide explains how to configure the Ldap connector through the UI. For complex configurations (for example custom field mapping in openldap) you will need to &lt;a href=&quot;/configure/ldap/ldap-from-configuration-file&quot;&gt;configure ldap directly through the configuration file&lt;/a&gt;.
     &lt;/p&gt;
     
 &lt;/div&gt;
 
     &lt;h3 id=&quot;activate-the-plugin&quot;&gt;Activate the plugin&lt;/h3&gt;
 
-    &lt;p&gt;The plugin is deactivated by default. You need to activate it to be able to use it. 
+    &lt;p&gt;The plugin is deactivated by default. You need to activate it to be able to use it.
 While logged in as an admin, click on the administration menu item in the top menu, and then click on “Users Directory”&lt;/p&gt;
 
     &lt;figure&gt;
@@ -2259,7 +2340,7 @@ actually activate it.&lt;/p&gt;
             &lt;em&gt;(required)&lt;/em&gt;
             &lt;/td&gt;
             &lt;td&gt;
-            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools. 
+            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools.
             &lt;br /&gt;&lt;br /&gt;You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
             &lt;/td&gt;
             &lt;td&gt;
@@ -2350,12 +2431,12 @@ a report such as the one below will be displayed.&lt;/p&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory sync simulation&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;In this report, you will be able to see what will actually happen when you will synchronize your directory for real. You will also be 
+    &lt;p&gt;In this report, you will be able to see what will actually happen when you will synchronize your directory for real. You will also be
 able to take corrective measures before an error actually happens.&lt;/p&gt;
 
     &lt;h3 id=&quot;first-synchronization&quot;&gt;First synchronization&lt;/h3&gt;
 
-    &lt;p&gt;To do the first synchronization, repeat the same process as above. Only, click on “synchronize” this time. A similar report to the one that was displayed during a simulate 
+    &lt;p&gt;To do the first synchronization, repeat the same process as above. Only, click on “synchronize” this time. A similar report to the one that was displayed during a simulate
 will appear and let you know what happened exactly.&lt;/p&gt;
 
     &lt;h3 id=&quot;how-to-synchronize-my-directory-automatically&quot;&gt;How to synchronize my directory automatically?&lt;/h3&gt;
@@ -2532,206 +2613,6 @@ authentication prompt.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-yubikey-login2.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Login prompt&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-November
-15th,
-2018.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2018-11-15T01:00:00+01:00</published><updated>2018-11-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;Passbolt Pro Edition since v2.5 supports Duo as a multi factor authentication option.
-Duo is a proprietary solution that is free for up to 10 users, and supports a bundle
-of authentication channels (such as HOTP, mobile push, phone calls, etc.) configurable
-by the Duo account administrator.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-website.png&quot; alt=&quot;Duo website&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo website&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; Multi Factor Authentication is part of &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot;&gt;Passbolt Pro&lt;/a&gt; only and is not available in the Community Edition.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;security-considerations&quot;&gt;Security considerations&lt;/h2&gt;
-
-    &lt;p&gt;It is important to enable and setup at least one additional multi factor authentication 
-provider in case Duo service becomes temporarily not available.&lt;/p&gt;
-
-    &lt;p&gt;In order to use Duo authentication the user will need to interact with an iframe
-with content served by passbolt. Make sure your users have access to internet or do
-not enable this authentication provider if you are running passbolt on a private network
-that is not connected to internet.&lt;/p&gt;
-
-    &lt;h2 id=&quot;install-duo-app&quot;&gt;Install Duo app&lt;/h2&gt;
-
-    &lt;p&gt;In order to use this authentication provider each of your users will need to install
-the Duo mobile app on their phone or tablet.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.duosecurity.duomobile&amp;amp;hl=en&quot;&gt;Duo Mobile for Android&lt;/a&gt; on google play store.&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8&quot;&gt;Duo Mobile for iOS&lt;/a&gt; on apple itunes.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-login.png&quot; alt=&quot;Duo mobile application&quot; style=&quot;max-width:250px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo mobile application&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;get-a-duo-account&quot;&gt;Get a Duo account&lt;/h2&gt;
-
-    &lt;p&gt;If you do not have a Duo account, first sign up at &lt;a href=&quot;https://signup.duo.com/&quot;&gt;https://signup.duo.com/&lt;/a&gt;
-Then log in to the Duo Admin panel at &lt;a href=&quot;https://admin.duosecurity.com/login&quot;&gt;https://admin.duosecurity.com/login&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;Configure your Duo policies as required by your organization.&lt;/p&gt;
-
-    &lt;h3 id=&quot;add-a-passbolt-application&quot;&gt;Add a passbolt application&lt;/h3&gt;
-
-    &lt;p&gt;In order for passbolt to enable onboarding and authentication of new users with Duo,
-you will need to create a passbolt application in Duo.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-admin.png&quot; alt=&quot;Duo administration&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo administration&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;When login in Duo Admin panel in the left menu, click on “Applications”, then click on 
-“Protect an Application”. Find the “Web SDK” application and click on “Protect this Application”.&lt;/p&gt;
-
-    &lt;p&gt;Note down the Integration Key, Secret Key, and API Hostname details, as you will need
-them to configure the integration.&lt;/p&gt;
-
-    &lt;h2 id=&quot;set-the-configuration-in-passbolt&quot;&gt;Set the configuration in passbolt&lt;/h2&gt;
-
-    &lt;p&gt;You can configure Duo OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.&lt;/p&gt;
-
-    &lt;p&gt;You will need to generate a random 40 character string to be used as salt, to help
-secure your integration.&lt;/p&gt;
-
-    &lt;h3 id=&quot;using-admin-user-interface&quot;&gt;Using admin user interface&lt;/h3&gt;
-
-    &lt;p&gt;Since v2.6 a user interface is provided for administrators to setup MFA providers.
-Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
-You can then enable or disable the Duo provider by providing the user id and secret key that
-you gathered in the previous steps. Click “save settings” when you are done.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_duo.png&quot; alt=&quot;MFA organization settings for Duo&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. MFA organization settings for Duo&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;using-environment-variables&quot;&gt;Using environment variables&lt;/h3&gt;
-
-    &lt;table class=&quot;table-parameters&quot;&gt;
-&lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Variable name&lt;/th&gt;
-        &lt;th&gt;Description&lt;/th&gt;
-        &lt;th&gt;Type&lt;/th&gt;
-    &lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_SALT&lt;/td&gt;
-        &lt;td&gt;Random salt&lt;/td&gt;
-        &lt;td&gt;string (40 chars min.)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_INTEGRATIONKEY&lt;/td&gt;
-        &lt;td&gt;Integration key&lt;/td&gt;
-        &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_SECRETKEY&lt;/td&gt;
-        &lt;td&gt;Secret key&lt;/td&gt;
-        &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_HOST&lt;/td&gt;
-        &lt;td&gt;Host&lt;/td&gt;
-        &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-    &lt;p&gt;When you using docker to set these environment variable you can pass them as arguments,
-like other variables such as the database name, for example:&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run --name passbolt \
-             -p 80:80 \
-             -p 443:443 \
-             -e PASSBOLT_PLUGINS_MFA_DUO_HOST=api-26e9f2fce.duosecurity.com \
-             -e etc.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;using-config-file&quot;&gt;Using config file&lt;/h3&gt;
-
-    &lt;p&gt;In your install directory you can add the following section in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;
-and replace the&lt;/p&gt;
-
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; 'plugins' =&amp;gt; [
-        'multiFactorAuthentication' =&amp;gt; [
-            'providers' =&amp;gt; [
-                'totp' =&amp;gt; true,
-                'duo' =&amp;gt; true,
-                'yubikey' =&amp;gt; false
-            ],
-            'duo' =&amp;gt; [
-                'salt' =&amp;gt; 'THIS_MUST_BE_AT_LEAST_FOURTY_CHARACTERS',
-                'integrationKey' =&amp;gt; 'CCCCPRC95FF3FW21FR5SJ',
-                'secretKey' =&amp;gt; '7tkYNgxxXaGAuv3KWYYqhsJLfIc1NBnHDYC1siNYX',
-                'hostName' =&amp;gt; 'api-21e9fcfce.duosecurity.com'
-            ]
-        ]
-    ]
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;setting-duo-for-a-given-passbolt-user-account&quot;&gt;Setting Duo for a given passbolt user account&lt;/h2&gt;
-
-    &lt;p&gt;Once you have a the Duo integration configured and Duo app installed on your mobile you
-can proceed with enabling Duo as provider for your user account. It is important you test
-this to make sure the integration works.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-setup.png&quot; alt=&quot;Passbolt duo setup&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt duo setup&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;When logged in passbolt go to your profile section and click on “Multi factor authentication”
-in the left sidebar. You should see the list of providers that are enabled for this instance.&lt;/p&gt;
-
-    &lt;p&gt;Click on the Duo provider. Passbolt will then display an iframe that will help you setup
-your device if this is the first time you are using Duo with this instance. Follow the
-instructions provided by Duo and you should be all set.&lt;/p&gt;
-
-    &lt;p&gt;The next time you try login from a new device, you will be presented with a Duo 
-authentication prompt.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-login2.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Login prompt&lt;/span&gt;
 &lt;/figure&gt;
 

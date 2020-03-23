@@ -3,11 +3,13 @@ title: Passbolt reference environment variables
 date: 2019-05-15 00:00:00 Z
 description: Passbolt environment variable reference
 icon: fa-server
-categories: [configure]
+categories: [configure,environment]
 sidebar: configure
 layout: default
 slug: reference
 permalink: /:categories/:slug.html
+redirect_from:
+  - /configure/reference
 ---
 
 {% include layout/row_start.html %}

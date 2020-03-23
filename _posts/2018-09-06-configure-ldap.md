@@ -3,12 +3,14 @@ title: Configure Ldap plugin
 date: 2018-12-04 00:00:00 Z
 description: Configure Ldap plugin (directory sync)
 icon: fa-address-book-o
-categories: [configure]
+categories: [configure,ldap]
 sidebar: configure
 layout: default
-slug: ldap
+slug: setup
 ogimage: /assets/img/help/2018/09/AD_ldap_overview.png
 permalink: /:categories/:slug.html
+redirect_from:
+  - /configure/ldap
 ---
 
 {% include layout/row_start.html %}
@@ -24,34 +26,34 @@ permalink: /:categories/:slug.html
 
 ### What is it?
 
-The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt 
-administrator to synchronize a list of groups and users, as well as the associated group memberships. 
+The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt
+administrator to synchronize a list of groups and users, as well as the associated group memberships.
 
-Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future 
+Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future
 we will also support other non ldap based user directories such as Google API User Directory.
 
 
 ### How does it work?
 
-In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal 
-involvement of the administrators and group managers. However if an action is not possible, such as, deleting 
-a user that is the sole password owner, the process triggers will trigger relevant email notifications so 
-that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the 
+In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal
+involvement of the administrators and group managers. However if an action is not possible, such as, deleting
+a user that is the sole password owner, the process triggers will trigger relevant email notifications so
+that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the
 next synchronization round, if the issue does not need to be resolved.
 
 ### Requirements
 
 The directory synchronization tools requires the [php-ldap extension](https://secure.php.net/manual/en/book.ldap.php)
-to be present on the server. If you built your own server the way you install 
-[php-ldap](https://packages.debian.org/stretch/php-ldap) will depend on your system flavor. 
+to be present on the server. If you built your own server the way you install
+[php-ldap](https://packages.debian.org/stretch/php-ldap) will depend on your system flavor.
 
 On Debian using nginx for example you can do:
 ```bash
-sudo apt-get install php-ldap 
+sudo apt-get install php-ldap
 sudo service nginx restart
 ```
 
-Make sure the ldap extension is present in the php-cli.ini file. 
+Make sure the ldap extension is present in the php-cli.ini file.
 You should add `extension=ldap.so` if it is not already present:
 ```bash
 $ php -i |grep php\.ini
@@ -60,14 +62,14 @@ Loaded Configuration File => /etc/php/7.0/cli/php.ini
 $ nano /etc/php/7.0/cli/php.ini
 ```
 
-For testing purpose, it might be handy to have some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils) 
+For testing purpose, it might be handy to have some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils)
 installed on your system. On Debian you can use ldapsearch for example to search for and display entries:
 ```bash
 sudo apt-get install ldap-utils
 ldapsearch -b'dc=example,dc=com' -x
 ```
 
-The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt 
+The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt
 update or install. You can get it the same way than other php dependencies using composer:
 ```bash
 cd /var/www/passbolt
@@ -80,12 +82,12 @@ To run, the ldap plugin needs to have at least one active admin user existing in
 
 ## Limitations
 
-The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later, 
+The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later,
 once groups inside groups is supported by passbolt.
 
-A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently 
-not supported (and is not a trivial problem) but could still be considered in the future. If you are interested 
-in this feature you can join the discussion on the 
+A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently
+not supported (and is not a trivial problem) but could still be considered in the future. If you are interested
+in this feature you can join the discussion on the
 [community forum](https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159).
 
 The following improvements will also be shipped gradually and will be available soon:
@@ -95,12 +97,12 @@ The following improvements will also be shipped gradually and will be available 
 ## How to use?
 
 {% include messages/warning.html
-    content="**Please note:** This guide explains how to configure the Ldap connector through the UI. For complex configurations (for example custom field mapping in openldap) you will need to [configure ldap directly through the configuration file](/configure/ldap-from-configuration-file)."
+    content="**Please note:** This guide explains how to configure the Ldap connector through the UI. For complex configurations (for example custom field mapping in openldap) you will need to [configure ldap directly through the configuration file](/configure/ldap/ldap-from-configuration-file)."
 %}
 
 ### Activate the plugin
 
-The plugin is deactivated by default. You need to activate it to be able to use it. 
+The plugin is deactivated by default. You need to activate it to be able to use it.
 While logged in as an admin, click on the administration menu item in the top menu, and then click on "Users Directory"
 
 {% include articles/figure.html
@@ -247,7 +249,7 @@ The available options are:
             <em>(required)</em>
             </td>
             <td>
-            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools. 
+            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools.
             <br><br>You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
             </td>
             <td>
@@ -340,12 +342,12 @@ a report such as the one below will be displayed.
     width="660px"
 %}
 
-In this report, you will be able to see what will actually happen when you will synchronize your directory for real. You will also be 
+In this report, you will be able to see what will actually happen when you will synchronize your directory for real. You will also be
 able to take corrective measures before an error actually happens.
 
 ### First synchronization
 
-To do the first synchronization, repeat the same process as above. Only, click on "synchronize" this time. A similar report to the one that was displayed during a simulate 
+To do the first synchronization, repeat the same process as above. Only, click on "synchronize" this time. A similar report to the one that was displayed during a simulate
 will appear and let you know what happened exactly.
 
 ### How to synchronize my directory automatically?

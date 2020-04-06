@@ -4,7 +4,7 @@ layout: rss
 permalink: /releases/pro.rss
 ---
 <rss version="2.0">
-<channel rel="self">
+<channel>
 <title>{{ page.title }}</title>
 <link>{{ page.permalink | absolute_url }}</link>
 <description>Most recent release notes.</description>

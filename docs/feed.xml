@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-03-23T17:12:55+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-04-06T10:21:56+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -953,7 +953,12 @@ username: passbolt
 password: admin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Mariadb credentials are stored on &lt;strong&gt;/root/.mysql_credentials&lt;/strong&gt; the file should contain:&lt;/p&gt;
+    &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user is part of &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; group. There is no root password, so you cannot
+login in as root. You can however create a shell as root with the default user:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -s
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Mariadb credentials are stored on &lt;code class=&quot;highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt; the file should contain:&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;Random password for root user&lt;/li&gt;

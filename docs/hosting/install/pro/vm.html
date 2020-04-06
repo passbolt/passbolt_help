@@ -239,7 +239,12 @@ username: passbolt
 password: admin
 </code></pre></div>    </div>
 
-    <p>Mariadb credentials are stored on <strong>/root/.mysql_credentials</strong> the file should contain:</p>
+    <p>The <code class="highlighter-rouge">passbolt</code> user is part of <code class="highlighter-rouge">sudo</code> group. There is no root password, so you cannot
+login in as root. You can however create a shell as root with the default user:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -s
+</code></pre></div>    </div>
+
+    <p>Mariadb credentials are stored on <code class="highlighter-rouge">/root/.mysql_credentials</code> the file should contain:</p>
 
     <ul>
       <li>Random password for root user</li>

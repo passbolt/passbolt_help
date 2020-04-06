@@ -1,7 +1,7 @@
 <rss version="2.0">
-<channel>
+<channel rel="self">
 <title>Passbolt Pro Edition Release notes</title>
-<link></link>
+<link>https://help.passbolt.com/releases/pro.rss</link>
 <description>Most recent release notes.</description>
 <language>en-us</language>
 

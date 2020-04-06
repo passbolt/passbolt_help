@@ -4,9 +4,9 @@ layout: rss
 permalink: /releases/pro.rss
 ---
 <rss version="2.0">
-<channel>
+<channel rel="self">
 <title>{{ page.title }}</title>
-<link>{{ item.permalink | absolute_url }}</link>
+<link>{{ page.permalink | absolute_url }}</link>
 <description>Most recent release notes.</description>
 <language>en-us</language>
 {% for item in site.releases reversed %}

@@ -61,7 +61,13 @@ username: passbolt
 password: admin
 ```
 
-Mariadb credentials are stored on **/root/.mysql_credentials** the file should contain:
+The `passbolt` user is part of `sudo` group. There is no root password, so you cannot
+login in as root. You can however create a shell as root with the default user:
+```
+sudo -s
+```
+
+Mariadb credentials are stored on `/root/.mysql_credentials` the file should contain:
 
 - Random password for root user
 - Empty database name. It follows the pattern passbolt_random_id

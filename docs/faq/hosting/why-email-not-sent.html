@@ -175,26 +175,30 @@
 <p>There may be an issue with some of the SMTP configuration items, such as credentials, or the hostname,
 or the port for the selected protocol.</p>
 
-<p>While by default passbolt is quite discrete on why a given configuration is not working you use the following
+<p>By default passbolt is quite discrete on why a given configuration is not working. You can use the following
 command to send a test email and get more debug information:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake passbolt send_test_email <span class="nt">--recipient</span><span class="o">=</span>youremail@domain.com
 </code></pre></div></div>
 
-<p>If this fails you should check what is the recommended configuration in your email provider documentation.</p>
+<p>If this fails you should double check what is the recommended configuration in your email provider documentation.
+You can also ask on the community forum in case another user have a working configuration for the same provider.</p>
 
 <h3 id="reason-2-the-cron-job-to-send-email-is-missing">Reason 2: The cron job to send email is missing</h3>
 
-<p>Passbolt uses a system of email queue. There is a dedicated job that runs to go through the queue and send
-emails. So if you manage to send the test email but are not receiving notifications (such as registration emails),
+<p>Passbolt uses a system of email queue to send email notifications.
+In practice this means there is a dedicated job that runs to go through the queue and send
+emails at the interval of your choice.</p>
+
+<p>So if you manage to send the test email but are not receiving notifications (such as registration emails),
 one of the reason may be that the cron job required to send the emails is missing. 
 Depending on the method you used to install, it may have not be set, or failed to set.</p>
 
-<p>You should check if you have the following cron for the web server user (<code class="highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="highlighter-rouge">nginx</code> on Centos),
-running where you passbolt was installed (<code class="highlighter-rouge">/var/www/passbolt</code> by default).</p>
+<p>In order to find out you should check if you have the following cron for the web server user 
+(<code class="highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="highlighter-rouge">nginx</code> on Centos), running where you passbolt was installed 
+(<code class="highlighter-rouge">/var/www/passbolt</code> by default).</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt;&gt; /var/log/passbolt.log
+<span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div></div>
 
 <p>If the cron is present, you should check if there are more data in the <code class="highlighter-rouge">/var/log/passbolt.log</code> log file, 
@@ -202,7 +206,7 @@ it may give you more information about the issue.</p>
 
 <h3 id="reason-3-email-notifications-are-disabled-in-the-config">Reason 3: Email notifications are disabled in the config</h3>
 
-<p>Another reason could be because email notifications are disabled in the configuration.
+<p>Another reason could be because email notifications are disabled in you configuration.
 You can review such settings in the administration panel, when you are logged in as an administrator in passbolt.</p>
 
 <figure>
@@ -213,10 +217,14 @@ You can review such settings in the administration panel, when you are logged in
 <p>Depending on the configuration method you have used to setup, you may need to check for configuration 
 in <code class="highlighter-rouge">config/passbolt.php</code> or with environment variables you are loading (if you use docker containers for example).</p>
 
-<h3 id="reason-4-there-is-an-issue-with-the-database-schema">Reason 4: There is an issue with the database schema</h3>
+<h3 id="reason-4-there-is-an-issue-with-the-database-schema-related-to-the-email-queue">Reason 4: There is an issue with the database schema related to the email queue</h3>
 
-<p>It is possible that the wrong version of the data model is stored in the cache, after an install or an update.
-You can try clearing out the cache to solves this.</p>
+<p>If you are getting error messages such as:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column ‘EmailQueue.to’ in ‘field list’ ...
+</code></pre></div></div>
+
+<p>It is possible that the wrong version of the data model is stored in the cache. This can happen
+if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this.</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake cache clear_all
 </code></pre></div></div>

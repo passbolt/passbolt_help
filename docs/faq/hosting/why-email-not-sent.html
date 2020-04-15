@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This can come from a variety of reason, such as you are not using the right credentials, or you are not connecting to the right port for the selected protocol.">
+    <meta name="description" content="This can come from a variety of reasons, here are the most common ones.">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Why are my emails not being sent?" />
-    <meta property="og:description" content="This can come from a variety of reason, such as you are not using the right credentials, or you are not connecting to the right port for the selected protocol." />
+    <meta property="og:description" content="This can come from a variety of reasons, here are the most common ones." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -168,13 +168,57 @@
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
                          <h1>Why are my emails not being sent?</h1>
-                            <p>This can come from a variety of reason, such as you are not using the right credentials, or you
-are not connecting to the right port for the selected protocol.</p>
+                            <p>This can come from a variety of reasons, here are the most common ones.</p>
+
+<h3 id="reason-1-configuration-issues">Reason 1: Configuration issues</h3>
+
+<p>There may be an issue with some of the SMTP configuration items, such as credentials, or the hostname,
+or the port for the selected protocol.</p>
 
 <p>While by default passbolt is quite discrete on why a given configuration is not working you use the following
 command to send a test email and get more debug information:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake passbolt send_test_email <span class="nt">--recipient</span><span class="o">=</span>youremail@domain.com
+</code></pre></div></div>
+
+<p>If this fails you should check what is the recommended configuration in your email provider documentation.</p>
+
+<h3 id="reason-2-the-cron-job-to-send-email-is-missing">Reason 2: The cron job to send email is missing</h3>
+
+<p>Passbolt uses a system of email queue. There is a dedicated job that runs to go through the queue and send
+emails. So if you manage to send the test email but are not receiving notifications (such as registration emails),
+one of the reason may be that the cron job required to send the emails is missing. 
+Depending on the method you used to install, it may have not be set, or failed to set.</p>
+
+<p>You should check if you have the following cron for the web server user (<code class="highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="highlighter-rouge">nginx</code> on Centos),
+running where you passbolt was installed (<code class="highlighter-rouge">/var/www/passbolt</code> by default).</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt;&gt; /var/log/passbolt.log
+</code></pre></div></div>
+
+<p>If the cron is present, you should check if there are more data in the <code class="highlighter-rouge">/var/log/passbolt.log</code> log file, 
+it may give you more information about the issue.</p>
+
+<h3 id="reason-3-email-notifications-are-disabled-in-the-config">Reason 3: Email notifications are disabled in the config</h3>
+
+<p>Another reason could be because email notifications are disabled in the configuration.
+You can review such settings in the administration panel, when you are logged in as an administrator in passbolt.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2019/05/AD_email_notification_send_settings.png" alt="Email Notification Settings - Email Delivery" style="max-width:;" />
+    <span class="legend">fig. Email Notification Settings - Email Delivery</span>
+</figure>
+
+<p>Depending on the configuration method you have used to setup, you may need to check for configuration 
+in <code class="highlighter-rouge">config/passbolt.php</code> or with environment variables you are loading (if you use docker containers for example).</p>
+
+<h3 id="reason-4-there-is-an-issue-with-the-database-schema">Reason 4: There is an issue with the database schema</h3>
+
+<p>It is possible that the wrong version of the data model is stored in the cache, after an install or an update.
+You can try clearing out the cache to solves this.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake cache clear_all
 </code></pre></div></div>
 
                         </div>

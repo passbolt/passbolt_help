@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Where is my mind</title>
+    <title>Passbolt Help | Never Gonna Give You Up</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,14 +16,14 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs reported by the community.">
+    <meta name="description" content="This release contains a security fix, please update your server as soon as possible. Make sure you follow the minor update documentation to roll out this new...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Where is my mind" />
-    <meta property="og:description" content="This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs reported by the community." />
+    <meta property="og:title" content="Never Gonna Give You Up" />
+    <meta property="og:description" content="This release contains a security fix, please update your server as soon as possible. Make sure you follow the minor update documentation to roll out this new..." />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v284-where-is-my-mind">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v2121-never-gonna-give-you-up">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.8.4.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.12.1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/v2121-never-gonna-give-you-up" >v2.12.1</a>
                     </li>
                     
@@ -129,7 +129,7 @@
                     
                     
                     
-                    <li class="selected">
+                    <li class="">
                         <a href="https://help.passbolt.com/releases/ce/v284-where-is-my-mind" >v2.8.4</a>
                     </li>
                     
@@ -180,7 +180,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v284-where-is-my-mind"><span>where-is-my-mind</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/v2121-never-gonna-give-you-up"><span>never-gonna-give-you-up</span></a>
                     </div>
                 </li>
                 
@@ -189,47 +189,52 @@
     </div>
 </div>
 
-                            <h1>v2.8.4 ~ Where is my mind (ce)</h1>
+                            <h1>v2.12.1 ~ Never Gonna Give You Up (ce)</h1>
                             <p>Release date: 
 April
-17th,
-2019.
+14th,
+2020.
 </p>
-                            <p>This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs 
-reported by the community.</p>
+                            <div class="message warning">
+    <p>
+        This release contains a security fix, please update your server as soon as possible. Make sure you follow 
+    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
 
-<p>The API has also now been fully documented. It is in 2 parts: the API documentation which is available on our 
-help website, and the <a href="https://api-reference.passbolt.com/">API reference</a> which is built directly from the 
-<a href="https://github.com/passbolt/passbolt_openapi_specs">open api</a> specifications files.</p>
+<p><br /></p>
 
-<p>Some dependencies have also been updated including jQuery, in regards to the latest security issues.</p>
+<p>This is a small maintenance release in order to update to jQuery v3.5. The library released an important security fix 
+that could potentially result to an XSS in certain Passbolt setups where Content Security Policy (CSP) was disabled by 
+the user. You can learn more about the issue  <a href="https://blog.jquery.com/2020/04/10/jquery-3-5-0-released/">here</a>.</p>
 
-<h2 id="284---2019-04-17">2.8.4 - 2019-04-17</h2>
-<h3 id="improved">Improved</h3>
+<p>Passbolt team is currently busy finalizing a release candidate with some new major features. You can learn more about 
+it in our last <a href="https://www.passbolt.com/blog">blog post</a>.</p>
+
+<p>We hope you are safe.</p>
+
+<h2 id="api">API</h2>
+
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-48: Improve the performance by removing the creator/modifier from the passwords workspace grid query</li>
-  <li>PB-159: Remove the usage of canjs connect-hydrate module</li>
+  <li>PB-1209: Update client dependencies</li>
 </ul>
 
-<p>##Fixed</p>
+<h2 id="web-extension">Web extension</h2>
+
+<h3 id="fixed-1">Fixed</h3>
 <ul>
-  <li>GITHUB-315: The permalink of password don’t work anymore</li>
-  <li>PB-147: Update appjs steal dependencies</li>
-  <li>PB-152: The webinstaller should work with Firefox ESR</li>
-  <li>GITHUB-299: The passwords are shown twice in passwords workspace grid</li>
-  <li>GITHUB-10: Selecting a group on the users workspace should not reset the grid “Last Logged In” column to “Never”</li>
-  <li>GITHUB-62: Sorting the users on the users workspace should not break the infinite scroll</li>
-  <li>PB-160: Update appjs jquery dependencies</li>
-  <li>PB-163: Update jquery dependency</li>
-  <li>PB-102: Fix install process should not create schema dump lock file</li>
-  <li>PB-204: Escape shell variables of the passbolt mysql export shell command</li>
+  <li>PB-1209: Update jQuery dependency</li>
 </ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"But there's nothing in it"</p>
-                                <a href="https://www.youtube.com/watch?v=5iC0YXspJRM" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"We know the game and we're gonna play it."</p>
+                                <a href="https://youtu.be/dQw4w9WgXcQ" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

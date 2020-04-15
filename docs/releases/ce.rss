@@ -6,6 +6,18 @@
 <language>en-us</language>
 
 
+
+
+<item>
+    <title>v2.12.1 | Never Gonna Give You Up</title>
+    <link>https://help.passbolt.com/releases/ce/v2121-never-gonna-give-you-up</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v2121-never-gonna-give-you-up</guid>
+    <description>This release contains a security fix, please update your server as soon as possible. Make sure you follow the minor update documentation to roll out this new version. Read the doc This is a small maintenance release in order to update to jQuery v3.5. The library released an important security...</description>
+    <pubDate>Tue, 14 Apr 2020 18:30:00 +0200</pubDate>
+</item>
+
+
+
 <item>
     <title>v2.12.0 | Call Me</title>
     <link>https://help.passbolt.com/releases/ce/v2120-call-me</link>

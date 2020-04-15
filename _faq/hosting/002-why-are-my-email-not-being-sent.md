@@ -12,8 +12,8 @@ This can come from a variety of reasons, here are the most common ones.
 
 ### Reason 1: Configuration issues
 
-There may be an issue with some of the SMTP configuration items, such as credentials, or the hostname,
-or the port for the selected protocol.
+There may be an issue with some of the [SMTP configuration](/configure/email/setup)
+items, such as credentials, or the hostname, or the port for the selected protocol.
 
 By default passbolt is quite discrete on why a given configuration is not working. You can use the following
 command to send a test email and get more debug information:

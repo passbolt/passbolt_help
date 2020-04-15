@@ -125,6 +125,11 @@
       icon: fa-envelope-o
       teaser: How to setup email providers
       slug: email-setup
+    - title: Troobleshoot Email config
+      url: /faq/hosting/why-email-not-sent
+      icon: fa-envelope
+      teaser: Common issues with emails
+      slug: why-email-not-sent
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

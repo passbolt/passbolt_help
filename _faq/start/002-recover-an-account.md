@@ -11,8 +11,8 @@ The account recovery functionality can be used if you are setting up a passbolt 
 because you lost, upgraded, reinstalled the previous one. You can also use this method to configure a
 passbolt client on an additional machine.
 
-This procedure can only be completed if you are in possession of an active user account and a copy of the private
-key associated with that account.
+This procedure can only be completed if you are in possession of an active user account, a copy of the private
+key associated with that account and the passphrase to decrypt the private key.
 
 **Step 1.** In order to recover you will need to go to your domain URL and add `/recover` at the end of the url,
 for example `https://yourpassbolt.com/recover`.
@@ -23,4 +23,4 @@ for example `https://yourpassbolt.com/recover`.
 
 **Step 4.** Follow the recovery steps, which is much like the initial setup. You will need to import your private key.
 
-**Step 5.** Login!
+**Step 5.** Enter your passphrase to login!

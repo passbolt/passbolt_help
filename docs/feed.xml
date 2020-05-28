@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-05-12T17:43:54+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-05-28T14:24:25+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -911,7 +911,7 @@ August
     &lt;p&gt;Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
 The VM includes the following software:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;Debian 9.6&lt;/li&gt;
+      &lt;li&gt;Debian 10&lt;/li&gt;
       &lt;li&gt;Nginx&lt;/li&gt;
       &lt;li&gt;Php-fpm&lt;/li&gt;
       &lt;li&gt;Mariadb&lt;/li&gt;

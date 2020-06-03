@@ -402,6 +402,10 @@ X-GPGAuth-Version: 1.3.0
 </p>
 
 <h4 id="step-4">Step 4</h4>
+<p>The token is returned encoded as a url. To be used, it first needs to be decoded. If you have php installed, you can use this command:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"&lt;token&gt;"</span> | php <span class="nt">-r</span> <span class="s2">"echo stripslashes(urldecode(file_get_contents('php://stdin')));"</span> 
+</code></pre></div></div>
+
 <p>The client then decrypts the encrypted token:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"&lt;encrypted_token_from_server&gt;"</span> | gpg <span class="nt">-d</span>

@@ -177,6 +177,11 @@ X-GPGAuth-Version: 1.3.0
 %}
 
 #### Step 4
+The token is returned encoded as a url. To be used, it first needs to be decoded. If you have php installed, you can use this command:
+```bash
+echo "<token>" | php -r "echo stripslashes(urldecode(file_get_contents('php://stdin')));" 
+```
+
 The client then decrypts the encrypted token:
 
 ```bash

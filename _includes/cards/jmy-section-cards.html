@@ -25,6 +25,9 @@
                 {% if post.categories contains 'pro' %}
                 <div class="ribbon"><span>PRO</span></div>
                 {% endif %}
+                {% if post.categories contains 'beta' %}
+                <div class="ribbon ribbon-warning"><span>BETA</span></div>
+                {% endif %}
                 <span class="tile-teaser"><i class="fa {{ post.icon }} fa-fw"></i></span>
                 <span class="tile-title">{{ post.card_title }}</span>
                 <span class="tile-description">{{ post.card_teaser }}</span>

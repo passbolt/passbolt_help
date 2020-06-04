@@ -2,7 +2,7 @@
 title: Install Passbolt CE using debian package
 date: 2020-05-25 00:00:00 Z
 description: How to install Passbolt CE on Debian 10 (Buster)
-card_title: Debian package
+card_title: Debian 10 package
 card_teaser: Step by step guide to install passbolt on Debian 10
 card_position: 1
 icon: fa-server

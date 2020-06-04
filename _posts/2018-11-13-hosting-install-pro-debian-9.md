@@ -10,7 +10,8 @@ categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: Debian 9 (Stretch)
-permalink: hosting/install/pro/debian-10-buster.html
+ignore_card: true
+permalink: hosting/install/pro/debian-9-stretch.html
 ---
 
 {% assign product = 'pro' %}

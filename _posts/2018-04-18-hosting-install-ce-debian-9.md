@@ -10,6 +10,7 @@ categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
 slug: Debian 9 (Stretch)
+ignore_card: true
 permalink: hosting/install/ce/debian-9-stretch.html
 ---
 

@@ -12,6 +12,8 @@ for authenticating its clients. It is a challenge based authentication similar t
 such as SSH. You can read more about the authentication process and how it differs from traditional 
 authentication method [here](https://help.passbolt.com/tech/auth).
 
+For a practical example, you can also have a look at our simple [implementation example written in PHP](https://github.com/passbolt/passbolt_api_php_example)
+
 ### Sequence diagram
 
 The process works by the two-way exchange of encrypted and signed tokens between the user and the service.

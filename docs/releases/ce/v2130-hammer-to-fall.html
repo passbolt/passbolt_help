@@ -37,12 +37,12 @@
                 <div class="top navigation primary">
                     <ul class="links clearfix">
                         <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
-                        <li class="left"><a href="https://demo.passbolt.com" target="_blank" rel="noopener"><span>demo</span></a></li>
                         <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
                         <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
                         <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
                         <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
                         <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
                     </ul>
                     <button class="hidden" count="0">more</button>
                     <ul class="hidden-links hidden"></ul>
@@ -206,7 +206,7 @@ most notably the email digest functionality.</p>
 
 <h3 id="email-digest">Email digest</h3>
 
-<p>Another new functionality is the email digest functionality: it will combine email notifications of the same 
+<p>The email digest functionality will help you combine email notifications of the same 
 kind into one single message. So, it will group similar emails for a given user, for a given time period 
 (the frequency of passbolt email cronjob) or when a volume limit is reached. This will help reduce the 
 email notifications, especially when you import/share a lot of passwords at once.</p>
@@ -242,6 +242,7 @@ when loading the share dialog.</p>
 <p>You can expect more visual changes in the upcoming releases.</p>
 
 <h3 id="breaking-changes">Breaking changes</h3>
+
 <p>Another notable change: as part of this release we upgraded the OpenPGP.js. This may be a breaking 
 change if you are using old OpenPGP keys with unsecure 2-byte hash. If you use such a key we advise 
 you to try to re-export your private key from Gnupg to produce a more secure hash and perform an account recovery.</p>

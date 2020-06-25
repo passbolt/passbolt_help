@@ -284,19 +284,22 @@ You must encrypt the data with the current user public key. And a valid request 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /resources.json?api-version=v2
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;UUID&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;encrypted_password&gt;"</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;UUID&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;encrypted_password&gt;"</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p class="message notice">
+<div class="message notice">
+    <p>
     <strong>Note:</strong> even if secrets is an array, you can only push the secret for the current user
     at the moment.
-</p>
+    </p>
+    
+</div>
 
 <h2 id="parameters">Parameters</h2>
 
@@ -395,11 +398,11 @@ You must encrypt the data with the current user public key. And a valid request 
 <h3 id="valid-request">Valid request</h3>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple developer ID"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Official apple account to publish apps on the app store"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3fa85f64-5717-4562-b3fc-2c963f66afa6"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;encrypted_password&gt;"</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apple developer ID"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Official apple account to publish apps on the app store"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3fa85f64-5717-4562-b3fc-2c963f66afa6"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;encrypted_password&gt;"</span><span class="w">
   </span><span class="p">}]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -408,23 +411,23 @@ You must encrypt the data with the current user public key. And a valid request 
 
 <p>A successful request will return a json response like below:</p>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"799c69c7-1789-4d87-9fbf-02529b0d21dc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554909967</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_secrets_view_success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad71952e-7842-599e-a19e-3a82e6974b23"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">secrets</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"799c69c7-1789-4d87-9fbf-02529b0d21dc"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554909967</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_secrets_view_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad71952e-7842-599e-a19e-3a82e6974b23"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">secrets</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eede75ff-316a-511c-8317-51e8339b6dcc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"resource_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:50+00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:50+00:00"</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eede75ff-316a-511c-8317-51e8339b6dcc"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"resource_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:50+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:50+00:00"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
@@ -434,22 +437,22 @@ You must encrypt the data with the current user public key. And a valid request 
 <p>A request must pass all the validation checks. For example sending a blank request body will return</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"965c9f17-18ae-48fd-a36e-e42f04a30442"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554907648</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_add_error"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad8bbc35-6435-538e-b1a7-80b87bcedb6a"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate resource data."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"965c9f17-18ae-48fd-a36e-e42f04a30442"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554907648</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_add_error"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad8bbc35-6435-538e-b1a7-80b87bcedb6a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate resource data."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A name is required."</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A name is required."</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A secret is required."</span><span class="w">
+        </span><span class="nl">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A secret is required."</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">

@@ -256,11 +256,14 @@ The “body” contains the actual payload.</p>
 <p>So for example requesting a single resource by id will result in something like:
 ``</p>
 
-<p class="message notice">
+<div class="message notice">
+    <p>
     <b>Notice:</b> The <code>title</code> under header in deprecated and will be removed in future release.
     Similarly the <code>code</code> is only indicated to ease readibility for administrator when debugging and should 
     not be relied on.
-</p>
+    </p>
+    
+</div>
 
 <h3 id="error-responses">Error responses</h3>
 
@@ -269,22 +272,22 @@ with the presence of both “header” and “body” properties. Only this time
 error instead of success. The response body will contain the error details.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"965c9f17-18ae-48fd-a36e-e42f04a30442"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554907648</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_add_error"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad8bbc35-6435-538e-b1a7-80b87bcedb6a"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate resource data."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"965c9f17-18ae-48fd-a36e-e42f04a30442"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554907648</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_add_error"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad8bbc35-6435-538e-b1a7-80b87bcedb6a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate resource data."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A name is required."</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A name is required."</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A secret is required."</span><span class="w">
+        </span><span class="nl">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"_required"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A secret is required."</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -307,43 +310,43 @@ For example to get a list of all resources using version 1, you can do</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v1
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ab8696-e5a1-4a06-bfbc-a7b77efd8f10"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554897334</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ab8696-e5a1-4a06-bfbc-a7b77efd8f10"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554897334</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apache"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www-data"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">www.apache.org</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apache is the world</span><span class="se">\u</span><span class="s2">0027s most used web server software."</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="w">
+            </span><span class="nl">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apache"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www-data"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">www.apache.org</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apache is the world</span><span class="se">\u</span><span class="s2">0027s most used web server software."</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02 12:05:58"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03 12:05:58"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09c790c0-c003-53c8-a640-25d33cfebc22"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower.io"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A package manager for the web!"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-04 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="w">
+            </span><span class="nl">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09c790c0-c003-53c8-a640-25d33cfebc22"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower.io"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A package manager for the web!"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-04 12:05:58"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04 12:05:58"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -357,40 +360,40 @@ For example to get a list of all resources using version 1, you can do</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58e1d35d-d6cb-4cb7-94b9-f43bae176bfa"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554897573</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58e1d35d-d6cb-4cb7-94b9-f43bae176bfa"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554897573</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apache"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www-data"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">www.apache.org</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apache is the world</span><span class="se">\u</span><span class="s2">0027s most used web server software."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apache"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www-data"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">www.apache.org</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apache is the world</span><span class="se">\u</span><span class="s2">0027s most used web server software."</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T12:05:58+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03T12:05:58+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09c790c0-c003-53c8-a640-25d33cfebc22"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower.io"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A package manager for the web!"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-04T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09c790c0-c003-53c8-a640-25d33cfebc22"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower.io"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A package manager for the web!"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-04T12:05:58+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04T12:05:58+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -457,18 +460,18 @@ Your passbolt server broadcasts its public key at /auth/verify.json</p>
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /auth/verify.json
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f416b88-8062-4e94-ab00-259a4cd2e085"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554898043</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"748dcd10-7d15-5498-9aa6-d26de348ff02"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">auth</span><span class="se">\/</span><span class="s2">verify.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6f416b88-8062-4e94-ab00-259a4cd2e085"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554898043</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"748dcd10-7d15-5498-9aa6-d26de348ff02"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">auth</span><span class="se">\/</span><span class="s2">verify.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2FC8945833C51946E937F9FED47B0811573EE67E"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"keydata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2FC8945833C51946E937F9FED47B0811573EE67E"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"keydata"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>

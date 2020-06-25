@@ -298,83 +298,86 @@
 <p>The response returned will have an array of json objects, each representing either a Group or a User.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1e0b7ca1-8427-4ec4-a46e-b3dc4f11f878"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554968444</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_share_searchArosToShareWith_success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10807e9e-d525-5acc-b05d-cccbbd252a93"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">share</span><span class="se">\/</span><span class="s2">search-aros.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1e0b7ca1-8427-4ec4-a46e-b3dc4f11f878"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554968444</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_share_searchArosToShareWith_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10807e9e-d525-5acc-b05d-cccbbd252a93"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">share</span><span class="se">\/</span><span class="s2">search-aros.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"user_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bda0a05c-b1fa-58be-b5b9-446e65ace052"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group Name"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-08T13:39:25+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-08T13:39:25+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="w">
+            </span><span class="nl">"user_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bda0a05c-b1fa-58be-b5b9-446e65ace052"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group Name"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-08T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-08T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d57c10f5-639d-5160-9c81-8a0c6c4ec856"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ada@passbolt.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">User</span><span class="w"> </span><span class="err">profile</span><span class="w"> </span><span class="err">object</span><span class="w">
-            </span><span class="s2">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ada@passbolt.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-02-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-03-04T12:05:44+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="err">//</span><span class="w"> </span><span class="err">User</span><span class="w"> </span><span class="err">profile</span><span class="w"> </span><span class="err">object</span><span class="w">
+            </span><span class="nl">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f2a3f6e-1a3f-4f4a-a523-46c6b6d0f763"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05b68bd2-e4e8-4838-ac21-4661b27fb23b"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-08T12:44:44+00:00"</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4f2a3f6e-1a3f-4f4a-a523-46c6b6d0f763"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"05b68bd2-e4e8-4838-ac21-4661b27fb23b"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-08T12:44:44+00:00"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6809e727-1219-4cfa-a201-1d3e997ca351"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73479f22-b387-4d4e-b625-b1cc0b7ed116"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-08T12:10:03+00:00"</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6809e727-1219-4cfa-a201-1d3e997ca351"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"group_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"73479f22-b387-4d4e-b625-b1cc0b7ed116"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-08T12:10:03+00:00"</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
-            </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logged in user"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="w">
+            </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logged in user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"gpgkey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04481719-5d9d-5e22-880a-a6b9270601d2"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"armored_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ada Lovelace </span><span class="se">\u</span><span class="s2">003Cada@passbolt.com</span><span class="se">\u</span><span class="s2">003E"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"key_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5D9B054F"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03F60E958F4CB29723ACDF761353B5B15D9B054F"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-09T12:48:31+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"key_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-09T12:48:31+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:49+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:49+00:00"</span><span class="w">
+            </span><span class="nl">"gpgkey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"04481719-5d9d-5e22-880a-a6b9270601d2"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"armored_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ada Lovelace </span><span class="se">\u</span><span class="s2">003Cada@passbolt.com</span><span class="se">\u</span><span class="s2">003E"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5D9B054F"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"03F60E958F4CB29723ACDF761353B5B15D9B054F"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-08-09T12:48:31+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-08-09T12:48:31+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:49+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:49+00:00"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"last_logged_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="nl">"last_logged_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p class="message notice">
-    Take a note of the <code>user_count</code> key under group type AROs as that's the exact number of secrets you'll need to send in order to share a resource with that group.
-</p>
+<div class="message notice">
+    <p>
+    Take a note of the <code>user_count</code> key under group type AROs as that’s the exact number of secrets you’ll need to send in order to share a resource with that group.
+    </p>
+    
+</div>
 
 <h2 id="sharing-a-resource">Sharing a Resource</h2>
 
@@ -396,9 +399,12 @@
 
 <p>The <code class="highlighter-rouge">search-aros</code> endpoint described above outputs the gpg details for individual users like their <code class="highlighter-rouge">armored_key</code>, <code class="highlighter-rouge">uid</code>, <code class="highlighter-rouge">key_id</code> and <code class="highlighter-rouge">fingerprint</code>. For Groups, you can make a GET request to <code class="highlighter-rouge">/groups/&lt;group_id&gt;.json</code> endpoint. For more info, check the <a href="/api/groups/read">View a group</a> page.</p>
 
-<p class="message notice">
-    Based on the trust level of the public key gpg might complain about <code>There is no assurance this key belongs to the named user</code> If you trust the key, you can proceed by responding 'y'
-</p>
+<div class="message notice">
+    <p>
+    Based on the trust level of the public key gpg might complain about <code>There is no assurance this key belongs to the named user</code> If you trust the key, you can proceed by responding ‘y’
+    </p>
+    
+</div>
 
 <p>Upon confirmation, gpg outputs the ascii armored message</p>
 
@@ -427,19 +433,19 @@ NUYjWplniE9MhkzVaYqjng8n
 So the request body will look like</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"permissions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"is_new"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aro_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36563004-3f25-50c0-b22e-6554c3ccc4e7"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"aco_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+      </span><span class="nl">"is_new"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"aro"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Group"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"aro_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"36563004-3f25-50c0-b22e-6554c3ccc4e7"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"aco"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Resource"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"aco_foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
     </span><span class="p">}],</span><span class="w">
-  </span><span class="s2">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="nl">"secrets"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d04cf98-716b-5f6d-9fe8-c130f8992646"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"data"</span><span class="p">:</span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="w">
+      </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8d04cf98-716b-5f6d-9fe8-c130f8992646"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"data"</span><span class="p">:</span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -460,20 +466,20 @@ will have access to the resource and a list of users who will lose their access.
 encrypt the secrets for the users who get access and to remove the secrets of the users who lost their access.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"499657b1-463c-49e3-99d0-7d4bca7392c2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554972001</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_share_dryRun_success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7df37cb5-cfb9-57c2-a7a5-b65c9f573de0"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">share</span><span class="se">\/</span><span class="s2">simulate</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"499657b1-463c-49e3-99d0-7d4bca7392c2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554972001</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_share_dryRun_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7df37cb5-cfb9-57c2-a7a5-b65c9f573de0"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">share</span><span class="se">\/</span><span class="s2">simulate</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"added"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;uuid1&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"&lt;uuid2&gt;"</span><span class="p">],</span><span class="w">
-            </span><span class="s2">"removed"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;uuid3&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"&lt;uuid4&gt;"</span><span class="p">]</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"changes"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"added"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;uuid1&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"&lt;uuid2&gt;"</span><span class="p">],</span><span class="w">
+            </span><span class="nl">"removed"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"&lt;uuid3&gt;"</span><span class="p">,</span><span class="w"> </span><span class="s2">"&lt;uuid4&gt;"</span><span class="p">]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">

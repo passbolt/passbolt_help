@@ -510,76 +510,76 @@ The user making the request is not authenticated.
 <p>A successful response will have an array of json objects. Each representing a single user. Something like this example below</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9f78d01c-f2df-453c-b1d4-aa600547ae93"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554976847</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_users_index_success"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d7bc9044-a64e-5421-a4d7-7a94eaa39d37"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">users.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9f78d01c-f2df-453c-b1d4-aa600547ae93"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554976847</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_users_index_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d7bc9044-a64e-5421-a4d7-7a94eaa39d37"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">users.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carol@passbolt.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03T12:05:44+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48bcd9ac-a520-53e0-b3a4-9da7e57b91aa"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carol"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shaw"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31134496-e2af-4f1e-adc0-7d03523d8eef"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48bcd9ac-a520-53e0-b3a4-9da7e57b91aa"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avatar"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carol.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"filesize"</span><span class="p">:</span><span class="w"> </span><span class="mi">733439</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"mime_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image</span><span class="se">\/</span><span class="s2">png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7445a736df60a1ac1bfdab8fc5b842a95c495aec"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avatar</span><span class="se">\/</span><span class="s2">31134496e2af4f1eadc07d03523d8eef.png"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"adapter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:47+00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:47+00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                        </span><span class="s2">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">31134496e2af4f1eadc07d03523d8eef.a99472d5.png"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">31134496e2af4f1eadc07d03523d8eef.65a0ba70.png"</span><span class="w">
+            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"role_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carol@passbolt.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T12:05:44+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03T12:05:44+00:00"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"profile"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48bcd9ac-a520-53e0-b3a4-9da7e57b91aa"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carol"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Shaw"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:45+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"avatar"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"31134496-e2af-4f1e-adc0-7d03523d8eef"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"foreign_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48bcd9ac-a520-53e0-b3a4-9da7e57b91aa"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avatar"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"filename"</span><span class="p">:</span><span class="w"> </span><span class="s2">"carol.png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"filesize"</span><span class="p">:</span><span class="w"> </span><span class="mi">733439</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"mime_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"image</span><span class="se">\/</span><span class="s2">png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="s2">"png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"hash"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7445a736df60a1ac1bfdab8fc5b842a95c495aec"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Avatar</span><span class="se">\/</span><span class="s2">31134496e2af4f1eadc07d03523d8eef.png"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"adapter"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Local"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:47+00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:47+00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                        </span><span class="nl">"medium"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">31134496e2af4f1eadc07d03523d8eef.a99472d5.png"</span><span class="p">,</span><span class="w">
+                        </span><span class="nl">"small"</span><span class="p">:</span><span class="w"> </span><span class="s2">"img</span><span class="se">\/</span><span class="s2">public</span><span class="se">\/</span><span class="s2">Avatar</span><span class="se">\/</span><span class="s2">31134496e2af4f1eadc07d03523d8eef.65a0ba70.png"</span><span class="w">
                     </span><span class="p">}</span><span class="w">
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logged in user"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="w">
+            </span><span class="nl">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+            </span><span class="nl">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a58de6d3-f52c-5080-b79b-a601a647ac85"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logged in user"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2012-07-04T13:39:25+00:00"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"gpgkey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d3d0565-f075-50d4-b58a-cbb82700e79b"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"armored_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carol Shaw </span><span class="se">\u</span><span class="s2">003Ccarol@passbolt.com</span><span class="se">\u</span><span class="s2">003E"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"key_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82945D3E"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57DE7D79ABE733A235EB1F84CDF8FC8682945D3E"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-02T11:25:12+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"key_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-02T11:25:12+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:48+00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:48+00:00"</span><span class="w">
+            </span><span class="nl">"gpgkey"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1d3d0565-f075-50d4-b58a-cbb82700e79b"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"armored_key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP PUBLIC KEY BLOCK-----"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"bits"</span><span class="p">:</span><span class="w"> </span><span class="mi">4096</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"uid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Carol Shaw </span><span class="se">\u</span><span class="s2">003Ccarol@passbolt.com</span><span class="se">\u</span><span class="s2">003E"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"82945D3E"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"57DE7D79ABE733A235EB1F84CDF8FC8682945D3E"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"RSA"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"expires"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-07-02T11:25:12+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"key_created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-07-02T11:25:12+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:48+00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:05:48+00:00"</span><span class="w">
             </span><span class="p">},</span><span class="w">
-            </span><span class="s2">"last_logged_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="nl">"last_logged_in"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">

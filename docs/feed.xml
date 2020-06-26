@@ -1,4 +1,225 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-06-26T14:43:16+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE using debian package</title><link href="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html" rel="alternate" type="text/html" title="Install Passbolt CE using debian package" /><published>2020-05-25T02:00:00+02:00</published><updated>2020-05-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/beta/Debian%20package</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-06-26T16:36:48+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
+
+    &lt;h2 id=&quot;find-out-where-is-your-passbolt-directory&quot;&gt;Find out where is your passbolt directory&lt;/h2&gt;
+
+    &lt;p&gt;All the commands hereafter should be done from inside your passbolt directory:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;By default passbolt should be installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; but it could be different if you
+installed from source manually. We will assume for the rest of this tutorial that it is located 
+in &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;find-out-the-name-of-your-webserver-user&quot;&gt;Find out the name of your webserver user&lt;/h2&gt;
+
+    &lt;p&gt;Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
+&lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; but on other distributions like Centos it could be for example &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt;.
+For the rest of this tutorial we will assume that the user named &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Generally it is not possible to login as this user, so in order to run the command as this user,
+you can execute something like this:&lt;/p&gt;
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo su -s /bin/bash -c &quot;./bin/cake passbolt healthcheck&quot; www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;This command for example, will run the healthcheck command as &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; data user.
+It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.&lt;/p&gt;
+
+    &lt;h2 id=&quot;make-sure-the-permissions-are-right-for-your-current-user&quot;&gt;Make sure the permissions are right for your current user&lt;/h2&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        Do not run the commands as root when updating passbolt. It can render your installation unusable.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;Running commands as root can make your installation unusable until the permissions are repaired.
+We recommend you use another user for this purpose. The &lt;code class=&quot;highlighter-rouge&quot;&gt;whoami&lt;/code&gt; command will let you know which user you are logged
+in as. In our case bellow, it is the user &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ whoami
+passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You need to make sure that this user have access to the passbolt directory. 
+The easiest way to do this would be to add such user to the &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; groups, 
+so for example for a &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user, you could execute as root:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ su -
+$ usermod -a -G www-data passbolt
+$ usermod -a -G sudo passbolt
+$ exit
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can check if the user is included in the group (you may need to logout / login again for the permissions to be
+applied):&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ groups passbolt
+passbolt : passbolt www-data sudo
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
+You can set the permissions as follow:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo chown -R root:www-data /var/www/passbolt
+$ sudo chmod 770 -R /var/www/passbolt
+$ sudo ls -la /var/www/passbolt
+drwxrwx--- 2 root www-data  .
+drwx------ 6 root root      ..
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;check-if-git-and-composer-are-present-on-your-system&quot;&gt;Check if git and composer are present on your system&lt;/h2&gt;
+
+    &lt;p&gt;By default you should have both composer and git installed:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ which git
+/usr/bin/git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You should also already have composer installed.&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ which composer.phar
+/usr/bin/composer.phar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Depending on your setup it is possible that your composer command is named &lt;code class=&quot;highlighter-rouge&quot;&gt;composer&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;If for some reason the command above fails because you don’t have composer installed, 
+you can check the &lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;composer installation instructions&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
+    &lt;h2 id=&quot;take-down-your-site&quot;&gt;0. Take down your site&lt;/h2&gt;
+
+    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a 
+webserver:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl stop nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If you feel a bit more fancy, you can change your web server configuration to point to an “under maintenance” page.
+It is a good practice to announce such maintenance window to your users in advance, so that they can also
+plan for the update, for example by downloading some key passwords they may need.&lt;/p&gt;
+
+    &lt;h2 id=&quot;get-the-latest-code-version&quot;&gt;1. Get the latest code version&lt;/h2&gt;
+
+    &lt;p&gt;You can also pull the latest version directly from master:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can also pull a specific version:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.3.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;update-the-dependencies&quot;&gt;2. update the dependencies&lt;/h2&gt;
+
+    &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on 
+what is recommended in the composer.lock. This file is provided by passbolt.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer.phar &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;run-the-migration-script&quot;&gt;3. Run the migration script&lt;/h2&gt;
+
+    &lt;p&gt;You can run the database migration scripts as follow:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt migrate --backup&quot;&lt;/span&gt; www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;As you can see with the command above you can optional ask the application to create a database backup.
+This is usefull in case you run into any issues with the new version and need to revert to an old but working one.&lt;/p&gt;
+
+    &lt;p&gt;This backup will be placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;clear-the-cache&quot;&gt;4. Clear the cache&lt;/h2&gt;
+
+    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
+reflected in model cache files:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./bin/cake cache clear_all
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;restrict-permissions&quot;&gt;5. Restrict permissions&lt;/h2&gt;
+
+    &lt;p&gt;Of course, you can restrict the final permissions to add more security.&lt;/p&gt;
+
+    &lt;p&gt;For example you can restrict for the &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; group to only read and execute scripts (e.g. so that the application
+itself can not modify any file). You must however make sure the &lt;code class=&quot;highlighter-rouge&quot;&gt;tmp&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;avatar&lt;/code&gt; directories remains writable, as
+these are needed by the application:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo chmod 750 -R /var/www/passbolt
+$ sudo chmod 770 -R /var/www/passbolt/tmp
+$ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;take-your-site-back-up&quot;&gt;6. Take your site back up&lt;/h2&gt;
+
+    &lt;p&gt;Almost done:&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl start nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+
+    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
+    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You can also run the following command:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./bin/cake passbolt healthcheck
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
+
+    &lt;p&gt;If you run into some issues:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
+      &lt;li&gt;Check for error message in the &lt;code class=&quot;highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
+      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
+      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
+      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
+      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Where to get help:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
+      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
+the easiest it will be for people to help you.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+June
+25th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Are you still using passbolt v1? Check out the previous version of this article.&lt;/p&gt;
+    
+    &lt;a href=&quot;/hosting/update-v1&quot; class=&quot;button &quot;&gt;See previous version&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE using debian package</title><link href="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html" rel="alternate" type="text/html" title="Install Passbolt CE using debian package" /><published>2020-05-25T02:00:00+02:00</published><updated>2020-05-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/beta/Debian%20package</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -578,7 +799,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -589,7 +810,7 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
@@ -603,7 +824,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Debian 10 (Buster) server.&lt;/li&gt;
       &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -629,10 +850,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
     &lt;p&gt;The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/9/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/9/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
+wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_debian_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -911,7 +1132,7 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -922,7 +1143,7 @@ distributionSlug (string): The target distribution slug: debian-9, centos-7, ubu
 distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
 --&gt;
 
-    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
+    &lt;p&gt;This tutorial describes how to install Passbolt PRO on a minimal Debian 9 (Stretch) server. The installation procedure is based on install scripts that will do
 the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
 server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
@@ -936,7 +1157,7 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
 
     &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;A minimal Debian 10 (Buster) server.&lt;/li&gt;
+      &lt;li&gt;A minimal Debian 9 (Stretch) server.&lt;/li&gt;
       &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -962,10 +1183,10 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.&lt;/p&gt;
     &lt;p&gt;The script will take care of installing all the services required by passbolt.
 It will ask you a few questions in order to adapt the environment to your needs.&lt;/p&gt;
 
-    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz https://www.passbolt.com/pro/download/installers/debian/latest
-wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/latest-checksum
+    &lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz https://www.passbolt.com/pro/download/installers/debian/9/latest
+wget &lt;span class=&quot;nt&quot;&gt;-O&lt;/span&gt; passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/debian/9/latest-checksum
 &lt;span class=&quot;nb&quot;&gt;sha512sum&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; passbolt-installer-checksum
-&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-10.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-xzf&lt;/span&gt; passbolt-pro-installer-debian-9.tar.gz
 &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; ./passbolt_pro_debian_installer.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
@@ -2448,366 +2669,4 @@ March
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap/setup.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2018-12-04T01:00:00+01:00</published><updated>2018-12-04T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/setup.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; The LDAP connector will send an invitation email to all the users matching your configuration during a synchronization. If you are simply testing it, make sure not to perform an actual synchronization (use simulate sync instead), or disable the cron job to send emails first.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
-
-    &lt;h3 id=&quot;what-is-it&quot;&gt;What is it?&lt;/h3&gt;
-
-    &lt;p&gt;The goal of the directory synchronization tool, also called LDAP connector, is to provide a way for a passbolt
-administrator to synchronize a list of groups and users, as well as the associated group memberships.&lt;/p&gt;
-
-    &lt;p&gt;Currently the connector supports two types of directory: OpenLDAP and Microsoft Active Directory. In the future
-we will also support other non ldap based user directories such as Google API User Directory.&lt;/p&gt;
-
-    &lt;h3 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h3&gt;
-
-    &lt;p&gt;In a nutshell this part of the application will try to keep passbolt and a directory in sync with a minimal
-involvement of the administrators and group managers. However if an action is not possible, such as, deleting
-a user that is the sole password owner, the process triggers will trigger relevant email notifications so
-that a human can solve it manually. An admin can also alternatively tell passbolt to ignore a record in the
-next synchronization round, if the issue does not need to be resolved.&lt;/p&gt;
-
-    &lt;h3 id=&quot;requirements&quot;&gt;Requirements&lt;/h3&gt;
-
-    &lt;p&gt;The directory synchronization tools requires the &lt;a href=&quot;https://secure.php.net/manual/en/book.ldap.php&quot;&gt;php-ldap extension&lt;/a&gt;
-to be present on the server. If you built your own server the way you install
-&lt;a href=&quot;https://packages.debian.org/stretch/php-ldap&quot;&gt;php-ldap&lt;/a&gt; will depend on your system flavor.&lt;/p&gt;
-
-    &lt;p&gt;On Debian using nginx for example you can do:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;php-ldap
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service nginx restart
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Make sure the ldap extension is present in the php-cli.ini file.
-You should add &lt;code class=&quot;highlighter-rouge&quot;&gt;extension=ldap.so&lt;/code&gt; if it is not already present:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; |grep php&lt;span class=&quot;se&quot;&gt;\.&lt;/span&gt;ini
-Configuration File &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;php.ini&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; Path &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; /etc/php/7.0/cli
-Loaded Configuration File &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; /etc/php/7.0/cli/php.ini
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;nano /etc/php/7.0/cli/php.ini
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;For testing purpose, it might be handy to have some &lt;a href=&quot;https://wiki.debian.org/LDAP/LDAPUtils&quot;&gt;ldap utilities&lt;/a&gt;
-installed on your system. On Debian you can use ldapsearch for example to search for and display entries:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ldap-utils
-ldapsearch &lt;span class=&quot;nt&quot;&gt;-b&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'dc=example,dc=com'&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-x&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;The plugin relies on a 3rd party library called ldaptools which you will need to install as part of your passbolt
-update or install. You can get it the same way than other php dependencies using composer:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
-git pull origin master
-composer &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt;
-./bin/cake passbolt migrate
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;To run, the ldap plugin needs to have at least one active admin user existing inside passbolt.&lt;/p&gt;
-
-    &lt;h2 id=&quot;limitations&quot;&gt;Limitations&lt;/h2&gt;
-
-    &lt;p&gt;The Ldap plugin doesn’t support nested groups in the current version. This improvement will be added later,
-once groups inside groups is supported by passbolt.&lt;/p&gt;
-
-    &lt;p&gt;A delegated authentication (such as using a LDAP user password as replacement of the passphrase) is currently
-not supported (and is not a trivial problem) but could still be considered in the future. If you are interested
-in this feature you can join the discussion on the
-&lt;a href=&quot;https://community.passbolt.com/t/as-a-user-i-can-login-using-my-organization-ldap-credentials/159&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;p&gt;The following improvements will also be shipped gradually and will be available soon:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Test mode: the capability to test the configuration and mapping directly from the configuration screen.&lt;/li&gt;
-      &lt;li&gt;Report screens: the synchronization reports will be available in the admin workspace.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;how-to-use&quot;&gt;How to use?&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; This guide explains how to configure the Ldap connector through the UI. For complex configurations (for example custom field mapping in openldap) you will need to &lt;a href=&quot;/configure/ldap/ldap-from-configuration-file&quot;&gt;configure ldap directly through the configuration file&lt;/a&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h3 id=&quot;activate-the-plugin&quot;&gt;Activate the plugin&lt;/h3&gt;
-
-    &lt;p&gt;The plugin is deactivated by default. You need to activate it to be able to use it.
-While logged in as an admin, click on the administration menu item in the top menu, and then click on “Users Directory”&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_settings_disabled.png&quot; alt=&quot;Ldap directory settings screen (disabled)&quot; style=&quot;max-width:660px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory settings screen (disabled)&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Click on the switch next to “Users Directory” to enable the plugin.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_settings_enabled.png&quot; alt=&quot;Ldap directory settings screen (enabled)&quot; style=&quot;max-width:660px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory settings screen (enabled)&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You will need to fill the configuration parameters with your connection details before you can save the settings and
-actually activate it.&lt;/p&gt;
-
-    &lt;h3 id=&quot;configure-the-plugin&quot;&gt;Configure the plugin&lt;/h3&gt;
-
-    &lt;p&gt;The available options are:&lt;/p&gt;
-
-    &lt;table class=&quot;table-parameters&quot;&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th width=&quot;25%&quot;&gt;Parameter&lt;/th&gt;
-        &lt;th width=&quot;33%&quot;&gt;Details&lt;/th&gt;
-        &lt;th&gt;Example&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        Directory Type&lt;br /&gt;
-        &lt;em&gt;(required)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        Choose here the type of your directory. Currently only Active Directory and OpenLdap are supported.
-        &lt;/td&gt;
-        &lt;td&gt;
-        &lt;code&gt;Active Directory&lt;/code&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        Domain&lt;br /&gt;
-        &lt;em&gt;(required)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        The domain your directory is configured with.
-        &lt;/td&gt;
-        &lt;td&gt;
-        &lt;code&gt;mydomain.local&lt;/code&gt;
-        &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;
-        Server URL&lt;br /&gt;
-        &lt;em&gt;(required)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        The full url to reach your server.
-        &lt;/td&gt;
-        &lt;td&gt;
-        &lt;code&gt;ldap://198.163.0.1:389&lt;/code&gt;
-        &lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-         &lt;td&gt;
-         Username and password&lt;br /&gt;
-         &lt;em&gt;(required)&lt;/em&gt;
-         &lt;/td&gt;
-         &lt;td&gt;
-         Username and password to authentify on your directory
-         &lt;/td&gt;
-         &lt;td&gt;
-         &lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-          &lt;td&gt;
-          Base DN&lt;br /&gt;
-          &lt;em&gt;(required)&lt;/em&gt;
-          &lt;/td&gt;
-          &lt;td&gt;
-          The base DN (default naming context) for the domain.
-          &lt;/td&gt;
-          &lt;td&gt;
-          &lt;code&gt;OU=OrgUsers,DC=mydomain,DC=local&lt;/code&gt;
-          &lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-        &lt;td&gt;
-        Group path&lt;br /&gt;
-        &lt;em&gt;(optional)&lt;/em&gt;
-        &lt;/td&gt;
-        &lt;td&gt;
-        If your groups are located in a different path than your base DN, you can specify here the complementary path.
-        &lt;br /&gt;&lt;br /&gt;Default value: none
-        &lt;/td&gt;
-        &lt;td&gt;&lt;code&gt;OU=MyGroups&lt;/code&gt;&lt;/td&gt;
-     &lt;/tr&gt;
-     &lt;tr&gt;
-         &lt;td&gt;
-         User path&lt;br /&gt;
-         &lt;em&gt;(optional)&lt;/em&gt;
-         &lt;/td&gt;
-         &lt;td&gt;
-         If your users are located in a different path than your base DN, you can specify here the complementary path.
-         &lt;br /&gt;&lt;br /&gt;Default value: none
-         &lt;/td&gt;
-         &lt;td&gt;&lt;code&gt;OU=MyUsers&lt;/code&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-      &lt;tr&gt;
-      &lt;td&gt;
-           Group object class&lt;br /&gt;
-           &lt;em&gt;(optional)&lt;/em&gt;
-           &lt;/td&gt;
-           &lt;td&gt;
-           For OpenLdap only, you can specify here the name of the group object class that you are using in your openldap.
-           &lt;br /&gt;&lt;br /&gt;Default value: groupOfUniqueNames
-           &lt;/td&gt;
-           &lt;td&gt;
-           &lt;code&gt;groupOfUniqueNames&lt;/code&gt;
-           &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-            User object class&lt;br /&gt;
-            &lt;em&gt;(optional)&lt;/em&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            For OpenLdap only, you can specify here the name of the user object class that you are using in your openldap.
-            &lt;br /&gt;&lt;br /&gt;Default value: inetOrgPerson
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;code&gt;inetOrgPerson&lt;/code&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-            Default admin&lt;br /&gt;
-            &lt;em&gt;(required)&lt;/em&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            Choose here the username of the passbolt admin user that will be used to perform the operations on behalf of the synchronization tools.
-            &lt;br /&gt;&lt;br /&gt;You can also create a dedicated admin user in passbolt if you want to be able to track more accurately the actions related to ldap.
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;code&gt;passboltadmin@domain.com&lt;/code&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-            Default group admin &lt;br /&gt;
-            &lt;em&gt;(required)&lt;/em&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            Choose here the username of the default group manager. It is the user that will be assigned as a group manager to all new groups created by ldap.
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;code&gt;passboltadmin@domain.com&lt;/code&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-            Groups parent group &lt;br /&gt;
-            &lt;em&gt;(optional)&lt;/em&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            Using this filter will list only groups that are part of the given parent group (recursively). Enter the parent group name.
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;code&gt;MyGroupName&lt;/code&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-            Users parent group &lt;br /&gt;
-            &lt;em&gt;(optional)&lt;/em&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            Using this filter will list only users that are part of the given parent group (recursively). Enter the parent group name.
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;code&gt;MyGroupName&lt;/code&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-            &lt;td&gt;
-            Enabled users only &lt;br /&gt;
-            &lt;em&gt;(optional)&lt;/em&gt;
-            &lt;/td&gt;
-            &lt;td&gt;
-            Only for AD. Synchronize only the users that are enabled (=not disabled).
-            &lt;/td&gt;
-            &lt;td&gt;
-            &lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;tr&gt;
-           &lt;td&gt;
-           Sync operations&lt;br /&gt;
-           &lt;em&gt;(optional)&lt;/em&gt;
-           &lt;/td&gt;
-           &lt;td&gt;
-           By default, the synchronization will be done for all created / deleted users and groups in your directory and all edited group members. You can enable / disable some tasks here.
-           &lt;br /&gt;&lt;br /&gt;Default value: everything is enabled.
-           &lt;/td&gt;
-           &lt;td&gt;
-           &lt;/td&gt;
-        &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-    &lt;h3 id=&quot;save-configuration&quot;&gt;Save configuration&lt;/h3&gt;
-
-    &lt;p&gt;Once the configuration is entered, do not forgetto save it by clicking on the “save settings” at the top. The configuration will be saved
-only if passbolt managed to connect to your directory. If not, it will display an error message.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_settings_saved.png&quot; alt=&quot;Ldap directory settings have been saved&quot; style=&quot;max-width:660px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory settings have been saved&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;test-configuration-and-simulate-sync&quot;&gt;Test configuration and simulate sync&lt;/h3&gt;
-
-    &lt;p&gt;Once the settings have been saved, the buttons “simulate synchronize” and “synchronize” at the top have become clickable.&lt;/p&gt;
-
-    &lt;p&gt;Before we actually do a real synchronization, we will first simulate one. Click on “simulate synchronize” and wait a few seconds. Once the simulation is complete,
-a report such as the one below will be displayed.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/12/AD_directory_sync_simulation.png&quot; alt=&quot;Ldap directory sync simulation&quot; style=&quot;max-width:660px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Ldap directory sync simulation&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;In this report, you will be able to see what will actually happen when you will synchronize your directory for real. You will also be
-able to take corrective measures before an error actually happens.&lt;/p&gt;
-
-    &lt;h3 id=&quot;first-synchronization&quot;&gt;First synchronization&lt;/h3&gt;
-
-    &lt;p&gt;To do the first synchronization, repeat the same process as above. Only, click on “synchronize” this time. A similar report to the one that was displayed during a simulate
-will appear and let you know what happened exactly.&lt;/p&gt;
-
-    &lt;h3 id=&quot;how-to-synchronize-my-directory-automatically&quot;&gt;How to synchronize my directory automatically?&lt;/h3&gt;
-    &lt;p&gt;To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;0 0 &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; su &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/var/www/passbolt/bin/cake directory_sync all&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash www-data &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; /var/log/cron.log 2&amp;gt;&amp;amp;1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;configure-ldap-with-ssl-ldaps&quot;&gt;Configure ldap with SSL (ldaps)&lt;/h2&gt;
-    &lt;p&gt;If your configuration doesn’t run out of the box with ldaps, you can refer to the &lt;a href=&quot;/configure/ldap-with-ssl&quot;&gt;ldap with ssl&lt;/a&gt; documentation in order to adjust your config or throubleshoot your issue.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-December
-4th,
-2018.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry></feed>

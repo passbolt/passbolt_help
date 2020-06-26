@@ -1,6 +1,6 @@
 ---
 title: Update passbolt server component (v2)
-date: 2018-05-02 00:00:00 Z
+date: 2020-06-25 00:00:00 Z
 description: How to update passbolt v2 on your server.
 category: hosting
 sidebar: hosting
@@ -12,62 +12,136 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-## Which update process to follow?
+# Pre-requisites
 
-Each passbolt release follows the concept of [Semantic Versioning](http://www.semver.org). Given a version number MAJOR.MINOR.PATCH, we increment as follow:
+## Find out where is your passbolt directory
 
-* **PATCH** version when we make backwards-compatible bug fixes. So let's say you are running passbolt v2.0.2 and the latest one available is v2.0.3 you will need to perform a patch update.
-* **MINOR** version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.3 installed and the latest version available is v2.1.0, you will need to perform a minor version update.
-* **MAJOR** version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1 to v2 for example.
-
-{% include hosting/update/version-helper.md %}
-{% include hosting/update/major-update.md %}
-
-## Minor update
-
-Every now and again some releases will introduce some database and/or configuration files changes. 
-Here is a step by step guide on how to perform a minor update. Just replace the version numbers where necessary.
-
-#### Get ready
-All the commands below should be done from inside your passbolt directory:
+All the commands hereafter should be done from inside your passbolt directory:
 ```bash
 $ cd /var/www/passbolt
 ```
 
-#### 1. Take your site down
+By default passbolt should be installed under `/var/www/passbolt` but it could be different if you
+installed from source manually. We will assume for the rest of this tutorial that it is located 
+in `/var/www/passbolt`.
 
-Create a temporary webserver configuration to redirect all the requests to a maintenance page. 
-You can find resources how to do this online: [here is an example for apache](http://stackoverflow.com/questions/21709026/apache-enable-maintenance-mode-across-all-virtual-hosts) .
+## Find out the name of your webserver user
 
-#### 2. Get the latest release
+Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
+`www-data` but on other distributions like Centos it could be for example `nginx` or `http`.
+For the rest of this tutorial we will assume that the user named `www-data`.
+
+Generally it is not possible to login as this user, so in order to run the command as this user,
+you can execute something like this:
+
+```
+sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
+```
+
+This command for example, will run the healthcheck command as `www-data` data user.
+It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.
+
+## Make sure the permissions are right for your current user
+
+{% include messages/warning.html
+    content="Do not run the commands as root when updating passbolt. It can render your installation unusable."
+%}
+
+Running commands as root can make your installation unusable until the permissions are repaired.
+We recommend you use another user for this purpose. The `whoami` command will let you know which user you are logged
+in as. In our case bellow, it is the user `passbolt`.
+```
+$ whoami
+passbolt
+```
+
+You need to make sure that this user have access to the passbolt directory. 
+The easiest way to do this would be to add such user to the `www-data` and `sudo` groups, 
+so for example for a `passbolt` user, you could execute as root:
+```
+$ su -
+$ usermod -a -G www-data passbolt
+$ usermod -a -G sudo passbolt
+$ exit
+```
+
+You can check if the user is included in the group (you may need to logout / login again for the permissions to be
+applied):
+```
+$ groups passbolt
+passbolt : passbolt www-data sudo
+```
+
+Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
+You can set the permissions as follow:
+```
+$ sudo chown -R root:www-data /var/www/passbolt
+$ sudo chmod 770 -R /var/www/passbolt
+$ sudo ls -la /var/www/passbolt
+drwxrwx--- 2 root www-data  .
+drwx------ 6 root root      ..
+```
+
+## Check if git and composer are present on your system
+
+By default you should have both composer and git installed:
+```
+$ which git
+/usr/bin/git
+```
+
+You should also already have composer installed.
+```
+$ which composer.phar
+/usr/bin/composer.phar
+```
+
+Depending on your setup it is possible that your composer command is named `composer` and not `composer.phar`. 
+
+If for some reason the command above fails because you don't have composer installed, 
+you can check the [composer installation instructions](https://getcomposer.org/download/).
+
+# Updating passbolt
+## 0. Take down your site
+
+It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade. For example if you are using `nginx` as a 
+webserver:
+```
+sudo systemctl stop nginx
+```
+
+If you feel a bit more fancy, you can change your web server configuration to point to an "under maintenance" page.
+It is a good practice to announce such maintenance window to your users in advance, so that they can also
+plan for the update, for example by downloading some key passwords they may need.
+
+## 1. Get the latest code version
 
 You can also pull the latest version directly from master:
 ```bash
 $ git pull origin master
 ```
 
-You can also pull specific versions:
+You can also pull a specific version:
 ```bash
 $ git fetch
 $ git checkout tags/v2.3.0
 ```
 
-#### 3. Update the libraries
+## 2. update the dependencies
 
 Some libraries are not packaged with the software but need to be updated using composer, based on 
 what is recommended in the composer.lock. This file is provided by passbolt.
 
 ```bash
-$ composer.phar install --no-dev -o -n
+$ composer.phar install --no-dev -n -o
 ```
 
-If for some reason the command above fails because you don't have composer installed, you can check the [composer installation instructions](https://getcomposer.org/download/).
-
-#### 4. Run the migration script
+## 3. Run the migration script
 
 You can run the database migration scripts as follow:
 ```bash
-$ ./bin/cake passbolt migrate --backup
+$ sudo su -s /bin/bash -c "./bin/cake passbolt migrate --backup" www-data
 ```
 
 As you can see with the command above you can optional ask the application to create a database backup.
@@ -75,30 +149,32 @@ This is usefull in case you run into any issues with the new version and need to
 
 This backup will be placed in `./tmp/cache/database/backup/backup_timestamp.sql`.
 
-#### 5. Clear the cache
+## 4. Clear the cache
+
 Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:
 ```bash
 $ ./bin/cake cache clear_all
 ```
 
-#### 6. Put your site back online!
+## 5. Restrict permissions
 
-As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see 
-if your instance configuration is looking good.
+Of course, you can restrict the final permissions to add more security. 
 
-## Patch update
-
-Performing a patch update is the easiest. All you need to do is checkout the latest version.
-```bash
-$ git pull origin master
+For example you can restrict for the `www-data` group to only read and execute scripts (e.g. so that the application
+itself can not modify any file). You must however make sure the `tmp` and `avatar` directories remains writable, as
+these are needed by the application:
+```
+$ sudo chmod 750 -R /var/www/passbolt
+$ sudo chmod 770 -R /var/www/passbolt/tmp
+$ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
 ```
 
-You can also checkout a specific version and use branches to switch versions. For example for version 2.0.3:
+## 6. Take your site back up
 
-```bash
-$ git fetch --tags
-$ git checkout tags/v2.3.0 -b tags/v2.3.0
+Almost done:
+```
+sudo systemctl start nginx
 ```
 
 {% include hosting/update/in-case-of-issues.md %}

@@ -189,73 +189,126 @@
                         <div class="row">
   <div class="col7">
 
-    <h2 id="which-update-process-to-follow">Which update process to follow?</h2>
+    <h1 id="pre-requisites">Pre-requisites</h1>
 
-    <p>Each passbolt release follows the concept of <a href="http://www.semver.org">Semantic Versioning</a>. Given a version number MAJOR.MINOR.PATCH, we increment as follow:</p>
+    <h2 id="find-out-where-is-your-passbolt-directory">Find out where is your passbolt directory</h2>
 
-    <ul>
-      <li><strong>PATCH</strong> version when we make backwards-compatible bug fixes. So let’s say you are running passbolt v2.0.2 and the latest one available is v2.0.3 you will need to perform a patch update.</li>
-      <li><strong>MINOR</strong> version when we add functionality in a backwards-compatible manner. Similarly say you have passbolt v2.0.3 installed and the latest version available is v2.1.0, you will need to perform a minor version update.</li>
-      <li><strong>MAJOR</strong> version when incompatible API changes are made. You get the deal for major version update: that would mean going from v1 to v2 for example.</li>
-    </ul>
-
-    <h2 id="where-to-find-the-latest-release-version-number">Where to find the latest release version number?</h2>
-
-    <p>You can find information about which version is the latest in the <a href="/releases">release notes</a>. It is generally a good idea to check these notes before running an update. You can also find it on the official <a href="https://github.com/passbolt/passbolt_api/blob/master/config/version.php">GIT repository</a>.</p>
-
-    <h2 id="where-to-find-the-version-number-for-a-given-installation">Where to find the version number for a given installation?</h2>
-
-    <p>You can check <code class="highlighter-rouge">app/Config/version.php</code> to know the version number for your local instance. You can also hover on the <em><span class="visuallyhidden">heart</span></em> icon at the bottom right corner of any passbolt screen. The first item is the server version, the second the one from the browser extension.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/05/AN_footer_version_help.png" alt="footer version helper" style="max-width:210px;" />
-    <span class="legend">fig. footer version helper</span>
-</figure>
-
-    <h2 id="major-update">Major update</h2>
-
-    <p>Please see the following documentation to <a href="/hosting/upgrade">Update from v1 to v2</a></p>
-
-    <h2 id="minor-update">Minor update</h2>
-
-    <p>Every now and again some releases will introduce some database and/or configuration files changes. 
-Here is a step by step guide on how to perform a minor update. Just replace the version numbers where necessary.</p>
-
-    <h4 id="get-ready">Get ready</h4>
-    <p>All the commands below should be done from inside your passbolt directory:</p>
+    <p>All the commands hereafter should be done from inside your passbolt directory:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /var/www/passbolt
 </code></pre></div>    </div>
 
-    <h4 id="take-your-site-down">1. Take your site down</h4>
+    <p>By default passbolt should be installed under <code class="highlighter-rouge">/var/www/passbolt</code> but it could be different if you
+installed from source manually. We will assume for the rest of this tutorial that it is located 
+in <code class="highlighter-rouge">/var/www/passbolt</code>.</p>
 
-    <p>Create a temporary webserver configuration to redirect all the requests to a maintenance page. 
-You can find resources how to do this online: <a href="http://stackoverflow.com/questions/21709026/apache-enable-maintenance-mode-across-all-virtual-hosts">here is an example for apache</a> .</p>
+    <h2 id="find-out-the-name-of-your-webserver-user">Find out the name of your webserver user</h2>
 
-    <h4 id="get-the-latest-release">2. Get the latest release</h4>
+    <p>Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
+<code class="highlighter-rouge">www-data</code> but on other distributions like Centos it could be for example <code class="highlighter-rouge">nginx</code> or <code class="highlighter-rouge">http</code>.
+For the rest of this tutorial we will assume that the user named <code class="highlighter-rouge">www-data</code>.</p>
+
+    <p>Generally it is not possible to login as this user, so in order to run the command as this user,
+you can execute something like this:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
+</code></pre></div>    </div>
+
+    <p>This command for example, will run the healthcheck command as <code class="highlighter-rouge">www-data</code> data user.
+It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.</p>
+
+    <h2 id="make-sure-the-permissions-are-right-for-your-current-user">Make sure the permissions are right for your current user</h2>
+
+    <div class="message warning">
+    <p>
+        Do not run the commands as root when updating passbolt. It can render your installation unusable.
+    </p>
+    
+</div>
+
+    <p>Running commands as root can make your installation unusable until the permissions are repaired.
+We recommend you use another user for this purpose. The <code class="highlighter-rouge">whoami</code> command will let you know which user you are logged
+in as. In our case bellow, it is the user <code class="highlighter-rouge">passbolt</code>.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ whoami
+passbolt
+</code></pre></div>    </div>
+
+    <p>You need to make sure that this user have access to the passbolt directory. 
+The easiest way to do this would be to add such user to the <code class="highlighter-rouge">www-data</code> and <code class="highlighter-rouge">sudo</code> groups, 
+so for example for a <code class="highlighter-rouge">passbolt</code> user, you could execute as root:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ su -
+$ usermod -a -G www-data passbolt
+$ usermod -a -G sudo passbolt
+$ exit
+</code></pre></div>    </div>
+
+    <p>You can check if the user is included in the group (you may need to logout / login again for the permissions to be
+applied):</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ groups passbolt
+passbolt : passbolt www-data sudo
+</code></pre></div>    </div>
+
+    <p>Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
+You can set the permissions as follow:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R root:www-data /var/www/passbolt
+$ sudo chmod 770 -R /var/www/passbolt
+$ sudo ls -la /var/www/passbolt
+drwxrwx--- 2 root www-data  .
+drwx------ 6 root root      ..
+</code></pre></div>    </div>
+
+    <h2 id="check-if-git-and-composer-are-present-on-your-system">Check if git and composer are present on your system</h2>
+
+    <p>By default you should have both composer and git installed:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which git
+/usr/bin/git
+</code></pre></div>    </div>
+
+    <p>You should also already have composer installed.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which composer.phar
+/usr/bin/composer.phar
+</code></pre></div>    </div>
+
+    <p>Depending on your setup it is possible that your composer command is named <code class="highlighter-rouge">composer</code> and not <code class="highlighter-rouge">composer.phar</code>.</p>
+
+    <p>If for some reason the command above fails because you don’t have composer installed, 
+you can check the <a href="https://getcomposer.org/download/">composer installation instructions</a>.</p>
+
+    <h1 id="updating-passbolt">Updating passbolt</h1>
+    <h2 id="take-down-your-site">0. Take down your site</h2>
+
+    <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="highlighter-rouge">nginx</code> as a 
+webserver:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop nginx
+</code></pre></div>    </div>
+
+    <p>If you feel a bit more fancy, you can change your web server configuration to point to an “under maintenance” page.
+It is a good practice to announce such maintenance window to your users in advance, so that they can also
+plan for the update, for example by downloading some key passwords they may need.</p>
+
+    <h2 id="get-the-latest-code-version">1. Get the latest code version</h2>
 
     <p>You can also pull the latest version directly from master:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin master
 </code></pre></div>    </div>
 
-    <p>You can also pull specific versions:</p>
+    <p>You can also pull a specific version:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git fetch
 <span class="nv">$ </span>git checkout tags/v2.3.0
 </code></pre></div>    </div>
 
-    <h4 id="update-the-libraries">3. Update the libraries</h4>
+    <h2 id="update-the-dependencies">2. update the dependencies</h2>
 
     <p>Some libraries are not packaged with the software but need to be updated using composer, based on 
 what is recommended in the composer.lock. This file is provided by passbolt.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer.phar <span class="nb">install</span> <span class="nt">--no-dev</span> <span class="nt">-o</span> <span class="nt">-n</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer.phar <span class="nb">install</span> <span class="nt">--no-dev</span> <span class="nt">-n</span> <span class="nt">-o</span>
 </code></pre></div>    </div>
 
-    <p>If for some reason the command above fails because you don’t have composer installed, you can check the <a href="https://getcomposer.org/download/">composer installation instructions</a>.</p>
-
-    <h4 id="run-the-migration-script">4. Run the migration script</h4>
+    <h2 id="run-the-migration-script">3. Run the migration script</h2>
 
     <p>You can run the database migration scripts as follow:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake passbolt migrate <span class="nt">--backup</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt migrate --backup"</span> www-data
 </code></pre></div>    </div>
 
     <p>As you can see with the command above you can optional ask the application to create a database backup.
@@ -263,27 +316,29 @@ This is usefull in case you run into any issues with the new version and need to
 
     <p>This backup will be placed in <code class="highlighter-rouge">./tmp/cache/database/backup/backup_timestamp.sql</code>.</p>
 
-    <h4 id="clear-the-cache">5. Clear the cache</h4>
+    <h2 id="clear-the-cache">4. Clear the cache</h2>
+
     <p>Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake cache clear_all
 </code></pre></div>    </div>
 
-    <h4 id="put-your-site-back-online">6. Put your site back online!</h4>
+    <h2 id="restrict-permissions">5. Restrict permissions</h2>
 
-    <p>As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see 
-if your instance configuration is looking good.</p>
+    <p>Of course, you can restrict the final permissions to add more security.</p>
 
-    <h2 id="patch-update">Patch update</h2>
-
-    <p>Performing a patch update is the easiest. All you need to do is checkout the latest version.</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin master
+    <p>For example you can restrict for the <code class="highlighter-rouge">www-data</code> group to only read and execute scripts (e.g. so that the application
+itself can not modify any file). You must however make sure the <code class="highlighter-rouge">tmp</code> and <code class="highlighter-rouge">avatar</code> directories remains writable, as
+these are needed by the application:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chmod 750 -R /var/www/passbolt
+$ sudo chmod 770 -R /var/www/passbolt/tmp
+$ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
 </code></pre></div>    </div>
 
-    <p>You can also checkout a specific version and use branches to switch versions. For example for version 2.0.3:</p>
+    <h2 id="take-your-site-back-up">6. Take your site back up</h2>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git fetch <span class="nt">--tags</span>
-<span class="nv">$ </span>git checkout tags/v2.3.0 <span class="nt">-b</span> tags/v2.3.0
+    <p>Almost done:</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start nginx
 </code></pre></div>    </div>
 
     <h2 id="troubleshooting">Troubleshooting</h2>
@@ -324,9 +379,9 @@ the easiest it will be for people to help you.</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-May
-2nd,
-2018.</p>
+June
+25th,
+2020.</p>
     </div>
 
   </div>

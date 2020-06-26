@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-06-26T16:36:48+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-06-26T17:43:44+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
@@ -10,7 +10,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;By default passbolt should be installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; but it could be different if you
-installed from source manually. We will assume for the rest of this tutorial that it is located 
+installed from source manually. We will assume for the rest of this tutorial that it is located
 in &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;find-out-the-name-of-your-webserver-user&quot;&gt;Find out the name of your webserver user&lt;/h2&gt;
@@ -22,7 +22,7 @@ For the rest of this tutorial we will assume that the user named &lt;code class=
     &lt;p&gt;Generally it is not possible to login as this user, so in order to run the command as this user,
 you can execute something like this:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo su -s /bin/bash -c &quot;./bin/cake passbolt healthcheck&quot; www-data
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data bash -c &quot;./bin/cake passbolt healthcheck&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;This command for example, will run the healthcheck command as &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; data user.
@@ -39,18 +39,17 @@ It is a good idea to start with running a healthcheck prior to updating, to make
 
     &lt;p&gt;Running commands as root can make your installation unusable until the permissions are repaired.
 We recommend you use another user for this purpose. The &lt;code class=&quot;highlighter-rouge&quot;&gt;whoami&lt;/code&gt; command will let you know which user you are logged
-in as. In our case bellow, it is the user &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
+in as. In our case below, it is the user &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ whoami
 passbolt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;You need to make sure that this user have access to the passbolt directory. 
-The easiest way to do this would be to add such user to the &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; groups, 
+    &lt;p&gt;You need to make sure that this user have access to the passbolt directory.
+The easiest way to do this would be to add such user to the &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; groups,
 so for example for a &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user, you could execute as root:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ su -
-$ usermod -a -G www-data passbolt
-$ usermod -a -G sudo passbolt
-$ exit
+
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo usermod -a -G www-data passbolt
+$ sudo usermod -a -G sudo passbolt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;You can check if the user is included in the group (you may need to logout / login again for the permissions to be
@@ -61,8 +60,11 @@ passbolt : passbolt www-data sudo
 
     &lt;p&gt;Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
 You can set the permissions as follow:&lt;/p&gt;
+
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo chown -R root:www-data /var/www/passbolt
 $ sudo chmod 770 -R /var/www/passbolt
+$ sudo chmod 777 -R /var/www/passbolt/tmp
+$ sudo chmod 777 -R /var/www/passbolt/logs
 $ sudo ls -la /var/www/passbolt
 drwxrwx--- 2 root www-data  .
 drwx------ 6 root root      ..
@@ -82,14 +84,14 @@ drwx------ 6 root root      ..
 
     &lt;p&gt;Depending on your setup it is possible that your composer command is named &lt;code class=&quot;highlighter-rouge&quot;&gt;composer&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt;.&lt;/p&gt;
 
-    &lt;p&gt;If for some reason the command above fails because you don’t have composer installed, 
+    &lt;p&gt;If for some reason the command above fails because you don’t have composer installed,
 you can check the &lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;composer installation instructions&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
     &lt;h2 id=&quot;take-down-your-site&quot;&gt;0. Take down your site&lt;/h2&gt;
 
     &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a 
+such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a
 webserver:&lt;/p&gt;
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo systemctl stop nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -104,27 +106,35 @@ plan for the update, for example by downloading some key passwords they may need
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull origin master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;You can also pull a specific version:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.3.0
+    &lt;p&gt;To pull a specific version you can do:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch origin tags/v2.13.0
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.13.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;On installations based on install scripts or in the VM appliance you are in a shallow clone state so to change
+the branch you will need to:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git remote set-branches &lt;span class=&quot;s2&quot;&gt;&quot;*&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch origin tags/v2.13.0
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.13.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;update-the-dependencies&quot;&gt;2. update the dependencies&lt;/h2&gt;
 
-    &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on 
+    &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on
 what is recommended in the composer.lock. This file is provided by passbolt.&lt;/p&gt;
 
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;composer.phar &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;allow_url_fopen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;on /usr/bin/composer.phar &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;run-the-migration-script&quot;&gt;3. Run the migration script&lt;/h2&gt;
 
     &lt;p&gt;You can run the database migration scripts as follow:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;su &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt migrate --backup&quot;&lt;/span&gt; www-data
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt migrate --backup&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;As you can see with the command above you can optional ask the application to create a database backup.
-This is usefull in case you run into any issues with the new version and need to revert to an old but working one.&lt;/p&gt;
+This is useful in case you run into any issues with the new version and need to revert to an old but working one.&lt;/p&gt;
 
     &lt;p&gt;This backup will be placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
 
@@ -144,6 +154,7 @@ itself can not modify any file). You must however make sure the &lt;code class=&
 these are needed by the application:&lt;/p&gt;
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sudo chmod 750 -R /var/www/passbolt
 $ sudo chmod 770 -R /var/www/passbolt/tmp
+$ sudo chmod 770 -R /var/www/passbolt/logs
 $ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 

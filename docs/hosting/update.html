@@ -198,7 +198,7 @@
 </code></pre></div>    </div>
 
     <p>By default passbolt should be installed under <code class="highlighter-rouge">/var/www/passbolt</code> but it could be different if you
-installed from source manually. We will assume for the rest of this tutorial that it is located 
+installed from source manually. We will assume for the rest of this tutorial that it is located
 in <code class="highlighter-rouge">/var/www/passbolt</code>.</p>
 
     <h2 id="find-out-the-name-of-your-webserver-user">Find out the name of your webserver user</h2>
@@ -210,7 +210,7 @@ For the rest of this tutorial we will assume that the user named <code class="hi
     <p>Generally it is not possible to login as this user, so in order to run the command as this user,
 you can execute something like this:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
 </code></pre></div>    </div>
 
     <p>This command for example, will run the healthcheck command as <code class="highlighter-rouge">www-data</code> data user.
@@ -227,18 +227,17 @@ It is a good idea to start with running a healthcheck prior to updating, to make
 
     <p>Running commands as root can make your installation unusable until the permissions are repaired.
 We recommend you use another user for this purpose. The <code class="highlighter-rouge">whoami</code> command will let you know which user you are logged
-in as. In our case bellow, it is the user <code class="highlighter-rouge">passbolt</code>.</p>
+in as. In our case below, it is the user <code class="highlighter-rouge">passbolt</code>.</p>
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ whoami
 passbolt
 </code></pre></div>    </div>
 
-    <p>You need to make sure that this user have access to the passbolt directory. 
-The easiest way to do this would be to add such user to the <code class="highlighter-rouge">www-data</code> and <code class="highlighter-rouge">sudo</code> groups, 
+    <p>You need to make sure that this user have access to the passbolt directory.
+The easiest way to do this would be to add such user to the <code class="highlighter-rouge">www-data</code> and <code class="highlighter-rouge">sudo</code> groups,
 so for example for a <code class="highlighter-rouge">passbolt</code> user, you could execute as root:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ su -
-$ usermod -a -G www-data passbolt
-$ usermod -a -G sudo passbolt
-$ exit
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo usermod -a -G www-data passbolt
+$ sudo usermod -a -G sudo passbolt
 </code></pre></div>    </div>
 
     <p>You can check if the user is included in the group (you may need to logout / login again for the permissions to be
@@ -249,8 +248,11 @@ passbolt : passbolt www-data sudo
 
     <p>Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
 You can set the permissions as follow:</p>
+
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R root:www-data /var/www/passbolt
 $ sudo chmod 770 -R /var/www/passbolt
+$ sudo chmod 777 -R /var/www/passbolt/tmp
+$ sudo chmod 777 -R /var/www/passbolt/logs
 $ sudo ls -la /var/www/passbolt
 drwxrwx--- 2 root www-data  .
 drwx------ 6 root root      ..
@@ -270,14 +272,14 @@ drwx------ 6 root root      ..
 
     <p>Depending on your setup it is possible that your composer command is named <code class="highlighter-rouge">composer</code> and not <code class="highlighter-rouge">composer.phar</code>.</p>
 
-    <p>If for some reason the command above fails because you don’t have composer installed, 
+    <p>If for some reason the command above fails because you don’t have composer installed,
 you can check the <a href="https://getcomposer.org/download/">composer installation instructions</a>.</p>
 
     <h1 id="updating-passbolt">Updating passbolt</h1>
     <h2 id="take-down-your-site">0. Take down your site</h2>
 
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="highlighter-rouge">nginx</code> as a 
+such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="highlighter-rouge">nginx</code> as a
 webserver:</p>
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop nginx
 </code></pre></div>    </div>
@@ -292,27 +294,35 @@ plan for the update, for example by downloading some key passwords they may need
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git pull origin master
 </code></pre></div>    </div>
 
-    <p>You can also pull a specific version:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git fetch
-<span class="nv">$ </span>git checkout tags/v2.3.0
+    <p>To pull a specific version you can do:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git fetch origin tags/v2.13.0
+<span class="nv">$ </span>git checkout tags/v2.13.0
+</code></pre></div>    </div>
+
+    <p>On installations based on install scripts or in the VM appliance you are in a shallow clone state so to change
+the branch you will need to:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote set-branches <span class="s2">"*"</span>
+<span class="nv">$ </span>git fetch origin tags/v2.13.0
+<span class="nv">$ </span>git checkout tags/v2.13.0
 </code></pre></div>    </div>
 
     <h2 id="update-the-dependencies">2. update the dependencies</h2>
 
-    <p>Some libraries are not packaged with the software but need to be updated using composer, based on 
+    <p>Some libraries are not packaged with the software but need to be updated using composer, based on
 what is recommended in the composer.lock. This file is provided by passbolt.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>composer.phar <span class="nb">install</span> <span class="nt">--no-dev</span> <span class="nt">-n</span> <span class="nt">-o</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php <span class="nt">-d</span> <span class="nv">allow_url_fopen</span><span class="o">=</span>on /usr/bin/composer.phar <span class="nb">install</span> <span class="nt">--no-dev</span> <span class="nt">-n</span> <span class="nt">-o</span>
 </code></pre></div>    </div>
 
     <h2 id="run-the-migration-script">3. Run the migration script</h2>
 
     <p>You can run the database migration scripts as follow:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt migrate --backup"</span> www-data
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt migrate --backup"</span>
 </code></pre></div>    </div>
 
     <p>As you can see with the command above you can optional ask the application to create a database backup.
-This is usefull in case you run into any issues with the new version and need to revert to an old but working one.</p>
+This is useful in case you run into any issues with the new version and need to revert to an old but working one.</p>
 
     <p>This backup will be placed in <code class="highlighter-rouge">./tmp/cache/database/backup/backup_timestamp.sql</code>.</p>
 
@@ -332,6 +342,7 @@ itself can not modify any file). You must however make sure the <code class="hig
 these are needed by the application:</p>
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chmod 750 -R /var/www/passbolt
 $ sudo chmod 770 -R /var/www/passbolt/tmp
+$ sudo chmod 770 -R /var/www/passbolt/logs
 $ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
 </code></pre></div>    </div>
 

@@ -58,7 +58,7 @@ Some libraries are not packaged with the software but need to be updated using c
 what is recommended in the composer.lock. This file is provided by passbolt.
 
 ```bash
-$ composer install --no-dev
+$ composer.phar install --no-dev -o -n
 ```
 
 If for some reason the command above fails because you don't have composer installed, you can check the [composer installation instructions](https://getcomposer.org/download/).

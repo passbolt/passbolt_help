@@ -34,8 +34,8 @@ For the rest of this tutorial we will assume that the user named `www-data`.
 Generally it is not possible to login as this user, so in order to run the command as this user,
 you can execute something like this:
 
-```
-sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
+```bash
+$ sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
 ```
 
 This command for example, will run the healthcheck command as `www-data` data user.
@@ -50,7 +50,7 @@ It is a good idea to start with running a healthcheck prior to updating, to make
 Running commands as root can make your installation unusable until the permissions are repaired.
 We recommend you use another user for this purpose. The `whoami` command will let you know which user you are logged
 in as. In our case below, it is the user `passbolt`.
-```
+```bash
 $ whoami
 passbolt
 ```
@@ -59,41 +59,59 @@ You need to make sure that this user have access to the passbolt directory.
 The easiest way to do this would be to add such user to the `www-data` and `sudo` groups,
 so for example for a `passbolt` user, you could execute as root:
 
-```
+```bash
 $ sudo usermod -a -G www-data passbolt
 $ sudo usermod -a -G sudo passbolt
 ```
 
 You can check if the user is included in the group (you may need to logout / login again for the permissions to be
 applied):
-```
+```bash
 $ groups passbolt
 passbolt : passbolt www-data sudo
 ```
 
-Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
+Make sure the passbolt directory is owned by the passbolt user and accessible to the www-data group.
 You can set the permissions as follow:
 
+```bash
+$ sudo chown -R passbolt:www-data ./
+$ sudo chmod o-rwx . -R
+$ sudo find . -type d -print0 | xargs -0 sudo chmod g-w
+$ sudo find . -type f -print0 | xargs -0 sudo chmod g-wx
+$ sudo find ./bin/cake -type f -print0 | xargs -0 sudo chmod g+x
+$ sudo find ./tmp -type d -print0 | xargs -0 sudo chmod 770
+$ sudo find ./tmp -type f -print0 | xargs -0 sudo chmod 660
+$ sudo find ./logs -type d -print0 | xargs -0 sudo chmod 770
+$ sudo find ./logs -type f -print0 | xargs -0 sudo chmod 660
+$ sudo find ./webroot/img/public -type d -print0 | xargs -0 sudo chmod 770
+$ sudo find ./webroot/img/public -type f -print0 | xargs -0 sudo chmod 660
 ```
-$ sudo chown -R root:www-data /var/www/passbolt
-$ sudo chmod 770 -R /var/www/passbolt
-$ sudo chmod 777 -R /var/www/passbolt/tmp
-$ sudo chmod 777 -R /var/www/passbolt/logs
-$ sudo ls -la /var/www/passbolt
-drwxrwx--- 2 root www-data  .
-drwx------ 6 root root      ..
+
+Check that the permissions are set as expected.
+```bash
+$ ls -la .
+drwxr-x--- 2 passbolt www-data  .
+drwx------ 6 root root          ..
+drwxr-x--- 6 passbolt www-data  config
+```
+
+Make sure the passbolt directory doesn't contain any changes. If you have altered the passbolt code, stash your changes
+before executing the following command.
+```bash
+$ git checkout HEAD .
 ```
 
 ## Check if git and composer are present on your system
 
 By default you should have both composer and git installed:
-```
+```bash
 $ which git
 /usr/bin/git
 ```
 
 You should also already have composer installed.
-```
+```bash
 $ which composer.phar
 /usr/bin/composer.phar
 ```
@@ -109,8 +127,8 @@ you can check the [composer installation instructions](https://getcomposer.org/d
 It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade. For example if you are using `nginx` as a
 webserver:
-```
-sudo systemctl stop nginx
+```bash
+$ sudo systemctl stop nginx
 ```
 
 If you feel a bit more fancy, you can change your web server configuration to point to an "under maintenance" page.
@@ -134,7 +152,7 @@ On installations based on install scripts or in the VM appliance you are in a sh
 the branch you will need to:
 
 ```bash
-$ git remote set-branches "*"
+$ git remote set-branches origin "*"
 $ git fetch origin tags/v2.13.0
 $ git checkout tags/v2.13.0
 ```
@@ -165,27 +183,13 @@ This backup will be placed in `./tmp/cache/database/backup/backup_timestamp.sql`
 Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:
 ```bash
-$ ./bin/cake cache clear_all
+$ sudo -H -u www-data bash -c "./bin/cake cache clear_all"
 ```
 
-## 5. Restrict permissions
-
-Of course, you can restrict the final permissions to add more security.
-
-For example you can restrict for the `www-data` group to only read and execute scripts (e.g. so that the application
-itself can not modify any file). You must however make sure the `tmp` and `avatar` directories remains writable, as
-these are needed by the application:
-```
-$ sudo chmod 750 -R /var/www/passbolt
-$ sudo chmod 770 -R /var/www/passbolt/tmp
-$ sudo chmod 770 -R /var/www/passbolt/logs
-$ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
-```
-
-## 6. Take your site back up
+## 5. Take your site back up
 
 Almost done:
-```
+```bash
 sudo systemctl start nginx
 ```
 

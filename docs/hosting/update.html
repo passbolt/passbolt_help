@@ -210,7 +210,7 @@ For the rest of this tutorial we will assume that the user named <code class="hi
     <p>Generally it is not possible to login as this user, so in order to run the command as this user,
 you can execute something like this:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span>
 </code></pre></div>    </div>
 
     <p>This command for example, will run the healthcheck command as <code class="highlighter-rouge">www-data</code> data user.
@@ -228,45 +228,61 @@ It is a good idea to start with running a healthcheck prior to updating, to make
     <p>Running commands as root can make your installation unusable until the permissions are repaired.
 We recommend you use another user for this purpose. The <code class="highlighter-rouge">whoami</code> command will let you know which user you are logged
 in as. In our case below, it is the user <code class="highlighter-rouge">passbolt</code>.</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ whoami
-passbolt
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">whoami
+</span>passbolt
 </code></pre></div>    </div>
 
     <p>You need to make sure that this user have access to the passbolt directory.
 The easiest way to do this would be to add such user to the <code class="highlighter-rouge">www-data</code> and <code class="highlighter-rouge">sudo</code> groups,
 so for example for a <code class="highlighter-rouge">passbolt</code> user, you could execute as root:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo usermod -a -G www-data passbolt
-$ sudo usermod -a -G sudo passbolt
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> www-data passbolt
+<span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> <span class="nb">sudo </span>passbolt
 </code></pre></div>    </div>
 
     <p>You can check if the user is included in the group (you may need to logout / login again for the permissions to be
 applied):</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ groups passbolt
-passbolt : passbolt www-data sudo
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">groups </span>passbolt
+passbolt : passbolt www-data <span class="nb">sudo</span>
 </code></pre></div>    </div>
 
-    <p>Make sure the passbolt directory is owned by the root user and accessible and writable to the www-data group.
+    <p>Make sure the passbolt directory is owned by the passbolt user and accessible to the www-data group.
 You can set the permissions as follow:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chown -R root:www-data /var/www/passbolt
-$ sudo chmod 770 -R /var/www/passbolt
-$ sudo chmod 777 -R /var/www/passbolt/tmp
-$ sudo chmod 777 -R /var/www/passbolt/logs
-$ sudo ls -la /var/www/passbolt
-drwxrwx--- 2 root www-data  .
-drwx------ 6 root root      ..
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo chown</span> <span class="nt">-R</span> passbolt:www-data ./
+<span class="nv">$ </span><span class="nb">sudo chmod </span>o-rwx <span class="nb">.</span> <span class="nt">-R</span>
+<span class="nv">$ </span><span class="nb">sudo </span>find <span class="nb">.</span> <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>g-w
+<span class="nv">$ </span><span class="nb">sudo </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>g-wx
+<span class="nv">$ </span><span class="nb">sudo </span>find ./bin/cake <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>g+x
+<span class="nv">$ </span><span class="nb">sudo </span>find ./tmp <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>770
+<span class="nv">$ </span><span class="nb">sudo </span>find ./tmp <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>660
+<span class="nv">$ </span><span class="nb">sudo </span>find ./logs <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>770
+<span class="nv">$ </span><span class="nb">sudo </span>find ./logs <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>660
+<span class="nv">$ </span><span class="nb">sudo </span>find ./webroot/img/public <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>770
+<span class="nv">$ </span><span class="nb">sudo </span>find ./webroot/img/public <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>660
+</code></pre></div>    </div>
+
+    <p>Check that the permissions are set as expected.</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">ls</span> <span class="nt">-la</span> <span class="nb">.</span>
+drwxr-x--- 2 passbolt www-data  <span class="nb">.</span>
+drwx------ 6 root root          ..
+drwxr-x--- 6 passbolt www-data  config
+</code></pre></div>    </div>
+
+    <p>Make sure the passbolt directory doesn’t contain any changes. If you have altered the passbolt code, stash your changes
+before executing the following command.</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git checkout HEAD <span class="nb">.</span>
 </code></pre></div>    </div>
 
     <h2 id="check-if-git-and-composer-are-present-on-your-system">Check if git and composer are present on your system</h2>
 
     <p>By default you should have both composer and git installed:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which git
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>which git
 /usr/bin/git
 </code></pre></div>    </div>
 
     <p>You should also already have composer installed.</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ which composer.phar
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>which composer.phar
 /usr/bin/composer.phar
 </code></pre></div>    </div>
 
@@ -281,7 +297,7 @@ you can check the <a href="https://getcomposer.org/download/">composer installat
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="highlighter-rouge">nginx</code> as a
 webserver:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl stop nginx
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
     <p>If you feel a bit more fancy, you can change your web server configuration to point to an “under maintenance” page.
@@ -302,7 +318,7 @@ plan for the update, for example by downloading some key passwords they may need
     <p>On installations based on install scripts or in the VM appliance you are in a shallow clone state so to change
 the branch you will need to:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote set-branches <span class="s2">"*"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git remote set-branches origin <span class="s2">"*"</span>
 <span class="nv">$ </span>git fetch origin tags/v2.13.0
 <span class="nv">$ </span>git checkout tags/v2.13.0
 </code></pre></div>    </div>
@@ -330,26 +346,13 @@ This is useful in case you run into any issues with the new version and need to 
 
     <p>Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake cache clear_all
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake cache clear_all"</span>
 </code></pre></div>    </div>
 
-    <h2 id="restrict-permissions">5. Restrict permissions</h2>
-
-    <p>Of course, you can restrict the final permissions to add more security.</p>
-
-    <p>For example you can restrict for the <code class="highlighter-rouge">www-data</code> group to only read and execute scripts (e.g. so that the application
-itself can not modify any file). You must however make sure the <code class="highlighter-rouge">tmp</code> and <code class="highlighter-rouge">avatar</code> directories remains writable, as
-these are needed by the application:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo chmod 750 -R /var/www/passbolt
-$ sudo chmod 770 -R /var/www/passbolt/tmp
-$ sudo chmod 770 -R /var/www/passbolt/logs
-$ sudo chmod 770 -R /var/www/passbolt/webroot/img/public/Avatar
-</code></pre></div>    </div>
-
-    <h2 id="take-your-site-back-up">6. Take your site back up</h2>
+    <h2 id="take-your-site-back-up">5. Take your site back up</h2>
 
     <p>Almost done:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl start nginx
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
 </code></pre></div>    </div>
 
     <h2 id="troubleshooting">Troubleshooting</h2>

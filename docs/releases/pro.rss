@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v2.13.1 | Stomp</title>
+    <link>https://help.passbolt.com/releases/pro/v2131-stomp</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2131-stomp</guid>
+    <description>We just published an article on the blog to explain why passbolt requires an extension. Why does passbolt require an extension? This is a small maintenance release. It ships with performance improvements and fixes a bug introduced with the latest release. Thank you to everyone who helped us test and...</description>
+    <pubDate>Tue, 07 Jul 2020 10:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.13.0 | Hammer to Fall</title>
     <link>https://help.passbolt.com/releases/pro/v2130-hammer-to-fall</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2130-hammer-to-fall</guid>

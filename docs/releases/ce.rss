@@ -12,7 +12,7 @@
     <title>v2.13.1 | Stomp</title>
     <link>https://help.passbolt.com/releases/ce/v2131-stomp</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v2131-stomp</guid>
-    <description>We just published an article on the blog to explain why passbolt requires an extension. Why does passbolt require an extension? This is a small maintenance release. It fixes a bug introduced with the latest release. Thank you to everyone who helped us test and iron out the last kinks!...</description>
+    <description>This is a small maintenance release. It fixes a bug introduced with the latest release. Thank you to everyone who helped us test and iron out the last kinks! In other news, we just published an article on the blog to explain why passbolt requires an extension. Changelog API Fixed...</description>
     <pubDate>Tue, 07 Jul 2020 10:00:00 +0200</pubDate>
 </item>
 

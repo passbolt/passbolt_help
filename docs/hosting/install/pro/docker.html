@@ -248,8 +248,7 @@ volume or a host directory and mount it at <code class="highlighter-rouge">/var/
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create mariadb_passbolt_data
 <span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> mariadb <span class="nt">--net</span> passbolt_network <span class="se">\</span>
-             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>mariadb_passbolt_data,<span class="se">\</span>
-             <span class="nv">target</span><span class="o">=</span>/var/lib/mysql <span class="se">\</span>
+             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>mariadb_passbolt_data,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>&lt;root_password&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">MYSQL_USER</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>

@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v2.13.5 | Stomp</title>
+    <link>https://help.passbolt.com/releases/ce/v2135-stomp</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v2135-stomp</guid>
+    <description>This is a small maintenance release. It ships with a few bug fixes and improvements for the web extension. [2.13.5] - 2020-07-22 Fixed Fix autofill should work when input type is not lowercase Fix export to CSV should work if export does not include the resource associated folder [2.13.4] -...</description>
+    <pubDate>Wed, 22 Jul 2020 18:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v2.13.1 | Stomp</title>
     <link>https://help.passbolt.com/releases/ce/v2131-stomp</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v2131-stomp</guid>

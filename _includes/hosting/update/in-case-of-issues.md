@@ -10,7 +10,7 @@ Optionally, you can login as an administrator and check the status on the health
 
 You can also run the following command:
 ```bash
-./bin/cake passbolt healthcheck
+$ sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
 ```
 
 #### If you run into some issues

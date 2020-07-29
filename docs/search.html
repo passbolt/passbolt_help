@@ -690,6 +690,12 @@
 "content": "Upcoming new funtionalities are advertised on the roadmap.Passbolt users can propose and upvote for new ideas on the community forum.The more financial contributors (and supporters in general) the quicker we can develop new functionalities.Security vulnerabilities and bugs fixes are to be given a higher priority than new features.Core libraries and framework maintenance upgrade also need to be dealt with proactively.",
 "url": "https://help.passbolt.com/faq/discover/feature-priority"
 },
+"faq-discover-where-can-i-login": {
+"title": "Where can I login?",
+"category": "discover",
+"content": "Long story short, it depends on your situation, as passbolt can be hostedon-premises or in the cloud.Quick cluesIf you have completed the setupIf you have completed the setup and configured passbolt on your current laptop or desktop,you can click on the passbolt icon in the top right corner of your browser. If youthen click on the passbolt logo it will take you to your passbolt workspace.Check for passbolt emails in your mailboxIn most cases you will have received an email notification from passbolt in the pastin your mailbox. So check your inbox and follow one of the links.Ask for help to your administratorIn doubt you can also ask the person that invited you to passbolt, e.g. the administratorthat setup passbolt for your company.Other cluesYou are using passbolt cloud versionIf you are using passbolt cloud your passwords will be locatedin a workspace in https://cloud.passbolt.com/workspace, whereworkspace is the name of your organization, like https://cloud.passbolt.com/acme.You are using passbolt self-hosted versionIf you are using the self hosted version of passbolt you can contact your administrator,as the self hosted version, much like a blog, can be hosted anywhere.",
+"url": "https://help.passbolt.com/faq/discover/where-can-i-login"
+},
 "faq-discover-where-to-get-help": {
 "title": "Where can I get help?",
 "category": "discover",
@@ -941,12 +947,6 @@
 "category": "hosting",
 "content": "By default passbolt uses the PHP session duration setting to define when the auto logout shouldkick in. If the default session timeout is too short for you and your user you can extend it in the PHP configuration.See the directive session.gc-maxlifetimeIn order to change this number you must locate your php.ini file. Its location depends on youroperating system and php versions.For example on Debian if you are using Nginx and PHP 7.3 it will be in/etc/php/7.3/fpm/php.ini, using Debian 8 on nApache it will be located in /etc/php/7.0/apache2/php.ini, etc.Once located replace the 1440 timout value in seconds with for example 2700 for 45 minutes:; After this number of seconds, stored data will be seen as 'garbage' and; cleaned up by the garbage collection process.; http://php.net/session.gc-maxlifetimesession.gc_maxlifetime = 2700",
 "url": "https://help.passbolt.com/faq/hosting/how-to-increase-auto-logout-time"
-},
-"faq-discover-where-can-i-login": {
-"title": "Where can I login?",
-"category": "discover",
-"content": "Long story short, it depends on your situation, as passbolt can be hostedon-premises or in the cloud.Quick cluesIf you have completed the setupIf you have completed the setup and configured passbolt on your current laptop or desktop,you can click on the passbolt icon in the top right corner of your browser. If youthen click on the passbolt logo it will take you to your passbolt workspace.Check for passbolt emails in your mailboxIn most cases you will have received an email notification from passbolt in the pastin your mailbox. So check your inbox and follow one of the links.Ask for help to your administratorIn doubt you can also ask the person that invited you to passbolt, e.g. the administratorthat setup passbolt for your company.Other cluesYou are using passbolt cloud versionIf you are using passbolt cloud your passwords will be locatedin a workspace in https://cloud.passbolt.com/workspace, whereworkspace is the name of your organization, like https://cloud.passbolt.com/acme.You are using passbolt self-hosted versionIf you are using the self hosted version of passbolt you can contact your administrator,as the self hosted version, much like a blog, can be hosted anywhere.",
-"url": "https://help.passbolt.com/faq/discover/where-can-i-login"
 },
 "hosting-update-html": {
 "title": "Update passbolt server component (v2)",

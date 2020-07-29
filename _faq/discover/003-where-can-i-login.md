@@ -1,12 +1,10 @@
 ---
-title: Where can I login? 
+title: Where can I login?
 slug: where-can-i-login
 layout: faq
 category: discover
 permalink: /faq/discover/:slug
-date: 2020-07-28 00:00:00 Z
 ---
-
 Long story short, it depends on your situation, as passbolt can be hosted
 on-premises or in the cloud.
 

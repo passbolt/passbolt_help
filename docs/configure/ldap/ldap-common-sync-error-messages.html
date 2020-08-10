@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Configure email providers</title>
+    <title>Passbolt Help | Most common ldap sync error messages</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Configure email providers" />
+    <meta property="og:title" content="Most common ldap sync error messages" />
     <meta property="og:description" content="" />
 
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="canonical" href="https://help.passbolt.com/configure/email/setup">
+    <link rel="canonical" href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2020-03-06-configure-email-ssl.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/2020-08-10-common-ldap-sync-error-messages.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -102,6 +102,8 @@
         </li>
         
         
+        
+        
         <li >
             <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
         </li>
@@ -115,8 +117,6 @@
         <li >
             <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
         </li>
-        
-        
         
         
         <li >
@@ -182,7 +182,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/configure/email"><span>email</span></a>
+                        <a href="https://help.passbolt.com/configure/ldap"><span>ldap</span></a>
                     </div>
                 </li>
                 
@@ -190,7 +190,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/configure/email/setup.html"><span>setup</span></a>
+                        <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html"><span>ldap-common-sync-error-messages</span></a>
                     </div>
                 </li>
                 
@@ -201,7 +201,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Configure email providers</h1>
+<h1>Most common ldap sync error messages</h1>
 </div>
 </div>
 
@@ -210,69 +210,32 @@
 
     <h2 id="introduction">Introduction</h2>
 
-    <p>Passbolt relies heavily on emails:</p>
-    <ul>
-      <li>Account creation</li>
-      <li>Account recovery</li>
-      <li>Notifications on different user actions</li>
-    </ul>
+    <p>Depending on the structure of your directory or the state of the synchronization between passbolt and your directory, passbolt can report certain synchronization issues. 
+They come from a variety of reasons, here are the most common ones.</p>
 
-    <p>Having a working email setup is essential if you want to use passbolt at its best. There are many email providers
-and each one has its own setup process. The aim of this help page is to provide the basic concepts so each admin
-can setup their provider adjusting to their particular case.</p>
+    <h3 id="the-user-userdomaincom-could-not-be-added-to-group-mygroup-because-it-is-not-active-yet">The user user@domain.com could not be added to group MyGroup because it is not active yet</h3>
+    <p>This error happens when passbolt is trying to add a user to a group, but the user has not yet activated their account. Passbolt
+cannot add such users to groups automatically since their account is not operational yet. 
+When this situation happens, no intervention is required. The user will be added to the group automatically once they activate their account (when they click on the link provided in the email invitation and complete the initial setup).</p>
 
-    <h2 id="tls-email-providers">TLS email providers</h2>
+    <h3 id="the-user-userdomaincom-could-not-be-mapped-with-an-existing-user-in-passbolt-because-it-was-created-after">The user user@domain.com could not be mapped with an existing user in passbolt because it was created after.</h3>
+    <p>This error happens when a user was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt user has the priority and should not be synced, since it would also mean that the same user would get
+deleted whenever it is deleted from the directory.
+When this situation happens, if you absolutely want to sync these 2 users, the solution is to delete the user in passbolt and to run the synchronization again. The user will then be created again and synced.</p>
 
-    <p>If your email provider supports TLS encryption your setup should look like this in <code class="highlighter-rouge">config/passbolt.php</code>:</p>
+    <h3 id="the-group-mygroup-could-not-be-mapped-with-an-existing-group-in-passbolt-because-it-was-created-after">The group MyGroup could not be mapped with an existing group in passbolt because it was created after.</h3>
+    <p>This error happens when a group was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt group has the priority and should not be synced, since it would also mean that the same group would get
+deleted whenever it is deleted from the directory.
+When this situation happens, if you absolutely want to sync these 2 groups, the solution is to delete the group in passbolt and to run the synchronization again. The group will then be created again and synced.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s1">'EmailTransport'</span> <span class="o">=&gt;</span> <span class="o">[</span>
-        <span class="s1">'default'</span> <span class="o">=&gt;</span> <span class="o">[</span>
-            <span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'your.smtp.provider.host.com'</span>,
-            <span class="s1">'port'</span> <span class="o">=&gt;</span> 587,
-            <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'user'</span>,
-            <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span>,
-            <span class="s1">'tls'</span> <span class="o">=&gt;</span> <span class="nb">true</span>,
-        <span class="o">]</span>,
-    <span class="o">]</span>,
-</code></pre></div>    </div>
+    <h3 id="the-previously-deleted-user-userdomaincom-was-not-re-added-to-passbolt">The previously deleted user user@domain.com was not re-added to passbolt.</h3>
+    <p>This error happens when a passbolt user was deleted manually in passbolt but not in the directory. Passbolt then considers that the actions performed in passbolt
+have a higher priority and that the user was deleted for a good reason.
+There is currently no turn-around for this situation apart from re-enabling the user manually in the database (not recommended).</p>
 
-    <p>Or, if you are using environment variables:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EMAIL_TRANSPORT_DEFAULT_HOST</span><span class="o">=</span>your.smtp.provider.host.com
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PORT</span><span class="o">=</span>587
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_USERNAME</span><span class="o">=</span>user
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PASSWORD</span><span class="o">=</span>secret
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_TLS</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>    </div>
-
-    <p>Replace ‘your.smtp.provider.host.com’, ‘user’ and ‘secret’ with the actual values for your provider.
-Usually email providers that support TLS use port 587 however you should check with your provider specific
-requirements.</p>
-
-    <h2 id="ssl-email-providers">SSL email providers</h2>
-
-    <p>Some providers support SSL encryption and the setup is slightly different from the TLS case. Just change
-your <code class="highlighter-rouge">config/passbolt.php</code> file to look like this:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s1">'EmailTransport'</span> <span class="o">=&gt;</span> <span class="o">[</span>
-        <span class="s1">'default'</span> <span class="o">=&gt;</span> <span class="o">[</span>
-            <span class="s1">'host'</span> <span class="o">=&gt;</span> <span class="s1">'ssl://your.smtp.provider.host.com'</span>,
-            <span class="s1">'port'</span> <span class="o">=&gt;</span> 465,
-            <span class="s1">'username'</span> <span class="o">=&gt;</span> <span class="s1">'user'</span>,
-            <span class="s1">'password'</span> <span class="o">=&gt;</span> <span class="s1">'secret'</span>,
-            <span class="s1">'tls'</span> <span class="o">=&gt;</span> null,
-        <span class="o">]</span>,
-    <span class="o">]</span>,
-</code></pre></div>    </div>
-
-    <p>In the case of using env variables:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EMAIL_TRANSPORT_DEFAULT_HOST</span><span class="o">=</span>ssl://your.smtp.provider.host.com
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PORT</span><span class="o">=</span>465
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_USERNAME</span><span class="o">=</span>user
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PASSWORD</span><span class="o">=</span>secret
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_TLS</span><span class="o">=</span>null
-</code></pre></div>    </div>
+    <h3 id="the-user-userdomaincom-could-not-be-added-to-the-group-mygroup-because-of-an-internal-error">The user user@domain.com could not be added to the group MyGroup because of an internal error</h3>
+    <p>This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the
+system to create a group membership for the given user.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>

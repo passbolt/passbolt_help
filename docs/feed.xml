@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-07-30T16:22:58+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-08-10T12:10:32+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
@@ -653,7 +653,51 @@ March
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="email" /><summary type="html"></summary></entry><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T01:00:00+01:00</published><updated>2020-02-07T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="email" /><summary type="html"></summary></entry><entry><title type="html">Most common ldap sync error messages</title><link href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html" rel="alternate" type="text/html" title="Most common ldap sync error messages" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+    &lt;p&gt;Depending on the structure of your directory or the state of the synchronization between passbolt and your directory, passbolt can report certain synchronization issues. 
+They come from a variety of reasons, here are the most common ones.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-added-to-group-mygroup-because-it-is-not-active-yet&quot;&gt;The user user@domain.com could not be added to group MyGroup because it is not active yet&lt;/h3&gt;
+    &lt;p&gt;This error happens when passbolt is trying to add a user to a group, but the user has not yet activated their account. Passbolt
+cannot add such users to groups automatically since their account is not operational yet. 
+When this situation happens, no intervention is required. The user will be added to the group automatically once they activate their account (when they click on the link provided in the email invitation and complete the initial setup).&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-mapped-with-an-existing-user-in-passbolt-because-it-was-created-after&quot;&gt;The user user@domain.com could not be mapped with an existing user in passbolt because it was created after.&lt;/h3&gt;
+    &lt;p&gt;This error happens when a user was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt user has the priority and should not be synced, since it would also mean that the same user would get
+deleted whenever it is deleted from the directory.
+When this situation happens, if you absolutely want to sync these 2 users, the solution is to delete the user in passbolt and to run the synchronization again. The user will then be created again and synced.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-group-mygroup-could-not-be-mapped-with-an-existing-group-in-passbolt-because-it-was-created-after&quot;&gt;The group MyGroup could not be mapped with an existing group in passbolt because it was created after.&lt;/h3&gt;
+    &lt;p&gt;This error happens when a group was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt group has the priority and should not be synced, since it would also mean that the same group would get
+deleted whenever it is deleted from the directory.
+When this situation happens, if you absolutely want to sync these 2 groups, the solution is to delete the group in passbolt and to run the synchronization again. The group will then be created again and synced.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-previously-deleted-user-userdomaincom-was-not-re-added-to-passbolt&quot;&gt;The previously deleted user user@domain.com was not re-added to passbolt.&lt;/h3&gt;
+    &lt;p&gt;This error happens when a passbolt user was deleted manually in passbolt but not in the directory. Passbolt then considers that the actions performed in passbolt
+have a higher priority and that the user was deleted for a good reason.
+There is currently no turn-around for this situation apart from re-enabling the user manually in the database (not recommended).&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-added-to-the-group-mygroup-because-of-an-internal-error&quot;&gt;The user user@domain.com could not be added to the group MyGroup because of an internal error&lt;/h3&gt;
+    &lt;p&gt;This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the
+system to create a group membership for the given user.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+6th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T01:00:00+01:00</published><updated>2020-02-07T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -2566,121 +2610,4 @@ May
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="environment" /><summary type="html">Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values. Variable name Description Default value APP_BASE it allows people to specify the base subdir the application is running in null APP_ENCODING Set text encoding ‘UTF-8’ APP_DEFAULT_LOCALE Set default locale ‘en_US’ APP_FULL_BASE_URL Passbolt base url ‘false’ CACHE_DEFAULT_URL CakePHP default cache DSN string null CACHE_CAKECORE_URL CakePHP core cache DSN string null CACHE_CAKEMODEL_URL CakePHP model cache DSN string null DATASOURCES_DEFAULT_DATABASE Database name ’’ DATASOURCES_DEFAULT_HOST Database hostname ‘localhost’ DATASOURCES_DEFAULT_PORT Database port 3306 DATASOURCES_DEFAULT_PASSWORD Database password ’’ DATASOURCES_DEFAULT_SSL_KEY Database SSL Key ’’ DATASOURCES_DEFAULT_SSL_CERT Database SSL Cert ’’ DATASOURCES_DEFAULT_SSL_CA Database SSL CA ’’ DATASOURCES_DEFAULT_USERNAME Database username ’’ DATASOURCES_TEST_DATABASE Database name ‘my_app’ DATASOURCES_TEST_HOST Database hostname ‘localhost’ DATASOURCES_TEST_PORT Database port 3306 DATASOURCES_TEST_PASSWORD Database password ‘secret’ DATASOURCES_TEST_SSL_KEY Database SSL Key ’’ DATASOURCES_TEST_SSL_CERT Database SSL Cert ’’ DATASOURCES_TEST_SSL_CA Database SSL CA ’’ DATASOURCES_TEST_USERNAME Database username ‘my_app’ DEBUG Debug mode ‘false’ EMAIL_TRANSPORT_DEFAULT_CLASS_NAME Email classname ‘Smtp’ EMAIL_DEFAULT_FROM From email address ‘you@localhost’ EMAIL_DEFAULT_TRANSPORT Sets transport method ‘default’ EMAIL_TRANSPORT_DEFAULT_HOST Server hostname ‘localhost’ EMAIL_TRANSPORT_DEFAULT_PORT Server port 25 EMAIL_TRANSPORT_DEFAULT_TIMEOUT Timeout 30 EMAIL_TRANSPORT_DEFAULT_USERNAME Username for email server auth null EMAIL_TRANSPORT_DEFAULT_PASSWORD Password for email server auth null EMAIL_TRANSPORT_DEFAULT_CLIENT Client null EMAIL_TRANSPORT_DEFAULT_TLS Set tls null EMAIL_TRANSPORT_DEFAULT_URL Set url null GNUPGHOME path to gnupghome directory ‘/home/www-data/.gnupg’ LOG_DEBUG_URL CakePHP debug log DSN string null LOG_ERROR_URL CakePHP debug log DSN string null PASSBOLT_AUTH_TOKEN_EXPIRY Passbolt authorization token expiration ‘3 days’ PASSBOLT_EMAIL_VALIDATE_MX Validate server MX true PASSBOLT_EMAIL_SHOW_COMMENT Include resources comments on email notification true PASSBOLT_EMAIL_SHOW_DESCRIPTION Include resources description on email notification true PASSBOLT_EMAIL_SHOW_SECRET Include resource encrypted secret on email notification true PASSBOLT_EMAIL_SHOW_URI Include resource URI on email notification true PASSBOLT_EMAIL_SHOW_USERNAME Inlcude the username field of the resource on email notification true PASSBOLT_EMAIL_SEND_COMMENT_ADD Notify when a comment is added to resource true PASSBOLT_EMAIL_SEND_PASSWORD_CREATE Notify when a password is created true PASSBOLT_EMAIL_SEND_PASSWORD_SHARE Notify when a password is shared true PASSBOLT_EMAIL_SEND_PASSWORD_UPDATE Notify when a password is updated true PASSBOLT_EMAIL_SEND_PASSWORD_DELETE Notify when a password is deleted true PASSBOLT_EMAIL_SEND_USER_CREATE Send invite to user when created true PASSBOLT_EMAIL_SEND_USER_RECOVER Send recovery email true PASSBOLT_EMAIL_SEND_GROUP_DELETE Notify group members when a group is deleted true PASSBOLT_EMAIL_SEND_GROUP_USER_ADD Notify user when added to a group true PASSBOLT_EMAIL_SEND_GROUP_USER_DELETE Notify user when deleted from group true PASSBOLT_EMAIL_SEND_GROUP_USER_UPDATE Notify user when his/her roles change in a group true PASSBOLT_EMAIL_SEND_GROUP_MANAGER_UPDATE Notify group manager when users change in a group true PASSBOLT_EMAIL_SEND_GROUP_MANAGER_DELETE Notify group manager when user deleted in a group true PASSBOLT_GPG_SERVER_KEY_FINGERPRINT GnuPG fingerprint null PASSBOLT_GPG_SERVER_KEY_PUBLIC Path to GnuPG public server key /var/www/passbolt/config/gpg/serverkey.asc PASSBOLT_GPG_SERVER_KEY_PRIVATE Path to GnuPG private server key /var/www/passbolt/config/gpg/serverkey_private.asc PASSBOLT_JS_BUILD passbolt.js type of build ‘development’ or ‘production’ ‘production’ PASSBOLT_KEY_EMAIL Key owner email address passbolt@yourdomain.com PASSBOLT_KEY_EXPIRATION Key expiration date 0, never expires PASSBOLT_KEY_LENGTH Gpg desired key length 2048 PASSBOLT_KEY_NAME Key owner name Passbolt default user PASSBOLT_LEGAL_PRIVACYPOLICYURL Set legal policy URL ’’ PASSBOLT_META_DESCRIPTION Set html meta description for the site ‘Open source password manager for teams’ PASSBOLT_META_ROBOTS Search engines indexing parameters ‘noindex, nofollow’ PASSBOLT_META_TITLE Set html meta title for ‘Passbolt’ PASSBOLT_PLUGINS_EXPORT_ENABLED Enable export plugin true PASSBOLT_PLUGINS_IMPORT_ENABLED Enable import plugin true PASSBOLT_REGISTRATION_PUBLIC Defines if users can register false PASSBOLT_SECURITY_SET_HEADERS Send CSP Headers true PASSBOLT_SECURITY_CSP CSP Headers (true, false or custom CSP string) true PASSBOLT_SECURITY_COOOKIE_SECURE Set MFA cookie secure flag true PASSBOLT_SSL_FORCE Redirects http to https true PASSBOLT_SUBKEY_LENGTH Gpg desired subkey length 2048 SECURITY_SALT CakePHP security salt SALT SESSION_DEFAULTS Session engine configuration ‘php’ Last updated This article was last updated on May 15th, 2019.</summary></entry><entry><title type="html">Install Passbolt CE Digital Ocean</title><link href="https://help.passbolt.com/hosting/install/ce/digital-ocean" rel="alternate" type="text/html" title="Install Passbolt CE Digital Ocean" /><published>2019-03-01T01:00:00+01:00</published><updated>2019-03-01T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/digital-ocean</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/digital-ocean">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;Since march 2019 it is possible to install passbolt easily directly from Digital Ocean.
-Digital Ocean is an hosting provider based in the USA. In order to run passbolt
-you will need the following:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A Digital Ocean account&lt;/li&gt;
-      &lt;li&gt;A domain name for example passbolt.yourdomain.com&lt;/li&gt;
-      &lt;li&gt;Some level of access to point your DNS records to the new passbolt server&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h1 id=&quot;create-the-droplet-in-digital-ocean&quot;&gt;Create the droplet in Digital Ocean&lt;/h1&gt;
-
-    &lt;p&gt;The first step is to login in &lt;a href=&quot;https://cloud.digitalocean.com&quot;&gt;Digital Ocean&lt;/a&gt; (or create and setup an account).
-You can then head to Marketplace and search for passbolt.&lt;/p&gt;
-
-    &lt;p&gt;It is recommended at the point that you have domain name (or subdomain). It is not mandatory but
-highly encouraged. Since passbolt web extension is tied to a domain name it will be easier to get
-it right upfront rather than using the IP address and changing the proper domain name later.&lt;/p&gt;
-
-    &lt;p&gt;Go to the marketplace and search for passbolt, select the card and click on create
-droplet.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/001_create_droplet.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Create droplet&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Choose a plan and the associated server matching at least the following requirements:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;1 GB&lt;/li&gt;
-      &lt;li&gt;1 CPU&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/002_choose_plan.png&quot; alt=&quot;Create droplet&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Create droplet&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Select your preferred datacenter region, and select additional options.
-You can upload your SSH keys to login into the machine once it’s created.
-Choose a hostname and click create.&lt;/p&gt;
-
-    &lt;p&gt;Grab a cup of coffee and get ready.&lt;/p&gt;
-
-    &lt;p&gt;Once created you can see the droplet was assigned an IP address.
-You can copy it and check if it is reachable and up and running.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/005_highlight_copy_ip.png&quot; alt=&quot;Copy the IP address&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Copy the IP address&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;setup-your-dns-to-point-to-the-droplet&quot;&gt;Setup your DNS to point to the droplet&lt;/h2&gt;
-
-    &lt;p&gt;Next you need to point your domain DNS to this machine IP address. Please check
-&lt;a href=&quot;https://www.digitalocean.com/docs/networking/dns/&quot;&gt;Digital Ocean DNS documentation&lt;/a&gt;
-or your domain name provider help for this.&lt;/p&gt;
-
-    &lt;p&gt;Wait until the DNS propagation is done. To check if it is done, ping your domain and it should
-resolve to this droplet IP. You can also check the propagation using
-&lt;a href=&quot;https://www.whatsmydns.net/&quot;&gt;online tools&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;login-in-the-machine-and-get-the-mysql-credentials&quot;&gt;Login in the machine and get the mysql credentials&lt;/h2&gt;
-    &lt;p&gt;Ssh into this droplet as root:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh root@this_droplet_ip
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;or ssh root@your_domain.com. Use this same ssh connection to gather the randomly generated mysql
-credentials in &lt;code class=&quot;highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt; you will need them for the web installation wizard.&lt;/p&gt;
-
-    &lt;h2 id=&quot;launch-the-install-script-and-follow-the-instructions&quot;&gt;Launch the install script and follow the instructions.&lt;/h2&gt;
-    &lt;p&gt;A script will be launched, choose the automatic configuration option and let the script guide you.
-Once you’re done, point your browser to the DNS assigned to the droplet: https://your_domain.com
-and you will then see the web installation wizard.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/007_domain.png&quot; alt=&quot;Provide the DNS name for the SSL script&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Provide the DNS name for the SSL script&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2019/03/digital-ocean/008_select_auto.png&quot; alt=&quot;Choose auto for letsencrypt setup&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Choose auto for letsencrypt setup&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;The installation wizard will ask you for a Mariadb/Mysql host. The droplet has mariadb-server
-installed by default so you could use &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1&lt;/code&gt; as the mysql hostname and use the randomized
-user, password and database created during the droplet boot. You will find these credentials on
-&lt;code class=&quot;highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-March
-1st,
-2019.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="environment" /><summary type="html">Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values. Variable name Description Default value APP_BASE it allows people to specify the base subdir the application is running in null APP_ENCODING Set text encoding ‘UTF-8’ APP_DEFAULT_LOCALE Set default locale ‘en_US’ APP_FULL_BASE_URL Passbolt base url ‘false’ CACHE_DEFAULT_URL CakePHP default cache DSN string null CACHE_CAKECORE_URL CakePHP core cache DSN string null CACHE_CAKEMODEL_URL CakePHP model cache DSN string null DATASOURCES_DEFAULT_DATABASE Database name ’’ DATASOURCES_DEFAULT_HOST Database hostname ‘localhost’ DATASOURCES_DEFAULT_PORT Database port 3306 DATASOURCES_DEFAULT_PASSWORD Database password ’’ DATASOURCES_DEFAULT_SSL_KEY Database SSL Key ’’ DATASOURCES_DEFAULT_SSL_CERT Database SSL Cert ’’ DATASOURCES_DEFAULT_SSL_CA Database SSL CA ’’ DATASOURCES_DEFAULT_USERNAME Database username ’’ DATASOURCES_TEST_DATABASE Database name ‘my_app’ DATASOURCES_TEST_HOST Database hostname ‘localhost’ DATASOURCES_TEST_PORT Database port 3306 DATASOURCES_TEST_PASSWORD Database password ‘secret’ DATASOURCES_TEST_SSL_KEY Database SSL Key ’’ DATASOURCES_TEST_SSL_CERT Database SSL Cert ’’ DATASOURCES_TEST_SSL_CA Database SSL CA ’’ DATASOURCES_TEST_USERNAME Database username ‘my_app’ DEBUG Debug mode ‘false’ EMAIL_TRANSPORT_DEFAULT_CLASS_NAME Email classname ‘Smtp’ EMAIL_DEFAULT_FROM From email address ‘you@localhost’ EMAIL_DEFAULT_TRANSPORT Sets transport method ‘default’ EMAIL_TRANSPORT_DEFAULT_HOST Server hostname ‘localhost’ EMAIL_TRANSPORT_DEFAULT_PORT Server port 25 EMAIL_TRANSPORT_DEFAULT_TIMEOUT Timeout 30 EMAIL_TRANSPORT_DEFAULT_USERNAME Username for email server auth null EMAIL_TRANSPORT_DEFAULT_PASSWORD Password for email server auth null EMAIL_TRANSPORT_DEFAULT_CLIENT Client null EMAIL_TRANSPORT_DEFAULT_TLS Set tls null EMAIL_TRANSPORT_DEFAULT_URL Set url null GNUPGHOME path to gnupghome directory ‘/home/www-data/.gnupg’ LOG_DEBUG_URL CakePHP debug log DSN string null LOG_ERROR_URL CakePHP debug log DSN string null PASSBOLT_AUTH_TOKEN_EXPIRY Passbolt authorization token expiration ‘3 days’ PASSBOLT_EMAIL_VALIDATE_MX Validate server MX true PASSBOLT_EMAIL_SHOW_COMMENT Include resources comments on email notification true PASSBOLT_EMAIL_SHOW_DESCRIPTION Include resources description on email notification true PASSBOLT_EMAIL_SHOW_SECRET Include resource encrypted secret on email notification true PASSBOLT_EMAIL_SHOW_URI Include resource URI on email notification true PASSBOLT_EMAIL_SHOW_USERNAME Inlcude the username field of the resource on email notification true PASSBOLT_EMAIL_SEND_COMMENT_ADD Notify when a comment is added to resource true PASSBOLT_EMAIL_SEND_PASSWORD_CREATE Notify when a password is created true PASSBOLT_EMAIL_SEND_PASSWORD_SHARE Notify when a password is shared true PASSBOLT_EMAIL_SEND_PASSWORD_UPDATE Notify when a password is updated true PASSBOLT_EMAIL_SEND_PASSWORD_DELETE Notify when a password is deleted true PASSBOLT_EMAIL_SEND_USER_CREATE Send invite to user when created true PASSBOLT_EMAIL_SEND_USER_RECOVER Send recovery email true PASSBOLT_EMAIL_SEND_GROUP_DELETE Notify group members when a group is deleted true PASSBOLT_EMAIL_SEND_GROUP_USER_ADD Notify user when added to a group true PASSBOLT_EMAIL_SEND_GROUP_USER_DELETE Notify user when deleted from group true PASSBOLT_EMAIL_SEND_GROUP_USER_UPDATE Notify user when his/her roles change in a group true PASSBOLT_EMAIL_SEND_GROUP_MANAGER_UPDATE Notify group manager when users change in a group true PASSBOLT_EMAIL_SEND_GROUP_MANAGER_DELETE Notify group manager when user deleted in a group true PASSBOLT_GPG_SERVER_KEY_FINGERPRINT GnuPG fingerprint null PASSBOLT_GPG_SERVER_KEY_PUBLIC Path to GnuPG public server key /var/www/passbolt/config/gpg/serverkey.asc PASSBOLT_GPG_SERVER_KEY_PRIVATE Path to GnuPG private server key /var/www/passbolt/config/gpg/serverkey_private.asc PASSBOLT_JS_BUILD passbolt.js type of build ‘development’ or ‘production’ ‘production’ PASSBOLT_KEY_EMAIL Key owner email address passbolt@yourdomain.com PASSBOLT_KEY_EXPIRATION Key expiration date 0, never expires PASSBOLT_KEY_LENGTH Gpg desired key length 2048 PASSBOLT_KEY_NAME Key owner name Passbolt default user PASSBOLT_LEGAL_PRIVACYPOLICYURL Set legal policy URL ’’ PASSBOLT_META_DESCRIPTION Set html meta description for the site ‘Open source password manager for teams’ PASSBOLT_META_ROBOTS Search engines indexing parameters ‘noindex, nofollow’ PASSBOLT_META_TITLE Set html meta title for ‘Passbolt’ PASSBOLT_PLUGINS_EXPORT_ENABLED Enable export plugin true PASSBOLT_PLUGINS_IMPORT_ENABLED Enable import plugin true PASSBOLT_REGISTRATION_PUBLIC Defines if users can register false PASSBOLT_SECURITY_SET_HEADERS Send CSP Headers true PASSBOLT_SECURITY_CSP CSP Headers (true, false or custom CSP string) true PASSBOLT_SECURITY_COOOKIE_SECURE Set MFA cookie secure flag true PASSBOLT_SSL_FORCE Redirects http to https true PASSBOLT_SUBKEY_LENGTH Gpg desired subkey length 2048 SECURITY_SALT CakePHP security salt SALT SESSION_DEFAULTS Session engine configuration ‘php’ Last updated This article was last updated on May 15th, 2019.</summary></entry></feed>

@@ -115,6 +115,12 @@
       teaser: How to configure the LDAP plugin with ssl (ldaps)
       version: pro
       slug: ldap-with-ssl
+    - title: Troubleshoot LDAP sync errors
+      url: /configure/ldap/ldap-common-sync-error-messages
+      icon: fa-address-book-o
+      teaser: Common ldap synchronization errors and their meaning
+      version: pro
+      slug: ldap-with-ssl
     - title: Environment variable reference
       url: /configure/environment/reference
       icon: fa-bookmark

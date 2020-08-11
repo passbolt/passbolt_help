@@ -42,6 +42,13 @@ There is currently no turn-around for this situation apart from re-enabling the 
 This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the
 system to create a group membership for the given user.
 
+### A request to add user user@domain.com in group MyGroup was sent to the group manager.
+This scenario happens when passbolt attempts to add a user to a group that has passwords directly shared with it. 
+In this case, adding our user to the group would mean having to encrypt all the passwords shared with the group for this new group member. 
+Due to the end-to-end nature of the solution, the system cannot do it without a human intervention. This is why passbolt sends a request to the group manager so that he can add the user to the group manually, and encrypt the shared secrets at the same time.
+
+Note: this scenario will not happen in the case of groups without direct access to shared passwords. In this case, the user will be added automatically to the group during the sync.
+
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

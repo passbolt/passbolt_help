@@ -75,11 +75,11 @@ Make sure the passbolt directory is owned by the passbolt user and accessible to
 You can set the permissions as follow:
 
 ```bash
-$ sudo chown -R passbolt:www-data ./
-$ sudo chmod o-rwx . -R
+$ sudo chown -R passbolt:www-data .
+$ sudo chmod -R o-rwx .
 $ sudo find . -type d -print0 | xargs -0 sudo chmod g-w
 $ sudo find . -type f -print0 | xargs -0 sudo chmod g-wx
-$ sudo find ./bin/cake -type f -print0 | xargs -0 sudo chmod g+x
+$ sudo chmod g+x ./bin/cake
 $ sudo find ./tmp -type d -print0 | xargs -0 sudo chmod 770
 $ sudo find ./tmp -type f -print0 | xargs -0 sudo chmod 660
 $ sudo find ./logs -type d -print0 | xargs -0 sudo chmod 770

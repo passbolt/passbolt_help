@@ -249,11 +249,11 @@ passbolt : passbolt www-data <span class="nb">sudo</span>
     <p>Make sure the passbolt directory is owned by the passbolt user and accessible to the www-data group.
 You can set the permissions as follow:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo chown</span> <span class="nt">-R</span> passbolt:www-data ./
-<span class="nv">$ </span><span class="nb">sudo chmod </span>o-rwx <span class="nb">.</span> <span class="nt">-R</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo chown</span> <span class="nt">-R</span> passbolt:www-data <span class="nb">.</span>
+<span class="nv">$ </span><span class="nb">sudo chmod</span> <span class="nt">-R</span> o-rwx <span class="nb">.</span>
 <span class="nv">$ </span><span class="nb">sudo </span>find <span class="nb">.</span> <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>g-w
 <span class="nv">$ </span><span class="nb">sudo </span>find <span class="nb">.</span> <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>g-wx
-<span class="nv">$ </span><span class="nb">sudo </span>find ./bin/cake <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>g+x
+<span class="nv">$ </span><span class="nb">sudo chmod </span>g+x ./bin/cake
 <span class="nv">$ </span><span class="nb">sudo </span>find ./tmp <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>770
 <span class="nv">$ </span><span class="nb">sudo </span>find ./tmp <span class="nt">-type</span> f <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>660
 <span class="nv">$ </span><span class="nb">sudo </span>find ./logs <span class="nt">-type</span> d <span class="nt">-print0</span> | xargs <span class="nt">-0</span> <span class="nb">sudo chmod </span>770

@@ -28,31 +28,67 @@ The endpoint takes the following parameters
     <tbody>
         <tr>
             <td>api-version</td>
-            <td>The API version to target</td>
+            <td>The API version to target.</td>
             <td>No</td>
             <td>string</td>
         </tr>
         <tr>
-            <td>contain[]</td>
-            <td>Controls the fields that must be returned</td>
-            <td></td>
+            <td>filter[]</td>
+            <td>Controls the fields that could be returned</td>
+            <td>No</td>
             <td>Array</td>
         </tr>
         <tr>
-            <td>contain[creator]</td>
-            <td>Whether or not to include the resource creator</td>
+            <td>filter[is-favorite]</td>
+            <td>Return the results that are marked as favorite.</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
-            <td>contain[favorite]</td>
-            <td>Whether or not to include the favorite detail for this resource</td>
+            <td>filter[is-shared-with-group]</td>
+            <td>Return the results that are shared with the given Group UUID.</td>
+            <td>No</td>
+            <td>UUID</td>
+        </tr>
+        <tr>
+            <td>filter[is-owned-by-me]</td>
+            <td>Return the results that are owned by me.</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>filter[is-shared-with-me]</td>
+            <td>Return the results that are shared with me.</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>filter[has-id][]</td>
+            <td>Return the results for the given resource UUID(s).</td>
+            <td>No</td>
+            <td>UUID</td>
+        </tr>
+        <tr>
+            <td>contain[]</td>
+            <td>Controls the fields that must be returned.</td>
+            <td>No</td>
+            <td>Array</td>
+        </tr>
+        <tr>
+            <td>contain[creator]</td>
+            <td>Whether or not to include the resource creator.</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
             <td>contain[modifier]</td>
             <td>Whether or not to include the modifier detail for this resource</td>
+            <td>No</td>
+            <td>Boolean</td>
+        </tr>
+        <tr>
+            <td>contain[favorite]</td>
+            <td>Whether or not to include the favorite detail for this resource</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
@@ -72,43 +108,7 @@ The endpoint takes the following parameters
             <td>order[]</td>
             <td>How should the results be sorted. For example Resource.modified DESC</td>
             <td>No</td>
-            <td>String</td>
-        </tr>
-        <tr>
-            <td>filter[]</td>
-            <td>Controls the fields that could be returned</td>
-            <td></td>
-            <td>Array</td>
-        </tr>
-        <tr>
-            <td>filter[is-favorite]</td>
-            <td>Return the results that are marked as favorite</td>
-            <td>No</td>
-            <td>Boolean</td>
-        </tr>
-        <tr>
-            <td>filter[is-shared-with-group]</td>
-            <td>Return the results that are shared with {GROUP_ID}</td>
-            <td>No</td>
-            <td>String</td>
-        </tr>
-        <tr>
-            <td>filter[is-owned-by-me]</td>
-            <td>Return the results that are ownde by me</td>
-            <td>No</td>
-            <td>Boolean</td>
-        </tr>
-        <tr>
-            <td>filter[is-shared-with-me]</td>
-            <td>Return the results that are shared with me</td>
-            <td>No</td>
-            <td>Boolean</td>
-        </tr>
-        <tr>
-            <td>filter[has-id]</td>
-            <td>Return the results with {RESOURCE_ID}</td>
-            <td>No</td>
-            <td>String</td>
+            <td>ASC|DESC </td>
         </tr>
     </tbody>
 </table>
@@ -163,7 +163,6 @@ GET /resources.json?api-version=v2
         &contain[permission]=1
         &contain[tag]=1
         &order[]=Resource.modified DESC
-        &filter[is-shared-with-group]=5269a7d2-f72e-4ae4-ae24-94dacee15298
 ```
 
 ### Success response

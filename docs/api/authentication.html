@@ -330,8 +330,8 @@ authentication, e.g. it does not protect against an attacker performing a man in
   <li>Make a POST request to /auth/verify.json and send the token in request body under gpg_auth[‘server_verify_token’]
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span>
   <span class="s1">'gpg_auth'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-      <span class="s1">'keyid'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">fingerprint_of_the_user</span><span class="o">&gt;</span><span class="p">,</span>
-      <span class="s1">'server_verify_token'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">Encrypted_token</span><span class="o">&gt;</span>
+      <span class="s1">'keyid'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="n">fingerprint_of_the_user</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s1">'server_verify_token'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="n">Encrypted_token</span><span class="o">&gt;</span>
   <span class="p">]</span>
 <span class="p">]</span>
 </code></pre></div>    </div>
@@ -372,7 +372,7 @@ sub   rsa4096 2015-10-26 <span class="o">[</span>E] <span class="o">[</span>expi
 </code></pre></div></div>
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span>
     <span class="s1">'gpg_auth'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">'keyid'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">fingerprint_of_the_user</span><span class="o">&gt;</span>
+        <span class="s1">'keyid'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="n">fingerprint_of_the_user</span><span class="o">&gt;</span>
     <span class="p">]</span>
 <span class="p">]</span>
 </code></pre></div></div>
@@ -428,8 +428,8 @@ After decrypting, the client will send the decrypted (plaintext) data back to th
 </code></pre></div></div>
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'data'</span> <span class="o">=&gt;</span> <span class="p">[</span>
     <span class="s1">'gpg_auth'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">'keyid'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">same_fingerprint_as_step1</span><span class="o">&gt;</span><span class="p">,</span>
-        <span class="s1">'user_token_result'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="nx">decrypted_token_in_plaintext</span><span class="o">&gt;</span> 
+        <span class="s1">'keyid'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="n">same_fingerprint_as_step1</span><span class="o">&gt;</span><span class="p">,</span>
+        <span class="s1">'user_token_result'</span> <span class="o">=&gt;</span> <span class="o">&lt;</span><span class="n">decrypted_token_in_plaintext</span><span class="o">&gt;</span> 
     <span class="p">]</span>
 <span class="p">]</span>
 </code></pre></div></div>

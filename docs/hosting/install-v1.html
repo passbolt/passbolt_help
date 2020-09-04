@@ -304,11 +304,11 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>app/Config/core.php.default app/Config/core.php
 </code></pre></div>    </div>
     <p>However, you need to modify the cypherseed and salt. Passbolt do not actually use these, but it is part of the standard Cakephp installation to change these values.</p>
-    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Configure</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">'Security.salt'</span><span class="p">,</span> <span class="s1">'put your own salt here'</span><span class="p">);</span>
-<span class="nx">Configure</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">'Security.cipherSeed'</span><span class="p">,</span> <span class="s1">'put your own cipher seed here'</span><span class="p">);</span>
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.salt'</span><span class="p">,</span> <span class="s1">'put your own salt here'</span><span class="p">);</span>
+<span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.cipherSeed'</span><span class="p">,</span> <span class="s1">'put your own cipher seed here'</span><span class="p">);</span>
 </code></pre></div>    </div>
     <p>Also for images that are sent in emails to work, we need to tell cakephp what is the base url. To fix this, uncomment and edit this line in <code class="highlighter-rouge">app/Config/core.php</code>:</p>
-    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Configure</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">'App.fullBaseUrl'</span><span class="p">,</span> <span class="s1">'http://{your domain without slash}'</span><span class="p">);</span>
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'App.fullBaseUrl'</span><span class="p">,</span> <span class="s1">'http://{your domain without slash}'</span><span class="p">);</span>
 </code></pre></div>    </div>
     <p>The rest of the default version of core.php is good enough to be used as it is.</p>
 
@@ -346,8 +346,8 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
         <span class="p">],</span>
         <span class="s1">'serverKey'</span> <span class="o">=&gt;</span> <span class="p">[</span>
             <span class="s1">'fingerprint'</span> <span class="o">=&gt;</span> <span class="s1">'2FC8945833C51946E937F9FED47B0811573EE67D'</span><span class="p">,</span>
-            <span class="s1">'public'</span> <span class="o">=&gt;</span> <span class="nx">APP</span> <span class="o">.</span> <span class="s1">'Config'</span> <span class="o">.</span> <span class="nx">DS</span> <span class="o">.</span> <span class="s1">'gpg'</span> <span class="o">.</span> <span class="nx">DS</span> <span class="o">.</span> <span class="s1">'public.key'</span><span class="p">,</span>
-            <span class="s1">'private'</span> <span class="o">=&gt;</span> <span class="nx">APP</span> <span class="o">.</span> <span class="s1">'Config'</span> <span class="o">.</span> <span class="nx">DS</span> <span class="o">.</span> <span class="s1">'gpg'</span> <span class="o">.</span> <span class="nx">DS</span> <span class="o">.</span> <span class="s1">'private.key'</span><span class="p">,</span>
+            <span class="s1">'public'</span> <span class="o">=&gt;</span> <span class="no">APP</span> <span class="mf">.</span> <span class="s1">'Config'</span> <span class="mf">.</span> <span class="no">DS</span> <span class="mf">.</span> <span class="s1">'gpg'</span> <span class="mf">.</span> <span class="no">DS</span> <span class="mf">.</span> <span class="s1">'public.key'</span><span class="p">,</span>
+            <span class="s1">'private'</span> <span class="o">=&gt;</span> <span class="no">APP</span> <span class="mf">.</span> <span class="s1">'Config'</span> <span class="mf">.</span> <span class="no">DS</span> <span class="mf">.</span> <span class="s1">'gpg'</span> <span class="mf">.</span> <span class="no">DS</span> <span class="mf">.</span> <span class="s1">'private.key'</span><span class="p">,</span>
 
         <span class="p">]</span>
     <span class="p">]</span>

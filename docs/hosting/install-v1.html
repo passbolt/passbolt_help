@@ -222,7 +222,7 @@
 
     <p>By default passbolt is configured to force SSL connections, which means that whoever tries to access your passbolt instance without an https connection will automatically be redirected to https. For this reason, if https is not enabled on your host at the time of the installation, passbolt will not be able to work.</p>
 
-    <p>However, if you know what you are doing, and wish to disable https, you can change this setting by editing <code class="highlighter-rouge">/app/Config/app.php</code> and set the parameter <code class="highlighter-rouge">App.force_ssl</code> to false. Keep in mind that this setting will make your installation unsecure and should be used for development or testing only.</p>
+    <p>However, if you know what you are doing, and wish to disable https, you can change this setting by editing <code class="language-plaintext highlighter-rouge">/app/Config/app.php</code> and set the parameter <code class="language-plaintext highlighter-rouge">App.force_ssl</code> to false. Keep in mind that this setting will make your installation unsecure and should be used for development or testing only.</p>
 
     <h3 id="php-requirements">PHP requirements</h3>
 
@@ -288,7 +288,7 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
 </code></pre></div>    </div>
     <h2 id="set-the-file-permissions">Set the file permissions</h2>
 
-    <p>Make sure the <code class="highlighter-rouge">app/tmp</code> and <code class="highlighter-rouge">app/webroot/img/public</code> are writable by the webserver user (www-data or similar).</p>
+    <p>Make sure the <code class="language-plaintext highlighter-rouge">app/tmp</code> and <code class="language-plaintext highlighter-rouge">app/webroot/img/public</code> are writable by the webserver user (www-data or similar).</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +w <span class="nt">-R</span> app/tmp
 <span class="nb">chmod</span> +w app/webroot/img/public
 </code></pre></div>    </div>
@@ -298,7 +298,7 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
 
     <h3 id="corephp-core-settings">core.php (core settings)</h3>
 
-    <p>The CakePHP core configuration file (located in <code class="highlighter-rouge">app/Config/core.php</code>) is the base configuration file. It contains the settings that determine the application behavior (debug mode, cache, sessions, etc..).</p>
+    <p>The CakePHP core configuration file (located in <code class="language-plaintext highlighter-rouge">app/Config/core.php</code>) is the base configuration file. It contains the settings that determine the application behavior (debug mode, cache, sessions, etc..).</p>
 
     <p>Copy the default core configuration file:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>app/Config/core.php.default app/Config/core.php
@@ -307,14 +307,14 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.salt'</span><span class="p">,</span> <span class="s1">'put your own salt here'</span><span class="p">);</span>
 <span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.cipherSeed'</span><span class="p">,</span> <span class="s1">'put your own cipher seed here'</span><span class="p">);</span>
 </code></pre></div>    </div>
-    <p>Also for images that are sent in emails to work, we need to tell cakephp what is the base url. To fix this, uncomment and edit this line in <code class="highlighter-rouge">app/Config/core.php</code>:</p>
+    <p>Also for images that are sent in emails to work, we need to tell cakephp what is the base url. To fix this, uncomment and edit this line in <code class="language-plaintext highlighter-rouge">app/Config/core.php</code>:</p>
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'App.fullBaseUrl'</span><span class="p">,</span> <span class="s1">'http://{your domain without slash}'</span><span class="p">);</span>
 </code></pre></div>    </div>
     <p>The rest of the default version of core.php is good enough to be used as it is.</p>
 
     <h3 id="databasephp-database-connection-settings">database.php (database connection settings)</h3>
 
-    <p>The database configuration file (located in <code class="highlighter-rouge">app/Config/database.php</code>) file contains the database connection settings.</p>
+    <p>The database configuration file (located in <code class="language-plaintext highlighter-rouge">app/Config/database.php</code>) file contains the database connection settings.</p>
 
     <p>Copy the default database configuration file :</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>app/Config/database.php.default app/Config/database.php
@@ -333,11 +333,11 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
 </code></pre></div>    </div>
     <h3 id="appphp-application-settings">app.php (application settings)</h3>
 
-    <p>The passbolt application configuration (located in <code class="highlighter-rouge">app/Config/app.php</code>) contains the application settings. Copy the app.php.default configuration file to create one for your instance:</p>
+    <p>The passbolt application configuration (located in <code class="language-plaintext highlighter-rouge">app/Config/app.php</code>) contains the application settings. Copy the app.php.default configuration file to create one for your instance:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>app/Config/app.php.default app/Config/app.php
 </code></pre></div>    </div>
 
-    <p>You will need to specify the details of the GPG servery key, e.g. the location of the public and private key and the fingerprint. You also need to make sure that the webserver can access the gpg keyring. You can either add set it manually with <code class="highlighter-rouge">$GNUPGHOME</code> or in your config as follow:</p>
+    <p>You will need to specify the details of the GPG servery key, e.g. the location of the public and private key and the fingerprint. You also need to make sure that the webserver can access the gpg keyring. You can either add set it manually with <code class="language-plaintext highlighter-rouge">$GNUPGHOME</code> or in your config as follow:</p>
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$config</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">'GPG'</span> <span class="o">=&gt;</span> <span class="p">[</span>
         <span class="s1">'env'</span> <span class="o">=&gt;</span> <span class="p">[</span>
@@ -364,7 +364,7 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
 
     <h3 id="emailphp-email-settings">email.php (email settings)</h3>
 
-    <p>The <code class="highlighter-rouge">app/Config/email.php</code> configuration file defines your email settings to enable passbolt send emails to the world. Make sure you provide the correct settings. Without this, passbolt will not be able to send notifications email.</p>
+    <p>The <code class="language-plaintext highlighter-rouge">app/Config/email.php</code> configuration file defines your email settings to enable passbolt send emails to the world. Make sure you provide the correct settings. Without this, passbolt will not be able to send notifications email.</p>
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">public</span> <span class="nv">$default</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span>
     <span class="s1">'transport'</span> <span class="o">=&gt;</span> <span class="s1">'Smtp'</span><span class="p">,</span>
     <span class="s1">'from'</span> <span class="o">=&gt;</span> <span class="k">array</span><span class="p">(</span><span class="s1">'passbolt@yourdomain.com'</span> <span class="o">=&gt;</span> <span class="s1">'Passbolt'</span><span class="p">),</span>
@@ -419,10 +419,10 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
 
     <h3 id="i-get-the-error-gpg-keyring-is-not-available-or-not-writable-at-install">I get the error GPG Keyring is not available or not writable at install</h3>
 
-    <p>It is possible that your <code class="highlighter-rouge">$GNUPGHOME</code> is not set or not available to either the php CLI or Apache users thus causing a segmentation fault.</p>
+    <p>It is possible that your <code class="language-plaintext highlighter-rouge">$GNUPGHOME</code> is not set or not available to either the php CLI or Apache users thus causing a segmentation fault.</p>
 
     <ul>
-      <li>Check <code class="highlighter-rouge">app/Config/app.php</code>. If you don’t have ssh access, it can be set at run time with <code class="highlighter-rouge">GPG.env.home</code> variable.</li>
+      <li>Check <code class="language-plaintext highlighter-rouge">app/Config/app.php</code>. If you don’t have ssh access, it can be set at run time with <code class="language-plaintext highlighter-rouge">GPG.env.home</code> variable.</li>
       <li>Make sure the directory is accessible and writable for the PHP CLI and Apache users.</li>
     </ul>
 
@@ -431,7 +431,7 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
 </code></pre></div>    </div>
     <h3 id="i-get-an-error-saying-the-gpg-server-key-defined-in-the-config-is-not-found">I get an error saying the GPG Server key defined in the config is not found</h3>
 
-    <p>If you are running passbolt on FreeBSD make sure the <code class="highlighter-rouge">$PATH</code> for the www user include <code class="highlighter-rouge">/usr/local/{s,}bin</code>. Otherwise Apache won’t be able to find the gpg modules. Something like this should do:</p>
+    <p>If you are running passbolt on FreeBSD make sure the <code class="language-plaintext highlighter-rouge">$PATH</code> for the www user include <code class="language-plaintext highlighter-rouge">/usr/local/{s,}bin</code>. Otherwise Apache won’t be able to find the gpg modules. Something like this should do:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">PATH</span><span class="o">=</span>/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin
 </code></pre></div>    </div>
     <h3 id="i-get-the-error-that-the-gpg-key-fingerprint-is-not-found-in-the-keyring">I get the error that the GPG key fingerprint is not found in the keyring</h3>

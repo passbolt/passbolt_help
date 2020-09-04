@@ -305,7 +305,7 @@
 
     <h2 id="default-behavior">Default behavior</h2>
 
-    <p>By default all the settings are <code class="highlighter-rouge">true</code> which means all the notifications are set to be broadcasted and all the information blocks are set to be shown.</p>
+    <p>By default all the settings are <code class="language-plaintext highlighter-rouge">true</code> which means all the notifications are set to be broadcasted and all the information blocks are set to be shown.</p>
 
     <h2 id="configuring-email-notification-settings">Configuring Email Notification Settings</h2>
 
@@ -433,7 +433,7 @@
     <p>When you using docker to set these environment variable you can pass them as arguments,
 like other variables such as the database name, for example:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
              -p 80:80 \
              -p 443:443 \
              -e PASSBOLT_EMAIL_SHOW_COMMENT=0 \
@@ -444,9 +444,9 @@ like other variables such as the database name, for example:</p>
 
     <h2 id="using-config-file">Using config file</h2>
 
-    <p>Email notification settings can also be managed by updating the <code class="highlighter-rouge">config/passbolt.php</code> file in your install directory. These settings live in the <code class="highlighter-rouge">email</code> key under <code class="highlighter-rouge">passbolt</code>.</p>
+    <p>Email notification settings can also be managed by updating the <code class="language-plaintext highlighter-rouge">config/passbolt.php</code> file in your install directory. These settings live in the <code class="language-plaintext highlighter-rouge">email</code> key under <code class="language-plaintext highlighter-rouge">passbolt</code>.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'passbolt' =&gt; [
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'passbolt' =&gt; [
     'email' =&gt; [
         // For Email Delivery configs
         'send' =&gt; [
@@ -468,7 +468,7 @@ like other variables such as the database name, for example:</p>
 
     <p>If a config variable doesn’t exist in your config file, it’s default value will be picked.</p>
 
-    <p>You can use the following config variables to control the email delivery settings. They are all boolean and accepts <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. Setting the variable to <code class="highlighter-rouge">true</code> will mean that email will be sent for that event and setting it <code class="highlighter-rouge">false</code> will ignore the event.</p>
+    <p>You can use the following config variables to control the email delivery settings. They are all boolean and accepts <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>. Setting the variable to <code class="language-plaintext highlighter-rouge">true</code> will mean that email will be sent for that event and setting it <code class="language-plaintext highlighter-rouge">false</code> will ignore the event.</p>
 
     <table class="table-parameters">
   <thead>
@@ -529,7 +529,7 @@ like other variables such as the database name, for example:</p>
   </tbody>
 </table>
 
-    <p>Similarly, for changing the email content visibility, you can use the following config variables . They are all boolean and accepts <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>. Setting the variable to <code class="highlighter-rouge">true</code> will mean that information will be included in outgoing mails and setting it to <code class="highlighter-rouge">false</code> will result in not including that.</p>
+    <p>Similarly, for changing the email content visibility, you can use the following config variables . They are all boolean and accepts <code class="language-plaintext highlighter-rouge">true</code> or <code class="language-plaintext highlighter-rouge">false</code>. Setting the variable to <code class="language-plaintext highlighter-rouge">true</code> will mean that information will be included in outgoing mails and setting it to <code class="language-plaintext highlighter-rouge">false</code> will result in not including that.</p>
 
     <table class="table-parameters">
   <thead>

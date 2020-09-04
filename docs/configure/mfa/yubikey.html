@@ -304,7 +304,7 @@ you gathered in the previous steps. Click “save settings” when you are done.
     <p>When you using docker to set these environment variable you can pass them as arguments,
 like other variables such as the database name, for example:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
              -p 80:80 \
              -p 443:443 \
              -e PASSBOLT_PLUGINS_MFA_YUBIKEY_CLIENTID=12345 \
@@ -313,9 +313,9 @@ like other variables such as the database name, for example:</p>
 
     <h3 id="using-config-file">Using config file</h3>
 
-    <p>In your install directory you can add the following section in <code class="highlighter-rouge">config/passbolt.php</code></p>
+    <p>In your install directory you can add the following section in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code></p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
     'multiFactorAuthentication' =&gt; [
         'providers' =&gt; [
             'totp' =&gt; true,

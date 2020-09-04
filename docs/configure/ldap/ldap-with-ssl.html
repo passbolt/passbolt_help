@@ -250,7 +250,7 @@ to your passbolt instance.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping your_ldap_server.com
 </code></pre></div>    </div>
 
-    <p>If it does not go through, check that there is a corresponding entry for your domain / server ip in <code class="highlighter-rouge">/etc/hosts</code>. If it’s not there add it.</p>
+    <p>If it does not go through, check that there is a corresponding entry for your domain / server ip in <code class="language-plaintext highlighter-rouge">/etc/hosts</code>. If it’s not there add it.</p>
 
     <p>If it goes through, we will then try to execute a similar ldap query to what passbolt does using ldapsearch.</p>
 
@@ -307,7 +307,7 @@ You can access this tool <a href="https://github.com/passbolt/ldaps_cert_util">h
 
     <p>The content of the file should look like:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#
 # LDAP Defaults
 #
 
@@ -325,7 +325,7 @@ You can access this tool <a href="https://github.com/passbolt/ldaps_cert_util">h
 TLS_CACERT      /etc/ssl/certs/cert.crt
 </code></pre></div>    </div>
 
-    <p>Edit the line with <code class="highlighter-rouge">TLS_CACERT</code> to make it point to the right certificate.</p>
+    <p>Edit the line with <code class="language-plaintext highlighter-rouge">TLS_CACERT</code> to make it point to the right certificate.</p>
 
     <p>That’s it. It should now work. Go back to step 1 and execute the ldapsearch command again. You should see a
 successful connection to your ldaps server happening. If that’s the case, you can get back to Passbolt and try the synchronization again.</p>
@@ -344,7 +344,7 @@ successful connection to your ldaps server happening. If that’s the case, you 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/ldap/ldap.conf
 </code></pre></div>    </div>
 
-    <p>Then add the line: <code class="highlighter-rouge">TLS_REQCERT never</code>, and try again.</p>
+    <p>Then add the line: <code class="language-plaintext highlighter-rouge">TLS_REQCERT never</code>, and try again.</p>
 
     <p>If now the connection is going through, it means that there is still an issue with your certificate.</p>
 

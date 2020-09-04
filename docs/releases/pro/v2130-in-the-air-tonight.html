@@ -237,7 +237,7 @@ but to create a separate dedicated environment to test the feature.</p>
 
 <p>It is possible to test this release by switching to the development branch of the code base, by running 
 the following on your server in your passbolt directory:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch origin
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch origin
 $ git checkout -b develop origin/develop
 </code></pre></div></div>
 
@@ -263,10 +263,10 @@ email notifications, especially when you import/share a lot of passwords at once
 </figure>
 
 <p>You can enable this feature by switching the following line in your server crontab:.
-<code class="highlighter-rouge">/var/www/passbolt/bin/cake EmailQueue.sender</code></p>
+<code class="language-plaintext highlighter-rouge">/var/www/passbolt/bin/cake EmailQueue.sender</code></p>
 
 <p>To
-<code class="highlighter-rouge">/var/www/passbolt/bin/cake Passbolt/emailDigest.sender</code></p>
+<code class="language-plaintext highlighter-rouge">/var/www/passbolt/bin/cake Passbolt/emailDigest.sender</code></p>
 
 <p>You can also test the feature by calling it directly in the command line on your server.</p>
 

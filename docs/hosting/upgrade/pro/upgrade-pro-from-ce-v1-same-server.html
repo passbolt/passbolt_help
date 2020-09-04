@@ -237,7 +237,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     </ul>
 
     <h2 id="upgrade-to-passbolt-pro">Upgrade to Passbolt Pro</h2>
-    <p>In the following examples we assume you are running passbolt CE v1 using apache in the <code class="highlighter-rouge">/var/www/passbolt</code>
+    <p>In the following examples we assume you are running passbolt CE v1 using apache in the <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code>
 directory. You will need to replace these values with your local environment settings.</p>
 
     <h3 id="make-sure-you-have-the-latest-v1x-version">1. Make sure you have the latest v1.x version</h3>
@@ -307,11 +307,11 @@ automatically to the login page where you can log in.</p>
     <h3 id="final-step-modify-the-cron-job-to-send-emails">8. Final step: modify the cron job to send emails</h3>
 
     <p>Modify the cronjob entry you had added for passbolt CE v1 :</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender &gt; /var/log/passbolt.log
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender &gt; /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>into this one:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt; /var/log/passbolt.log
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt; /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <h2 id="thats-it">That’s it!</h2>

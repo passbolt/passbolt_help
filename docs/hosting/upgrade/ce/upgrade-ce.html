@@ -241,7 +241,7 @@ database into your new server and proceed like you were upgrading on the same se
 
     <h2 id="upgrade-from-the-same-server">Upgrade from the same server</h2>
 
-    <p>In the following examples we assume you are running passbolt v1 using apache in the <code class="highlighter-rouge">/var/www/passbolt</code>
+    <p>In the following examples we assume you are running passbolt v1 using apache in the <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code>
 directory. You will need to replace these values with your local environment settings.</p>
 
     <h3 id="make-sure-you-have-the-latest-v1x-version">1. Make sure you have the latest v1.x version</h3>
@@ -286,7 +286,7 @@ redirect your passbolt user there.</p>
     <h3 id="create-a-passbolt-configuration-file">7. Create a passbolt configuration file</h3>
 
     <p>The name and values in the main configuration file have changed. Everything is now located in one file called
-<code class="highlighter-rouge">config/passbolt.php</code>. Do not copy your v1 configuration files, instead you need to create a new one:</p>
+<code class="language-plaintext highlighter-rouge">config/passbolt.php</code>. Do not copy your v1 configuration files, instead you need to create a new one:</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt<span class="nv">$ </span><span class="nb">cp </span>config/passbolt.default.php config/passbolt.php
 /var/www/passbolt<span class="nv">$ </span>nano config/passbolt.php
@@ -302,7 +302,7 @@ You will need to set at least the following:</p>
     </ul>
 
     <p>You can also set your configuration using environment variables.
-Check <code class="highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
+Check <code class="language-plaintext highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
 
     <h3 id="run-the-migration-script">8. Run the migration script</h3>
 
@@ -320,11 +320,11 @@ data to the new format.</p>
     <h3 id="modify-the-cron-job-to-send-emails">9. Modify the cron job to send emails</h3>
 
     <p>Modify the cronjob entry you had added for passbolt CE v1 :</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender &gt; /var/log/passbolt.log
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/app/Console/cake EmailQueue.sender &gt; /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>into this one:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt; /var/log/passbolt.log
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>* * * * * /var/www/passbolt/bin/cake EmailQueue.sender &gt; /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <h3 id="get-your-service-back-online">10. Get your service back online</h3>

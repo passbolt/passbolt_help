@@ -175,15 +175,15 @@ the PHP configuration.</p>
 <p>See the directive 
 <a href="https://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc-maxlifetime</a></p>
 
-<p>In order to change this number you must locate your <code class="highlighter-rouge">php.ini</code> file. Its location depends on your
+<p>In order to change this number you must locate your <code class="language-plaintext highlighter-rouge">php.ini</code> file. Its location depends on your
 operating system and php versions.</p>
 
 <p>For example on Debian if you are using Nginx and PHP 7.3 it will be in
-<code class="highlighter-rouge">/etc/php/7.3/fpm/php.ini</code>, using Debian 8 on nApache it will be located in 
-<code class="highlighter-rouge">/etc/php/7.0/apache2/php.ini</code>, etc.</p>
+<code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/php.ini</code>, using Debian 8 on nApache it will be located in 
+<code class="language-plaintext highlighter-rouge">/etc/php/7.0/apache2/php.ini</code>, etc.</p>
 
-<p>Once located replace the <code class="highlighter-rouge">1440</code> timout value in seconds with for example <code class="highlighter-rouge">2700</code> for 45 minutes:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; After this number of seconds, stored data will be seen as 'garbage' and
+<p>Once located replace the <code class="language-plaintext highlighter-rouge">1440</code> timout value in seconds with for example <code class="language-plaintext highlighter-rouge">2700</code> for 45 minutes:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; After this number of seconds, stored data will be seen as 'garbage' and
 ; cleaned up by the garbage collection process.
 ; http://php.net/session.gc-maxlifetime
 session.gc_maxlifetime = 2700

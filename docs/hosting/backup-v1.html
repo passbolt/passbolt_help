@@ -213,14 +213,14 @@
 </code></pre></div>    </div>
     <h4 id="the-avatars">2. The avatars</h4>
 
-    <p>The images in <code class="highlighter-rouge">app/webroot/img/public</code> also need to be backed up, otherwise profile images will be lost.</p>
+    <p>The images in <code class="language-plaintext highlighter-rouge">app/webroot/img/public</code> also need to be backed up, otherwise profile images will be lost.</p>
 
     <h4 id="the-server-public-and-private-keys">3. The server public and private keys</h4>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--export-secret-key</span> <span class="nt">-a</span> <span class="s2">"passbolt user"</span> <span class="o">&gt;</span> private.key
 </code></pre></div>    </div>
     <h4 id="the-application-configuration">4. The application configuration</h4>
 
-    <p>The files located in <code class="highlighter-rouge">app/Config</code> such as core.php, app.php, email.php, database.php. It is optional, but it can save you some time if you need to rebuild a new instance.</p>
+    <p>The files located in <code class="language-plaintext highlighter-rouge">app/Config</code> such as core.php, app.php, email.php, database.php. It is optional, but it can save you some time if you need to rebuild a new instance.</p>
 
     <h2 id="what-about-the-secret-keys-of-my-collaborators">What about the secret keys of my collaborators?</h2>
 

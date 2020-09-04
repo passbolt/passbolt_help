@@ -278,10 +278,10 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>Create a resource</h1>
-                    <p>To create a new Resource, make a <code class="highlighter-rouge">POST</code> request to <code class="highlighter-rouge">/resources.json</code> with the encrypted secret data in request body.
+                    <p>To create a new Resource, make a <code class="language-plaintext highlighter-rouge">POST</code> request to <code class="language-plaintext highlighter-rouge">/resources.json</code> with the encrypted secret data in request body.
 You must encrypt the data with the current user public key. And a valid request body will look like:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /resources.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /resources.json?api-version=v2
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w"> 
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">

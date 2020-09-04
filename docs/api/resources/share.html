@@ -288,11 +288,11 @@
 
 <h3 id="get-all-aros">Get all AROs</h3>
 
-<p>In order to know the list of AROs with whom a Resource can be shared, you can use the <code class="highlighter-rouge">search-aros</code> endpoint.</p>
+<p>In order to know the list of AROs with whom a Resource can be shared, you can use the <code class="language-plaintext highlighter-rouge">search-aros</code> endpoint.</p>
 
 <p>To get the ARO list make a GET request to /share/search-aros.json</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /share/search-aros.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /share/search-aros.json?api-version=v2
 </code></pre></div></div>
 
 <p>The response returned will have an array of json objects, each representing either a Group or a User.</p>
@@ -397,7 +397,7 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">echo</span> &lt;plaintext_password&gt; | gpg <span class="nt">-r</span> &lt;gpg_uid&gt; <span class="nt">-e</span> <span class="nt">-a</span>
 </code></pre></div></div>
 
-<p>The <code class="highlighter-rouge">search-aros</code> endpoint described above outputs the gpg details for individual users like their <code class="highlighter-rouge">armored_key</code>, <code class="highlighter-rouge">uid</code>, <code class="highlighter-rouge">key_id</code> and <code class="highlighter-rouge">fingerprint</code>. For Groups, you can make a GET request to <code class="highlighter-rouge">/groups/&lt;group_id&gt;.json</code> endpoint. For more info, check the <a href="/api/groups/read">View a group</a> page.</p>
+<p>The <code class="language-plaintext highlighter-rouge">search-aros</code> endpoint described above outputs the gpg details for individual users like their <code class="language-plaintext highlighter-rouge">armored_key</code>, <code class="language-plaintext highlighter-rouge">uid</code>, <code class="language-plaintext highlighter-rouge">key_id</code> and <code class="language-plaintext highlighter-rouge">fingerprint</code>. For Groups, you can make a GET request to <code class="language-plaintext highlighter-rouge">/groups/&lt;group_id&gt;.json</code> endpoint. For more info, check the <a href="/api/groups/read">View a group</a> page.</p>
 
 <div class="message notice">
     <p>
@@ -455,10 +455,10 @@ So the request body will look like</p>
 
 <p>Passbolt API allows you to simulate a share before actually going through with this. This way you can see if the 
 params pass the validation checks. To simulate sharing a resource 
-you can make a <code class="highlighter-rouge">POST</code> request to <code class="highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="highlighter-rouge">resourceId</code> is the id of the 
+you can make a <code class="language-plaintext highlighter-rouge">POST</code> request to <code class="language-plaintext highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="language-plaintext highlighter-rouge">resourceId</code> is the id of the 
 <a href="/api/resources">Resource</a> you wish to share.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /share/simulate/resource/&lt;resourceId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /share/simulate/resource/&lt;resourceId&gt;.json?api-version=v2
 </code></pre></div></div>
 
 <p>If the resource can be shared safely, this returns an associative array that contains a list of new users who 
@@ -488,10 +488,10 @@ encrypt the secrets for the users who get access and to remove the secrets of th
 <h3 id="final-sharing">Final sharing</h3>
 
 <p>If the simulation returns a success response, you can go ahead with sharing your resource. To share a resource 
-you can make a <code class="highlighter-rouge">PUT</code> request to <code class="highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="highlighter-rouge">resourceId</code> is the id of the 
+you can make a <code class="language-plaintext highlighter-rouge">PUT</code> request to <code class="language-plaintext highlighter-rouge">/share/simulate/resource/&lt;resourceId&gt;.json</code> where <code class="language-plaintext highlighter-rouge">resourceId</code> is the id of the 
 <a href="/api/resources">Resource</a> you wish to share.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /share/resource/&lt;resourceId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /share/resource/&lt;resourceId&gt;.json?api-version=v2
 </code></pre></div></div>
 
 <p>The request schema is same as above while the response can be either of the following.</p>

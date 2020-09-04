@@ -245,7 +245,7 @@ to be present on the server. If you built your own server the way you install
 </code></pre></div>    </div>
 
     <p>Make sure the ldap extension is present in the php-cli.ini file.
-You should add <code class="highlighter-rouge">extension=ldap.so</code> if it is not already present:</p>
+You should add <code class="language-plaintext highlighter-rouge">extension=ldap.so</code> if it is not already present:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php <span class="nt">-i</span> |grep php<span class="se">\.</span>ini
 Configuration File <span class="o">(</span>php.ini<span class="o">)</span> Path <span class="o">=&gt;</span> /etc/php/7.0/cli
 Loaded Configuration File <span class="o">=&gt;</span> /etc/php/7.0/cli/php.ini
@@ -281,14 +281,14 @@ composer <span class="nb">install</span>
 
     <p>The plugin is deactivated by default. You need to activate it to be able to use it.</p>
 
-    <p>To do so, simply copy the file <code class="highlighter-rouge">/config/ldap.default.php</code> into <code class="highlighter-rouge">ldap.php</code>.</p>
+    <p>To do so, simply copy the file <code class="language-plaintext highlighter-rouge">/config/ldap.default.php</code> into <code class="language-plaintext highlighter-rouge">ldap.php</code>.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/passbolt
 <span class="nb">mv</span> ./config/ldap.default.php ./config/ldap.php
 </code></pre></div>    </div>
 
     <h3 id="configure-the-plugin">Configure the plugin</h3>
 
-    <p>Edit the file <code class="highlighter-rouge">ldap.php</code> and modify the configuration to match your needs. The available options are:</p>
+    <p>Edit the file <code class="language-plaintext highlighter-rouge">ldap.php</code> and modify the configuration to match your needs. The available options are:</p>
 
     <table class="table-parameters">
   <thead>
@@ -518,11 +518,11 @@ composer <span class="nb">install</span>
     <span class="legend">fig. Screenshot of directory synchronization view ignored command</span>
 </figure>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake directory_sync ignore-list
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake directory_sync ignore-list
 </code></pre></div>    </div>
 
     <p>You can also stop ignoring them:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake directory_sync ignore-delete --id=16789f75-2cf7-4755-9bd9-634d1ff42240 --model=DirectoryEntries
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake directory_sync ignore-delete --id=16789f75-2cf7-4755-9bd9-634d1ff42240 --model=DirectoryEntries
 </code></pre></div>    </div>
 
     <div class="last-updated">

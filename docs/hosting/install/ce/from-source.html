@@ -305,7 +305,7 @@ You can get the server key fingerprint as follow:</p>
 It is likely that there is none, so you can create one by interacting with gpg with the web server user</p>
 
     <p>The webserver name depends on your distribution and web server technology of choice, for example Apache user
-is called <code class="highlighter-rouge">www-data</code> on Debian:</p>
+is called <code class="language-plaintext highlighter-rouge">www-data</code> on Debian:</p>
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span> www-data
 pub   4096R/573EE67E 2015-10-26 <span class="o">[</span>expires: 2019-10-26]
       Key fingerprint <span class="o">=</span> 2FC8 9458 33C5 1946 E937  F9FE D47B 0811 573E E67E
@@ -323,7 +323,7 @@ in the code on the official repository. Fret not, composer will manage this for 
     <h3 id="create-a-passbolt-configuration-file">7. Create a passbolt configuration file</h3>
 
     <p>The name and values in the main configuration file have changed. Everything is now located in one file called
-<code class="highlighter-rouge">config/passbolt.php</code>. Do not copy your v1 configuration files, instead you need to create a new one:</p>
+<code class="language-plaintext highlighter-rouge">config/passbolt.php</code>. Do not copy your v1 configuration files, instead you need to create a new one:</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp </span>config/passbolt.default.php config/passbolt.php
 <span class="nv">$ </span>nano config/passbolt.php
@@ -339,7 +339,7 @@ You will need to set at least the following:</p>
     </ul>
 
     <p>You can also set your configuration using environment variables.
-Check <code class="highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
+Check <code class="language-plaintext highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
 
     <h3 id="run-the-install-script">8. Run the install script</h3>
 
@@ -356,7 +356,7 @@ Check <code class="highlighter-rouge">config/default.php</code> to get the names
     <h3 id="setup-the-emails">9. Setup the emails</h3>
 
     <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the 
-<code class="highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
+<code class="language-plaintext highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
 
     <p>Emails are placed in a queue that needs to be processed by the following shell.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake EmailQueue.sender

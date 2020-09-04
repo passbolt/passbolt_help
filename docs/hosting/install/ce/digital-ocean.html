@@ -257,10 +257,10 @@ resolve to this droplet IP. You can also check the propagation using
 
     <h2 id="login-in-the-machine-and-get-the-mysql-credentials">Login in the machine and get the mysql credentials</h2>
     <p>Ssh into this droplet as root:</p>
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh root@this_droplet_ip
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh root@this_droplet_ip
 </code></pre></div>    </div>
     <p>or ssh root@your_domain.com. Use this same ssh connection to gather the randomly generated mysql
-credentials in <code class="highlighter-rouge">/root/.mysql_credentials</code> you will need them for the web installation wizard.</p>
+credentials in <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code> you will need them for the web installation wizard.</p>
 
     <h2 id="launch-the-install-script-and-follow-the-instructions">Launch the install script and follow the instructions.</h2>
     <p>A script will be launched, choose the automatic configuration option and let the script guide you.
@@ -278,9 +278,9 @@ and you will then see the web installation wizard.</p>
 </figure>
 
     <p>The installation wizard will ask you for a Mariadb/Mysql host. The droplet has mariadb-server
-installed by default so you could use <code class="highlighter-rouge">127.0.0.1</code> as the mysql hostname and use the randomized
+installed by default so you could use <code class="language-plaintext highlighter-rouge">127.0.0.1</code> as the mysql hostname and use the randomized
 user, password and database created during the droplet boot. You will find these credentials on
-<code class="highlighter-rouge">/root/.mysql_credentials</code></p>
+<code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code></p>
 
     <div class="last-updated">
       <h3>Last updated</h3>

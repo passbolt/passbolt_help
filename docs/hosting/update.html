@@ -197,15 +197,15 @@
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /var/www/passbolt
 </code></pre></div>    </div>
 
-    <p>By default passbolt should be installed under <code class="highlighter-rouge">/var/www/passbolt</code> but it could be different if you
+    <p>By default passbolt should be installed under <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> but it could be different if you
 installed from source manually. We will assume for the rest of this tutorial that it is located
-in <code class="highlighter-rouge">/var/www/passbolt</code>.</p>
+in <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code>.</p>
 
     <h2 id="find-out-the-name-of-your-webserver-user">Find out the name of your webserver user</h2>
 
     <p>Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
-<code class="highlighter-rouge">www-data</code> but on other distributions like Centos it could be for example <code class="highlighter-rouge">nginx</code> or <code class="highlighter-rouge">http</code>.
-For the rest of this tutorial we will assume that the user named <code class="highlighter-rouge">www-data</code>.</p>
+<code class="language-plaintext highlighter-rouge">www-data</code> but on other distributions like Centos it could be for example <code class="language-plaintext highlighter-rouge">nginx</code> or <code class="language-plaintext highlighter-rouge">http</code>.
+For the rest of this tutorial we will assume that the user named <code class="language-plaintext highlighter-rouge">www-data</code>.</p>
 
     <p>Generally it is not possible to login as this user, so in order to run the command as this user,
 you can execute something like this:</p>
@@ -213,7 +213,7 @@ you can execute something like this:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span>
 </code></pre></div>    </div>
 
-    <p>This command for example, will run the healthcheck command as <code class="highlighter-rouge">www-data</code> data user.
+    <p>This command for example, will run the healthcheck command as <code class="language-plaintext highlighter-rouge">www-data</code> data user.
 It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.</p>
 
     <h2 id="make-sure-the-permissions-are-right-for-your-current-user">Make sure the permissions are right for your current user</h2>
@@ -226,15 +226,15 @@ It is a good idea to start with running a healthcheck prior to updating, to make
 </div>
 
     <p>Running commands as root can make your installation unusable until the permissions are repaired.
-We recommend you use another user for this purpose. The <code class="highlighter-rouge">whoami</code> command will let you know which user you are logged
-in as. In our case below, it is the user <code class="highlighter-rouge">passbolt</code>.</p>
+We recommend you use another user for this purpose. The <code class="language-plaintext highlighter-rouge">whoami</code> command will let you know which user you are logged
+in as. In our case below, it is the user <code class="language-plaintext highlighter-rouge">passbolt</code>.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">whoami
 </span>passbolt
 </code></pre></div>    </div>
 
     <p>You need to make sure that this user have access to the passbolt directory.
-The easiest way to do this would be to add such user to the <code class="highlighter-rouge">www-data</code> and <code class="highlighter-rouge">sudo</code> groups,
-so for example for a <code class="highlighter-rouge">passbolt</code> user, you could execute as root:</p>
+The easiest way to do this would be to add such user to the <code class="language-plaintext highlighter-rouge">www-data</code> and <code class="language-plaintext highlighter-rouge">sudo</code> groups,
+so for example for a <code class="language-plaintext highlighter-rouge">passbolt</code> user, you could execute as root:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> www-data passbolt
 <span class="nv">$ </span><span class="nb">sudo </span>usermod <span class="nt">-a</span> <span class="nt">-G</span> <span class="nb">sudo </span>passbolt
@@ -286,7 +286,7 @@ before executing the following command.</p>
 /usr/bin/composer.phar
 </code></pre></div>    </div>
 
-    <p>Depending on your setup it is possible that your composer command is named <code class="highlighter-rouge">composer</code> and not <code class="highlighter-rouge">composer.phar</code>.</p>
+    <p>Depending on your setup it is possible that your composer command is named <code class="language-plaintext highlighter-rouge">composer</code> and not <code class="language-plaintext highlighter-rouge">composer.phar</code>.</p>
 
     <p>If for some reason the command above fails because you don’t have composer installed,
 you can check the <a href="https://getcomposer.org/download/">composer installation instructions</a>.</p>
@@ -295,7 +295,7 @@ you can check the <a href="https://getcomposer.org/download/">composer installat
     <h2 id="take-down-your-site">0. Take down your site</h2>
 
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="highlighter-rouge">nginx</code> as a
+such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="language-plaintext highlighter-rouge">nginx</code> as a
 webserver:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
@@ -340,7 +340,7 @@ what is recommended in the composer.lock. This file is provided by passbolt.</p>
     <p>As you can see with the command above you can optional ask the application to create a database backup.
 This is useful in case you run into any issues with the new version and need to revert to an old but working one.</p>
 
-    <p>This backup will be placed in <code class="highlighter-rouge">./tmp/cache/database/backup/backup_timestamp.sql</code>.</p>
+    <p>This backup will be placed in <code class="language-plaintext highlighter-rouge">./tmp/cache/database/backup/backup_timestamp.sql</code>.</p>
 
     <h2 id="clear-the-cache">4. Clear the cache</h2>
 
@@ -374,7 +374,7 @@ reflected in model cache files:</p>
     <p>If you run into some issues:</p>
     <ul>
       <li>Make a copy or screenshot of the errors messages displayed on the screen</li>
-      <li>Check for error message in the <code class="highlighter-rouge">logs</code> directory</li>
+      <li>Check for error message in the <code class="language-plaintext highlighter-rouge">logs</code> directory</li>
       <li>Check for error message in the browser console</li>
       <li>Checkout the previous working version using git</li>
       <li>Drop the database and load your backup data to restore to a previously working version</li>

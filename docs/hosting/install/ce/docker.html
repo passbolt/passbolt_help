@@ -227,7 +227,7 @@ However, it is recommended that users pull the tags pointing to specific passbol
 
     <div class="message warning">
     <p>
-        <strong>Please note:</strong> Passbolt uses Mariadb/MySQL as a storage backend for encrypted passwords. It is mandatory to persist <code class="highlighter-rouge">/var/lib/mysql</code>
+        <strong>Please note:</strong> Passbolt uses Mariadb/MySQL as a storage backend for encrypted passwords. It is mandatory to persist <code class="language-plaintext highlighter-rouge">/var/lib/mysql</code>
 if you are running Mariadb/MySQL on a docker container to avoid data loss when restarting such containers.
     </p>
     
@@ -242,7 +242,7 @@ if you are running Mariadb/MySQL on a docker container to avoid data loss when r
     <p>First run the mariadb container:</p>
 
     <p>As we want all the data in mariadb to survive container restarts it is recommended to create either a docker
-volume or a host directory and mount it at <code class="highlighter-rouge">/var/lib/mysql</code></p>
+volume or a host directory and mount it at <code class="language-plaintext highlighter-rouge">/var/lib/mysql</code></p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create mariadb_passbolt_data
 <span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> mariadb <span class="nt">--net</span> passbolt_network <span class="se">\</span>

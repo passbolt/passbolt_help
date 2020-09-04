@@ -304,10 +304,10 @@ At the moment the server component currently supports format version 2 and 1, wh
 server component) for backward compatibility reasons. However this behavior will change in the future so please 
 use (or switch) to API version 2 as soon as possible to minimize refactoring in your application down the road.</p>
 
-<p>You can target a specific API version by including a query string <code class="highlighter-rouge">api-version</code> in your requests.
+<p>You can target a specific API version by including a query string <code class="language-plaintext highlighter-rouge">api-version</code> in your requests.
 For example to get a list of all resources using version 1, you can do</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v1
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -357,7 +357,7 @@ For example to get a list of all resources using version 1, you can do</p>
 
 <p>Whereas the same request using v2 option will be structured differently:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -400,7 +400,7 @@ For example to get a list of all resources using version 1, you can do</p>
 </span></code></pre></div></div>
 
 <p>This time the associated fields like “modifier”, “creator” and “tags” are all part of the single “Resource” object 
-they belong to and the object type is not specified anymore. This is just one of the major changes over <code class="highlighter-rouge">v1</code>. 
+they belong to and the object type is not specified anymore. This is just one of the major changes over <code class="language-plaintext highlighter-rouge">v1</code>. 
 You can see the complete <a href="https://github.com/passbolt/passbolt_api/blob/master/CHANGELOG.md">changelog</a> on the official
 the <a href="https://github.com/passbolt/passbolt_api">repository</a>.</p>
 
@@ -457,7 +457,7 @@ key and signed using sender’s.</p>
 client to verify the server identity, for example to prevent the unlikely scenario where the domain was seized. 
 Your passbolt server broadcasts its public key at /auth/verify.json</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /auth/verify.json
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /auth/verify.json
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">

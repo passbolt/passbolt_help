@@ -279,7 +279,7 @@
                     <div class="col8" markdown="1">
                     <h1>Browse all resources</h1>
                     <p>To fetch a list of all the password the user has access to, make the following request:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -418,15 +418,15 @@
 
 <p>It is possible to adjust the request response for example to</p>
 <ul>
-  <li>include <code class="highlighter-rouge">creator</code>, <code class="highlighter-rouge">favorite</code>, <code class="highlighter-rouge">modifier</code>, <code class="highlighter-rouge">permission</code> and <code class="highlighter-rouge">tag</code></li>
+  <li>include <code class="language-plaintext highlighter-rouge">creator</code>, <code class="language-plaintext highlighter-rouge">favorite</code>, <code class="language-plaintext highlighter-rouge">modifier</code>, <code class="language-plaintext highlighter-rouge">permission</code> and <code class="language-plaintext highlighter-rouge">tag</code></li>
   <li>Sort DESC by resource modification datetime</li>
-  <li>Filter by <code class="highlighter-rouge">is-favorite</code>, <code class="highlighter-rouge">is-shared-with-group</code>, <code class="highlighter-rouge">is-owned-by-me</code>, <code class="highlighter-rouge">is-shared-with-me</code> and <code class="highlighter-rouge">has-id</code></li>
+  <li>Filter by <code class="language-plaintext highlighter-rouge">is-favorite</code>, <code class="language-plaintext highlighter-rouge">is-shared-with-group</code>, <code class="language-plaintext highlighter-rouge">is-owned-by-me</code>, <code class="language-plaintext highlighter-rouge">is-shared-with-me</code> and <code class="language-plaintext highlighter-rouge">has-id</code></li>
   <li>Using api-version v2</li>
 </ul>
 
 <p>Such request will look like this:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
         &amp;contain[creator]=1
         &amp;contain[favorite]=1
         &amp;contain[modifier]=1

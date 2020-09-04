@@ -209,7 +209,7 @@ before you download Passbolt CE and install it.</p>
 
     <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -220,17 +220,17 @@ sudo apt-get install \
 
     <p>Optionally you can install certbot to enable <a href="https://letsencrypt.org/">Let’s Encrypt</a> configuration:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
 </code></pre></div>    </div>
 
     <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 </code></pre></div>    </div>
 
-    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key fingerprint 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key fingerprint 0xDE8B853FC155581D
 pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
 uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
@@ -239,13 +239,13 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 
     <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/debian buster stable" | \
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/debian buster stable" | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 </code></pre></div>    </div>
 
     <p><strong>Step 5.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 </code></pre></div>    </div>
 
     <h2 id="install-passbolt">Install passbolt</h2>
@@ -270,7 +270,7 @@ some questions:</p>
 
     <p>Install the main passbolt server component:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
 </code></pre></div>    </div>
 
     <h4 id="configure-mariadb">Configure mariadb</h4>
@@ -284,7 +284,7 @@ an empty mariadb database for passbolt to use.</p>
 </figure>
 
     <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be <code class="highlighter-rouge">root</code> and the password would be empty.</p>
+By default in most installations the admin username would be <code class="language-plaintext highlighter-rouge">root</code> and the password would be empty.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
@@ -378,13 +378,13 @@ By default in most installations the admin username would be <code class="highli
 
     <p>This method is useful for automating passbolt installation and for users with specific needs.</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
 </code></pre></div>    </div>
 
     <p>If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the above 
 command like:</p>
 
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
 </code></pre></div>    </div>
 
     <h1 id="configure-passbolt-using-the-wizard">2. Configure passbolt using the wizard</h1>

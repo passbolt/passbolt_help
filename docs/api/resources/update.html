@@ -278,10 +278,10 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>Update a resource</h1>
-                    <p>A Resource can be updated by sending a <code class="highlighter-rouge">PUT</code> request to <code class="highlighter-rouge">/resources/&lt;resourceId&gt;.json</code>:
+                    <p>A Resource can be updated by sending a <code class="language-plaintext highlighter-rouge">PUT</code> request to <code class="language-plaintext highlighter-rouge">/resources/&lt;resourceId&gt;.json</code>:
 The request body contains the new data to be updated. The request body schema is same than when creating a resource.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /resources/&lt;resourceId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /resources/&lt;resourceId&gt;.json?api-version=v2
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">
@@ -298,8 +298,8 @@ The request body contains the new data to be updated. The request body schema is
 
 <p>If the password you are updating has been shared with 7 users, the “secrets” key will need to be an array of 7 objects:
 You must encrypt and sign the new plaintext passwords using the recipient public key and the current user secret key.
-You can then create a list which include one object per user: the <code class="highlighter-rouge">data</code> key holds the encrypted plaintext password 
-and <code class="highlighter-rouge">user_id</code> holds the user UUID.</p>
+You can then create a list which include one object per user: the <code class="language-plaintext highlighter-rouge">data</code> key holds the encrypted plaintext password 
+and <code class="language-plaintext highlighter-rouge">user_id</code> holds the user UUID.</p>
 
 <h3 id="possible-responses">Possible Responses</h3>
 

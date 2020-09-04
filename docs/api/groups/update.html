@@ -272,9 +272,9 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>Update a group</h1>
-                    <p>A Group can be updated by sending the <code class="highlighter-rouge">PUT</code> request to <code class="highlighter-rouge">/groups/&lt;groupId&gt;.json</code>.</p>
+                    <p>A Group can be updated by sending the <code class="language-plaintext highlighter-rouge">PUT</code> request to <code class="language-plaintext highlighter-rouge">/groups/&lt;groupId&gt;.json</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;.json?api-version=v2
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newgroup"</span><span class="p">,</span><span class="w">
@@ -297,7 +297,7 @@
 The dry-run gives information about this.</p>
 
 <p>A dry run can also be performed before actually attempting to update a group:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;/dry-run.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;/dry-run.json?api-version=v2
 </code></pre></div></div>
 
 <p>This will check all the constraints and return a 200 OK response if the group can be updated safely.</p>

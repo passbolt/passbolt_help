@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-09-04T17:45:40+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T05:30:00+05:30</published><updated>2020-06-25T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-09-04T17:56:13+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T05:30:00+05:30</published><updated>2020-06-25T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
@@ -9,15 +9,15 @@
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;By default passbolt should be installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; but it could be different if you
+    &lt;p&gt;By default passbolt should be installed under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; but it could be different if you
 installed from source manually. We will assume for the rest of this tutorial that it is located
-in &lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt;.&lt;/p&gt;
+in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;find-out-the-name-of-your-webserver-user&quot;&gt;Find out the name of your webserver user&lt;/h2&gt;
 
     &lt;p&gt;Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
-&lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; but on other distributions like Centos it could be for example &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;http&lt;/code&gt;.
-For the rest of this tutorial we will assume that the user named &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt;.&lt;/p&gt;
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt; but on other distributions like Centos it could be for example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt;.
+For the rest of this tutorial we will assume that the user named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt;.&lt;/p&gt;
 
     &lt;p&gt;Generally it is not possible to login as this user, so in order to run the command as this user,
 you can execute something like this:&lt;/p&gt;
@@ -25,7 +25,7 @@ you can execute something like this:&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;This command for example, will run the healthcheck command as &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; data user.
+    &lt;p&gt;This command for example, will run the healthcheck command as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt; data user.
 It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.&lt;/p&gt;
 
     &lt;h2 id=&quot;make-sure-the-permissions-are-right-for-your-current-user&quot;&gt;Make sure the permissions are right for your current user&lt;/h2&gt;
@@ -38,15 +38,15 @@ It is a good idea to start with running a healthcheck prior to updating, to make
 &lt;/div&gt;
 
     &lt;p&gt;Running commands as root can make your installation unusable until the permissions are repaired.
-We recommend you use another user for this purpose. The &lt;code class=&quot;highlighter-rouge&quot;&gt;whoami&lt;/code&gt; command will let you know which user you are logged
-in as. In our case below, it is the user &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
+We recommend you use another user for this purpose. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;whoami&lt;/code&gt; command will let you know which user you are logged
+in as. In our case below, it is the user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;whoami
 &lt;/span&gt;passbolt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;You need to make sure that this user have access to the passbolt directory.
-The easiest way to do this would be to add such user to the &lt;code class=&quot;highlighter-rouge&quot;&gt;www-data&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; groups,
-so for example for a &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user, you could execute as root:&lt;/p&gt;
+The easiest way to do this would be to add such user to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt; groups,
+so for example for a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user, you could execute as root:&lt;/p&gt;
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; www-data passbolt
 &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;passbolt
@@ -98,7 +98,7 @@ before executing the following command.&lt;/p&gt;
 /usr/bin/composer.phar
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Depending on your setup it is possible that your composer command is named &lt;code class=&quot;highlighter-rouge&quot;&gt;composer&lt;/code&gt; and not &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;Depending on your setup it is possible that your composer command is named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;composer&lt;/code&gt; and not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt;.&lt;/p&gt;
 
     &lt;p&gt;If for some reason the command above fails because you don’t have composer installed,
 you can check the &lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;composer installation instructions&lt;/a&gt;.&lt;/p&gt;
@@ -107,7 +107,7 @@ you can check the &lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;co
     &lt;h2 id=&quot;take-down-your-site&quot;&gt;0. Take down your site&lt;/h2&gt;
 
     &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a
+such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a
 webserver:&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
@@ -152,7 +152,7 @@ what is recommended in the composer.lock. This file is provided by passbolt.&lt;
     &lt;p&gt;As you can see with the command above you can optional ask the application to create a database backup.
 This is useful in case you run into any issues with the new version and need to revert to an old but working one.&lt;/p&gt;
 
-    &lt;p&gt;This backup will be placed in &lt;code class=&quot;highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;This backup will be placed in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;clear-the-cache&quot;&gt;4. Clear the cache&lt;/h2&gt;
 
@@ -186,7 +186,7 @@ reflected in model cache files:&lt;/p&gt;
     &lt;p&gt;If you run into some issues:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
-      &lt;li&gt;Check for error message in the &lt;code class=&quot;highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
+      &lt;li&gt;Check for error message in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
       &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
       &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
       &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
@@ -251,7 +251,7 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Update the apt indexes and install packages to allow apt to use https repositories:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
     ca-certificates \
@@ -262,17 +262,17 @@ sudo apt-get install \
 
     &lt;p&gt;Optionally you can install certbot to enable &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt; configuration:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install certbot python3-certbot-nginx
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install certbot python3-certbot-nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key fingerprint 0xDE8B853FC155581D
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key fingerprint 0xDE8B853FC155581D
 pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
 uid           [ unknown] Passbolt SA package signing key &amp;lt;contact@passbolt.com&amp;gt;
@@ -281,13 +281,13 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 
     &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt;  Add passbolt repository to your apt lists:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo  &quot;deb https://download.passbolt.com/ce/debian buster stable&quot; | \
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo  &quot;deb https://download.passbolt.com/ce/debian buster stable&quot; | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt;  Update the apt indexes with the new passbolt apt repository:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt&quot;&gt;Install passbolt&lt;/h2&gt;
@@ -312,7 +312,7 @@ some questions:&lt;/p&gt;
 
     &lt;p&gt;Install the main passbolt server component:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install passbolt-ce-server
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install passbolt-ce-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h4 id=&quot;configure-mariadb&quot;&gt;Configure mariadb&lt;/h4&gt;
@@ -326,7 +326,7 @@ an empty mariadb database for passbolt to use.&lt;/p&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be &lt;code class=&quot;highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
+By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png&quot; alt=&quot;Mariadb admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -420,13 +420,13 @@ By default in most installations the admin username would be &lt;code class=&quo
 
     &lt;p&gt;This method is useful for automating passbolt installation and for users with specific needs.&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the above 
 command like:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h1 id=&quot;configure-passbolt-using-the-wizard&quot;&gt;2. Configure passbolt using the wizard&lt;/h1&gt;
@@ -590,7 +590,7 @@ can setup their provider adjusting to their particular case.&lt;/p&gt;
 
     &lt;h2 id=&quot;tls-email-providers&quot;&gt;TLS email providers&lt;/h2&gt;
 
-    &lt;p&gt;If your email provider supports TLS encryption your setup should look like this in &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;:&lt;/p&gt;
+    &lt;p&gt;If your email provider supports TLS encryption your setup should look like this in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt;:&lt;/p&gt;
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;s1&quot;&gt;'EmailTransport'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
         &lt;span class=&quot;s1&quot;&gt;'default'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
@@ -619,7 +619,7 @@ requirements.&lt;/p&gt;
     &lt;h2 id=&quot;ssl-email-providers&quot;&gt;SSL email providers&lt;/h2&gt;
 
     &lt;p&gt;Some providers support SSL encryption and the setup is slightly different from the TLS case. Just change
-your &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt; file to look like this:&lt;/p&gt;
+your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt; file to look like this:&lt;/p&gt;
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    &lt;span class=&quot;s1&quot;&gt;'EmailTransport'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
         &lt;span class=&quot;s1&quot;&gt;'default'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
@@ -747,7 +747,7 @@ to your passbolt instance.&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ping your_ldap_server.com
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;If it does not go through, check that there is a corresponding entry for your domain / server ip in &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;. If it’s not there add it.&lt;/p&gt;
+    &lt;p&gt;If it does not go through, check that there is a corresponding entry for your domain / server ip in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt;. If it’s not there add it.&lt;/p&gt;
 
     &lt;p&gt;If it goes through, we will then try to execute a similar ldap query to what passbolt does using ldapsearch.&lt;/p&gt;
 
@@ -804,7 +804,7 @@ You can access this tool &lt;a href=&quot;https://github.com/passbolt/ldaps_cert
 
     &lt;p&gt;The content of the file should look like:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#
 # LDAP Defaults
 #
 
@@ -822,7 +822,7 @@ You can access this tool &lt;a href=&quot;https://github.com/passbolt/ldaps_cert
 TLS_CACERT      /etc/ssl/certs/cert.crt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Edit the line with &lt;code class=&quot;highlighter-rouge&quot;&gt;TLS_CACERT&lt;/code&gt; to make it point to the right certificate.&lt;/p&gt;
+    &lt;p&gt;Edit the line with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TLS_CACERT&lt;/code&gt; to make it point to the right certificate.&lt;/p&gt;
 
     &lt;p&gt;That’s it. It should now work. Go back to step 1 and execute the ldapsearch command again. You should see a
 successful connection to your ldaps server happening. If that’s the case, you can get back to Passbolt and try the synchronization again.&lt;/p&gt;
@@ -841,7 +841,7 @@ successful connection to your ldaps server happening. If that’s the case, you 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano /etc/ldap/ldap.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Then add the line: &lt;code class=&quot;highlighter-rouge&quot;&gt;TLS_REQCERT never&lt;/code&gt;, and try again.&lt;/p&gt;
+    &lt;p&gt;Then add the line: &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TLS_REQCERT never&lt;/code&gt;, and try again.&lt;/p&gt;
 
     &lt;p&gt;If now the connection is going through, it means that there is still an issue with your certificate.&lt;/p&gt;
 
@@ -1578,12 +1578,12 @@ username: passbolt
 password: admin
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user is part of &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; group. There is no root password, so you cannot
+    &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user is part of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt; group. There is no root password, so you cannot
 login in as root. You can however create a shell as root with the default user:&lt;/p&gt;
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -s
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -s
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Mariadb credentials are stored on &lt;code class=&quot;highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt; the file should contain:&lt;/p&gt;
+    &lt;p&gt;Mariadb credentials are stored on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt; the file should contain:&lt;/p&gt;
 
     &lt;ul&gt;
       &lt;li&gt;Random password for root user&lt;/li&gt;
@@ -1906,7 +1906,7 @@ August
 
     &lt;h2 id=&quot;default-behavior&quot;&gt;Default behavior&lt;/h2&gt;
 
-    &lt;p&gt;By default all the settings are &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; which means all the notifications are set to be broadcasted and all the information blocks are set to be shown.&lt;/p&gt;
+    &lt;p&gt;By default all the settings are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; which means all the notifications are set to be broadcasted and all the information blocks are set to be shown.&lt;/p&gt;
 
     &lt;h2 id=&quot;configuring-email-notification-settings&quot;&gt;Configuring Email Notification Settings&lt;/h2&gt;
 
@@ -2034,7 +2034,7 @@ August
     &lt;p&gt;When you using docker to set these environment variable you can pass them as arguments,
 like other variables such as the database name, for example:&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run --name passbolt \
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run --name passbolt \
              -p 80:80 \
              -p 443:443 \
              -e PASSBOLT_EMAIL_SHOW_COMMENT=0 \
@@ -2045,9 +2045,9 @@ like other variables such as the database name, for example:&lt;/p&gt;
 
     &lt;h2 id=&quot;using-config-file&quot;&gt;Using config file&lt;/h2&gt;
 
-    &lt;p&gt;Email notification settings can also be managed by updating the &lt;code class=&quot;highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt; file in your install directory. These settings live in the &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt; key under &lt;code class=&quot;highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
+    &lt;p&gt;Email notification settings can also be managed by updating the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;config/passbolt.php&lt;/code&gt; file in your install directory. These settings live in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;email&lt;/code&gt; key under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
 
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'passbolt' =&amp;gt; [
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'passbolt' =&amp;gt; [
     'email' =&amp;gt; [
         // For Email Delivery configs
         'send' =&amp;gt; [
@@ -2069,7 +2069,7 @@ like other variables such as the database name, for example:&lt;/p&gt;
 
     &lt;p&gt;If a config variable doesn’t exist in your config file, it’s default value will be picked.&lt;/p&gt;
 
-    &lt;p&gt;You can use the following config variables to control the email delivery settings. They are all boolean and accepts &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;. Setting the variable to &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; will mean that email will be sent for that event and setting it &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; will ignore the event.&lt;/p&gt;
+    &lt;p&gt;You can use the following config variables to control the email delivery settings. They are all boolean and accepts &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;. Setting the variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; will mean that email will be sent for that event and setting it &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; will ignore the event.&lt;/p&gt;
 
     &lt;table class=&quot;table-parameters&quot;&gt;
   &lt;thead&gt;
@@ -2130,7 +2130,7 @@ like other variables such as the database name, for example:&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-    &lt;p&gt;Similarly, for changing the email content visibility, you can use the following config variables . They are all boolean and accepts &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt;. Setting the variable to &lt;code class=&quot;highlighter-rouge&quot;&gt;true&lt;/code&gt; will mean that information will be included in outgoing mails and setting it to &lt;code class=&quot;highlighter-rouge&quot;&gt;false&lt;/code&gt; will result in not including that.&lt;/p&gt;
+    &lt;p&gt;Similarly, for changing the email content visibility, you can use the following config variables . They are all boolean and accepts &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;. Setting the variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; will mean that information will be included in outgoing mails and setting it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt; will result in not including that.&lt;/p&gt;
 
     &lt;table class=&quot;table-parameters&quot;&gt;
   &lt;thead&gt;

@@ -274,14 +274,14 @@
                     <h1>Delete a group</h1>
                     <p>Only a group manager or a user with administrator role can delete a group.
 A Group cannot be deleted as long as it is the <strong>sole owner</strong> of a shared resource.
-A Group can be deleted subject to relevant permissions by sending a <code class="highlighter-rouge">DELETE</code> request to <code class="highlighter-rouge">/groups/&lt;groupId&gt;.json</code></p>
+A Group can be deleted subject to relevant permissions by sending a <code class="language-plaintext highlighter-rouge">DELETE</code> request to <code class="language-plaintext highlighter-rouge">/groups/&lt;groupId&gt;.json</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /groups/&lt;groupId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /groups/&lt;groupId&gt;.json?api-version=v2
 </code></pre></div></div>
 
 <p>A dry run can also be performed before actually attempting to delete a group. 
 This works as follow:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /groups/&lt;groupId&gt;/dry-run.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /groups/&lt;groupId&gt;/dry-run.json?api-version=v2
 </code></pre></div></div>
 
 <p>This will check all the constraints and return a 200 OK response if the group can be deleted safely.</p>

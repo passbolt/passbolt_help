@@ -272,9 +272,9 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>Delete a user</h1>
-                    <p>A User can be deleted subject to relevant permissions by sending a <code class="highlighter-rouge">DELETE</code> request to <code class="highlighter-rouge">/users/&lt;userId&gt;.json</code></p>
+                    <p>A User can be deleted subject to relevant permissions by sending a <code class="language-plaintext highlighter-rouge">DELETE</code> request to <code class="language-plaintext highlighter-rouge">/users/&lt;userId&gt;.json</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /users/&lt;userId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /users/&lt;userId&gt;.json?api-version=v2
 </code></pre></div></div>
 
 <p>Only a user with an administrator role can delete users. A User can not be deleted as long as:</p>
@@ -288,10 +288,10 @@ to the group in order to proceed.</p>
 
 <h3 id="dry-run">Dry run</h3>
 <p>A dry run can also be performed before actually attempting to delete a user. This works by sending a 
-<code class="highlighter-rouge">DELETE</code> request to <code class="highlighter-rouge">/users/&lt;userId&gt;/dry-run.json</code>. This will check all the constraints and return a <code class="highlighter-rouge">200 OK</code>
+<code class="language-plaintext highlighter-rouge">DELETE</code> request to <code class="language-plaintext highlighter-rouge">/users/&lt;userId&gt;/dry-run.json</code>. This will check all the constraints and return a <code class="language-plaintext highlighter-rouge">200 OK</code>
 response if the user can be deleted safely.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /users/&lt;userId&gt;/dry-run.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /users/&lt;userId&gt;/dry-run.json?api-version=v2
 </code></pre></div></div>
 
 <h3 id="possible-responses">Possible responses</h3>
@@ -341,7 +341,7 @@ response if the user can be deleted safely.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="error-response">Error response</h3>
 
-<p>For example deleting a user when she is the sole owner of a resource will return <code class="highlighter-rouge">400 Bad Request</code> with a 
+<p>For example deleting a user when she is the sole owner of a resource will return <code class="language-plaintext highlighter-rouge">400 Bad Request</code> with a 
 response body like:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">

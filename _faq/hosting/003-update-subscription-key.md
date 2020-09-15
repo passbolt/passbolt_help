@@ -34,4 +34,25 @@ To check if the operation was successful and if the new subscription key is vali
 $ bin/cake passbolt license_check
 ```
 
-If your key is valid, this command will display the passbolt logo.
+If your key is valid, this command will display the passbolt logo and the subscription key details, as in the example below:
+
+```bash
+root@c6a4f37958b4:/var/www/passbolt# ./bin/cake passbolt license_check
+
+     ____                  __          ____
+    / __ \____  _____ ____/ /_  ____  / / /_
+   / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+  / ____/ /_/ (__  |__  ) /_/ / /_/ / / /
+ /_/    \__,_/____/____/_.___/\____/_/\__/
+
+ Open source password manager for teams
+---------------------------------------------------------------
+
+Thanks for choosing Passbolt Pro
+Below are your subscription key details
+
+Customer id:	xxxxxx
+Users limit:	150 (currently: 43)
+Valid from:	May 6, 2020
+Expires on:	May 6, 2021 (in 385 days)
+```

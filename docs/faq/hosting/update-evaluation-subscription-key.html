@@ -193,7 +193,27 @@ In passbolt, the subscription key is stored in <code class="language-plaintext h
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>bin/cake passbolt license_check
 </code></pre></div></div>
 
-<p>If your key is valid, this command will display the passbolt logo.</p>
+<p>If your key is valid, this command will display the passbolt logo and the subscription key details, as in the example below:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root@c6a4f37958b4:/var/www/passbolt# ./bin/cake passbolt license_check
+
+     ____                  __          ____
+    / __ <span class="se">\_</span>___  _____ ____/ /_  ____  / / /_
+   / /_/ / __ <span class="sb">`</span>/ ___/ ___/ __ <span class="se">\/</span> __ <span class="se">\/</span> / __/
+  / ____/ /_/ <span class="o">(</span>__  |__  <span class="o">)</span> /_/ / /_/ / / /
+ /_/    <span class="se">\_</span>_,_/____/____/_.___/<span class="se">\_</span>___/_/<span class="se">\_</span>_/
+
+ Open <span class="nb">source </span>password manager <span class="k">for </span>teams
+<span class="nt">---------------------------------------------------------------</span>
+
+Thanks <span class="k">for </span>choosing Passbolt Pro
+Below are your subscription key details
+
+Customer <span class="nb">id</span>:	xxxxxx
+Users limit:	150 <span class="o">(</span>currently: 43<span class="o">)</span>
+Valid from:	May 6, 2020
+Expires on:	May 6, 2021 <span class="o">(</span><span class="k">in </span>385 days<span class="o">)</span>
+</code></pre></div></div>
 
                         </div>
 

@@ -20,9 +20,9 @@
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Where can I login?" />
     <meta property="og:description" content="Long story short, it depends on your situation, as passbolt can be hosted on-premises or in the cloud." />
-
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="canonical" href="https://help.passbolt.com/faq/discover/where-can-i-login">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -548,17 +548,19 @@ as the self hosted version, much like a blog, can be hosted anywhere.</p>
             </ul>
         </div>
     </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
 </div>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
-<script>
-    if (!navigator.doNotTrack) {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-23506466-3', { 'anonymize_ip': true });
-    }
-</script>
 <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 </html>

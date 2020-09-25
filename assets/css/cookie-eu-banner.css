@@ -1,0 +1,20 @@
+#cookies-eu-banner {
+    border-top:1px solid #CCC;
+    background: #FFF;
+    font-size: .8em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    padding:.8em;
+    width:100%;
+    z-index: 99999;
+}
+#cookies-eu-more,
+#cookies-eu-accept,
+#cookies-eu-reject {
+    margin-left:.5em;
+    font-size: 1em;
+}
+#cookies-eu-more {
+    margin-right: 1.6em;
+}

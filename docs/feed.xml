@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-09-15T17:23:14+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-09-25T18:09:10+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T05:30:00+05:30</published><updated>2020-06-25T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
@@ -233,7 +233,7 @@ June
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE using debian package</title><link href="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html" rel="alternate" type="text/html" title="Install Passbolt CE using debian package" /><published>2020-05-25T02:00:00+02:00</published><updated>2020-05-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/beta/Debian%20package</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE using debian package</title><link href="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html" rel="alternate" type="text/html" title="Install Passbolt CE using debian package" /><published>2020-05-25T05:30:00+05:30</published><updated>2020-05-25T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/ce/beta/Debian%20package</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -572,7 +572,7 @@ May
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="beta" /><summary type="html"></summary></entry><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="beta" /><summary type="html"></summary></entry><entry><title type="html">Configure email providers</title><link href="https://help.passbolt.com/configure/email/setup.html" rel="alternate" type="text/html" title="Configure email providers" /><published>2020-03-06T05:30:00+05:30</published><updated>2020-03-06T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/email/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/email/setup.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -653,7 +653,7 @@ March
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="email" /><summary type="html"></summary></entry><entry><title type="html">Most common ldap sync error messages</title><link href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html" rel="alternate" type="text/html" title="Most common ldap sync error messages" /><published>2020-03-06T01:00:00+01:00</published><updated>2020-03-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="email" /><summary type="html"></summary></entry><entry><title type="html">Most common ldap sync error messages</title><link href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html" rel="alternate" type="text/html" title="Most common ldap sync error messages" /><published>2020-03-06T05:30:00+05:30</published><updated>2020-03-06T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -704,7 +704,7 @@ March
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T01:00:00+01:00</published><updated>2020-02-07T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Configure LDAP plugin with SSL (ldaps)</title><link href="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html" rel="alternate" type="text/html" title="Configure LDAP plugin with SSL (ldaps)" /><published>2020-02-07T05:30:00+05:30</published><updated>2020-02-07T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/ldap/ldap-with-ssl</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-with-ssl.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -864,7 +864,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 10 (Buster)" /><published>2019-08-09T05:30:00+05:30</published><updated>2019-08-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1197,7 +1197,7 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T02:00:00+02:00</published><updated>2019-08-09T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Debian 9 (Stretch)</title><link href="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Debian 9 (Stretch)" /><published>2019-08-09T05:30:00+05:30</published><updated>2019-08-09T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/Debian%209%20(Stretch)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/debian-9-stretch.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;!---
@@ -1530,7 +1530,7 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Using Passbolt pro virtual machine appliance</title><link href="https://help.passbolt.com/hosting/install/pro/vm.html" rel="alternate" type="text/html" title="Using Passbolt pro virtual machine appliance" /><published>2019-08-07T02:00:00+02:00</published><updated>2019-08-07T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/vm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/vm.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Using Passbolt pro virtual machine appliance</title><link href="https://help.passbolt.com/hosting/install/pro/vm.html" rel="alternate" type="text/html" title="Using Passbolt pro virtual machine appliance" /><published>2019-08-07T05:30:00+05:30</published><updated>2019-08-07T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/install/pro/vm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/vm.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
@@ -1805,7 +1805,7 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure email notification settings for your organization</title><link href="https://help.passbolt.com/configure/notification/email" rel="alternate" type="text/html" title="How to configure email notification settings for your organization" /><published>2019-05-22T02:00:00+02:00</published><updated>2019-05-22T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/notification/email</id><content type="html" xml:base="https://help.passbolt.com/configure/notification/email">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure email notification settings for your organization</title><link href="https://help.passbolt.com/configure/notification/email" rel="alternate" type="text/html" title="How to configure email notification settings for your organization" /><published>2019-05-22T05:30:00+05:30</published><updated>2019-05-22T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/notification/email</id><content type="html" xml:base="https://help.passbolt.com/configure/notification/email">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Some actions in passbolt, such as a user sharing a password with someone else, trigger an email notification. As passbolt admin, you can control which events result in an email notification and which events are ignored. Similarly you can control whether or not a piece of information is included in those notification emails.&lt;/p&gt;
@@ -2182,7 +2182,7 @@ May
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="notification" /><summary type="html"></summary></entry><entry><title type="html">Passbolt reference environment variables</title><link href="https://help.passbolt.com/configure/environment/reference.html" rel="alternate" type="text/html" title="Passbolt reference environment variables" /><published>2019-05-15T02:00:00+02:00</published><updated>2019-05-15T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/environment/reference</id><content type="html" xml:base="https://help.passbolt.com/configure/environment/reference.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="notification" /><summary type="html"></summary></entry><entry><title type="html">Passbolt reference environment variables</title><link href="https://help.passbolt.com/configure/environment/reference.html" rel="alternate" type="text/html" title="Passbolt reference environment variables" /><published>2019-05-15T05:30:00+05:30</published><updated>2019-05-15T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/environment/reference</id><content type="html" xml:base="https://help.passbolt.com/configure/environment/reference.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
     &lt;p&gt;Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values.&lt;/p&gt;
 

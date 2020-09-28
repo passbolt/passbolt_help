@@ -30,10 +30,18 @@ permalink: hosting/install/ce/debian-9-stretch.html
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
+{% include aside/message.html
+    class="tldr warning"
+    content="Please note: This article is for an old version of debian, please consider upgrading."
+    link="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html"
+    ask="How to upgrade debian"
+%}
+
 {% include aside/ce-install-community-forum-cta.md %}
 
 {% include aside/contribute.html %}
 
 {% include aside/ce-install-pro-cta.html %}
 
+{% include aside/message.html %}
 {% include layout/row_end.html %}

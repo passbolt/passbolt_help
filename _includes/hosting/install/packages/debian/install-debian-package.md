@@ -1,7 +1,3 @@
-{% include messages/warning.html
-  content="**Attention:** This is beta feature and so it may be subject to breaking changes. Use at your own risk."
-%}
-
 # 1. Install the server components
 ## Repository setup
 
@@ -63,7 +59,7 @@ as dependencies.
 There are two main ways to install the passbolt debian package:
 
 - Interactive: the package will guide the user through a set of questions to setup mariadb and nginx
-- Non interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the 
+- Non interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.
 
 ### Interactive install
@@ -79,108 +75,14 @@ Install the main passbolt server component:
 sudo apt-get install passbolt-{{product}}-server
 ```
 
-#### Configure mariadb
+{% include configure/configure-debian-package-mariadb.md %}
 
-If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
-an empty mariadb database for passbolt to use.
+#### Configure nginx for serving HTTPS
 
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/configure_mysql.png" 
-    legend="Configure mariadb dialog" width="450px" 
-%}
+Depending on your needs there are two different options to setup nginx and SSL using the debian package:
 
-The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be `root` and the password would be empty.
-
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/mysql_admin_user.png" 
-    legend="Mariadb admin user dialog" width="450px" 
-%}
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png" 
-    legend="Mariadb admin user pass dialog" width="450px"
-%}
-
-Now we need to create a mariadb user with reduced permissions for passbolt to connect. This values will be later asked on the webconfiguration tool of passbolt so please keep them in mind.
-
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png" 
-    legend="Mariadb passbolt user dialog" width="450px"
-%}
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png" 
-    legend="Mariadb passbolt user pass dialog" width="450px"
-%}
-
-Lastly we need to create a database for passbolt to use, for that we need to name it:
-{% 
-    include articles/figure.html url="/assets/img/help/2020/05/debian-package/db_name.png" 
-    legend="Mariadb database name dialog" 
-    width="450px" 
-%}
-
-#### Configure nginx
-
-Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:
-
-- Serve passbolt on port 80 (http)
-- Serve passbolt on port 443 (https)
-
-The following steps will guide you through the option that uses Let's encrypt method to enable SSL.
-
-{% 
-    include messages/warning.html
-    content="**Important requirement:** This tutorial assumes your machine has a valid domain name assigned in 
-    order to work with let's encrypt."
-%}
-
-{% 
-    include messages/warning.html
-    content="**Note:** the configuration does not support serving passbolt on a subdirectory fashion. For example, 
-    scenarios like https://mydomain.com/passbolt are not supported by default"
-%}
-
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/configure_nginx.png" 
-    legend="Configure nginx dialog" width="450px" 
-%}
-
-After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:
-
-{% 
-    include articles/figure.html url="/assets/img/help/2020/05/debian-package/nginx_choices.png" 
-    legend="nginx SSL dialog" width="450px" 
-%}
-
-You will now need to introduce the name of the domain name assinged to your server:
-
-{% include 
-    articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/nginx_domain.png" 
-    legend="nginx domain name" width="450px" 
-%}
-
-Finally you will need to provide an email address for Let's encrypt to notify you for renewals and other admin info:
-
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/lets_encrypt_email.png" 
-    legend="lets encrypt admin email" width="450px" 
-%}
-
-If everything goes fine you should see a final message that points you to finish passbolt configuration:
-
-{% 
-    include articles/figure.html 
-    url="/assets/img/help/2020/05/debian-package/success.png" 
-    legend="Success message" width="450px" 
-%}
+- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
+- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
 ### Non interactive install
 
@@ -190,7 +92,7 @@ This method is useful for automating passbolt installation and for users with sp
 sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-{{product}}-server
 ```
 
-If you don't want to install mysql locally or you don't want to use nginx as http server you can run the above 
+If you don't want to install mysql locally or you don't want to use nginx as http server you can run the above
 command like:
 
 ```

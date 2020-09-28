@@ -29,7 +29,6 @@ The VM includes the following software:
 - Passbolt Pro preinstalled
 - certbot
 - haveged to fill the entropy pool faster
-- Scripts to easy managing SSL setup of the VM
 
 ## 1. Getting started with Passbolt Pro VM
 
@@ -74,19 +73,12 @@ Mariadb credentials are stored on `/root/.mysql_credentials` the file should con
 - Random user and password with permissions for the passbolt database
 
 
-### 1.3. SSL setup process:
+### 1.3. HTTPS setup process:
 
-On the first login through SSH a script will automatically run to configure SSL that will ask you some questions.
-Keep in mind that unless you don't complete all the steps the SSL script will prompt on every login.
+Passbolt Pro VM uses passbolt debian package.  Depending on your needs there are two different options to setup nginx and SSL using the debian package:
 
-**Important note:** It is recommended to run the SSL setup before running the installation wizard to avoid secrets to be transmitted unencrypted during the installation process.
-
-If you just want to test the appliance or you don't need
-SSL:
-
-- Provide a hostname for the script
-- Select (3) for 'none' on the second question to setup nginx without SSL
-- Later on make sure you set PASSBOLT_SECURITY_COOKIE_SECURE environment variable to false if you want to test MFA.
+- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
+- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
 ## 2. Configure passbolt
 

@@ -10,6 +10,7 @@ categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: Debian 10 (Buster)
+ignore_card: true
 permalink: hosting/install/pro/debian-10-buster.html
 ---
 
@@ -28,6 +29,13 @@ permalink: hosting/install/pro/debian-10-buster.html
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
+
+{% include aside/message.html
+    class="tldr warning"
+    content="This is an old method to install passbolt, please considering using the debian package"
+    link="debian/debian.html"
+    ask="Install passbolt with debian package"
+%}
 
 {% include aside/pro-support.html %}
 

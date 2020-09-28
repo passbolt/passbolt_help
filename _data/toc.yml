@@ -131,6 +131,11 @@
       icon: fa-envelope-o
       teaser: How to setup email providers
       slug: email-setup
+    - title: Configure HTTPS
+      url: /configure/https
+      icon: fa-bookmark
+      slug: https
+      teaser: How to setup HTTPS for secure communications
     - title: Troobleshoot Email config
       url: /faq/hosting/why-email-not-sent
       icon: fa-envelope

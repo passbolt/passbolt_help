@@ -2,10 +2,13 @@
 title: Update passbolt server component (v2)
 date: 2020-06-25 00:00:00 Z
 description: How to update passbolt v2 on your server.
-category: hosting
+card_teaser: Update passbolt instances installed with install scripts
+card_title: Update passbolt v2 install scripts
+category: [hosting,update]
+icon: fa-server
 sidebar: hosting
 layout: default
-slug: update
+slug: install_scripts
 permalink: /:categories/:slug.html
 ---
 

@@ -10,6 +10,7 @@ categories: [hosting,install,ce,beta]
 sidebar: hosting
 layout: default
 slug: Debian package
+ignore_card: true
 permalink: /:categories/:slug.html
 ---
 

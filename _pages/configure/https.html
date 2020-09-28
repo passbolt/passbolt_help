@@ -1,0 +1,21 @@
+---
+title: HTTPS
+layout: home
+category: configure
+slug: https
+permalink: /configure/https
+---
+<div class="panel main">
+    <div class="panel left">
+        {% include sidebar/sub-section-home.html section='configure' sub=page.slug %}
+    </div>
+    <div class="panel middle">
+        <div class="grid grid-responsive-12">
+            {% include breadcrumbs/default.html slug=page.slug %}
+            {% assign ceCategories = "configure|https|ce" | split: "|" %}
+            {% include cards/jmy-section-cards.html section='configure' sub='https' title='Community edition' categories=ceCategories %}
+            {% assign proCategories = "configure|https|pro" | split: "|" %}
+            {% include cards/jmy-section-cards.html section='configure' sub='https' title='Pro edition' categories=proCategories %}
+        </div>
+    </div>
+</div>

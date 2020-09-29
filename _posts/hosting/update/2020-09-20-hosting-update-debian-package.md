@@ -70,7 +70,7 @@ sudo systemctl start nginx
     content="Your installation is not based on a debian package?"
     link="/hosting/upgrade/ce/migrate-to-debian.html"
     ask="Migrate passbolt to debian package"
-    link="/hosting/upgrade/"
+    link="/hosting/upgrade"
 %}
 
 {% include aside/message.html

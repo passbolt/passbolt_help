@@ -2,7 +2,7 @@
 title: Update passbolt on debian systems
 date: 2020-09-20 00:00:00 Z
 description: How to update passbolt v2 on your server on debian systems.
-card_teaser: Update on debian systems usign debian package
+card_teaser: Update on debian systems using debian package
 card_title: Debian update guide
 icon: fa-server
 category: [hosting,update]
@@ -67,9 +67,10 @@ sudo systemctl start nginx
 
 {% include aside/message.html
     class="tldr"
-    content="Are you still using passbolt v1? Check out the previous version of this article."
-    link="/hosting/update-v1"
-    ask="See previous version"
+    content="Your installation is not based on a debian package?"
+    link="/hosting/upgrade/ce/migrate-to-debian.html"
+    ask="Migrate passbolt to debian package"
+    link="/hosting/upgrade/"
 %}
 
 {% include aside/message.html

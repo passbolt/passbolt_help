@@ -20,10 +20,10 @@ permalink: /:categories/:slug.html
 
 {% include hosting/docker/docker-system-requirements.md %}
 {% include hosting/docker/docker-getting-containers.md %}
-{% include hosting/docker/docker-usage.md %}
-{% include hosting/docker/docker-first-user-creation.md %}
 {% include hosting/docker/docker-compose-usage.md %}
+{% include hosting/docker/docker-usage.md %}
 {% include hosting/docker/docker-persisting-data.md %}
+{% include hosting/docker/docker-first-user-creation.md %}
 {% include hosting/docker/docker-reference-message.md %}
 
 

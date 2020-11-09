@@ -1,4 +1,4 @@
-## Using passbolt container
+## Option 2. Using passbolt container
 
 Passbolt requires a database backend to store the information. In this section we will be using a MariaDB database packaged as a docker container.
 {% if page.passbolt_version == 'Pro' %}
@@ -36,6 +36,9 @@ $ docker run -d --name mariadb --net passbolt_network \
 Now we can run the passbolt container:
 ```bash
 $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
+             --mount type=bind,\
+               source=<host_path_to_gnupg_keys_dir>,\
+               target=/var/www/passbolt/config/gpg \
              {%- if page.passbolt_version == 'Pro' %}
              --mount type=bind,\
                source=<path_subscription>,\
@@ -53,3 +56,6 @@ $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
 ```
 
 Note: strings between '<' and '>' are variables that the users should fill with their data.
+
+Passbolt require some data to be persistant, most notably the OpenPGP server keys. But also the images, 
+and potentially the SSL certificate. You can read more about it bellow.

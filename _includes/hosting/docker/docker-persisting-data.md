@@ -1,4 +1,4 @@
-## Persisting data in passbolt container
+### Persisting data in passbolt container
 
 There are several locations that might be interesting for the users to persist data between container restarts:
 * Images directory: /var/www/passbolt/webroot/img

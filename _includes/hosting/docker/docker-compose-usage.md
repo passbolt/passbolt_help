@@ -1,4 +1,4 @@
-### Using docker-compose
+## Option 1. Using docker-compose
 
 From the docker-compose official docs: 'Compose is a tool for defining and running multi-container Docker applications'
 

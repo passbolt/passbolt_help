@@ -25,7 +25,20 @@ $ ./bin/cake passbolt send_test_email --recipient=youremail@domain.com
 If this fails you should double check what is the recommended configuration in your email provider documentation.
 You can also ask on the community forum in case another user have a working configuration for the same provider.
 
-### Reason 2: The cron job to send email is missing
+### Reason 2: Email notifications are disabled in the config
+
+Another reason could be because email notifications are disabled in you configuration.
+You can review such settings in the administration panel, when you are logged in as an administrator in passbolt. 
+
+{% include articles/figure.html
+    url="/assets/img/help/2019/05/AD_email_notification_send_settings.png"
+    legend="Email Notification Settings - Email Delivery"
+%}
+
+Depending on the configuration method you have used to setup, you may need to check for configuration 
+in `config/passbolt.php` or with environment variables you are loading (if you use docker containers for example).
+
+### Reason 3: The cron job to send email is missing
 
 Passbolt uses a system of email queue to send email notifications.
 In practice this means there is a dedicated job that runs to go through the queue and send
@@ -46,22 +59,15 @@ $ crontab -u www-data -e
 If the cron is present, you should check if there are more data in the `/var/log/passbolt.log` log file, 
 it may give you more information about the issue.
 
-### Reason 3: Email notifications are disabled in the config
+### Reason 4: The webserver user is not allowed to run cron jobs 
 
-Another reason could be because email notifications are disabled in you configuration.
-You can review such settings in the administration panel, when you are logged in as an administrator in passbolt. 
+On some system, like RHEL or Centos, the`nginx` user may not have the right to run the cron job to send emails,
+because of your PAM configuration. In this case you may want to add `nginx` to the PAM config to have `cron` 
+and `crond:local` permissions.
 
-{% include articles/figure.html
-    url="/assets/img/help/2019/05/AD_email_notification_send_settings.png"
-    legend="Email Notification Settings - Email Delivery"
-%}
+### Reason 5: There is an issue with the database schema related to the email queue
 
-Depending on the configuration method you have used to setup, you may need to check for configuration 
-in `config/passbolt.php` or with environment variables you are loading (if you use docker containers for example).
-
-### Reason 4: There is an issue with the database schema related to the email queue
-
-If you are getting error messages such as:
+If after an update you are getting error messages such as:
 ```
 Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column ‘EmailQueue.to’ in ‘field list’ ...
 ```

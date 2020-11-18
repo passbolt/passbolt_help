@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-11-13T11:45:04+05:30</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-11-18T13:47:33+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -92,7 +92,7 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/pro/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/https/pro/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/pro/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -186,7 +186,7 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/pro/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/https/pro/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/pro/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
@@ -292,7 +292,7 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/ce/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/configure/https/ce/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/ce/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
@@ -398,7 +398,7 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt VM</title><link href="https://help.passbolt.com/hosting/update/vm-update.html" rel="alternate" type="text/html" title="Update passbolt VM" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update/vm_update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/vm-update.html"></content><author><name></name></author><category term="[&quot;hosting&quot;, &quot;update&quot;]" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on debian systems</title><link href="https://help.passbolt.com/hosting/update/debian-package.html" rel="alternate" type="text/html" title="Update passbolt on debian systems" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update/debian_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/debian-package.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on debian systems</title><link href="https://help.passbolt.com/hosting/update/debian-package.html" rel="alternate" type="text/html" title="Update passbolt on debian systems" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/debian_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/debian-package.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
@@ -504,7 +504,7 @@ September
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="[&quot;hosting&quot;, &quot;update&quot;]" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update passbolt docker container" /><published>2020-09-20T05:30:00+05:30</published><updated>2020-09-20T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update passbolt docker container" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
@@ -550,7 +550,7 @@ September
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="[&quot;hosting&quot;, &quot;update&quot;]" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T05:30:00+05:30</published><updated>2020-06-25T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt VM</title><link href="https://help.passbolt.com/hosting/update/vm-update.html" rel="alternate" type="text/html" title="Update passbolt VM" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/vm_update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/vm-update.html"></content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
@@ -785,16 +785,21 @@ June
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="[&quot;hosting&quot;, &quot;update&quot;]" /><summary type="html"></summary></entry><entry><title type="html">Migrate from install scripts to debian package</title><link href="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian package" /><published>2020-06-20T05:30:00+05:30</published><updated>2020-06-20T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian.html"></content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Migrate from install scripts to debian package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian package" /><published>2020-06-20T05:30:00+05:30</published><updated>2020-06-20T05:30:00+05:30</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Migrate from install scripts to debian package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian package" /><published>2020-06-20T02:00:00+02:00</published><updated>2020-06-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;backup-your-instance&quot;&gt;1. Backup your instance&lt;/h1&gt;
 
     &lt;p&gt;First things first, as this is a sensitive operation a backup of the the instance must be performed to prevent any data-loss. You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;&lt;/p&gt;
 
-    &lt;h1 id=&quot;install-passbolt-debian-package&quot;&gt;2. Install passbolt debian package&lt;/h1&gt;
+    &lt;h1 id=&quot;upgrade-your-system&quot;&gt;2. Upgrade your system&lt;/h1&gt;
 
-    &lt;p&gt;You can follow the instructions to install passbolt debian package &lt;a href=&quot;/hosting/install/ce/debian/debian.html&quot;&gt;here&lt;/a&gt; for the community edition and &lt;a href=&quot;/hosting/install/pro/debian/debian.html&quot;&gt;here&lt;/a&gt; for the pro edition.&lt;/p&gt;
+    &lt;p&gt;A full system upgrade to debian stable (10) is necessary before installing passbolt debian package.
+&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;Here&lt;/a&gt; is the official debian guide to upgrade your system with a step by step tutorial.&lt;/p&gt;
+
+    &lt;h1 id=&quot;install-passbolt-debian-package&quot;&gt;3. Install passbolt debian package&lt;/h1&gt;
+
+    &lt;p&gt;You can follow the instructions to install passbolt debian package &lt;a href=&quot;/hosting/install/ce/debian/debian.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
     &lt;p&gt;It is recommended at this point to select:&lt;/p&gt;
 
@@ -803,20 +808,21 @@ June
       &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; to nginx configuration as we will do it at the end&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;h1 id=&quot;copy-gpg-keys-to-the-new-location&quot;&gt;3. Copy GPG keys to the new location&lt;/h1&gt;
+    &lt;h1 id=&quot;copy-gpg-keys-to-the-new-location&quot;&gt;4. Copy GPG keys to the new location&lt;/h1&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
 sudo chown root:www-data /etc/passbolt/gpg/*
 sudo chmod g-w /etc/passbolt/gpg
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;h1 id=&quot;copy-passboltphp-configuration&quot;&gt;4. Copy passbolt.php configuration&lt;/h1&gt;
+    &lt;h1 id=&quot;copy-passboltphp-configuration&quot;&gt;5. Copy passbolt.php configuration&lt;/h1&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
 sudo chown root:www-data /etc/passbolt/passbolt.php
 sudo chmod g-w /etc/passbolt/passbolt.php
+
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h1 id=&quot;php-fpm&quot;&gt;5. PHP-FPM&lt;/h1&gt;
+    &lt;h1 id=&quot;php-fpm&quot;&gt;6. PHP-FPM&lt;/h1&gt;
 
     &lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt; and look for the line that looks like this:&lt;/p&gt;
 
@@ -840,7 +846,7 @@ sudo chmod g-w /etc/passbolt/passbolt.php
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group = www-data
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h1 id=&quot;nginx&quot;&gt;6. Nginx&lt;/h1&gt;
+    &lt;h1 id=&quot;nginx&quot;&gt;7. Nginx&lt;/h1&gt;
 
     &lt;p&gt;Now you can remove all the old nginx configuration files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/conf.d/&lt;/code&gt;&lt;/p&gt;
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm /etc/nginx/conf.d/passbolt.conf
@@ -848,9 +854,6 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;Then you can reconfigure the debian package using:&lt;/p&gt;
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Or, if you are using the pro:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Answer the following way:&lt;/p&gt;
@@ -862,7 +865,14 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 
     &lt;p&gt;You can then select the SSL method that suits best your needs.&lt;/p&gt;
 
-    &lt;h1 id=&quot;cleanup&quot;&gt;7. Cleanup&lt;/h1&gt;
+    &lt;h1 id=&quot;run-the-database-migrations&quot;&gt;8. Run the database migrations&lt;/h1&gt;
+
+    &lt;p&gt;Now it is time to run the migrations to upgrade the database schemas:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h1 id=&quot;cleanup&quot;&gt;9. Cleanup&lt;/h1&gt;
 
     &lt;p&gt;After you have checked you can access your new setup with the debian package make a backup of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; and then
 you can delete it:&lt;/p&gt;
@@ -870,6 +880,13 @@ you can delete it:&lt;/p&gt;
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf /var/www/passbolt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+June
+20th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
@@ -885,5 +902,136 @@ you can delete it:&lt;/p&gt;
     
 &lt;/div&gt;
 
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Migrate from install scripts to debian package</title><link href="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian package" /><published>2020-06-20T02:00:00+02:00</published><updated>2020-06-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h1 id=&quot;backup-your-instance&quot;&gt;1. Backup your instance&lt;/h1&gt;
+
+    &lt;p&gt;First things first, as this is a sensitive operation a backup of the the instance must be performed to prevent any data-loss. You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;&lt;/p&gt;
+
+    &lt;h1 id=&quot;upgrade-your-system&quot;&gt;2. Upgrade your system&lt;/h1&gt;
+
+    &lt;p&gt;A full system upgrade to debian stable (10) is necessary before installing passbolt debian package.
+&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;Here&lt;/a&gt; is the official debian guide to upgrade your system with a step by step tutorial.&lt;/p&gt;
+
+    &lt;h1 id=&quot;install-passbolt-debian-package&quot;&gt;3. Install passbolt debian package&lt;/h1&gt;
+
+    &lt;p&gt;You can follow the instructions to install passbolt debian package &lt;a href=&quot;/hosting/install/pro/debian/debian.html&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+    &lt;p&gt;It is recommended at this point to select:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; for mysql configuration as it is already configured&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; to nginx configuration as we will do it at the end&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h1 id=&quot;copy-gpg-keys-to-the-new-location&quot;&gt;4. Copy GPG keys to the new location&lt;/h1&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
+sudo chown root:www-data /etc/passbolt/gpg/*
+sudo chmod g-w /etc/passbolt/gpg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h1 id=&quot;copy-passboltphp-configuration&quot;&gt;5. Copy passbolt.php configuration&lt;/h1&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
+sudo chown root:www-data /etc/passbolt/passbolt.php
+sudo chmod g-w /etc/passbolt/passbolt.php
+
+sudo cp /var/www/passbolt/config/license /etc/passbolt/license
+sudo chown root:www-data /etc/passbolt/config/license
+sudo chmod g-w /etc/passbolt/license
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h1 id=&quot;php-fpm&quot;&gt;6. PHP-FPM&lt;/h1&gt;
+
+    &lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt; and look for the line that looks like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen = 127.0.0.1:9000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Change it to look like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen = /run/php/php7.3-fpm.sock
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Due to a bug on the install scripts some installations might need to do an additional substitution on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt;:&lt;/p&gt;
+
+    &lt;p&gt;Look for the line containing:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group = _WWW_GROUP_
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And change it to look like:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group = www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h1 id=&quot;nginx&quot;&gt;7. Nginx&lt;/h1&gt;
+
+    &lt;p&gt;Now you can remove all the old nginx configuration files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/conf.d/&lt;/code&gt;&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm /etc/nginx/conf.d/passbolt.conf
+sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;Then you can reconfigure the debian package using:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Answer the following way:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; to mysql configuration&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt; to nginx configuration&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;You can then select the SSL method that suits best your needs.&lt;/p&gt;
+
+    &lt;h1 id=&quot;run-the-database-migrations&quot;&gt;8. Run the database migrations&lt;/h1&gt;
+
+    &lt;p&gt;Now it is time to run the migrations to upgrade the database schemas:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h1 id=&quot;cleanup&quot;&gt;9. Cleanup&lt;/h1&gt;
+
+    &lt;p&gt;After you have checked you can access your new setup with the debian package make a backup of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; and then
+you can delete it:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf /var/www/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+June
+20th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry></feed>

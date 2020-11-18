@@ -197,9 +197,14 @@
 
     <p>First things first, as this is a sensitive operation a backup of the the instance must be performed to prevent any data-loss. You can follow our <a href="/hosting/backup">backup process</a></p>
 
-    <h1 id="install-passbolt-debian-package">2. Install passbolt debian package</h1>
+    <h1 id="upgrade-your-system">2. Upgrade your system</h1>
 
-    <p>You can follow the instructions to install passbolt debian package <a href="/hosting/install/ce/debian/debian.html">here</a> for the community edition and <a href="/hosting/install/pro/debian/debian.html">here</a> for the pro edition.</p>
+    <p>A full system upgrade to debian stable (10) is necessary before installing passbolt debian package.
+<a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">Here</a> is the official debian guide to upgrade your system with a step by step tutorial.</p>
+
+    <h1 id="install-passbolt-debian-package">3. Install passbolt debian package</h1>
+
+    <p>You can follow the instructions to install passbolt debian package <a href="/hosting/install/ce/debian/debian.html">here</a></p>
 
     <p>It is recommended at this point to select:</p>
 
@@ -208,20 +213,21 @@
       <li><strong>No</strong> to nginx configuration as we will do it at the end</li>
     </ul>
 
-    <h1 id="copy-gpg-keys-to-the-new-location">3. Copy GPG keys to the new location</h1>
+    <h1 id="copy-gpg-keys-to-the-new-location">4. Copy GPG keys to the new location</h1>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
 sudo chown root:www-data /etc/passbolt/gpg/*
 sudo chmod g-w /etc/passbolt/gpg
 </code></pre></div>    </div>
-    <h1 id="copy-passboltphp-configuration">4. Copy passbolt.php configuration</h1>
+    <h1 id="copy-passboltphp-configuration">5. Copy passbolt.php configuration</h1>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
 sudo chown root:www-data /etc/passbolt/passbolt.php
 sudo chmod g-w /etc/passbolt/passbolt.php
+
 </code></pre></div>    </div>
 
-    <h1 id="php-fpm">5. PHP-FPM</h1>
+    <h1 id="php-fpm">6. PHP-FPM</h1>
 
     <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
 
@@ -245,7 +251,7 @@ sudo chmod g-w /etc/passbolt/passbolt.php
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen.group = www-data
 </code></pre></div>    </div>
 
-    <h1 id="nginx">6. Nginx</h1>
+    <h1 id="nginx">7. Nginx</h1>
 
     <p>Now you can remove all the old nginx configuration files from <code class="language-plaintext highlighter-rouge">/etc/nginx/conf.d/</code></p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/nginx/conf.d/passbolt.conf
@@ -253,9 +259,6 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 </code></pre></div>    </div>
     <p>Then you can reconfigure the debian package using:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-ce-server
-</code></pre></div>    </div>
-    <p>Or, if you are using the pro:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-pro-server
 </code></pre></div>    </div>
 
     <p>Answer the following way:</p>
@@ -267,7 +270,14 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 
     <p>You can then select the SSL method that suits best your needs.</p>
 
-    <h1 id="cleanup">7. Cleanup</h1>
+    <h1 id="run-the-database-migrations">8. Run the database migrations</h1>
+
+    <p>Now it is time to run the migrations to upgrade the database schemas:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
+</code></pre></div>    </div>
+
+    <h1 id="cleanup">9. Cleanup</h1>
 
     <p>After you have checked you can access your new setup with the debian package make a backup of <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> and then
 you can delete it:</p>
@@ -275,6 +285,13 @@ you can delete it:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf /var/www/passbolt
 </code></pre></div>    </div>
 
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+June
+20th,
+2020.</p>
+    </div>
   </div>
   <div class="col4 last push1">
 
@@ -287,6 +304,13 @@ you can delete it:</p>
 
     <div class="message ">
     <p></p>
+    
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
     
 </div>
 

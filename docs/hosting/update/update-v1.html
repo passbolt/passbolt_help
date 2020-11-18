@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/update-v1">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/update/update-v1">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -91,47 +91,44 @@
 
 <div class="navigation-help" role="navigation">
     <ul>
-        <li><h2>Hosting</h2></li>
-        
-        
         <li>
+            <h2>Hosting</h2>
+        </li>
         
+        <li >
             <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/hosting/install">Installation</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
-        <li>
         
+        
+        <li >
             <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/hosting/backup">Backup</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
         </li>
         
+        
     </ul>
 </div>
-
 
 
 
@@ -162,16 +159,23 @@
                     </div>
                 </li>
                 
+                
                 <li>
                     <div class="main-cell">
                         <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
                     </div>
                 </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/update"><span>update</span></a>
+                    </div>
+                </li>
+                
                 
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/update-v1.html"><span>update-v1</span></a>
+                        <a href="https://help.passbolt.com/hosting/update/update-v1.html"><span>update-v1</span></a>
                     </div>
                 </li>
                 
@@ -230,10 +234,10 @@
 
     <h4 id="review-the-configuration-files">3. Review the configuration files</h4>
 
-    <p>While we try to provide backward compatibility by providing safe fallbacks for new configuration files items, 
+    <p>While we try to provide backward compatibility by providing safe fallbacks for new configuration files items,
 it is recommended that you review your configuration files when the default changes.</p>
 
-    <p>For example let’s take the scenario where you are running v1.1.0 and you want to upgrade to v1.3.2. 
+    <p>For example let’s take the scenario where you are running v1.1.0 and you want to upgrade to v1.3.2.
 We can check that both the app and core files have changed as follow:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git diff <span class="nt">--name-status</span> v1.3.2 v1.1.0 | <span class="nb">grep</span> <span class="s1">'php.default'</span>
@@ -243,7 +247,7 @@ M	app/Config/core.php.default
 
     <h4 id="make-a-backup-of-your-database">4. Make a backup of your database</h4>
 
-    <p>Prior to running a database migration script it is very important that you perform a backup, in case something 
+    <p>Prior to running a database migration script it is very important that you perform a backup, in case something
 goes wrong. You can do this using mysqldump, with for example:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>mysqldump <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>pass] db <span class="o">&gt;</span> /path/to/backup.sql
@@ -282,12 +286,12 @@ Allow sending anonymous usage statistics? <span class="o">(</span>y/n<span class
 All migrations have completed.
 </code></pre></div>    </div>
 
-    <p>As you can see above, the migration script for v1.2.0 will also be applied automatically. Sometimes also, 
+    <p>As you can see above, the migration script for v1.2.0 will also be applied automatically. Sometimes also,
 for example with the introduction of the anonymous usage statistics, the migration script can prompt you for input.</p>
 
     <h4 id="put-your-site-back-online">6. Put your site back online!</h4>
 
-    <p>As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if 
+    <p>As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if
 your instance configuration is looking good.</p>
 
     <h2 id="patch-update">Patch update</h2>

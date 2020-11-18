@@ -18,6 +18,7 @@ permalink: /:categories/:slug.html
 {% include layout/col_start.html column="7" %}
 
 {% include hosting/upgrade/upgrade-to-debian-pkg.md %}
+{% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}

@@ -31,7 +31,7 @@ sudo chown root:www-data /etc/passbolt/passbolt.php
 sudo chmod g-w /etc/passbolt/passbolt.php
 {% if page.passbolt_version == 'pro' %}
 sudo cp /var/www/passbolt/config/license /etc/passbolt/license
-sudo chown root:www-data /etc/passbolt/config/license
+sudo chown root:www-data /etc/passbolt/license
 sudo chmod g-w /etc/passbolt/license
 {% endif %}
 ```

@@ -5,7 +5,7 @@ description: How to update passbolt VM appliance
 card_teaser: Update passbolt VM appliance
 card_title: Update passbolt VM
 icon: fa-server
-category: [hosting,update]
+categories: [hosting, update]
 sidebar: hosting
 layout: default
 slug: vm_update

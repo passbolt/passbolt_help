@@ -2,7 +2,7 @@
 title: Update passbolt server component (v1)
 date: 2017-01-20 00:00:00 Z
 description: How to update passbolt v1 on your server.
-category: hosting
+categories: [hosting, update]
 sidebar: hosting
 layout: default
 slug: update-v1
@@ -38,10 +38,10 @@ $ git checkout tags/v1.x.x
 
 #### 3. Review the configuration files
 
-While we try to provide backward compatibility by providing safe fallbacks for new configuration files items, 
+While we try to provide backward compatibility by providing safe fallbacks for new configuration files items,
 it is recommended that you review your configuration files when the default changes.
 
-For example let's take the scenario where you are running v1.1.0 and you want to upgrade to v1.3.2. 
+For example let's take the scenario where you are running v1.1.0 and you want to upgrade to v1.3.2.
 We can check that both the app and core files have changed as follow:
 
 ```bash
@@ -52,7 +52,7 @@ M	app/Config/core.php.default
 
 #### 4. Make a backup of your database
 
-Prior to running a database migration script it is very important that you perform a backup, in case something 
+Prior to running a database migration script it is very important that you perform a backup, in case something
 goes wrong. You can do this using mysqldump, with for example:
 
 ```bash
@@ -94,12 +94,12 @@ Allow sending anonymous usage statistics? (y/n)
 All migrations have completed.
 ```
 
-As you can see above, the migration script for v1.2.0 will also be applied automatically. Sometimes also, 
+As you can see above, the migration script for v1.2.0 will also be applied automatically. Sometimes also,
 for example with the introduction of the anonymous usage statistics, the migration script can prompt you for input.
 
 #### 6. Put your site back online!
 
-As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if 
+As an administrator (or as any user in debug mode) you can go and check on the /healthcheck page to see if
 your instance configuration is looking good.
 
 ## Patch update

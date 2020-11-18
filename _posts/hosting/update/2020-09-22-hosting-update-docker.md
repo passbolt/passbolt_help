@@ -5,7 +5,7 @@ description: How to update passbolt docker container
 card_teaser: Update passbolt on docker installations
 card_title: Update passbolt docker
 icon: fa-server
-category: [hosting,update]
+categories: [hosting, update]
 sidebar: hosting
 layout: default
 slug: docker

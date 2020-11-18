@@ -5,7 +5,7 @@ description: How to update passbolt v2 on your server on debian systems.
 card_teaser: Update on debian systems using debian package
 card_title: Debian update guide
 icon: fa-server
-category: [hosting,update]
+categories: [hosting, update]
 sidebar: hosting
 layout: default
 slug: debian_package

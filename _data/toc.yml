@@ -1,4 +1,4 @@
-- title: Discover
+- title: Introduction
   slug: discover
   teaser: Everybody has to start somewhere
   items:
@@ -26,7 +26,11 @@
       url: https://community.passbolt.com/c/site-feedback
       icon: fa-comment
       teaser: We are not machines and it's a cold world out there.
-- title: Get started
+- title: Installation
+  url: /hosting/install
+  slug: installation
+  teaser: Installation guides
+- title: Getting started
   slug: start
   teaser: All the basics to set up and use passbolt
   items:

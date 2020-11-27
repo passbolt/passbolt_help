@@ -102,7 +102,7 @@ Enter it in the box.
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Database
 
 This step is about telling passbolt which database to use. For the sake of this example we
-will use the preinstalled mariadb server that comes with the AMI so hostname is fixed to '127.0.01'
+will use the preinstalled mariadb server that comes with the AMI so hostname is fixed to '127.0.0.1'
 and the credentials provided in the `/root/.mysql_credentials`
 
 - Hostname: 127.0.0.1

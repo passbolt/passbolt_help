@@ -24,8 +24,14 @@ automatic AWS DNS that is automatically attached to the instance:
 ssh admin@ec2-my-instance-ip.compute-1.amazonaws.com
 ```
 
-Where 'my-instance-ip' would be the public ip address assigned to the instance dash separated.
-You can copy this value from the AWS EC2 instance details.
+Where 'my-instance-ip' would be the public ip address assigned to the instance dash separated. For example
+
+```
+ec2-10-0-0-1.compute-1.amazonaws.com
+```
+
+This dynamic DNS name might vary depending on your IP but also on the region you run your instance. More information
+about AWS public DNS names [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses)
 
 ### 1.2 Credentials
 

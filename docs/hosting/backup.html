@@ -191,10 +191,10 @@
                         <div class="row">
   <div class="col7">
 
-    <p>Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important 
+    <p>Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
 information, it is equally important to have a backup strategy in place.</p>
 
-    <p>As a passbolt administrator it is your responsibility to define how often and when to perform backups. 
+    <p>As a passbolt administrator it is your responsibility to define how often and when to perform backups.
 Please automate and customize this process to match the needs and policies of your organization.</p>
 
     <p>Here are some best practices to keep in mind:</p>
@@ -222,8 +222,19 @@ Please automate and customize this process to match the needs and policies of yo
     <h4 id="the-server-public-and-private-keys">3. The server public and private keys</h4>
 
     <p>You can copy the server OpenPGP key in <code class="language-plaintext highlighter-rouge">config/gpg</code> or export it directly from GnuPG.</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--export-secret-key</span> <span class="nt">-a</span> <span class="s2">"passbolt server"</span> <span class="o">&gt;</span> private.key
+
+    <p>To export it using GnuPG you can use the email attached to your keys to identify them or use the fingerprint.
+In order to find the fingerprint if you do not know the email attached to your keys:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span>
 </code></pre></div>    </div>
+
+    <p>If you know the email attached to your keys you can use it to export your keys as follows:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --export-secret-keys &lt;identifier&gt; &gt; /var/www/passbolt/config/gpg/private.asc"</span> www-data
+<span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --export &lt;identifier&gt; &gt; /var/www/passbolt/config/gpg/public.asc"</span> www-data
+</code></pre></div>    </div>
+    <p>Where <identifier> can be the key fingerprint or the email associated with the key you want to export.</identifier></p>
 
     <h5 id="note">Note</h5>
 

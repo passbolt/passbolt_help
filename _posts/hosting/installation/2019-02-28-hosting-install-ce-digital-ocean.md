@@ -111,6 +111,6 @@ user, password and database created during the droplet boot. You will find these
 
 {% include aside/ce-install-community-forum-cta.md %}
 
-{% include aside/contribute.html %}
+{% include aside/ce-stay-up-to-date.md %}
 
 {% include layout/row_end.html %}

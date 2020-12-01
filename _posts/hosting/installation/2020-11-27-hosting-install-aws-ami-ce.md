@@ -3,7 +3,6 @@ title: Using Passbolt CE AWS AMI
 card_title: Passbolt CE AWS AMI
 card_teaser: Use passbolt CE on AWS
 card_position: 1
-ignore_card: true
 date: 2019-08-07 00:00:00 Z
 description: Start using passbolt CE on AWS
 icon: fa-server

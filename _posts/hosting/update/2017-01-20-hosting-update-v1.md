@@ -3,6 +3,9 @@ title: Update passbolt server component (v1)
 date: 2017-01-20 00:00:00 Z
 description: How to update passbolt v1 on your server.
 categories: [hosting, update]
+card_teaser: Update passbolt instances installed with install scripts
+card_title: Update passbolt v1 install scripts
+icon: fa-server
 sidebar: hosting
 layout: default
 slug: update-v1

@@ -12,10 +12,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important 
+Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
 information, it is equally important to have a backup strategy in place.
 
-As a passbolt administrator it is your responsibility to define how often and when to perform backups. 
+As a passbolt administrator it is your responsibility to define how often and when to perform backups.
 Please automate and customize this process to match the needs and policies of your organization.
 
 Here are some best practices to keep in mind:
@@ -42,9 +42,21 @@ The images in `webroot/img/public` also need to be backed up, otherwise profile 
 #### 3. The server public and private keys
 
 You can copy the server OpenPGP key in `config/gpg` or export it directly from GnuPG.
+
+To export it using GnuPG you can use the email attached to your keys to identify them or use the fingerprint.
+In order to find the fingerprint if you do not know the email attached to your keys:
+
 ```bash
-gpg --export-secret-key -a "passbolt server" > private.key
+sudo -H -u www-data /bin/bash -c "gpg --list-keys"
 ```
+
+If you know the email attached to your keys you can use it to export your keys as follows:
+
+```bash
+sudo -H -u www-data /bin/bash -c "gpg --export-secret-keys <identifier> > /var/www/passbolt/config/gpg/private.asc" www-data
+sudo -H -u www-data /bin/bash -c "gpg --export <identifier> > /var/www/passbolt/config/gpg/public.asc" www-data
+```
+Where <identifier> can be the key fingerprint or the email associated with the key you want to export.
 
 ##### Note
 

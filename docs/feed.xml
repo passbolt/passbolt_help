@@ -1,4 +1,156 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-12-01T17:11:58+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2020-12-01T22:50:10+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update passbolt docker container" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
+the passbolt version so updating them is as easy as changing the image tag.&lt;/p&gt;
+
+    &lt;p&gt;Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
+some extra steps that are out of the scope of this help site.&lt;/p&gt;
+
+    &lt;p&gt;As a example if you are running passbolt docker using the docker-compose files provided &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;here&lt;/a&gt;
+you would just need to change the following line:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; image: passbolt/passbolt:&amp;lt;IMAGE_TAG&amp;gt;-debian
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Where &lt;IMAGE_TAG&gt; is the passbolt version that you want to use, for example `2.13.5` and relaunch your composer:&lt;/IMAGE_TAG&gt;&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Voilà&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+September
+20th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on debian systems</title><link href="https://help.passbolt.com/hosting/update/debian-package.html" rel="alternate" type="text/html" title="Update passbolt on debian systems" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/debian_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/debian-package.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
+    &lt;h2 id=&quot;take-down-your-site&quot;&gt;0. Take down your site&lt;/h2&gt;
+
+    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h2 id=&quot;update-apt-lists&quot;&gt;1. Update apt lists&lt;/h2&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;backup-your-database&quot;&gt;2. Backup your database&lt;/h2&gt;
+
+    &lt;p&gt;It is recommended to always perform a backup of your passbolt installation. Please check the &lt;a href=&quot;/hosting/backup&quot;&gt;backup&lt;/a&gt; article&lt;/p&gt;
+
+    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;3. Upgrade your system&lt;/h2&gt;
+
+    &lt;p&gt;This command will trigger an upgrade on your whole debian system:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;clear-the-cache&quot;&gt;4. Clear the cache&lt;/h2&gt;
+
+    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
+reflected in model cache files:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake cache clear_all&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h2 id=&quot;take-your-site-back-up&quot;&gt;5. Take your site back up&lt;/h2&gt;
+
+    &lt;p&gt;Almost done:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+
+    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
+    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You can also run the following command:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
+
+    &lt;p&gt;If you run into some issues:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
+      &lt;li&gt;Check for error message in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
+      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
+      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
+      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
+      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Where to get help:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
+      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
+the easiest it will be for people to help you.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+September
+20th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Your installation is not based on a debian package?&lt;/p&gt;
+    
+    &lt;a href=&quot;/hosting/upgrade&quot; class=&quot;button &quot;&gt;Migrate passbolt to debian package&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -292,7 +444,7 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/ce/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt VM</title><link href="https://help.passbolt.com/hosting/update/vm-update.html" rel="alternate" type="text/html" title="Update passbolt VM" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/vm_update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/vm-update.html"></content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/ce/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
@@ -398,159 +550,7 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on debian systems</title><link href="https://help.passbolt.com/hosting/update/debian-package.html" rel="alternate" type="text/html" title="Update passbolt on debian systems" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/debian_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/debian-package.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
-    &lt;h2 id=&quot;take-down-your-site&quot;&gt;0. Take down your site&lt;/h2&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;h2 id=&quot;update-apt-lists&quot;&gt;1. Update apt lists&lt;/h2&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;backup-your-database&quot;&gt;2. Backup your database&lt;/h2&gt;
-
-    &lt;p&gt;It is recommended to always perform a backup of your passbolt installation. Please check the &lt;a href=&quot;/hosting/backup&quot;&gt;backup&lt;/a&gt; article&lt;/p&gt;
-
-    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;3. Upgrade your system&lt;/h2&gt;
-
-    &lt;p&gt;This command will trigger an upgrade on your whole debian system:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;clear-the-cache&quot;&gt;4. Clear the cache&lt;/h2&gt;
-
-    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
-reflected in model cache files:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake cache clear_all&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;h2 id=&quot;take-your-site-back-up&quot;&gt;5. Take your site back up&lt;/h2&gt;
-
-    &lt;p&gt;Almost done:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
-
-    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
-    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You can also run the following command:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
-
-    &lt;p&gt;If you run into some issues:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
-      &lt;li&gt;Check for error message in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
-      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
-      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
-      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
-      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Where to get help:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
-      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
-the easiest it will be for people to help you.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-September
-20th,
-2020.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Your installation is not based on a debian package?&lt;/p&gt;
-    
-    &lt;a href=&quot;/hosting/upgrade&quot; class=&quot;button &quot;&gt;Migrate passbolt to debian package&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update passbolt docker container" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
-the passbolt version so updating them is as easy as changing the image tag.&lt;/p&gt;
-
-    &lt;p&gt;Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
-some extra steps that are out of the scope of this help site.&lt;/p&gt;
-
-    &lt;p&gt;As a example if you are running passbolt docker using the docker-compose files provided &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;here&lt;/a&gt;
-you would just need to change the following line:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; image: passbolt/passbolt:&amp;lt;IMAGE_TAG&amp;gt;-debian
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Where &lt;IMAGE_TAG&gt; is the passbolt version that you want to use, for example `2.13.5` and relaunch your composer:&lt;/IMAGE_TAG&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up -d
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Voilà&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-September
-20th,
-2020.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt VM</title><link href="https://help.passbolt.com/hosting/update/vm-update.html" rel="alternate" type="text/html" title="Update passbolt VM" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/vm_update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/vm-update.html"></content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;

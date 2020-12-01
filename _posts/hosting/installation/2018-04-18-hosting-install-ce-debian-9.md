@@ -2,8 +2,8 @@
 title: Install Passbolt CE on Debian 9 (Stretch)
 date: 2018-11-13 00:00:00 Z
 description: How to install Passbolt CE on Debian 9 (Stretch)
-card_title: Debian 9 guide
-card_teaser: Step by step guide to install passbolt on Debian 9
+card_title: Debian
+card_teaser: Step by step guide to install passbolt CE on Debian 9
 card_position: 1
 icon: fa-server
 categories: [hosting,install,ce]

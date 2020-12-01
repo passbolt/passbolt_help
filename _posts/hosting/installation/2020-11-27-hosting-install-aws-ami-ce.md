@@ -1,8 +1,8 @@
 ---
 title: Using Passbolt CE AWS AMI
-card_title: Passbolt CE AWS AMI
+card_title: AWS AMI
 card_teaser: Use passbolt CE on AWS
-card_position: 1
+card_position: 6
 date: 2019-08-07 00:00:00 Z
 description: Start using passbolt CE on AWS
 icon: fa-server
@@ -24,6 +24,7 @@ permalink: /:categories/:slug.html
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/pro-support.html %}
+{% include aside/ce-install-community-forum-cta.md %}
+{% include aside/ce-stay-up-to-date.md %}
 
 {% include layout/row_end.html %}

@@ -2,7 +2,7 @@
 title: Using Passbolt pro virtual machine appliance
 card_title: Virtual machine
 card_teaser: Use passbolt Pro virtual appliance
-card_position: 1
+card_position: 5
 date: 2019-08-07 00:00:00 Z
 description: Start using passbolt pro virtual machine
 icon: fa-server

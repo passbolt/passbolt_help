@@ -3,8 +3,8 @@ title: Install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)
 date: 2018-11-13 00:00:00 Z
 description: How to install Passbolt Pro on Ubuntu 18.04 (Bionic Beaver)
 card_title: Ubuntu 18.04 guide
-card_teaser: Step by step guide to install passbolt on Ubuntu 18.04
-card_position: 4
+card_teaser: Step by step guide to install passbolt Pro on Ubuntu 18.04
+card_position: 3
 icon: fa-server
 categories: [hosting,install,pro]
 sidebar: hosting

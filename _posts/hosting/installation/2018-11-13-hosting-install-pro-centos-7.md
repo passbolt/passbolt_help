@@ -3,8 +3,8 @@ title: Install Passbolt Pro on CentOS 7
 date: 2018-11-13 00:00:00 Z
 description: How to install Passbolt Pro on CentOS 7
 card_title: CentOS 7  guide
-card_teaser: Step by step guide to install passbolt on CentOS 7
-card_position: 3
+card_teaser: Step by step guide to install passbolt Pro on CentOS 7
+card_position: 2
 icon: fa-server
 categories: [hosting,install,pro]
 sidebar: hosting

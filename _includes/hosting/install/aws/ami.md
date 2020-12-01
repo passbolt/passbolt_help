@@ -16,7 +16,7 @@ leverage on third party email providers.
 ## 1. Getting started with passbolt {{ product | upcase }} AMI
 
 You can subscribe to passbolt  {{ product | upcase }} on the following [AWS marketplace listing](https://aws.amazon.com/marketplace/pp/B08PDGS3ML). Just
-click on continue to subscribe button on the listing page.
+click on "continue to subscribe" button on the listing page.
 
 {% include articles/figure.html url="/assets/img/help/2020/12/subscribe-aws.png" legend="subscribe to passbolt marketplace community edition" width="586px" %}
 
@@ -64,13 +64,18 @@ ec2-10-0-0-1.compute-1.amazonaws.com
 This dynamic DNS name might vary depending on your IP but also on the region you run your instance. More information
 about AWS public DNS names [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses)
 
-### 1.2 Credentials
+### 1.2 Retrieve the credentials
 
-The appliance performs some actions on the first boot:
-- Creates ssh host keys
-- Enables ssh
-- Creates a set of random mariadb credentials for the mariadb server installed on the appliance
-- Creates an empty database where passbolt can be installed.
+<div class="message notice">
+<p>Note: the appliance performs some actions on the first boot:</p>
+<ul>
+<li>Create ssh host keys</li>
+<li>Enable ssh</li>
+<li>Create a set of random mariadb credentials for the mariadb server installed on the appliance</li>
+<li>Create an empty database where passbolt can be installed.</li>
+</ul>
+</div>
+
 
 The `admin` user is part of `sudo` group. There is no root password, so you cannot
 login in as root. You can however create a shell as root with the default user:
@@ -79,15 +84,19 @@ login in as root. You can however create a shell as root with the default user:
 sudo -s
 ```
 
-Mariadb credentials are stored on `/root/.mysql_credentials` the file should contain:
+Mariadb credentials are stored on `/root/.mysql_credentials`. You will need to retrieve them for the next step:
 
+```
+sudo cat /root/.mysql_credentials
+```
+
+The file contains: 
 - Random password for root user
 - Empty database name. It follows the pattern passbolt_random_id
 - Random user and password with permissions for the passbolt database
 
+Output example:
 ```
-sudo cat /root/.mysql_credentials
-
 root_username = root
 root_password = "SOME_RANDOM_PASSWORD_HERE"
 
@@ -96,12 +105,11 @@ password = "SOME_RANDOM_PASSWORD_HERE"
 database = "passbolt_p5aEMDJ9"
 ```
 
-The randomly generated credentials for 'passbolt_usr_l9WIsaQO' will be used on the web wizard.
 Please note that 'l9WIsaQO' is a random generated identifier that might vary from instance to instance.
 
-### 1.3. HTTPS setup process:
+### 1.3. Setup HTTPS (optional, but highly recommended):
 
-At this point it is encouraged to setup SSL for your instance, there are two main methods described below:
+If you are planning to use this AWS instance in production, it is highly recommended to setup SSL. There are two main methods described below:
 
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)

@@ -10,7 +10,7 @@
 - **Yes**: if you are not planning on using an external mysql / mariadb server.
 - **No**: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.
 
-The script will then ask you for the database details: root password, database name, and password.
+The script will then ask you for the database details: root user password, non-root user name, non-root user password, database name, and database password.
 
 ### Hostname
 

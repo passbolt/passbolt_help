@@ -57,5 +57,6 @@ $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
 
 Note: strings between '<' and '>' are variables that the users should fill with their data.
 
-Passbolt require some data to be persistant, most notably the OpenPGP server keys. But also the images, 
-and potentially the SSL certificate. You can read more about it bellow.
+Passbolt requires some data to be persistant, most notably the OpenPGP server keys. However, images and 
+potentially the SSL certificate might also need to be persisted depending on your specific configuration.
+You can read more about it below.

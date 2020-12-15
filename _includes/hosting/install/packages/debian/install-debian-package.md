@@ -4,6 +4,8 @@
 For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt {{ product | upcase }} and install it.
 
+These steps assume you have already installed sudo and added your user to the sudo group.
+
 **Step 1.** Update the apt indexes and install packages to allow apt to use https repositories:
 
 ```
@@ -58,8 +60,10 @@ as dependencies.
 
 There are two main ways to install the passbolt debian package:
 
-- Interactive: the package will guide the user through a set of questions to setup mariadb and nginx
-- Non interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
+- Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are 
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before 
+beginning. The user will be asked for the path and name of the certificate and key.
+- Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.
 
 ### Interactive install
@@ -84,7 +88,7 @@ Depending on your needs there are two different options to setup nginx and SSL u
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
-### Non interactive install
+### Non-interactive install
 
 This method is useful for automating passbolt installation and for users with specific needs.
 

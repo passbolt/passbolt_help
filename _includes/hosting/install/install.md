@@ -50,6 +50,7 @@ sudo apt-get update
 In doubt you can check as follow:
 ```
 sudo cat /etc/apt/sources.list
+
 deb http://archive.ubuntu.com/ubuntu bionic main universe
 deb http://archive.ubuntu.com/ubuntu bionic-security main universe
 deb http://archive.ubuntu.com/ubuntu bionic-updates main universe

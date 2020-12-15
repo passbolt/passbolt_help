@@ -38,7 +38,7 @@ On virtualized environments GnuPG will most likely not be able to find enough en
 Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
  Haveged.
 
-Haveged is a useful too to fix entropy issues, however it can have security implications. Make sure you understand 
+Haveged is a useful tool to fix entropy issues, however it can have security implications. Make sure you understand 
 the risks before answering yes to this question.
 
 {% include hosting/install/warning-gpg-key-generation.html %}

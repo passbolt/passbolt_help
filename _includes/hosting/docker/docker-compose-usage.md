@@ -16,6 +16,8 @@ At this point some users might want to customize passbolt environment variables 
 * env/mysql.env
 * env/passbolt.env
 
+For further reference regarding environment variables, please see the link at the bottom of the page.
+
 Docker-compose requires the use of `sudo`. Alternatively, you may choose to add your local user to the `docker`
 group. Going forward, the second option is assumed.
 

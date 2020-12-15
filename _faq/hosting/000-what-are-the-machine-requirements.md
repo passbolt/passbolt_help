@@ -11,7 +11,7 @@ However we recommend you run passbolt using the stable version of a major linux 
 Ubuntu, Centos, etc.
 
 The minimum virtual machine specs we recommend:
-- 1 CORE
+- 2 cores
 - 2GB RAM
 - 10GB
 - 10mbps 

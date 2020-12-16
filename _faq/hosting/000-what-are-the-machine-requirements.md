@@ -13,6 +13,6 @@ Ubuntu, Centos, etc.
 The minimum virtual machine specs we recommend:
 - 2 cores
 - 2GB RAM
-- 10GB
+- 20GB
 - 10mbps 
 - Internet access

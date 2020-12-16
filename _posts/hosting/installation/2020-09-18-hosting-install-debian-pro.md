@@ -29,7 +29,7 @@ permalink: /:categories/:slug.html
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/ce-install-community-forum-cta.md %}
+{% include aside/pro-support.html %}
 
 {% include aside/contribute.html %}
 

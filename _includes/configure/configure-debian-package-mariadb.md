@@ -35,7 +35,7 @@ By default in most installations the admin username would be `root` and the pass
     legend="Mariadb admin user pass dialog" width="450px"
 %}
 
-Now we need to create a mariadb user with reduced permissions for passbolt to connect. This values will be later asked on the webconfiguration tool of passbolt so please keep them in mind.
+Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.
 
 {% assign imgUrl = '/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png' %}
 {% if product == 'pro' %}

@@ -10,7 +10,7 @@ date: 2017-01-20 00:00:00 Z
 If you have ever seen a piece of software that functions exactly as it's supposed to 100% of the time...
 nevermind, that is an improbable dream. 
 
-## Reporting a bug
+## Reporting a bugxxxxxx
 We work hard to squash the bugs in passbolt, so if you find 
 something not quite right, please file an issue on our github repo.
 

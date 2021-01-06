@@ -18,7 +18,6 @@ POST /resources.json?api-version=v2
   "name": "<string>",
   "description": "<string>",
   "secrets": [{
-    "user_id": "<UUID>",
     "data": "<encrypted_password>"
   }]
 }
@@ -68,7 +67,7 @@ The request body expects the following parameters:
         <tr>
             <td>uri</td>
             <td>URI/URL for the new resource.</td>
-            <td>String</td>
+            <td>No</td>
             <td>Valid utf8 string.<br>
                 Must not exceed 1024 characters.
             </td>
@@ -76,19 +75,13 @@ The request body expects the following parameters:
         <tr>
             <td>secrets</td>
             <td>An array of secrets in object format</td>
-            <td>Array</td>
+            <td>Yes</td>
             <td>Exactly one secret must be provided.</td>
         </tr>
         <tr>
-            <td>secrets.user_id</td>
-            <td>User ID of the user</td>
-            <td>String</td>
-            <td>UUID</td>
-        </tr>
-        <tr>
-            <td>secrets.data</td>
+            <td>secrets[data]</td>
             <td>Encrypted password.</td>
-            <td>String</td>
+            <td>Yes</td>
             <td>Valid ASCII Armored OpenPGP block</td>
         </tr>
     </tbody>
@@ -130,7 +123,6 @@ The request body expects the following parameters:
   "name": "Apple developer ID",
   "description": "Official apple account to publish apps on the app store",
   "secrets": [{
-    "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
     "data": "<encrypted_password>"
   }]
 }

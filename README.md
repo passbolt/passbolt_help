@@ -48,7 +48,7 @@ after each change.
 Do not edit the style directly by editing the CSS on this repository.
 Passbolt help relies on [passbolt styleguide](https://github.com/passbolt/passbolt_styleguide).
 If you want to extend the styles make a pull request on the styleguide and apply the latest version
-of the styleguide to passbolt help. This is to ensure we provide a consistent user experience accross 
+of the styleguide to passbolt help. This is to ensure we provide a consistent user experience across 
 all the passbolt websites.
 
 Since the styleguide is distributed as a npm module you can link your local passbolt help to your custom 

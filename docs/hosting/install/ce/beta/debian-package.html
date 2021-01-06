@@ -202,6 +202,8 @@
     <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt CE and install it.</p>
 
+    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
+
     <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
@@ -251,8 +253,10 @@ as dependencies.</p>
     <p>There are two main ways to install the passbolt debian package:</p>
 
     <ul>
-      <li>Interactive: the package will guide the user through a set of questions to setup mariadb and nginx</li>
-      <li>Non interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
+      <li>Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are 
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before 
+beginning. The user will be asked for the path and name of the certificate and key.</li>
+      <li>Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.</li>
     </ul>
 
@@ -291,7 +295,7 @@ By default in most installations the admin username would be <code class="langua
     <span class="legend">fig. Mariadb admin user pass dialog</span>
 </figure>
 
-    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. This values will be later asked on the webconfiguration tool of passbolt so please keep them in mind.</p>
+    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
@@ -319,7 +323,7 @@ By default in most installations the admin username would be <code class="langua
       <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
 
-    <h3 id="non-interactive-install">Non interactive install</h3>
+    <h3 id="non-interactive-install">Non-interactive install</h3>
 
     <p>This method is useful for automating passbolt installation and for users with specific needs.</p>
 

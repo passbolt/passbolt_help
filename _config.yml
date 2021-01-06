@@ -25,6 +25,7 @@ url: "https://help.passbolt.com"
 
 twitter_username: passbolt
 github_username:  passbolt
+timezone: CET
 
 # Build settings
 markdown: kramdown

@@ -1,15 +1,15 @@
 ---
-title: Browse all resources
-date: 2019-04-23 14:00:00 Z
+title: Browse all Resources
+date: 2021-01-25 14:00:00 Z
 layout: api
 category: api,resources,read-index
 slug: resources-read-index
 permalink: /api/resources/read-index
 ---
 
-To fetch a list of all the password the user has access to, make the following request:
+To fetch a list of all the passwords the user has access to, make the following request:
 ```
-GET /resources.json?api-version=v2
+GET /resources.json
 ```
 
 ### Request Parameters
@@ -28,55 +28,55 @@ The endpoint takes the following parameters
     <tbody>
         <tr>
             <td>api-version</td>
-            <td>The API version to target.</td>
+            <td>The API version to target</td>
             <td>No</td>
             <td>string</td>
         </tr>
         <tr>
-            <td>filter[]</td>
+            <td>filter[ ]</td>
             <td>Controls the fields that could be returned</td>
             <td>No</td>
             <td>Array</td>
         </tr>
         <tr>
             <td>filter[is-favorite]</td>
-            <td>Return the results that are marked as favorite.</td>
+            <td>Return the results that are marked as favorite</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
             <td>filter[is-shared-with-group]</td>
-            <td>Return the results that are shared with the given Group UUID.</td>
+            <td>Return the results that are shared with the given Group UUID</td>
             <td>No</td>
             <td>UUID</td>
         </tr>
         <tr>
             <td>filter[is-owned-by-me]</td>
-            <td>Return the results that are owned by me.</td>
+            <td>Return the results that are owned by me</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
             <td>filter[is-shared-with-me]</td>
-            <td>Return the results that are shared with me.</td>
+            <td>Return the results that are shared with me</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
-            <td>filter[has-id][]</td>
-            <td>Return the results for the given resource UUID(s).</td>
+            <td>filter[has-id][ ]</td>
+            <td>Return the results for the given resource UUID(s)</td>
             <td>No</td>
             <td>UUID</td>
         </tr>
         <tr>
-            <td>contain[]</td>
-            <td>Controls the fields that must be returned.</td>
+            <td>contain[ ]</td>
+            <td>Controls the fields that must be returned</td>
             <td>No</td>
             <td>Array</td>
         </tr>
         <tr>
             <td>contain[creator]</td>
-            <td>Whether or not to include the resource creator.</td>
+            <td>Whether or not to include the resource creator</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
@@ -105,7 +105,7 @@ The endpoint takes the following parameters
             <td>Boolean</td>
         </tr>
         <tr>
-            <td>order[]</td>
+            <td>order[ ]</td>
             <td>How should the results be sorted. For example Resource.modified DESC</td>
             <td>No</td>
             <td>ASC|DESC </td>
@@ -147,17 +147,15 @@ The endpoint takes the following parameters
 ## Examples
 ### Filtered request
 
-It is possible to adjust the request response for example to 
+It is possible to adjust the request response for example to
 *   include `creator`, `favorite`, `modifier`, `permission` and `tag`
 *   Sort DESC by resource modification datetime
 *   Filter by `is-favorite`, `is-shared-with-group`, `is-owned-by-me`, `is-shared-with-me` and `has-id`
-*   Using api-version v2
 
-Such request will look like this:
+Such a request will look like this:
 
 ```
-GET /resources.json?api-version=v2
-        &contain[creator]=1
+GET /resources.json?contain[creator]=1
         &contain[favorite]=1
         &contain[modifier]=1
         &contain[permission]=1
@@ -166,6 +164,6 @@ GET /resources.json?api-version=v2
 ```
 
 ### Success response
-A successful response will have an array of json objects. Each representing a single resource. Something like this example below
+A successful response will have an array of json objects with each representing a single resource. It will look something like this example:
 
 {% include api/json/resources/resources-index-success-contain.md %}

@@ -22,6 +22,9 @@ api:
   - title: Introduction
     slug: introduction
     url: /api
+  - title: Form vs Challenge
+    slug: form-vs-challenge
+    url: /api/form-vs-challenge
   - title: Authentication
     slug: authentication
     url: /api/authentication

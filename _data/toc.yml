@@ -158,11 +158,11 @@
       icon: fa-plug
       teaser: Browse API in Swagger UI
     - title: Authentication
-      url: https://help.passbolt.com/tech/auth
+      url: /api/authentication
       icon: fa-sign-in
       teaser: How does GPG Authentication work?
     - title: Github
-      url: https://www.github.com/passbolt
+      url: https://github.com/passbolt
       icon: fa-github
       teaser: Want to see the code? This way!
 - title: Contribute

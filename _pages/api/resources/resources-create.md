@@ -37,6 +37,7 @@ The request body expects the following parameters:
         <tr>
             <th>Parameter</th>
             <th>Description</th>
+            <th>Type</th>
             <th>Required</th>
             <th>Validation Constraints</th>
         </tr>
@@ -45,6 +46,7 @@ The request body expects the following parameters:
         <tr>
             <td>name</td>
             <td>Name for the new resource.</td>
+            <td>String</td>
             <td>Yes</td>
             <td>Valid utf8 string.<br>
                 Must not exceed 64 characters.<br>
@@ -53,6 +55,7 @@ The request body expects the following parameters:
         <tr>
             <td>description</td>
             <td>Description for the new resource.</td>
+            <td>String</td>
             <td>No</td>
             <td>Valid utf8 string. <br>
                 Must not exceed 10000 characters</td>
@@ -60,6 +63,7 @@ The request body expects the following parameters:
         <tr>
             <td>username</td>
             <td>Username for this login</td>
+            <td>String</td>
             <td>No</td>
             <td>Valid utf8 string.<br>
                 Must not exceed 64 characters</td>
@@ -67,6 +71,7 @@ The request body expects the following parameters:
         <tr>
             <td>uri</td>
             <td>URI/URL for the new resource.</td>
+            <td>String</td>
             <td>No</td>
             <td>Valid utf8 string.<br>
                 Must not exceed 1024 characters.
@@ -75,12 +80,14 @@ The request body expects the following parameters:
         <tr>
             <td>secrets</td>
             <td>An array of secrets in object format</td>
+            <td>Array</td>
             <td>Yes</td>
             <td>Exactly one secret must be provided.</td>
         </tr>
         <tr>
-            <td>secrets[data]</td>
+            <td>secrets.data</td>
             <td>Encrypted password.</td>
+            <td>String</td>
             <td>Yes</td>
             <td>Valid ASCII Armored OpenPGP block</td>
         </tr>

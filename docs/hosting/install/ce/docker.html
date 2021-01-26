@@ -239,10 +239,18 @@ The easiest way to use passbolt provided docker-compose.yml is to:</p>
       <li>env/passbolt.env</li>
     </ul>
 
+    <p>For further reference regarding environment variables, please see the link at the bottom of the page.</p>
+
+    <p>Docker-compose requires the use of <code class="language-plaintext highlighter-rouge">sudo</code>. Alternatively, you may choose to add your local user to the <code class="language-plaintext highlighter-rouge">docker</code>
+group. Going forward, the second option is assumed.</p>
+
     <p>Once the files fit your needs it is time to:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose.yml up
 </code></pre></div>    </div>
-
+    <p>If there are no errors, <code class="language-plaintext highlighter-rouge">Ctrl-C</code> to stop the docker-compose script, then run the above command again with a <code class="language-plaintext highlighter-rouge">-d</code> flag at the end
+(to run in detached mode). You can then confirm the processes are running with:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose ps
+</code></pre></div>    </div>
     <h3 id="create-first-admin-user-using-docker-compose">Create first admin user using docker-compose</h3>
 
     <p>If you run passbolt using <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">docker-compose.yml</a> provided by passbolt:</p>

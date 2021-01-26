@@ -12,6 +12,7 @@ Following there is a list of the environment variables supported in passbolt bot
 | DATASOURCES_DEFAULT_DATABASE             | Database name                                                             | ''                                                 |
 | DATASOURCES_DEFAULT_HOST                 | Database hostname                                                         | 'localhost'                                        |
 | DATASOURCES_DEFAULT_PORT                 | Database port                                                             | 3306                                               |
+| DATASOURCES_DEFAULT_URL                  | Database url                                                              | ''                                                 |
 | DATASOURCES_DEFAULT_PASSWORD             | Database password                                                         | ''                                                 |
 | DATASOURCES_DEFAULT_SSL_KEY              | Database SSL Key                                                          | ''                                                 |
 | DATASOURCES_DEFAULT_SSL_CERT             | Database SSL Cert                                                         | ''                                                 |

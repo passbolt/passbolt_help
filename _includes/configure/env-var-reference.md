@@ -46,7 +46,7 @@ Following there is a list of the environment variables supported in passbolt bot
 | PASSBOLT_EMAIL_SHOW_DESCRIPTION          | Include resources description on email notification                       | true                                               |
 | PASSBOLT_EMAIL_SHOW_SECRET               | Include resource encrypted secret on email notification                   | true                                               |
 | PASSBOLT_EMAIL_SHOW_URI                  | Include resource URI on email notification                                | true                                               |
-| PASSBOLT_EMAIL_SHOW_USERNAME             | Inlcude the username field of the resource on email notification          | true                                               |
+| PASSBOLT_EMAIL_SHOW_USERNAME             | Include the username field of the resource on email notification          | true                                               |
 | PASSBOLT_EMAIL_SEND_COMMENT_ADD          | Notify when a comment is added to resource                                | true                                               |
 | PASSBOLT_EMAIL_SEND_PASSWORD_CREATE      | Notify when a password is created                                         | true                                               |
 | PASSBOLT_EMAIL_SEND_PASSWORD_SHARE       | Notify when a password is shared                                          | true                                               |
@@ -54,6 +54,11 @@ Following there is a list of the environment variables supported in passbolt bot
 | PASSBOLT_EMAIL_SEND_PASSWORD_DELETE      | Notify when a password is deleted                                         | true                                               |
 | PASSBOLT_EMAIL_SEND_USER_CREATE          | Send invite to user when created                                          | true                                               |
 | PASSBOLT_EMAIL_SEND_USER_RECOVER         | Send recovery email                                                       | true                                               |
+| PASSBOLT_EMAIL_SEND_FOLDER_CREATED       | Notify the creator of a folder when it is created                         | true                                               |
+| PASSBOLT_EMAIL_SEND_FOLDER_UPDATED       | Notify the users with access to a folder when it is updated               | true                                               |
+| PASSBOLT_EMAIL_SEND_FOLDER_DELETED       | Notify the users with access to a folder when it is deleted               | true                                               |
+| PASSBOLT_EMAIL_SEND_FOLDER_SHARE_CREATED | Notify users who gain access when a folder permission is granted          | true                                               |
+| PASSBOLT_EMAIL_SEND_FOLDER_SHARE_DROPPED | Notify users who lost access when a folder permission is removed          | true                                               |
 | PASSBOLT_EMAIL_SEND_GROUP_DELETE         | Notify group members when a group is deleted                              | true                                               |
 | PASSBOLT_EMAIL_SEND_GROUP_USER_ADD       | Notify user when added to a group                                         | true                                               |
 | PASSBOLT_EMAIL_SEND_GROUP_USER_DELETE    | Notify user when deleted from group                                       | true                                               |

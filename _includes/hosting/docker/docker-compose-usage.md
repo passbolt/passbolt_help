@@ -16,11 +16,20 @@ At this point some users might want to customize passbolt environment variables 
 * env/mysql.env
 * env/passbolt.env
 
+For further reference regarding environment variables, please see the link at the bottom of the page.
+
+Docker-compose requires the use of `sudo`. Alternatively, you may choose to add your local user to the `docker`
+group. Going forward, the second option is assumed.
+
 Once the files fit your needs it is time to:
 ```bash
 $ docker-compose -f docker-compose{{ page.docker_tag }}.yml up
 ```
-
+If there are no errors, `Ctrl-C` to stop the docker-compose script, then run the above command again with a `-d` flag at the end
+(to run in detached mode). You can then confirm the processes are running with:
+```bash
+docker-compose ps
+```
 ### Create first admin user using docker-compose
 
 If you run passbolt using [docker-compose{{ page.docker_tag }}.yml](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose{{ page.docker_tag }}.yml) provided by passbolt:

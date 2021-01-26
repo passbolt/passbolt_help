@@ -227,12 +227,12 @@
                     <h2 id="introduction">Introduction</h2>
 
 <p>This document describes passbolt server component API. The API works over HTTPS in a REST fashion, so it is
-language framework agnostic. You can integrate passbolt services into your existing workflow using the 
+language framework agnostic. You can integrate passbolt services into your existing workflow using the
 toolset of your choice.</p>
 
 <h2 id="getting-started">Getting Started</h2>
 
-<p>To get started with the passbolt REST API (hence referred to as “APIs”) you need at least:</p>
+<p>To get started with the passbolt REST API (hereafter referred to as “The API”) you need at least:</p>
 <ul>
   <li>A running passbolt server instance.</li>
   <li>A passbolt user account if you want to access protected data.</li>
@@ -242,24 +242,45 @@ toolset of your choice.</p>
 
 <h2 id="base-url">Base URL</h2>
 
-<p>The API is served over HTTPS. All URLs referenced in the documentation omit the base url 
-of your passbolt installation domain such as: 
+<p>The API is served over HTTPS. All URLs referenced in the documentation omit the base url
+of your passbolt installation domain such as:
 <code>https://&lt;passbolt.your-organization.com&gt;</code>.</p>
 
 <h2 id="response-format">Response format</h2>
 <h3 id="response-envelope">Response envelope</h3>
 
-<p>Passbolt API return data in an envelope with “header” and “body” properties. 
+<p>The API returns data in an envelope with “header” and “body” properties.
 The “header” contains response metadata like response code, server_time, error messages etc.
 The “body” contains the actual payload.</p>
 
-<p>So for example requesting a single resource by id will result in something like:
-``</p>
+<p>For example, requesting a single resource by id will result in something like:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"799c69c7-1789-4d87-9fbf-02529b0d21dc"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554909967</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_secrets_view_success"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad71952e-7842-599e-a19e-3a82e6974b23"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">secrets</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eede75ff-316a-511c-8317-51e8339b6dcc"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"resource_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"-----BEGIN PGP MESSAGE-----"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:50+00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-04T12:06:50+00:00"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
 
 <div class="message notice">
     <p>
     <b>Notice:</b> The <code>title</code> under header in deprecated and will be removed in future release.
-    Similarly the <code>code</code> is only indicated to ease readibility for administrator when debugging and should 
+    Similarly, the <code>code</code> is only indicated to improve readability for an administrator when debugging and should
     not be relied on.
     </p>
     
@@ -267,9 +288,9 @@ The “body” contains the actual payload.</p>
 
 <h3 id="error-responses">Error responses</h3>
 
-<p>An unsuccessful operation will result in an error response. The error response will follow the same scheme as above 
-with the presence of both “header” and “body” properties. Only this time the status in the header will be set to 
-error instead of success. The response body will contain the error details.</p>
+<p>An unsuccessful operation will result in an error response. The error response will follow the same scheme as above
+with the presence of both “header” and “body” properties, only this time the status in the header will be set to
+<code>error</code> instead of <code>success</code>. The response body will contain the error details.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -293,19 +314,19 @@ error instead of success. The response body will contain the error details.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>As you can see, for validation errors, the response body contains two keys, “name” and “secrets” as they failed 
-some validation rules. Further, they also have their own json object with a key (_required) that represents the 
-validation rule that failed and a value (“A name is required”) the actual error message.</p>
+<p>As you can see, for validation errors, the response body contains two keys, “name” and “secrets” as they failed
+some validation rules. Further, they also have their own json object with a key (_required) that represents the
+validation rule that failed and a value with the actual error message (“A name is required”).</p>
 
 <h3 id="api-versions">API Versions</h3>
 
-<p>Passbolt API is versioned. Historically passbolt supports two different formats for interacting with the API. 
-At the moment the server component currently supports format version 2 and 1, where v1 is the default (even for v2 
-server component) for backward compatibility reasons. However this behavior will change in the future so please 
+<p>The API is versioned. Historically, passbolt supports two different formats for interacting with the API.
+At the moment, the server component currently supports format version 2 and 1, where v1 is the default (even for v2
+server component) for backward compatibility reasons. However, this behavior will change in the future so please
 use (or switch) to API version 2 as soon as possible to minimize refactoring in your application down the road.</p>
 
 <p>You can target a specific API version by including a query string <code class="language-plaintext highlighter-rouge">api-version</code> in your requests.
-For example to get a list of all resources using version 1, you can do</p>
+For example, to get a list of all resources using version 1, you can request:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v1
 </code></pre></div></div>
@@ -353,9 +374,9 @@ For example to get a list of all resources using version 1, you can do</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Notice how the associated objects like “Modifier”, “Creator” and “Tag” are on the same level as “Resource”.</p>
+<p>Notice how the associated keys like “modifier”, “creator” and “tags” are part of the “Resource” object.</p>
 
-<p>Whereas the same request using v2 option will be structured differently:</p>
+<p>In contrast, the same request using v2 option will result in a differently structured response:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
 </code></pre></div></div>
@@ -399,19 +420,19 @@ For example to get a list of all resources using version 1, you can do</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This time the associated fields like “modifier”, “creator” and “tags” are all part of the single “Resource” object 
-they belong to and the object type is not specified anymore. This is just one of the major changes over <code class="language-plaintext highlighter-rouge">v1</code>. 
+<p>This time the associated keys like “modifier”, “creator” and “tags” all belong to the same object and the object type is no
+longer specified. This is just one of the major changes over <code class="language-plaintext highlighter-rouge">v1</code>.
 You can see the complete <a href="https://github.com/passbolt/passbolt_api/blob/master/CHANGELOG.md">changelog</a> on the official
 the <a href="https://github.com/passbolt/passbolt_api">repository</a>.</p>
 
 <h1 id="encryption-and-decryption">Encryption and decryption</h1>
 
-<p>Security and privacy are the biggest concerns for a password manager and passbolt is no exception. 
-The solution uses end-to-end encryption, the encryption and decryption is always done on the client. The server
+<p>Security and privacy are the biggest concerns for a password manager and passbolt is no exception.
+Passbolt’s solution uses end-to-end encryption and the encryption and decryption is always done on the client. The server
 is mainly used to take care of relational data integrity and storage.</p>
 
-<p>Passbolt uses <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key cryptography</a> 
-and <a href="https://www.openpgp.org/about/">OpenPGP</a> specifically. This guide assume you are familiar with these concepts.</p>
+<p>Passbolt uses <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">public key cryptography</a>
+and <a href="https://www.openpgp.org/about/">OpenPGP</a> specifically. This guide will assume you are familiar with these concepts.</p>
 
 <figure>
     <img src="https://help.passbolt.com/assets/img/diagrams/howitworks.svg" alt="password exchange using passbolt" style="max-width:;" />
@@ -419,31 +440,30 @@ and <a href="https://www.openpgp.org/about/">OpenPGP</a> specifically. This guid
 </figure>
 
 <h3 id="which-openpgp-implementation-should-i-use">Which OpenPGP implementation should I use?</h3>
-<p>There are several way you can use OpenPGP. The most popular option is to use <a href="https://gnupg.org">GnuPG</a> 
-(directly or via <a href="https://www.gnupg.org/software/gpgme/index.html">GpgMe</a>) or another implementation in your 
+<p>There are several ways you can use OpenPGP. The most popular option is to use <a href="https://gnupg.org">GnuPG</a>
+(directly or via <a href="https://www.gnupg.org/software/gpgme/index.html">GPGME</a>) or another implementation in your
 favorite language.</p>
 
 <p>There are various <a href="https://www.gnupg.org/software/libraries.html">language libraries</a> available such as:</p>
 <ul>
   <li><a href="https://openpgpjs.org/">OpenPGP.js</a>: JavaScript alone (used by passbolt extension / cli)</li>
-  <li><a href="https://www.php.net/manual/en/book.gnupg.php">Php Gnupg</a>: PHP with GnuPG (used by passbolt server)</li>
-  <li><a href="https://github.com/singpolyma/openpgp-php">Openpgp-php</a>: PHP alone (used by passbolt server).</li>
-  <li><a href="https://github.com/mailvelope/gpgmejs">gpgme.js</a>: JavaScript with GnuPG</li>
-  <li><a href="http://files.au.adversary.org/crypto/gpgme-python-howto.html">Gpgme Python</a>: Python with GnuPG.</li>
-  <li><a href="https://github.com/SecurityInnovation/PGPy/">PGPpy</a>: Python alone.</li>
+  <li><a href="https://www.php.net/manual/en/book.gnupg.php">PHP GnuPG</a>: PHP with GnuPG (used by passbolt server)</li>
+  <li><a href="https://github.com/singpolyma/openpgp-php">OpenPGP.php</a>: PHP alone (used by passbolt server).</li>
+  <li><a href="https://github.com/mailvelope/gpgmejs">gpgme.js</a>: JavaScript for GPGME</li>
+  <li><a href="http://files.au.adversary.org/crypto/gpgme-python-howto.html">GPGME Python</a>: Python with GnuPG.</li>
+  <li><a href="https://github.com/SecurityInnovation/PGPy/">PGPy</a>: Python alone.</li>
 </ul>
 
-<p>You can find the whole list on <a href="https://www.openpgp.org/software/developer/">openpgp.org</a>.</p>
+<p>You can find additional libraries on <a href="https://www.openpgp.org/software/developer/">openpgp.org</a>.</p>
 
 <h3 id="working-with-openpgp-keys">Working with OpenPGP Keys</h3>
 
-<p>At the time of installation, the passbolt server administrator generates an OpenPGP key pair and stores it in 
-the server keyring. Similarly, clients (such as the passbolt browser extension) generate a pair of keys during the setup. 
+<p>At the time of installation the passbolt server administrator generates an OpenPGP key pair and stores it in
+the server keyring. Similarly, clients (such as the passbolt browser extension) generate a pair of keys during the setup.
 At the end of the setup the client stores its secret key locally and send the public key to the server.</p>
 
-<p>When authenticated, it is possible for a user to gather other users public keys, in order to share passwords with them. 
-Prior to sending sensitive data, secrets must be encrypted using the recipient (e.g. another user for example) public 
-key and signed using sender’s.</p>
+<p>When authenticated, it is possible for a user to gather other user’s public keys, in order to share passwords with them.
+Prior to sending sensitive data, secrets must be encrypted using the recipient’s public key (e.g. another user, for example) and signed using the sender’s public key.</p>
 
 <p>This serves two purposes:</p>
 <ol>
@@ -453,9 +473,9 @@ key and signed using sender’s.</p>
 
 <h3 id="accessing-passbolt-server-public-key">Accessing passbolt server public key</h3>
 
-<p>Passbolt server public key is required during the “verify” step of the authentication. This step allows the 
-client to verify the server identity, for example to prevent the unlikely scenario where the domain was seized. 
-Your passbolt server broadcasts its public key at /auth/verify.json</p>
+<p>The passbolt server public key is required during the “verify” step of the authentication. This step allows the
+client to verify the server identity, for example to prevent the unlikely scenario where the domain was seized.
+Your passbolt server broadcasts its public key at /auth/verify.json:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /auth/verify.json
 </code></pre></div></div>
@@ -476,12 +496,13 @@ Your passbolt server broadcasts its public key at /auth/verify.json</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>
 This article was last updated on 
-April
-23rd,
-2019.
+January
+7th,
+2021.
 </div>
                     </div>
 

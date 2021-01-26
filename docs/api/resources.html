@@ -272,15 +272,12 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>Resources</h1>
-                    <p>The API allows you to create, delete, and update your passwords. 
-You can retrieve individual passwords as well as a list of all your passwords.</p>
+                    <p>The API allows you to create, update, delete, and share your passwords.
+You can list of all your passwords as well as retrieve individual passwords.</p>
 
-<p>In passbolt, passwords are split into two different entities: Resources and Secrets. Passwords metadata are 
-internally known as Resources and are represented as one object containing the name, username, the URL amongst 
-other fields.</p>
+<p>In passbolt, passwords are split into two different entities: Resources and Secrets. The Resource entity is an object which represents a password’s metadata and contains items such as the searchable password name, the associated username, the URL where the password is used, in addition to other fields.</p>
 
-<p>The actual password is part of the <a href="/api/secrets">Secrets</a> entity. It can be accessed via the Resource object association or
-individually. In any case the access will be logged in the system.</p>
+<p>The <a href="/api/secrets">Secret</a> entity is the actual password. It can be accessed via its associated Resource object or individually. In either case, the access will be logged in the system.</p>
 
 <h2 id="the-resource-object">The Resource object</h2>
 
@@ -357,7 +354,7 @@ individually. In any case the access will be logged in the system.</p>
             Object containing the user details of the creator
         </td>
         <td>
-            Check <a href="/api/users/#the-user-object">User object</a>
+            <a href="/api/users/#the-user-object">User object</a>
         </td>
     </tr>
     <tr>
@@ -398,7 +395,7 @@ individually. In any case the access will be logged in the system.</p>
             Favorite details of the resource
         </td>
         <td>
-            Check <a href="/api/resources/favorites/#the-favorite-object">Favorite object</a>
+            <a href="/api/resources/favorites/#the-favorite-object">Favorite object</a>
         </td>
     </tr>
     <tr>
@@ -442,7 +439,7 @@ individually. In any case the access will be logged in the system.</p>
             Object containing the user details of the modifier
         </td>
         <td>
-            Check <a href="/api/users/#the-user-object">User object</a>
+            <a href="/api/users/#the-user-object">User object</a>
         </td>
     </tr>
     <tr>
@@ -469,7 +466,7 @@ individually. In any case the access will be logged in the system.</p>
             Permission details as applied on the resource
         </td>
         <td>
-            Check <a href="/api/resources/permissions/#the-permission-object">Permission object</a>
+            <a href="/api/resources/permissions/#the-permission-object">Permission object</a>
         </td>
     </tr>
     <tr>
@@ -505,9 +502,9 @@ individually. In any case the access will be logged in the system.</p>
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>
 This article was last updated on 
-April
-23rd,
-2019.
+January
+18th,
+2021.
 </div>
                     </div>
 

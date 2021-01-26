@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Browse all resources</title>
+    <title>Passbolt Help | Browse all Resources</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Browse all resources" />
+    <meta property="og:title" content="Browse all Resources" />
     <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -277,9 +277,9 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>Browse all resources</h1>
-                    <p>To fetch a list of all the password the user has access to, make the following request:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
+                    <h1>Browse all Resources</h1>
+                    <p>To fetch a list of all the passwords the user has access to, make the following request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters</h3>
@@ -297,56 +297,50 @@
     </thead>
     <tbody>
         <tr>
-            <td>api-version</td>
-            <td>The API version to target.</td>
-            <td>No</td>
-            <td>string</td>
-        </tr>
-        <tr>
-            <td>filter[]</td>
+            <td>filter[ ]</td>
             <td>Controls the fields that could be returned</td>
             <td>No</td>
             <td>Array</td>
         </tr>
         <tr>
             <td>filter[is-favorite]</td>
-            <td>Return the results that are marked as favorite.</td>
+            <td>Return the results that are marked as favorite</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
             <td>filter[is-shared-with-group]</td>
-            <td>Return the results that are shared with the given Group UUID.</td>
+            <td>Return the results that are shared with the given Group UUID</td>
             <td>No</td>
             <td>UUID</td>
         </tr>
         <tr>
             <td>filter[is-owned-by-me]</td>
-            <td>Return the results that are owned by me.</td>
+            <td>Return the results that are owned by me</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
             <td>filter[is-shared-with-me]</td>
-            <td>Return the results that are shared with me.</td>
+            <td>Return the results that are shared with me</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
         <tr>
-            <td>filter[has-id][]</td>
-            <td>Return the results for the given resource UUID(s).</td>
+            <td>filter[has-id][ ]</td>
+            <td>Return the results for the given resource UUID(s)</td>
             <td>No</td>
             <td>UUID</td>
         </tr>
         <tr>
-            <td>contain[]</td>
-            <td>Controls the fields that must be returned.</td>
+            <td>contain[ ]</td>
+            <td>Controls the fields that must be returned</td>
             <td>No</td>
             <td>Array</td>
         </tr>
         <tr>
             <td>contain[creator]</td>
-            <td>Whether or not to include the resource creator.</td>
+            <td>Whether or not to include the resource creator</td>
             <td>No</td>
             <td>Boolean</td>
         </tr>
@@ -375,7 +369,7 @@
             <td>Boolean</td>
         </tr>
         <tr>
-            <td>order[]</td>
+            <td>order[ ]</td>
             <td>How should the results be sorted. For example Resource.modified DESC</td>
             <td>No</td>
             <td>ASC|DESC </td>
@@ -421,13 +415,11 @@
   <li>include <code class="language-plaintext highlighter-rouge">creator</code>, <code class="language-plaintext highlighter-rouge">favorite</code>, <code class="language-plaintext highlighter-rouge">modifier</code>, <code class="language-plaintext highlighter-rouge">permission</code> and <code class="language-plaintext highlighter-rouge">tag</code></li>
   <li>Sort DESC by resource modification datetime</li>
   <li>Filter by <code class="language-plaintext highlighter-rouge">is-favorite</code>, <code class="language-plaintext highlighter-rouge">is-shared-with-group</code>, <code class="language-plaintext highlighter-rouge">is-owned-by-me</code>, <code class="language-plaintext highlighter-rouge">is-shared-with-me</code> and <code class="language-plaintext highlighter-rouge">has-id</code></li>
-  <li>Using api-version v2</li>
 </ul>
 
-<p>Such request will look like this:</p>
+<p>Such a request will look like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
-        &amp;contain[creator]=1
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?contain[creator]=1
         &amp;contain[favorite]=1
         &amp;contain[modifier]=1
         &amp;contain[permission]=1
@@ -436,7 +428,7 @@
 </code></pre></div></div>
 
 <h3 id="success-response">Success response</h3>
-<p>A successful response will have an array of json objects. Each representing a single resource. Something like this example below</p>
+<p>A successful response will have an array of json objects with each representing a single resource. It will look something like this example:</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
     </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -446,7 +438,7 @@
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?contain%5Bcreator%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bfavorite%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bmodifier%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bpermission%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Btag%5D=1</span><span class="se">\u</span><span class="s2">0026order%5B%5D=Resource.modified+DESC</span><span class="se">\u</span><span class="s2">0026silentLoading=false</span><span class="se">\u</span><span class="s2">0026api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?contain%5Bcreator%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bfavorite%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bmodifier%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bpermission%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Btag%5D=1</span><span class="se">\u</span><span class="s2">0026order%5B%5D=Resource.modified+DESC"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -584,12 +576,13 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
 
+
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>
 This article was last updated on 
-April
-23rd,
-2019.
+January
+25th,
+2021.
 </div>
                     </div>
 

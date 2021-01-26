@@ -9,17 +9,27 @@ permalink: /api/authentication
 
 ## GPGAuth-based authentication
 
-Passbolt's API uses a GPGAuth protocol. Public and Private keys are used to authenticate users to the web application. This page details the process.
+Passbolt's API uses the GPGAuth protocol for authenticating the users.
+This page details the process. 
 
-{% include messages/notice.html
-    content="For a practical example, you can also have a look at our simple implementation example [written in PHP](https://github.com/passbolt/passbolt_api_php_example)."
-%}
+### Examples
 
+For a practical implementation example, you can also have a look at the following: 
+- [PHP](https://github.com/passbolt/passbolt_api_php_example)
+- [Javascript](https://github.com/passbolt/passbolt_cli)
+- [Python](https://github.com/liip/requests_gpgauthlib)
 
+### What is GPGAuth?
+
+GPGAuth is a protocol that uses OpenPGP keys to authenticate users. In short the server generate a challenge that
+must be decrypted and returned by the user. It also contains a challenge to verify the user server key.
+Challenge based authentication is different that form based authentication, you can learn more about the difference
+on [this page](/api/form-vs-challenge).
 
 ### Sequence diagram
 
-The authentication process works by the two-way exchange of encrypted and signed tokens(nonces) between the user and the server. The authentication process is as follows:
+The authentication process works by the two-way exchange of encrypted and signed tokens(nonces) between the user and 
+the server. The authentication process is as follows:
 
 {% include articles/figure.html
     url="/assets/img/diagrams/sequence_diagram_gpg_authenticate.png"
@@ -29,7 +39,9 @@ The authentication process works by the two-way exchange of encrypted and signed
 
 ### Custom response headers
 
-The server uses a set of custom HTTP headers to send information to the client related to the authentication. It will be easier to understand their use in the steps that follow, but a brief description of some of them is provided here:
+The server uses a set of custom HTTP headers to send information to the client related to the authentication. 
+It will be easier to understand their use in the steps that follow, but a brief description of some of them is 
+provided here:
 
 <table class="table-parameters">
   <thead>
@@ -94,11 +106,13 @@ authentication, e.g. it does not protect against an attacker performing a man in
 
 Though this step is optional, it is recommended for a client to verify the server key. It involves:
 
-1. The client generates a token(nonce) in a specific format. It must have the pattern of version, UUID length, v4 UUID, and version (separated with pipes):
+1. The client generates a token(nonce) in a specific format. It must have the pattern of version, UUID length, 
+v4 UUID, and version (separated with pipes):
 ```
 gpgauthv1.3.0|36|10e2074b-f610-42be-8525-100d4e68c481|gpgauthv1.3.0
 ```
-The client then encrypts the token with the server's [broadcasted public key](/api#accessing-passbolt-server-public-key) and stores the unencrypted version of the token locally, for future use.
+The client then encrypts the token with the server's [broadcasted public key](/api#accessing-passbolt-server-public-key) 
+and stores the unencrypted version of the token locally, for future use.
 2. The encrypted token is sent to the server along with the user key fingerprint.
 Make a POST request to /auth/verify.json and send the token in the request body under gpg_auth[‘server_verify_token’]:
 ```php
@@ -159,9 +173,11 @@ POST /auth/login.json
 
 #### Step 2 detail
 
-Step 2a: A matching key is found on the server, and the user is active. The server then generates a random token, stores it locally and then encrypts it with the user’s public key.
+Step 2a: A matching key is found on the server, and the user is active. The server then generates a random token, 
+stores it locally and then encrypts it with the user’s public key.
 
-Step 2b: A matching key is not found, or one is found but it belongs to an inactive user. The server returns a `HTTP 404 NOT FOUND`  response meaning the user with the given fingerprint is not granted access to your passbolt server.
+Step 2b: A matching key is not found, or one is found but it belongs to an inactive user. The server returns a 
+`HTTP 404 NOT FOUND`  response meaning the user with the given fingerprint is not granted access to your passbolt server.
 
 #### Step 3 detail
 The encrypted token is then sent in the
@@ -199,7 +215,8 @@ Alternatively, you could use the console of your browser with Javascript to deco
 var uri = "-----BEGIN\+PGP\+MESSAGE----- ..."
 decodeURIComponent(uri)
 ```
-Using this browser console approach will still leave plus(+) signs in the header and footer which must be replaced with spaces.
+Using this browser console approach will still leave plus(+) signs in the header and footer which must be replaced 
+with spaces.
 
 ##### Decrypt token
 
@@ -209,9 +226,11 @@ Now that the token has been decoded, the client then decrypts the encrypted toke
 echo "<encrypted_token_from_server>" | gpg -d
 ```
 
-The user's private key passphrase will be required for decryption while also serving to verify the ownership of the fingerprint sent in step 1.
+The user's private key passphrase will be required for decryption while also serving to verify the ownership of the 
+fingerprint sent in step 1.
 
-The client must verify the token for proper format. Otherwise, there is a risk than an attacker uses this channel to decrypt other
+The client must verify the token for proper format. Otherwise, there is a risk than an attacker uses this channel to 
+decrypt other
 content. The token format must look like:
 
 ```

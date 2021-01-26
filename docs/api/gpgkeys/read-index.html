@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | List all the OpenPGP Keys</title>
+    <title>Passbolt Help | List the OpenPGP Keys</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="List all the OpenPGP Keys" />
+    <meta property="og:title" content="List the OpenPGP Keys" />
     <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -253,10 +253,10 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>List all the OpenPGP Keys</h1>
+                    <h1>List the OpenPGP Keys</h1>
                     <p>You can get a list of all the GPG keys by making a <code class="language-plaintext highlighter-rouge">GET</code> request to <code class="language-plaintext highlighter-rouge">/gpgkeys.json</code> endpoint.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /gpgkeys.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /gpgkeys.json
 </code></pre></div></div>
 
 <h3 id="request-parameters">Request Parameters:</h3>
@@ -266,46 +266,30 @@
 <table class="table-parameters">
 <thead>
   <tr>
-   <th>Param
-   </th>
-   <th>Description
-   </th>
-   <th>Required
-   </th>
-   <th>Type
-   </th>
+    <th>Param</th>
+    <th>Description</th>
+    <th>Required</th>
+    <th>Type</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-   <td>api-version
-   </td>
-   <td>The API version to target
-   </td>
-   <td>No
-   </td>
-   <td>String
-   </td>
+   <td>filter</td>
+   <td>Filters the result based on child params</td>
+   <td>No</td>
+   <td>Array</td>
   </tr>
   <tr>
-   <td>filter
-   </td>
-   <td>Filters the result based on child params
-   </td>
-   <td>No
-   </td>
-   <td>Array
-   </td>
+   <td>filter[modified-after]</td>
+   <td>Will only include keys modified after the given date</td>
+   <td>No</td>
+   <td>Unix Timestamp</td>
   </tr>
   <tr>
-   <td>filter[modified-after]
-   </td>
-   <td>Will only include comments modified after the given date
-   </td>
-   <td>No
-   </td>
-   <td>Unix Timestamp
-   </td>
+    <td>filter[is-deleted]</td>
+    <td>Will only include keys soft-deleted if true, or non soft-deleted otherwise</td>
+    <td>No</td>
+    <td>Boolean </td>
   </tr>
 </tbody>
 </table>
@@ -313,16 +297,27 @@
 <h2 id="examples">Examples</h2>
 <h3 id="request-with-filters">Request with filters</h3>
 
-<p>So a request fetch all the OpenPGP Keys</p>
+<p>So a request which fetch all the OpenPGP Keys</p>
 <ul>
+  <li>That are not soft-deleted</li>
   <li>That were modified after a given date</li>
-  <li>Using api version v2</li>
 </ul>
 
 <p>Will look like this:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /gpgkeys.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /gpgkeys.json?
   &amp;filter[modified-after]=1554681600
+</code></pre></div></div>
+
+<p>And a request which fetch all the OpenPGP Keys</p>
+<ul>
+  <li>That are soft-deleted</li>
+</ul>
+
+<p>Will look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /gpgkeys.json?
+  &amp;filter[is-deleted]=1
 </code></pre></div></div>
 
 <h2 id="success-response">Success response</h2>

@@ -27,12 +27,6 @@ The endpoint takes the following parameters
     </thead>
     <tbody>
         <tr>
-            <td>api-version</td>
-            <td>The API version to target</td>
-            <td>No</td>
-            <td>string</td>
-        </tr>
-        <tr>
             <td>filter[ ]</td>
             <td>Controls the fields that could be returned</td>
             <td>No</td>

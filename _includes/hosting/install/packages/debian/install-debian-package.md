@@ -24,10 +24,16 @@ Optionally you can install certbot to enable [Let's Encrypt](https://letsencrypt
 sudo apt-get install certbot python3-certbot-nginx
 ```
 
-**Step 2.**  Add Passbolt package official GnuPG key:
+**Step 2.**  Add Passbolt package official GnuPG key
 
+From keys.gnupg.net:
 ```
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+```
+
+Or from hkps://keys.mailvelope.com:
+```
+sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 ```
 
 **Step 3.**  Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
@@ -60,8 +66,8 @@ as dependencies.
 
 There are two main ways to install the passbolt debian package:
 
-- Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are 
-going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before 
+- Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
 beginning. The user will be asked for the path and name of the certificate and key.
 - Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.

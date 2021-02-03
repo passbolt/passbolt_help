@@ -63,8 +63,8 @@ $ crontab -u www-data -e
 
 {% include messages/notice.html
     content="<b>Notice:</b> For installs from the Debian package or
-    if you are using the passbolt VM (OVA), the cron command will be:<br>
-    <code>* * * * * /usr/share/php/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt/error.log</code>."
+    if you are using the passbolt VM (OVA), the cron job is automatically installed
+    at <code>/etc/cron.d/passbolt-{ce|pro}-server</code>"
 %}
 
 If the cron is present, you should check if there are more data in the `/var/log/passbolt.log` log file,

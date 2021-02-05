@@ -1,6 +1,6 @@
 ---
 title: Migrate from install scripts to debian package
-date: 2020-06-20 00:00:00 Z
+date: 2021-02-03 00:00:00 Z
 description: Migrate from install scripts to debian package
 categories: [hosting,upgrade,ce]
 card_teaser: Migrate from installation scripts to debian package

@@ -6,7 +6,7 @@
         "servertime": 1554898043,
         "action": "748dcd10-7d15-5498-9aa6-d26de348ff02",
         "message": "The operation was successful.",
-        "url": "\/auth\/verify.json?api-version=v2",
+        "url": "\/auth\/verify.json",
         "code": 200
     },
     "body": {

@@ -7,7 +7,7 @@
         "title": "app_resources_add_error",
         "action": "ad8bbc35-6435-538e-b1a7-80b87bcedb6a",
         "message": "Could not validate resource data.",
-        "url": "\/resources.json?api-version=v2",
+        "url": "\/resources.json",
         "code": 400
     },
     "body": {

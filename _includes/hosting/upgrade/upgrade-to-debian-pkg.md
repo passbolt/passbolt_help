@@ -20,18 +20,29 @@ It is recommended at this point to select:
 
 ```
 sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
-sudo chown root:www-data /etc/passbolt/gpg/*
+
+sudo chown root:www-data /etc/passbolt/gpg/.
+
 sudo chmod g-w /etc/passbolt/gpg
 ```
+{% if page.passbolt_version == 'ce' %}
 # 5. Copy passbolt.php configuration
+{% endif %}
+{% if page.passbolt_version == 'pro' %}
+# 5. Copy passbolt.php configuration and license
+{% endif %}
 
 ```
 sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
+
 sudo chown root:www-data /etc/passbolt/passbolt.php
+
 sudo chmod g-w /etc/passbolt/passbolt.php
 {% if page.passbolt_version == 'pro' %}
 sudo cp /var/www/passbolt/config/license /etc/passbolt/license
+
 sudo chown root:www-data /etc/passbolt/license
+
 sudo chmod g-w /etc/passbolt/license
 {% endif %}
 ```
@@ -63,6 +74,9 @@ And change it to look like:
 ```
 listen.group = www-data
 ```
+{% include messages/notice.html
+    content="Notice: The above examples show using php7.3 - if your server has php7.4 adjust these examples accordingly."
+%}
 
 # 7. Nginx
 
@@ -98,4 +112,9 @@ you can delete it:
 
 ```
 rm -rf /var/www/passbolt
+```
+
+You may also want to check for the old CRON job that may need to be removed:
+```
+sudo crontab -u www-data -e
 ```

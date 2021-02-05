@@ -53,35 +53,15 @@ with the presence of both “header” and “body” properties, only this time
 {% include api/json/resources/resources-create-error.md %}
 
 As you can see, for validation errors, the response body contains two keys, “name” and “secrets” as they failed
-some validation rules. Further, they also have their own json object with a key (_required) that represents the
+some validation rules. Further, they also have their own json object with a key ("_required") that represents the
 validation rule that failed and a value with the actual error message (“A name is required”).
 
 ### API Versions
 
-The API is versioned. Historically, passbolt supports two different formats for interacting with the API.
-At the moment, the server component currently supports format version 2 and 1, where v1 is the default (even for v2
-server component) for backward compatibility reasons. However, this behavior will change in the future so please
-use (or switch) to API version 2 as soon as possible to minimize refactoring in your application down the road.
+Historically, passbolt supported two different formats for interacting with the API. ***API version 1 is now deprecated***.
+The passbolt server component supports only API version 2 and all calls are assumed to be version 2 - no parameter is needed
+to designate this.
 
-You can target a specific API version by including a query string `api-version` in your requests.
-For example, to get a list of all resources using version 1, you can request:
-
-```
-GET /resources.json?api-version=v1
-```
-{% include api/json/resources/resources-index-success-v1.md %}
-
-Notice how the associated keys like “modifier”, “creator” and “tags” are part of the “Resource” object.
-
-In contrast, the same request using v2 option will result in a differently structured response:
-
-```
-GET /resources.json?api-version=v2
-```
-{% include api/json/resources/resources-index-success.md %}
-
-This time the associated keys like “modifier”, “creator” and “tags” all belong to the same object and the object type is no
-longer specified. This is just one of the major changes over `v1`.
 You can see the complete [changelog](https://github.com/passbolt/passbolt_api/blob/master/CHANGELOG.md) on the official
 the [repository](https://github.com/passbolt/passbolt_api).
 

@@ -12,9 +12,15 @@ Whether you want to replace your evaluation key with a subscription key, or upda
 
 ### Get ready
 All the commands provided below should be done from inside your passbolt directory.
+
 ```bash
 $ cd /var/www/passbolt
 ```
+
+{% include messages/notice.html
+    content="<b>Notice:</b> If you installed passbolt using the Debian package, or
+    are using the passbolt VM (OVA) run the commands from <code>/usr/share/php/passbolt</code>."
+%}
 
 ### Steps
 Passbolt Pro currently does not provide a UI to manage subscription keys.
@@ -27,6 +33,10 @@ To replace the existing subscription key with the new one:
 ```bash
 $ cp -u path_to_your_new_subscription_key config/license
 ```
+{% include messages/notice.html
+    content="<b>Notice:</b> If you installed passbolt using the Debian package, or
+    are using the passbolt VM (OVA) the license file is found here: <code>/etc/passbolt/license</code>."
+%}
 
 To check if the operation was successful and if the new subscription key is valid:
 

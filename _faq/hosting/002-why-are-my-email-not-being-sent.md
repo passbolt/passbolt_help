@@ -40,8 +40,10 @@ You can review such settings in the administration panel, when you are logged in
     legend="Email Notification Settings - Email Delivery"
 %}
 
-Depending on the configuration method you have used to setup, you may need to check for configuration
-in `config/passbolt.php` or with environment variables you are loading (if you use docker containers for example).
+To find the specific mail-related configurations set during setup, you will need to look
+in `/var/www/passbolt/config/passbolt.php`. If you used the debian package to install passbolt
+look in `/etc/passbolt/passbolt.php`.
+If you are using the Docker version, you'll need to review your environment variables in `env/passbolt.env`.
 
 ### Reason 3: The cron job to send email is missing
 
@@ -89,3 +91,10 @@ if the cache is not cleared after an install or an update. You can try clearing 
 ```
 ./bin/cake cache clear_all
 ```
+
+### Reason 6: You can manually send emails but cron job is not sending them
+
+You may have a file permissions issue - for example, maybe you are running commands as root or files became
+owned only by root. You can reference [this page](/hosting/update/install-scripts.html) and look for the
+section named "Make sure the permissions are right for your current user". The commands found in that section
+are useful for when you are updating your passbolt, and may also be helpful to resolve your mail issues.

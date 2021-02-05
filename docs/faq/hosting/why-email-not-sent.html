@@ -181,6 +181,14 @@ command to send a test email and get more debug information:</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake passbolt send_test_email <span class="nt">--recipient</span><span class="o">=</span>youremail@domain.com
 </code></pre></div></div>
 
+<div class="message notice">
+    <p>
+    <b>Notice:</b> This command is run either from <code>/var/www/passbolt</code> or, if you installed passbolt using the Debian package or
+    are using the passbolt VM (OVA): <code>/usr/share/php/passbolt</code>.
+    </p>
+    
+</div>
+
 <p>If this fails you should double check what is the recommended configuration in your email provider documentation.
 You can also ask on the community forum in case another user have a working configuration for the same provider.</p>
 
@@ -194,8 +202,10 @@ You can review such settings in the administration panel, when you are logged in
     <span class="legend">fig. Email Notification Settings - Email Delivery</span>
 </figure>
 
-<p>Depending on the configuration method you have used to setup, you may need to check for configuration 
-in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code> or with environment variables you are loading (if you use docker containers for example).</p>
+<p>To find the specific mail-related configurations set during setup, you will need to look
+in <code class="language-plaintext highlighter-rouge">/var/www/passbolt/config/passbolt.php</code>. If you used the debian package to install passbolt
+look in <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code>.
+If you are using the Docker version, you’ll need to review your environment variables in <code class="language-plaintext highlighter-rouge">env/passbolt.env</code>.</p>
 
 <h3 id="reason-3-the-cron-job-to-send-email-is-missing">Reason 3: The cron job to send email is missing</h3>
 
@@ -204,23 +214,32 @@ In practice this means there is a dedicated job that runs to go through the queu
 emails at the interval of your choice.</p>
 
 <p>So if you manage to send the test email but are not receiving notifications (such as registration emails),
-one of the reason may be that the cron job required to send the emails is missing. 
+one of the reason may be that the cron job required to send the emails is missing.
 Depending on the method you used to install, it may have not be set, or failed to set.</p>
 
-<p>In order to find out you should check if you have the following cron for the web server user 
-(<code class="language-plaintext highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="language-plaintext highlighter-rouge">nginx</code> on Centos), running where you passbolt was installed 
+<p>In order to find out you should check if you have the following cron for the web server user
+(<code class="language-plaintext highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="language-plaintext highlighter-rouge">nginx</code> on Centos), running where you passbolt was installed
 (<code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> by default).</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div></div>
 
-<p>If the cron is present, you should check if there are more data in the <code class="language-plaintext highlighter-rouge">/var/log/passbolt.log</code> log file, 
+<div class="message notice">
+    <p>
+    <b>Notice:</b> For installs from the Debian package or
+    if you are using the passbolt VM (OVA), the cron job is automatically installed
+    at <code>/etc/cron.d/passbolt-{ce|pro}-server</code>
+    </p>
+    
+</div>
+
+<p>If the cron is present, you should check if there are more data in the <code class="language-plaintext highlighter-rouge">/var/log/passbolt.log</code> log file,
 it may give you more information about the issue.</p>
 
 <h3 id="reason-4-the-webserver-user-is-not-allowed-to-run-cron-jobs">Reason 4: The webserver user is not allowed to run cron jobs</h3>
 
 <p>On some system, like RHEL or Centos, the<code class="language-plaintext highlighter-rouge">nginx</code> user may not have the right to run the cron job to send emails,
-because of your PAM configuration. In this case you may want to add <code class="language-plaintext highlighter-rouge">nginx</code> to the PAM config to have <code class="language-plaintext highlighter-rouge">cron</code> 
+because of your PAM configuration. In this case you may want to add <code class="language-plaintext highlighter-rouge">nginx</code> to the PAM config to have <code class="language-plaintext highlighter-rouge">cron</code>
 and <code class="language-plaintext highlighter-rouge">crond:local</code> permissions.</p>
 
 <h3 id="reason-5-there-is-an-issue-with-the-database-schema-related-to-the-email-queue">Reason 5: There is an issue with the database schema related to the email queue</h3>
@@ -234,6 +253,13 @@ if the cache is not cleared after an install or an update. You can try clearing 
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake cache clear_all
 </code></pre></div></div>
+
+<h3 id="reason-6-you-can-manually-send-emails-but-cron-job-is-not-sending-them">Reason 6: You can manually send emails but cron job is not sending them</h3>
+
+<p>You may have a file permissions issue - for example, maybe you are running commands as root or files became
+owned only by root. You can reference <a href="/hosting/update/install-scripts.html">this page</a> and look for the
+section named “Make sure the permissions are right for your current user”. The commands found in that section
+are useful for when you are updating your passbolt, and may also be helpful to resolve your mail issues.</p>
 
                         </div>
 
@@ -462,55 +488,9 @@ if the cache is not cleared after an install or an update. You can try clearing 
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -524,17 +504,9 @@ if the cache is not cleared after an install or an update. You can try clearing 
     
     
     
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/why-haveged-virtual-env">Why should I install haveged on virtual environments?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -559,6 +531,60 @@ if the cache is not cleared after an install or an update. You can try clearing 
     <li>
         <a href="/faq/configure/why-am-i-getting-ldap-synchronization-issues">Why am I getting ldap synchronization issues?</a>
     </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

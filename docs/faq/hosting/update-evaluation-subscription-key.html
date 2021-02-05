@@ -174,8 +174,17 @@
 
 <h3 id="get-ready">Get ready</h3>
 <p>All the commands provided below should be done from inside your passbolt directory.</p>
+
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /var/www/passbolt
 </code></pre></div></div>
+
+<div class="message notice">
+    <p>
+    <b>Notice:</b> If you installed passbolt using the Debian package, or
+    are using the passbolt VM (OVA) run the commands from <code>/usr/share/php/passbolt</code>.
+    </p>
+    
+</div>
 
 <h3 id="steps">Steps</h3>
 <p>Passbolt Pro currently does not provide a UI to manage subscription keys.</p>
@@ -187,6 +196,13 @@ In passbolt, the subscription key is stored in <code class="language-plaintext h
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cp</span> <span class="nt">-u</span> path_to_your_new_subscription_key config/license
 </code></pre></div></div>
+<div class="message notice">
+    <p>
+    <b>Notice:</b> If you installed passbolt using the Debian package, or
+    are using the passbolt VM (OVA) the license file is found here: <code>/etc/passbolt/license</code>.
+    </p>
+    
+</div>
 
 <p>To check if the operation was successful and if the new subscription key is valid:</p>
 
@@ -442,55 +458,9 @@ Expires on:	May 6, 2021 <span class="o">(</span><span class="k">in </span>385 da
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -504,17 +474,9 @@ Expires on:	May 6, 2021 <span class="o">(</span><span class="k">in </span>385 da
     
     
     
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/why-haveged-virtual-env">Why should I install haveged on virtual environments?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -539,6 +501,60 @@ Expires on:	May 6, 2021 <span class="o">(</span><span class="k">in </span>385 da
     <li>
         <a href="/faq/configure/why-am-i-getting-ldap-synchronization-issues">Why am I getting ldap synchronization issues?</a>
     </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

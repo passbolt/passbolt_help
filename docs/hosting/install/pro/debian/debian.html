@@ -196,6 +196,27 @@
 <div class="row">
   <div class="col7">
 
+    <h2 id="prerequisites">Prerequisites</h2>
+
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>A minimal Debian 10 server.</li>
+      <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
+    </ul>
+
+    <p>The recommended server requirements are:</p>
+    <ul>
+      <li>2 cores</li>
+      <li>2GB of RAM</li>
+    </ul>
+
+    <div class="message warning">
+    <p>
+        <strong>Please note:</strong> It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+    </p>
+    
+</div>
+
     <h1 id="install-the-server-components">1. Install the server components</h1>
     <h2 id="repository-setup">Repository setup</h2>
 
@@ -220,9 +241,14 @@ sudo apt-get install \
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key:</p>
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key</p>
 
+    <p>From keys.gnupg.net:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Or from hkps://keys.mailvelope.com:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 </code></pre></div>    </div>
 
     <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
@@ -253,8 +279,8 @@ as dependencies.</p>
     <p>There are two main ways to install the passbolt debian package:</p>
 
     <ul>
-      <li>Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are 
-going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before 
+      <li>Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
 beginning. The user will be asked for the path and name of the certificate and key.</li>
       <li>Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.</li>

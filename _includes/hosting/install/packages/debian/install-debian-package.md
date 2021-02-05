@@ -1,3 +1,17 @@
+## Prerequisites
+
+For this tutorial, you will need:
+- A minimal Debian 10 server.
+- A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.
+
+The recommended server requirements are:
+- 2 cores
+- 2GB of RAM
+
+{% include messages/warning.html
+    content="**Please note:** It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."
+%}
+
 # 1. Install the server components
 ## Repository setup
 
@@ -24,10 +38,16 @@ Optionally you can install certbot to enable [Let's Encrypt](https://letsencrypt
 sudo apt-get install certbot python3-certbot-nginx
 ```
 
-**Step 2.**  Add Passbolt package official GnuPG key:
+**Step 2.**  Add Passbolt package official GnuPG key
 
+From keys.gnupg.net:
 ```
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+```
+
+Or from hkps://keys.mailvelope.com:
+```
+sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 ```
 
 **Step 3.**  Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
@@ -60,8 +80,8 @@ as dependencies.
 
 There are two main ways to install the passbolt debian package:
 
-- Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are 
-going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before 
+- Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
 beginning. The user will be asked for the path and name of the certificate and key.
 - Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.

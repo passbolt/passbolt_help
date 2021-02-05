@@ -6,7 +6,7 @@ There are a few differences in the systems and they are noted below.
 
 # 1. Backup your instance
 
-First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. You can follow our [backup process](/hosting/backup)
+First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. You can follow our [backup process](/hosting/backup).
 
 # 2. Upgrade your system
 
@@ -90,7 +90,7 @@ And change it to look like:
 listen.group = www-data
 ```
 {% include messages/notice.html
-    content="Notice: The above examples show using php7.3 - if your server has php7.4 adjust these examples accordingly."
+    content="Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly."
 %}
 
 # 7. Nginx

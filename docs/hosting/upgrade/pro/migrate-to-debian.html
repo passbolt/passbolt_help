@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Migrate from install scripts to debian package</title>
+    <title>Passbolt Help | Migrate from install scripts to debian-based package</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Migrate from install scripts to debian package" />
+    <meta property="og:title" content="Migrate from install scripts to debian-based package" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -188,25 +188,40 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Migrate from install scripts to debian package</h1>
+<h1>Migrate from install scripts to debian-based package</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
+    <h2 id="introduction">Introduction</h2>
+
+    <p>A debian package has been created to increase the ease of installing and upgrading passbolt.
+Although originally intended for Debian servers, we have found it also works on Ubuntu servers.
+There are a few differences in the systems and they are noted below.</p>
+
     <h1 id="backup-your-instance">1. Backup your instance</h1>
 
-    <p>First things first, as this is a sensitive operation a backup of the the instance must be performed to prevent any data-loss. You can follow our <a href="/hosting/backup">backup process</a></p>
+    <p>First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. You can follow our <a href="/hosting/backup">backup process</a>.</p>
 
     <h1 id="upgrade-your-system">2. Upgrade your system</h1>
 
-    <p>A full system upgrade to debian stable (10) is necessary before installing passbolt debian package.
+    <p>Passbolt requires PHP 7.3 and supports PHP 7.4.</p>
+
+    <h2 id="for-debian-systems">For Debian systems</h2>
+    <p>A full system upgrade to debian stable (10) is necessary before installing the passbolt debian package.
 <a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">Here</a> is the official debian guide to upgrade your system with a step by step tutorial.</p>
+
+    <h2 id="for-ubuntu-systems">For Ubuntu systems</h2>
+    <p>While Ubuntu 18.04 comes with PHP 7.2, <a href="https://help.ubuntu.com/18.04/serverguide/installing-upgrading.html">these upgrade steps</a>
+to Ubuntu 20.04 will provide PHP 7.4. For users who cannot upgrade to Ubuntu 20.04 or for whatever reason are
+required to continue to use Ubuntu 18.04, an upgrade to at least PHP 7.3 is required. Don’t forget to also
+install the PHP 7.3 extensions.</p>
 
     <h1 id="install-passbolt-debian-package">3. Install passbolt debian package</h1>
 
-    <p>You can follow the instructions to install passbolt debian package <a href="/hosting/install/pro/debian/debian.html">here</a></p>
+    <p>You can follow the instructions to install passbolt debian package <a href="/hosting/install/pro/debian/debian.html">here</a>.</p>
 
     <p>It is recommended at this point to select:</p>
 
@@ -218,17 +233,24 @@
     <h1 id="copy-gpg-keys-to-the-new-location">4. Copy GPG keys to the new location</h1>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
-sudo chown root:www-data /etc/passbolt/gpg/*
+
+sudo chown -R root:www-data /etc/passbolt/gpg
+
 sudo chmod g-w /etc/passbolt/gpg
 </code></pre></div>    </div>
-    <h1 id="copy-passboltphp-configuration">5. Copy passbolt.php configuration</h1>
+
+    <h1 id="copy-passboltphp-configuration-and-license">5. Copy passbolt.php configuration and license</h1>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
+
 sudo chown root:www-data /etc/passbolt/passbolt.php
+
 sudo chmod g-w /etc/passbolt/passbolt.php
 
 sudo cp /var/www/passbolt/config/license /etc/passbolt/license
+
 sudo chown root:www-data /etc/passbolt/license
+
 sudo chmod g-w /etc/passbolt/license
 
 </code></pre></div>    </div>
@@ -256,6 +278,12 @@ sudo chmod g-w /etc/passbolt/license
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen.group = www-data
 </code></pre></div>    </div>
+    <div class="message notice">
+    <p>
+    Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly.
+    </p>
+    
+</div>
 
     <h1 id="nginx">7. Nginx</h1>
 
@@ -291,12 +319,16 @@ you can delete it:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf /var/www/passbolt
 </code></pre></div>    </div>
 
+    <p>You may also want to check for the old CRON job that may need to be removed:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo crontab -u www-data -e
+</code></pre></div>    </div>
+
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-June
-20th,
-2020.</p>
+February
+3rd,
+2021.</p>
     </div>
 
   </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Backing up a passbolt installation (v2)</title>
+    <title>Passbolt Help | Backup</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
+    <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Backing up a passbolt installation (v2)" />
-    <meta property="og:description" content="" />
+    <meta property="og:title" content="Backup" />
+    <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -29,10 +29,9 @@
 
 </head>
 
-
 <body>
-    <div id="container" class="help page background">
-            <header>
+<div id="container" class="help page help-home background">
+    <header>
         <div class="header first ">
             <nav class="greedy">
                 <div class="top navigation primary">
@@ -74,16 +73,15 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/backup/2018-03-14-hosting-backup-v2.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/hosting/backup.html" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
     </div>
 
-        <div class="panel main" aria-label="Content">
-            <div class="panel left">
-                
-                
+<div class="panel main">
+    <div class="panel left">
+        
 
 
 
@@ -95,41 +93,37 @@
     <ul>
         <li><h2>Hosting</h2></li>
         
-        
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/hosting/install">Installation</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
-        <li>
-        
+        <li >
             <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
         </li>
         
         
         <li class="selected">
-        
             <a href="https://help.passbolt.com/hosting/backup">Backup</a>
         </li>
         
+            
         
-        <li>
         
+        <li >
             <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
         </li>
+        
         
     </ul>
 </div>
@@ -143,13 +137,10 @@
 
 
 
-
-                
-            </div>
-            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
-                <div class="grid grid-responsive-12">
-                    <article>
-                        <div class="row" id="introduction">
+    </div>
+    <div class="panel middle">
+        <div class="grid grid-responsive-12">
+            <div class="row" id="introduction">
     <div class="col12">
         <div class="breadcrumbs">
             <ul>
@@ -173,7 +164,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/backup.html"><span>backup</span></a>
+                        <a href="https://help.passbolt.com/hosting/backup"><span>backup</span></a>
                     </div>
                 </li>
                 
@@ -182,114 +173,325 @@
     </div>
 </div>
 
-                        <div class="row" markdown="1">
-<div class="col7" markdown="1">
-<h1>Backing up a passbolt installation (v2)</h1>
-</div>
-</div>
-
-                        <div class="row">
-  <div class="col7">
-
-    <p>Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
-information, it is equally important to have a backup strategy in place.</p>
-
-    <p>As a passbolt administrator it is your responsibility to define how often and when to perform backups.
-Please automate and customize this process to match the needs and policies of your organization.</p>
-
-    <p>Here are some best practices to keep in mind:</p>
-
-    <ul>
-      <li>Ensure that the backups are taken at intervals that match your usage</li>
-      <li>Take these backups off-site, or to another environment than the live one</li>
-      <li>Make sure the backup is encrypted and stored in a safe location</li>
-      <li>Practice drills and test the backups to make sure they work</li>
-    </ul>
-
-    <h2 id="what-to-backup">What to backup?</h2>
-
-    <p>There are several elements you need to backup:</p>
-
-    <h4 id="the-database">1. The database</h4>
-
-    <p>This can be easily scripted using <a href="https://mariadb.com/kb/en/mariadb/mysqldump/">mysqldump</a> for example:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>pass] db <span class="o">&gt;</span> /path/to/backup.sql
-</code></pre></div>    </div>
-    <h4 id="the-avatars">2. The avatars</h4>
-
-    <p>The images in <code class="language-plaintext highlighter-rouge">webroot/img/public</code> also need to be backed up, otherwise profile images will be lost.</p>
-
-    <h4 id="the-server-public-and-private-keys">3. The server public and private keys</h4>
-
-    <p>You can copy the server OpenPGP key in <code class="language-plaintext highlighter-rouge">config/gpg</code> or export it directly from GnuPG.</p>
-
-    <p>To export it using GnuPG you can use the email attached to your keys to identify them or use the fingerprint.
-In order to find the fingerprint if you do not know the email attached to your keys:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span>
-</code></pre></div>    </div>
-
-    <p>If you know the email attached to your keys you can use it to export your keys as follows:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --export-secret-keys &lt;identifier&gt; &gt; /var/www/passbolt/config/gpg/private.asc"</span> www-data
-<span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --export &lt;identifier&gt; &gt; /var/www/passbolt/config/gpg/public.asc"</span> www-data
-</code></pre></div>    </div>
-    <p>Where <identifier> can be the key fingerprint or the email associated with the key you want to export.</identifier></p>
-
-    <h5 id="note">Note</h5>
-
-    <p>Be sure to <strong>remove the expiration time</strong> before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.</p>
-
-    <h4 id="the-application-configuration">4. The application configuration</h4>
-
-    <p>The file located in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>. It is optional, but it can save you some time if you need to rebuild a new instance.</p>
-
-    <h2 id="what-about-the-secret-keys-of-my-collaborators">What about the secret keys of my collaborators?</h2>
-
-    <p>Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.</p>
-
-    <p>As an administrator you should stress the importance of backing up secret keys to other users. For example this warning could be part of the initial information message sent to introduce passbolt to new users.</p>
-
-    <p>It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.</p>
-
-    <div class="last-updated">
-      <h3>Last updated</h3>
-      <p>This article was last updated on 
-March
-14th,
-2018.</p>
+            
+            <div class="row">
+    <div class="col12">
+        <h2>Backup your passbolt instance</h2>
     </div>
-
-  </div>
-  <div class="col4 last push1">
-
-    <div class="message tldr notice">
-    <p>Do you have a question about backups? Do you want to share your experience and best practices?</p>
+</div>
+<div class="row">
     
-    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Get in touch!</a>
+    
+    
+    
+    
+
+    
+    
+    <div class="col4 ">
+        
+        <a class="tile" href="/hosting/backup/debian.html">
+            
+                
+                
+                <span class="tile-teaser"><i class="fa fa-download fa-fw"></i></span>
+                <span class="tile-title">Debian package</span>
+                <span class="tile-description">Backing up a debian package passbolt installation</span>
+            </a>
+    </div>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    <div class="col4 ">
+        
+        <a class="tile" href="/hosting/backup/from-source.html">
+            
+                
+                
+                <span class="tile-teaser"><i class="fa fa-download fa-fw"></i></span>
+                <span class="tile-title">From source (v2)</span>
+                <span class="tile-description">Backing up a from source passbolt installation</span>
+            </a>
+    </div>
+    
+    
+    
+    
+    
+
+    
+    
+    <div class="col4 last">
+        
+        <a class="tile" href="/hosting/backup/backup-v1.html">
+            
+                
+                
+                <span class="tile-teaser"><i class="fa fa-download fa-fw"></i></span>
+                <span class="tile-title">From source (v1)</span>
+                <span class="tile-description">Backing up a from source passbolt installation</span>
+            </a>
+    </div>
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+
+    
     
 </div>
 
-    <div class="message tldr">
-    <p>Are you still using passbolt v1? Check out the previous version of this article.</p>
-    
-    <a href="/hosting/backup-v1" class="button ">See previous version</a>
-    
-</div>
-
-    <div class="message ">
-    <p></p>
-    
-</div>
-
-  </div>
-</div>
-
-                    </article>
-                </div>
-            </div>
         </div>
-            <footer>
+    </div>
+</div>
+
+    <footer>
         <div class="footer">
             <ul class="footer-links">
                 <li><a href="https://www.passbolt.com/licence">Terms</a></li>
@@ -307,12 +509,11 @@ March
     </div>
 
 
-    </div>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
 <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
 <script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
 <script src="https://help.passbolt.com/assets/js/analytics.js"></script>
 <script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
-
 </html>

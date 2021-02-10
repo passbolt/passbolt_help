@@ -2,32 +2,17 @@
 title: Backing up a passbolt installation (v2)
 date: 2018-03-14 00:00:00 Z
 description: Backing up a passbolt installation (v2)
-category: hosting
+categories: [hosting,backup]
 sidebar: hosting
 layout: default
-slug: backup
+slug: from_source
 permalink: /:categories/:slug.html
 ---
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
+{% include hosting/backup/backup_intro.md %}
 
-Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
-information, it is equally important to have a backup strategy in place.
-
-As a passbolt administrator it is your responsibility to define how often and when to perform backups.
-Please automate and customize this process to match the needs and policies of your organization.
-
-Here are some best practices to keep in mind:
-
-* Ensure that the backups are taken at intervals that match your usage
-* Take these backups off-site, or to another environment than the live one
-* Make sure the backup is encrypted and stored in a safe location
-* Practice drills and test the backups to make sure they work
-
-## What to backup?
-
-There are several elements you need to backup:
 
 #### 1. The database
 

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Our House</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the major update documentation to roll out this new version. Read th...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Our House" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the major update documentation to roll out this new version. Read th..." />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v300-our-house">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.0.0.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (ce)</h2></li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/ce/v300-our-house" >v3.0.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v2135-stomp" >v2.13.5</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v2131-stomp" >v2.13.1</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v2130-hammer-to-fall" >v2.13.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/v2121-never-gonna-give-you-up" >v2.12.1</a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/ce.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/ce"><span>ce</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/ce/v300-our-house"><span>our-house</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v3.0.0 ~ Our House (ce)</h1>
+                            <p>Release date: 
+February
+10th,
+2021.
+</p>
+                            <div class="message notice">
+    <p>
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the major <a href="https://help.passbolt.com/hosting/upgrade">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/upgrade" class="button">Read the doc</a>
+    
+</div>
+
+<p>The team is pleased to announce the immediate availability of Passbolt version 3. As you may have noticed with the earlier 
+release in January and automatic rollout of the v3 webextension, this version contains a major redesign of the login 
+and setup screens. The goal of this redesign was to simplify the process and improve the usability. This version 
+also concludes our migration to React technology on the front end side, you can learn more about it in the 
+<a href="https://www.medium.com/passbolt">dedicated blog</a> post.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/AN_login_v3.png" alt="The redesigned login page." style="max-width:;" />
+    <span class="legend">fig. The redesigned login page.</span>
+</figure>
+
+<p>Most notably, this release also introduces the concept of resource types. We will write more about it in a dedicated 
+blog post, but long story short, the goal of this change is to allow storing secrets other than a password. 
+The first example of a new resource type is the “password with encrypted description”. This change is transparent 
+and backward compatible.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/LU_encrypted_description.png" alt="Encrypted description is now on by default on create resource dialog." style="max-width:;" />
+    <span class="legend">fig. Encrypted description is now on by default on create resource dialog.</span>
+</figure>
+
+<p>As you may know, data in passbolt is divided into two parts: the searchable non encrypted metadata called “resource”, 
+and the encrypted part containing, for example the passwords called “secret”. With resource types the solution will 
+support the encapsulation of structured data in the “secret” part in the form of a JSON object, following a JSON schema 
+defined as part of the resource type. In the future we want to allow administrators to be able to define their own 
+resource types, on top of the ones that are supported by default. In the meantime if you have suggestions for new 
+default resource types, and the format you would like to see, please share your ideas on the 
+<a href="https://community.passbolt.com">community forum</a>.</p>
+
+<p>There were some issues with the release of the webextension, which has been summarized on this dedicated 
+<a href="https://www.passbolt.com/incidents">incident page</a>. The most prominent bugs encountered in the last release were
+related to older installations where some database entries became incompatible with new stricter validation rules on 
+the front-end side. These issues have now been resolved, but we apologize for any inconvenience caused.</p>
+
+<p>Server side is also a major release with the deprecation of PHP v7.2 and composer v1. Please make sure you have 
+the right dependencies installed on your server prior to upgrade. You can learn more about the upgrade procedure 
+on the <a href="https://help.passbolt.com/hosting/upgrade">dedicated page</a>.
+Feel free to report bugs on <a href="https://www.github.com/passbolt">github</a> if you encounter any new issues, or to get in 
+touch using the regular support channels.</p>
+
+<p>For our next release(s) the team will focus on an upgrade to Cakephp v4, as well as small UX/UI improvements that 
+have been pending for a very long time, including the ability to translate the interface. And yes we also are 
+actively working on the Mobile app!</p>
+
+<p>A big thank you for people who have reported and documented bugs on github and the community forum including: 
+@DistrantThunder, @kyxyes, @chyff, @drzraf, @Alien-Richman, @VFS, @wnhre2ur8cxx8 (that’s a mouthful), @rctgamers3, 
+@norbertmm, @runderwo, @AnswerKAS, @raphhaselback, @PeanutStick, @JosephGarrone and many more.</p>
+
+<p>Thank you for your continued support.</p>
+
+<h1 id="api">API</h1>
+<h2 id="300---2021-02-10">[3.0.0] - 2021-02-10</h2>
+<h3 id="deprecated">Deprecated</h3>
+<ul>
+  <li>Drop support for API format v1, api-version parameter is deprecated</li>
+  <li>Remove title from API response envelope format</li>
+  <li>Drop support for PHP &lt; v7.3, application require PHP v7.3 by default</li>
+  <li>Drop support for Composer &lt; v2, application requires Composer v2 by default</li>
+</ul>
+
+<h2 id="added">Added</h2>
+<ul>
+  <li>Add dark theme to the community edition</li>
+  <li>Add new system check utilities in ./bin, for example ./bin/status-report</li>
+  <li>Add web installer automatically populates mysql credentials (VM / Debian Package)</li>
+  <li>Add support for multiple resource types</li>
+  <li>Add resource with encrypted description as resource type</li>
+  <li>Add generic cron job task in ./bin/cron</li>
+  <li>Add support for untracked personal shell scripts under ./bin/my</li>
+  <li>Add support for configurable footer link in config</li>
+  <li>Add permissions filters on resource view and index</li>
+  <li>Add permissions contain options on resource view</li>
+</ul>
+
+<h3 id="chores">Chores</h3>
+<ul>
+  <li>Update OpenPGP-PHP dependencies to provide PHP 7.4 compatibility</li>
+  <li>Remove unmaintained user agent parser library</li>
+  <li>Fix PHP 7.4 warnings</li>
+</ul>
+
+<h3 id="improvements">Improvements</h3>
+<ul>
+  <li>Improve testsuite execution times</li>
+  <li>Refactor testsuite to not install data model from fixtures but use migrations instead</li>
+  <li>Refactor testsuite to remove unused fixtures</li>
+  <li>Migrate administration and mfa settings screen to React</li>
+  <li>Add placeholder application skeleton when webextension is still loading</li>
+  <li>Redesign of login and recover screens</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>Fix allow overriding rememberMe options in passbolt.php configuration file</li>
+  <li>Fix all target blank link should contain rel noopener noreferrer</li>
+  <li>Fix email sender, email subject should not exceed 255 characters.</li>
+  <li>Fix secret access log on resource view with contain secret</li>
+  <li>GITHUB-376 Fix missing route prefix on the recovery button</li>
+  <li>GITHUB-373 Fix API format for create group (previously v1 instead of v2 format)</li>
+  <li>GITHUB-372 Fix after modifying passwd, the modification time should be changed</li>
+  <li>GITHUB-370 Fix metadata should be deleted for deleted resources</li>
+  <li>GITHUB-369 Fix Notification Emails Have Wrong Tense In Subject/Body</li>
+  <li>GITHUB-368 Clarify PHP extension requirements</li>
+  <li>GITHUB-362 Fix wrong filename on healthcheck HELP message for assertConfigFiles</li>
+  <li>GITHUB-356 As a user I shouldn’t be able to export folders if export plugin is disabled</li>
+  <li>GITHUB-350 Fix no mails are sent when providers offer AUTH PLAIN authentication only</li>
+  <li>GITHUB-339 Fix web installer urls do not work when passbolt is installed in a directory</li>
+  <li>Fix performance issues on resource / folder activity log</li>
+</ul>
+
+<h1 id="browser-extension">Browser Extension</h1>
+<h2 id="305---2021-02-03">[3.0.5] - 2021-02-03</h2>
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>Fix keep session alive</li>
+</ul>
+
+<h2 id="304---2021-02-03">[3.0.4] - 2021-02-03</h2>
+<h3 id="fixed-2">Fixed</h3>
+<ul>
+  <li>Allow decryption with rsa signing key to work around old openpgpjs bug</li>
+  <li>Pre sanitize data prior to collections/entity creation for the following operations: local storage update (resources, groups, users), user and avatar update, group update</li>
+</ul>
+
+<h2 id="303---2021-01-28">[3.0.3] - 2021-01-28</h2>
+<h3 id="fixed-3">Fixed</h3>
+<ul>
+  <li>Fix do not enforce validation for gpgkey with type property set to null</li>
+  <li>Fix do not enforce validation for gpgkey with bits property set to null</li>
+</ul>
+
+<h2 id="302---2021-01-27">[3.0.2] - 2021-01-27</h2>
+<h3 id="fixed-4">Fixed</h3>
+<ul>
+  <li>Fix allow favorites with non conforming v1 data</li>
+</ul>
+
+<h2 id="301---2021-01-27">[3.0.1] - 2021-01-27</h2>
+<h3 id="fixed-5">Fixed</h3>
+<ul>
+  <li>Fix do not enforce validation error for tags with slug duplicates</li>
+  <li>Fix do not enforce validation for avatar with empty user_id</li>
+</ul>
+
+<h3 id="300---2021-01-27">[3.0.0] - 2021-01-27</h3>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>Add a new login page and process redesign</li>
+  <li>Add a new setup pages and process redesign</li>
+  <li>Add a new recovery page and process redesign</li>
+  <li>Add request passphrase prior to downloading the private key in user workspace</li>
+  <li>Add the ability to sort by favorites</li>
+  <li>Add the ability to encrypt description</li>
+  <li>Add baseline support for other resource types</li>
+</ul>
+
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>Migrate user workspace code previously served by server in the extension</li>
+  <li>Migrate password workspace code previously served by server in the extension</li>
+  <li>Migrate user profile code previously served by server in the extension</li>
+  <li>Migrate the front-end code from CanJS to React</li>
+  <li>Improve import export speed and misc compatibility improvements</li>
+  <li>Improve server data validation in background page</li>
+  <li>Misc update of dependencies</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"And this is how we're gonna work it"</p>
+                                <a href="https://youtu.be/eCwWbEhFftw" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

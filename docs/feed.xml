@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-02-05T10:55:58+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate from install scripts to debian-based package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian-based package" /><published>2021-02-03T01:00:00+01:00</published><updated>2021-02-03T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-02-10T15:09:22+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate from install scripts to debian-based package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian-based package" /><published>2021-02-03T01:00:00+01:00</published><updated>2021-02-03T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -309,101 +309,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
-    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
-    scenarios like https://mydomain.com/passbolt are not supported by default
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
-on how to install passbolt on debian.&lt;/p&gt;
-
-    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
-you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
-
-    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
-      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-September
-20th,
-2020.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/pro/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/pro/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -497,91 +403,27 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/pro/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt VM</title><link href="https://help.passbolt.com/hosting/update/vm-update.html" rel="alternate" type="text/html" title="Update passbolt VM" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/vm_update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/vm-update.html"></content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update passbolt docker container" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
-    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+    &lt;p&gt;Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
+the passbolt version so updating them is as easy as changing the image tag.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
-      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
+some extra steps that are out of the scope of this help site.&lt;/p&gt;
 
-    &lt;p&gt;On this context ‘manually’ means that the user will provide the SSL certificates, this is the main difference with
-the ‘auto’ method where &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt; will issue the SSL certificate for you.&lt;/p&gt;
+    &lt;p&gt;As a example if you are running passbolt docker using the docker-compose files provided &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;here&lt;/a&gt;
+you would just need to change the following line:&lt;/p&gt;
 
-    &lt;p&gt;This manual method is often useful on private network installations with private &lt;a href=&quot;https://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;CA&lt;/a&gt; where
-the system admin issues a new private SSL certificate and uploads it to the passbolt server. It is also a method often used with
-self-signed SSL certificates for test installations.&lt;/p&gt;
-
-    &lt;p&gt;On this example we will assume the user is generating a self-signed certificate on the passbolt server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;generate-the-ssl-certificate&quot;&gt;Generate the SSL certificate&lt;/h2&gt;
-
-    &lt;p&gt;While connected to your passbolt instance you can generate a SSL certificate in the following way:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; image: passbolt/passbolt:&amp;lt;IMAGE_TAG&amp;gt;-debian
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;This command will output two files the ‘key.pem’ and the ‘cert.pem’ identify the absolute path where these files are located.&lt;/p&gt;
+    &lt;p&gt;Where &lt;IMAGE_TAG&gt; is the passbolt version that you want to use, for example `2.13.5` and relaunch your composer:&lt;/IMAGE_TAG&gt;&lt;/p&gt;
 
-    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
-on how to install passbolt on debian.&lt;/p&gt;
-
-    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
-you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up -d
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
-
-    &lt;p&gt;You should select yes for the nginx setup:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png&quot; alt=&quot;Nginx configuration message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Nginx configuration message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Choose ‘manual’ for the SSL setup method:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_method_select_pro.png&quot; alt=&quot;SSL method selection&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSL method selection&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Provide the domain name you plan to use for your passbolt server. On this example and as we are using a
-self-signed certificate the domain name is not as important as if you are planning to use a proper SSL
-certificate. In the later escenario DNS domain name and SSL domain name must match.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_domain_pro.png&quot; alt=&quot;Domain for nginx setup&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Domain for nginx setup&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Provide the full path of the SSL certificate you created on previous steps (‘cert.pem’)&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_cert_pro.png&quot; alt=&quot;SSL certificate path&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSL certificate path&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Now provide the full path of the SSL key (‘key.pem’)&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/key_ssl_pro.png&quot; alt=&quot;SSL private key path&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSL private key path&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified. Keep in mind that you might need
-to add DNS records to reach your domain on your local network or in a public DNS provider.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/success_message.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
-&lt;/figure&gt;
+    &lt;p&gt;Voilà&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
@@ -595,121 +437,19 @@ September
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
     
     &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
     
 &lt;/div&gt;
 
-    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/ce/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
-      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;On this context ‘manually’ means that the user will provide the SSL certificates, this is the main difference with
-the ‘auto’ method where &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt; will issue the SSL certificate for you.&lt;/p&gt;
-
-    &lt;p&gt;This manual method is often useful on private network installations with private &lt;a href=&quot;https://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;CA&lt;/a&gt; where
-the system admin issues a new private SSL certificate and uploads it to the passbolt server. It is also a method often used with
-self-signed SSL certificates for test installations.&lt;/p&gt;
-
-    &lt;p&gt;On this example we will assume the user is generating a self-signed certificate on the passbolt server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;generate-the-ssl-certificate&quot;&gt;Generate the SSL certificate&lt;/h2&gt;
-
-    &lt;p&gt;While connected to your passbolt instance you can generate a SSL certificate in the following way:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;This command will output two files the ‘key.pem’ and the ‘cert.pem’ identify the absolute path where these files are located.&lt;/p&gt;
-
-    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
-on how to install passbolt on debian.&lt;/p&gt;
-
-    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
-you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
-
-    &lt;p&gt;You should select yes for the nginx setup:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/configure_nginx.png&quot; alt=&quot;Nginx configuration message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Nginx configuration message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Choose ‘manual’ for the SSL setup method:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_method_select.png&quot; alt=&quot;SSL method selection&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSL method selection&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Provide the domain name you plan to use for your passbolt server. On this example and as we are using a
-self-signed certificate the domain name is not as important as if you are planning to use a proper SSL
-certificate. In the later escenario DNS domain name and SSL domain name must match.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_domain.png&quot; alt=&quot;Domain for nginx setup&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Domain for nginx setup&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Provide the full path of the SSL certificate you created on previous steps (‘cert.pem’)&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_cert.png&quot; alt=&quot;SSL certificate path&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSL certificate path&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Now provide the full path of the SSL key (‘key.pem’)&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/key_ssl.png&quot; alt=&quot;SSL private key path&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSL private key path&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified. Keep in mind that you might need
-to add DNS records to reach your domain on your local network or in a public DNS provider.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/success_message.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-September
-20th,
-2020.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
     
 &lt;/div&gt;
 
-    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on debian systems</title><link href="https://help.passbolt.com/hosting/update/debian-package.html" rel="alternate" type="text/html" title="Update passbolt on debian systems" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/debian_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/debian-package.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on debian systems</title><link href="https://help.passbolt.com/hosting/update/debian-package.html" rel="alternate" type="text/html" title="Update passbolt on debian systems" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/debian_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/debian-package.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
@@ -815,27 +555,91 @@ September
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update passbolt docker container" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/ce/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
-    &lt;p&gt;Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
-the passbolt version so updating them is as easy as changing the image tag.&lt;/p&gt;
+    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
 
-    &lt;p&gt;Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
-some extra steps that are out of the scope of this help site.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
 
-    &lt;p&gt;As a example if you are running passbolt docker using the docker-compose files provided &lt;a href=&quot;https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml&quot;&gt;here&lt;/a&gt;
-you would just need to change the following line:&lt;/p&gt;
+    &lt;p&gt;On this context ‘manually’ means that the user will provide the SSL certificates, this is the main difference with
+the ‘auto’ method where &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt; will issue the SSL certificate for you.&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; image: passbolt/passbolt:&amp;lt;IMAGE_TAG&amp;gt;-debian
+    &lt;p&gt;This manual method is often useful on private network installations with private &lt;a href=&quot;https://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;CA&lt;/a&gt; where
+the system admin issues a new private SSL certificate and uploads it to the passbolt server. It is also a method often used with
+self-signed SSL certificates for test installations.&lt;/p&gt;
+
+    &lt;p&gt;On this example we will assume the user is generating a self-signed certificate on the passbolt server.&lt;/p&gt;
+
+    &lt;h2 id=&quot;generate-the-ssl-certificate&quot;&gt;Generate the SSL certificate&lt;/h2&gt;
+
+    &lt;p&gt;While connected to your passbolt instance you can generate a SSL certificate in the following way:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Where &lt;IMAGE_TAG&gt; is the passbolt version that you want to use, for example `2.13.5` and relaunch your composer:&lt;/IMAGE_TAG&gt;&lt;/p&gt;
+    &lt;p&gt;This command will output two files the ‘key.pem’ and the ‘cert.pem’ identify the absolute path where these files are located.&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up -d
+    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
+on how to install passbolt on debian.&lt;/p&gt;
+
+    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
+you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Voilà&lt;/p&gt;
+    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;You should select yes for the nginx setup:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/configure_nginx.png&quot; alt=&quot;Nginx configuration message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Nginx configuration message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Choose ‘manual’ for the SSL setup method:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_method_select.png&quot; alt=&quot;SSL method selection&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSL method selection&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Provide the domain name you plan to use for your passbolt server. On this example and as we are using a
+self-signed certificate the domain name is not as important as if you are planning to use a proper SSL
+certificate. In the later escenario DNS domain name and SSL domain name must match.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_domain.png&quot; alt=&quot;Domain for nginx setup&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Domain for nginx setup&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Provide the full path of the SSL certificate you created on previous steps (‘cert.pem’)&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_cert.png&quot; alt=&quot;SSL certificate path&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSL certificate path&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Now provide the full path of the SSL key (‘key.pem’)&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/key_ssl.png&quot; alt=&quot;SSL private key path&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSL private key path&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified. Keep in mind that you might need
+to add DNS records to reach your domain on your local network or in a public DNS provider.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/success_message.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
@@ -849,19 +653,215 @@ September
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
     
     &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
     
 &lt;/div&gt;
 
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
+    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Manual HTTPS configuration on Debian with user provided certificates</title><link href="https://help.passbolt.com/configure/https/pro/debian/manual.html" rel="alternate" type="text/html" title="Manual HTTPS configuration on Debian with user provided certificates" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/debian/manual</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/debian/manual.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;On this context ‘manually’ means that the user will provide the SSL certificates, this is the main difference with
+the ‘auto’ method where &lt;a href=&quot;https://letsencrypt.org/&quot;&gt;Let’s Encrypt&lt;/a&gt; will issue the SSL certificate for you.&lt;/p&gt;
+
+    &lt;p&gt;This manual method is often useful on private network installations with private &lt;a href=&quot;https://en.wikipedia.org/wiki/Certificate_authority&quot;&gt;CA&lt;/a&gt; where
+the system admin issues a new private SSL certificate and uploads it to the passbolt server. It is also a method often used with
+self-signed SSL certificates for test installations.&lt;/p&gt;
+
+    &lt;p&gt;On this example we will assume the user is generating a self-signed certificate on the passbolt server.&lt;/p&gt;
+
+    &lt;h2 id=&quot;generate-the-ssl-certificate&quot;&gt;Generate the SSL certificate&lt;/h2&gt;
+
+    &lt;p&gt;While connected to your passbolt instance you can generate a SSL certificate in the following way:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;This command will output two files the ‘key.pem’ and the ‘cert.pem’ identify the absolute path where these files are located.&lt;/p&gt;
+
+    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
+on how to install passbolt on debian.&lt;/p&gt;
+
+    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
+you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;You should select yes for the nginx setup:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png&quot; alt=&quot;Nginx configuration message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Nginx configuration message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Choose ‘manual’ for the SSL setup method:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_method_select_pro.png&quot; alt=&quot;SSL method selection&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSL method selection&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Provide the domain name you plan to use for your passbolt server. On this example and as we are using a
+self-signed certificate the domain name is not as important as if you are planning to use a proper SSL
+certificate. In the later escenario DNS domain name and SSL domain name must match.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_domain_pro.png&quot; alt=&quot;Domain for nginx setup&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Domain for nginx setup&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Provide the full path of the SSL certificate you created on previous steps (‘cert.pem’)&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/ssl_cert_pro.png&quot; alt=&quot;SSL certificate path&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSL certificate path&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Now provide the full path of the SSL key (‘key.pem’)&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/key_ssl_pro.png&quot; alt=&quot;SSL private key path&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSL private key path&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified. Keep in mind that you might need
+to add DNS records to reach your domain on your local network or in a public DNS provider.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/09/debian-package/success_message.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+September
+20th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
     
 &lt;/div&gt;
 
+    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt VM</title><link href="https://help.passbolt.com/hosting/update/vm-update.html" rel="alternate" type="text/html" title="Update passbolt VM" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/vm_update</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/vm-update.html"></content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
+    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
+    scenarios like https://mydomain.com/passbolt are not supported by default
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
+on how to install passbolt on debian.&lt;/p&gt;
+
+    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
+you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+September
+20th,
+2020.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;

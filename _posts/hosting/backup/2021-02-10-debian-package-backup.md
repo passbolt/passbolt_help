@@ -1,7 +1,9 @@
 ---
 title: Debian package
 date: 2021-02-10 00:00:00 Z
-description: Debian package passbolt install backup
+card_teaser: Backing up a debian package passbolt installation
+card_title: Debian package
+icon: fa-download
 categories: [hosting,backup]
 sidebar: hosting
 layout: default

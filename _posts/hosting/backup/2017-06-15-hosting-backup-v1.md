@@ -1,8 +1,10 @@
 ---
 title: Backing up a passbolt installation (v1)
 date: 2017-06-15 00:00:00 Z
-description: Backing up a passbolt installation (v1)
-category: hosting
+card_teaser: Backing up a from source passbolt installation
+card_title: From source (v1)
+icon: fa-download
+categories: [hosting,backup]
 sidebar: hosting
 layout: default
 slug: backup-v1

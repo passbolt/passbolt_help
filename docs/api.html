@@ -263,7 +263,7 @@ The “body” contains the actual payload.</p>
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_secrets_view_success"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad71952e-7842-599e-a19e-3a82e6974b23"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">secrets</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">secrets</span><span class="se">\/</span><span class="s2">resource</span><span class="se">\/</span><span class="s2">8e3874ae-4b40-590b-968a-418f704b9d9a.json"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -300,7 +300,7 @@ with the presence of both “header” and “body” properties, only this time
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_add_error"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ad8bbc35-6435-538e-b1a7-80b87bcedb6a"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate resource data."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -315,114 +315,16 @@ with the presence of both “header” and “body” properties, only this time
 </span></code></pre></div></div>
 
 <p>As you can see, for validation errors, the response body contains two keys, “name” and “secrets” as they failed
-some validation rules. Further, they also have their own json object with a key (_required) that represents the
+some validation rules. Further, they also have their own json object with a key (“_required”) that represents the
 validation rule that failed and a value with the actual error message (“A name is required”).</p>
 
 <h3 id="api-versions">API Versions</h3>
 
-<p>The API is versioned. Historically, passbolt supports two different formats for interacting with the API.
-At the moment, the server component currently supports format version 2 and 1, where v1 is the default (even for v2
-server component) for backward compatibility reasons. However, this behavior will change in the future so please
-use (or switch) to API version 2 as soon as possible to minimize refactoring in your application down the road.</p>
+<p>Historically, passbolt supported two different formats for interacting with the API. <strong><em>API version 1 is now deprecated</em></strong>.
+The passbolt server component supports only API version 2 and all calls are assumed to be version 2 - no parameter is needed
+to designate this.</p>
 
-<p>You can target a specific API version by including a query string <code class="language-plaintext highlighter-rouge">api-version</code> in your requests.
-For example, to get a list of all resources using version 1, you can request:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v1
-</code></pre></div></div>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"b8ab8696-e5a1-4a06-bfbc-a7b77efd8f10"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554897334</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apache"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www-data"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">www.apache.org</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apache is the world</span><span class="se">\u</span><span class="s2">0027s most used web server software."</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"Resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09c790c0-c003-53c8-a640-25d33cfebc22"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower.io"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A package manager for the web!"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-04 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04 12:05:58"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>Notice how the associated keys like “modifier”, “creator” and “tags” are part of the “Resource” object.</p>
-
-<p>In contrast, the same request using v2 option will result in a differently structured response:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json?api-version=v2
-</code></pre></div></div>
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58e1d35d-d6cb-4cb7-94b9-f43bae176bfa"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554897573</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?api-version=v2"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8e3874ae-4b40-590b-968a-418f704b9d9a"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"apache"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www-data"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http:</span><span class="se">\/\/</span><span class="s2">www.apache.org</span><span class="se">\/</span><span class="s2">"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Apache is the world</span><span class="se">\u</span><span class="s2">0027s most used web server software."</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-02T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-04-03T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"f848277c-5398-58f8-a82a-72397af2d450"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"09c790c0-c003-53c8-a640-25d33cfebc22"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"uri"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bower.io"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A package manager for the web!"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-04-04T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"modified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-04T12:05:58+00:00"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"created_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"modified_by"</span><span class="p">:</span><span class="w"> </span><span class="s2">"640ebc06-5ec1-5322-a1ae-6120ed2f3a74"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>This time the associated keys like “modifier”, “creator” and “tags” all belong to the same object and the object type is no
-longer specified. This is just one of the major changes over <code class="language-plaintext highlighter-rouge">v1</code>.
-You can see the complete <a href="https://github.com/passbolt/passbolt_api/blob/master/CHANGELOG.md">changelog</a> on the official
+<p>You can see the complete <a href="https://github.com/passbolt/passbolt_api/blob/master/CHANGELOG.md">changelog</a> on the official
 the <a href="https://github.com/passbolt/passbolt_api">repository</a>.</p>
 
 <h1 id="encryption-and-decryption">Encryption and decryption</h1>
@@ -486,7 +388,7 @@ Your passbolt server broadcasts its public key at /auth/verify.json:</p>
         </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554898043</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"748dcd10-7d15-5498-9aa6-d26de348ff02"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">auth</span><span class="se">\/</span><span class="s2">verify.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">auth</span><span class="se">\/</span><span class="s2">verify.json"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">

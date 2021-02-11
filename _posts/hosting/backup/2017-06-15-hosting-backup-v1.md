@@ -1,8 +1,10 @@
 ---
 title: Backing up a passbolt installation (v1)
 date: 2017-06-15 00:00:00 Z
-description: Backing up a passbolt installation (v1)
-category: hosting
+card_teaser: Backing up a from source passbolt installation
+card_title: From source (v1)
+icon: fa-download
+categories: [hosting,backup]
 sidebar: hosting
 layout: default
 slug: backup-v1
@@ -11,21 +13,7 @@ permalink: /:categories/:slug.html
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
-
-Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a backup strategy in place.
-
-As a passbolt administrator it is your responsibility to define how often and when to perform backups. Please automate and customize this process to match the needs and policies of your organization.
-
-Here are some best practices to keep in mind:
-
-* Ensure that the backups are taken at intervals that match your usage
-* Take these backups off-site, or to another environment than the live one
-* Make sure the backup is encrypted and stored in a safe location
-* Practice drills and test the backups to make sure they work
-
-## What to backup?
-
-There are several elements you need to backup:
+{% include hosting/backup/backup_intro.md %}
 
 #### 1. The database
 
@@ -45,13 +33,7 @@ gpg --export-secret-key -a "passbolt user" > private.key
 
 The files located in `app/Config` such as core.php, app.php, email.php, database.php. It is optional, but it can save you some time if you need to rebuild a new instance.
 
-## What about the secret keys of my collaborators?
-
-Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.
-
-As an administrator you should stress the importance of backing up secret keys to other users. For example this warning could be part of the initial information message sent to introduce passbolt to new users.
-
-It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.
+{% include hosting/backup/backup_collaborators_keys.md %}
 
 {% include date/updated.html %}
 

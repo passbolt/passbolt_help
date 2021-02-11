@@ -221,8 +221,8 @@ also concludes our migration to React technology on the front end side, you can 
 </figure>
 
 <p>Most notably, this release also introduces the concept of resource types. We will write more about it in a dedicated 
-blog post, but long story short, the goal of this change is to allow storing secrets other than a password. 
-The first example of a new resource type is the “password with encrypted description”. This change is transparent 
+blog post, but long story short, the goal of this change is to allow storing different types of secrets, other than a password. 
+The first example of a new resource type is the “password with encrypted description” which has now become the default. This change is transparent 
 and backward compatible.</p>
 
 <figure>
@@ -231,19 +231,19 @@ and backward compatible.</p>
 </figure>
 
 <p>As you may know, data in passbolt is divided into two parts: the searchable non encrypted metadata called “resource”, 
-and the encrypted part containing, for example the passwords called “secret”. With resource types the solution will 
+and the encrypted part containing, for example the password called “secret”. With resource types the solution will 
 support the encapsulation of structured data in the “secret” part in the form of a JSON object, following a JSON schema 
 defined as part of the resource type. In the future we want to allow administrators to be able to define their own 
 resource types, on top of the ones that are supported by default. In the meantime if you have suggestions for new 
-default resource types, and the format you would like to see, please share your ideas on the 
+default resource types, and the formats you would like to see (for instance credit cards, ssh keys, etc…), please share your ideas on the 
 <a href="https://community.passbolt.com">community forum</a>.</p>
 
-<p>There were some issues with the release of the webextension, which has been summarized on this dedicated 
+<p>We encountered some issues during the release of the webextension v3, which have been summarized on this dedicated 
 <a href="https://www.passbolt.com/incidents">incident page</a>. The most prominent bugs encountered in the last release were
-related to older installations where some database entries became incompatible with new stricter validation rules on 
-the front-end side. These issues have now been resolved, but we apologize for any inconvenience caused.</p>
+related to older installations where some database entries became incompatible with the new stricter validation rules on 
+the front-end side. These issues have now been resolved, but we sincerely apologize for any inconvenience caused, and have learnt a lot during the process.</p>
 
-<p>Server side is also a major release with the deprecation of PHP v7.2 and composer v1. Please make sure you have 
+<p>Server side Passbolt API v3 is also a major release with the deprecation of PHP v7.2 and composer v1. Please make sure you have 
 the right dependencies installed on your server prior to upgrade. You can learn more about the upgrade procedure 
 on the <a href="https://help.passbolt.com/hosting/upgrade">dedicated page</a>.
 Feel free to report bugs on <a href="https://www.github.com/passbolt">github</a> if you encounter any new issues, or to get in 
@@ -251,7 +251,7 @@ touch using the regular support channels.</p>
 
 <p>For our next release(s) the team will focus on an upgrade to Cakephp v4, as well as small UX/UI improvements that 
 have been pending for a very long time, including the ability to translate the interface. And yes we also are 
-actively working on the Mobile app!</p>
+actively working on the Mobile apps, as well as other much demanded features such as Escrow.</p>
 
 <p>A big thank you for people who have reported and documented bugs on github and the community forum including: 
 @DistrantThunder, @kyxyes, @chyff, @drzraf, @Alien-Richman, @VFS, @wnhre2ur8cxx8 (that’s a mouthful), @rctgamers3, 

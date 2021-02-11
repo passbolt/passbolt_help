@@ -1,4 +1,162 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-02-10T15:09:22+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate from install scripts to debian-based package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian-based package" /><published>2021-02-03T01:00:00+01:00</published><updated>2021-02-03T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-02-11T05:35:50+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Debian package</title><link href="https://help.passbolt.com/hosting/backup/debian.html" rel="alternate" type="text/html" title="Debian package" /><published>2021-02-10T01:00:00+01:00</published><updated>2021-02-10T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/backup/debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/backup/debian.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
+information, it is equally important to have a backup strategy in place.&lt;/p&gt;
+
+    &lt;p&gt;As a passbolt administrator it is your responsibility to define how often and when to perform backups.
+Please automate and customize this process to match the needs and policies of your organization.&lt;/p&gt;
+
+    &lt;p&gt;Here are some best practices to keep in mind:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Ensure that the backups are taken at intervals that match your usage&lt;/li&gt;
+      &lt;li&gt;Take these backups off-site, or to another environment than the live one&lt;/li&gt;
+      &lt;li&gt;Make sure the backup is encrypted and stored in a safe location&lt;/li&gt;
+      &lt;li&gt;Practice drills and test the backups to make sure they work&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;what-to-backup&quot;&gt;What to backup?&lt;/h2&gt;
+
+    &lt;p&gt;There are several elements you need to backup:&lt;/p&gt;
+
+    &lt;h4 id=&quot;the-database&quot;&gt;1. The database&lt;/h4&gt;
+
+    &lt;p&gt;A simple script using &lt;a href=&quot;https://mariadb.com/kb/en/mariadb/mysqldump/&quot;&gt;mysqldump&lt;/a&gt;
+would work. For instance:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;user] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;pass] db &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /path/to/backup.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;the-configuration-files&quot;&gt;2. The configuration files&lt;/h4&gt;
+
+    &lt;p&gt;Passbolt debian package stores all configuration files under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/*&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;This includes:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Gpg serverkeys under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/gpg/*&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;Configuration files such as passbolt.php &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/passbolt.php&lt;/code&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Back this files up with the following example:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;cvfz passbolt-config.tar.gz /etc/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;the-avatars&quot;&gt;2. The avatars&lt;/h4&gt;
+
+    &lt;p&gt;Back up &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/share/php/passbolt/webroot/img/avatar&lt;/code&gt; to avoid losing
+the profile images.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;cvfz passbolt-avatar.tar.gz /usr/share/php/passbolt/webroot/img/avatar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;what-about-the-secret-keys-of-my-collaborators&quot;&gt;What about the secret keys of my collaborators?&lt;/h2&gt;
+
+    &lt;p&gt;Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.&lt;/p&gt;
+
+    &lt;p&gt;As an administrator you should stress the importance of backing up secret keys to other users. For example this warning could be part of the initial information message sent to introduce passbolt to new users.&lt;/p&gt;
+
+    &lt;p&gt;It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+10th,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Do you have a question about backups? Do you want to share your experience and best practices?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Get in touch!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="backup" /><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from community edition v2 to Pro on Debian</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-debian.html" rel="alternate" type="text/html" title="Upgrade Passbolt from community edition v2 to Pro on Debian" /><published>2021-02-10T01:00:00+01:00</published><updated>2021-02-10T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-debian.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h3 id=&quot;backup-passbolt&quot;&gt;1. Backup passbolt&lt;/h3&gt;
+
+    &lt;p&gt;Follow the backup process &lt;a href=&quot;/hosting/backup/debian&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h3 id=&quot;upload-your-subscription-key&quot;&gt;2. Upload your subscription key&lt;/h3&gt;
+
+    &lt;p&gt;You should copy your subscription key to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/license&lt;/code&gt; and ensure
+the permissions are correct.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo chown &lt;/span&gt;root:www-data /etc/passbolt/license
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;cmod 640 /etc/passbolt/license
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;uninstall-passbolt-ce-server&quot;&gt;3. Uninstall passbolt-ce-server&lt;/h3&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get remove passbolt-ce-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;add-new-repository-for-passbolt-pro-server-on-apt&quot;&gt;4. Add new repository for passbolt-pro-server on apt&lt;/h3&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;deb https://download.passbolt.com/pro/debian buster stable&quot;&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/sources.list.d/passbolt-pro.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;update-your-repository-to-make-passbolt-pro-available-for-installation&quot;&gt;5. Update your repository to make passbolt-pro available for installation&lt;/h3&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;install-passbolt-pro-server&quot;&gt;6. Install passbolt-pro-server&lt;/h3&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important:&lt;/strong&gt; As you have passbolt already configured you should reply ‘No’ to the mysql configuration question and ‘No’ to the nginx configuration question. We don’t need to configure anything. 
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;run-the-database-migrations&quot;&gt;7. Run the database migrations&lt;/h3&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;clear-the-cache&quot;&gt;8. Clear the cache&lt;/h3&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake cache clear_all&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+10th,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Migrate from install scripts to debian-based package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html" rel="alternate" type="text/html" title="Migrate from install scripts to debian-based package" /><published>2021-02-03T01:00:00+01:00</published><updated>2021-02-03T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-debian.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
@@ -767,333 +925,4 @@ September
 
     &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Debian</title><link href="https://help.passbolt.com/configure/https/ce/debian/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Debian" /><published>2020-09-20T02:00:00+02:00</published><updated>2020-09-20T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/debian/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/debian/auto.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
-    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
-    scenarios like https://mydomain.com/passbolt are not supported by default
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;install-or-reconfigure-passbolt&quot;&gt;Install or reconfigure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;If you don’t have passbolt installed please check on the &lt;a href=&quot;/hosting/install&quot;&gt;hosting section&lt;/a&gt; for more information
-on how to install passbolt on debian.&lt;/p&gt;
-
-    &lt;p&gt;If you have already installed passbolt or you are using our already packaged &lt;a href=&quot;/hosting/install/pro/vm.html&quot;&gt;virtual machine&lt;/a&gt; or &lt;a href=&quot;/hosting/install/ce/digital-ocean&quot;&gt;Digital Ocean image&lt;/a&gt; then
-you want to execute the following command to start the configuration process for SSL:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
-
-    &lt;p&gt;Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
-      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-September
-20th,
-2020.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;{ include layout/row_end.html %}&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt server component (v2)</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt server component (v2)" /><published>2020-06-25T02:00:00+02:00</published><updated>2020-06-25T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install_scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h1 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h1&gt;
-
-    &lt;h2 id=&quot;find-out-where-is-your-passbolt-directory&quot;&gt;Find out where is your passbolt directory&lt;/h2&gt;
-
-    &lt;p&gt;All the commands hereafter should be done from inside your passbolt directory:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;By default passbolt should be installed under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; but it could be different if you
-installed from source manually. We will assume for the rest of this tutorial that it is located
-in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;find-out-the-name-of-your-webserver-user&quot;&gt;Find out the name of your webserver user&lt;/h2&gt;
-
-    &lt;p&gt;Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt; but on other distributions like Centos it could be for example &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http&lt;/code&gt;.
-For the rest of this tutorial we will assume that the user named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt;.&lt;/p&gt;
-
-    &lt;p&gt;Generally it is not possible to login as this user, so in order to run the command as this user,
-you can execute something like this:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;This command for example, will run the healthcheck command as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt; data user.
-It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.&lt;/p&gt;
-
-    &lt;h2 id=&quot;make-sure-the-permissions-are-right-for-your-current-user&quot;&gt;Make sure the permissions are right for your current user&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        Do not run the commands as root when updating passbolt. It can render your installation unusable.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;Running commands as root can make your installation unusable until the permissions are repaired.
-We recommend you use another user for this purpose. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;whoami&lt;/code&gt; command will let you know which user you are logged
-in as. In our case below, it is the user &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt&lt;/code&gt;.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;whoami
-&lt;/span&gt;passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You need to make sure that this user have access to the passbolt directory.
-The easiest way to do this would be to add such user to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;www-data&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo&lt;/code&gt; groups,
-so for example for a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt&lt;/code&gt; user, you could execute as root:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; www-data passbolt
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-G&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You can check if the user is included in the group (you may need to logout / login again for the permissions to be
-applied):&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;groups &lt;/span&gt;passbolt
-passbolt : passbolt www-data &lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Make sure the passbolt directory is owned by the passbolt user and accessible to the www-data group.
-You can set the permissions as follow:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; passbolt:www-data &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo chmod&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; o-rwx &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g-w
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g-wx
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g+x ./bin/cake
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find ./tmp &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;770
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find ./tmp &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;660
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find ./logs &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;770
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find ./logs &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;660
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find ./webroot/img/public &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; d &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;770
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;find ./webroot/img/public &lt;span class=&quot;nt&quot;&gt;-type&lt;/span&gt; f &lt;span class=&quot;nt&quot;&gt;-print0&lt;/span&gt; | xargs &lt;span class=&quot;nt&quot;&gt;-0&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;660
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Check that the permissions are set as expected.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;ls&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-la&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-drwxr-x--- 2 passbolt www-data  &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-drwx------ 6 root root          ..
-drwxr-x--- 6 passbolt www-data  config
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Make sure the passbolt directory doesn’t contain any changes. If you have altered the passbolt code, stash your changes
-before executing the following command.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout HEAD &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;check-if-git-and-composer-are-present-on-your-system&quot;&gt;Check if git and composer are present on your system&lt;/h2&gt;
-
-    &lt;p&gt;By default you should have both composer and git installed:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;which git
-/usr/bin/git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You should also already have composer installed.&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;which composer.phar
-/usr/bin/composer.phar
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Depending on your setup it is possible that your composer command is named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;composer&lt;/code&gt; and not &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;composer.phar&lt;/code&gt;.&lt;/p&gt;
-
-    &lt;p&gt;If for some reason the command above fails because you don’t have composer installed,
-you can check the &lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;composer installation instructions&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h1 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h1&gt;
-    &lt;h2 id=&quot;take-down-your-site&quot;&gt;0. Take down your site&lt;/h2&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a
-webserver:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you feel a bit more fancy, you can change your web server configuration to point to an “under maintenance” page.
-It is a good practice to announce such maintenance window to your users in advance, so that they can also
-plan for the update, for example by downloading some key passwords they may need.&lt;/p&gt;
-
-    &lt;h2 id=&quot;get-the-latest-code-version&quot;&gt;1. Get the latest code version&lt;/h2&gt;
-
-    &lt;p&gt;You can also pull the latest version directly from master:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git pull origin master
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;To pull a specific version you can do:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch origin tags/v2.13.0
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.13.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;On installations based on install scripts or in the VM appliance you are in a shallow clone state so to change
-the branch you will need to:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git remote set-branches origin &lt;span class=&quot;s2&quot;&gt;&quot;*&quot;&lt;/span&gt;
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git fetch origin tags/v2.13.0
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git checkout tags/v2.13.0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;update-the-dependencies&quot;&gt;2. update the dependencies&lt;/h2&gt;
-
-    &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on
-what is recommended in the composer.lock. This file is provided by passbolt.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;php &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;allow_url_fopen&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;on /usr/bin/composer.phar &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-dev&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-n&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;run-the-migration-script&quot;&gt;3. Run the migration script&lt;/h2&gt;
-
-    &lt;p&gt;You can run the database migration scripts as follow:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt migrate --backup&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;As you can see with the command above you can optional ask the application to create a database backup.
-This is useful in case you run into any issues with the new version and need to revert to an old but working one.&lt;/p&gt;
-
-    &lt;p&gt;This backup will be placed in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./tmp/cache/database/backup/backup_timestamp.sql&lt;/code&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;clear-the-cache&quot;&gt;4. Clear the cache&lt;/h2&gt;
-
-    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
-reflected in model cache files:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake cache clear_all&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;take-your-site-back-up&quot;&gt;5. Take your site back up&lt;/h2&gt;
-
-    &lt;p&gt;Almost done:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
-
-    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
-    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You can also run the following command:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
-
-    &lt;p&gt;If you run into some issues:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
-      &lt;li&gt;Check for error message in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
-      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
-      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
-      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
-      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Where to get help:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
-      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
-the easiest it will be for people to help you.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-June
-25th,
-2020.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Are you still using passbolt v1? Check out the previous version of this article.&lt;/p&gt;
-    
-    &lt;a href=&quot;/hosting/update-v1&quot; class=&quot;button &quot;&gt;See previous version&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry></feed>

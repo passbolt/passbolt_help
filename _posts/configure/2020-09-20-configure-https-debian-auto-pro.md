@@ -1,9 +1,9 @@
 ---
-title: Auto configure HTTPS with Let's Encrypt on Debian
+title: Auto configure HTTPS with Let's Encrypt on Debian and Ubuntu
 date: 2020-09-20 00:00:00 Z
-card_title: Debian auto configure HTTPS
+card_title: Debian/Ubuntu auto configure HTTPS
 card_teaser: Auto configure HTTPS with Let's Encrypt
-description: Auto configure HTTPS with Let's Encrypt on debian systems
+description: Auto configure HTTPS with Let's Encrypt on debian and ubuntu systems
 icon: fa-server
 categories: [configure,https,pro,debian]
 sidebar: configure

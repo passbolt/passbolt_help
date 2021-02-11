@@ -1,24 +1,24 @@
 ---
-title: Install Passbolt Pro on Debian 10
+title: Install Passbolt Pro on Ubuntu 20.04
 date: 2021-02-10 00:00:00 Z
-description: How to install Passbolt Pro on
-card_title: Debian 10
-card_teaser: Step by step guide to install passbolt Pro on Debian
+description: How to install Passbolt Pro on Ubuntu 20.04
+card_title: Ubuntu 20.04
+card_teaser: Step by step guide to install passbolt Pro on Ubuntu 20.04
 card_position: 1
 icon: fa-server
-categories: [hosting,install,pro,debian]
+categories: [hosting,install,pro,ubuntu]
 sidebar: hosting
 layout: default
-slug: Debian
+slug: ubuntu
 popular: true
 permalink: /:categories/:slug.html
 ---
 
 {% assign product = 'pro' %}
-{% assign distribution = 'debian' %}
-{% assign distributionVersion = 'buster' %}
-{% assign distributionSlug = 'debian' %}
-{% assign distributionLabel = 'Debian' %}
+{% assign distribution = 'ubuntu' %}
+{% assign distributionVersion = '20.04' %}
+{% assign distributionSlug = 'ubuntu' %}
+{% assign distributionLabel = 'Ubuntu' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
@@ -35,3 +35,4 @@ permalink: /:categories/:slug.html
 {% include aside/contribute.html %}
 
 {% include layout/row_end.html %}
+

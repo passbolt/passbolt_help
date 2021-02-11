@@ -1,9 +1,9 @@
 ---
-title: Manual HTTPS configuration on Debian with user provided certificates
+title: Manual HTTPS configuration on Debian and Ubuntu with user provided certificates
 date: 2020-09-20 00:00:00 Z
 card_teaser: Configure HTTPS with user provided certificates
-card_title: Debian manual HTTPS configuration
-description: Configure HTTPS with user provided certificates on debian systems
+card_title: Debian/Ubuntu manual HTTPS configuration
+description: Configure HTTPS with user provided certificates on debian and ubuntu systems
 icon: fa-server
 categories: [configure,https,pro,debian]
 sidebar: configure

@@ -1,7 +1,7 @@
 ## Prerequisites
 
 For this tutorial, you will need:
-- A minimal Debian 10 server.
+- A minimal {{ distributionLabel }} {{ distributionVersion }}  server.
 - A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.
 
 The recommended server requirements are:
@@ -63,7 +63,7 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 **Step 4.**  Add passbolt repository to your apt lists:
 
 ```
-echo  "deb https://download.passbolt.com/{{ product }}/debian buster stable" | \
+echo  "deb https://download.passbolt.com/{{ product }}/{{ distribution }} buster stable" | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 ```
 
@@ -75,10 +75,10 @@ sudo apt-get update
 
 ## Install passbolt
 
-By default, passbolt debian package will install Passbolt server component, mariadb-server, php-fpm and nginx
+By default, passbolt {{ distributionLabel }} package will install Passbolt server component, mariadb-server, php-fpm and nginx
 as dependencies.
 
-There are two main ways to install the passbolt debian package:
+There are two main ways to install the passbolt {{ distributionLabel }} package:
 
 - Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
 going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
@@ -103,7 +103,7 @@ sudo apt-get install passbolt-{{product}}-server
 
 #### Configure nginx for serving HTTPS
 
-Depending on your needs there are two different options to setup nginx and SSL using the debian package:
+Depending on your needs there are two different options to setup nginx and SSL using the {{ distributionLabel }} package:
 
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)

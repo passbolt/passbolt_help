@@ -43,6 +43,10 @@ next synchronization round, if the issue does not need to be resolved.
 
 ### Requirements
 
+{% include messages/warning.html
+    content="**Important:** If you have installed passbolt-pro using our debian and ubuntu packages you can skip this section"
+%}
+
 The directory synchronization tools requires the [php-ldap extension](https://secure.php.net/manual/en/book.ldap.php)
 to be present on the server. If you built your own server the way you install
 [php-ldap](https://packages.debian.org/stretch/php-ldap) will depend on your system flavor.
@@ -57,9 +61,9 @@ Make sure the ldap extension is present in the php-cli.ini file.
 You should add `extension=ldap.so` if it is not already present:
 ```bash
 $ php -i |grep php\.ini
-Configuration File (php.ini) Path => /etc/php/7.0/cli
-Loaded Configuration File => /etc/php/7.0/cli/php.ini
-$ nano /etc/php/7.0/cli/php.ini
+Configuration File (php.ini) Path => /etc/php/7.3/cli
+Loaded Configuration File => /etc/php/7.3/cli/php.ini
+$ nano /etc/php/7.3/cli/php.ini
 ```
 
 For testing purpose, it might be handy to have some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils)
@@ -352,8 +356,15 @@ will appear and let you know what happened exactly.
 
 ### How to synchronize my directory automatically?
 To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.
+
 ```bash
 0 0 * * * su -c "/var/www/passbolt/bin/cake directory_sync all" -s /bin/bash www-data >> /var/log/cron.log 2>&1
+```
+
+For debian and ubuntu systems where passbolt is installed through our supported packages:
+
+```bash
+0 0 * * * su -c "/usr/share/php/passbolt/bin/cake directory_sync all" -s /bin/bash www-data >> /var/log/cron.log 2>&1
 ```
 
 ## Configure ldap with SSL (ldaps)

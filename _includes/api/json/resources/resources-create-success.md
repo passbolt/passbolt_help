@@ -7,7 +7,7 @@
         "title": "app_secrets_view_success",
         "action": "ad71952e-7842-599e-a19e-3a82e6974b23",
         "message": "The operation was successful.",
-        "url": "\/secrets\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2",
+        "url": "\/secrets\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json",
         "code": 200
     },
     "body": {

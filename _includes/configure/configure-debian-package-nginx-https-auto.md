@@ -12,7 +12,7 @@
 
 {% include configure/install_or_reconfigure_passbolt.md %}
 
-Passbolt debian package currently supports the configuration of nginx. It comes with a default configuration that supports:
+Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:
 
 - Serve passbolt on port 80 (http)
 - Serve passbolt on port 443 (https)

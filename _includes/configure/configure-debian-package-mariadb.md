@@ -1,6 +1,6 @@
 #### Configure mariadb
 
-If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
+If not instructed otherwise passbolt {{ distribution }} package will install mariadb-server locally. This step will help you create
 an empty mariadb database for passbolt to use.
 
 {% assign imgUrl = "/assets/img/help/2020/05/debian-package/configure_mysql.png" %}

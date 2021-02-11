@@ -1,26 +1,21 @@
 ## Introduction
 
 A debian package has been created to increase the ease of installing and upgrading passbolt.
-Although originally intended for Debian servers, we have found it also works on Ubuntu servers.
-There are a few differences in the systems and they are noted below.
+This package only for Debian servers, a package dedicated to Ubuntu server will be made available
+in the course of February 2021, as they are some differences.
 
 # 1. Backup your instance
 
-First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. You can follow our [backup process](/hosting/backup).
+First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+You can follow our [backup process](/hosting/backup).
 
 # 2. Upgrade your system
 
 Passbolt requires PHP 7.3 and supports PHP 7.4.
 
-## For Debian systems
 A full system upgrade to debian stable (10) is necessary before installing the passbolt debian package.
-[Here](https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html) is the official debian guide to upgrade your system with a step by step tutorial.
-
-## For Ubuntu systems
-While Ubuntu 18.04 comes with PHP 7.2, [these upgrade steps](https://help.ubuntu.com/18.04/serverguide/installing-upgrading.html)
-to Ubuntu 20.04 will provide PHP 7.4. For users who cannot upgrade to Ubuntu 20.04 or for whatever reason are
-required to continue to use Ubuntu 18.04, an upgrade to at least PHP 7.3 is required. Don't forget to also
-install the PHP 7.3 extensions.
+[Here](https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html) is the official debian guide to 
+upgrade your system with a step by step tutorial.
 
 # 3. Install passbolt debian package
 

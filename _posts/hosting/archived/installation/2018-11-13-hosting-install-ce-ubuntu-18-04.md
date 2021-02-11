@@ -9,6 +9,7 @@ icon: fa-server
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
+archived: true
 slug: Ubuntu 18.04 (Bionic Beaver)
 permalink: hosting/install/ce/ubuntu-18-04-bionic-beaver.html
 ---

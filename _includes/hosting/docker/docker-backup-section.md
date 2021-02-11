@@ -5,7 +5,7 @@ First of all is encouraged to backup all the relevant data that is:
 - Images
 - Server public and private keys
 
-You might want to check the detailed [backup list for v1](/hosting/backup-v1)
+You might want to check the detailed [backup list for v1](/hosting/backup/backup-v1)
 
 There are multiple ways to backup your database following there is an example using the passbolt container:
 ```bash

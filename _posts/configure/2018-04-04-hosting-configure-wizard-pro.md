@@ -4,7 +4,7 @@ date: 2018-11-13 00:00:00 Z
 description: Install Passbolt Pro
 icon: fa-server
 categories: [hosting,install,pro]
-ignore_card: true
+archived: true
 sidebar: hosting
 layout: default
 slug: wizard

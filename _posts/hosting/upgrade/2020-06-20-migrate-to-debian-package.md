@@ -3,7 +3,7 @@ title: Migrate from install scripts to debian-based package
 date: 2021-02-03 00:00:00 Z
 description: Migrate from install scripts to debian-based package
 categories: [hosting,upgrade,ce]
-card_teaser: Migrate from installation scripts to debian-based package
+card_teaser: Migrate from install script to debian package
 card_title: Migrate to debian package
 sidebar: [hosting, upgrade]
 passbolt_version: ce

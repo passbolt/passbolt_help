@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Install Passbolt CE using debian package</title>
+    <title>Passbolt Help | Install Passbolt Pro on Debian 10</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install Passbolt CE using debian package" />
+    <meta property="og:title" content="Install Passbolt Pro on Debian 10" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/beta/debian-package">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/pro/debian">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2020-05-25-hosting-install-debian-package.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-02-10-hosting-install-debian-pro.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/ce/beta/debian-package.html"><span>Debian package</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/pro/debian.html"><span>Debian</span></a>
                     </div>
                 </li>
                 
@@ -188,7 +188,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install Passbolt CE using debian package</h1>
+<h1>Install Passbolt Pro on Debian 10</h1>
 </div>
 </div>
 
@@ -221,7 +221,7 @@
     <h2 id="repository-setup">Repository setup</h2>
 
     <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt CE and install it.</p>
+before you download Passbolt PRO and install it.</p>
 
     <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
 
@@ -262,7 +262,7 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 
     <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/debian buster stable" | \
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/pro/debian buster stable" | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 </code></pre></div>    </div>
 
@@ -295,7 +295,7 @@ some questions:</p>
 
     <p>Install the main passbolt server component:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-pro-server
 </code></pre></div>    </div>
 
     <h4 id="configure-mariadb">Configure mariadb</h4>
@@ -304,7 +304,7 @@ some questions:</p>
 an empty mariadb database for passbolt to use.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql.png" alt="Configure mariadb dialog" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure mariadb dialog" style="max-width:450px;" />
     <span class="legend">fig. Configure mariadb dialog</span>
 </figure>
 
@@ -312,31 +312,31 @@ an empty mariadb database for passbolt to use.</p>
 By default in most installations the admin username would be <code class="language-plaintext highlighter-rouge">root</code> and the password would be empty.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
     <span class="legend">fig. Mariadb admin user dialog</span>
 </figure>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
     <span class="legend">fig. Mariadb admin user pass dialog</span>
 </figure>
 
     <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
     <span class="legend">fig. Mariadb passbolt user dialog</span>
 </figure>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
     <span class="legend">fig. Mariadb passbolt user pass dialog</span>
 </figure>
 
     <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name.png" alt="Mariadb database name dialog" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Mariadb database name dialog" style="max-width:450px;" />
     <span class="legend">fig. Mariadb database name dialog</span>
 </figure>
 
@@ -345,21 +345,21 @@ By default in most installations the admin username would be <code class="langua
     <p>Depending on your needs there are two different options to setup nginx and SSL using the debian package:</p>
 
     <ul>
-      <li><a href="/configure/https/ce/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
-      <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
+      <li><a href="/configure/https/pro/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
+      <li><a href="/configure/https/pro/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
 
     <h3 id="non-interactive-install">Non-interactive install</h3>
 
     <p>This method is useful for automating passbolt installation and for users with specific needs.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-pro-server
 </code></pre></div>    </div>
 
     <p>If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the above
 command like:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-pro-server
 </code></pre></div>    </div>
 
     <h1 id="configure-passbolt-using-the-wizard">2. Configure passbolt using the wizard</h1>
@@ -385,21 +385,31 @@ covered in this article.</p>
 “Start configuration” when ready.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png" alt="wizard - healthcheck" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-healthcheck.png" alt="wizard - healthcheck" style="max-width:586px;" />
     <span class="legend">fig. wizard - healthcheck</span>
 </figure>
 
-    <h3 id="database">2.2. Database</h3>
+    <h3 id="subscription-key">2.2. Subscription key</h3>
+
+    <p>At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png" alt="wizard - subscription key" style="max-width:586px;" />
+    <span class="legend">fig. wizard - subscription key</span>
+</figure>
+
+    <h3 id="database">2.3. Database</h3>
 
     <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
 and password.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png" alt="wizard - database" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png" alt="wizard - database" style="max-width:586px;" />
     <span class="legend">fig. wizard - database</span>
 </figure>
 
-    <h3 id="gpg-key">2.3. GPG key</h3>
+    <h3 id="gpg-key">2.4. GPG key</h3>
 
     <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
 authenticate itself during the login handshake process.</p>
@@ -407,7 +417,7 @@ authenticate itself during the login handshake process.</p>
     <p>Generate a key if you don’t have one.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png" alt="wizard - generate a key pair" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-generate.png" alt="wizard - generate a key pair" style="max-width:586px;" />
     <span class="legend">fig. wizard - generate a key pair</span>
 </figure>
 
@@ -421,16 +431,16 @@ authenticate itself during the login handshake process.</p>
 </div></p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />
     <span class="legend">fig. wizard - import a key pair</span>
 </figure>
 
-    <h3 id="mail-server-smtp">2.4. Mail server (SMTP)</h3>
+    <h3 id="mail-server-smtp">2.5. Mail server (SMTP)</h3>
 
     <p>At this stage, the wizard will ask you to enter the details of your SMTP server.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png" alt="wizard - smtp mail server details" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-email.png" alt="wizard - smtp mail server details" style="max-width:586px;" />
     <span class="legend">fig. wizard - smtp mail server details</span>
 </figure>
 
@@ -442,32 +452,32 @@ the email address at which you want the wizard to send you a test email and clic
     <span class="legend">fig. wizard - test smtp settings</span>
 </figure>
 
-    <h3 id="preferences">2.5. Preferences</h3>
+    <h3 id="preferences">2.6. Preferences</h3>
 
     <p>The wizard will then ask you what preferences you prefer for your instance of passbolt. The recommended defaults are already pre-populated
 but you can also change them if you know what you are doing.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png" alt="wizard - preferences" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-options.png" alt="wizard - preferences" style="max-width:586px;" />
     <span class="legend">fig. wizard - preferences</span>
 </figure>
 
-    <h3 id="first-user-creation">2.6. First user creation</h3>
+    <h3 id="first-user-creation">2.7. First user creation</h3>
 
     <p>You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png" alt="wizard - first user" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-first-user.png" alt="wizard - first user" style="max-width:586px;" />
     <span class="legend">fig. wizard - first user</span>
 </figure>
 
-    <h3 id="installation">2.7. Installation</h3>
+    <h3 id="installation">2.8. Installation</h3>
 
     <p>That’s it. The wizard has now enough information to proceed with the configuration of passbolt. Sit back and relax for a few seconds while
 the configuration process is going on.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png" alt="wizard - installation" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-install.png" alt="wizard - installation" style="max-width:586px;" />
     <span class="legend">fig. wizard - installation</span>
 </figure>
 
@@ -475,32 +485,32 @@ the configuration process is going on.</p>
 to the user setup process so that you can configure your user account.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png" alt="wizard - completion and redirection" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-completed.png" alt="wizard - completion and redirection" style="max-width:586px;" />
     <span class="legend">fig. wizard - completion and redirection</span>
 </figure>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-May
-25th,
-2020.</p>
+February
+10th,
+2021.</p>
     </div>
 
   </div>
   <div class="col4 last push1">
 
     <div class="message tldr notice">
-    <p>Are you experiencing issues when installing passbolt?</p>
-    
-    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
-    
+    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
+    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
+    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
+
 </div>
 
     <div class="message tldr">
-    <p>Stay informed of the next releases!</p>
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
     
-    <a href="https://github.com/passbolt/passbolt_api" class="button ">Star Passbolt CE on github</a>
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
     
 </div>
 

@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2018-03-14-hosting-install-source-v2.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-02-07-hosting-install-source-ce.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -373,7 +373,7 @@ will be sent every minute. Run the following command to edit the crontab for the
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:
 <span class="sb">```</span>bash
- <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+ <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cron <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>If the log file does not yet exist, you can create it with the following command:</p>

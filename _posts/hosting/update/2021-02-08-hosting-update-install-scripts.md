@@ -1,14 +1,14 @@
 ---
-title: Update passbolt server component (v2)
-date: 2020-06-25 00:00:00 Z
-description: How to update passbolt v2 on your server.
-card_teaser: Update passbolt instances installed with install scripts
-card_title: Update passbolt v2 install scripts
+title: Update for Centos 7
+date: 2021-02-08 00:00:00 Z
+description: How to update passbolt on your server.
+card_teaser: Guide for instances installed using install scripts.
+card_title: Update for Centos 7
 categories: [hosting, update]
 icon: fa-server
 sidebar: hosting
 layout: default
-slug: install_scripts
+slug: install-scripts
 permalink: /:categories/:slug.html
 ---
 
@@ -147,8 +147,8 @@ $ git pull origin master
 
 To pull a specific version you can do:
 ```bash
-$ git fetch origin tags/v2.13.0
-$ git checkout tags/v2.13.0
+$ git fetch origin tags/v3.0.0
+$ git checkout tags/v3.0.0
 ```
 
 On installations based on install scripts or in the VM appliance you are in a shallow clone state so to change
@@ -156,8 +156,8 @@ the branch you will need to:
 
 ```bash
 $ git remote set-branches origin "*"
-$ git fetch origin tags/v2.13.0
-$ git checkout tags/v2.13.0
+$ git fetch origin tags/vv3.0.0
+$ git checkout tags/v3.0.0
 ```
 
 ## 2. update the dependencies

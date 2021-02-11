@@ -221,7 +221,7 @@ Depending on the method you used to install, it may have not be set, or failed t
 (<code class="language-plaintext highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="language-plaintext highlighter-rouge">nginx</code> on Centos), running where you passbolt was installed
 (<code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> by default).</p>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
-<span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cake EmailQueue.sender <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+<span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cron <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div></div>
 
 <div class="message notice">

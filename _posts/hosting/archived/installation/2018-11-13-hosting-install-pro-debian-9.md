@@ -10,7 +10,7 @@ categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: Debian 9 (Stretch)
-ignore_card: true
+archived: true
 permalink: hosting/install/pro/debian-9-stretch.html
 ---
 

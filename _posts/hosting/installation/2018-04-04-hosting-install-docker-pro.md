@@ -1,7 +1,7 @@
 ---
 title: Docker install
 card_title: Docker
-card_teaser: Install passbolt Pro using Docker
+card_teaser: Step by step guide to install passbolt Pro using Docker.
 card_position: 4
 date: 2018-04-09 00:00:00 Z
 description: Install passbolt Pro using Docker

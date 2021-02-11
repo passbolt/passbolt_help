@@ -8,6 +8,7 @@ description: How to upgrade passbolt to version 2 on docker installations
 categories: [hosting,upgrade,ce]
 sidebar: hosting
 layout: default
+archived: true
 slug: upgrade-docker-ce
 
 permalink: /:categories/:slug.html
@@ -19,7 +20,7 @@ permalink: /:categories/:slug.html
 This tutorial covers the case where you want to upgrade your current docker installation of passbolt CE v1.x into passbolt CE v2.x.
 
 {% include messages/warning.html
-    content="**Important:** Please take a full [backup](/hosting/backup-v1) of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database."
+    content="**Important:** Please take a full [backup](/hosting/backup) of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database."
 %}
 
 

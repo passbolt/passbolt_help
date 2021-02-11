@@ -1,7 +1,7 @@
 ---
 title: Install passbolt API from source
-card_title: Do it yourself from source code
-card_teaser: Complete step by step guide to install passbolt CE from the source code
+card_title: From source code
+card_teaser: Guide to install passbolt CE from the source code.
 card_position: 9
 date: 2018-11-13 00:00:00 Z
 description: How to install passbolt CE on your server from the source.
@@ -167,7 +167,7 @@ Add the following line to the crontab:
 You can add a cron call to the script so the emails will be sent every minute. 
 Add the following line to you crontab:
 ```bash
- * * * * * /var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log
+ * * * * * /var/www/passbolt/bin/cron >> /var/log/passbolt.log
 ```
 
 If the log file does not yet exist, you can create it with the following command:

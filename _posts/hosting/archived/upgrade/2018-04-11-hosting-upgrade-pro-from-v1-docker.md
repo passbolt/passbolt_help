@@ -11,6 +11,7 @@ layout: default
 slug: upgrade-pro-from-ce-v1-docker
 docker_tag: '-pro'
 passbolt_version: Pro
+archived: true
 permalink: /:categories/:slug.html
 ---
 

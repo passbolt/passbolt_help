@@ -1,24 +1,24 @@
 ---
-title: Install Passbolt CE using debian package
-date: 2020-05-25 00:00:00 Z
-description: How to install Passbolt CE on Debian 10 (Buster)
-card_title: Debian 10 package
-card_teaser: Step by step guide to install passbolt on Debian 10
+title: Install Passbolt CE on Debian 10
+date: 2021-02-10 00:00:00 Z
+description: How to install Passbolt CE on
+card_title: Debian 10
+card_teaser: Step by step guide to install passbolt CE on Debian
 card_position: 1
 icon: fa-server
-categories: [hosting,install,ce,beta]
+categories: [hosting,install,ce,debian]
 sidebar: hosting
 layout: default
-slug: Debian package
-ignore_card: true
-permalink: /:categories/:slug.html
+slug: Debian
+popular: true
+permalink: /hosting/install/ce/debian.html
 ---
 
 {% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
 {% assign distributionVersion = 'latest' %}
-{% assign distributionSlug = 'debian-10' %}
-{% assign distributionLabel = 'Debian 10 (Buster)' %}
+{% assign distributionSlug = 'debian' %}
+{% assign distributionLabel = 'Debian' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

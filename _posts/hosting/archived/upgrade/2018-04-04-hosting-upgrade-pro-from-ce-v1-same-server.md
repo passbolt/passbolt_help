@@ -8,6 +8,7 @@ icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
+archived: true
 slug: upgrade-pro-from-ce-v1-same-server
 permalink: /:categories/:slug.html
 ---
@@ -21,7 +22,7 @@ the same server.
 If you want to use a new server, [follow this link](/hosting/upgrade/pro/upgrade-ce-v1-to-pro-new-server).
 
 {% include messages/warning.html
-    content="**Important:** Please take a full [backup](/hosting/backup-v1) of your Passbolt CE before proceeding 
+    content="**Important:** Please take a full [backup](/hosting/backup) of your Passbolt CE before proceeding 
     with the upgrade. Backup should include passbolt files as well as the database."
 %}
 

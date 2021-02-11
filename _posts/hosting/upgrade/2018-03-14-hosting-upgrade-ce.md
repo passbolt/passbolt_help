@@ -9,6 +9,7 @@ categories: [hosting,upgrade,ce]
 sidebar: hosting
 layout: default
 slug: upgrade-ce
+archived: true
 permalink: /:categories/:slug.html
 ---
 
@@ -18,7 +19,7 @@ permalink: /:categories/:slug.html
 This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into passbolt CE v2.x.
 
 {% include messages/warning.html
-    content="**Important:** Please take a full [backup](/hosting/backup-v1) of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database."
+    content="**Important:** Please take a full [backup](/hosting/backup) of your passbolt before proceeding with the upgrade. Backup should include passbolt files as well as the database."
 %}
 
 ## System requirements
@@ -28,7 +29,7 @@ This tutorial covers the case where you want to upgrade your current instance of
 ## Upgrade with a new server
 
 Considering that the system requirements haved it may make sense for you to upgrade on a fresh server.
-If that is what you want to do, copy the v1 [backup](/hosting/backup-v1) files to your new server, import your passbolt
+If that is what you want to do, copy the v1 [backup](/hosting/backup) files to your new server, import your passbolt
 database into your new server and proceed like you were upgrading on the same server, with the process described below.
 
 ## Upgrade from the same server

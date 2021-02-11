@@ -1,9 +1,9 @@
 ---
-title: Update passbolt docker container
-date: 2020-09-20 00:00:00 Z
+title: Update for docker container
+date: 2021-02-09 00:00:00 Z
 description: How to update passbolt docker container
-card_teaser: Update passbolt on docker installations
-card_title: Update passbolt docker
+card_teaser: Guide for instances using docker container.
+card_title: Update for Docker
 icon: fa-server
 categories: [hosting, update]
 sidebar: hosting

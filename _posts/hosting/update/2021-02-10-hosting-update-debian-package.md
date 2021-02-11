@@ -1,14 +1,15 @@
 ---
 title: Update passbolt on debian systems
-date: 2020-09-20 00:00:00 Z
-description: How to update passbolt v2 on your server on debian systems.
-card_teaser: Update on debian systems using debian package
-card_title: Debian update guide
+date: 2021-02-10 00:00:00 Z
+description: How to update your server on debian systems.
+card_teaser: Guide for instances installed using debian package.
+card_title: Update for Debian 10
 icon: fa-server
 categories: [hosting, update]
 sidebar: hosting
 layout: default
 slug: debian_package
+popular: true
 permalink: /:categories/:slug.html
 ---
 

@@ -1,8 +1,8 @@
 ---
-title: Install Passbolt Pro on Debian
-date: 2018-11-13 00:00:00 Z
+title: Install Passbolt Pro on Debian 10
+date: 2021-02-10 00:00:00 Z
 description: How to install Passbolt Pro on
-card_title: Debian
+card_title: Debian 10
 card_teaser: Step by step guide to install passbolt Pro on Debian
 card_position: 1
 icon: fa-server
@@ -10,7 +10,8 @@ categories: [hosting,install,pro,debian]
 sidebar: hosting
 layout: default
 slug: Debian
-permalink: /:categories/:slug.html
+popular: true
+permalink: /hosting/install/pro/debian.html
 ---
 
 {% assign product = 'pro' %}

@@ -1,10 +1,10 @@
 ---
-title: Backing up a passbolt installation (v2)
+title: Backing up a passbolt installation
 date: 2018-03-14 00:00:00 Z
 card_teaser: Backing up a from source passbolt installation
-card_title: From source (v2)
+card_title: From source 
 icon: fa-download
-description: Backing up a passbolt installation (v2)
+description: Backing up a from source passbolt installation
 categories: [hosting,backup]
 sidebar: hosting
 layout: default
@@ -73,7 +73,7 @@ The file located in `config/passbolt.php`. It is optional, but it can save you s
 {% include aside/message.html
     class="tldr"
     content="Are you still using passbolt v1? Check out the previous version of this article."
-    link="/hosting/backup-v1"
+    link="/hosting/backup/backup-v1"
     ask="See previous version"
 %}
 

@@ -8,6 +8,7 @@ icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
+archived: true
 slug: upgrade-pro-from-ce-v1-new-server
 permalink: /:categories/:slug.html
 ---

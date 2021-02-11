@@ -8,6 +8,7 @@ categories: [hosting,backup]
 sidebar: hosting
 layout: default
 slug: backup-v1
+archived: true
 permalink: /:categories/:slug.html
 ---
 
@@ -21,6 +22,7 @@ This can be easily scripted using [mysqldump](https://mariadb.com/kb/en/mariadb/
 ```bash
 mysqldump -u[user] -p[pass] db > /path/to/backup.sql
 ```
+
 #### 2. The avatars
 
 The images in `app/webroot/img/public` also need to be backed up, otherwise profile images will be lost.

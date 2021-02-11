@@ -14,7 +14,7 @@
         {% endunless %}
     {% endfor %}
 
-    {% if matchCategories and post.ignore_card != true %}
+    {% if matchCategories and post.ignore_card != true and post.archived != true %}
     {% assign last = counter | modulo:3 %}
     <div class="col4 {% if  last == 0 %}last{% endif %}">
         {% if post.url %}
@@ -22,11 +22,8 @@
             {% else %}
             <a class="tile" href="{{ site.baseurl }}/post.url">
                 {% endif %}
-                {% if post.categories contains 'pro' %}
-                <div class="ribbon"><span>PRO</span></div>
-                {% endif %}
-                {% if post.categories contains 'beta' %}
-                <div class="ribbon ribbon-warning"><span>BETA</span></div>
+                {% if post.popular == true %}
+                <div class="ribbon"><span>POPULAR</span></div>
                 {% endif %}
                 <span class="tile-teaser"><i class="fa {{ post.icon }} fa-fw"></i></span>
                 <span class="tile-title">{{ post.card_title }}</span>

@@ -60,7 +60,7 @@ In order to find out you should check if you have the following cron for the web
 (`/var/www/passbolt` by default).
 ```bash
 $ crontab -u www-data -e
-* * * * * /var/www/passbolt/bin/cake EmailQueue.sender >> /var/log/passbolt.log
+* * * * * /var/www/passbolt/bin/cron >> /var/log/passbolt.log
 ```
 
 {% include messages/notice.html

@@ -9,6 +9,7 @@ icon: fa-server
 sidebar: hosting
 layout: default
 slug: update-v1
+archived: true
 permalink: /:categories/:slug.html
 ---
 

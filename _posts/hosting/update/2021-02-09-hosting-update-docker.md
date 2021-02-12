@@ -15,6 +15,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/warning.html
+    content="**Deprecation notice:** From version 3 there files changing location, so you should change your volumes accordingly. Check passbolt docker release [notes](https://github.com/passbolt/passbolt_docker)."
+%}
+
 Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
 the passbolt version so updating them is as easy as changing the image tag.
 
@@ -28,7 +32,7 @@ you would just need to change the following line:
  image: passbolt/passbolt:<IMAGE_TAG>-debian
 ```
 
-Where <IMAGE_TAG> is the passbolt version that you want to use, for example `2.13.5` and relaunch your composer:
+Where <IMAGE_TAG> is the passbolt version that you want to use, for example `3.0.0` and relaunch your composer:
 
 ```
 $ docker-compose up -d

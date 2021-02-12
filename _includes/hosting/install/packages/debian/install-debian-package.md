@@ -63,7 +63,7 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 **Step 4.**  Add passbolt repository to your apt lists:
 
 ```
-echo  "deb https://download.passbolt.com/{{ product }}/{{ distribution }} buster stable" | \
+echo  "deb https://download.passbolt.com/{{ product }}/{{ distribution }} {{ distributionVersionName }} stable" | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 ```
 

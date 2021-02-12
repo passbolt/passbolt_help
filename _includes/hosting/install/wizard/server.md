@@ -1,15 +1,9 @@
-
 ## 2. Configure passbolt
 
 Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
 can be reached. You will reach a getting started page.
 
-{% include articles/figure.html url="/assets/img/help/2018/11/web-installer-getting-started.png" legend="passbolt welcome page before configuration" width="586px" %}
-
-Two options are available: **Manual configuration** and **Wizard configuration**. Choose Wizard configuration.
-
-This tutorial will guide you through the different steps of the wizard. The manual configuration is not
-covered in this article.
+{% include articles/figure.html url="/assets/img/help/2021/02/web-installer-getting-started.png" legend="passbolt welcome page before configuration" width="586px" %}
 
 {% assign stepNumber = 1 %}
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Healthcheck
@@ -32,15 +26,19 @@ your online purchase. Enter it in the box.
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-pro-subscription-key.png" legend="wizard - subscription key" width="586px" %}
 {% endif %}
 
+{% if include.databaseSection %}
+{% include {{include.databaseSection}} stepNumber=stepNumber %}
+{% else %}
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Database
 
 This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
 and password.
 
 {% if product == 'pro' %}
-{% include articles/figure.html url="/assets/img/help/2018/11/web-installer-pro-database.png" legend="wizard - database" width="586px" %}
+{% include articles/figure.html url="/assets/img/help/2021/02/web-installer-pro-database.png" legend="wizard - database" width="586px" %}
 {% else %}
-{% include articles/figure.html url="/assets/img/help/2018/11/web-installer-ce-database.png" legend="wizard - database" width="586px" %}
+{% include articles/figure.html url="/assets/img/help/2021/02/web-installer-ce-database.png" legend="wizard - database" width="586px" %}
+{% endif %}
 {% endif %}
 
 ### 2.{{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. GPG key

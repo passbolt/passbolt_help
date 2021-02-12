@@ -4,6 +4,7 @@ date: 2021-02-08 00:00:00 Z
 description: How to update passbolt on your server.
 card_teaser: Guide for instances installed using install scripts.
 card_title: Update for Centos 7
+card_position: 3
 categories: [hosting, update]
 icon: fa-server
 sidebar: hosting
@@ -156,7 +157,7 @@ the branch you will need to:
 
 ```bash
 $ git remote set-branches origin "*"
-$ git fetch origin tags/vv3.0.0
+$ git fetch origin tags/v3.0.0
 $ git checkout tags/v3.0.0
 ```
 

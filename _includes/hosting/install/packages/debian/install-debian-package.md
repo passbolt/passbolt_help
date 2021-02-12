@@ -12,8 +12,8 @@ The recommended server requirements are:
     content="**Please note:** It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."
 %}
 
-# 1. Install the server components
-## Repository setup
+## 1. Install the server components
+### 1.1. Repository setup
 
 For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt {{ product | upcase }} and install it.
@@ -73,7 +73,7 @@ sudo tee /etc/apt/sources.list.d/passbolt.list
 sudo apt-get update
 ```
 
-## Install passbolt
+### 1.2. Install passbolt
 
 By default, passbolt {{ distributionLabel }} package will install Passbolt server component, mariadb-server, php-fpm and nginx
 as dependencies.
@@ -86,12 +86,12 @@ beginning. The user will be asked for the path and name of the certificate and k
 - Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
 installation.
 
-### Interactive install
+#### Interactive install
 
 In this type of installation the package will assist you with the passbolt installation asking the user
 some questions:
 
-#### Install passbolt package
+##### Install passbolt package
 
 Install the main passbolt server component:
 
@@ -101,14 +101,14 @@ sudo apt-get install passbolt-{{product}}-server
 
 {% include configure/configure-debian-package-mariadb.md %}
 
-#### Configure nginx for serving HTTPS
+##### Configure nginx for serving HTTPS
 
 Depending on your needs there are two different options to setup nginx and SSL using the {{ distributionLabel }} package:
 
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
-### Non-interactive install
+#### Non-interactive install
 
 This method is useful for automating passbolt installation and for users with specific needs.
 
@@ -123,6 +123,6 @@ command like:
 sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-{{product}}-server
 ```
 
-# 2. Configure passbolt using the wizard
-
 {% include hosting/install/wizard/server.md %}
+
+{% include hosting/install/wizard/admin.md %}

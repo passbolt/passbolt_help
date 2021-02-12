@@ -1,15 +1,15 @@
 ---
-title: Update passbolt on Debian 10
-date: 2021-02-10 00:00:00 Z
-description: How to update your server on Debian 10.
-card_teaser: Guide for instances installed using Debian package.
-card_title: Update for Debian 10
-card_position: 1
+title: Update passbolt on Ubuntu 20.04
+date: 2021-02-12 00:00:00 Z
+description: How to update your server on Ubuntu.
+card_teaser: Guide for instances installed using Ubuntu package.
+card_title: Update for Ubuntu 20.04
+card_position: 2
 icon: fa-server
 categories: [hosting, update]
 sidebar: hosting
 layout: default
-slug: debian_package
+slug: ubuntu_package
 popular: true
 permalink: /:categories/:slug.html
 ---
@@ -20,8 +20,8 @@ permalink: /:categories/:slug.html
 ## Prerequisites
 
 For this tutorial, you will need:
-- A minimal Debian 10 server.
-- Passbolt Debian package installed.
+- A minimal Ubuntu 20.04 server.
+- Passbolt Ubuntu package installed.
 
 ## Update passbolt
 ### 1. Take down your site
@@ -39,7 +39,7 @@ It is recommended to always perform a backup of your passbolt installation. Plea
 
 ### 3. Upgrade your system
 
-This commands will trigger an upgrade on your whole debian system:
+This commands will trigger an upgrade on your whole ubuntu system:
 
 ```bash
 $ sudo apt-get update
@@ -70,18 +70,18 @@ sudo systemctl start nginx
 {% include layout/col_start.html column="4 last push1" %}
 
 {% include aside/message.html
-    class="tldr"
-    content="Your installation is not based on a debian package?"
-    link="/hosting/upgrade/ce/migrate-to-debian.html"
-    ask="Migrate passbolt to debian package"
+class="tldr"
+content="Your installation is not based on a Ubuntu package?"
+link="/hosting/upgrade/ce/migrate-to-ubuntu.html"
+ask="Migrate passbolt to Ubuntu package"
 %}
 
 {% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when updating passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
+class="tldr notice"
+content="Are you experiencing issues when updating passbolt?"
+link="https://community.passbolt.com/c/installation-issues"
+ask="Ask the community!"
+button="primary"
 %}
 {% include aside/message.html %}
 {% include layout/row_end.html %}

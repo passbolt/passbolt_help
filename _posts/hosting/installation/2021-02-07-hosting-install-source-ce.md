@@ -2,7 +2,7 @@
 title: Install passbolt API from source
 card_title: From source code
 card_teaser: Guide to install passbolt CE from the source code.
-card_position: 9
+card_position: 7
 date: 2018-11-13 00:00:00 Z
 description: How to install passbolt CE on your server from the source.
 icon: fa-server

@@ -4,7 +4,7 @@ date: 2018-11-13 00:00:00 Z
 description: How to install Passbolt CE on CentOS 7
 card_title: CentOS 7
 card_teaser: Step by step guide to install passbolt CE on CentOS 7
-card_position: 2
+card_position: 3
 icon: fa-server
 categories: [hosting,install,ce]
 sidebar: hosting

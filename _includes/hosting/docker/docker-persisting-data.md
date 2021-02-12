@@ -1,11 +1,11 @@
 ### Persisting data in passbolt container
 
 There are several locations that might be interesting for the users to persist data between container restarts:
-* Images directory: /var/www/passbolt/webroot/img
-* Gnupg serverkeys directory: /var/www/passbolt/config/gpg
+* Images directory: /usr/share/php/passbolt/webroot/img
+* Gnupg serverkeys directory: /etc/passbolt/gpg
 * SSL certificate files: /etc/ssl/certs/certificate.crt /etc/ssl/certs/certificate.key
 {% if page.passbolt_version == 'Pro' %}
-* Subscription key file: /var/www/passbolt/config/license
+* Subscription key file: /etc/passbolt/license
 {% endif %}
 
 This files and directories can be persisted in the docker volume using [docker volumes](https://docs.docker.com/storage/volumes/) or using [bind mounts](https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount)
@@ -21,11 +21,11 @@ And run passbolt container with the previously created volume:
 ```bash
 $ docker run --name passbolt{{ page.docker_tag }} --net passbolt_network \
              --mount source=passbolt_images,\
-             target=/var/www/passbolt/webroot/img \
+             target=/usr/share/php/passbolt/webroot/img \
              {%- if page.passbolt_version == 'Pro' %}
              --mount type=bind,\
                source=<path_subscription>,\
-               target=/var/www/passbolt/config/license \
+               target=/etc/passbolt/license \
              {% else %}
              {% endif -%}
              -p 443:443 \
@@ -43,11 +43,11 @@ Bind volumes are usually useful when, for instance, the SSL certificates or GnuP
 $ docker run --name passbolt --net passbolt_network \
              --mount type=bind,\
                source=<host_path_to_gnupg_keys_dir>,\
-               target=/var/www/passbolt/config/gpg \
+               target=/etc/passbolt/gpg \
              {%- if page.passbolt_version == 'Pro' %}
              --mount type=bind,\
                source=<path_subscription>,\
-               target=/var/www/passbolt/config/license \
+               target=/etc/passbolt/license \
              {% else %}
              {% endif -%}
              -p 443:443 \

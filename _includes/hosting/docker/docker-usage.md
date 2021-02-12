@@ -38,11 +38,11 @@ Now we can run the passbolt container:
 $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
              --mount type=bind,\
                source=<host_path_to_gnupg_keys_dir>,\
-               target=/var/www/passbolt/config/gpg \
+               target=/etc/passbolt/gpg \
              {%- if page.passbolt_version == 'Pro' %}
              --mount type=bind,\
                source=<path_subscription>,\
-               target=/var/www/passbolt/config/license \
+               target=/etc/passbolt/license \
              {% else %}
              {% endif -%}
              -p 443:443 \

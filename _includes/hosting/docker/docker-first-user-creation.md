@@ -2,7 +2,7 @@
 
 Once the passbolt container is up and running use this command to generate the first admin user:
 ```bash
-$ docker exec passbolt{{ page.docker_tag }} su -m -c "/var/www/passbolt/bin/cake \
+$ docker exec passbolt{{ page.docker_tag }} su -m -c "/usr/share/php/passbolt/bin/cake \
                                 passbolt register_user \
                                 -u <your@email.com> \
                                 -f <yourname> \

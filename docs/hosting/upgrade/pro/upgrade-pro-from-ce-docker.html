@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Upgrade from CE v2 to Pro using docker</title>
+    <title>Passbolt Help | Upgrade from CE to Pro using docker</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Upgrade from CE v2 to Pro using docker" />
+    <meta property="og:title" content="Upgrade from CE to Pro using docker" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2018-04-11-hosting-upgrade-pro-from-v2-docker.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2018-04-11-hosting-upgrade-pro-from-docker.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-v2-docker.html"><span>upgrade-pro-from-ce-v2-docker</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker.html"><span>upgrade-pro-from-ce-docker</span></a>
                     </div>
                 </li>
                 
@@ -188,14 +188,14 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Upgrade from CE v2 to Pro using docker</h1>
+<h1>Upgrade from CE to Pro using docker</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <p>This tutorial covers the case where you want to upgrade from your passbolt CE v2.x into Passbolt Pro when using docker.</p>
+    <p>This tutorial covers the case where you want to upgrade from your passbolt CE into Passbolt Pro when using docker.</p>
 
     <div class="message warning">
     <p>
@@ -204,7 +204,14 @@
     
 </div>
 
-    <p>In order to upgrade from v2 CE to Pro users just need to download the pro container and mount their corresponding subscription key.</p>
+    <div class="message warning">
+    <p>
+        <strong>Deprecation notice:</strong> From version 3 of Passbolt config volume should be mounted on <code class="language-plaintext highlighter-rouge">/etc/passbolt</code> and sources one in <code class="language-plaintext highlighter-rouge">/usr/share/php/passbolt</code>.
+    </p>
+    
+</div>
+
+    <p>In order to upgrade from CE to Pro users just need to download the pro container and mount their corresponding subscription key.</p>
 
     <h2 id="getting-passbolt-container">Getting passbolt container</h2>
 
@@ -233,13 +240,13 @@ However, it is recommended that users pull the tags pointing to specific passbol
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt-pro <span class="nt">--net</span> passbolt_network <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>, <span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;passbolt_images_dir&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/usr/share/php/passbolt/webroot/img <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/license <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>, <span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;gpg_host_dir&gt;, <span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/gpg <span class="se">\</span>
              <span class="nt">-p</span> 443:443 <span class="se">\</span>
              <span class="nt">-p</span> 80:80 <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
@@ -256,12 +263,12 @@ However, it is recommended that users pull the tags pointing to specific passbol
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt-pro <span class="nt">--net</span> passbolt_network <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>&lt;passbolt_images_volume&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/usr/share/php/passbolt/webroot/img <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;path_subscription&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/license <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/license <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>&lt;gpg_keys_volume&gt;, <span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/gpg <span class="se">\</span>
              <span class="nt">-p</span> 443:443 <span class="se">\</span>
              <span class="nt">-p</span> 80:80 <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>

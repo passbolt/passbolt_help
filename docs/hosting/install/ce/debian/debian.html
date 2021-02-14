@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Using Passbolt CE AWS AMI</title>
+    <title>Passbolt Help | Install Passbolt CE on Debian 10</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Using Passbolt CE AWS AMI" />
+    <meta property="og:title" content="Install Passbolt CE on Debian 10" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/aws">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/debian/debian">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2020-11-27-hosting-install-aws-ami-ce.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-02-10-hosting-install-debian-ce.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/ce/aws.html"><span>aws</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/ce/debian/debian.html"><span>Debian</span></a>
                     </div>
                 </li>
                 
@@ -188,84 +188,179 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Using Passbolt CE AWS AMI</h1>
+<h1>Install Passbolt CE on Debian 10</h1>
 </div>
 </div>
 
                         
 <div class="row">
   <div class="col7">
-    <p>Passbolt Amazon Machine Image (AMI) provides a ready to use passbolt image that you can
-use for free on your Amazon Web Services infrastructure.
-The AMI includes the following software:</p>
 
+    <h2 id="prerequisites">Prerequisites</h2>
+
+    <p>For this tutorial, you will need:</p>
     <ul>
-      <li>Debian 10</li>
-      <li>Nginx</li>
-      <li>Php-fpm</li>
-      <li>Mariadb</li>
-      <li>Passbolt CE preinstalled</li>
-      <li>certbot</li>
+      <li>A minimal Debian 10  server.</li>
+      <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
     </ul>
 
-    <p>This AMI does not provide an email server preinstalled so users can manually install it or
-leverage on third party email providers.</p>
-
-    <h2 id="getting-started-with-passbolt-ce-ami">1. Getting started with passbolt CE AMI</h2>
-
-    <p>You can subscribe to passbolt  CE on the following <a href="https://aws.amazon.com/marketplace/pp/B08PDGS3ML">AWS marketplace listing</a>. Just
-click on “continue to subscribe” button on the listing page.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/12/subscribe-aws.png" alt="subscribe to passbolt marketplace community edition" style="max-width:586px;" />
-    <span class="legend">fig. subscribe to passbolt marketplace community edition</span>
-</figure>
-
-    <p>The EULA for the passbolt CE is the AGPL license you have to accept that in order
-to use this image by just clicking on the “Accept terms” button.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/12/accept-terms.png" alt="Accept AMI terms" style="max-width:586px;" />
-    <span class="legend">fig. Accept AMI terms</span>
-</figure>
-
-    <p>Once the terms are accepted you can click on “Continue to configuration” button. In the next
-screen you will be able to select which version of the AMI you want to use as well as in which AWS region
-you want the instance to be launched.
-Once you have selected your desired configuration just click on “Continue to Launch” button.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/12/configure-aws.png" alt="Configure instance region and version" style="max-width:586px;" />
-    <span class="legend">fig. Configure instance region and version</span>
-</figure>
-
-    <p>On the launch screen you will be able to select:</p>
+    <p>The recommended server requirements are:</p>
     <ul>
-      <li>How to launch the instance</li>
-      <li>Instance type</li>
-      <li>VPC</li>
-      <li>Subnet settings</li>
-      <li>Security group settings</li>
-      <li>Key pair settings</li>
+      <li>2 cores</li>
+      <li>2GB of RAM</li>
     </ul>
 
-    <p>If you do not know what this fields mean just rely on the defaults making sure that they key pair
-is available on your local machine so you can connect through SSH to the instance.
-If all the values are good just click on “Launch” button.</p>
+    <div class="message warning">
+    <p>
+        <strong>Please note:</strong> It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+    </p>
+    
+</div>
+
+    <h2 id="install-the-server-components">1. Install the server components</h2>
+    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
+
+    <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt CE and install it.</p>
+
+    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
+
+    <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+</code></pre></div>    </div>
+
+    <p>Optionally you can install certbot to enable <a href="https://letsencrypt.org/">Let’s Encrypt</a> configuration:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
+</code></pre></div>    </div>
+
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key</p>
+
+    <p>From keys.gnupg.net:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Or from hkps://keys.mailvelope.com:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key fingerprint 0xDE8B853FC155581D
+pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+</code></pre></div>    </div>
+
+    <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/debian buster stable" | \
+sudo tee /etc/apt/sources.list.d/passbolt.list
+</code></pre></div>    </div>
+
+    <p><strong>Step 5.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div>    </div>
+
+    <h3 id="install-passbolt">1.2. Install passbolt</h3>
+
+    <p>By default, passbolt Debian package will install Passbolt server component, mariadb-server, php-fpm and nginx
+as dependencies.</p>
+
+    <p>There are two main ways to install the passbolt Debian package:</p>
+
+    <ul>
+      <li>Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
+beginning. The user will be asked for the path and name of the certificate and key.</li>
+      <li>Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
+installation.</li>
+    </ul>
+
+    <h4 id="interactive-install">Interactive install</h4>
+
+    <p>In this type of installation the package will assist you with the passbolt installation asking the user
+some questions:</p>
+
+    <h5 id="install-passbolt-package">Install passbolt package</h5>
+
+    <p>Install the main passbolt server component:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
+</code></pre></div>    </div>
+
+    <h4 id="configure-mariadb">Configure mariadb</h4>
+
+    <p>If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
+an empty mariadb database for passbolt to use.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/12/launch-aws.png" alt="Launch instance" style="max-width:586px;" />
-    <span class="legend">fig. Launch instance</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql.png" alt="Configure mariadb dialog" style="max-width:450px;" />
+    <span class="legend">fig. Configure mariadb dialog</span>
 </figure>
 
-    <h3 id="setup-https-optional-but-highly-recommended">1.1. Setup HTTPS (optional, but highly recommended):</h3>
+    <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
+By default in most installations the admin username would be <code class="language-plaintext highlighter-rouge">root</code> and the password would be empty.</p>
 
-    <p>If you are planning to use this AWS instance in production, it is highly recommended to setup SSL. There are two main methods described below:</p>
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user pass dialog</span>
+</figure>
+
+    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user pass dialog</span>
+</figure>
+
+    <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name.png" alt="Mariadb database name dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb database name dialog</span>
+</figure>
+
+    <h5 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h5>
+
+    <p>Depending on your needs there are two different options to setup nginx and SSL using the Debian package:</p>
 
     <ul>
       <li><a href="/configure/https/ce/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
       <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
+
+    <h4 id="non-interactive-install">Non-interactive install</h4>
+
+    <p>This method is useful for automating passbolt installation and for users with specific needs.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
+</code></pre></div>    </div>
+
+    <p>If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the above
+command like:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
+</code></pre></div>    </div>
 
     <h2 id="configure-passbolt">2. Configure passbolt</h2>
 
@@ -289,42 +384,15 @@ can be reached. You will reach a getting started page.</p>
 
     <h3 id="database">2.2. Database</h3>
 
-    <p>Passbolt AWS AMI comes with a preinstalled mariadb database. The credentials for
-this database are randomly generated on the first boot and the webinstaller autofills
-those credentials for you. The autogenerated database credentials will be
-available for later use by administrators in <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code> file.</p>
-
-    <p>If you decide to use the autogenerated credentials you
-can click the “Next” button and move to the next step on this tutorial.</p>
+    <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png" alt="wizard - database" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/web-installer-ce-database.png" alt="wizard - database" style="max-width:586px;" />
     <span class="legend">fig. wizard - database</span>
 </figure>
 
-    <p><strong>Optional:</strong> in case you do not want to use the autogenerated mariadb
-credentials you could connect through ssh to your instance
-and use the mariadb root credentials to create a new
-user, password and database for passbolt to use:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh admin@ec2-my-instance-ip.compute-1.amazonaws.com
-</code></pre></div>    </div>
-
-    <p>Where ‘my-instance-ip’ would be the public ip address assigned to the instance
-hyphen separated. For example</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ec2-10-0-0-1.compute-1.amazonaws.com
-</code></pre></div>    </div>
-
-    <p>You can find the root database credentials in <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code> file:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cat /root/.mysql_credentials
-</code></pre></div>    </div>
-
-    <p>Once you have the root database credentials you can connect to the local mariadb
-and create any database and user you want to use to install passbolt.</p>
-
-    <h3 id="gpg-key">2.2. GPG key</h3>
+    <h3 id="gpg-key">2.3. GPG key</h3>
 
     <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
 authenticate itself during the login handshake process.</p>
@@ -350,7 +418,7 @@ authenticate itself during the login handshake process.</p>
     <span class="legend">fig. wizard - import a key pair</span>
 </figure>
 
-    <h3 id="mail-server-smtp">2.3. Mail server (SMTP)</h3>
+    <h3 id="mail-server-smtp">2.4. Mail server (SMTP)</h3>
 
     <p>At this stage, the wizard will ask you to enter the details of your SMTP server.</p>
 
@@ -367,7 +435,7 @@ the email address at which you want the wizard to send you a test email and clic
     <span class="legend">fig. wizard - test smtp settings</span>
 </figure>
 
-    <h3 id="preferences">2.4. Preferences</h3>
+    <h3 id="preferences">2.5. Preferences</h3>
 
     <p>The wizard will then ask you what preferences you prefer for your instance of passbolt. The recommended defaults are already pre-populated
 but you can also change them if you know what you are doing.</p>
@@ -377,7 +445,7 @@ but you can also change them if you know what you are doing.</p>
     <span class="legend">fig. wizard - preferences</span>
 </figure>
 
-    <h3 id="first-user-creation">2.5. First user creation</h3>
+    <h3 id="first-user-creation">2.6. First user creation</h3>
 
     <p>You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.</p>
 
@@ -386,7 +454,7 @@ but you can also change them if you know what you are doing.</p>
     <span class="legend">fig. wizard - first user</span>
 </figure>
 
-    <h3 id="installation">2.6. Installation</h3>
+    <h3 id="installation">2.7. Installation</h3>
 
     <p>That’s it. The wizard has now enough information to proceed with the configuration of passbolt. Sit back and relax for a few seconds while
 the configuration process is going on.</p>
@@ -454,9 +522,9 @@ attacks. Each time you are performing a sensitive operation on passbolt, you sho
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-August
-7th,
-2019.</p>
+February
+10th,
+2021.</p>
     </div>
 
   </div>

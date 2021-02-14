@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Migrate from install scripts to Debian package</title>
+    <title>Passbolt Help | Migrate passbolt CE from install scripts to Ubuntu package</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Migrate from install scripts to Debian package" />
+    <meta property="og:title" content="Migrate passbolt CE from install scripts to Ubuntu package" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2020-09-22-migrate-to-debian-package-pro.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-02-12-migrate-to-ubuntu-package.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian.html"><span>migrate-to-debian</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html"><span>migrate-to-ubuntu</span></a>
                     </div>
                 </li>
                 
@@ -188,7 +188,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Migrate from install scripts to Debian package</h1>
+<h1>Migrate passbolt CE from install scripts to Ubuntu package</h1>
 </div>
 </div>
 
@@ -196,14 +196,14 @@
 <div class="row">
   <div class="col7">
 
-    <p>A Debian package has been created to increase the ease of installing and upgrading passbolt.</p>
+    <p>A Ubuntu package has been created to increase the ease of installing and upgrading passbolt.</p>
 
     <h2 id="pre-requisites">Pre-requisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Debian 10 server.</li>
-      <li>Passbolt installed with the Debian install script.</li>
+      <li>A minimal Ubuntu 20.04 server.</li>
+      <li>Passbolt installed with the Ubuntu install script.</li>
     </ul>
 
     <h2 id="take-down-your-site">1. Take down your site</h2>
@@ -223,8 +223,8 @@ You can follow our <a href="/hosting/backup">backup process</a>.</p>
 
     <p>Passbolt requires PHP 7.3 and supports PHP 7.4.</p>
 
-    <p>A full system upgrade to Debian 10 is necessary before installing the passbolt Debian package.
-<a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">Here</a> is the official Debian guide to 
+    <p>A full system upgrade to Ubuntu 20.04 is necessary before installing the passbolt Ubuntu package.
+<a href="https://ubuntu.com/blog/how-to-upgrade-from-ubuntu-18-04-lts-to-20-04-lts-today">Here</a> is the official Ubuntu guide to 
 upgrade your system with a step by step tutorial.</p>
 
     <h2 id="install-the-package">4. Install the package</h2>
@@ -232,7 +232,7 @@ upgrade your system with a step by step tutorial.</p>
     <h3 id="setup-the-package-repository">4.1. Setup the package repository</h3>
 
     <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt PRO and install it.</p>
+before you download Passbolt CE and install it.</p>
 
     <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
 
@@ -268,7 +268,7 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 
     <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/pro/debian buster stable" | \
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/ubuntu focal stable" | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 </code></pre></div>    </div>
 
@@ -281,7 +281,7 @@ sudo tee /etc/apt/sources.list.d/passbolt.list
 
     <p>Install the main passbolt server component:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-pro-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
 </code></pre></div>    </div>
 
     <p>It is recommended at this point to select:</p>
@@ -305,13 +305,6 @@ sudo chmod g-w /etc/passbolt/gpg
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
 sudo chown root:www-data /etc/passbolt/passbolt.php
 sudo chmod g-w /etc/passbolt/passbolt.php
-</code></pre></div>    </div>
-
-    <p>Copy subscription key as following:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /var/www/passbolt/config/license /etc/passbolt/license
-sudo chown root:www-data /etc/passbolt/license
-sudo chmod g-w /etc/passbolt/license
 </code></pre></div>    </div>
 
     <h2 id="php-fpm">6. PHP-FPM</h2>
@@ -350,8 +343,8 @@ sudo chmod g-w /etc/passbolt/license
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/nginx/conf.d/passbolt.conf
 sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 </code></pre></div>    </div>
-    <p>Then you can reconfigure the Debian package using:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-pro-server
+    <p>Then you can reconfigure the Ubuntu package using:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-ce-server
 </code></pre></div>    </div>
 
     <p>Answer the following way:</p>
@@ -372,7 +365,7 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 
     <h2 id="cleanup">9. Cleanup</h2>
 
-    <p>After you have checked you can access your new setup with the Debian package make a backup of <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> and then
+    <p>After you have checked you can access your new setup with the Ubuntu package make a backup of <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> and then
 you can delete it:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf /var/www/passbolt
@@ -393,7 +386,7 @@ you can delete it:</p>
       <h3>Last updated</h3>
       <p>This article was last updated on 
 February
-3rd,
+12th,
 2021.</p>
     </div>
 
@@ -401,10 +394,15 @@ February
   <div class="col4 last push1">
 
     <div class="message tldr notice">
-    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
-    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
-    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
+    <p>Are you experiencing issues when updating passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
 
+    <div class="message ">
+    <p></p>
+    
 </div>
 
     <div class="message tldr">

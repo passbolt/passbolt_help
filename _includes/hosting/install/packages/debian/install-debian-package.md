@@ -13,7 +13,7 @@ The recommended server requirements are:
 %}
 
 ## 1. Install the server components
-### 1.1. Repository setup
+### 1.1. Package repository setup
 
 For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt {{ product | upcase }} and install it.

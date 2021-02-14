@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Update passbolt on debian systems</title>
+    <title>Passbolt Help | Update passbolt on Debian 10</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Update passbolt on debian systems" />
+    <meta property="og:title" content="Update passbolt on Debian 10" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -188,45 +188,51 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Update passbolt on debian systems</h1>
+<h1>Update passbolt on Debian 10</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <h1 id="updating-passbolt">Updating passbolt</h1>
-    <h2 id="take-down-your-site">0. Take down your site</h2>
+    <h2 id="prerequisites">Prerequisites</h2>
+
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>A minimal Debian 10 server.</li>
+      <li>Passbolt Debian package installed.</li>
+    </ul>
+
+    <h2 id="update-passbolt">Update passbolt</h2>
+    <h3 id="take-down-your-site">1. Take down your site</h3>
 
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
-    <h2 id="update-apt-lists">1. Update apt lists</h2>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
-</code></pre></div>    </div>
-
-    <h2 id="backup-your-database">2. Backup your database</h2>
+    <h3 id="backup-your-database">2. Backup your database</h3>
 
     <p>It is recommended to always perform a backup of your passbolt installation. Please check the <a href="/hosting/backup">backup</a> article</p>
 
-    <h2 id="upgrade-your-system">3. Upgrade your system</h2>
+    <h3 id="upgrade-your-system">3. Upgrade your system</h3>
 
-    <p>This command will trigger an upgrade on your whole debian system:</p>
+    <p>This commands will trigger an upgrade on your whole debian system:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get upgrade
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get upgrade
 </code></pre></div>    </div>
 
-    <h2 id="clear-the-cache">4. Clear the cache</h2>
+    <h3 id="clear-the-cache">4. Clear the cache</h3>
 
     <p>Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake cache clear_all"</span>
 </code></pre></div>    </div>
-    <h2 id="take-your-site-back-up">5. Take your site back up</h2>
+
+    <h3 id="take-your-site-back-up">5. Take your site back up</h3>
 
     <p>Almost done:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
@@ -281,7 +287,7 @@ February
     <div class="message tldr">
     <p>Your installation is not based on a debian package?</p>
     
-    <a href="/hosting/upgrade" class="button ">Migrate passbolt to debian package</a>
+    <a href="/hosting/upgrade/ce/migrate-to-debian.html" class="button ">Migrate passbolt to debian package</a>
     
 </div>
 

@@ -255,7 +255,7 @@ group. Going forward, the second option is assumed.</p>
 
     <p>If you run passbolt using <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">docker-compose.yml</a> provided by passbolt:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
                                 passbolt register_user </span><span class="se">\</span><span class="s2">
                                 -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
                                 -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">
@@ -300,7 +300,7 @@ volume or a host directory and mount it at <code class="language-plaintext highl
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;host_path_to_gnupg_keys_dir&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/gpg <span class="se">\</span>
              <span class="nt">-p</span> 443:443 <span class="se">\</span>
              <span class="nt">-p</span> 80:80 <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
@@ -321,8 +321,8 @@ You can read more about it below.</p>
 
     <p>There are several locations that might be interesting for the users to persist data between container restarts:</p>
     <ul>
-      <li>Images directory: /var/www/passbolt/webroot/img</li>
-      <li>Gnupg serverkeys directory: /var/www/passbolt/config/gpg</li>
+      <li>Images directory: /usr/share/php/passbolt/webroot/img</li>
+      <li>Gnupg serverkeys directory: /etc/passbolt/gpg</li>
       <li>SSL certificate files: /etc/ssl/certs/certificate.crt /etc/ssl/certs/certificate.key</li>
     </ul>
 
@@ -337,7 +337,7 @@ You can read more about it below.</p>
     <p>And run passbolt container with the previously created volume:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>passbolt_images,<span class="se">\</span>
-             <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/webroot/img <span class="se">\</span>
+             <span class="nv">target</span><span class="o">=</span>/usr/share/php/passbolt/webroot/img <span class="se">\</span>
              <span class="nt">-p</span> 443:443 <span class="se">\</span>
              <span class="nt">-p</span> 80:80 <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
@@ -352,7 +352,7 @@ You can read more about it below.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
              <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
                <span class="nb">source</span><span class="o">=</span>&lt;host_path_to_gnupg_keys_dir&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/var/www/passbolt/config/gpg <span class="se">\</span>
+               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/gpg <span class="se">\</span>
              <span class="nt">-p</span> 443:443 <span class="se">\</span>
              <span class="nt">-p</span> 80:80 <span class="se">\</span>
              <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
@@ -370,7 +370,7 @@ You can read more about it below.</p>
     <h3 id="manually-creating-first-admin-user">Manually creating first admin user</h3>
 
     <p>Once the passbolt container is up and running use this command to generate the first admin user:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
                                 passbolt register_user </span><span class="se">\</span><span class="s2">
                                 -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
                                 -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">

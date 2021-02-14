@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Upgrade Passbolt from community edition v2 to Pro on Debian</title>
+    <title>Passbolt Help | Upgrade Passbolt from CE to Pro on Debian</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Upgrade Passbolt from community edition v2 to Pro on Debian" />
+    <meta property="og:title" content="Upgrade Passbolt from CE to Pro on Debian" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -188,62 +188,93 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Upgrade Passbolt from community edition v2 to Pro on Debian</h1>
+<h1>Upgrade Passbolt from CE to Pro on Debian</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <h3 id="backup-passbolt">1. Backup passbolt</h3>
+    <h2 id="pre-requisites">Pre-requisites</h2>
 
-    <p>Follow the backup process <a href="/hosting/backup/debian">here</a>.</p>
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>A minimal Debian 10 server.</li>
+      <li>Passbolt CE Debian package installed.</li>
+    </ul>
 
-    <h3 id="upload-your-subscription-key">2. Upload your subscription key</h3>
+    <h2 id="upgrading-passbolt">Upgrading passbolt</h2>
 
-    <p>You should copy your subscription key to <code class="language-plaintext highlighter-rouge">/etc/passbolt/license</code> and ensure
-the permissions are correct.</p>
+    <h3 id="take-down-your-site">1. Take down your site</h3>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root:www-data /etc/passbolt/license
-<span class="nb">sudo </span>cmod 640 /etc/passbolt/license
+    <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
-    <h3 id="uninstall-passbolt-ce-server">3. Uninstall passbolt-ce-server</h3>
+    <h3 id="backup-passbolt">2. Backup passbolt</h3>
+
+    <p>First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss.
+You can follow our <a href="/hosting/backup/debian">backup process</a>.</p>
+
+    <h3 id="upload-your-subscription-key">3. Upload your subscription key</h3>
+
+    <p>You should copy your subscription key to <code class="language-plaintext highlighter-rouge">/etc/passbolt/license</code> and ensure the permissions are correct.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root:www-data /etc/passbolt/license
+<span class="nb">sudo chmod </span>640 /etc/passbolt/license
+</code></pre></div>    </div>
+
+    <h3 id="uninstall-passbolt-ce">4. Uninstall passbolt CE</h3>
+
+    <p>Passbolt CE package should be removed prior to installing passbolt Pro.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get remove passbolt-ce-server
 </code></pre></div>    </div>
 
-    <h3 id="add-new-repository-for-passbolt-pro-server-on-apt">4. Add new repository for passbolt-pro-server on apt</h3>
+    <h3 id="update-passbolt-package-repository">5. Update passbolt package repository</h3>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span>  <span class="s2">"deb https://download.passbolt.com/pro/debian buster stable"</span> | <span class="se">\</span>
-<span class="nb">sudo tee</span> /etc/apt/sources.list.d/passbolt-pro.list
+    <p>Update your repository to make passbolt-pro available for installation.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb https://download.passbolt.com/pro/debian buster stable"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/passbolt-pro.list
+<span class="nb">sudo </span>apt-get update
 </code></pre></div>    </div>
 
-    <h3 id="update-your-repository-to-make-passbolt-pro-available-for-installation">5. Update your repository to make passbolt-pro available for installation</h3>
+    <h3 id="install-passbolt-pro">6. Install passbolt Pro</h3>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
-</code></pre></div>    </div>
-
-    <h3 id="install-passbolt-pro-server">6. Install passbolt-pro-server</h3>
-
-    <div class="message warning">
-    <p>
-        <strong>Important:</strong> As you have passbolt already configured you should reply ‘No’ to the mysql configuration question and ‘No’ to the nginx configuration question. We don’t need to configure anything. 
-    </p>
-    
-</div>
+    <p>Now you can install the passbolt Pro package.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>passbolt-pro-server
 </code></pre></div>    </div>
 
-    <h3 id="run-the-database-migrations">7. Run the database migrations</h3>
+    <p>As you have already configured passbolt CE, and passbolt Pro relies on the same configuration, you should reply:</p>
+
+    <ul>
+      <li><strong>No</strong> for mysql configuration</li>
+      <li><strong>No</strong> to nginx configuration</li>
+    </ul>
+
+    <h3 id="migrate-the-data">7. Migrate the data</h3>
+
+    <p>Once the package installed, run the following command to migrate the data to passbolt Pro:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt migrate"</span>
 </code></pre></div>    </div>
 
     <h3 id="clear-the-cache">8. Clear the cache</h3>
 
+    <p>Make sure you clear the application cache, to make sure any changes in the database structure are reflected in
+model cache files:</p>
+
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake cache clear_all"</span>
+</code></pre></div>    </div>
+
+    <h3 id="take-your-site-back-up">9. Take your site back up</h3>
+
+    <p>Finally take passbolt back up:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
 </code></pre></div>    </div>
 
     <div class="last-updated">
@@ -256,6 +287,13 @@ February
 
   </div>
   <div class="col4 last push1">
+
+    <div class="message tldr">
+    <p>Your installation is not based on a debian package?</p>
+    
+    <a href="/hosting/upgrade/ce/migrate-to-debian.html" class="button ">Migrate passbolt to debian package</a>
+    
+</div>
 
     <div class="message tldr notice">
     <p>Are you experiencing issues with Passbolt Pro Edition?</p>

@@ -1,5 +1,5 @@
 ---
-title: Update for Centos 7
+title: Update passbolt on Centos 7
 date: 2021-02-08 00:00:00 Z
 description: How to update passbolt on your server.
 card_teaser: Guide for instances installed using install scripts.
@@ -16,9 +16,13 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-# Pre-requisites
+## Pre-requisites
 
-## Find out where is your passbolt directory
+For this tutorial, you will need:
+- A minimal CentOS 7 server.
+- Passbolt installed with the CentOS install script.
+
+### Find out where is your passbolt directory
 
 All the commands hereafter should be done from inside your passbolt directory:
 ```bash
@@ -29,7 +33,7 @@ By default passbolt should be installed under `/var/www/passbolt` but it could b
 installed from source manually. We will assume for the rest of this tutorial that it is located
 in `/var/www/passbolt`.
 
-## Find out the name of your webserver user
+### Find out the name of your webserver user
 
 Some commands need to be run as the same user running the web server. Generally on Debian systems it will be
 `www-data` but on other distributions like Centos it could be for example `nginx` or `http`.
@@ -45,7 +49,7 @@ $ sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
 This command for example, will run the healthcheck command as `www-data` data user.
 It is a good idea to start with running a healthcheck prior to updating, to make sure everything is in order.
 
-## Make sure the permissions are right for your current user
+### Make sure the permissions are right for your current user
 
 {% include messages/warning.html
     content="Do not run the commands as root when updating passbolt. It can render your installation unusable."
@@ -106,13 +110,15 @@ before executing the following command.
 $ git checkout HEAD .
 ```
 
-## Check if git and composer are present on your system
+### Check if git is present on your system
 
 By default you should have both composer and git installed:
 ```bash
 $ which git
 /usr/bin/git
 ```
+
+### Check if composer is present on your system
 
 You should also already have composer installed.
 ```bash
@@ -123,10 +129,19 @@ $ which composer.phar
 Depending on your setup it is possible that your composer command is named `composer` and not `composer.phar`.
 
 If for some reason the command above fails because you don't have composer installed,
-you can check the [composer installation instructions](https://getcomposer.org/download/).
+you can check the [composer installation instructions](https://getcomposer.org/download/). 
 
-# Updating passbolt
-## 0. Take down your site
+Passbolt requires now composer v2, ensure you have this version.
+```bash
+$ composer.phar --version
+Composer version 2.0.9 2021-01-27 16:09:27
+```
+
+To download the latest version of composer, you can check the 
+[composer installation instructions](https://getcomposer.org/download/).
+
+## Updating passbolt
+### 1. Take down your site
 
 It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade. For example if you are using `nginx` as a
@@ -139,7 +154,7 @@ If you feel a bit more fancy, you can change your web server configuration to po
 It is a good practice to announce such maintenance window to your users in advance, so that they can also
 plan for the update, for example by downloading some key passwords they may need.
 
-## 1. Get the latest code version
+### 2. Get the latest code version
 
 You can also pull the latest version directly from master:
 ```bash
@@ -161,7 +176,7 @@ $ git fetch origin tags/v3.0.0
 $ git checkout tags/v3.0.0
 ```
 
-## 2. update the dependencies
+### 3. update the dependencies
 
 Some libraries are not packaged with the software but need to be updated using composer, based on
 what is recommended in the composer.lock. This file is provided by passbolt.
@@ -170,7 +185,7 @@ what is recommended in the composer.lock. This file is provided by passbolt.
 $ php -d allow_url_fopen=on /usr/bin/composer.phar install --no-dev -n -o
 ```
 
-## 3. Run the migration script
+### 4. Run the migration script
 
 You can run the database migration scripts as follow:
 ```bash
@@ -182,7 +197,7 @@ This is useful in case you run into any issues with the new version and need to 
 
 This backup will be placed in `./tmp/cache/database/backup/backup_timestamp.sql`.
 
-## 4. Clear the cache
+### 5. Clear the cache
 
 Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:
@@ -190,7 +205,7 @@ reflected in model cache files:
 $ sudo -H -u www-data bash -c "./bin/cake cache clear_all"
 ```
 
-## 5. Take your site back up
+### 6. Take your site back up
 
 Almost done:
 ```bash
@@ -203,13 +218,6 @@ sudo systemctl start nginx
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
-
-{% include aside/message.html
-    class="tldr"
-    content="Are you still using passbolt v1? Check out the previous version of this article."
-    link="/hosting/update-v1"
-    ask="See previous version"
-%}
 
 {% include aside/message.html
     class="tldr notice"

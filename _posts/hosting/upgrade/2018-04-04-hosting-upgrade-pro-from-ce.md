@@ -3,6 +3,7 @@ title: Upgrade to Passbolt Pro
 card_title: Introduction
 card_teaser: Need help to select which upgrade method to use?
 date: 2021-02-10 00:00:00 Z
+card_position: 1
 description: Upgrade to Passbolt Pro
 icon: fa-server
 categories: [hosting,upgrade,pro]

@@ -1,15 +1,15 @@
 ---
-title: Upgrade Passbolt from CE to Pro on Debian
-card_title: From CE on Debian
-card_teaser: Upgrade Passbolt from CE to Pro on Debian
-card_position: 4
+title: Upgrade Passbolt from CE to Pro on Ubuntu
+card_title: From CE on Ubuntu
+card_teaser: Upgrade Passbolt from CE to Pro on Ubuntu
+card_position: 5
 date: 2021-02-10 00:00:00 Z
-description: Upgrade Passbolt from CE to Pro on Debian
+description: Upgrade Passbolt from CE to Pro on Ubuntu
 icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
-slug: upgrade-pro-from-ce-debian
+slug: upgrade-pro-from-ce-ubuntu
 permalink: /:categories/:slug.html
 ---
 
@@ -19,8 +19,8 @@ permalink: /:categories/:slug.html
 ## Pre-requisites
 
 For this tutorial, you will need:
-- A minimal Debian 10 server.
-- Passbolt CE Debian package installed.
+- A minimal Ubuntu 20.04 server.
+- Passbolt CE Ubuntu package installed.
 
 ## Upgrading passbolt
 
@@ -60,7 +60,7 @@ sudo apt-get remove passbolt-ce-server
 Update your repository to make passbolt-pro available for installation.
 
 ```bash
-echo "deb https://download.passbolt.com/pro/debian buster stable" | sudo tee /etc/apt/sources.list.d/passbolt-pro.list
+echo "deb https://download.passbolt.com/pro/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/passbolt-pro.list
 sudo apt-get update
 ```
 
@@ -87,7 +87,7 @@ sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migr
 
 ### 8. Clear the cache
 
-Make sure you clear the application cache, to make sure any changes in the database structure are reflected in
+Make sure you clear the application cache, to make sure any changes in the database structure are reflected in 
 model cache files:
 
 ```bash
@@ -102,6 +102,7 @@ Finally take passbolt back up:
 sudo systemctl start nginx
 ```
 
+
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}
@@ -109,9 +110,9 @@ sudo systemctl start nginx
 
 {% include aside/message.html
 class="tldr"
-content="Your installation is not based on a debian package?"
-link="/hosting/upgrade/ce/migrate-to-debian.html"
-ask="Migrate passbolt to debian package"
+content="Your installation is not based on a Ubuntu package?"
+link="/hosting/upgrade/ce/migrate-to-ubuntu.html"
+ask="Migrate passbolt to Ubuntu package"
 %}
 
 {% include aside/pro-support.html %}

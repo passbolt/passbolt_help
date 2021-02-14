@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Update for docker container</title>
+    <title>Passbolt Help | Update passbolt on Ubuntu 20.04</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Update for docker container" />
+    <meta property="og:title" content="Update passbolt on Ubuntu 20.04" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/update/docker">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/update/ubuntu-package">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/update/2021-02-09-hosting-update-docker.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/update/2021-02-12-hosting-update-ubuntu-package.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/update/docker.html"><span>docker</span></a>
+                        <a href="https://help.passbolt.com/hosting/update/ubuntu-package.html"><span>ubuntu_package</span></a>
                     </div>
                 </li>
                 
@@ -188,49 +188,108 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Update for docker container</h1>
+<h1>Update passbolt on Ubuntu 20.04</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <div class="message warning">
-    <p>
-        <strong>Deprecation notice:</strong> From version 3 there files changing location, so you should change your volumes accordingly. Check passbolt docker release <a href="https://github.com/passbolt/passbolt_docker">notes</a>.
-    </p>
-    
-</div>
+    <h2 id="prerequisites">Prerequisites</h2>
 
-    <p>Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
-the passbolt version so updating them is as easy as changing the image tag.</p>
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>A minimal Ubuntu 20.04 server.</li>
+      <li>Passbolt Ubuntu package installed.</li>
+    </ul>
 
-    <p>Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
-some extra steps that are out of the scope of this help site.</p>
+    <h2 id="update-passbolt">Update passbolt</h2>
+    <h3 id="take-down-your-site">1. Take down your site</h3>
 
-    <p>As a example if you are running passbolt docker using the docker-compose files provided <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">here</a>
-you would just need to change the following line:</p>
+    <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> image: passbolt/passbolt:&lt;IMAGE_TAG&gt;-debian
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
-    <p>Where <IMAGE_TAG> is the passbolt version that you want to use, for example `3.0.0` and relaunch your composer:</IMAGE_TAG></p>
+    <h3 id="backup-your-database">2. Backup your database</h3>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker-compose up -d
+    <p>It is recommended to always perform a backup of your passbolt installation. Please check the <a href="/hosting/backup">backup</a> article</p>
+
+    <h3 id="upgrade-your-system">3. Upgrade your system</h3>
+
+    <p>This commands will trigger an upgrade on your whole ubuntu system:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
+<span class="nv">$ </span><span class="nb">sudo </span>apt-get upgrade
 </code></pre></div>    </div>
 
-    <p>Voilà</p>
+    <h3 id="clear-the-cache">4. Clear the cache</h3>
+
+    <p>Finally make sure you clear the application cache, to make sure any changes in the database structure are
+reflected in model cache files:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake cache clear_all"</span>
+</code></pre></div>    </div>
+
+    <h3 id="take-your-site-back-up">5. Take your site back up</h3>
+
+    <p>Almost done:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
+</code></pre></div>    </div>
+
+    <h2 id="troubleshooting">Troubleshooting</h2>
+
+    <h4 id="verifying-the-status-of-the-application">Verifying the status of the application</h4>
+    <p>Optionally, you can login as an administrator and check the status on the healthcheck page:</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg" alt="Example of healthcheck screen" style="max-width:;" />
+    <span class="legend">fig. Example of healthcheck screen</span>
+</figure>
+
+    <p>You can also run the following command:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span>
+</code></pre></div>    </div>
+
+    <h4 id="if-you-run-into-some-issues">If you run into some issues</h4>
+
+    <p>If you run into some issues:</p>
+    <ul>
+      <li>Make a copy or screenshot of the errors messages displayed on the screen</li>
+      <li>Check for error message in the <code class="language-plaintext highlighter-rouge">logs</code> directory</li>
+      <li>Check for error message in the browser console</li>
+      <li>Checkout the previous working version using git</li>
+      <li>Drop the database and load your backup data to restore to a previously working version</li>
+      <li>Note down the the details of you environment: your OS, php, mysql environment versions.</li>
+    </ul>
+
+    <p>Where to get help:</p>
+    <ul>
+      <li>If you are a Passbolt Pro Edition subscriber send us an <a href="mailto:contact@passbolt.com">email</a> with the details.</li>
+      <li>If you are a Passbolt Community Edition user you can open new thread on the <a href="https://community.passbolt.com/c/installation-issues">community forum</a>.</li>
+    </ul>
+
+    <p>The more information you provide about what you did, what you tried, how your environment look like,
+the easiest it will be for people to help you.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
 February
-9th,
+12th,
 2021.</p>
     </div>
 
   </div>
   <div class="col4 last push1">
+
+    <div class="message tldr">
+    <p>Your installation is not based on a Ubuntu package?</p>
+    
+    <a href="/hosting/upgrade/ce/migrate-to-ubuntu.html" class="button ">Migrate passbolt to Ubuntu package</a>
+    
+</div>
 
     <div class="message tldr notice">
     <p>Are you experiencing issues when updating passbolt?</p>

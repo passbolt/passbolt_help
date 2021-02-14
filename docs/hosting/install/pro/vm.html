@@ -264,22 +264,17 @@ login in as root. You can however create a shell as root with the default user:<
 
     <h2 id="configure-passbolt">2. Configure passbolt</h2>
 
-    <p>Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt can
-be reached. You will reach a getting started page.</p>
+    <p>Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-getting-started.png" alt="passbolt welcome page before configuration" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/web-installer-getting-started.png" alt="passbolt welcome page before configuration" style="max-width:586px;" />
     <span class="legend">fig. passbolt welcome page before configuration</span>
 </figure>
 
-    <p>Two options are available: <strong>Manual configuration</strong> and <strong>Wizard configuration</strong>. Choose Wizard configuration.</p>
-
-    <p>This tutorial will guide you through the different steps of the wizard. The manual configuration is not
-covered in this article.</p>
-
     <h3 id="healthcheck">2.1. Healthcheck</h3>
 
-    <p>The first page of the wizard will tell you if your environment is ready for passbolt. Solve any issues and click on
+    <p>The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
 “Start configuration” when ready.</p>
 
     <figure>
@@ -289,8 +284,8 @@ covered in this article.</p>
 
     <h3 id="subscription-key">2.2. Subscription key</h3>
 
-    <p>At this step, the wizard will ask you for your subscription key. You should have received it by email soon after your online purchase.
-Enter it in the box.</p>
+    <p>At this step, the wizard will ask you for your subscription key. You should have received it by email soon after 
+your online purchase. Enter it in the box.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-subscription-key.png" alt="wizard - subscription key" style="max-width:586px;" />
@@ -299,17 +294,18 @@ Enter it in the box.</p>
 
     <h3 id="database">2.3. Database</h3>
 
-    <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username and password.</p>
+    <p>This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-database.png" alt="wizard - database" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/web-installer-pro-database.png" alt="wizard - database" style="max-width:586px;" />
     <span class="legend">fig. wizard - database</span>
 </figure>
 
     <h3 id="gpg-key">2.4. GPG key</h3>
 
-    <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to authentify itself during the
-authentication handshake process.</p>
+    <p>In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.</p>
 
     <p>Generate a key if you don’t have one.</p>
 
@@ -319,6 +315,13 @@ authentication handshake process.</p>
 </figure>
 
     <p>Import a key if you already have one and you want your server to use it.</p>
+
+    <p><div class="message warning">
+    <strong>Do not set a passphrase or an expiration date</strong>
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    Similarly do not set an expiration date. Otherwise all your users will need to
+    perform an account recovery when you will eventually need to update the key.
+</div></p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />
@@ -386,67 +389,52 @@ to the user setup process so that you can configure your user account.</p>
     <p>Before continuing passbolt will require you to download its plugin. If you already have it installed you can go to the
 next step.</p>
 
-    <h3 id="check-the-server-identity">3.2. Check the server identity</h3>
-
-    <p>Passbolt will ask you to check the URL passbolt is associated with.</p>
-
-    <p>If you recognize the domain name, check the checkbox and then click “Next”. It is a formality here, but it is a security
-mesure that will help later your users to identify you passbolt instance.</p>
-
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/01/url-check.png" alt="Validation of the domain" style="max-width:450px;" />
-    <span class="legend">fig. Validation of the domain</span>
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-browser-extension.png" alt="download the browser extension" style="max-width:586px;" />
+    <span class="legend">fig. download the browser extension</span>
 </figure>
 
-    <h3 id="create-a-new-key">3.3. Create a new key</h3>
+    <h3 id="create-a-new-key">3.2. Create a new key</h3>
 
-    <p>Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-key-generate.png" alt="Generate a key" style="max-width:450px;" />
-    <span class="legend">fig. Generate a key</span>
-</figure>
-
-    <h3 id="choose-a-password">3.4. Choose a password</h3>
-
-    <p>Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.</p>
+    <p>Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.
+Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/01/set-passphrase.png" alt="setting a passphrase" style="max-width:450px;" />
-    <span class="legend">fig. setting a passphrase</span>
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/user-setup-generate-key.png" alt="generate a key" style="max-width:586px;" />
+    <span class="legend">fig. generate a key</span>
 </figure>
 
-    <h3 id="backup-your-key">3.5. Backup your key</h3>
+    <h3 id="download-your-recovery-kit">3.3. Download your recovery kit</h3>
 
     <p>This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
 or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
 passphrase.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-backup.png" alt="backup your key" style="max-width:450px;" />
-    <span class="legend">fig. backup your key</span>
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-recovery-kit.png" alt="download the recovery kit" style="max-width:586px;" />
+    <span class="legend">fig. download the recovery kit</span>
 </figure>
 
-    <h3 id="define-your-security-token">3.6. Define your security token</h3>
+    <h3 id="define-your-security-token">3.4. Define your security token</h3>
 
-    <p>Choosing a color and a three character token is a secondary security mechanism that helps you to mitigate phishing
+    <p>Choosing a color and a three characters token is a secondary security mechanism that helps you to mitigate phishing
 attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/plugin-registration-security-token.png" alt="define your security token" style="max-width:450px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/user-setup-security-token.png" alt="define your security token" style="max-width:586px;" />
     <span class="legend">fig. define your security token</span>
 </figure>
 
-    <h3 id="thats-it">3.6. That’s it!</h3>
+    <h3 id="thats-it">3.5. That’s it!</h3>
 
     <p>Your administrator account is configured. You will be redirected to the login page of passbolt. Enjoy!</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-August
-7th,
-2019.</p>
+February
+2nd,
+2021.</p>
     </div>
 
   </div>

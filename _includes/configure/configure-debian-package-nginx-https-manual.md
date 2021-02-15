@@ -86,11 +86,20 @@ Now provide the full path of the SSL key ('key.pem')
     legend="SSL private key path" width="450px"
 %}
 
-And that's it you should be able to reach your server on the domain you specified. Keep in mind that you might need
-to add DNS records to reach your domain on your local network or in a public DNS provider.
+Keep in mind that you might need to add DNS records to reach your domain on your local 
+network or in a public DNS provider.
 
 {%
     include articles/figure.html
     url="/assets/img/help/2020/09/debian-package/success_message.png"
     legend="Success message" width="450px"
 %}
+
+Reload nginx after finish the reconfigure to use the SSL configuration.
+
+```bash
+sudo systemctl reload nginx
+```
+
+And that's it you should be able to reach your server on the domain you specified.
+

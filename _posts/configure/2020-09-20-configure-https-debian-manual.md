@@ -31,4 +31,4 @@ permalink: /:categories/:slug.html
     button="primary"
 %}
 
-{ include layout/row_end.html %}
+{% include layout/row_end.html %}

@@ -66,13 +66,6 @@ login in as root. You can however create a shell as root with the default user:
 sudo -s
 ```
 
-Mariadb credentials are stored on `/root/.mysql_credentials` the file should contain:
-
-- Random password for root user
-- Empty database name. It follows the pattern passbolt_random_id
-- Random user and password with permissions for the passbolt database
-
-
 ### 1.3. HTTPS setup process:
 
 Passbolt Pro VM uses passbolt debian package.  Depending on your needs there are two different options to setup nginx and SSL using the debian package:
@@ -80,7 +73,7 @@ Passbolt Pro VM uses passbolt debian package.  Depending on your needs there are
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
-{% include hosting/install/wizard/server.md %}
+{% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/database.md" %}
 
 {% include hosting/install/wizard/admin.md %}
 

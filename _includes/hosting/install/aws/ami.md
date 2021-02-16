@@ -53,6 +53,6 @@ If you are planning to use this AWS instance in production, it is highly recomme
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
-{% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/aws-ami/database.md" %}
+{% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/database.md" %}
 
 {% include hosting/install/wizard/admin.md %}

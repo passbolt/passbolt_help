@@ -25,7 +25,7 @@ you will need the following:
 - A domain name for example passbolt.yourdomain.com
 - Some level of access to point your DNS records to the new passbolt server
 
-# Create the droplet in Digital Ocean
+## 1. Create the droplet in Digital Ocean
 
 The first step is to login in [Digital Ocean](https://cloud.digitalocean.com) (or create and setup an account).
 You can then head to Marketplace and search for passbolt.
@@ -65,7 +65,7 @@ You can copy it and check if it is reachable and up and running.
     legend="Copy the IP address"
 %}
 
-## Setup your DNS to point to the droplet
+## 1.1. Setup your DNS to point to the droplet
 
 Next you need to point your domain DNS to this machine IP address. Please check
 [Digital Ocean DNS documentation](https://www.digitalocean.com/docs/networking/dns/)
@@ -75,34 +75,16 @@ Wait until the DNS propagation is done. To check if it is done, ping your domain
 resolve to this droplet IP. You can also check the propagation using
 [online tools](https://www.whatsmydns.net/).
 
-## Login in the machine and get the mysql credentials
-Ssh into this droplet as root:
-```
-ssh root@this_droplet_ip
-```
-or ssh root@your_domain.com. Use this same ssh connection to gather the randomly generated mysql
-credentials in `/root/.mysql_credentials` you will need them for the web installation wizard.
+### 1.2. Setup HTTPS (optional, but highly recommended):
 
-## Launch the install script and follow the instructions.
-A script will be launched, choose the automatic configuration option and let the script guide you.
-Once you’re done, point your browser to the DNS assigned to the droplet: https://your_domain.com
-and you will then see the web installation wizard.
+If you are planning to use this AWS instance in production, it is highly recommended to setup SSL. There are two main methods described below:
 
+- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
+- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
-{% include articles/figure.html
-    url="/assets/img/help/2019/03/digital-ocean/007_domain.png"
-    legend="Provide the DNS name for the SSL script"
-%}
+{% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/database.md" %}
 
-{% include articles/figure.html
-    url="/assets/img/help/2019/03/digital-ocean/008_select_auto.png"
-    legend="Choose auto for letsencrypt setup"
-%}
-
-The installation wizard will ask you for a Mariadb/Mysql host. The droplet has mariadb-server
-installed by default so you could use `127.0.0.1` as the mysql hostname and use the randomized
-user, password and database created during the droplet boot. You will find these credentials on
-`/root/.mysql_credentials`
+{% include hosting/install/wizard/admin.md %}
 
 {% include date/updated.html %}
 

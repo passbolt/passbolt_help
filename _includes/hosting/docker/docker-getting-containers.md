@@ -1,4 +1,4 @@
-## Getting passbolt container
+## 1. Getting and running passbolt container
 
 Passbolt containers follow the following tagging:
 

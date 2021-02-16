@@ -1,4 +1,4 @@
-## Option 2. Using passbolt container
+## Using passbolt container
 
 Passbolt requires a database backend to store the information. In this section we will be using a MariaDB database packaged as a docker container.
 {% if page.passbolt_version == 'Pro' %}
@@ -57,6 +57,6 @@ $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
 
 Note: strings between '<' and '>' are variables that the users should fill with their data.
 
-Passbolt requires some data to be persistant, most notably the OpenPGP server keys. However, images and 
+Passbolt requires some data to be persistant, most notably the OpenPGP server keys. However, images and
 potentially the SSL certificate might also need to be persisted depending on your specific configuration.
 You can read more about it below.

@@ -21,7 +21,7 @@ permalink: /:categories/:slug.html
 
 This can be easily scripted using [mysqldump](https://mariadb.com/kb/en/mariadb/mysqldump/) for example:
 ```bash
-mysqldump -u[user] -p[pass] db > /path/to/backup.sql
+mysqldump -u[user] -p[pass] [db] > /path/to/backup.sql
 ```
 #### 2. The avatars
 

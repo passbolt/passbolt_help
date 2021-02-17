@@ -287,7 +287,7 @@ can be reached. You will reach a getting started page.</p>
     <span class="legend">fig. wizard - healthcheck</span>
 </figure>
 
-    <h3 id="database">2.2. Database</h3>
+    <h2 id="database">2.2. Database</h2>
 
     <p>Passbolt AWS AMI comes with a preinstalled mariadb database. The credentials for
 this database are randomly generated on the first boot and the webinstaller autofills
@@ -298,7 +298,7 @@ available for later use by administrators in <code class="language-plaintext hig
 can click the “Next” button and move to the next step on this tutorial.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-database.png" alt="wizard - database" style="max-width:586px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2021/02/web-installer-ce-database.png" alt="wizard - database" style="max-width:586px;" />
     <span class="legend">fig. wizard - database</span>
 </figure>
 
@@ -307,13 +307,7 @@ credentials you could connect through ssh to your instance
 and use the mariadb root credentials to create a new
 user, password and database for passbolt to use:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh admin@ec2-my-instance-ip.compute-1.amazonaws.com
-</code></pre></div>    </div>
-
-    <p>Where ‘my-instance-ip’ would be the public ip address assigned to the instance
-hyphen separated. For example</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ec2-10-0-0-1.compute-1.amazonaws.com
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh admin@&lt;your_domain|instance_ip&gt;
 </code></pre></div>    </div>
 
     <p>You can find the root database credentials in <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code> file:</p>

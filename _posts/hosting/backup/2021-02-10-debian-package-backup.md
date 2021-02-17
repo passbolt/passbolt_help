@@ -22,7 +22,7 @@ A simple script using [mysqldump](https://mariadb.com/kb/en/mariadb/mysqldump/)
 would work. For instance:
 
 ```bash
-mysqldump -u[user] -p[pass] db > /path/to/backup.sql
+mysqldump -u[user] -p[pass] [db] > /path/to/backup.sql
 ```
 
 #### 2. The configuration files
@@ -36,7 +36,7 @@ This includes:
 Back this files up with the following example:
 
 ```bash
-tar cvfz passbolt-config.tar.gz /etc/passbolt
+sudo tar cvfz passbolt-config.tar.gz /etc/passbolt
 ```
 
 #### 2. The avatars
@@ -45,7 +45,7 @@ Back up `/usr/share/php/passbolt/webroot/img/avatar` to avoid losing
 the profile images.
 
 ```bash
-tar cvfz passbolt-avatar.tar.gz /usr/share/php/passbolt/webroot/img/avatar
+sudo tar cvfz passbolt-avatar.tar.gz /usr/share/php/passbolt/webroot/img/avatar
 ```
 
 {% include hosting/backup/backup_collaborators_keys.md %}

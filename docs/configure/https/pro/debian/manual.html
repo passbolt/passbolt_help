@@ -291,13 +291,20 @@ certificate. In the later escenario DNS domain name and SSL domain name must mat
     <span class="legend">fig. SSL private key path</span>
 </figure>
 
-    <p>And that’s it you should be able to reach your server on the domain you specified. Keep in mind that you might need
-to add DNS records to reach your domain on your local network or in a public DNS provider.</p>
+    <p>Keep in mind that you might need to add DNS records to reach your domain on your local 
+network or in a public DNS provider.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2020/09/debian-package/success_message.png" alt="Success message" style="max-width:450px;" />
     <span class="legend">fig. Success message</span>
 </figure>
+
+    <p>Reload nginx after finish the reconfigure to use the SSL configuration.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl reload nginx
+</code></pre></div>    </div>
+
+    <p>And that’s it you should be able to reach your server on the domain you specified.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>

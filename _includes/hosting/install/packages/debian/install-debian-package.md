@@ -54,6 +54,8 @@ sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC1
 
 ```
 sudo apt-key fingerprint 0xDE8B853FC155581D
+```
+```
 pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
 uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>

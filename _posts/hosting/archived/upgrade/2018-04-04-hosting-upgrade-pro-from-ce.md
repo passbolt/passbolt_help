@@ -12,6 +12,7 @@ layout: default
 slug: upgrade-pro-from-ce
 popular: true
 permalink: /:categories/:slug.html
+archived: true
 ---
 
 {% include layout/row_start.html %}

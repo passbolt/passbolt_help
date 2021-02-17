@@ -26,7 +26,7 @@ taking into account the specifics related to each and every linux distribution.
 
 ## System requirements
 
-{% include hosting/v2-requirements.md %}
+{% include hosting/v3-requirements.md %}
 
 ## Installation steps
 
@@ -35,6 +35,10 @@ taking into account the specifics related to each and every linux distribution.
 Spin up a new fresh server with your favorite distribution, install a database server
 and a webserver with a TLS certificate. If you are using apache as web server make sure you 
 have mod_rewrite module enabled.
+
+Find out your web server user. Some commands need to be run as the same user running the web server. Generally on Debian 
+systems it will be `www-data` but on other distributions like Centos it could be for example `nginx` or `http`.
+For the rest of this tutorial we will assume that the user named `www-data`.
 
 {% include messages/warning.html
     content="We highly recommend that you install https on your server. You can get a free SSL certificate with the let's encrypt initiative."
@@ -111,6 +115,11 @@ in the code on the official repository. Fret not, composer will manage this for 
 ```shell
 /var/www/passbolt$ composer install --no-dev
 ```
+
+Depending on your setup it is possible that your composer command is named `composer` and not `composer.phar`.
+
+If for some reason the command above fails because you don't have composer installed,
+you can check the [composer installation instructions](https://getcomposer.org/download/).
 
 ### 7. Create a passbolt configuration file
 

@@ -1,15 +1,15 @@
 ---
-title: Upgrade Passbolt from community edition v2 to Pro
-card_title: From CE v2 (source)
-card_teaser: Upgrade from community edition v2 to Pro
+title: Upgrade Passbolt from CE source install to Pro
+card_title: From CE source install
+card_teaser: Upgrade from CE source install to Pro
 card_position: 7
 date: 2018-04-03 00:00:00 Z
-description: Upgrade from CE v2 to Pro
+description: Upgrade from CE source install to Pro
 icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
-slug: upgrade-pro-from-ce-v2
+slug: upgrade-pro-from-ce-source
 permalink: /:categories/:slug.html
 ---
 
@@ -23,7 +23,7 @@ This tutorial covers the case where you want to upgrade your current instance of
 %}
 
 ## System requirements
-{% include hosting/v2-requirements.md %}
+{% include hosting/v3-requirements.md %}
 
 ## Upgrade to Passbolt Pro
 In the following examples we assume you are running passbolt using apache in the `/var/www/passbolt`

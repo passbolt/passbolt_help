@@ -39,7 +39,7 @@ These steps assume you have already installed sudo and added your user to the su
 
 **Step 1.** Update the apt indexes and install packages to allow apt to use https repositories:
 
-```
+```bash
 sudo apt-get update
 sudo apt-get install \
     apt-transport-https \
@@ -52,21 +52,21 @@ sudo apt-get install \
 **Step 2.**  Add Passbolt package official GnuPG key
 
 From keys.gnupg.net:
-```
+```bash
 sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 ```
 
 Or from hkps://keys.mailvelope.com:
-```
+```bash
 sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 ```
 
 **Step 3.**  Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
 
-```
+```bash
 sudo apt-key fingerprint 0xDE8B853FC155581D
 ```
-```
+```bash
 pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
 uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
@@ -75,14 +75,14 @@ sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 
 **Step 4.**  Add passbolt repository to your apt lists:
 
-```
+```bash
 echo  "deb https://download.passbolt.com/{{ product }}/{{ distribution }} {{ distributionVersionName }} stable" | \
 sudo tee /etc/apt/sources.list.d/passbolt.list
 ```
 
 **Step 5.**  Update the apt indexes with the new passbolt apt repository:
 
-```
+```bash
 sudo apt-get update
 ```
 
@@ -90,7 +90,7 @@ sudo apt-get update
 
 Install the main passbolt server component:
 
-```
+```bash
 sudo apt-get install passbolt-{{product}}-server
 ```
 
@@ -101,26 +101,36 @@ It is recommended at this point to select:
 
 ## 5. Copy existing configuration to the new location
 
-Copy GPG keys as following:
+### 5.1. Copy the server keys
 
-```
+Copy the GPG server keys as following:
+```bash
 sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
 sudo chown -R root:www-data /etc/passbolt/gpg
 sudo chmod g-w /etc/passbolt/gpg
 ```
 
-Copy passbolt configuration as following:
+### 5.2. Copy the passbolt configuration
 
-```
+Copy passbolt configuration as following:
+```bash
 sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
 sudo chown root:www-data /etc/passbolt/passbolt.php
 sudo chmod g-w /etc/passbolt/passbolt.php
 ```
 
+If you are running mysql 8, please change the `quoteIdentifiers` setting of the passbolt.php as follow:
+
+```php
+'quoteIdentifiers' => true
+```
+
 {% if page.passbolt_version == 'pro' %}
+### 5.3. Copy the subscription key
+
 Copy subscription key as following:
 
-```
+```bash
 sudo cp /var/www/passbolt/config/license /etc/passbolt/license
 sudo chown root:www-data /etc/passbolt/license
 sudo chmod g-w /etc/passbolt/license
@@ -131,13 +141,13 @@ sudo chmod g-w /etc/passbolt/license
 
 Edit `/etc/php/7.3/fpm/pool.d/www.conf` and look for the line that looks like this:
 
-```
+```bash
 listen = 127.0.0.1:9000
 ```
 
 Change it to look like this:
 
-```
+```bash
 listen = /run/php/php7.3-fpm.sock
 ```
 
@@ -145,13 +155,13 @@ Due to a bug on the install scripts some installations might need to do an addit
 
 Look for the line containing:
 
-```
+```bash
 listen.group = _WWW_GROUP_
 ```
 
 And change it to look like:
 
-```
+```bash
 listen.group = www-data
 ```
 {% include messages/notice.html
@@ -161,12 +171,12 @@ listen.group = www-data
 ## 7. Nginx
 
 Now you can remove all the old nginx configuration files from `/etc/nginx/conf.d/`
-```
+```bash
 sudo rm /etc/nginx/conf.d/passbolt.conf
 sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 ```
 Then you can reconfigure the {{ distributionLabel }} package using:
-```
+```bash
 sudo dpkg-reconfigure passbolt-{{ page.passbolt_version }}-server
 ```
 
@@ -181,7 +191,7 @@ You can then select the SSL method that suits best your needs.
 
 Now it is time to run the migrations to upgrade the database schemas:
 
-```
+```bash
 sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 ```
 
@@ -190,12 +200,12 @@ sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 After you have checked you can access your new setup with the {{ distributionLabel }} package make a backup of `/var/www/passbolt` and then
 you can delete it:
 
-```
+```bash
 rm -rf /var/www/passbolt
 ```
 
 You may also want to check for the old CRON job that may need to be removed:
-```
+```bash
 sudo crontab -u www-data -e
 ```
 

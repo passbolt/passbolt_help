@@ -219,9 +219,9 @@ Maybe someone else has had your issue. If not, make a post and the community wil
       <li>Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)</li>
       <li>A webserver (Apache or Nginx)</li>
       <li>A TLS server certificate for HTTPS</li>
-      <li>PHP &gt;= 7.0.0</li>
+      <li>PHP &gt;= 7.3.0</li>
       <li>MariaDB/Mysql &gt;= 5.5.59</li>
-      <li><a href="https://getcomposer.org/download/">Composer</a></li>
+      <li><a href="https://getcomposer.org/download/">Composer</a> &gt;= 2</li>
       <li><a href="https://gnupg.org/">GnuPG</a></li>
       <li><a href="https://git-scm.com/">Git</a></li>
     </ul>
@@ -244,6 +244,10 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     <p>Spin up a new fresh server with your favorite distribution, install a database server
 and a webserver with a TLS certificate. If you are using apache as web server make sure you 
 have mod_rewrite module enabled.</p>
+
+    <p>Find out your web server user. Some commands need to be run as the same user running the web server. Generally on Debian 
+systems it will be <code class="language-plaintext highlighter-rouge">www-data</code> but on other distributions like Centos it could be for example <code class="language-plaintext highlighter-rouge">nginx</code> or <code class="language-plaintext highlighter-rouge">http</code>.
+For the rest of this tutorial we will assume that the user named <code class="language-plaintext highlighter-rouge">www-data</code>.</p>
 
     <div class="message warning">
     <p>
@@ -321,6 +325,11 @@ in the code on the official repository. Fret not, composer will manage this for 
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www/passbolt<span class="nv">$ </span>composer <span class="nb">install</span> <span class="nt">--no-dev</span>
 </code></pre></div>    </div>
+
+    <p>Depending on your setup it is possible that your composer command is named <code class="language-plaintext highlighter-rouge">composer</code> and not <code class="language-plaintext highlighter-rouge">composer.phar</code>.</p>
+
+    <p>If for some reason the command above fails because you don’t have composer installed,
+you can check the <a href="https://getcomposer.org/download/">composer installation instructions</a>.</p>
 
     <h3 id="create-a-passbolt-configuration-file">7. Create a passbolt configuration file</h3>
 

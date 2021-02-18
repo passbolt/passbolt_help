@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-02-17T12:37:50+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate passbolt CE from install scripts to Ubuntu package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html" rel="alternate" type="text/html" title="Migrate passbolt CE from install scripts to Ubuntu package" /><published>2021-02-12T01:00:00+01:00</published><updated>2021-02-12T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-02-18T15:43:47+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate passbolt CE from install scripts to Ubuntu package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html" rel="alternate" type="text/html" title="Migrate passbolt CE from install scripts to Ubuntu package" /><published>2021-02-12T01:00:00+01:00</published><updated>2021-02-12T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;A Ubuntu package has been created to increase the ease of installing and upgrading passbolt.&lt;/p&gt;
@@ -43,51 +43,51 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Update the apt indexes and install packages to allow apt to use https repositories:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    apt-transport-https &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    ca-certificates &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    curl &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    gnupg-agent &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
     software-properties-common
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key&lt;/p&gt;
 
     &lt;p&gt;From keys.gnupg.net:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key adv &lt;span class=&quot;nt&quot;&gt;--keyserver&lt;/span&gt; keys.gnupg.net &lt;span class=&quot;nt&quot;&gt;--recv-keys&lt;/span&gt; 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Or from hkps://keys.mailvelope.com:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key adv &lt;span class=&quot;nt&quot;&gt;--keyserver&lt;/span&gt; hkps://keys.mailvelope.com &lt;span class=&quot;nt&quot;&gt;--recv-keys&lt;/span&gt; 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key fingerprint 0xDE8B853FC155581D
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key fingerprint 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pub   rsa2048 2020-05-18 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;SC] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           [ unknown] Passbolt SA package signing key &amp;lt;contact@passbolt.com&amp;gt;
-sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+uid           &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; unknown] Passbolt SA package signing key &amp;lt;contact@passbolt.com&amp;gt;
+sub   rsa2048 2020-05-18 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;E] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;expires: 2022-05-18]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt;  Add passbolt repository to your apt lists:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;echo  &quot;deb https://download.passbolt.com/ce/ubuntu focal stable&quot; | \
-sudo tee /etc/apt/sources.list.d/passbolt.list
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;deb https://download.passbolt.com/ce/ubuntu focal stable&quot;&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/sources.list.d/passbolt.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt;  Update the apt indexes with the new passbolt apt repository:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;install-the-package-1&quot;&gt;4.2. Install the package&lt;/h3&gt;
 
     &lt;p&gt;Install the main passbolt server component:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install passbolt-ce-server
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;passbolt-ce-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;It is recommended at this point to select:&lt;/p&gt;
@@ -99,43 +99,29 @@ sudo tee /etc/apt/sources.list.d/passbolt.list
 
     &lt;h2 id=&quot;copy-existing-configuration-to-the-new-location&quot;&gt;5. Copy existing configuration to the new location&lt;/h2&gt;
 
-    &lt;p&gt;Copy GPG keys as following:&lt;/p&gt;
+    &lt;h3 id=&quot;copy-the-server-keys&quot;&gt;5.1. Copy the server keys&lt;/h3&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
-sudo chown -R root:www-data /etc/passbolt/gpg
-sudo chmod g-w /etc/passbolt/gpg
+    &lt;p&gt;Copy the GPG server keys as following:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; /var/www/passbolt/config/gpg /etc/passbolt/gpg/
+&lt;span class=&quot;nb&quot;&gt;sudo chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; root:www-data /etc/passbolt/gpg
+&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g-w /etc/passbolt/gpg
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Copy passbolt configuration as following:&lt;/p&gt;
+    &lt;h3 id=&quot;copy-the-passbolt-configuration&quot;&gt;5.2. Copy the passbolt configuration&lt;/h3&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
-sudo chown root:www-data /etc/passbolt/passbolt.php
-sudo chmod g-w /etc/passbolt/passbolt.php
+    &lt;p&gt;Copy passbolt configuration as following:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
+&lt;span class=&quot;nb&quot;&gt;sudo chown &lt;/span&gt;root:www-data /etc/passbolt/passbolt.php
+&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g-w /etc/passbolt/passbolt.php
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If you are running mysql 8, please change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quoteIdentifiers&lt;/code&gt; setting of the passbolt.php as follow:&lt;/p&gt;
+
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;'quoteIdentifiers'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;php-fpm&quot;&gt;6. PHP-FPM&lt;/h2&gt;
 
-    &lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt; and look for the line that looks like this:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen = 127.0.0.1:9000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Change it to look like this:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen = /run/php/php7.3-fpm.sock
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Due to a bug on the install scripts some installations might need to do an additional substitution on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt;:&lt;/p&gt;
-
-    &lt;p&gt;Look for the line containing:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group = _WWW_GROUP_
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;And change it to look like:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group = www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;div class=&quot;message notice&quot;&gt;
     &lt;p&gt;
     Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly.
@@ -143,14 +129,36 @@ sudo chmod g-w /etc/passbolt/passbolt.php
     
 &lt;/div&gt;
 
+    &lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt; and look for the line that looks like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 127.0.0.1:9000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Change it to look like this:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /run/php/php7.3-fpm.sock
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Due to a bug on the install scripts some installations might need to do an additional substitution on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt;:&lt;/p&gt;
+
+    &lt;p&gt;Look for the line containing:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; _WWW_GROUP_
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And change it to look like:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
     &lt;h2 id=&quot;nginx&quot;&gt;7. Nginx&lt;/h2&gt;
 
     &lt;p&gt;Now you can remove all the old nginx configuration files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/conf.d/&lt;/code&gt;&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm /etc/nginx/conf.d/passbolt.conf
-sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/nginx/conf.d/passbolt.conf
+&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/nginx/conf.d/passbolt_ssl.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
     &lt;p&gt;Then you can reconfigure the Ubuntu package using:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg-reconfigure passbolt-ce-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Answer the following way:&lt;/p&gt;
@@ -166,7 +174,7 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 
     &lt;p&gt;Now it is time to run the migrations to upgrade the database schemas:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;cleanup&quot;&gt;9. Cleanup&lt;/h2&gt;
@@ -174,11 +182,11 @@ sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
     &lt;p&gt;After you have checked you can access your new setup with the Ubuntu package make a backup of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; and then
 you can delete it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf /var/www/passbolt
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/www/passbolt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;You may also want to check for the old CRON job that may need to be removed:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo crontab -u www-data -e
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;crontab &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;take-your-site-back-up&quot;&gt;10. Take your site back up&lt;/h2&gt;
@@ -186,6 +194,7 @@ you can delete it:&lt;/p&gt;
     &lt;p&gt;Finally take passbolt back up:&lt;/p&gt;
 
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php7.3-fpm
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
@@ -433,68 +442,6 @@ February
     &lt;a href=&quot;/hosting/upgrade/ce/migrate-to-ubuntu.html&quot; class=&quot;button &quot;&gt;Migrate passbolt to Ubuntu package&lt;/a&gt;
     
 &lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Upgrade to Passbolt Pro</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html" rel="alternate" type="text/html" title="Upgrade to Passbolt Pro" /><published>2021-02-10T01:00:00+01:00</published><updated>2021-02-10T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;There are many ways you can upgrade your version 2 Community Edition (CE) to Passbolt Pro.
-This page list the options and will point you to the right manual.&lt;/p&gt;
-
-    &lt;h3 id=&quot;upgrade-from-ce-v2&quot;&gt;Upgrade from CE v2&lt;/h3&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/hosting/upgrade/pro/upgrade-pro-from-ce-v2&quot;&gt;Upgrade CE v2.x to Pro using source&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/hosting/upgrade/pro/upgrade-pro-from-v2-docker&quot;&gt;Upgrade CE v2.x to Pro using docker&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h4 id=&quot;requirements&quot;&gt;Requirements&lt;/h4&gt;
-    &lt;p&gt;Passbolt is reported to work on a large variety of operating system configurations.
-Therefore this help page is a generic guide that should work for most environments.&lt;/p&gt;
-
-    &lt;p&gt;If you run into any issues with your particular configuration,
-&lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;please check the forum&lt;/a&gt;.
-Maybe someone else has had your issue. If not, make a post and the community will try to help you.&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)&lt;/li&gt;
-      &lt;li&gt;A webserver (Apache or Nginx)&lt;/li&gt;
-      &lt;li&gt;A TLS server certificate for HTTPS&lt;/li&gt;
-      &lt;li&gt;PHP &amp;gt;= 7.0.0&lt;/li&gt;
-      &lt;li&gt;MariaDB/Mysql &amp;gt;= 5.5.59&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;Composer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://gnupg.org/&quot;&gt;GnuPG&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The following PHP extensions (that may or may not come by default):&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/gnupg.installation.php&quot;&gt;PHP-GNUPG&lt;/a&gt;: for key verification and authentication.&lt;/li&gt;
-      &lt;li&gt;Cakephp default requirements: Intl, mbstring, simplexml&lt;/li&gt;
-      &lt;li&gt;Image manipulation: gd or imagick&lt;/li&gt;
-      &lt;li&gt;Database: Mysqlnd, pdo, pdo_mysql&lt;/li&gt;
-      &lt;li&gt;Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://secure.php.net/manual/en/ldap.installation.php&quot;&gt;Ldap&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&amp;amp; more depending on your configuration (for example if you want to use memcache for sessions).&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-10th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
     &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
@@ -2135,4 +2082,66 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="backup" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="backup" /><summary type="html"></summary></entry><entry><title type="html">Upgrade to Passbolt Pro</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html" rel="alternate" type="text/html" title="Upgrade to Passbolt Pro" /><published>2021-02-10T01:00:00+01:00</published><updated>2021-02-10T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;There are many ways you can upgrade your version 2 Community Edition (CE) to Passbolt Pro.
+This page list the options and will point you to the right manual.&lt;/p&gt;
+
+    &lt;h3 id=&quot;upgrade-from-ce-v2&quot;&gt;Upgrade from CE v2&lt;/h3&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/hosting/upgrade/pro/upgrade-pro-from-ce-v2&quot;&gt;Upgrade CE v2.x to Pro using source&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/hosting/upgrade/pro/upgrade-pro-from-v2-docker&quot;&gt;Upgrade CE v2.x to Pro using docker&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4 id=&quot;requirements&quot;&gt;Requirements&lt;/h4&gt;
+    &lt;p&gt;Passbolt is reported to work on a large variety of operating system configurations.
+Therefore this help page is a generic guide that should work for most environments.&lt;/p&gt;
+
+    &lt;p&gt;If you run into any issues with your particular configuration,
+&lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;please check the forum&lt;/a&gt;.
+Maybe someone else has had your issue. If not, make a post and the community will try to help you.&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)&lt;/li&gt;
+      &lt;li&gt;A webserver (Apache or Nginx)&lt;/li&gt;
+      &lt;li&gt;A TLS server certificate for HTTPS&lt;/li&gt;
+      &lt;li&gt;PHP &amp;gt;= 7.0.0&lt;/li&gt;
+      &lt;li&gt;MariaDB/Mysql &amp;gt;= 5.5.59&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;Composer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://gnupg.org/&quot;&gt;GnuPG&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;Git&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following PHP extensions (that may or may not come by default):&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;http://php.net/manual/en/gnupg.installation.php&quot;&gt;PHP-GNUPG&lt;/a&gt;: for key verification and authentication.&lt;/li&gt;
+      &lt;li&gt;Cakephp default requirements: Intl, mbstring, simplexml&lt;/li&gt;
+      &lt;li&gt;Image manipulation: gd or imagick&lt;/li&gt;
+      &lt;li&gt;Database: Mysqlnd, pdo, pdo_mysql&lt;/li&gt;
+      &lt;li&gt;Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://secure.php.net/manual/en/ldap.installation.php&quot;&gt;Ldap&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&amp;amp; more depending on your configuration (for example if you want to use memcache for sessions).&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+10th,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry></feed>

@@ -105,7 +105,7 @@ It is recommended at this point to select:
 
 Copy the GPG server keys as following:
 ```bash
-sudo cp /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
+sudo cp -R /var/www/passbolt/config/gpg /etc/passbolt/gpg/
 sudo chown -R root:www-data /etc/passbolt/gpg
 sudo chmod g-w /etc/passbolt/gpg
 ```
@@ -139,6 +139,10 @@ sudo chmod g-w /etc/passbolt/license
 
 ## 6. PHP-FPM
 
+{% include messages/notice.html
+    content="Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly."
+%}
+
 Edit `/etc/php/7.3/fpm/pool.d/www.conf` and look for the line that looks like this:
 
 ```bash
@@ -164,9 +168,6 @@ And change it to look like:
 ```bash
 listen.group = www-data
 ```
-{% include messages/notice.html
-    content="Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly."
-%}
 
 ## 7. Nginx
 
@@ -201,7 +202,7 @@ After you have checked you can access your new setup with the {{ distributionLab
 you can delete it:
 
 ```bash
-rm -rf /var/www/passbolt
+sudo rm -rf /var/www/passbolt
 ```
 
 You may also want to check for the old CRON job that may need to be removed:
@@ -215,4 +216,5 @@ Finally take passbolt back up:
 
 ```bash
 sudo systemctl start nginx
+sudo systemctl restart php7.3-fpm
 ```

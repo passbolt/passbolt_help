@@ -76,7 +76,7 @@
       slug: upgrade
       url: /hosting/upgrade
       icon: fa-refresh
-      teaser: How to upgrade to passbolt version 2.
+      teaser: How to upgrade passbolt.
     - title: Backup
       slug: backup
       url: /hosting/backup

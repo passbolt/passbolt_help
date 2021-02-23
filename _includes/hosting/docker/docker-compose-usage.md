@@ -35,7 +35,7 @@ docker-compose ps
 If you run passbolt using [docker-compose{{ page.docker_tag }}.yml](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose{{ page.docker_tag }}.yml) provided by passbolt:
 
 ```bash
-$ docker-compose exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake \
+$ docker-compose exec passbolt su -m -c "/var/www/passbolt/bin/cake \
                                 passbolt register_user \
                                 -u <your@email.com> \
                                 -f <yourname> \

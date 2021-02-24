@@ -105,7 +105,7 @@ It is recommended at this point to select:
 
 Copy the GPG server keys as following:
 ```bash
-sudo cp -R /var/www/passbolt/config/gpg /etc/passbolt/gpg/
+sudo cp -a /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
 sudo chown -R root:www-data /etc/passbolt/gpg
 sudo chmod g-w /etc/passbolt/gpg
 ```

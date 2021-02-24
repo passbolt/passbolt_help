@@ -297,7 +297,7 @@ sub   rsa2048 2020-05-18 <span class="o">[</span>E] <span class="o">[</span>expi
     <h3 id="copy-the-server-keys">5.1. Copy the server keys</h3>
 
     <p>Copy the GPG server keys as following:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-R</span> /var/www/passbolt/config/gpg /etc/passbolt/gpg/
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/<span class="k">*</span> /etc/passbolt/gpg/
 <span class="nb">sudo chown</span> <span class="nt">-R</span> root:www-data /etc/passbolt/gpg
 <span class="nb">sudo chmod </span>g-w /etc/passbolt/gpg
 </code></pre></div>    </div>

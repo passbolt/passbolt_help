@@ -17,7 +17,7 @@ $ sudo systemctl stop nginx
 
 ## 2. Backup your instance
 
-First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss.
 You can follow our [backup process](/hosting/backup).
 
 ## 3. Upgrade your system
@@ -25,7 +25,7 @@ You can follow our [backup process](/hosting/backup).
 Passbolt requires PHP 7.3 and supports PHP 7.4.
 
 A full system upgrade to {{ distributionLabel }} {{ distributionVersion }} is necessary before installing the passbolt {{ distributionLabel }} package.
-[Here]({{distributionUpgradeGuide}}) is the official {{ distributionLabel }} guide to 
+[Here]({{distributionUpgradeGuide}}) is the official {{ distributionLabel }} guide to
 upgrade your system with a step by step tutorial.
 
 ## 4. Install the package
@@ -170,6 +170,10 @@ listen.group = www-data
 ```
 
 ## 7. Nginx
+{% include messages/notice.html
+    content="Note to users with Apache installed instead: make sure
+    to transfer over the .htaccess file from the old webroot folder."
+%}
 
 Now you can remove all the old nginx configuration files from `/etc/nginx/conf.d/`
 ```bash

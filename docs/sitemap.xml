@@ -2,11 +2,11 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>https://help.passbolt.com/faq/configure/enable-disable-import-export-plugins</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/configure/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/code-contribution</loc>
@@ -38,7 +38,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/what-is-passbolt</loc>
@@ -70,15 +70,15 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/are-we-there-yet</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/feature-priority</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/where-can-i-login</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/where-to-get-help</loc>
@@ -86,7 +86,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/discover/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/hosting/how-to-install</loc>
@@ -114,11 +114,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/hosting/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/legal/which-license</loc>
@@ -146,7 +146,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/legal/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/security-vulnerability</loc>
@@ -198,7 +198,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/start/browser-extensions</loc>
@@ -274,7 +274,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/start/</loc>
-<lastmod>2021-03-11T13:24:45+01:00</lastmod>
+<lastmod>2021-03-30T10:47:28+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/tech/auth.html</loc>
@@ -779,6 +779,14 @@
 <url>
 <loc>https://help.passbolt.com/releases/pro/v300-our-house</loc>
 <lastmod>2021-03-10T13:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/releases/ce/love-over-entropy-sea</loc>
+<lastmod>2021-03-18T13:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/releases/pro/love-over-entropy-sea</loc>
+<lastmod>2021-03-18T13:00:00+01:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/api/authentication</loc>

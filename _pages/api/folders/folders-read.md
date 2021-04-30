@@ -117,6 +117,11 @@ The endpoint takes the following parameters
             <td>Authentication Failure<br/>
             The user making the request is not authenticated.</td>
         </tr>
+        <tr>
+            <td>404</td>
+            <td>Not found<br/> 
+            The folder does not exist</td>
+        </tr>
     </tbody>
 </table>
 
@@ -124,7 +129,9 @@ The endpoint takes the following parameters
 ## Examples
 ### Filtered request
 
-Here is an example of request for a 
+Here is an example of request, to also fetch the children resources and folders and display the current
+user permission:
+
 ```
 GET /folders/9e03fd73-04c0-5514-95fa-1a6cf2c7c093.json
     ?contain[children_folders]=1
@@ -134,8 +141,8 @@ GET /folders/9e03fd73-04c0-5514-95fa-1a6cf2c7c093.json
 
 ### Success response
 
-A successful response will have an array of json objects representing a single folder and the associated data.
-It will look something like this example:
+A successful response will return a object representing the folder and the associated data.
+It will look something like this, the previously mentioned request:
 
 ```
 {

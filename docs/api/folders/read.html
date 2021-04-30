@@ -447,13 +447,20 @@
             <td>Authentication Failure<br />
             The user making the request is not authenticated.</td>
         </tr>
+        <tr>
+            <td>404</td>
+            <td>Not found<br /> 
+            The folder does not exist</td>
+        </tr>
     </tbody>
 </table>
 
 <h2 id="examples">Examples</h2>
 <h3 id="filtered-request">Filtered request</h3>
 
-<p>Here is an example of request for a</p>
+<p>Here is an example of request, to also fetch the children resources and folders and display the current
+user permission:</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /folders/9e03fd73-04c0-5514-95fa-1a6cf2c7c093.json
     ?contain[children_folders]=1
     &amp;contain[children_resources]=1
@@ -462,8 +469,8 @@
 
 <h3 id="success-response">Success response</h3>
 
-<p>A successful response will have an array of json objects representing a single folder and the associated data.
-It will look something like this example:</p>
+<p>A successful response will return a object representing the folder and the associated data.
+It will look something like this, the previously mentioned request:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
     "header": {

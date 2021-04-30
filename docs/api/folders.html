@@ -337,11 +337,11 @@
 These endpoints are currently only available in the pro version.</p>
 
 <p>Folders can be either shared or personal. Whether they are personal or shared depends on their permissions.
-One folder can only be in one folder for a given user perspective. However, a folder can be in multiple parent folder
-if you look at all users at a whole. This is to allow users to re-organize folders shared with them in a way
-that makes sense to them.</p>
+One folder (or resource) can only be in one folder for a given user perspective. However, a folder can be in 
+multiple parent folder if you look at all users as a whole. This is to allow users to re-organize folders 
+shared with them in a way that makes sense to them.</p>
 
-<p>A given folder visibility on the folder tree is therefore dependent on multiple factors, including if the parent 
+<p>A given folder visibility in the tree is therefore dependent on multiple factors, including if the parent 
 folder is also shared.</p>
 
 <p>You can learn more about the folder dynamics in this 
@@ -421,7 +421,7 @@ folder is also shared.</p>
 <h2 id="the-resource-object">The Resource object</h2>
 
 <p>On top of that, when the folder plugin is enabled the resource object also get decorated with 
-an extra <code class="language-plaintext highlighter-rouge">folder_parent_id</code> field.</p>
+an extra <code class="language-plaintext highlighter-rouge">folder_parent_id</code> field. Similarly there is <code class="language-plaintext highlighter-rouge">move</code> endpoint added for resources.</p>
 
 <table class="table-parameters">
     <thead>
@@ -445,8 +445,8 @@ an extra <code class="language-plaintext highlighter-rouge">folder_parent_id</co
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>
 This article was last updated on 
-January
-18th,
+April
+30th,
 2021.
 </div>
                     </div>

@@ -1,6 +1,6 @@
 ---
 title: Folders
-date: 2021-01-18 14:00:00 Z
+date: 2021-04-30 14:00:00 Z
 layout: api
 category: api,folders
 slug: folders
@@ -11,11 +11,11 @@ The API allows you to create, update, delete, and share folders.
 These endpoints are currently only available in the pro version.
 
 Folders can be either shared or personal. Whether they are personal or shared depends on their permissions.
-One folder can only be in one folder for a given user perspective. However, a folder can be in multiple parent folder
-if you look at all users at a whole. This is to allow users to re-organize folders shared with them in a way
-that makes sense to them.
+One folder (or resource) can only be in one folder for a given user perspective. However, a folder can be in 
+multiple parent folder if you look at all users as a whole. This is to allow users to re-organize folders 
+shared with them in a way that makes sense to them.
 
-A given folder visibility on the folder tree is therefore dependent on multiple factors, including if the parent 
+A given folder visibility in the tree is therefore dependent on multiple factors, including if the parent 
 folder is also shared.
 
 You can learn more about the folder dynamics in this 
@@ -95,7 +95,7 @@ You can learn more about the folder dynamics in this
 ## The Resource object
 
 On top of that, when the folder plugin is enabled the resource object also get decorated with 
-an extra `folder_parent_id` field.
+an extra `folder_parent_id` field. Similarly there is `move` endpoint added for resources.
 
 <table class="table-parameters">
     <thead>

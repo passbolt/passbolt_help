@@ -10,7 +10,7 @@ permalink: /api/favorites/create
 To add a resource to your favorite list:
 
 ```
-POST /favorites/resource/<resourceId>.json?api-version=v2
+POST /favorites/resource/<resourceId>.json
 ```
 
 ### Possible responses

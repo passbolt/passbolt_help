@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
     <link rel="canonical" href="https://help.passbolt.com/api/groups/create">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -90,7 +91,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api">Introduction</a>
+          <a href="https://help.passbolt.com/api">
+              Introduction
+              
+          </a>
 
           
 
@@ -100,7 +104,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+          <a href="https://help.passbolt.com/api/authentication">
+              Authentication
+              
+          </a>
 
           
 
@@ -110,7 +117,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/resources">Resources</a>
+          <a href="https://help.passbolt.com/api/resources">
+              Resources
+              
+          </a>
 
           
 
@@ -120,7 +130,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/secrets">Secrets</a>
+          <a href="https://help.passbolt.com/api/secrets">
+              Secrets
+              
+          </a>
 
           
 
@@ -130,7 +143,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+          <a href="https://help.passbolt.com/api/permissions">
+              Permissions
+              
+          </a>
 
           
 
@@ -140,7 +156,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/users">Users</a>
+          <a href="https://help.passbolt.com/api/users">
+              Users
+              
+          </a>
 
           
 
@@ -150,7 +169,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/groups">Groups</a>
+          <a href="https://help.passbolt.com/api/groups">
+              Groups
+              
+          </a>
 
           
           
@@ -196,7 +218,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+          <a href="https://help.passbolt.com/api/gpgkeys">
+              OpenPGP Keys
+              
+          </a>
 
           
 
@@ -206,7 +231,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/comments">Comments</a>
+          <a href="https://help.passbolt.com/api/comments">
+              Comments
+              
+          </a>
 
           
 
@@ -216,7 +244,27 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+          <a href="https://help.passbolt.com/api/favorites">
+              Favorites
+              
+          </a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/folders">
+              Folders
+              
+              <span class="pill">
+                  PRO
+              </span>
+              
+          </a>
 
           
 
@@ -271,11 +319,14 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>Create a group</h1>
+                    <h1>
+                        Create a group
+                        
+                    </h1>
                     <p>Please note that only users with Admin role can create a group. 
 To create a new group, make a <code class="language-plaintext highlighter-rouge">POST</code> request to <code class="language-plaintext highlighter-rouge">/groups.json</code> with the user data in request body.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /groups.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /groups.json
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newgroup"</span><span class="p">,</span><span class="w">
@@ -406,10 +457,9 @@ body will return:</p>
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"30777f73-5b4d-402b-9855-36331611b4bd"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554983343</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_groups_addPost_error"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5bd4ecae-da08-577d-ac32-ce7b13bd7b0f"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate group data."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">groups.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">groups.json"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -434,10 +484,9 @@ body will return:</p>
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df12a670-b921-4db5-994f-22a84c36246a"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1554983413</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_groups_addPost_error"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5bd4ecae-da08-577d-ac32-ce7b13bd7b0f"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not validate group data."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">groups.json?api-version=v2"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">groups.json"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">

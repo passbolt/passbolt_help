@@ -5,7 +5,6 @@
         "id": "886a798f-11cd-4340-b488-70e57d56f5db",
         "status": "success",
         "servertime": 1555054043,
-        "title": "app_resources_index_success",
         "action": "c506210f-7866-5691-8fc1-58772e8f49f1",
         "message": "The operation was successful.",
         "url": "\/resources.json?contain%5Bcreator%5D=1\u0026contain%5Bfavorite%5D=1\u0026contain%5Bmodifier%5D=1\u0026contain%5Bpermission%5D=1\u0026contain%5Btag%5D=1\u0026order%5B%5D=Resource.modified+DESC",

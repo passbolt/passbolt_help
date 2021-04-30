@@ -5,10 +5,9 @@
         "id": "f9a8c7b1-ccf4-434b-aa7c-0e0926aff8ae",
         "status": "success",
         "servertime": 1554984913,
-        "title": "app_comments_view_success",
         "action": "69692f38-cbbc-53c7-a44d-68164b57a091",
         "message": "The operation was successful.",
-        "url": "\/comments\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2",
+        "url": "\/comments\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json",
         "code": 200
     },
     "body": [

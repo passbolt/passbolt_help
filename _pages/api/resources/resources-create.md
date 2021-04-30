@@ -11,7 +11,7 @@ To create a new Resource, make a `POST` request to `/resources.json` with the en
 You must encrypt the data with the current user public key. And a valid request body will look like:
 
 ```
-POST /resources.json?api-version=v2
+POST /resources.json
 ```
 ```json
 { 

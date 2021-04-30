@@ -4,10 +4,9 @@
     "id": "bc8a85a7-bde8-48d5-8749-827c9185db15",
     "status": "success",
     "servertime": 1554907370,
-    "title": "app_resources_view_success",
     "action": "83bb8bd8-2006-5546-a3bb-9319ae6e8f9d",
     "message": "The operation was successful.",
-    "url": "/resources/ecf0ed85-3bfc-5f45-b11d-74e9a86aa313.json?api-version=v2",
+    "url": "/resources/ecf0ed85-3bfc-5f45-b11d-74e9a86aa313.json",
     "code": 200
   },
   "body": {

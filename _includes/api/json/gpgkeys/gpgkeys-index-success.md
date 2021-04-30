@@ -4,10 +4,9 @@
         "id": "09253c7e-19d8-4638-9860-1c5c7fb13ed9",
         "status": "success",
         "servertime": 1554986192,
-        "title": "app_gpgkeys_index_success",
         "action": "a8b75aae-cb86-5fda-a8b3-d36ae6155023",
         "message": "The operation was successful.",
-        "url": "\/gpgkeys.json?api-version=v2",
+        "url": "\/gpgkeys.json",
         "code": 200
     },
     "body": [

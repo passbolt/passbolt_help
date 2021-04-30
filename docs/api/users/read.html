@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
     <link rel="canonical" href="https://help.passbolt.com/api/users/read">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -90,7 +91,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api">Introduction</a>
+          <a href="https://help.passbolt.com/api">
+              Introduction
+              
+          </a>
 
           
 
@@ -100,7 +104,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+          <a href="https://help.passbolt.com/api/authentication">
+              Authentication
+              
+          </a>
 
           
 
@@ -110,7 +117,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/resources">Resources</a>
+          <a href="https://help.passbolt.com/api/resources">
+              Resources
+              
+          </a>
 
           
 
@@ -120,7 +130,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/secrets">Secrets</a>
+          <a href="https://help.passbolt.com/api/secrets">
+              Secrets
+              
+          </a>
 
           
 
@@ -130,7 +143,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+          <a href="https://help.passbolt.com/api/permissions">
+              Permissions
+              
+          </a>
 
           
 
@@ -140,7 +156,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/users">Users</a>
+          <a href="https://help.passbolt.com/api/users">
+              Users
+              
+          </a>
 
           
           
@@ -186,7 +205,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/groups">Groups</a>
+          <a href="https://help.passbolt.com/api/groups">
+              Groups
+              
+          </a>
 
           
 
@@ -196,7 +218,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+          <a href="https://help.passbolt.com/api/gpgkeys">
+              OpenPGP Keys
+              
+          </a>
 
           
 
@@ -206,7 +231,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/comments">Comments</a>
+          <a href="https://help.passbolt.com/api/comments">
+              Comments
+              
+          </a>
 
           
 
@@ -216,7 +244,27 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+          <a href="https://help.passbolt.com/api/favorites">
+              Favorites
+              
+          </a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/folders">
+              Folders
+              
+              <span class="pill">
+                  PRO
+              </span>
+              
+          </a>
 
           
 
@@ -271,15 +319,18 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>View a users record</h1>
+                    <h1>
+                        View a users record
+                        
+                    </h1>
                     <p>It is possible to get data for a single user identified by the unique UUID. 
 All you need is to make a <code class="language-plaintext highlighter-rouge">GET</code> request to <code class="language-plaintext highlighter-rouge">/users/&lt;userId&gt;.json</code>.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/&lt;userId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/&lt;userId&gt;.json
 </code></pre></div></div>
 
 <p>Alternatively you can request information about the current user using:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/me.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /users/me.json
 </code></pre></div></div>
 
 <h3 id="possible-responses">Possible responses</h3>
@@ -323,10 +374,9 @@ All you need is to make a <code class="language-plaintext highlighter-rouge">GET
     </span><span class="nl">"id"</span><span class="p">:</span><span class="s2">"468aeafe-e1a0-4982-9f13-da9ce1081ab3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"status"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"servertime"</span><span class="p">:</span><span class="mi">1556045509</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"title"</span><span class="p">:</span><span class="s2">"app_users_view_success"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"action"</span><span class="p">:</span><span class="s2">"881ab948-e40f-5a72-91aa-54b442270029"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"message"</span><span class="p">:</span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"url"</span><span class="p">:</span><span class="s2">"</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">f848277c-5398-58f8-a82a-72397af2d450.json?api-version=v2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"url"</span><span class="p">:</span><span class="s2">"</span><span class="se">\/</span><span class="s2">users</span><span class="se">\/</span><span class="s2">f848277c-5398-58f8-a82a-72397af2d450.json"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"code"</span><span class="p">:</span><span class="mi">200</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"body"</span><span class="p">:{</span><span class="w">

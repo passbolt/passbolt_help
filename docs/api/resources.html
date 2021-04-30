@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
     <link rel="canonical" href="https://help.passbolt.com/api/resources">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -90,7 +91,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api">Introduction</a>
+          <a href="https://help.passbolt.com/api">
+              Introduction
+              
+          </a>
 
           
 
@@ -100,7 +104,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+          <a href="https://help.passbolt.com/api/authentication">
+              Authentication
+              
+          </a>
 
           
 
@@ -110,7 +117,10 @@
       
       <li class="selected">
       
-          <a href="https://help.passbolt.com/api/resources">Resources</a>
+          <a href="https://help.passbolt.com/api/resources">
+              Resources
+              
+          </a>
 
           
           
@@ -162,7 +172,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/secrets">Secrets</a>
+          <a href="https://help.passbolt.com/api/secrets">
+              Secrets
+              
+          </a>
 
           
 
@@ -172,7 +185,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+          <a href="https://help.passbolt.com/api/permissions">
+              Permissions
+              
+          </a>
 
           
 
@@ -182,7 +198,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/users">Users</a>
+          <a href="https://help.passbolt.com/api/users">
+              Users
+              
+          </a>
 
           
 
@@ -192,7 +211,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/groups">Groups</a>
+          <a href="https://help.passbolt.com/api/groups">
+              Groups
+              
+          </a>
 
           
 
@@ -202,7 +224,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+          <a href="https://help.passbolt.com/api/gpgkeys">
+              OpenPGP Keys
+              
+          </a>
 
           
 
@@ -212,7 +237,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/comments">Comments</a>
+          <a href="https://help.passbolt.com/api/comments">
+              Comments
+              
+          </a>
 
           
 
@@ -222,7 +250,27 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+          <a href="https://help.passbolt.com/api/favorites">
+              Favorites
+              
+          </a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/folders">
+              Folders
+              
+              <span class="pill">
+                  PRO
+              </span>
+              
+          </a>
 
           
 
@@ -271,7 +319,10 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>Resources</h1>
+                    <h1>
+                        Resources
+                        
+                    </h1>
                     <p>The API allows you to create, update, delete, and share your passwords.
 You can list of all your passwords as well as retrieve individual passwords.</p>
 
@@ -284,45 +335,23 @@ You can list of all your passwords as well as retrieve individual passwords.</p>
 <table class="table-parameters">
     <thead>
     <tr>
-        <th>
-            Attribute
-        </th>
-        <th>
-            Type
-        </th>
-        <th>
-            Description
-        </th>
-        <th>
-            Format
-        </th>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Format</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td>
-            id
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Unique ID of the resource in UUID format.
-        </td>
-        <td>
-            UUID
-        </td>
+        <td>id</td>
+        <td>String</td>
+        <td>Unique ID of the resource in UUID format.</td>
+        <td>UUID</td>
     </tr>
     <tr>
-        <td>
-            created
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Datetime when the resource was created
-        </td>
+        <td>created</td>
+        <td>String</td>
+        <td>Datetime when the resource was created</td>
         <td>
             <a href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189888000">ISO
                 8601</a>Datetime format<br />
@@ -330,84 +359,44 @@ You can list of all your passwords as well as retrieve individual passwords.</p>
         </td>
     </tr>
     <tr>
-        <td>
-            created_by
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            UUID of the user who created the resource
-        </td>
-        <td>
-            UUID
-        </td>
+        <td>created_by</td>
+        <td>String</td>
+        <td>UUID of the user who created the resource</td>
+        <td>UUID</td>
     </tr>
     <tr>
-        <td>
-            creator
-        </td>
-        <td>
-            Object
-        </td>
-        <td>
-            Object containing the user details of the creator
-        </td>
+        <td>creator</td>
+        <td>Object</td>
+        <td>Object containing the user details of the creator</td>
         <td>
             <a href="/api/users/#the-user-object">User object</a>
         </td>
     </tr>
     <tr>
-        <td>
-            deleted
-        </td>
-        <td>
-            Boolean
-        </td>
-        <td>
-            Whether the resource has been deleted
-        </td>
-        <td>
-            true/false
-        </td>
+        <td>deleted</td>
+        <td>Boolean</td>
+        <td>Whether the resource has been deleted</td>
+        <td>true/false</td>
     </tr>
     <tr>
-        <td>
-            description
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Resource description
-        </td>
+        <td>description</td>
+        <td>String</td>
+        <td>Resource description</td>
         <td>
         </td>
     </tr>
     <tr>
-        <td>
-            favorite
-        </td>
-        <td>
-            Object
-        </td>
-        <td>
-            Favorite details of the resource
-        </td>
+        <td>favorite</td>
+        <td>Object</td>
+        <td>Favorite details of the resource</td>
         <td>
             <a href="/api/resources/favorites/#the-favorite-object">Favorite object</a>
         </td>
     </tr>
     <tr>
-        <td>
-            modified
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Datetime when the resource was last modified
-        </td>
+        <td>modified</td>
+        <td>String</td>
+        <td>Datetime when the resource was last modified</td>
         <td>
             <a href="https://en.wikipedia.org/wiki/ISO_8601&amp;sa=D&amp;ust=1554900189897000">ISO
                 8601</a>&nbsp;Datetime format<br />
@@ -415,89 +404,60 @@ You can list of all your passwords as well as retrieve individual passwords.</p>
         </td>
     </tr>
     <tr>
-        <td>
-            modified_by
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            UUID of the user who last modified the resource
-        </td>
-        <td>
-            UUID
-        </td>
+        <td>modified_by</td>
+        <td>String</td>
+        <td>UUID of the user who last modified the resource</td>
+        <td>UUID</td>
     </tr>
     <tr>
-        <td>
-            modifier
-        </td>
-        <td>
-            Object
-        </td>
-        <td>
-            Object containing the user details of the modifier
-        </td>
+        <td>modifier</td>
+        <td>Object</td>
+        <td>Object containing the user details of the modifier</td>
         <td>
             <a href="/api/users/#the-user-object">User object</a>
         </td>
     </tr>
     <tr>
-        <td>
-            name
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Resource Name
-        </td>
+        <td>name</td>
+        <td>String</td>
+        <td>Resource Name</td>
         <td>
         </td>
     </tr>
     <tr>
-        <td>
-            permission
-        </td>
-        <td>
-            Object
-        </td>
-        <td>
-            Permission details as applied on the resource
-        </td>
+        <td>permission</td>
+        <td>Object</td>
+        <td>Permission details as applied on the resource</td>
         <td>
             <a href="/api/resources/permissions/#the-permission-object">Permission object</a>
         </td>
     </tr>
     <tr>
-        <td>
-            uri
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            URL/URI for this login
-        </td>
-        <td>
-        </td>
+        <td>uri</td>
+        <td>String</td>
+        <td>URL/URI for this login</td>
+        <td></td>
     </tr>
     <tr>
-        <td>
-            username
-        </td>
-        <td>
-            String
-        </td>
-        <td>
-            Username to be used for this login
-        </td>
-        <td>
-        </td>
+        <td>username</td>
+        <td>String</td>
+        <td>Username to be used for this login</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>resource_type_id</td>
+        <td>String</td>
+        <td>The resource type id</td>
+        <td>UUID</td>
+    </tr>
+    <tr>
+        <td>folder_parent_id<span class="pill">PRO</span></td>
+        <td>String|null</td>
+        <td>The folder containing the resource</td>
+        <td>UUID|null</td>
     </tr>
     </tbody>
 </table>
-
 
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>

@@ -11,7 +11,7 @@ A Resource can be updated by sending a `PUT` request to `/resources/<resourceId>
 The request body contains the new data to be updated. The request body schema is same than when creating a resource.
 
 ```
-PUT /resources/<resourceId>.json?api-version=v2
+PUT /resources/<resourceId>.json
 ```
 ```json
 {

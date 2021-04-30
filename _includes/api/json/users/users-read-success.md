@@ -4,10 +4,9 @@
     "id":"468aeafe-e1a0-4982-9f13-da9ce1081ab3",
     "status":"success",
     "servertime":1556045509,
-    "title":"app_users_view_success",
     "action":"881ab948-e40f-5a72-91aa-54b442270029",
     "message":"The operation was successful.",
-    "url":"\/users\/f848277c-5398-58f8-a82a-72397af2d450.json?api-version=v2",
+    "url":"\/users\/f848277c-5398-58f8-a82a-72397af2d450.json",
     "code":200
   },
   "body":{

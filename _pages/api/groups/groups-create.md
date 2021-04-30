@@ -11,7 +11,7 @@ Please note that only users with Admin role can create a group.
 To create a new group, make a `POST` request to `/groups.json` with the user data in request body. 
 
 ```
-POST /groups.json?api-version=v2
+POST /groups.json
 ```
 ```json
 {
@@ -145,10 +145,9 @@ body will return:
         "id": "30777f73-5b4d-402b-9855-36331611b4bd",
         "status": "error",
         "servertime": 1554983343,
-        "title": "app_groups_addPost_error",
         "action": "5bd4ecae-da08-577d-ac32-ce7b13bd7b0f",
         "message": "Could not validate group data.",
-        "url": "\/groups.json?api-version=v2",
+        "url": "\/groups.json",
         "code": 400
     },
     "body": {
@@ -175,10 +174,9 @@ will still result in error:
         "id": "df12a670-b921-4db5-994f-22a84c36246a",
         "status": "error",
         "servertime": 1554983413,
-        "title": "app_groups_addPost_error",
         "action": "5bd4ecae-da08-577d-ac32-ce7b13bd7b0f",
         "message": "Could not validate group data.",
-        "url": "\/groups.json?api-version=v2",
+        "url": "\/groups.json",
         "code": 400
     },
     "body": {

@@ -4,7 +4,6 @@
         "id": "b8ab8696-e5a1-4a06-bfbc-a7b77efd8f10",
         "status": "success",
         "servertime": 1554897334,
-        "title": "app_resources_index_success",
         "action": "c506210f-7866-5691-8fc1-58772e8f49f1",
         "message": "The operation was successful.",
         "url": "\/resources.json?api-version=v1",

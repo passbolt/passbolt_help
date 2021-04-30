@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
     <link rel="canonical" href="https://help.passbolt.com/api/resources/read-index">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -90,7 +91,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api">Introduction</a>
+          <a href="https://help.passbolt.com/api">
+              Introduction
+              
+          </a>
 
           
 
@@ -100,7 +104,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+          <a href="https://help.passbolt.com/api/authentication">
+              Authentication
+              
+          </a>
 
           
 
@@ -110,7 +117,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/resources">Resources</a>
+          <a href="https://help.passbolt.com/api/resources">
+              Resources
+              
+          </a>
 
           
           
@@ -162,7 +172,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/secrets">Secrets</a>
+          <a href="https://help.passbolt.com/api/secrets">
+              Secrets
+              
+          </a>
 
           
 
@@ -172,7 +185,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+          <a href="https://help.passbolt.com/api/permissions">
+              Permissions
+              
+          </a>
 
           
 
@@ -182,7 +198,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/users">Users</a>
+          <a href="https://help.passbolt.com/api/users">
+              Users
+              
+          </a>
 
           
 
@@ -192,7 +211,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/groups">Groups</a>
+          <a href="https://help.passbolt.com/api/groups">
+              Groups
+              
+          </a>
 
           
 
@@ -202,7 +224,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+          <a href="https://help.passbolt.com/api/gpgkeys">
+              OpenPGP Keys
+              
+          </a>
 
           
 
@@ -212,7 +237,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/comments">Comments</a>
+          <a href="https://help.passbolt.com/api/comments">
+              Comments
+              
+          </a>
 
           
 
@@ -222,7 +250,27 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+          <a href="https://help.passbolt.com/api/favorites">
+              Favorites
+              
+          </a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/folders">
+              Folders
+              
+              <span class="pill">
+                  PRO
+              </span>
+              
+          </a>
 
           
 
@@ -277,7 +325,10 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>Browse all Resources</h1>
+                    <h1>
+                        Browse all Resources
+                        
+                    </h1>
                     <p>To fetch a list of all the passwords the user has access to, make the following request:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resources.json
 </code></pre></div></div>
@@ -435,7 +486,6 @@
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"886a798f-11cd-4340-b488-70e57d56f5db"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1555054043</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app_resources_index_success"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c506210f-7866-5691-8fc1-58772e8f49f1"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The operation was successful."</span><span class="p">,</span><span class="w">
         </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"</span><span class="se">\/</span><span class="s2">resources.json?contain%5Bcreator%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bfavorite%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bmodifier%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Bpermission%5D=1</span><span class="se">\u</span><span class="s2">0026contain%5Btag%5D=1</span><span class="se">\u</span><span class="s2">0026order%5B%5D=Resource.modified+DESC"</span><span class="p">,</span><span class="w">

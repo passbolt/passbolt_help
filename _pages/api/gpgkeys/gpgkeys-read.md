@@ -57,10 +57,9 @@ GET /gpgkeys/<gpgKeyId>.json
         "id": "cc867d1d-a285-4caf-91dc-ea5b7423c198",
         "status": "success",
         "servertime": 1556048915,
-        "title": "app_gpgkeys_view_success",
         "action": "f07aa7d7-410d-5c49-bd11-407788f0e1b4",
         "message": "The operation was successful.",
-        "url": "\/gpgkeys\/0239c721-8b7d-59fc-9bff-69e75aff349c.json?api-version=v2",
+        "url": "\/gpgkeys\/0239c721-8b7d-59fc-9bff-69e75aff349c.json",
         "code": 200
     },
     "body": {

@@ -134,3 +134,26 @@ api:
       - title: Delete
         slug: favorites-delete
         url: /api/favorites/delete
+  - title: Folders
+    slug: folders
+    pro: true
+    url: /api/folders
+    data:
+     - title: Index
+       slug: folders-read-index
+       url: /api/folders/read-index
+     - title: Read
+       slug: folders-read
+       url: /api/folders/read
+     - title: Create
+       slug: folders-create
+       url: /api/folders/create
+     - title: Update
+       slug: folders-update
+       url: /api/folders/update
+     - title: Delete
+       slug: folders-delete
+       url: /api/folders/delete
+     - title: Share
+       slug: folders-share
+       url: /api/folders/share

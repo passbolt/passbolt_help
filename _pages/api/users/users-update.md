@@ -15,44 +15,34 @@ PUT /users/<userId>.json
 ```
 
 The request body contains the new data to be updated. The request body schema is same as that 
-of [Creating a new User](#creating-a-new-user) with the exception of the email/username field 
-which can not be updated.
+of creating a new User with the exception of the email/username field which can not be updated.
 
-A user can update itself also. First name and Last name but not the username and role. An admin 
-can update first name last name and role. No one can update the username.
+A user can update themselves. Then can change their first name and last name but not their role.
+An administrator can update their role. No one can update the username. If a user need to change
+their username, one will need to create a new user for this given email.
 
 ### Possible responses
 
 <table class="table-parameters">
 <thead>
   <tr>
-   <th>Code
-   </th>
-   <th>Description
-   </th>
+   <th>Code</th>
+   <th>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-   <td>200
-   </td>
-   <td>OK<br/>
-The User was created. The response body will contain the newly created user object
+   <td>200</td>
+   <td>OK<br/>The User was created. The response body will contain the newly created user object</td>
+  </tr>
+  <tr>
+   <td>400</td>
+   <td>Bad Request<br/>Some of the data validation failed.
    </td>
   </tr>
   <tr>
-   <td>400
-   </td>
-   <td>Bad Request<br/>
-Some of the data validation failed.
-   </td>
-  </tr>
-  <tr>
-   <td>403
-   </td>
-   <td>Authentication Failure<br/>
-The user making the request is not authenticated
-   </td>
+   <td>403</td>
+   <td>Authentication Failure<br/>The user making the request is not authenticated</td>
   </tr>
 </tbody>
 </table>

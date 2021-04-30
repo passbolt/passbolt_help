@@ -125,7 +125,7 @@ Secret endpoints are used to manage secrets on a Resource.
 To get a resource’s secret you can make the following request:
 
 ```
-GET /secrets/resource/<resourceId>.json?api-version=v2
+GET /secrets/resource/<resourceId>.json
 ```
 
 ### Possible responses
@@ -166,7 +166,7 @@ GET /secrets/resource/<resourceId>.json?api-version=v2
 So a request to get secret for a resource identified by `8e3874ae-4b40-590b-968a-418f704b9d9a` will look like 
 
 ```
-https://www.passbolt.test/secrets/resource/8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2
+https://www.passbolt.test/secrets/resource/8e3874ae-4b40-590b-968a-418f704b9d9a.json
 ```
 
 Upon success this will return a payload like this

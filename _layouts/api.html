@@ -16,7 +16,14 @@
 
                     {% include layout/row_start.html %}
                     {% include layout/col_start.html column="8" %}
-                    <h1>{{ page.title }}</h1>
+                    <h1>
+                        {{ page.title }}
+                        {% if page.pro %}
+                        <span class="pill">
+                          PRO
+                        </span>
+                        {% endif %}
+                    </h1>
                     {{ content }}
                     {% include date/updated.html %}
                     {% include layout/col_end.html %}

@@ -11,7 +11,7 @@ In order to be able to update, the user making the request must be the owner of 
 A Comment can be updated by sending the PUT request:
 
 ```
-PUT /comments/<commentId>.json?api-version=v2
+PUT /comments/<commentId>.json
 ```
 ```json
 {

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
     <link rel="canonical" href="https://help.passbolt.com/api/resources/update">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -90,7 +91,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api">Introduction</a>
+          <a href="https://help.passbolt.com/api">
+              Introduction
+              
+          </a>
 
           
 
@@ -100,7 +104,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+          <a href="https://help.passbolt.com/api/authentication">
+              Authentication
+              
+          </a>
 
           
 
@@ -110,7 +117,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/resources">Resources</a>
+          <a href="https://help.passbolt.com/api/resources">
+              Resources
+              
+          </a>
 
           
           
@@ -162,7 +172,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/secrets">Secrets</a>
+          <a href="https://help.passbolt.com/api/secrets">
+              Secrets
+              
+          </a>
 
           
 
@@ -172,7 +185,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+          <a href="https://help.passbolt.com/api/permissions">
+              Permissions
+              
+          </a>
 
           
 
@@ -182,7 +198,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/users">Users</a>
+          <a href="https://help.passbolt.com/api/users">
+              Users
+              
+          </a>
 
           
 
@@ -192,7 +211,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/groups">Groups</a>
+          <a href="https://help.passbolt.com/api/groups">
+              Groups
+              
+          </a>
 
           
 
@@ -202,7 +224,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+          <a href="https://help.passbolt.com/api/gpgkeys">
+              OpenPGP Keys
+              
+          </a>
 
           
 
@@ -212,7 +237,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/comments">Comments</a>
+          <a href="https://help.passbolt.com/api/comments">
+              Comments
+              
+          </a>
 
           
 
@@ -222,7 +250,27 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+          <a href="https://help.passbolt.com/api/favorites">
+              Favorites
+              
+          </a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/folders">
+              Folders
+              
+              <span class="pill">
+                  PRO
+              </span>
+              
+          </a>
 
           
 
@@ -277,11 +325,14 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>Update a resource</h1>
+                    <h1>
+                        Update a resource
+                        
+                    </h1>
                     <p>A Resource can be updated by sending a <code class="language-plaintext highlighter-rouge">PUT</code> request to <code class="language-plaintext highlighter-rouge">/resources/&lt;resourceId&gt;.json</code>:
 The request body contains the new data to be updated. The request body schema is same than when creating a resource.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /resources/&lt;resourceId&gt;.json?api-version=v2
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /resources/&lt;resourceId&gt;.json
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;string&gt;"</span><span class="p">,</span><span class="w">

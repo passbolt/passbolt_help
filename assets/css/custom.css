@@ -1,0 +1,16 @@
+/**
+ * Additional customization not present in styleguide
+ */
+.pill {
+    display:inline;
+    font-size: .65em;
+    border-radius: 3px;
+    padding: .2em .5em;
+    margin-left:.5em;
+    background: #d40101;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1em;
+    text-transform: uppercase;
+}

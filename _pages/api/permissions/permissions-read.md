@@ -10,7 +10,7 @@ permalink: /api/permissions/read
 To get a list of permissions applied on a Resource, you can make the following request:
 
 ```
-GET /permissions/resource/<resourceId>.json?api-version=v2
+GET /permissions/resource/<resourceId>.json
 ```
 
 ### Possible responses

@@ -10,7 +10,7 @@ permalink: /api/users/delete
 A User can be deleted subject to relevant permissions by sending a `DELETE` request to `/users/<userId>.json`
 
 ```
-DELETE /users/<userId>.json?api-version=v2
+DELETE /users/<userId>.json
 ```
 
 Only a user with an administrator role can delete users. A User can not be deleted as long as:
@@ -26,7 +26,7 @@ A dry run can also be performed before actually attempting to delete a user. Thi
 response if the user can be deleted safely.
 
 ```
-DELETE /users/<userId>/dry-run.json?api-version=v2
+DELETE /users/<userId>/dry-run.json
 ```
 
 ### Possible responses
@@ -85,10 +85,9 @@ response body like:
         "id": "8e3347b0-9069-421d-ae07-1faf256df1e9",
         "status": "error",
         "servertime": 1555070408,
-        "title": "app_users_dryrun_error",
         "action": "bec65e6e-9c29-5217-aabc-49fe2256cfce",
         "message": "The user cannot be deleted. You need to transfer the user group manager role to other users before deleting this user.You need to transfer the ownership for the shared passwords owned by this user before deleting this user.",
-        "url": "\/users\/f848277c-5398-58f8-a82a-72397af2d450\/dry-run.json?api-version=v2",
+        "url": "\/users\/f848277c-5398-58f8-a82a-72397af2d450\/dry-run.json",
         "code": 400
     },
     "body": {

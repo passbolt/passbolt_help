@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
     <link rel="canonical" href="https://help.passbolt.com/api/users/update">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
@@ -90,7 +91,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api">Introduction</a>
+          <a href="https://help.passbolt.com/api">
+              Introduction
+              
+          </a>
 
           
 
@@ -100,7 +104,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/authentication">Authentication</a>
+          <a href="https://help.passbolt.com/api/authentication">
+              Authentication
+              
+          </a>
 
           
 
@@ -110,7 +117,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/resources">Resources</a>
+          <a href="https://help.passbolt.com/api/resources">
+              Resources
+              
+          </a>
 
           
 
@@ -120,7 +130,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/secrets">Secrets</a>
+          <a href="https://help.passbolt.com/api/secrets">
+              Secrets
+              
+          </a>
 
           
 
@@ -130,7 +143,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/permissions">Permissions</a>
+          <a href="https://help.passbolt.com/api/permissions">
+              Permissions
+              
+          </a>
 
           
 
@@ -140,7 +156,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/users">Users</a>
+          <a href="https://help.passbolt.com/api/users">
+              Users
+              
+          </a>
 
           
           
@@ -186,7 +205,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/groups">Groups</a>
+          <a href="https://help.passbolt.com/api/groups">
+              Groups
+              
+          </a>
 
           
 
@@ -196,7 +218,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/gpgkeys">OpenPGP Keys</a>
+          <a href="https://help.passbolt.com/api/gpgkeys">
+              OpenPGP Keys
+              
+          </a>
 
           
 
@@ -206,7 +231,10 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/comments">Comments</a>
+          <a href="https://help.passbolt.com/api/comments">
+              Comments
+              
+          </a>
 
           
 
@@ -216,7 +244,27 @@
       
       <li>
       
-          <a href="https://help.passbolt.com/api/favorites">Favorites</a>
+          <a href="https://help.passbolt.com/api/favorites">
+              Favorites
+              
+          </a>
+
+          
+
+      </li>
+      
+
+      
+      <li>
+      
+          <a href="https://help.passbolt.com/api/folders">
+              Folders
+              
+              <span class="pill">
+                  PRO
+              </span>
+              
+          </a>
 
           
 
@@ -271,7 +319,10 @@
 
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
-                    <h1>Users Update</h1>
+                    <h1>
+                        Users Update
+                        
+                    </h1>
                     <h2 id="update-a-user">Update a User</h2>
 
 <p>A User can be updated by sending the <code class="language-plaintext highlighter-rouge">PUT</code> request to <code class="language-plaintext highlighter-rouge">/users/&lt;userId&gt;.json</code>.</p>
@@ -279,44 +330,34 @@
 </code></pre></div></div>
 
 <p>The request body contains the new data to be updated. The request body schema is same as that 
-of <a href="#creating-a-new-user">Creating a new User</a> with the exception of the email/username field 
-which can not be updated.</p>
+of creating a new User with the exception of the email/username field which can not be updated.</p>
 
-<p>A user can update itself also. First name and Last name but not the username and role. An admin 
-can update first name last name and role. No one can update the username.</p>
+<p>A user can update themselves. Then can change their first name and last name but not their role.
+An administrator can update their role. No one can update the username. If a user need to change
+their username, one will need to create a new user for this given email.</p>
 
 <h3 id="possible-responses">Possible responses</h3>
 
 <table class="table-parameters">
 <thead>
   <tr>
-   <th>Code
-   </th>
-   <th>Description
-   </th>
+   <th>Code</th>
+   <th>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-   <td>200
-   </td>
-   <td>OK<br />
-The User was created. The response body will contain the newly created user object
+   <td>200</td>
+   <td>OK<br />The User was created. The response body will contain the newly created user object</td>
+  </tr>
+  <tr>
+   <td>400</td>
+   <td>Bad Request<br />Some of the data validation failed.
    </td>
   </tr>
   <tr>
-   <td>400
-   </td>
-   <td>Bad Request<br />
-Some of the data validation failed.
-   </td>
-  </tr>
-  <tr>
-   <td>403
-   </td>
-   <td>Authentication Failure<br />
-The user making the request is not authenticated
-   </td>
+   <td>403</td>
+   <td>Authentication Failure<br />The user making the request is not authenticated</td>
   </tr>
 </tbody>
 </table>

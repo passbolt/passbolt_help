@@ -12,13 +12,13 @@ A Group cannot be deleted as long as it is the **sole owner** of a shared resour
 A Group can be deleted subject to relevant permissions by sending a `DELETE` request to `/groups/<groupId>.json`
 
 ```
-DELETE /groups/<groupId>.json?api-version=v2
+DELETE /groups/<groupId>.json
 ```
 
 A dry run can also be performed before actually attempting to delete a group. 
 This works as follow:
 ```
-DELETE /groups/<groupId>/dry-run.json?api-version=v2
+DELETE /groups/<groupId>/dry-run.json
 ```
 
 This will check all the constraints and return a 200 OK response if the group can be deleted safely.

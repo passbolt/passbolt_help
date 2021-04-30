@@ -1,5 +1,5 @@
 ---
-title: Folders Update
+title: Folders Move
 date: 2021-04-29 14:00:00 Z
 layout: api
 pro: true
@@ -17,8 +17,14 @@ can affect multiple folder relations, for other users).
 Similarly If you want to change the folder permission, you need to use the "share" endpoint.
 
 ```
-PUT /folders/<folderId>.json
+PUT /move/folder/<folderId>.json
 ```
+
+A similar endpoint exists to move a resource:
+```
+PUT /move/resource/<resourceId>.json
+```
+
 
 ### Request data
 The request body expects the following request data

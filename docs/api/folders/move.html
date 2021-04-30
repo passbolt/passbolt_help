@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Folders Update</title>
+    <title>Passbolt Help | Folders Move</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Folders Update" />
+    <meta property="og:title" content="Folders Move" />
     <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -326,7 +326,7 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>
-                        Folders Update
+                        Folders Move
                         
                         <span class="pill">
                           PRO
@@ -341,7 +341,11 @@ can affect multiple folder relations, for other users).</p>
 
 <p>Similarly If you want to change the folder permission, you need to use the “share” endpoint.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /folders/&lt;folderId&gt;.json
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /move/folder/&lt;folderId&gt;.json
+</code></pre></div></div>
+
+<p>A similar endpoint exists to move a resource:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /move/resource/&lt;resourceId&gt;.json
 </code></pre></div></div>
 
 <h3 id="request-data">Request data</h3>

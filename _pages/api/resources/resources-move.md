@@ -1,30 +1,23 @@
 ---
-title: Folders Move
+title: Resources Move
 date: 2021-04-29 14:00:00 Z
 layout: api
 pro: true
-category: api,folders,move
-slug: folders-move
-permalink: /api/folders/move
+category: api,resources,move
+slug: resources-move
+permalink: /api/resources/move
 ---
 
-To move a Folder, e.g. change the `folder_parent_id`, you can make a `PUT` request to `/move/folder/<folderUuid>.json`
-with the folder parent id in the body. 
-
-If you want to change the `folder_parent_id`, you need to use the "move" endpoint (as it
-can affect multiple folder relations, for other users).
-
-Similarly If you want to change the folder permission, you need to use the "share" endpoint.
-
-```
-PUT /move/folder/<folderId>.json
-```
-
-A similar endpoint exists to move a resource:
+To move a resource location, e.g. change the `folder_parent_id` by making a request to.
 ```
 PUT /move/resource/<resourceId>.json
 ```
 
+A similar endpoint exists to move a folder:
+
+```
+PUT /move/folder/<folderId>.json
+```
 
 ### Request data
 The request body expects the following request data
@@ -64,7 +57,7 @@ The request body expects the following request data
 <tbody>
   <tr>
    <td>200</td>
-   <td>OK<br/>The Folder was moved.</td>
+   <td>OK<br/>The resource was moved.</td>
   </tr>
   <tr>
    <td>400</td>
@@ -87,7 +80,7 @@ The request body expects the following request data
 And a valid request body will look like:
 
 ```
-POST /move/folder/d4ed8049-7aaa-43e3-88dd-113f6a73dbb8.json
+POST /move/resource/d4ed8049-7aaa-43e3-88dd-113f6a73dbb8.json
 ```
 ```json
 {
@@ -106,8 +99,8 @@ A response to a valid request will look like this:
          "status": "success",
          "servertime": 1619793763,
          "action": "d91341f2-9672-5f4d-b7f5-d82020faa47e",
-         "message": "The folder has been moved successfully.",
-         "url": "\/move\/folder\/d4ed8049-7aaa-43e3-88dd-113f6a73dbb8.json",
+         "message": "The resource has been moved successfully.",
+         "url": "\/move\/resource\/d4ed8049-7aaa-43e3-88dd-113f6a73dbb8.json",
          "code": 200
      },
      "body": null
@@ -126,8 +119,8 @@ For example sending a blank request body will return:
         "status": "error",
         "servertime": 1554981597,
         "action": "a1a15b91-72f6-5708-8d7f-6940e51d8595",
-        "message": "Could not validate folder data.",
-        "url": "\/move\/folder\/d4ed8049-7aaa-43e3-88dd-113f6a73dbb8.json",
+        "message": "Could not validate resource data.",
+        "url": "\/move\/resource\/d4ed8049-7aaa-43e3-88dd-113f6a73dbb8.json",
         "code": 400
     },
     "body": {

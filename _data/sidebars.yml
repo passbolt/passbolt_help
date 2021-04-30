@@ -47,6 +47,9 @@ api:
       - title: Share
         slug: resources-share
         url: /api/resources/share
+      - title: Move
+        slug: resources-move
+        url: /api/resources/move
   - title: Secrets
     slug: secrets
     url: /api/secrets
@@ -157,3 +160,6 @@ api:
      - title: Share
        slug: folders-share
        url: /api/folders/share
+     - title: Move
+       slug: folders-move
+       url: /api/folders/move

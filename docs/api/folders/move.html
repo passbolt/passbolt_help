@@ -270,6 +270,12 @@
                   <a id='folders-share' href="https://help.passbolt.com/api/folders/share">Share</a>
               </li>
               
+              
+              <li class="selected">
+              
+                  <a id='folders-move' href="https://help.passbolt.com/api/folders/move">Move</a>
+              </li>
+              
           </ul>
           
           
@@ -362,14 +368,14 @@ can affect multiple folder relations, for other users).</p>
 </thead>
 <tbody>
     <tr>
-        <th>folder_parent_id</th>
-        <th>The new parent folder</th>
-        <th>Yes</th>
-        <th><ol>
+        <td>folder_parent_id</td>
+        <td>The new parent folder</td>
+        <td>Yes</td>
+        <td><ol>
             <li>Valid UUID</li>
             <li>Not empty</li>
             <li>Folder exists</li>
-        </ol></th>
+        </ol></td>
     </tr>
 </tbody>
 </table>
@@ -386,7 +392,7 @@ can affect multiple folder relations, for other users).</p>
 <tbody>
   <tr>
    <td>200</td>
-   <td>OK<br />The Folder was moved. The response body will contain the newly moved user object</td>
+   <td>OK<br />The Folder was moved.</td>
   </tr>
   <tr>
    <td>400</td>
@@ -395,6 +401,10 @@ can affect multiple folder relations, for other users).</p>
   <tr>
    <td>403</td>
    <td>Authentication Failure<br />The user making the request is not authenticated</td>
+  </tr>
+  <tr>
+   <td>404</td>
+   <td>Not found<br />The resource does not exist or has been deleted.</td>
   </tr>
 </tbody>
 </table>

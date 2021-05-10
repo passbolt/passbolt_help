@@ -39,15 +39,19 @@ sudo apt-get install certbot python3-certbot-nginx
 ```
 
 **Step 2.**  Add Passbolt package official GnuPG key
-
-From keys.gnupg.net:
-```
-sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
-```
-
-Or from hkps://keys.mailvelope.com:
+From keys.mailvelope.com:
 ```
 sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+```
+
+Or from pgp.mit.edu:
+```
+sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+```
+
+Or from keys.gnupg.net:
+```
+sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 ```
 
 **Step 3.**  Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`

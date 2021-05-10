@@ -242,14 +242,17 @@ sudo apt-get install \
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key</p>
-
-    <p>From keys.gnupg.net:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key
+From keys.mailvelope.com:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 </code></pre></div>    </div>
 
-    <p>Or from hkps://keys.mailvelope.com:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    <p>Or from pgp.mit.edu:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Or from keys.gnupg.net:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 </code></pre></div>    </div>
 
     <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>

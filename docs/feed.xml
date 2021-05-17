@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-04-30T19:45:19+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate passbolt CE from install scripts to Ubuntu package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html" rel="alternate" type="text/html" title="Migrate passbolt CE from install scripts to Ubuntu package" /><published>2021-02-12T01:00:00+01:00</published><updated>2021-02-12T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-05-10T08:05:31+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate passbolt CE from install scripts to Ubuntu package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html" rel="alternate" type="text/html" title="Migrate passbolt CE from install scripts to Ubuntu package" /><published>2021-02-12T01:00:00+01:00</published><updated>2021-02-12T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;A Ubuntu package has been created to increase the ease of installing and upgrading passbolt.&lt;/p&gt;
@@ -611,14 +611,17 @@ sudo apt-get install \
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install certbot python3-certbot-nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key&lt;/p&gt;
-
-    &lt;p&gt;From keys.gnupg.net:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key
+From keys.mailvelope.com:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Or from hkps://keys.mailvelope.com:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;Or from pgp.mit.edu:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Or from keys.gnupg.net:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
@@ -975,14 +978,17 @@ sudo apt-get install \
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install certbot python3-certbot-nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key&lt;/p&gt;
-
-    &lt;p&gt;From keys.gnupg.net:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key
+From keys.mailvelope.com:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Or from hkps://keys.mailvelope.com:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;Or from pgp.mit.edu:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Or from keys.gnupg.net:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
@@ -1329,14 +1335,17 @@ sudo apt-get install \
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install certbot python3-certbot-nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key&lt;/p&gt;
-
-    &lt;p&gt;From keys.gnupg.net:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key
+From keys.mailvelope.com:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Or from hkps://keys.mailvelope.com:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;Or from pgp.mit.edu:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Or from keys.gnupg.net:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
@@ -1692,14 +1701,17 @@ sudo apt-get install \
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install certbot python3-certbot-nginx
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key&lt;/p&gt;
-
-    &lt;p&gt;From keys.gnupg.net:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key
+From keys.mailvelope.com:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;Or from hkps://keys.mailvelope.com:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    &lt;p&gt;Or from pgp.mit.edu:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Or from keys.gnupg.net:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;

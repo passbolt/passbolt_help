@@ -10,12 +10,12 @@ The API allows you to know more about the schema of a given [resource](/api/reso
 it's associated [secret](/api/secrets).
 
 In passbolt, passwords are split into two different entities: Resources (the metada in clear) and Secrets (the encrypted data).
-The resource types defines what is included in the resource and what is included in the secret.
+The resource types define what is included in the resource and what is included in the secret.
 This definition, that is part of the resource type, takes the form of [JSON schemas](https://json-schema.org/). 
 
 Since passbolt is end-to-end encrypted the server cannot validate the content of the secrets.
 Therefore, it is the responsibility of the clients to check if the secret is deserializable according to
-the resource type schema associated with the resource.
+the resource type schema associated with the resource and to choose how to handle that case.
 
 ## The Resource Type object
 

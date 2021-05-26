@@ -50,6 +50,16 @@ api:
       - title: Move
         slug: resources-move
         url: /api/resources/move
+  - title: Resources Types
+    slug: resource-types
+    url: /api/resource-types
+    data:
+      - title: Index
+        slug: resources-read-index
+        url: /api/resource-types/read-index
+      - title: Read
+        slug: resources-read
+        url: /api/resource-types/read
   - title: Secrets
     slug: secrets
     url: /api/secrets

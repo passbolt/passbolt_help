@@ -22,6 +22,7 @@
             "modified": "2019-04-11T08:53:06+00:00",
             "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
             "modified_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "resource_type_id": "e2aa01a9-84ec-55f8-aaed-24ee23259339",
             "favorite": null,
             "modifier": {
                 "id": "f848277c-5398-58f8-a82a-72397af2d450",
@@ -87,6 +88,7 @@
             "modified": "2019-04-11T07:23:00+00:00",
             "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
             "modified_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "resource_type_id": "e2aa01a9-84ec-55f8-aaed-24ee23259339",
             "favorite": null,
             "modifier": {
                 "id": "f848277c-5398-58f8-a82a-72397af2d450",

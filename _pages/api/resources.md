@@ -9,9 +9,16 @@ permalink: /api/resources
 The API allows you to create, update, delete, and share your passwords.
 You can list of all your passwords as well as retrieve individual passwords.
 
-In passbolt, passwords are split into two different entities: Resources and Secrets. The Resource entity is an object which represents a password's metadata and contains items such as the searchable password name, the associated username, the URL where the password is used, in addition to other fields.
+In passbolt, passwords are split into two different entities: Resources and Secrets. 
+The Resource entity is an object which represents a password's metadata and contains items such as 
+the searchable password name, the associated username, the URL where the password is used, in addition to other fields.
 
-The [Secret](/api/secrets) entity is the actual password. It can be accessed via its associated Resource object or individually. In either case, the access will be logged in the system.
+The [Secret](/api/secrets) entity is the actual password and optionally other secret information such as the 
+encrypted description. Secrets can be accessed via its associated Resource  object or individually. In either case, 
+the access will be logged in the system.
+
+The definition of what is included in the resource and what is included in the secret is described using 
+[resource types](/api/resource-types) which take the form of JSON schemas. 
 
 ## The Resource object
 

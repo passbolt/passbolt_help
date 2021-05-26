@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Remove a favorite</title>
+    <title>Passbolt Help | Browse all resource types</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Remove a favorite" />
+    <meta property="og:title" content="Browse all resource types" />
     <meta property="og:description" content="The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues,..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/api/favorites/delete">
+    <link rel="canonical" href="https://help.passbolt.com/api/resource-types/read-index">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/api/favorites/favorites-delete.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_pages/api/resource-types/resource-types-read-index.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -135,6 +135,24 @@
               
           </a>
 
+          
+          
+          <ul>
+              
+              
+              <li class="selected">
+              
+                  <a id='resources-read-index' href="https://help.passbolt.com/api/resource-types/read-index">Index</a>
+              </li>
+              
+              
+              <li>
+              
+                  <a id='resources-read' href="https://help.passbolt.com/api/resource-types/read">Read</a>
+              </li>
+              
+          </ul>
+          
           
 
       </li>
@@ -227,24 +245,6 @@
           </a>
 
           
-          
-          <ul>
-              
-              
-              <li>
-              
-                  <a id='favorites-create' href="https://help.passbolt.com/api/favorites/create">Create</a>
-              </li>
-              
-              
-              <li class="selected">
-              
-                  <a id='favorites-delete' href="https://help.passbolt.com/api/favorites/delete">Delete</a>
-              </li>
-              
-          </ul>
-          
-          
 
       </li>
       
@@ -295,14 +295,14 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="/api/favorites"><span>favorites</span></a>
+                        <a href="/api/resource-types"><span>resource-types</span></a>
                     </div>
                 </li>
                 
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/api/favorites/delete"><span>delete</span></a>
+                        <a href="https://help.passbolt.com/api/resource-types/read-index"><span>read-index</span></a>
                     </div>
                 </li>
                 
@@ -315,13 +315,16 @@
                     <div class="row" markdown="1">
                     <div class="col8" markdown="1">
                     <h1>
-                        Remove a favorite
+                        Browse all resource types
                         
                     </h1>
-                    <p>To remove a resource from your favorite list:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE /favorites/&lt;favoriteId&gt;.json
+                    <p>To fetch a list of all the resource types user has access to, make the following request:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET /resource-types.json
 </code></pre></div></div>
+
+<h3 id="request-parameters">Request Parameters</h3>
+
+<p>The endpoint does not take any additional parameter.</p>
 
 <h3 id="possible-responses">Possible responses</h3>
 
@@ -336,52 +339,171 @@
         <tr>
             <td>200</td>
             <td>OK<br />
-            Request went through. Given resource has been added to favorite</td>
-        </tr>
-        <tr>
-            <td>400</td>
-            <td>Bad Request<br />
-                If the given favoriteId is not a uuid
-            </td>
+            Request went through. The response payload will contain a list of resources.</td>
         </tr>
         <tr>
             <td>403</td>
             <td>Authentication Failure<br />
-            The user making the request is not authenticated</td>
+            The user making the request is not authenticated.</td>
         </tr>
         <tr>
             <td>404</td>
-            <td>Not Found<br />
-                If the favorite does not exist.
-            </td>
+            <td>Not found<br />
+            If resource type plugin is not enabled.</td>
         </tr>
     </tbody>
 </table>
 
-<h2 id="response-example">Response Example</h2>
-<h3 id="success">Success</h3>
+<h3 id="success-response">Success response</h3>
+<p>A successful response will have an array of json objects with each representing a single resource. It will look something like this example:</p>
 
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-    </span><span class="nl">"header"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"baae23fe-5ee9-46fa-8e19-1d6dc5fb2dd1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"servertime"</span><span class="p">:</span><span class="w"> </span><span class="mi">1555067661</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8fb44391-6155-5bff-a3d5-57dea22c9894"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The favorite was deleted."</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/favorites/288050d2-25b0-4c04-a959-2fc6f4011208.json"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">200</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"body"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "header": {
+        "id": "600f5f81-d99f-4763-80fc-5168561010d7",
+        "status": "success",
+        "servertime": 1622043241,
+        "action": "e2aa01a9-84ec-55f8-aaed-24ee23259339",
+        "message": "The operation was successful.",
+        "url": "\/resource-types.json",
+        "code": 200
+    },
+    "body": [
+        {
+            "id": "669f8c64-242a-59fb-92fc-81f660975fd3",
+            "slug": "password-string",
+            "name": "Simple password",
+            "description": "The original passbolt resource type, where the secret is a non empty string.",
+            "definition": {
+                "resource": {
+                    "type": "object",
+                    "required": [
+                        "name"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "maxLength": 64
+                        },
+                        "username": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "maxLength": 64
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "uri": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "maxLength": 1024
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "description": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "maxLength": 10000
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "string",
+                    "maxLength": 4096
+                }
+            },
+            "created": "2021-05-05T11:06:31+00:00",
+            "modified": "2021-05-05T11:06:31+00:00"
+        },
+        {
+            "id": "a28a04cd-6f53-518a-967c-9963bf9cec51",
+            "slug": "password-and-description",
+            "name": "Password with description",
+            "description": "A resource with the password and the description encrypted.",
+            "definition": {
+                "resource": {
+                    "type": "object",
+                    "required": [
+                        "name"
+                    ],
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "maxLength": 64
+                        },
+                        "username": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "maxLength": 64
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        },
+                        "uri": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "maxLength": 1024
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "secret": {
+                    "type": "object",
+                    "required": [
+                        "password"
+                    ],
+                    "properties": {
+                        "password": {
+                            "type": "string",
+                            "maxLength": 4096
+                        },
+                        "description": {
+                            "anyOf": [
+                                {
+                                    "type": "string",
+                                    "maxLength": 10000
+                                },
+                                {
+                                    "type": "null"
+                                }
+                            ]
+                        }
+                    }
+                }
+            },
+            "created": "2021-05-05T11:06:31+00:00",
+            "modified": "2021-05-05T11:06:31+00:00"
+        }
+    ]
+}
+</code></pre></div></div>
 
                     <div class="last-updated" markdown="1">
 <h3>Last updated</h3>
 This article was last updated on 
-April
-23rd,
-2019.
+May
+26th,
+2021.
 </div>
                     </div>
 

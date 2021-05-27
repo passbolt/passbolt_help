@@ -181,6 +181,10 @@
       url: https://github.com/passbolt/passbolt_api/issues/new
       icon: fa-bug
       teaser: Who knows, maybe it is a feature?
+    - title: Translation
+      url: /contribute/translation
+      icon: fa-language
+      teaser: Your language is missing or you discovered an error
     - title: Get a job!
       url: https://careers.passbolt.com
       icon: fa-money

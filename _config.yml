@@ -61,4 +61,5 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - .idea/workspace.xml
+  - vendor
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Call Me</title>
+    <title>Passbolt Help | La Clé Des Champs</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version con...">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Call Me" />
-    <meta property="og:description" content="This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version con..." />
+    <meta property="og:title" content="La Clé Des Champs" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v2120-call-me">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/la-cle-des-champs">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.12.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.2.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -88,7 +88,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs" >v3.2.0</a>
                     </li>
                     
@@ -185,7 +185,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v2120-call-me"><span>call-me</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs"><span>la-cle-des-champs</span></a>
                     </div>
                 </li>
                 
@@ -194,102 +194,161 @@
     </div>
 </div>
 
-                            <h1>v2.12.0 ~ Call Me (pro)</h1>
+                            <h1>v3.2.0 ~ La Clé Des Champs (pro)</h1>
                             <p>Release date: 
-December
-6th,
-2019.
+May
+31st,
+2021.
 </p>
-                            <p>This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. 
-The previously published extension version contained some security fix for an issue in the quick access suggestion system reported by security researcher Rene Kroka. 
-You can learn more about it on the <a href="https://www.passbolt.com/incidents">incident page</a>.</p>
+                            <div class="message notice">
+    <p>
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
 
-<p>It also ships with a much demanded improvement: the possibility to resend a new invitation to a user.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_resend_invitation.png" alt="Resend invitation menu" style="max-width:;" />
-    <span class="legend">fig. Resend invitation menu</span>
-</figure>
-
-<p>Another improvement is the integration of the MFA status for each user in the user workspace. It is now possible for an admin to see at a glance which users have activated their MFA, and which ones have not.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_mfa_status.png" alt="MFA status in the user workspace" style="max-width:;" />
-    <span class="legend">fig. MFA status in the user workspace</span>
-</figure>
-
-<p>Moreover, for users who can’t access Passbolt anymore due to a lost or inaccessible MFA device, we added the possibility for the admin to disable MFA for the given user.
-This will give them the possibility to reset their MFA settings and be able to access Passbolt again.</p>
+<p>The team is pleased to announce that the much awaited “Internationalisation” feature is available to Passbolt Pro, Passbolt Cloud (in progress) as well as Passbolt CE subscribers as part of this release. It is the beginning of continuous effort to provide passbolt in the favorite language of our users. This release ships with the French translation, but other languages such as German and Spanish are in the works.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_disable_mfa.png" alt="Disable MFA option menu" style="max-width:;" />
-    <span class="legend">fig. Disable MFA option menu</span>
+    <img src="https://help.passbolt.com/assets/img/help/2021/05/translations_status.png" alt="Translations status" style="max-width:;" />
+    <span class="legend">fig. Translations status</span>
 </figure>
 
-<p>Finally, it is now possible for users to manage their personal tags. They can rename and delete them directly from the tags list component.</p>
+<p>More languages will come as we go and we are of course counting on the community contributions to keep proposing new ones and make Passbolt available to everyone. If you’d like to contribute and understand how you can translate passbolt in your favorite language, check out the <a href="https://help.passbolt.com/contribute/translation">documentation</a>. We have tried our best to make the translation process fairly easy and accessible to everyone.</p>
+
+<p>This release also introduces a new subscription key management feature available directly from the application’s main administration panel. This feature will help administrators manage their subscriptions more efficiently.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12//LU_tag_contextual_menu.png" alt="Manage personal tags from the contextual menu" style="max-width:300px;" />
-    <span class="legend">fig. Manage personal tags from the contextual menu</span>
+    <img src="https://help.passbolt.com/assets/img/help/2021/05/AD_subscription_management.png" alt="Subscription management" style="max-width:;" />
+    <span class="legend">fig. Subscription management</span>
 </figure>
 
-<p>We hope you’ll enjoy this update!</p>
+<p>Another aspect of this release is the upgrade of the passbolt API code base to CakePHP v4. This upgrade was necessary and sets the foundations of the new avatars management system, where the users’ avatars are now stored primarily in the database rather than in the file system. This long planned improvement has several benefits among which is a simpler backup workflow as well as the ability to deploy passbolt in high availability.</p>
 
-<p><strong>What next?</strong> The team focus is currently on the upcoming folders feature. 
-It is taking a substantial amount of energy to implement but the result should be matching your expectations.
-It is now a matter of weeks before the feature is available. If you are interested to know how it will work, you can have a look at <a href="https://docs.google.com/document/d/1pSR97b5emJH5XxMME_lN4CqLUfYFuDw6DGCMJ_XjF-o/edit?usp=sharing">the specifications</a> (feedback is welcome). 
-The screenshot below will give you a glimpse of its look and feel:</p>
+<p>Finally, the team is proud to share with the community the results of the annual security audit part II performed by <a href="https://cure53.de">Cure53</a> with a focus on the webextensions. The positive results validate the continuous efforts of the team.</p>
 
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/LU_folder_preview.png" alt="Folders feature overview" style="max-width:;" />
-    <span class="legend">fig. Folders feature overview</span>
-</figure>
+<p>“<em>The Passbolt extension stands strong and the audit and pentest did not manage to unveil any serious severity bugs, whereas the overall number of problems is also limited to just two minor flaws.</em>”</p>
 
-<p>The team wishes you great end-of-year celebrations, merry christmas &amp; happy new year in advance, and good holidays if you are lucky enough to take some!</p>
+<p>To know more about this audit, checkout the <a href="https://medium.com/passbolt/passbolt-security-audit-2021-da77bac10ed9">blog article</a>.</p>
 
-<h2 id="api">API</h2>
+<p>A big thank you to <a href="https://www.crowdin.com">Crowdin</a> for providing us with their amazing translation platform for free. Huge thanks also to the people who have reported and documented bugs on github and the community forum including: @noinlj, @flifloo, @svenseeberg, @Kassouma and many more.</p>
 
-<h3 id="added">Added</h3>
-<ul>
-  <li>PB-575: As AD I can see the MFA status of each user in the users grid</li>
-  <li>PB-639: As LU I can delete a personal tag</li>
-  <li>PB-687: As an admin I can resend an invitation for a user that didn’t complete the setup</li>
-  <li>PB-698: As an admin I can disable MFA for a user</li>
-</ul>
-
-<h3 id="improved">Improved</h3>
-<ul>
-  <li>PB-893: Update CakePHP to v3.8.6</li>
-  <li>PB-894: Improve subscription key checks and output details</li>
-</ul>
-
+<h1 id="api">API</h1>
+<h2 id="321---2021-06-04">[3.2.1] - 2021-06-04</h2>
 <h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-771: Added purify subject for the email subscribers</li>
-  <li>PB-856: Added migration fix to remove unused tables</li>
-  <li>GITHUB-84: Fix gc_maxlifetime versus Session.timeout units</li>
-  <li>PB-767: Fix LDAP sync issue “when multiple users are added to a group, failed validation of one should not impact validation of others”</li>
+  <li>GITHUB-402 Fix API v3 regression, login must accept JSON data</li>
 </ul>
 
-<h2 id="web-extension">Web extension</h2>
-
-<h3 id="improved-1">Improved</h3>
+<h2 id="320---2021-05-31">[3.2.0] - 2021-05-31</h2>
+<h3 id="added">Added</h3>
 <ul>
-  <li>PB-878: Update OpenPGP.js to v4.7</li>
-  <li>PB-649: The quickaccess passphrase field text and background colors should remain as default when the field is not focused.</li>
+  <li>PB-5054 French internationalisation</li>
+  <li>
+    <p>PB-5171 As logged-in user, I can paginate the result of the users and resources index controllers</p>
+  </li>
+  <li>
+    <p>PB-5526 As admin I can save the subscription key as an organisation setting</p>
+  </li>
+  <li>PB-5854 As logged-in user I can save the locale of a user as an account setting</li>
+  <li>
+    <p>PB-5854 As admin I can save the locale the organisation as organisation setting</p>
+  </li>
+  <li>PB-5985 As a system administrator I should be able to import a subscription key from the command line</li>
 </ul>
 
 <h3 id="fixed-1">Fixed</h3>
 <ul>
-  <li>PB-883: The quickaccess should filter passwords by uri protocol and port if provided.</li>
-  <li>PB-766: Fix 414 server issues for features that work with batch of resources. Reduce the size of the batches.</li>
+  <li>PB-5523 Fix as system administrator I should see the healthcheck errors colored in red</li>
+  <li>
+    <p>PB-5860 Fix password max length should be set to 4096 in resource type definitions</p>
+  </li>
+  <li>
+    <p>PB-6007 Fix all group managers should receive an email when a new user is added to a group after a Ldap synchronization</p>
+  </li>
+  <li>PB-6031 Fix as LU I shouldn’t get a fatal error when using a scalar instead of an array for some filters values</li>
+  <li>PB-6131 Fix healthcheck error messages display</li>
 </ul>
+
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>PB-5975 Test code with PHPStan - level 4</li>
+  <li>PB-7576 Avatar table should use created and modified for timestamp and not created_at and modified_at</li>
+  <li>PB-5527 Move avatar in database</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-5527 Migration to CakePHP4</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>Remove X-XSS-Protection as per Cure53 <a href="https://help.passbolt.com/assets/files/PBL-01-report.pdf">audit result and recommendations</a></li>
+</ul>
+
+<h1 id="browser-extension">Browser Extension</h1>
+<h2 id="323---2021-06-07">[3.2.3] - 2021-06-07</h2>
+<h3 id="fixed-2">Fixed</h3>
+<ul>
+  <li>PB-7561 Fix as LU I should import CSV containing non latin1 characters</li>
+  <li>PB-7563 Update passbolt styleguide dependencies</li>
+</ul>
+
+<h2 id="322---2021-05-31">[3.2.2] - 2021-05-31</h2>
+<h3 id="fixed-3">Fixed</h3>
+<ul>
+  <li>PB-7569 As AN with an unconfigured extension on chrome I should not get an error clicking on the toolbar passbolt icon</li>
+</ul>
+
+<h2 id="321---2021-05-26">[3.2.1] - 2021-05-26</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-5054 French internationalisation</li>
+  <li>PB-5526 As AD I can manage the subscription key from the administration panel</li>
+</ul>
+
+<h3 id="fixed-4">Fixed</h3>
+<ul>
+  <li>PB-5366 Fix share autocomplete search results can be invalid</li>
+  <li>PB-5498 Fix image version displayed after avatar upload</li>
+  <li>PB-5861 Fix serializePlaintextDto should validate secret maxlength if resourceTypeId is set to legacy type, or not set</li>
+  <li>PB-5909 Fix as logged-in user aborting a preview operation I should not see an empty preview</li>
+  <li>PB-5983 Fix as logged-in user I can import passwords with non latin characters</li>
+  <li>PB-6008 Fix as logged-in user I should get a feedback in the quickaccess when I try to autofill credentials on a page, but an error occurred</li>
+  <li>PB-6080 Fix add favorites fetch payload error</li>
+</ul>
+
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>PB-5443 As logged-in user I should get a visual feedback when the maximum length of the secret fields is reached so that I do not lose data</li>
+  <li>PB-5455 As logged-in user selecting a description order to copy it should not enter the description edit mode</li>
+  <li>PB-5496 As logged-in user updating my avatar I should see the error message if an error occurred</li>
+  <li>PB-5857 As logged-in user I should be able to change the user role in the create/edit user dialog by clicking on the checkbox label</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-6012 Fix the quickaccess suggestion component should not suggest TLD entries (PB-01-002)</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-5069 Migrate moment to Luxon</li>
+  <li>PB-5884 Move quickaccess front end code to the styleguide repository</li>
+  <li>PB-5887 Fix semantic gap in naming conventions in styleguide</li>
+  <li>PB-5959 Bump webpack to v5</li>
+</ul>
+
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"When you're ready we can share the wine."</p>
-                                <a href="https://youtu.be/StKVS0eI85I" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"La Clé Des Champs"</p>
+                                <a href="https://youtu.be/qd_8mm906GA" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

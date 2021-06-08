@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.2.0 | La Clé Des Champs</title>
+    <link>https://help.passbolt.com/releases/pro/la-cle-des-champs</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/la-cle-des-champs</guid>
+    <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce that the much awaited “Internationalisation” feature is available to Passbolt Pro, Passbolt Cloud (in progress) as well as Passbolt...</description>
+    <pubDate>Mon, 31 May 2021 14:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.1.0 | Sea</title>
     <link>https://help.passbolt.com/releases/pro/love-over-entropy-sea</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/love-over-entropy-sea</guid>

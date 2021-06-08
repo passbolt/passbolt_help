@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Final Countdown</title>
+    <title>Passbolt Help | La Clé Des Champs</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th...">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Final Countdown" />
-    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th..." />
+    <meta property="og:title" content="La Clé Des Champs" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v240-final-countdown">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/la-cle-des-champs">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.4.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.2.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -90,7 +90,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/la-cle-des-champs" >v3.2.0</a>
                     </li>
                     
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v240-final-countdown"><span>final-countdown</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/la-cle-des-champs"><span>la-cle-des-champs</span></a>
                     </div>
                 </li>
                 
@@ -186,94 +186,145 @@
     </div>
 </div>
 
-                            <h1>v2.4.0 ~ Final Countdown (ce)</h1>
+                            <h1>v3.2.0 ~ La Clé Des Champs (ce)</h1>
                             <p>Release date: 
-October
-11th,
-2018.
+May
+31st,
+2021.
 </p>
-                            <div class="message warning">
+                            <div class="message notice">
     <p>
-        This release introduces some new dependencies and database changes. Make sure you follow 
-    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
     </p>
     
     <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
     
 </div>
 
-<p><br />
-This release introduce the ability for users to select multiple passwords and perform a bulk action such as delete 
-or share. This was a much awaited productivity feature requested on the 
-<a href="https://community.passbolt.com/t/as-a-user-i-want-to-select-multiple-records-and-perform-a-bulk-action-these-entries/72/4">community forum</a> 
-and is available for both pro and community edition. You can use the keyboard keys (command and shift) to select 
-a few items at once.</p>
+<p>The team is pleased to announce that the much awaited “Internationalisation” feature is available to Passbolt Pro, Passbolt Cloud (in progress) as well as Passbolt CE subscribers as part of this release. It is the beginning of continuous effort to provide passbolt in the favorite language of our users. This release ships with the French translation, but other languages such as German and Spanish are in the works.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/10/LU_multiple_share.png" alt="Example of bulk share" style="max-width:;" />
-    <span class="legend">fig. Example of bulk share</span>
+    <img src="https://help.passbolt.com/assets/img/help/2021/05/translations_status.png" alt="Translations status" style="max-width:;" />
+    <span class="legend">fig. Translations status</span>
 </figure>
 
-<p><br /></p>
+<p>More languages will come as we go and we are of course counting on the community contributions to keep proposing new ones and make Passbolt available to everyone. If you’d like to contribute and understand how you can translate passbolt in your favorite language, check out the <a href="https://help.passbolt.com/contribute/translation">documentation</a>. We have tried our best to make the translation process fairly easy and accessible to everyone.</p>
 
-<p>Community Edition users will also be pleased to know that the “remember me” feature that was available in the 
-Pro Edition is now available to everybody.</p>
+<p>Another aspect of this release is the upgrade of the passbolt API code base to CakePHP v4. This upgrade was necessary and sets the foundations of the new avatars management system, where the users’ avatars are now stored primarily in the database rather than in the file system. This long planned improvement has several benefits among which is a simpler backup workflow as well as the ability to deploy passbolt in high availability.</p>
 
-<p>This release as usual fixes a few small issues, the most notable one being able to transfer resource ownerships 
-when deleting a group that is the sole owner of some passwords.</p>
+<p>Finally, the team is proud to share with the community the results of the annual security audit part II performed by <a href="https://cure53.de">Cure53</a> with a focus on the webextensions. The positive results validate the continuous efforts of the team.</p>
 
-<p>A special thanks to this release contributors, who reported bugs or submitted pull requests, keep them coming!</p>
+<p>“<em>The Passbolt extension stands strong and the audit and pentest did not manage to unveil any serious severity bugs, whereas the overall number of problems is also limited to just two minor flaws.</em>”</p>
+
+<p>To know more about this audit, checkout the <a href="https://medium.com/passbolt/passbolt-security-audit-2021-da77bac10ed9">blog article</a>.</p>
+
+<p>A big thank you to <a href="https://www.crowdin.com">Crowdin</a> for providing us with their amazing translation platform for free. Huge thanks also to the people who have reported and documented bugs on github and the community forum including: @noinlj, @flifloo, @svenseeberg, @Kassouma and many more.</p>
+
+<h1 id="api">API</h1>
+<h2 id="321---2021-06-04">[3.2.1] - 2021-06-04</h2>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li><a href="https://github.com/bjozet">Björn Zettergren</a></li>
-  <li><a href="https://github.com/bappr">Benjamin Appréderisse</a></li>
-  <li>Janosch Sander</li>
-  <li><a href="https://github.com/kraynel">Kevin Raynel</a></li>
-  <li><a href="https://github.com/shochdoerfer">Stephan Hochdörfer</a></li>
+  <li>GITHUB-402 Fix API v3 regression, login must accept JSON data</li>
 </ul>
 
-<h3 id="passbolt-api-all">Passbolt API (All)</h3>
-<h4 id="added">Added</h4>
+<h2 id="320---2021-05-31">[3.2.0] - 2021-05-31</h2>
+<h3 id="added">Added</h3>
 <ul>
-  <li>PASSBOLT-2972: As LU I should be able to delete multiple passwords in bulk</li>
-  <li>PASSBOLT-2951: Merge the remember me on CE</li>
-  <li>PASSBOLT-2329: As an administrator deleting a group which is sole owner of one or several passwords, I should be requested to select a new owner for these passwords</li>
-  <li>PASSBOLT-2972: As LU I should be able to select multiple passwords with standard keyboard interactions (command and shift keys)</li>
+  <li>PB-5054 French internationalisation</li>
+  <li>
+    <p>PB-5171 As logged-in user, I can paginate the result of the users and resources index controllers</p>
+  </li>
+  <li>PB-5854 As logged-in user I can save the locale of a user as an account setting</li>
+  <li>PB-5854 As admin I can save the locale the organisation as organisation setting</li>
 </ul>
 
-<h4 id="improved">Improved</h4>
-<p>GITHUB#275: Adding SSL configuration environment variables for cake mysql driver</p>
+<h3 id="fixed-1">Fixed</h3>
 <ul>
-  <li>PASSBOLT-2534: As LU I should not be able to copy to clipboard empty login/url</li>
-  <li>PASSBOLT-2017: As LU when I save a password (create/edit) the dialog shouldn’t persist until the request is processed by the API</li>
-  <li>PASSBOLT-3073: As LU I should get a visual feedback directly after filtering the passwords or the users workspace</li>
-  <li>PASSBOLT-3009 Add types to authentication tokens</li>
+  <li>PB-5523 Fix as system administrator I should see the healthcheck errors colored in red</li>
+  <li>
+    <p>PB-5860 Fix password max length should be set to 4096 in resource type definitions</p>
+  </li>
+  <li>PB-6031 Fix as LU I shouldn’t get a fatal error when using a scalar instead of an array for some filters values</li>
+  <li>PB-6131 Fix healthcheck error messages display</li>
 </ul>
 
-<h4 id="fixed">Fixed</h4>
+<h3 id="improved">Improved</h3>
 <ul>
-  <li>PASSBOLT-2966: As LU I can’t see passwords shared with me clicking on the “shared with me” shortcut filter</li>
-  <li>GITHUB#246: Fix healthcheck tips relative to tmp folder</li>
-  <li>PASSBOLT-3063: Fix appjs base url and subfolder</li>
-  <li>PASSBOLT-3074: As a logged in user selecting a “remember me” duration the checkbox should be selected automatically</li>
-  <li>PASSBOLT-2976: Fix API requests issues when the user is going to another workspace</li>
-  <li>PASSBOLT-3082: ezyang/htmlpurifier cache should be stored in the application cache directory</li>
-  <li>PASSBOLT-2982: Fix session expired check</li>
-  <li>PASSBOLT-3086: As LU when I have 100+ passwords I cannot see the passwords after the 100th more than once</li>
+  <li>PB-5975 Test code with PHPStan - level 4</li>
+  <li>PB-7576 Avatar table should use created and modified for timestamp and not created_at and modified_at</li>
+  <li>PB-5527 Move avatar in database</li>
 </ul>
 
-<h4 id="passbolt-cli">Passbolt CLI</h4>
+<h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>#17 Display more meaningful error messages on configuration issues</li>
-  <li>#16 Fix user index when current user is an admin</li>
-  <li>Update dependencies and improve Readme</li>
+  <li>PB-5527 Migration to CakePHP4</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>Remove X-XSS-Protection as per Cure53 <a href="https://help.passbolt.com/assets/files/PBL-01-report.pdf">audit result and recommendations</a></li>
+</ul>
+
+<h1 id="browser-extension">Browser Extension</h1>
+<h2 id="323---2021-06-07">[3.2.3] - 2021-06-07</h2>
+<h3 id="fixed-2">Fixed</h3>
+<ul>
+  <li>PB-7561 Fix as LU I should import CSV containing non latin1 characters</li>
+  <li>PB-7563 Update passbolt styleguide dependencies</li>
+</ul>
+
+<h2 id="322---2021-05-31">[3.2.2] - 2021-05-31</h2>
+<h3 id="fixed-3">Fixed</h3>
+<ul>
+  <li>PB-7569 As AN with an unconfigured extension on chrome I should not get an error clicking on the toolbar passbolt icon</li>
+</ul>
+
+<h2 id="321---2021-05-26">[3.2.1] - 2021-05-26</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-5054 French internationalisation</li>
+  <li>PB-5526 As AD I can manage the subscription key from the administration panel</li>
+</ul>
+
+<h3 id="fixed-4">Fixed</h3>
+<ul>
+  <li>PB-5366 Fix share autocomplete search results can be invalid</li>
+  <li>PB-5498 Fix image version displayed after avatar upload</li>
+  <li>PB-5861 Fix serializePlaintextDto should validate secret maxlength if resourceTypeId is set to legacy type, or not set</li>
+  <li>PB-5909 Fix as logged-in user aborting a preview operation I should not see an empty preview</li>
+  <li>PB-5983 Fix as logged-in user I can import passwords with non latin characters</li>
+  <li>PB-6008 Fix as logged-in user I should get a feedback in the quickaccess when I try to autofill credentials on a page, but an error occurred</li>
+  <li>PB-6080 Fix add favorites fetch payload error</li>
+</ul>
+
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>PB-5443 As logged-in user I should get a visual feedback when the maximum length of the secret fields is reached so that I do not lose data</li>
+  <li>PB-5455 As logged-in user selecting a description order to copy it should not enter the description edit mode</li>
+  <li>PB-5496 As logged-in user updating my avatar I should see the error message if an error occurred</li>
+  <li>PB-5857 As logged-in user I should be able to change the user role in the create/edit user dialog by clicking on the checkbox label</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-6012 Fix the quickaccess suggestion component should not suggest TLD entries (PB-01-002)</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-5069 Migrate moment to Luxon</li>
+  <li>PB-5884 Move quickaccess front end code to the styleguide repository</li>
+  <li>PB-5887 Fix semantic gap in naming conventions in styleguide</li>
+  <li>PB-5959 Bump webpack to v5</li>
 </ul>
 
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"With so many light years to go and things to be found"</p>
-                                <a href="https://www.youtube.com/watch?v=9jK-NcRmVcw" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"La Clé Des Champs"</p>
+                                <a href="https://youtu.be/qd_8mm906GA" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

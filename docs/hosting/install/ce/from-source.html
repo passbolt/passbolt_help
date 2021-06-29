@@ -450,11 +450,9 @@ will be sent every minute. Run the following command to edit the crontab for the
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
 </code></pre></div>    </div>
 
-    <p>Add the following line to the crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute.
-Add the following line to you crontab:
-<span class="sb">```</span>bash
- <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cron <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+    <p>You can add a cron call to the script so the emails will be sent every minute.
+Add the following line to you crontab:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cron <span class="o">&gt;&gt;</span> /var/log/passbolt.log
 </code></pre></div>    </div>
 
     <p>If the log file does not yet exist, you can create it with the following command:</p>

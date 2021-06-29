@@ -231,6 +231,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     <ul>
       <li><a href="http://php.net/manual/en/gnupg.installation.php">PHP-GNUPG</a>: for key verification and authentication.</li>
       <li>Cakephp default requirements: Intl, mbstring, simplexml</li>
+      <li><a href="https://www.php.net/manual/en/install.fpm.php">FastCGI Process Manager (FPM)</a></li>
       <li>Image manipulation: gd or imagick</li>
       <li>Database: Mysqlnd, pdo, pdo_mysql</li>
       <li>Some general default: xsl, phar, posix, xml, zlib, ctype, curl, json.</li>
@@ -243,10 +244,10 @@ Maybe someone else has had your issue. If not, make a post and the community wil
     <h3 id="create-a-web-server-matching-the-system-requirements">1. Create a web server matching the system requirements.</h3>
 
     <p>Spin up a new fresh server with your favorite distribution, install a database server
-and a webserver with a TLS certificate. If you are using apache as web server make sure you 
+and a webserver with a TLS certificate. If you are using apache as web server make sure you
 have mod_rewrite module enabled.</p>
 
-    <p>Find out your web server user. Some commands need to be run as the same user running the web server. Generally on Debian 
+    <p>Find out your web server user. Some commands need to be run as the same user running the web server. Generally on Debian
 systems it will be <code class="language-plaintext highlighter-rouge">www-data</code> but on other distributions like Centos it could be for example <code class="language-plaintext highlighter-rouge">nginx</code> or <code class="language-plaintext highlighter-rouge">http</code>.
 For the rest of this tutorial we will assume that the user named <code class="language-plaintext highlighter-rouge">www-data</code>.</p>
 
@@ -281,7 +282,7 @@ subsequent updates.</p>
     <h3 id="generate-an-openpgp-key">4. Generate an OpenPGP key</h3>
 
     <p>Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.
-For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
+For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the
 php module.</p>
 
     <p><div class="message warning">
@@ -365,22 +366,92 @@ Check <code class="language-plaintext highlighter-rouge">config/default.php</cod
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span> www-data
 </code></pre></div>    </div>
 
-    <h3 id="setup-the-emails">9. Setup the emails</h3>
+    <h3 id="configure-nginx">9. Configure Nginx</h3>
 
-    <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the 
+    <h5 id="configure-nginx-for-serving-https">Configure Nginx for serving HTTPS</h5>
+
+    <p>Depending on your needs there are two different options to setup nginx and SSL :</p>
+
+    <ul>
+      <li><a href="/configure/https//debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
+      <li><a href="/configure/https//debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
+    </ul>
+
+    <p>Be sure to write down the full path to your cert/key combo, it will be needed later in the Nginx configuration process.</p>
+
+    <p>Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.</p>
+
+    <h4 id="configure-nginx-to-serve-passbolt">Configure Nginx to serve passbolt</h4>
+
+    <p>For Nginx to serve passbolt, you will need to set up a server block file :</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>nano /etc/nginx/sites-enabled/passbolt.conf
+</code></pre></div>    </div>
+
+    <p>You can use this default configuration sample (do not forget to replace PLACEHOLDERS with your values) :</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server <span class="o">{</span>
+  listen <span class="o">[</span>::]:443 ssl http2<span class="p">;</span>
+  listen 443 ssl http2<span class="p">;</span>
+
+  server_name __SERVER_NAME__<span class="p">;</span>
+
+  client_body_buffer_size     100K<span class="p">;</span>
+  client_header_buffer_size   1k<span class="p">;</span>
+  client_max_body_size        5M<span class="p">;</span>
+  client_body_timeout   10<span class="p">;</span>
+  client_header_timeout 10<span class="p">;</span>
+  keepalive_timeout     5 5<span class="p">;</span>
+  send_timeout          10<span class="p">;</span>
+
+  ssl_certificate     __CERTIFICATE_PATH__<span class="p">;</span>
+  ssl_certificate_key __KEY_PATH__<span class="p">;</span>
+  ssl_session_timeout 1d<span class="p">;</span>
+  ssl_session_cache shared:MozSSL:10m<span class="p">;</span>  <span class="c"># about 40000 sessions</span>
+  ssl_session_tickets off<span class="p">;</span>
+  ssl_protocols TLSv1.2 TLSv1.3<span class="p">;</span>
+  ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384<span class="p">;</span>
+  ssl_prefer_server_ciphers off<span class="p">;</span>
+  root /var/www/passbolt/webroot<span class="p">;</span>
+  index index.php<span class="p">;</span>
+  location / <span class="o">{</span>
+    try_files <span class="nv">$uri</span> <span class="nv">$uri</span>/ /index.php?<span class="nv">$args</span><span class="p">;</span>
+  <span class="o">}</span>
+  location ~ <span class="se">\.</span>php<span class="nv">$ </span><span class="o">{</span>
+    try_files                <span class="nv">$uri</span> <span class="o">=</span>404<span class="p">;</span>
+    include                  fastcgi_params<span class="p">;</span>
+    fastcgi_pass             unix:/run/php/__PHP_VERSION__-fpm.sock<span class="p">;</span>
+    fastcgi_index            index.php<span class="p">;</span>
+    fastcgi_intercept_errors on<span class="p">;</span>
+    fastcgi_split_path_info  ^<span class="o">(</span>.+<span class="se">\.</span>php<span class="o">)(</span>.+<span class="o">)</span><span class="nv">$;</span>
+    fastcgi_param            SCRIPT_FILENAME <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+    fastcgi_param            SERVER_NAME <span class="nv">$http_host</span><span class="p">;</span>
+    fastcgi_param PHP_VALUE  <span class="s2">"upload_max_filesize=5M </span><span class="se">\n</span><span class="s2"> post_max_size=5M"</span><span class="p">;</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>    </div>
+
+    <p>Then, reload the Nginx process so that it takes your new configuration into account :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo systemctl reload nginx
+</code></pre></div>    </div>
+
+    <h3 id="setup-the-emails">10. Setup the emails</h3>
+
+    <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the
 <code class="language-plaintext highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
 
     <p>Emails are placed in a queue that needs to be processed by the following shell.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake EmailQueue.sender
 </code></pre></div>    </div>
 
-    <p>In order to have your emails sent automatically, you can add a cron call to the script so the emails 
+    <p>In order to have your emails sent automatically, you can add a cron call to the script so the emails
 will be sent every minute. Run the following command to edit the crontab for the www-data user:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
 </code></pre></div>    </div>
 
     <p>Add the following line to the crontab:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute. 
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>You can add a cron call to the script so the emails will be sent every minute.
 Add the following line to you crontab:
 <span class="sb">```</span>bash
  <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cron <span class="o">&gt;&gt;</span> /var/log/passbolt.log

@@ -243,8 +243,6 @@ will be sent every minute. Run the following command to edit the crontab for the
 $ crontab -u www-data -e
 ```
 
-Add the following line to the crontab:
-```bash
 You can add a cron call to the script so the emails will be sent every minute.
 Add the following line to you crontab:
 ```bash

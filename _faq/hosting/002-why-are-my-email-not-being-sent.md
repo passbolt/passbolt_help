@@ -98,3 +98,19 @@ You may have a file permissions issue - for example, maybe you are running comma
 owned only by root. You can reference [this page](/hosting/update/install-scripts.html) and look for the
 section named "Make sure the permissions are right for your current user". The commands found in that section
 are useful for when you are updating your passbolt, and may also be helpful to resolve your mail issues.
+
+### Reason 7: Gmail SMTP-Relay not accepting 'localhost' as EHLO
+
+If you are using Google's G-Suite SMTP Relay, you need to ensure you have set your public IP address of your passbolt server in the  configuration.
+
+Non-Docker: 
+```
+'EmailTransport' => [
+    'client' => 'ip.add.re.ss'
+]
+```
+Docker : 
+```
+EMAIL_TRANSPORT_DEFAULT_CLIENT= 'ip.add.re.ss'
+```
+For more information, see [this post](https://community.passbolt.com/t/email-not-working-smtp-relay-gmail/3281).

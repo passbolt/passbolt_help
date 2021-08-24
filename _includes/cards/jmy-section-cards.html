@@ -24,6 +24,8 @@
                 {% endif %}
                 {% if post.popular == true %}
                 <div class="ribbon"><span>POPULAR</span></div>
+                {% elsif post.new == true %}
+                <div class="ribbon"><span>NEW !</span></div>
                 {% endif %}
                 <span class="tile-teaser"><i class="fa {{ post.icon }} fa-fw"></i></span>
                 <span class="tile-title">{{ post.card_title }}</span>

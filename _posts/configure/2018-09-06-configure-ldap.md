@@ -324,7 +324,7 @@ The available options are:
 
 ### Save configuration
 
-Once the configuration is entered, do not forgetto save it by clicking on the "save settings" at the top. The configuration will be saved
+Once the configuration is entered, do not forget to save it by clicking on the "save settings" at the top. The configuration will be saved
 only if passbolt managed to connect to your directory. If not, it will display an error message.
 
 {% include articles/figure.html

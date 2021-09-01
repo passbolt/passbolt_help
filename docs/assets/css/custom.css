@@ -14,3 +14,8 @@
     line-height: 1em;
     text-transform: uppercase;
 }
+
+.grid-responsive-12 .row .col7 img.middle-center {
+    width: 75%;
+    margin: auto;
+}

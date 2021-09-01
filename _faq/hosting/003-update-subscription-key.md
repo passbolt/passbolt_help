@@ -6,9 +6,36 @@ category: hosting
 permalink: /faq/hosting/:slug
 date: 2019-05-27 00:00:00 Z
 ---
-## Step by step guide
 
-Whether you want to replace your evaluation key with a subscription key, or update your subscription key with a new one you can follow the steps below.
+For Passbolt version 3.2 and higher, you can update your subscription key on the web interface directly, [using the administration panel](#using-administration-panel).
+
+For Passbolt version prior to 3.2, the command line is the only way to update your subscription key, [as described below](#from-command-line).
+
+## Using administration panel
+
+Navigate to **administration > Subscription** and click on the **"Update key"** button.
+
+{% include articles/figure.html
+    url="/assets/img/screenshots/update-subscription-key-1.jpg"
+    legend="Update subscription key administration screen"
+%}
+
+A pop-up will appear and you will be able to import your new subscription key
+
+{% include articles/figure.html
+    url="/assets/img/screenshots/update-subscription-key-2.jpg"
+    legend="Choose file popup in subscription key administration screen"
+    width="500px"
+%}
+
+You are now able to see your subscription details:
+
+{% include articles/figure.html
+    url="/assets/img/screenshots/update-subscription-key-3.jpg"
+    legend="Subscription details in subscription key administration screen"
+%}
+
+## From command line
 
 ### Get ready
 All the commands provided below should be done from inside your passbolt directory.

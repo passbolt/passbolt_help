@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a...">
+    <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Backing up a passbolt installation" />
-    <meta property="og:description" content="Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a..." />
+    <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -195,6 +195,7 @@
 
                         <div class="row">
   <div class="col7">
+
     <p>Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
 information, it is equally important to have a backup strategy in place.</p>
 
@@ -217,17 +218,20 @@ Please automate and customize this process to match the needs and policies of yo
     <h4 id="the-database">1. The database</h4>
 
     <p>This can be easily scripted using <a href="https://mariadb.com/kb/en/mariadb/mysqldump/">mysqldump</a> for example:</p>
+
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>pass] <span class="o">[</span>db] <span class="o">&gt;</span> /path/to/backup.sql
 </code></pre></div>    </div>
-    <h4 id="the-avatars">2. The avatars</h4>
 
-    <p>The images in <code class="language-plaintext highlighter-rouge">webroot/img/public</code> also need to be backed up, otherwise profile images will be lost.</p>
+    <h4 id="the-server-public-and-private-keys">2. The server public and private keys</h4>
 
-    <h4 id="the-server-public-and-private-keys">3. The server public and private keys</h4>
+    <p>The easiest way is copy the server OpenPGP key in <code class="language-plaintext highlighter-rouge">config/gpg</code>.</p>
 
-    <p>You can copy the server OpenPGP key in <code class="language-plaintext highlighter-rouge">config/gpg</code> or export it directly from GnuPG.</p>
+    <ul>
+      <li>private key is <code class="language-plaintext highlighter-rouge">serverkey_private.asc</code></li>
+      <li>public key is <code class="language-plaintext highlighter-rouge">serverkey.asc</code></li>
+    </ul>
 
-    <p>To export it using GnuPG you can use the email attached to your keys to identify them or use the fingerprint.
+    <p>Another method is to export it using GnuPG. You can use the email attached to your keys to identify them or use the fingerprint.
 In order to find the fingerprint if you do not know the email attached to your keys:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span>
@@ -240,13 +244,41 @@ In order to find the fingerprint if you do not know the email attached to your k
 </code></pre></div>    </div>
     <p>Where <identifier> can be the key fingerprint or the email associated with the key you want to export.</identifier></p>
 
-    <h5 id="note">Note</h5>
+    <div class="message warning">
+    <p>
+        Be sure to <strong>remove the expiration time</strong> before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.
+    </p>
+    
+</div>
 
-    <p>Be sure to <strong>remove the expiration time</strong> before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.</p>
+    <h4 id="the-application-configuration">3. The application configuration</h4>
 
-    <h4 id="the-application-configuration">4. The application configuration</h4>
+    <p>Passbolt configuration file is located in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>.</p>
 
-    <p>The file located in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>. It is optional, but it can save you some time if you need to rebuild a new instance.</p>
+    <h4 id="the-avatars-for-passbolt-version-prior-to-32">4. The avatars (for Passbolt version prior to 3.2)</h4>
+
+    <div class="message notice">
+    <p>
+    Since Passbolt 3.2, user’s avatars are no longer stored on disk but on the avatars table of passbolt database.
+    </p>
+    
+</div>
+
+    <p>Back up <code class="language-plaintext highlighter-rouge">webroot/img/public</code> to avoid losing the profile images.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tar</span> <span class="nt">-cvfzp</span> passbolt-avatars.tar.gz /var/www/passbolt/webroot/img/avatar
+</code></pre></div>    </div>
+
+    <h2 id="backup-list">Backup list</h2>
+
+    <p>At the end of the backup process you should have:</p>
+
+    <ul>
+      <li>a dump of your database</li>
+      <li>the server public and private GPG keys</li>
+      <li>a copy of your config/passbolt.php configuration file</li>
+      <li>a copy of your avatar folder (<strong>only if Passbolt version &lt; 3.2</strong>)</li>
+    </ul>
 
     <h2 id="what-about-the-secret-keys-of-my-collaborators">What about the secret keys of my collaborators?</h2>
 

@@ -43,6 +43,8 @@ Find out more about passbolt here:
 This site is developed using Jekyll.
 To get started please read Jekyll [quick start guide](https://jekyllrb.com/docs/quickstart/).
 
+*Note: On MacOs BigSur, the known ruby working  version is 2.7.4*
+
 ```
 gem install jekyll bundler
 git clone https://github.com/passbolt/passbolt_help.git

@@ -284,19 +284,14 @@ as dependencies.</p>
     <p>There are two main ways to install the passbolt Ubuntu package:</p>
 
     <ul>
-      <li>Interactive: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+      <li><strong>Interactive</strong>: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
 going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
 beginning. The user will be asked for the path and name of the certificate and key.</li>
-      <li>Non-interactive: no questions will be asked. Useful for users with specific needs or users that want to automate the
-installation.</li>
+      <li><strong>Non-interactive</strong>: no questions will be asked. Useful for users with specific needs or users that want to automate the
+installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Read this FAQ page to know more</a></li>
     </ul>
 
-    <h4 id="interactive-install">Interactive install</h4>
-
-    <p>In this type of installation the package will assist you with the passbolt installation asking the user
-some questions:</p>
-
-    <h5 id="install-passbolt-package">Install passbolt package</h5>
+    <h4 id="install-passbolt-package">Install passbolt package</h4>
 
     <p>Install the main passbolt server component:</p>
 
@@ -345,7 +340,7 @@ By default in most installations the admin username would be <code class="langua
     <span class="legend">fig. Mariadb database name dialog</span>
 </figure>
 
-    <h5 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h5>
+    <h4 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h4>
 
     <p>Depending on your needs there are two different options to setup nginx and SSL using the Ubuntu package:</p>
 
@@ -353,19 +348,6 @@ By default in most installations the admin username would be <code class="langua
       <li><a href="/configure/https/ce/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
       <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
-
-    <h4 id="non-interactive-install">Non-interactive install</h4>
-
-    <p>This method is useful for automating passbolt installation and for users with specific needs.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
-</code></pre></div>    </div>
-
-    <p>If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the above
-command like:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends passbolt-ce-server
-</code></pre></div>    </div>
 
     <h2 id="configure-passbolt">2. Configure passbolt</h2>
 

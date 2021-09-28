@@ -1,14 +1,16 @@
 ---
-title: Debian package
-date: 2021-02-10 00:00:00 Z
-card_teaser: Backing up a debian package passbolt installation
-card_title: Debian package
-icon: fa-download
-card_position: 2
-categories: [hosting,backup]
-sidebar: hosting
+title: Migrate an existing Passbolt PRO to Virtual Machine
+date: 2021-09-16 00:00:00 Z
+description: Migrate an existing Passbolt PRO to Virtual Machine
+categories: [hosting,upgrade,pro]
+card_teaser: Migrate an existing Passbolt PRO to Virtual Machine 
+card_title: Migrate to new Virtual Machine
+card_position: 9
+sidebar: [hosting, upgrade]
+passbolt_version: pro
+icon: fa-server
 layout: default
-slug: debian
+slug: migrate-existing-pro-to-virtual-machine
 permalink: /:categories/:slug.html
 ---
 
@@ -23,8 +25,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/backup/backup_package_full_page.md %}
-
+{% include hosting/upgrade/upgrade-existing-to-new-vm.md %}
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}
@@ -32,12 +33,12 @@ permalink: /:categories/:slug.html
 
 {% include aside/message.html
     class="tldr notice"
-    content="Do you have a question about backups? Do you want to share your experience and best practices?"
+    content="Are you experiencing issues when updating passbolt?"
     link="https://community.passbolt.com/c/installation-issues"
-    ask="Get in touch!"
+    ask="Ask the community!"
     button="primary"
 %}
 
-
 {% include aside/message.html %}
+{% include aside/contribute.html %}
 {% include layout/row_end.html %}

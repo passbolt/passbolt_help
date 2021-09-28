@@ -1,3 +1,4 @@
+
 ## What about the secret keys of my collaborators?
 
 Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.

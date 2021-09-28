@@ -157,7 +157,7 @@ $ sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
 
 ### 9. Configure Nginx
 
-##### Configure Nginx for serving HTTPS
+#### Configure Nginx for serving HTTPS
 
 Depending on your needs there are two different options to setup nginx and SSL :
 

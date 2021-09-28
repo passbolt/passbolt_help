@@ -1,22 +1,28 @@
 ---
-title: Backing up a passbolt installation
-date: 2018-03-14 00:00:00 Z
-card_teaser: Backing up a from source passbolt installation
-card_title: From source 
+title: Ubuntu package
+date: 2021-09-16 00:00:00 Z
+card_teaser: Backing up an ubuntu package passbolt installation
+card_title: Ubuntu package
 icon: fa-download
-description: Backing up a from source passbolt installation
-card_position: 1
+card_position: 3
 categories: [hosting,backup]
 sidebar: hosting
 layout: default
-slug: from_source
+slug: ubuntu
 permalink: /:categories/:slug.html
 ---
+
+{% assign product = 'pro' %}
+{% assign distribution = 'ubuntu' %}
+{% assign distributionVersion = '20.04' %}
+{% assign distributionVersionName = 'focal' %}
+{% assign distributionSlug = 'ubuntu' %}
+{% assign distributionLabel = 'Ubuntu' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/backup/backup_from_source_full_page.md %}
+{% include hosting/backup/backup_package_full_page.md %}
 
 {% include date/updated.html %}
 
@@ -31,12 +37,6 @@ permalink: /:categories/:slug.html
     button="primary"
 %}
 
-{% include aside/message.html
-    class="tldr"
-    content="Are you still using passbolt v1? Check out the previous version of this article."
-    link="/hosting/backup/backup-v1"
-    ask="See previous version"
-%}
 
 {% include aside/message.html %}
 {% include layout/row_end.html %}

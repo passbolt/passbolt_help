@@ -16,6 +16,7 @@ permalink: /:categories/:slug.html
 ---
 
 {% assign product = 'pro' %}
+{% assign migrate = false %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

@@ -272,15 +272,6 @@ login in as root. You can however create a shell as root with the default user:<
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -s
 </code></pre></div>    </div>
 
-    <h3 id="https-setup-process">1.3. HTTPS setup process:</h3>
-
-    <p>Passbolt Pro VM uses passbolt debian package.  Depending on your needs there are two different options to setup nginx and SSL using the debian package:</p>
-
-    <ul>
-      <li><a href="/configure/https/pro/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
-      <li><a href="/configure/https/pro/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
-    </ul>
-
     <h2 id="configure-the-ova-services">Configure the OVA Services</h2>
 
     <p>Reconfigure the Passbolt package:</p>
@@ -288,11 +279,53 @@ login in as root. You can however create a shell as root with the default user:<
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-pro-server
 </code></pre></div>    </div>
 
-    <p>It is recommended at this point to select:</p>
+    <h4 id="configure-mariadb">Configure mariadb</h4>
+
+    <p>If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
+an empty mariadb database for passbolt to use.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure mariadb dialog" style="max-width:450px;" />
+    <span class="legend">fig. Configure mariadb dialog</span>
+</figure>
+
+    <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
+You will find the root password on the server in the file <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user pass dialog</span>
+</figure>
+
+    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user pass dialog</span>
+</figure>
+
+    <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Mariadb database name dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb database name dialog</span>
+</figure>
+
+    <p>Depending on your needs there are two different options to setup nginx and SSL using the debian package:</p>
 
     <ul>
-      <li><strong>Yes</strong> for mysql configuration as it will create the database of your new passbolt. You’ll find the root password in the file <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code>. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.</li>
-      <li><strong>Yes</strong> to nginx configuration, as it will configure the webserver and SSL.</li>
+      <li><a href="/configure/https/pro/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
+      <li><a href="/configure/https/pro/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
 
     <p>Once you’re done, restart the nginx server:</p>
@@ -304,45 +337,55 @@ login in as root. You can however create a shell as root with the default user:<
 
     <p>Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
 
-    <p><strong>Step 1.</strong> Restore Passbolt configuration file and ensure rights and ownership are correct:</p>
+    <p>You should have:</p>
+
+    <ul>
+      <li>
+        <p>Your subscription key</p>
+      </li>
+      <li>the private and public GPG key</li>
+      <li>Your database dump</li>
+      <li>The avatar archive file <code class="language-plaintext highlighter-rouge">passbolt-avatars.tar.gz</code> if you are coming from Passbolt prior to 3.2</li>
+    </ul>
+
+    <p><strong>Step 1.</strong> Create the subscription key file</p>
+
+    <p>You received your subscription key by email, copy it as <code class="language-plaintext highlighter-rouge">/etc/passbolt/subscription_key.txt</code> on your server.</p>
+
+    <p><strong>Step 2.</strong> Restore Passbolt configuration file and ensure rights and ownership are correct:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown www-data:www-data /etc/passbolt/passbolt.php
 sudo chmod 440 /etc/passbolt/passbolt.php
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong> Restore GPG public and private keys and ensure rights and ownership are correct:</p>
+    <p><strong>Step 3.</strong> Restore GPG public and private keys and ensure rights and ownership are correct:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/*
-sudo chmod 440 /etc/passbolt/gpg/*  
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.1</strong> Copy the subscription keyfile to correct location</p>
-    <div class="message notice">
-    <p>
-    In last releases of Passbolt, the <code class="language-plaintext highlighter-rouge">license</code> file has been renamed to <code class="language-plaintext highlighter-rouge">subscription_key.txt</code>.
-    </p>
-    
-</div>
+    <p><strong>Step 4.</strong> Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/license /etc/passbolt/subscription_key.txt
-</code></pre></div>    </div>
-
-    <p><strong>Step 3.</strong> Copy the backup of avatars to the right location (if coming from Passbolt version prior to 3.2)</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/public/* /usr/share/php/passbolt/webroot/img/public
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
 sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 </code></pre></div>    </div>
 
-    <p><strong>Step 4.</strong> Load the database and migrate the Passbolt data to the latest version</p>
+    <p><strong>Step 5.</strong> Load the database</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
-sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>
 
-    <h2 id="test-passbolt">Test passbolt</h2>
+    <p><strong>Step 6.</strong> Migrate the Passbolt data to the latest version</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
+</code></pre></div>    </div>
+
+    <p><strong>Step 7.</strong> Test passbolt</p>
 
     <p>Try to access your passbolt application with your browser.</p>
 

@@ -14,7 +14,7 @@ an empty mariadb database for passbolt to use.
 %}
 
 The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be `root` and the password would be empty.
+{% if migrate %}You will find the root password on the server in the file `/root/.mysql_credentials`. {% else %}By default in most installations the admin username would be `root` and the password would be empty.{% endif %}
 
 {% assign imgUrl = '/assets/img/help/2020/05/debian-package/mysql_admin_user.png' %}
 {% if product == 'pro' %}
@@ -35,7 +35,7 @@ By default in most installations the admin username would be `root` and the pass
     legend="Mariadb admin user pass dialog" width="450px"
 %}
 
-Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.
+Now we need to create a mariadb user with reduced permissions for passbolt to connect. {% if migrate %}For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.{% else %}These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.{% endif %}
 
 {% assign imgUrl = '/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png' %}
 {% if product == 'pro' %}

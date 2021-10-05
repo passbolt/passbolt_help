@@ -10,6 +10,7 @@ sidebar: [hosting, upgrade]
 passbolt_version: ce
 icon: fa-server
 layout: default
+new: true
 slug: migrate-existing-ce-to-ubuntu-server
 permalink: /:categories/:slug.html
 ---

@@ -34,9 +34,11 @@ login in as root. You can however create a shell as root with the default user:
 sudo -s
 ```
 
+{% if migrate == false %}
 ### 1.3. HTTPS setup process:
 
 Passbolt Pro VM uses passbolt debian package.  Depending on your needs there are two different options to setup nginx and SSL using the debian package:
 
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
+{% endif %}

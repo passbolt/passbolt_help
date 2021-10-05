@@ -13,4 +13,6 @@ Here are some best practices to keep in mind:
 
 ## What to backup?
 
-There are several elements you need to backup:
+If you are a PRO user, ensure you have a backup of your subscription key.
+
+There are also several elements you need to backup:

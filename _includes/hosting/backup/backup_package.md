@@ -13,12 +13,6 @@ The GPG server keys are stored under `/etc/passbolt/gpg/` folder:
  * private key is `serverkey_private.asc`
  * public key is `serverkey.asc`
 
-Example script:
-
-```bash
-tar -cvfzp passbolt-gpg-keys.tar.gz /etc/passbolt/gpg/*
-```
-
 #### 3. The application configuration
 
 Passbolt {{ distributionSlug }} package stores all configuration files under `/etc/passbolt/*` but the one you need is `/etc/passbolt/passbolt.php`
@@ -33,5 +27,5 @@ Back up `/usr/share/php/passbolt/webroot/img/avatar` to avoid losing
 the profile images.
 
 ```bash
-sudo tar -cvfzp passbolt-avatars.tar.gz /usr/share/php/passbolt/webroot/img/avatar
+sudo tar cvfzp passbolt-avatars.tar.gz -C /usr/share/php/passbolt/ webroot/img/avatar
 ```

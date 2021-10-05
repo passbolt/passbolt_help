@@ -1,4 +1,421 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-09-28T11:05:34+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Migrate an existing Passbolt PRO to Virtual Machine</title><link href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine.html" rel="alternate" type="text/html" title="Migrate an existing Passbolt PRO to Virtual Machine" /><published>2021-09-16T02:00:00+02:00</published><updated>2021-09-16T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-10-05T10:04:21+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Docker</title><link href="https://help.passbolt.com/hosting/backup/docker.html" rel="alternate" type="text/html" title="Docker" /><published>2021-10-01T02:00:00+02:00</published><updated>2021-10-01T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/backup/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/backup/docker.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
+information, it is equally important to have a backup strategy in place.&lt;/p&gt;
+
+    &lt;p&gt;As a passbolt administrator it is your responsibility to define how often and when to perform backups.
+Please automate and customize this process to match the needs and policies of your organization.&lt;/p&gt;
+
+    &lt;p&gt;Here are some best practices to keep in mind:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Ensure that the backups are taken at intervals that match your usage&lt;/li&gt;
+      &lt;li&gt;Take these backups off-site, or to another environment than the live one&lt;/li&gt;
+      &lt;li&gt;Make sure the backup is encrypted and stored in a safe location&lt;/li&gt;
+      &lt;li&gt;Practice drills and test the backups to make sure they work&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;what-to-backup&quot;&gt;What to backup?&lt;/h2&gt;
+
+    &lt;p&gt;If you are a PRO user, ensure you have a backup of your subscription key.&lt;/p&gt;
+
+    &lt;p&gt;There are also several elements you need to backup:&lt;/p&gt;
+
+    &lt;p&gt;We assume here Passbolt container is named “&lt;strong&gt;passbolt-container&lt;/strong&gt;” and MariaDB 
+container “&lt;strong&gt;database-container&lt;/strong&gt;”.
+Please replace these names with your own. You can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker ps&lt;/code&gt; for this.&lt;/p&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        Many docker users use “&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ti&lt;/code&gt;”, “&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-it&lt;/code&gt;” or “&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-t -i&lt;/code&gt;” arguments to execute commands on docker containers. To get reliable backups on docker, please use only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-i&lt;/code&gt;, as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-t&lt;/code&gt; will create a pseudo-tty and make your backup files unusuable.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h4 id=&quot;the-database&quot;&gt;1. The database&lt;/h4&gt;
+
+    &lt;p&gt;This can be easily scripted using &lt;a href=&quot;https://mariadb.com/kb/en/mariadb/mysqldump/&quot;&gt;mysqldump&lt;/a&gt;.
+Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker exec&lt;/code&gt; to connect to the Passbolt database container and write mysqldump output to a local file.&lt;/p&gt;
+
+    &lt;p&gt;Be sure to use simple-quotes for the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bash -c&lt;/code&gt; argument to be able to use MYSQL_USER, MYSQL_PASSWORD and MYSQL_DATABASE environment variables.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; database-container bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;s1&quot;&gt;'mysqldump -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /path/to/backup.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;the-server-public-and-private-keys&quot;&gt;2. The server public and private keys&lt;/h4&gt;
+
+    &lt;p&gt;You can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker cp&lt;/code&gt; to backup the Passbolt GPG keys:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;passbolt-container:/etc/passbolt/gpg/serverkey_private.asc &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    /path/to/backup/serverkey_private.asc
+docker &lt;span class=&quot;nb&quot;&gt;cp &lt;/span&gt;passbolt-container:/etc/passbolt/gpg/serverkey.asc &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    /path/to/backup/serverkey.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;the-application-configuration&quot;&gt;3. The application configuration&lt;/h4&gt;
+
+    &lt;p&gt;Passbolt docker stores its configuration as environment variables.&lt;/p&gt;
+
+    &lt;p&gt;If you are using docker-compose, environment variables are on the env folder:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;env/passbolt.env&lt;/li&gt;
+      &lt;li&gt;env/mysql.env&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;If you are running docker container, you should have passed these variables through the command line.
+Please check the
+&lt;a href=&quot;/configure/environment/reference.html&quot;&gt;passbolt env variable reference&lt;/a&gt;&lt;/p&gt;
+
+    &lt;h4 id=&quot;the-avatars-for-passbolt-version-prior-to-32&quot;&gt;4. The avatars (for Passbolt version prior to 3.2)&lt;/h4&gt;
+
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    Since Passbolt 3.2, user’s avatars are no longer stored on disk but on the avatars table of passbolt database.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt; passbolt-container &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;tar &lt;/span&gt;cvfzp - &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; /usr/share/php/passbolt/ webroot/img/avatar &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+    &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; passbolt-avatars.tar.gz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;backup-list&quot;&gt;Backup list&lt;/h2&gt;
+
+    &lt;p&gt;At the end of the backup process you should have:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;a dump of your database&lt;/li&gt;
+      &lt;li&gt;the server public and private GPG keys&lt;/li&gt;
+      &lt;li&gt;a copy of your config/passbolt.php configuration file&lt;/li&gt;
+      &lt;li&gt;a copy of your avatar folder (&lt;strong&gt;only if Passbolt version &amp;lt; 3.2&lt;/strong&gt;)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;what-about-the-secret-keys-of-my-collaborators&quot;&gt;What about the secret keys of my collaborators?&lt;/h2&gt;
+
+    &lt;p&gt;Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.&lt;/p&gt;
+
+    &lt;p&gt;As an administrator you should stress the importance of backing up secret keys to other users. For example this warning could be part of the initial information message sent to introduce passbolt to new users.&lt;/p&gt;
+
+    &lt;p&gt;It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+October
+1st,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Do you have a question about backups? Do you want to share your experience and best practices?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Get in touch!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="backup" /><summary type="html"></summary></entry><entry><title type="html">Migrate an existing Passbolt CE to a new Docker</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-docker.html" rel="alternate" type="text/html" title="Migrate an existing Passbolt CE to a new Docker" /><published>2021-09-29T02:00:00+02:00</published><updated>2021-09-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-docker.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;This document describes how to migrate an existing passbolt to a new  server.&lt;/p&gt;
+
+    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
+
+    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Passbolt installed on an old server&lt;/li&gt;
+      &lt;li&gt;A new server with Docker&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;backup-the-existing-data&quot;&gt;Backup the existing data&lt;/h2&gt;
+
+    &lt;p&gt;Prior to the migration you will need to backup the existing passbolt instance data. Please refer to &lt;a href=&quot;/hosting/backup&quot;&gt;the official backup documentations&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Depending on your SSL configuration you might need to copy the certificate and key from the existing instance.&lt;/p&gt;
+
+    &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
+
+    &lt;h2 id=&quot;prepare-the-new-server&quot;&gt;Prepare the new server&lt;/h2&gt;
+
+    &lt;p&gt;Create a fresh new Passbolt instance on Docker following &lt;a href=&quot;/hosting/install/ce/docker.html&quot;&gt;this documentation&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;migrate-the-data&quot;&gt;Migrate the data&lt;/h2&gt;
+
+    &lt;h3 id=&quot;stop-running-containers&quot;&gt;Stop running containers&lt;/h3&gt;
+
+    &lt;p&gt;At this step, you should have a running empty Passbolt instance running on your server. We will now stop it and delete the database volume.&lt;/p&gt;
+
+    &lt;p&gt;If you have chosen the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose&lt;/code&gt; install, you just have to delete the volumes you created with this command (don’t forget the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt;):&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose down &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If you have chosen to run docker containers, stop them and delete the database volume:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker stop passbolt-container-name
+docker stop passbolt-database-name
+docker volume rm passbolt-database-volume-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Of course, replace containers and volume name with your own !&lt;/p&gt;
+
+    &lt;h3 id=&quot;restore-your-database&quot;&gt;Restore your database&lt;/h3&gt;
+
+    &lt;p&gt;According to &lt;a href=&quot;https://hub.docker.com/_/mariadb&quot;&gt;MariaDB documentation on Docker Hub&lt;/a&gt;:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;When a container is started for the first time, a new database with the specified name will be created and initialized with the provided configuration variables.
+
+Furthermore, it will execute files with extensions .sh, .sql, .sql.gz, and .sql.xz that are found in /docker-entrypoint-initdb.d. Files will be executed in alphabetical order. .sh files without file execute permission are sourced rather than executed.
+
+You can easily populate your mariadb services by mounting a SQL dump into that directory and provide custom images with contributed data. SQL files will be imported by default to the database specified by the MARIADB_DATABASE / MYSQL_DATABASE variable.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;So you just have to mount your database backup file on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/docker-entrypoint-initdb.d&lt;/code&gt; folder of the database container.&lt;/p&gt;
+
+    &lt;p&gt;If you are using docker-compose, add a volume mount in the db service:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;volumes:
+  - database_volume:/var/lib/mysql
+  - ./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And if you are not using compose, add a volume to your docker command, eg:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; mariadb &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mariadb_passbolt_data,target&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/lib/mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;root_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mariadb_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mariadb_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mariadb_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             mariadb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can now start your database and passbolt containers, your database will be restored at the database container start.&lt;/p&gt;
+
+    &lt;h3 id=&quot;restore-gpg-server-keys&quot;&gt;Restore GPG server keys&lt;/h3&gt;
+
+    &lt;p&gt;Copy the GPG you backed up in your container:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker cp serverkey_private.asc your-passbolt-container:/etc/passbolt/gpg/serverkey_private.asc
+docker cp serverkey.asc your-passbolt-container:/etc/passbolt/gpg/serverkey.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then set correct rights:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker exec -it your-passbolt-container chown www-data:www-data /etc/passbolt/gpg/serverkey.asc
+docker exec -it your-passbolt-container chown www-data:www-data /etc/passbolt/gpg/serverkey_private.asc
+docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey.asc
+docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey_private.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;restore-avatars-if-you-are-coming-for-prior-32&quot;&gt;Restore avatars (if you are coming for prior 3.2)&lt;/h3&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        This step is needed only if you come from Passbolt version prior to 3.2. Since 3.2, avatars are stored in database
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;Extract the avatars to the Passbolt docker container:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat passbolt-avatars.tar.gz | docker exec -i your-passbolt-container tar -C /usr/share/php/passbolt/ -xzf -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then set correct rights to the avatars:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker exec -it your-passbolt-container chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/avatar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+September
+29th,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Migrate an existing Passbolt PRO to a new Docker</title><link href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-docker.html" rel="alternate" type="text/html" title="Migrate an existing Passbolt PRO to a new Docker" /><published>2021-09-29T02:00:00+02:00</published><updated>2021-09-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-docker.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;This document describes how to migrate an existing passbolt to a new  server.&lt;/p&gt;
+
+    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
+
+    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Passbolt installed on an old server&lt;/li&gt;
+      &lt;li&gt;A new server with Docker&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;backup-the-existing-data&quot;&gt;Backup the existing data&lt;/h2&gt;
+
+    &lt;p&gt;Prior to the migration you will need to backup the existing passbolt instance data. Please refer to &lt;a href=&quot;/hosting/backup&quot;&gt;the official backup documentations&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Depending on your SSL configuration you might need to copy the certificate and key from the existing instance.&lt;/p&gt;
+
+    &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
+
+    &lt;h2 id=&quot;prepare-the-new-server&quot;&gt;Prepare the new server&lt;/h2&gt;
+
+    &lt;p&gt;Create a fresh new Passbolt instance on Docker following &lt;a href=&quot;/hosting/install/pro/docker.html&quot;&gt;this documentation&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;migrate-the-data&quot;&gt;Migrate the data&lt;/h2&gt;
+
+    &lt;h3 id=&quot;stop-running-containers&quot;&gt;Stop running containers&lt;/h3&gt;
+
+    &lt;p&gt;At this step, you should have a running empty Passbolt instance running on your server. We will now stop it and delete the database volume.&lt;/p&gt;
+
+    &lt;p&gt;If you have chosen the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose&lt;/code&gt; install, you just have to delete the volumes you created with this command (don’t forget the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt;):&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose down &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;If you have chosen to run docker containers, stop them and delete the database volume:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker stop passbolt-container-name
+docker stop passbolt-database-name
+docker volume rm passbolt-database-volume-name
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Of course, replace containers and volume name with your own !&lt;/p&gt;
+
+    &lt;h3 id=&quot;restore-your-database&quot;&gt;Restore your database&lt;/h3&gt;
+
+    &lt;p&gt;According to &lt;a href=&quot;https://hub.docker.com/_/mariadb&quot;&gt;MariaDB documentation on Docker Hub&lt;/a&gt;:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;When a container is started for the first time, a new database with the specified name will be created and initialized with the provided configuration variables.
+
+Furthermore, it will execute files with extensions .sh, .sql, .sql.gz, and .sql.xz that are found in /docker-entrypoint-initdb.d. Files will be executed in alphabetical order. .sh files without file execute permission are sourced rather than executed.
+
+You can easily populate your mariadb services by mounting a SQL dump into that directory and provide custom images with contributed data. SQL files will be imported by default to the database specified by the MARIADB_DATABASE / MYSQL_DATABASE variable.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;So you just have to mount your database backup file on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/docker-entrypoint-initdb.d&lt;/code&gt; folder of the database container.&lt;/p&gt;
+
+    &lt;p&gt;If you are using docker-compose, add a volume mount in the db service:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;volumes:
+  - database_volume:/var/lib/mysql
+  - ./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;And if you are not using compose, add a volume to your docker command, eg:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; mariadb &lt;span class=&quot;nt&quot;&gt;--net&lt;/span&gt; passbolt_network &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mariadb_passbolt_data,target&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/var/lib/mysql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;--mount&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_ROOT_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;root_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_DATABASE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mariadb_database&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mariadb_user&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;MYSQL_PASSWORD&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;lt;mariadb_password&amp;gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+             mariadb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can now start your database and passbolt containers, your database will be restored at the database container start.&lt;/p&gt;
+
+    &lt;h3 id=&quot;restore-gpg-server-keys&quot;&gt;Restore GPG server keys&lt;/h3&gt;
+
+    &lt;p&gt;Copy the GPG you backed up in your container:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker cp serverkey_private.asc your-passbolt-container:/etc/passbolt/gpg/serverkey_private.asc
+docker cp serverkey.asc your-passbolt-container:/etc/passbolt/gpg/serverkey.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then set correct rights:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker exec -it your-passbolt-container chown www-data:www-data /etc/passbolt/gpg/serverkey.asc
+docker exec -it your-passbolt-container chown www-data:www-data /etc/passbolt/gpg/serverkey_private.asc
+docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey.asc
+docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey_private.asc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;restore-avatars-if-you-are-coming-for-prior-32&quot;&gt;Restore avatars (if you are coming for prior 3.2)&lt;/h3&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        This step is needed only if you come from Passbolt version prior to 3.2. Since 3.2, avatars are stored in database
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;Extract the avatars to the Passbolt docker container:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cat passbolt-avatars.tar.gz | docker exec -i your-passbolt-container tar -C /usr/share/php/passbolt/ -xzf -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then set correct rights to the avatars:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker exec -it your-passbolt-container chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/avatar
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+September
+29th,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Migrate an existing Passbolt PRO to Virtual Machine</title><link href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine.html" rel="alternate" type="text/html" title="Migrate an existing Passbolt PRO to Virtual Machine" /><published>2021-09-16T02:00:00+02:00</published><updated>2021-09-16T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;This document describes how to migrate an existing passbolt to a new Virtual Machine Appliance.&lt;/p&gt;
@@ -76,15 +493,6 @@ login in as root. You can however create a shell as root with the default user:&
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -s
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h3 id=&quot;https-setup-process&quot;&gt;1.3. HTTPS setup process:&lt;/h3&gt;
-
-    &lt;p&gt;Passbolt Pro VM uses passbolt debian package.  Depending on your needs there are two different options to setup nginx and SSL using the debian package:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
     &lt;h2 id=&quot;configure-the-ova-services&quot;&gt;Configure the OVA Services&lt;/h2&gt;
 
     &lt;p&gt;Reconfigure the Passbolt package:&lt;/p&gt;
@@ -92,11 +500,53 @@ login in as root. You can however create a shell as root with the default user:&
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;It is recommended at this point to select:&lt;/p&gt;
+    &lt;h4 id=&quot;configure-mariadb&quot;&gt;Configure mariadb&lt;/h4&gt;
+
+    &lt;p&gt;If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
+an empty mariadb database for passbolt to use.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png&quot; alt=&quot;Configure mariadb dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure mariadb dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
+You will find the root password on the server in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png&quot; alt=&quot;Mariadb admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Mariadb admin user dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png&quot; alt=&quot;Mariadb admin user pass dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Mariadb admin user pass dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png&quot; alt=&quot;Mariadb passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Mariadb passbolt user dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png&quot; alt=&quot;Mariadb passbolt user pass dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Mariadb passbolt user pass dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Lastly we need to create a database for passbolt to use, for that we need to name it:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png&quot; alt=&quot;Mariadb database name dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Mariadb database name dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the debian package:&lt;/p&gt;
 
     &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt; for mysql configuration as it will create the database of your new passbolt. You’ll find the root password in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt; to nginx configuration, as it will configure the webserver and SSL.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;Once you’re done, restart the nginx server:&lt;/p&gt;
@@ -108,45 +558,55 @@ login in as root. You can however create a shell as root with the default user:&
 
     &lt;p&gt;Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
+    &lt;p&gt;You should have:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Your subscription key&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;the private and public GPG key&lt;/li&gt;
+      &lt;li&gt;Your database dump&lt;/li&gt;
+      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Create the subscription key file&lt;/p&gt;
+
+    &lt;p&gt;You received your subscription key by email, copy it as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/subscription_key.txt&lt;/code&gt; on your server.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown www-data:www-data /etc/passbolt/passbolt.php
 sudo chmod 440 /etc/passbolt/passbolt.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/*
-sudo chmod 440 /etc/passbolt/gpg/*  
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.1&lt;/strong&gt; Copy the subscription keyfile to correct location&lt;/p&gt;
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    In last releases of Passbolt, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;license&lt;/code&gt; file has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subscription_key.txt&lt;/code&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/license /etc/passbolt/subscription_key.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Copy the backup of avatars to the right location (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/public/* /usr/share/php/passbolt/webroot/img/public
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
 sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database and migrate the Passbolt data to the latest version&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Load the database&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h2 id=&quot;test-passbolt&quot;&gt;Test passbolt&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Migrate the Passbolt data to the latest version&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 7.&lt;/strong&gt; Test passbolt&lt;/p&gt;
 
     &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
 
@@ -207,13 +667,6 @@ September
     &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
 
     &lt;h2 id=&quot;prepare-the-new-debian-server&quot;&gt;Prepare the new Debian server&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        While configuring the database ensure you are configuring the database as it was on your previous server, check the backup of the file passbolt.php for the configuration details.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
 
     &lt;h2 id=&quot;install-the-server-components&quot;&gt;1. Install the server components&lt;/h2&gt;
     &lt;h3 id=&quot;package-repository-setup&quot;&gt;1.1. Package repository setup&lt;/h3&gt;
@@ -306,7 +759,7 @@ an empty mariadb database for passbolt to use.&lt;/p&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
+You will find the root password on the server in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png&quot; alt=&quot;Mariadb admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -318,7 +771,7 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb admin user pass dialog&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.&lt;/p&gt;
+    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png&quot; alt=&quot;Mariadb passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -337,49 +790,68 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb database name dialog&lt;/span&gt;
 &lt;/figure&gt;
 
+    &lt;h2 id=&quot;configure-nginx-for-serving-https&quot;&gt;Configure nginx for serving HTTPS&lt;/h2&gt;
+
+    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the Debian package:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
     &lt;h2 id=&quot;migrate-the-data&quot;&gt;Migrate the data&lt;/h2&gt;
 
     &lt;p&gt;Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
+    &lt;p&gt;You should have:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Your subscription key&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;the private and public GPG key&lt;/li&gt;
+      &lt;li&gt;Your database dump&lt;/li&gt;
+      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Create the subscription key file&lt;/p&gt;
+
+    &lt;p&gt;You received your subscription key by email, copy it as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/subscription_key.txt&lt;/code&gt; on your server.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown www-data:www-data /etc/passbolt/passbolt.php
 sudo chmod 440 /etc/passbolt/passbolt.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/*
-sudo chmod 440 /etc/passbolt/gpg/*  
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.1&lt;/strong&gt; Copy the subscription keyfile to correct location&lt;/p&gt;
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    In last releases of Passbolt, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;license&lt;/code&gt; file has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subscription_key.txt&lt;/code&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/license /etc/passbolt/subscription_key.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Copy the backup of avatars to the right location (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/public/* /usr/share/php/passbolt/webroot/img/public
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
 sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database and migrate the Passbolt data to the latest version&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Load the database&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h2 id=&quot;test-passbolt&quot;&gt;Test passbolt&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Migrate the Passbolt data to the latest version&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 7.&lt;/strong&gt; Test passbolt&lt;/p&gt;
 
     &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
 
@@ -440,13 +912,6 @@ September
     &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
 
     &lt;h2 id=&quot;prepare-the-new-ubuntu-server&quot;&gt;Prepare the new Ubuntu server&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        While configuring the database ensure you are configuring the database as it was on your previous server, check the backup of the file passbolt.php for the configuration details.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
 
     &lt;h2 id=&quot;install-the-server-components&quot;&gt;1. Install the server components&lt;/h2&gt;
     &lt;h3 id=&quot;package-repository-setup&quot;&gt;1.1. Package repository setup&lt;/h3&gt;
@@ -539,7 +1004,7 @@ an empty mariadb database for passbolt to use.&lt;/p&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
+You will find the root password on the server in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png&quot; alt=&quot;Mariadb admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -551,7 +1016,7 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb admin user pass dialog&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.&lt;/p&gt;
+    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png&quot; alt=&quot;Mariadb passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -570,9 +1035,26 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb database name dialog&lt;/span&gt;
 &lt;/figure&gt;
 
+    &lt;h2 id=&quot;configure-nginx-for-serving-https&quot;&gt;Configure nginx for serving HTTPS&lt;/h2&gt;
+
+    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the Ubuntu package:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
     &lt;h2 id=&quot;migrate-the-data&quot;&gt;Migrate the data&lt;/h2&gt;
 
     &lt;p&gt;Load the backup files into the new Ubuntu server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;You should have:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;the private and public GPG key&lt;/li&gt;
+      &lt;li&gt;Your database dump&lt;/li&gt;
+      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
+    &lt;/ul&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
 
@@ -585,23 +1067,29 @@ sudo chmod 440 /etc/passbolt/passbolt.php
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/*
-sudo chmod 440 /etc/passbolt/gpg/*  
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Copy the backup of avatars to the right location (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/public/* /usr/share/php/passbolt/webroot/img/public
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
 sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database and migrate the Passbolt data to the latest version&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h2 id=&quot;test-passbolt&quot;&gt;Test passbolt&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Migrate the Passbolt data to the latest version&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Test passbolt&lt;/p&gt;
 
     &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
 
@@ -662,13 +1150,6 @@ September
     &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
 
     &lt;h2 id=&quot;prepare-the-new-debian-server&quot;&gt;Prepare the new Debian server&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        While configuring the database ensure you are configuring the database as it was on your previous server, check the backup of the file passbolt.php for the configuration details.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
 
     &lt;h2 id=&quot;install-the-server-components&quot;&gt;1. Install the server components&lt;/h2&gt;
     &lt;h3 id=&quot;package-repository-setup&quot;&gt;1.1. Package repository setup&lt;/h3&gt;
@@ -761,7 +1242,7 @@ an empty mariadb database for passbolt to use.&lt;/p&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
+You will find the root password on the server in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png&quot; alt=&quot;Mariadb admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -773,7 +1254,7 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb admin user pass dialog&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.&lt;/p&gt;
+    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png&quot; alt=&quot;Mariadb passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -792,9 +1273,26 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb database name dialog&lt;/span&gt;
 &lt;/figure&gt;
 
+    &lt;h2 id=&quot;configure-nginx-for-serving-https&quot;&gt;Configure nginx for serving HTTPS&lt;/h2&gt;
+
+    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the Debian package:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
     &lt;h2 id=&quot;migrate-the-data&quot;&gt;Migrate the data&lt;/h2&gt;
 
     &lt;p&gt;Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;You should have:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;the private and public GPG key&lt;/li&gt;
+      &lt;li&gt;Your database dump&lt;/li&gt;
+      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
+    &lt;/ul&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
 
@@ -807,23 +1305,29 @@ sudo chmod 440 /etc/passbolt/passbolt.php
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/*
-sudo chmod 440 /etc/passbolt/gpg/*  
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Copy the backup of avatars to the right location (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/public/* /usr/share/php/passbolt/webroot/img/public
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
 sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database and migrate the Passbolt data to the latest version&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h2 id=&quot;test-passbolt&quot;&gt;Test passbolt&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Migrate the Passbolt data to the latest version&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Test passbolt&lt;/p&gt;
 
     &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
 
@@ -882,7 +1386,9 @@ Please automate and customize this process to match the needs and policies of yo
 
     &lt;h2 id=&quot;what-to-backup&quot;&gt;What to backup?&lt;/h2&gt;
 
-    &lt;p&gt;There are several elements you need to backup:&lt;/p&gt;
+    &lt;p&gt;If you are a PRO user, ensure you have a backup of your subscription key.&lt;/p&gt;
+
+    &lt;p&gt;There are also several elements you need to backup:&lt;/p&gt;
 
     &lt;h4 id=&quot;the-database&quot;&gt;1. The database&lt;/h4&gt;
 
@@ -900,11 +1406,6 @@ Please automate and customize this process to match the needs and policies of yo
       &lt;li&gt;public key is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;serverkey.asc&lt;/code&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;Example script:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-cvfzp&lt;/span&gt; passbolt-gpg-keys.tar.gz /etc/passbolt/gpg/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
     &lt;h4 id=&quot;the-application-configuration&quot;&gt;3. The application configuration&lt;/h4&gt;
 
     &lt;p&gt;Passbolt ubuntu package stores all configuration files under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/*&lt;/code&gt; but the one you need is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/passbolt.php&lt;/code&gt;&lt;/p&gt;
@@ -921,8 +1422,9 @@ Please automate and customize this process to match the needs and policies of yo
     &lt;p&gt;Back up &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/share/php/passbolt/webroot/img/avatar&lt;/code&gt; to avoid losing
 the profile images.&lt;/p&gt;
 
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-cvfzp&lt;/span&gt; passbolt-avatars.tar.gz /usr/share/php/passbolt/webroot/img/avatar
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo tar &lt;/span&gt;cvfzp passbolt-avatars.tar.gz &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; /usr/share/php/passbolt/ webroot/img/avatar
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
     &lt;h2 id=&quot;backup-list&quot;&gt;Backup list&lt;/h2&gt;
 
     &lt;p&gt;At the end of the backup process you should have:&lt;/p&gt;
@@ -988,13 +1490,6 @@ September
     &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
 
     &lt;h2 id=&quot;prepare-the-new-ubuntu-server&quot;&gt;Prepare the new Ubuntu server&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        While configuring the database ensure you are configuring the database as it was on your previous server, check the backup of the file passbolt.php for the configuration details.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
 
     &lt;h2 id=&quot;install-the-server-components&quot;&gt;1. Install the server components&lt;/h2&gt;
     &lt;h3 id=&quot;package-repository-setup&quot;&gt;1.1. Package repository setup&lt;/h3&gt;
@@ -1087,7 +1582,7 @@ an empty mariadb database for passbolt to use.&lt;/p&gt;
 &lt;/figure&gt;
 
     &lt;p&gt;The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
+You will find the root password on the server in the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/root/.mysql_credentials&lt;/code&gt;.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png&quot; alt=&quot;Mariadb admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -1099,7 +1594,7 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb admin user pass dialog&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.&lt;/p&gt;
+    &lt;p&gt;Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png&quot; alt=&quot;Mariadb passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
@@ -1118,49 +1613,68 @@ By default in most installations the admin username would be &lt;code class=&quo
     &lt;span class=&quot;legend&quot;&gt;fig. Mariadb database name dialog&lt;/span&gt;
 &lt;/figure&gt;
 
+    &lt;h2 id=&quot;configure-nginx-for-serving-https&quot;&gt;Configure nginx for serving HTTPS&lt;/h2&gt;
+
+    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the Ubuntu package:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
     &lt;h2 id=&quot;migrate-the-data&quot;&gt;Migrate the data&lt;/h2&gt;
 
     &lt;p&gt;Load the backup files into the new Ubuntu server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
+    &lt;p&gt;You should have:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Your subscription key&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;the private and public GPG key&lt;/li&gt;
+      &lt;li&gt;Your database dump&lt;/li&gt;
+      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Create the subscription key file&lt;/p&gt;
+
+    &lt;p&gt;You received your subscription key by email, copy it as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/subscription_key.txt&lt;/code&gt; on your server.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown www-data:www-data /etc/passbolt/passbolt.php
 sudo chmod 440 /etc/passbolt/passbolt.php
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/*
-sudo chmod 440 /etc/passbolt/gpg/*  
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 2.1&lt;/strong&gt; Copy the subscription keyfile to correct location&lt;/p&gt;
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    In last releases of Passbolt, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;license&lt;/code&gt; file has been renamed to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subscription_key.txt&lt;/code&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/license /etc/passbolt/subscription_key.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Copy the backup of avatars to the right location (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/public/* /usr/share/php/passbolt/webroot/img/public
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
 sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database and migrate the Passbolt data to the latest version&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Load the database&lt;/p&gt;
 
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h2 id=&quot;test-passbolt&quot;&gt;Test passbolt&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Migrate the Passbolt data to the latest version&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u www-data /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 7.&lt;/strong&gt; Test passbolt&lt;/p&gt;
 
     &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
 
@@ -1487,457 +2001,4 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Update passbolt on Ubuntu 20.04</title><link href="https://help.passbolt.com/hosting/update/ubuntu-package.html" rel="alternate" type="text/html" title="Update passbolt on Ubuntu 20.04" /><published>2021-02-12T01:00:00+01:00</published><updated>2021-02-12T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/update/ubuntu_package</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/ubuntu-package.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A minimal Ubuntu 20.04 server.&lt;/li&gt;
-      &lt;li&gt;Passbolt Ubuntu package installed.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;update-passbolt&quot;&gt;Update passbolt&lt;/h2&gt;
-    &lt;h3 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h3&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;backup-your-database&quot;&gt;2. Backup your database&lt;/h3&gt;
-
-    &lt;p&gt;It is recommended to always perform a backup of your passbolt installation. Please check the &lt;a href=&quot;/hosting/backup&quot;&gt;backup&lt;/a&gt; article&lt;/p&gt;
-
-    &lt;h3 id=&quot;upgrade-your-system&quot;&gt;3. Upgrade your system&lt;/h3&gt;
-
-    &lt;p&gt;This commands will trigger an upgrade on your whole ubuntu system:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;clear-the-cache&quot;&gt;4. Clear the cache&lt;/h3&gt;
-
-    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
-reflected in model cache files:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake cache clear_all&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;take-your-site-back-up&quot;&gt;5. Take your site back up&lt;/h3&gt;
-
-    &lt;p&gt;Almost done:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
-
-    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
-    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You can also run the following command:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
-
-    &lt;p&gt;If you run into some issues:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
-      &lt;li&gt;Check for error message in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
-      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
-      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
-      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
-      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Where to get help:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
-      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
-the easiest it will be for people to help you.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-12th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Your installation is not based on a Ubuntu package?&lt;/p&gt;
-    
-    &lt;a href=&quot;/hosting/upgrade/ce/migrate-to-ubuntu.html&quot; class=&quot;button &quot;&gt;Migrate passbolt to Ubuntu package&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Migrate passbolt CE from install scripts to Ubuntu package</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html" rel="alternate" type="text/html" title="Migrate passbolt CE from install scripts to Ubuntu package" /><published>2021-02-12T01:00:00+01:00</published><updated>2021-02-12T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-to-ubuntu.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;A Ubuntu package has been created to increase the ease of installing and upgrading passbolt.&lt;/p&gt;
-
-    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A minimal Ubuntu 20.04 server.&lt;/li&gt;
-      &lt;li&gt;Passbolt installed with the Ubuntu install script.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h2&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
-
-    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
-You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;3. Upgrade your system&lt;/h2&gt;
-
-    &lt;p&gt;Passbolt requires PHP 7.3 and supports PHP 7.4.&lt;/p&gt;
-
-    &lt;p&gt;A full system upgrade to Ubuntu 20.04 is necessary before installing the passbolt Ubuntu package.
-&lt;a href=&quot;https://ubuntu.com/blog/how-to-upgrade-from-ubuntu-18-04-lts-to-20-04-lts-today&quot;&gt;Here&lt;/a&gt; is the official Ubuntu guide to 
-upgrade your system with a step by step tutorial.&lt;/p&gt;
-
-    &lt;h2 id=&quot;install-the-package&quot;&gt;4. Install the package&lt;/h2&gt;
-
-    &lt;h3 id=&quot;setup-the-package-repository&quot;&gt;4.1. Setup the package repository&lt;/h3&gt;
-
-    &lt;p&gt;For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt CE and install it.&lt;/p&gt;
-
-    &lt;p&gt;These steps assume you have already installed sudo and added your user to the sudo group.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Update the apt indexes and install packages to allow apt to use https repositories:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    apt-transport-https &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    ca-certificates &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    curl &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    gnupg-agent &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-    software-properties-common
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt;  Add Passbolt package official GnuPG key&lt;/p&gt;
-
-    &lt;p&gt;From keys.gnupg.net:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key adv &lt;span class=&quot;nt&quot;&gt;--keyserver&lt;/span&gt; keys.gnupg.net &lt;span class=&quot;nt&quot;&gt;--recv-keys&lt;/span&gt; 0xDE8B853FC155581D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Or from hkps://keys.mailvelope.com:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key adv &lt;span class=&quot;nt&quot;&gt;--keyserver&lt;/span&gt; hkps://keys.mailvelope.com &lt;span class=&quot;nt&quot;&gt;--recv-keys&lt;/span&gt; 0xDE8B853FC155581D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt;  Check that the GPG fingerprint matches &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D&lt;/code&gt;&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key fingerprint 0xDE8B853FC155581D
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pub   rsa2048 2020-05-18 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;SC] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;expires: 2022-05-18]
-      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; unknown] Passbolt SA package signing key &amp;lt;contact@passbolt.com&amp;gt;
-sub   rsa2048 2020-05-18 &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;E] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;expires: 2022-05-18]
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt;  Add passbolt repository to your apt lists:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt;  &lt;span class=&quot;s2&quot;&gt;&quot;deb https://download.passbolt.com/ce/ubuntu focal stable&quot;&lt;/span&gt; | &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/sources.list.d/passbolt.list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt;  Update the apt indexes with the new passbolt apt repository:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;install-the-package-1&quot;&gt;4.2. Install the package&lt;/h3&gt;
-
-    &lt;p&gt;Install the main passbolt server component:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It is recommended at this point to select:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; for mysql configuration as it is already configured&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; to nginx configuration as we will do it at the end&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;copy-existing-configuration-to-the-new-location&quot;&gt;5. Copy existing configuration to the new location&lt;/h2&gt;
-
-    &lt;h3 id=&quot;copy-the-server-keys&quot;&gt;5.1. Copy the server keys&lt;/h3&gt;
-
-    &lt;p&gt;Copy the GPG server keys as following:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; /var/www/passbolt/config/gpg/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt; /etc/passbolt/gpg/
-&lt;span class=&quot;nb&quot;&gt;sudo chown&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-R&lt;/span&gt; root:www-data /etc/passbolt/gpg
-&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g-w /etc/passbolt/gpg
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;copy-the-passbolt-configuration&quot;&gt;5.2. Copy the passbolt configuration&lt;/h3&gt;
-
-    &lt;p&gt;Copy passbolt configuration as following:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo cp&lt;/span&gt; /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
-&lt;span class=&quot;nb&quot;&gt;sudo chown &lt;/span&gt;root:www-data /etc/passbolt/passbolt.php
-&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;g-w /etc/passbolt/passbolt.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you are running mysql 8, please change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quoteIdentifiers&lt;/code&gt; setting of the passbolt.php as follow:&lt;/p&gt;
-
-    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;'quoteIdentifiers'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;php-fpm&quot;&gt;6. PHP-FPM&lt;/h2&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt; and look for the line that looks like this:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 127.0.0.1:9000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Change it to look like this:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; /run/php/php7.3-fpm.sock
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Due to a bug on the install scripts some installations might need to do an additional substitution on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt;:&lt;/p&gt;
-
-    &lt;p&gt;Look for the line containing:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; _WWW_GROUP_
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;And change it to look like:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;listen.group &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;nginx&quot;&gt;7. Nginx&lt;/h2&gt;
-
-    &lt;p&gt;Now you can remove all the old nginx configuration files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/conf.d/&lt;/code&gt;&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/nginx/conf.d/passbolt.conf
-&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/nginx/conf.d/passbolt_ssl.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;Then you can reconfigure the Ubuntu package using:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;dpkg-reconfigure passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Answer the following way:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; to mysql configuration&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;Yes&lt;/strong&gt; to nginx configuration&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;You can then select the SSL method that suits best your needs.&lt;/p&gt;
-
-    &lt;h2 id=&quot;run-the-database-migrations&quot;&gt;8. Run the database migrations&lt;/h2&gt;
-
-    &lt;p&gt;Now it is time to run the migrations to upgrade the database schemas:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;cleanup&quot;&gt;9. Cleanup&lt;/h2&gt;
-
-    &lt;p&gt;After you have checked you can access your new setup with the Ubuntu package make a backup of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/var/www/passbolt&lt;/code&gt; and then
-you can delete it:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; /var/www/passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You may also want to check for the old CRON job that may need to be removed:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;crontab &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;take-your-site-back-up&quot;&gt;10. Take your site back up&lt;/h2&gt;
-
-    &lt;p&gt;Finally take passbolt back up:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php7.3-fpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-12th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Upgrade Passbolt from CE to Pro on Ubuntu</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-ubuntu.html" rel="alternate" type="text/html" title="Upgrade Passbolt from CE to Pro on Ubuntu" /><published>2021-02-10T01:00:00+01:00</published><updated>2021-02-10T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-ubuntu.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A minimal Ubuntu 20.04 server.&lt;/li&gt;
-      &lt;li&gt;Passbolt CE Ubuntu package installed.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;upgrading-passbolt&quot;&gt;Upgrading passbolt&lt;/h2&gt;
-
-    &lt;h3 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h3&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;backup-passbolt&quot;&gt;2. Backup passbolt&lt;/h3&gt;
-
-    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss.
-You can follow our &lt;a href=&quot;/hosting/backup/debian&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h3 id=&quot;upload-your-subscription-key&quot;&gt;3. Upload your subscription key&lt;/h3&gt;
-
-    &lt;p&gt;You should copy your subscription key to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/license&lt;/code&gt; and ensure the permissions are correct.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo chown &lt;/span&gt;root:www-data /etc/passbolt/license
-&lt;span class=&quot;nb&quot;&gt;sudo chmod &lt;/span&gt;640 /etc/passbolt/license
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;uninstall-passbolt-ce&quot;&gt;4. Uninstall passbolt CE&lt;/h3&gt;
-
-    &lt;p&gt;Passbolt CE package should be removed prior to installing passbolt Pro.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get remove passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;update-passbolt-package-repository&quot;&gt;5. Update passbolt package repository&lt;/h3&gt;
-
-    &lt;p&gt;Update your repository to make passbolt-pro available for installation.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb https://download.passbolt.com/pro/ubuntu focal stable&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sudo tee&lt;/span&gt; /etc/apt/sources.list.d/passbolt-pro.list
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;install-passbolt-pro&quot;&gt;6. Install passbolt Pro&lt;/h3&gt;
-
-    &lt;p&gt;Now you can install the passbolt Pro package.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;passbolt-pro-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;As you have already configured passbolt CE, and passbolt Pro relies on the same configuration, you should reply:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; for mysql configuration&lt;/li&gt;
-      &lt;li&gt;&lt;strong&gt;No&lt;/strong&gt; to nginx configuration&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h3 id=&quot;migrate-the-data&quot;&gt;7. Migrate the data&lt;/h3&gt;
-
-    &lt;p&gt;Once the package installed, run the following command to migrate the data to passbolt Pro:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;clear-the-cache&quot;&gt;8. Clear the cache&lt;/h3&gt;
-
-    &lt;p&gt;Make sure you clear the application cache, to make sure any changes in the database structure are reflected in 
-model cache files:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake cache clear_all&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;take-your-site-back-up&quot;&gt;9. Take your site back up&lt;/h3&gt;
-
-    &lt;p&gt;Finally take passbolt back up:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-10th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Your installation is not based on a Ubuntu package?&lt;/p&gt;
-    
-    &lt;a href=&quot;/hosting/upgrade/ce/migrate-to-ubuntu.html&quot; class=&quot;button &quot;&gt;Migrate passbolt to Ubuntu package&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry></feed>

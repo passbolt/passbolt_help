@@ -10,6 +10,7 @@ sidebar: [hosting, upgrade]
 passbolt_version: pro
 icon: fa-server
 layout: default
+new: true
 slug: migrate-existing-pro-to-ubuntu-server
 permalink: /:categories/:slug.html
 ---

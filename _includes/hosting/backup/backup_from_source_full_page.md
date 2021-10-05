@@ -48,7 +48,7 @@ Passbolt configuration file is located in `config/passbolt.php`.
 Back up `webroot/img/public` to avoid losing the profile images.
 
 ```bash
-sudo tar -cvfzp passbolt-avatars.tar.gz /var/www/passbolt/webroot/img/avatar
+sudo tar cvfzp passbolt-avatars.tar.gz -C /var/www/passbolt/ webroot/img/avatar
 ```
 
 {% include hosting/backup/backup_files_list.md %}

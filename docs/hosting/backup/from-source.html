@@ -213,7 +213,9 @@ Please automate and customize this process to match the needs and policies of yo
 
     <h2 id="what-to-backup">What to backup?</h2>
 
-    <p>There are several elements you need to backup:</p>
+    <p>If you are a PRO user, ensure you have a backup of your subscription key.</p>
+
+    <p>There are also several elements you need to backup:</p>
 
     <h4 id="the-database">1. The database</h4>
 
@@ -266,7 +268,7 @@ In order to find the fingerprint if you do not know the email attached to your k
 
     <p>Back up <code class="language-plaintext highlighter-rouge">webroot/img/public</code> to avoid losing the profile images.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tar</span> <span class="nt">-cvfzp</span> passbolt-avatars.tar.gz /var/www/passbolt/webroot/img/avatar
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tar </span>cvfzp passbolt-avatars.tar.gz <span class="nt">-C</span> /var/www/passbolt/ webroot/img/avatar
 </code></pre></div>    </div>
 
     <h2 id="backup-list">Backup list</h2>

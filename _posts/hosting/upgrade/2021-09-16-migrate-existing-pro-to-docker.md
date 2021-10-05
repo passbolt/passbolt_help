@@ -1,32 +1,26 @@
 ---
-title: Migrate an existing Passbolt PRO to a new Debian server 
-date: 2021-09-16 00:00:00 Z
-description: Migrate an existing Passbolt PRO to a new Debian server
+title: Migrate an existing Passbolt PRO to a new Docker
+date: 2021-09-29 00:00:00 Z
+description: Migrate an existing Passbolt PRO to a new Docker
 categories: [hosting,upgrade,pro]
-card_teaser: Migrate an existing Passbolt PRO to a new Debian server 
-card_title: Migrate to new Debian server
-card_position: 8
+card_teaser: Migrate an existing Passbolt PRO to a new Docker 
+card_title: Migrate to new Docker
+card_position: 10
 sidebar: [hosting, upgrade]
 passbolt_version: pro
 icon: fa-server
 layout: default
 new: true
-slug: migrate-existing-pro-to-debian-server
+slug: migrate-existing-pro-to-docker
 permalink: /:categories/:slug.html
 ---
 
 {% assign product = 'pro' %}
-{% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
-{% assign distributionVersionName = 'buster' %}
-{% assign distributionSlug = 'debian' %}
-{% assign distributionLabel = 'Debian' %}
-{% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/upgrade/upgrade-existing-to-new-server.md %}
+{% include hosting/upgrade/upgrade-existing-to-new-docker.md %}
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

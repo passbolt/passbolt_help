@@ -31,10 +31,12 @@ Reconfigure the Passbolt package:
 sudo dpkg-reconfigure passbolt-pro-server
 ```
 
-It is recommended at this point to select:
+{% include configure/configure-debian-package-mariadb.md %}
 
-* **Yes** for mysql configuration as it will create the database of your new passbolt. You’ll find the root password in the file `/root/.mysql_credentials`. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.
-* **Yes** to nginx configuration, as it will configure the webserver and SSL.
+Depending on your needs there are two different options to setup nginx and SSL using the debian package:
+
+- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
+- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
 Once you're done, restart the nginx server:
 

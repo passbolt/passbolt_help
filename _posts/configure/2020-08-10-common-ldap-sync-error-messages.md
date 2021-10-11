@@ -1,6 +1,6 @@
 ---
 title: Most common ldap sync error messages
-date: 2020-03-06 00:00:00 Z
+date: 2021-10-11 00:00:00 Z
 description: List of most common ldap sync error messages and their meaning.
 icon: fa-address-book-o
 categories: [configure,ldap]

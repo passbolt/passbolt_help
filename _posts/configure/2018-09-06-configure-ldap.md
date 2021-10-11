@@ -1,6 +1,6 @@
 ---
 title: Configure Ldap plugin
-date: 2018-12-04 00:00:00 Z
+date: 2021-10-11 00:00:00 Z
 description: Configure Ldap plugin (directory sync)
 icon: fa-address-book-o
 categories: [configure,ldap]

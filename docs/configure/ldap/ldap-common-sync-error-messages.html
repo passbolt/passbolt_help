@@ -239,7 +239,7 @@ When this situation happens, if you absolutely want to sync these 2 groups, the 
     <h3 id="the-previously-deleted-user-userdomaincom-was-not-re-added-to-passbolt">The previously deleted user user@domain.com was not re-added to passbolt.</h3>
     <p>This error happens when a passbolt user was deleted manually in passbolt but not in the directory. Passbolt then considers that the actions performed in passbolt
 have a higher priority and that the user was deleted for a good reason.
-There is currently no turn-around for this situation apart from re-enabling the user manually in the database (not recommended).</p>
+When this situation happens, if you absolutely want to sync back this user, the solution is to re-create the user in passbolt and run the synchronization again.</p>
 
     <h3 id="the-user-userdomaincom-could-not-be-added-to-the-group-mygroup-because-of-an-internal-error">The user user@domain.com could not be added to the group MyGroup because of an internal error</h3>
     <p>This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the

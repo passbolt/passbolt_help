@@ -356,7 +356,7 @@ will appear and let you know what happened exactly.
 
 ### User synchronization example workflow
 
-When an user is created in LDAP, he is imported in Passbolt using synchronization.
+When an user is created in LDAP, they are imported in Passbolt using synchronization.
 
 If you delete this user in Passbolt, he will remain present in LDAP but won't be added back to Passbolt on next synchronization.
 

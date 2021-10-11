@@ -555,6 +555,15 @@ able to take corrective measures before an error actually happens.</p>
     <p>To do the first synchronization, repeat the same process as above. Only, click on “synchronize” this time. A similar report to the one that was displayed during a simulate
 will appear and let you know what happened exactly.</p>
 
+    <h3 id="user-synchronization-example-workflow">User synchronization example workflow</h3>
+
+    <p>When an user is created in LDAP, they are imported in Passbolt using synchronization.</p>
+
+    <p>If you delete this user in Passbolt, he will remain present in LDAP but won’t be added back to Passbolt on next synchronization.</p>
+
+    <p>If you want to re-sync this user with LDAP, manually re-create him in Passbolt then run synchronization. Passbolt synchronization tool will automatically recreate the link in Passbolt database.</p>
+
+    <p>If you delete this user in LDAP, he will be deleted from Passbolt on next synchronization.</p>
     <h3 id="how-to-synchronize-my-directory-automatically">How to synchronize my directory automatically?</h3>
     <p>To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.</p>
 
@@ -572,9 +581,9 @@ will appear and let you know what happened exactly.</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-December
-4th,
-2018.</p>
+October
+11th,
+2021.</p>
     </div>
 
   </div>

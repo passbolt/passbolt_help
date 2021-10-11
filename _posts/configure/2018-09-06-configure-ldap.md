@@ -1,6 +1,6 @@
 ---
 title: Configure Ldap plugin
-date: 2018-12-04 00:00:00 Z
+date: 2021-10-11 00:00:00 Z
 description: Configure Ldap plugin (directory sync)
 icon: fa-address-book-o
 categories: [configure,ldap]
@@ -354,6 +354,15 @@ able to take corrective measures before an error actually happens.
 To do the first synchronization, repeat the same process as above. Only, click on "synchronize" this time. A similar report to the one that was displayed during a simulate
 will appear and let you know what happened exactly.
 
+### User synchronization example workflow
+
+When an user is created in LDAP, they are imported in Passbolt using synchronization.
+
+If you delete this user in Passbolt, he will remain present in LDAP but won't be added back to Passbolt on next synchronization.
+
+If you want to re-sync this user with LDAP, manually re-create him in Passbolt then run synchronization. Passbolt synchronization tool will automatically recreate the link in Passbolt database.
+
+If you delete this user in LDAP, he will be deleted from Passbolt on next synchronization.
 ### How to synchronize my directory automatically?
 To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.
 

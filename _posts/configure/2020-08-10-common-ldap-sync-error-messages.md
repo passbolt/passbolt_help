@@ -1,6 +1,6 @@
 ---
 title: Most common ldap sync error messages
-date: 2020-03-06 00:00:00 Z
+date: 2021-10-11 00:00:00 Z
 description: List of most common ldap sync error messages and their meaning.
 icon: fa-address-book-o
 categories: [configure,ldap]
@@ -36,7 +36,7 @@ When this situation happens, if you absolutely want to sync these 2 groups, the 
 ### The previously deleted user user@domain.com was not re-added to passbolt.
 This error happens when a passbolt user was deleted manually in passbolt but not in the directory. Passbolt then considers that the actions performed in passbolt
 have a higher priority and that the user was deleted for a good reason.
-There is currently no turn-around for this situation apart from re-enabling the user manually in the database (not recommended).
+When this situation happens, if you absolutely want to sync back this user, the solution is to re-create the user in passbolt and run the synchronization again.
 
 ### The user user@domain.com could not be added to the group MyGroup because of an internal error
 This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the

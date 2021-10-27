@@ -1,55 +1,144 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-10-27T13:54:29+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Most common ldap sync error messages</title><link href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html" rel="alternate" type="text/html" title="Most common ldap sync error messages" /><published>2021-10-11T02:00:00+02:00</published><updated>2021-10-11T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-10-27T14:16:50+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Update passbolt on Centos 7</title><link href="https://help.passbolt.com/hosting/update/install-scripts.html" rel="alternate" type="text/html" title="Update passbolt on Centos 7" /><published>2021-10-19T02:00:00+02:00</published><updated>2021-10-19T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/update/install-scripts</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/install-scripts.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
-    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
 
-    &lt;p&gt;Depending on the structure of your directory or the state of the synchronization between passbolt and your directory, passbolt can report certain synchronization issues. 
-They come from a variety of reasons, here are the most common ones.&lt;/p&gt;
+    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A minimal CentOS 7 server.&lt;/li&gt;
+      &lt;li&gt;Passbolt installed with the CentOS install script.&lt;/li&gt;
+    &lt;/ul&gt;
 
-    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-added-to-group-mygroup-because-it-is-not-active-yet&quot;&gt;The user user@domain.com could not be added to group MyGroup because it is not active yet&lt;/h3&gt;
-    &lt;p&gt;This error happens when passbolt is trying to add a user to a group, but the user has not yet activated their account. Passbolt
-cannot add such users to groups automatically since their account is not operational yet. 
-When this situation happens, no intervention is required. The user will be added to the group automatically once they activate their account (when they click on the link provided in the email invitation and complete the initial setup).&lt;/p&gt;
+    &lt;h2 id=&quot;updating-passbolt&quot;&gt;Updating passbolt&lt;/h2&gt;
+    &lt;h3 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h3&gt;
 
-    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-mapped-with-an-existing-user-in-passbolt-because-it-was-created-after&quot;&gt;The user user@domain.com could not be mapped with an existing user in passbolt because it was created after.&lt;/h3&gt;
-    &lt;p&gt;This error happens when a user was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt user has the priority and should not be synced, since it would also mean that the same user would get
-deleted whenever it is deleted from the directory.
-When this situation happens, if you absolutely want to sync these 2 users, the solution is to delete the user in passbolt and to run the synchronization again. The user will then be created again and synced.&lt;/p&gt;
+    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade. For example if you are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nginx&lt;/code&gt; as a
+webserver:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h3 id=&quot;the-group-mygroup-could-not-be-mapped-with-an-existing-group-in-passbolt-because-it-was-created-after&quot;&gt;The group MyGroup could not be mapped with an existing group in passbolt because it was created after.&lt;/h3&gt;
-    &lt;p&gt;This error happens when a group was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt group has the priority and should not be synced, since it would also mean that the same group would get
-deleted whenever it is deleted from the directory.
-When this situation happens, if you absolutely want to sync these 2 groups, the solution is to delete the group in passbolt and to run the synchronization again. The group will then be created again and synced.&lt;/p&gt;
+    &lt;p&gt;If you feel a bit more fancy, you can change your web server configuration to point to an “under maintenance” page.
+It is a good practice to announce such maintenance window to your users in advance, so that they can also
+plan for the update, for example by downloading some key passwords they may need.&lt;/p&gt;
 
-    &lt;h3 id=&quot;the-previously-deleted-user-userdomaincom-was-not-re-added-to-passbolt&quot;&gt;The previously deleted user user@domain.com was not re-added to passbolt.&lt;/h3&gt;
-    &lt;p&gt;This error happens when a passbolt user was deleted manually in passbolt but not in the directory. Passbolt then considers that the actions performed in passbolt
-have a higher priority and that the user was deleted for a good reason.
-When this situation happens, if you absolutely want to sync back this user, the solution is to re-create the user in passbolt and run the synchronization again.&lt;/p&gt;
+    &lt;h3 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h3&gt;
 
-    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-added-to-the-group-mygroup-because-of-an-internal-error&quot;&gt;The user user@domain.com could not be added to the group MyGroup because of an internal error&lt;/h3&gt;
-    &lt;p&gt;This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the
-system to create a group membership for the given user.&lt;/p&gt;
+    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss.
+You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
 
-    &lt;h3 id=&quot;a-request-to-add-user-userdomaincom-in-group-mygroup-was-sent-to-the-group-manager&quot;&gt;A request to add user user@domain.com in group MyGroup was sent to the group manager.&lt;/h3&gt;
-    &lt;p&gt;This scenario happens when passbolt attempts to add a user to a group that has passwords directly shared with it. 
-In this case, adding our user to the group would mean having to encrypt all the passwords shared with the group for this new group member. 
-Due to the end-to-end nature of the solution, the system cannot do it without a human intervention. This is why passbolt sends a request to the group manager so that he can add the user to the group manually, and encrypt the shared secrets at the same time.&lt;/p&gt;
+    &lt;h3 id=&quot;get-the-latest-code-version&quot;&gt;3. Get the latest code version&lt;/h3&gt;
 
-    &lt;p&gt;Note: this scenario will not happen in the case of groups without direct access to shared passwords. In this case, the user will be added automatically to the group during the sync.&lt;/p&gt;
+    &lt;p&gt;Pull the latest version directly from master:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/www/passbolt
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; nginx bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;git pull origin master&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;update-the-dependencies&quot;&gt;4. Update the dependencies&lt;/h3&gt;
+
+    &lt;p&gt;Some libraries are not packaged with the software but need to be updated using composer, based on
+what is recommended in the composer.lock. This file is provided by passbolt.&lt;/p&gt;
+
+    &lt;p&gt;Passbolt requires composer v2, check the version you have already installed:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; nginx bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;composer.phar --version&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; Composer version 2.0.9 2021-01-27 16:09:27
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;To get the latest version of composer, you can check the
+&lt;a href=&quot;https://getcomposer.org/download/&quot;&gt;composer installation instructions&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;Update the dependencies:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; nginx bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;php -d allow_url_fopen=on composer.phar install --no-dev -n -o&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;migrate-your-data&quot;&gt;5. Migrate your data&lt;/h3&gt;
+
+    &lt;p&gt;A new version can come with a data structure change. You can run the migration scripts as follow:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; nginx bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt migrate&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;clear-the-cache&quot;&gt;6. Clear the cache&lt;/h3&gt;
+
+    &lt;p&gt;Finally make sure you clear the application cache, to make sure any changes in the database structure are
+reflected in model cache files:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; nginx bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake cache clear_all&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;take-your-site-back-up&quot;&gt;7. Take your site back up&lt;/h3&gt;
+
+    &lt;p&gt;Almost done:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl start nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;troubleshooting&quot;&gt;Troubleshooting&lt;/h2&gt;
+
+    &lt;h4 id=&quot;verifying-the-status-of-the-application&quot;&gt;Verifying the status of the application&lt;/h4&gt;
+    &lt;p&gt;Optionally, you can login as an administrator and check the status on the healthcheck page:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/screenshots/AD_healthcheck.jpg&quot; alt=&quot;Example of healthcheck screen&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Example of healthcheck screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You can also run the following command:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-H&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; www-data bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;./bin/cake passbolt healthcheck&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;if-you-run-into-some-issues&quot;&gt;If you run into some issues&lt;/h4&gt;
+
+    &lt;p&gt;If you run into some issues:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Make a copy or screenshot of the errors messages displayed on the screen&lt;/li&gt;
+      &lt;li&gt;Check for error message in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;logs&lt;/code&gt; directory&lt;/li&gt;
+      &lt;li&gt;Check for error message in the browser console&lt;/li&gt;
+      &lt;li&gt;Checkout the previous working version using git&lt;/li&gt;
+      &lt;li&gt;Drop the database and load your backup data to restore to a previously working version&lt;/li&gt;
+      &lt;li&gt;Note down the the details of you environment: your OS, php, mysql environment versions.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Where to get help:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;If you are a Passbolt Pro Edition subscriber send us an &lt;a href=&quot;mailto:contact@passbolt.com&quot;&gt;email&lt;/a&gt; with the details.&lt;/li&gt;
+      &lt;li&gt;If you are a Passbolt Community Edition user you can open new thread on the &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot;&gt;community forum&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The more information you provide about what you did, what you tried, how your environment look like,
+the easiest it will be for people to help you.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
       &lt;p&gt;This article was last updated on 
 October
-11th,
+19th,
 2021.&lt;/p&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;You have installed passbolt from the source?&lt;/p&gt;
+    
+    &lt;a href=&quot;/hosting/update/source&quot; class=&quot;button &quot;&gt;Update passbolt for source install&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap/setup.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2021-10-11T02:00:00+02:00</published><updated>2021-10-11T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/setup.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Configure Ldap plugin</title><link href="https://help.passbolt.com/configure/ldap/setup.html" rel="alternate" type="text/html" title="Configure Ldap plugin" /><published>2021-10-11T02:00:00+02:00</published><updated>2021-10-11T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap/setup</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/setup.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;&lt;img src=&quot;/assets/img/help/2018/09/AD_ldap_overview.png&quot; alt=&quot;ldap illustration&quot; style=&quot;margin: auto;&quot; /&gt;&lt;/p&gt;
@@ -431,6 +520,57 @@ October
     &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
 
 &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Most common ldap sync error messages</title><link href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html" rel="alternate" type="text/html" title="Most common ldap sync error messages" /><published>2021-10-11T02:00:00+02:00</published><updated>2021-10-11T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+
+    &lt;p&gt;Depending on the structure of your directory or the state of the synchronization between passbolt and your directory, passbolt can report certain synchronization issues. 
+They come from a variety of reasons, here are the most common ones.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-added-to-group-mygroup-because-it-is-not-active-yet&quot;&gt;The user user@domain.com could not be added to group MyGroup because it is not active yet&lt;/h3&gt;
+    &lt;p&gt;This error happens when passbolt is trying to add a user to a group, but the user has not yet activated their account. Passbolt
+cannot add such users to groups automatically since their account is not operational yet. 
+When this situation happens, no intervention is required. The user will be added to the group automatically once they activate their account (when they click on the link provided in the email invitation and complete the initial setup).&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-mapped-with-an-existing-user-in-passbolt-because-it-was-created-after&quot;&gt;The user user@domain.com could not be mapped with an existing user in passbolt because it was created after.&lt;/h3&gt;
+    &lt;p&gt;This error happens when a user was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt user has the priority and should not be synced, since it would also mean that the same user would get
+deleted whenever it is deleted from the directory.
+When this situation happens, if you absolutely want to sync these 2 users, the solution is to delete the user in passbolt and to run the synchronization again. The user will then be created again and synced.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-group-mygroup-could-not-be-mapped-with-an-existing-group-in-passbolt-because-it-was-created-after&quot;&gt;The group MyGroup could not be mapped with an existing group in passbolt because it was created after.&lt;/h3&gt;
+    &lt;p&gt;This error happens when a group was created first in Passbolt and later in the directory. Passbolt then considers that the passbolt group has the priority and should not be synced, since it would also mean that the same group would get
+deleted whenever it is deleted from the directory.
+When this situation happens, if you absolutely want to sync these 2 groups, the solution is to delete the group in passbolt and to run the synchronization again. The group will then be created again and synced.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-previously-deleted-user-userdomaincom-was-not-re-added-to-passbolt&quot;&gt;The previously deleted user user@domain.com was not re-added to passbolt.&lt;/h3&gt;
+    &lt;p&gt;This error happens when a passbolt user was deleted manually in passbolt but not in the directory. Passbolt then considers that the actions performed in passbolt
+have a higher priority and that the user was deleted for a good reason.
+When this situation happens, if you absolutely want to sync back this user, the solution is to re-create the user in passbolt and run the synchronization again.&lt;/p&gt;
+
+    &lt;h3 id=&quot;the-user-userdomaincom-could-not-be-added-to-the-group-mygroup-because-of-an-internal-error&quot;&gt;The user user@domain.com could not be added to the group MyGroup because of an internal error&lt;/h3&gt;
+    &lt;p&gt;This error usually happens when the group could not be created in Passbolt for some reason, which means that it is impossible for the
+system to create a group membership for the given user.&lt;/p&gt;
+
+    &lt;h3 id=&quot;a-request-to-add-user-userdomaincom-in-group-mygroup-was-sent-to-the-group-manager&quot;&gt;A request to add user user@domain.com in group MyGroup was sent to the group manager.&lt;/h3&gt;
+    &lt;p&gt;This scenario happens when passbolt attempts to add a user to a group that has passwords directly shared with it. 
+In this case, adding our user to the group would mean having to encrypt all the passwords shared with the group for this new group member. 
+Due to the end-to-end nature of the solution, the system cannot do it without a human intervention. This is why passbolt sends a request to the group manager so that he can add the user to the group manually, and encrypt the shared secrets at the same time.&lt;/p&gt;
+
+    &lt;p&gt;Note: this scenario will not happen in the case of groups without direct access to shared passwords. In this case, the user will be added automatically to the group during the sync.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+October
+11th,
+2021.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
 
   &lt;/div&gt;
 &lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Docker</title><link href="https://help.passbolt.com/hosting/backup/docker.html" rel="alternate" type="text/html" title="Docker" /><published>2021-10-01T02:00:00+02:00</published><updated>2021-10-01T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/backup/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/backup/docker.html">&lt;div class=&quot;row&quot;&gt;
@@ -1801,106 +1941,4 @@ September
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Ubuntu package</title><link href="https://help.passbolt.com/hosting/backup/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu package" /><published>2021-09-16T02:00:00+02:00</published><updated>2021-09-16T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/backup/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/backup/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
-information, it is equally important to have a backup strategy in place.&lt;/p&gt;
-
-    &lt;p&gt;As a passbolt administrator it is your responsibility to define how often and when to perform backups.
-Please automate and customize this process to match the needs and policies of your organization.&lt;/p&gt;
-
-    &lt;p&gt;Here are some best practices to keep in mind:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Ensure that the backups are taken at intervals that match your usage&lt;/li&gt;
-      &lt;li&gt;Take these backups off-site, or to another environment than the live one&lt;/li&gt;
-      &lt;li&gt;Make sure the backup is encrypted and stored in a safe location&lt;/li&gt;
-      &lt;li&gt;Practice drills and test the backups to make sure they work&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;what-to-backup&quot;&gt;What to backup?&lt;/h2&gt;
-
-    &lt;p&gt;If you are a PRO user, ensure you have a backup of your subscription key.&lt;/p&gt;
-
-    &lt;p&gt;There are also several elements you need to backup:&lt;/p&gt;
-
-    &lt;h4 id=&quot;the-database&quot;&gt;1. The database&lt;/h4&gt;
-
-    &lt;p&gt;This can be easily scripted using &lt;a href=&quot;https://mariadb.com/kb/en/mariadb/mysqldump/&quot;&gt;mysqldump&lt;/a&gt; for example:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;user] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;pass] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;db] &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /path/to/backup.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;the-server-public-and-private-keys&quot;&gt;2. The server public and private keys&lt;/h4&gt;
-
-    &lt;p&gt;The GPG server keys are stored under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/gpg/&lt;/code&gt; folder:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;private key is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;serverkey_private.asc&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;public key is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;serverkey.asc&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h4 id=&quot;the-application-configuration&quot;&gt;3. The application configuration&lt;/h4&gt;
-
-    &lt;p&gt;Passbolt ubuntu package stores all configuration files under &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/*&lt;/code&gt; but the one you need is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/passbolt.php&lt;/code&gt;&lt;/p&gt;
-
-    &lt;h4 id=&quot;the-avatars-for-passbolt-version-prior-to-32&quot;&gt;4. The avatars (for Passbolt version prior to 3.2)&lt;/h4&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    Since Passbolt 3.2, user’s avatars are no longer stored on disk but on the avatars table of passbolt database.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;Back up &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/usr/share/php/passbolt/webroot/img/avatar&lt;/code&gt; to avoid losing
-the profile images.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo tar &lt;/span&gt;cvfzp passbolt-avatars.tar.gz &lt;span class=&quot;nt&quot;&gt;-C&lt;/span&gt; /usr/share/php/passbolt/ webroot/img/avatar
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;backup-list&quot;&gt;Backup list&lt;/h2&gt;
-
-    &lt;p&gt;At the end of the backup process you should have:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;a dump of your database&lt;/li&gt;
-      &lt;li&gt;the server public and private GPG keys&lt;/li&gt;
-      &lt;li&gt;a copy of your config/passbolt.php configuration file&lt;/li&gt;
-      &lt;li&gt;a copy of your avatar folder (&lt;strong&gt;only if Passbolt version &amp;lt; 3.2&lt;/strong&gt;)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;what-about-the-secret-keys-of-my-collaborators&quot;&gt;What about the secret keys of my collaborators?&lt;/h2&gt;
-
-    &lt;p&gt;Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.&lt;/p&gt;
-
-    &lt;p&gt;As an administrator you should stress the importance of backing up secret keys to other users. For example this warning could be part of the initial information message sent to introduce passbolt to new users.&lt;/p&gt;
-
-    &lt;p&gt;It is possible that having users back up their own keys may not be realistic or desirable in your case. In this case you can opt in for an alternative strategy such as setting up the account with/for them and taking a backup of the secret keys then. In the worst case scenario you could automate the process by installing a script on your users machine that would make that backup for you.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-September
-16th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Do you have a question about backups? Do you want to share your experience and best practices?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Get in touch!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="backup" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry></feed>

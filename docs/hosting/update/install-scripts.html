@@ -210,7 +210,7 @@
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade. For example if you are using <code class="language-plaintext highlighter-rouge">nginx</code> as a
 webserver:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl stop nginx
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
     <p>If you feel a bit more fancy, you can change your web server configuration to point to an “under maintenance” page.
@@ -225,8 +225,8 @@ You can follow our <a href="/hosting/backup">backup process</a>.</p>
     <h3 id="get-the-latest-code-version">3. Get the latest code version</h3>
 
     <p>Pull the latest version directly from master:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /var/www/passbolt
-git pull origin master
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> /var/www/passbolt
+<span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"git pull origin master"</span>
 </code></pre></div>    </div>
 
     <h3 id="update-the-dependencies">4. Update the dependencies</h3>
@@ -236,7 +236,7 @@ what is recommended in the composer.lock. This file is provided by passbolt.</p>
 
     <p>Passbolt requires composer v2, check the version you have already installed:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>composer.phar <span class="nt">--version</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"composer.phar --version"</span>
 <span class="o">&gt;</span> Composer version 2.0.9 2021-01-27 16:09:27
 </code></pre></div>    </div>
 
@@ -245,26 +245,26 @@ what is recommended in the composer.lock. This file is provided by passbolt.</p>
 
     <p>Update the dependencies:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-d</span> <span class="nv">allow_url_fopen</span><span class="o">=</span>on composer.phar <span class="nb">install</span> <span class="nt">--no-dev</span> <span class="nt">-n</span> <span class="nt">-o</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"php -d allow_url_fopen=on composer.phar install --no-dev -n -o"</span>
 </code></pre></div>    </div>
 
     <h3 id="migrate-your-data">5. Migrate your data</h3>
 
     <p>A new version can come with a data structure change. You can run the migration scripts as follow:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt migrate"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt migrate"</span>
 </code></pre></div>    </div>
 
     <h3 id="clear-the-cache">6. Clear the cache</h3>
 
     <p>Finally make sure you clear the application cache, to make sure any changes in the database structure are
 reflected in model cache files:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"./bin/cake cache clear_all"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"./bin/cake cache clear_all"</span>
 </code></pre></div>    </div>
 
     <h3 id="take-your-site-back-up">7. Take your site back up</h3>
 
     <p>Almost done:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl start nginx
 </code></pre></div>    </div>
 
     <h2 id="troubleshooting">Troubleshooting</h2>
@@ -305,8 +305,8 @@ the easiest it will be for people to help you.</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-February
-8th,
+October
+19th,
 2021.</p>
     </div>
 

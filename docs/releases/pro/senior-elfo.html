@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Senior Elfo</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Senior Elfo" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/senior-elfo">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.3.0.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (pro)</h2></li>
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/pro/senior-elfo" >v3.3.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs" >v3.2.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/love-over-entropy-sea" >v3.1.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v300-our-house" >v3.0.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v2140-sunshine" >v2.14.0</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v2135-stomp" >v2.13.5</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/pro.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro"><span>pro</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro/senior-elfo"><span>senior-elfo</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v3.3.0 ~ Senior Elfo (pro)</h1>
+                            <p>Release date: 
+October
+27th,
+2021.
+</p>
+                            <div class="message notice">
+    <p>
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
+
+<p>The team is pleased to announce the much awaited v3.3 which includes new features as well as some fixes requested by the community. It’s been a while since the last release, but as you’ll see, we’ve been busy!</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/10/form-autofill.gif" alt="Auto-fill a form with an existing credential in a click" style="max-width:650px;" />
+    <span class="legend">fig. Auto-fill a form with an existing credential in a click</span>
+</figure>
+
+<p>While browsing the internet, passbolt users don’t always know how to use the quick access menu in the toolbar to create or use credentials on a given page. The anticipated autofill and autosave improvements, which we call “in-form integration”, has finally arrived. You’ll be able to perform actions faster within web forms, and be able to quickly generate passwords and save credentials.</p>
+
+<p>We’ve also optimized the original quick access flow to provide better accessibility, with more complete contextual feedback and a reduced number of steps (for example, when inserting a password in a page).</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/10/password-generator.png" alt="Password generator" style="max-width:;" />
+    <span class="legend">fig. Password generator</span>
+</figure>
+
+<p>This release also contains a revamped password generator, which allows for the customization of the password parameters and introduces support for passphrase generation. The new passphrase generator produces 9 words using the <a href="https://www.eff.org/dice">diceware method</a>. By default, the words aren’t separated, but the user has the option to define a set of characters (e.g. “ ” or “_”) that’ll be used to separate them. The password generator has also been improved, and now generates passwords of 18 characters in length. Also, it’s now possible to exclude look alike characters, like <a href="https://en.wikipedia.org/wiki/Homoglyph">Homoglyphs</a>, and even include emojis 😏.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/10/translations-update.png" alt="Translations update" style="max-width:650px;" />
+    <span class="legend">fig. Translations update</span>
+</figure>
+
+<p>In our continuous effort to make the application accessible by all, in their mother tongue, this release ships with German and Swedish translations. Other languages, such as Dutch, Polish and Spanish, are in the works and scheduled for the end of the year.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/10/soc-2-type-I-report-complete.png" alt="SOC2 Type I Report complete!" style="max-width:;" />
+    <span class="legend">fig. SOC2 Type I Report complete!</span>
+</figure>
+
+<p>Both the password generator and in-form quick access functionalities have been reviewed as part of an independent security audit by <a href="https://cure53.de">Cure53</a>. So, they should be safe for everyone to use! We also completed another series of audits for the API code and cloud infrastructure. We’ll share the results with you soon in a dedicated blog post (spoiler alert: no critical issue found).</p>
+
+<p>We’ve also successfully completed our SOC2 Type I audit. Our SOC 2 Type II is also well underway and will be available by Q1 2022. These audits are just another step in our on-going compliance and security efforts.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/10/mobile-applications.png" alt="Mobile applications are pending reviews." style="max-width:;" />
+    <span class="legend">fig. Mobile applications are pending reviews.</span>
+</figure>
+
+<p>Ok, now for the final reveal. It’s been almost a year that we’ve been working on the passbolt mobile application (Android and IOS). This v3.3 release is shipping with its experimental support, which you can optionally enable to test! We’re currently waiting for the app’s reviews on the different web stores and we’ll publish a blog article to explain how to test the mobile app. The app will be available for general use and enabled by default once an independent security audit is completed by the end of November. Stay tuned!</p>
+
+<p>A big thank you to the people who reported and documented bugs on github and the community forum, provided your feedback on the account recovery <a href="https://blog.passbolt.com/what-will-the-account-recovery-functionality-look-like-24bac800fc59">specifications</a>. Thank you for your continued support.</p>
+
+<h1 id="api">API</h1>
+<h2 id="330---2021-10-25">[3.3.0] - 2021-10-25</h2>
+<h3 id="added">Added</h3>
+<ul>
+  <li>PB-7815 As a server administrator I should be able to enable / disable the in-form menu feature, enabled by default</li>
+  <li>PB-6072 As a server administrator I should be able to enable / disable the password generator feature, enabled by default</li>
+  <li>PB-8189 As a user I should be able to use the application in German or Swedish</li>
+  <li>PB-7847 As AN I should be able to authenticate to passbolt via JWT access and refresh tokens [experimental][disabled by default]</li>
+  <li>PB-6034  As LU I should be able to configure my mobile app [experimental][disabled by default]</li>
+</ul>
+
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>PB-8908 As a user I should see the footer of the passbolt emails translated with my locale</li>
+  <li>PB-8364 As a user I should see the subject of the passbolt emails translated with my locale</li>
+  <li>PB-6032 As API user I shouldn’t see the _joinData properties in the resource entry points responses</li>
+  <li>PB-8281 Add Debian 11 bullseye support</li>
+  <li>PB-7750 As AD I should be notified by the healthcheck when a tmp files is executable</li>
+  <li>PB-7760 Increase PHPStan level to 6</li>
+  <li>PB-8081 As AD I should be able to configure passbolt over IPv6 while installing a passbolt package</li>
+  <li>PB-5866 As AD I should be able to detect avatar data discrepancies using the passbolt cleanup command</li>
+  <li>PB-7605 As a developer I should be able to enable/disable a plugin easily</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+
+<ul>
+  <li>
+    <p>PB-5982 as LU sharing a folders with a user which contains resources already shared with this same user I should move the resources in the shared folders</p>
+  </li>
+  <li>PB-5457 Fix as LU importing a batch of passwords I should not get an internal errors because of database deadlock</li>
+  <li>PB-7840 Fix as AD I can install/reconfigure the passbolt package if ssl certificates are already present</li>
+</ul>
+
+<h3 id="security">Security</h3>
+
+<ul>
+  <li>
+    <p>PB-7961 Fix PBL-03-002 Missing CSRF protection on the user directories synchronize and ignore user entry points</p>
+  </li>
+  <li>PB-8047 Fix PBL-02-002 As LU I should logout by posting to the API and the entry point should should be protected by CSRF</li>
+  <li>PB-7751 Updates FlySystem dependency to v2.1.1</li>
+  <li>SEC-181 Fix information disclosure: recover endpoint should not return user role and name.</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-8488 Remove user agent unnecessary check associated with MFA token</li>
+  <li>PB-8336 Clean phpunit.xml file</li>
+  <li>PB-8448 Hashes the session ID prior to passord_hash</li>
+  <li>PB-8210 Replaces PHPSESSID with session_name()</li>
+</ul>
+
+<h1 id="browser-extension">Browser extension</h1>
+<h2 id="331---2021-10-26">[3.3.1] - 2021-10-26</h2>
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-9388 Fix unnecessary organization settings API calls</li>
+</ul>
+
+<h2 id="330---2021-10-20">[3.3.0] - 2021-10-20</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-7608 As LU I should be able to customize the password generator parameters</li>
+  <li>PB-7608 As LU I should be able to use emojis in the generated passwords</li>
+  <li>PB-7608 As LU I should be able to generate passphrase instead of passwords</li>
+  <li>PB-7606 As LU I should be able to see how many credentials are suggested for the page I’m currently on by looking at the passbolt icon in the toolbar</li>
+  <li>PB-7649 As LU I should be prompted to save a new credential when I generate a password for a new sign-up form</li>
+  <li>PB-7683 As LU I should be able to auto-fill a suggested credential directly from inside an authentication form</li>
+  <li>PB-7693 As LU I should be able to generate a password directly from inside a sign-up form</li>
+  <li>PB-8189 As a user should be able to use the application in German or Swedish</li>
+  <li>PB-6034 As LU I should be able to configure my mobile app [experimental]</li>
+</ul>
+
+<h3 id="improvement-1">Improvement</h3>
+
+<ul>
+  <li>
+    <p>PB-7639 As LU I should be able to import folders containing slash in their names</p>
+  </li>
+  <li>PB-8256 As LU I should be able to see the username and password fields pre-filled when I create a password with the quick access</li>
+  <li>PB-8088 As LU I should not see the quick access passphrase capture screen shaking when it appears</li>
+  <li>PB-7599 As AN installing the extension on chrome I should be able to see instructions regarding how to pin the extension in the toolbar</li>
+  <li>PB-7626 As LU I should be able to auto-fill a form by directly clicking on a credential suggested by the browser extension quick access without seeing the credential details first</li>
+  <li>PB-6132 As LU I should be able to see the role column inside the users grid</li>
+  <li>As LU I should be able to see my quick access with a larger width</li>
+</ul>
+
+<h3 id="fixed-2">Fixed</h3>
+
+<ul>
+  <li>
+    <p>PB-7813 Fix as LU I shouldn’t be able to export from the folders section label if the exports feature is disabled</p>
+  </li>
+  <li>
+    <p>PB-8306 Fix as LU I should see a content skeleton during loading on the share dialog of the application</p>
+  </li>
+  <li>
+    <p>PB-8525 Fix as LU signing-in for the first time with the quick access I should be able  to see the tags category</p>
+  </li>
+  <li>
+    <p>PB-7364 As GM I should not see the group name editable in the group edit dialog</p>
+  </li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-8368 Password secret complexity calculation algorithm should take in account graphemes</li>
+  <li>PB-8453 Mark password fields that are viewable as not auto-completable</li>
+  <li>PB-8455 Update dependencies, remove unused grunt-contrib-concat</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-8367 Add code coverage automation</li>
+  <li>PB-8492 Optimize passbolt-styleguide dependency package size</li>
+  <li>PB-7575 Remove jQuery dependency</li>
+  <li>PB-6057 Remove underscore dependency</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"Senior Elfo"</p>
+                                <a href="https://youtu.be/SWMaa6qvX5U" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

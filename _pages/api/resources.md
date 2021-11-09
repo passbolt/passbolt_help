@@ -59,7 +59,7 @@ The definition of what is included in the resource and what is included in the s
         <td>Object</td>
         <td>Object containing the user details of the creator</td>
         <td>
-            <a href="/api/users/#the-user-object">User object</a>
+            <a href="/api/users#the-user-object">User object</a>
         </td>
     </tr>
     <tr>
@@ -80,7 +80,7 @@ The definition of what is included in the resource and what is included in the s
         <td>Object</td>
         <td>Favorite details of the resource</td>
         <td>
-            <a href="/api/resources/favorites/#the-favorite-object">Favorite object</a>
+            <a href="/api/favorites#the-favorite-object">Favorite object</a>
         </td>
     </tr>
     <tr>
@@ -104,7 +104,7 @@ The definition of what is included in the resource and what is included in the s
         <td>Object</td>
         <td>Object containing the user details of the modifier</td>
         <td>
-            <a href="/api/users/#the-user-object">User object</a>
+            <a href="/api/users#the-user-object">User object</a>
         </td>
     </tr>
     <tr>
@@ -119,7 +119,7 @@ The definition of what is included in the resource and what is included in the s
         <td>Object</td>
         <td>Permission details as applied on the resource</td>
         <td>
-            <a href="/api/resources/permissions/#the-permission-object">Permission object</a>
+            <a href="/api/permissions#the-permission-object">Permission object</a>
         </td>
     </tr>
     <tr>

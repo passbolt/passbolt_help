@@ -341,13 +341,16 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT /groups/&lt;groupId&gt;.json
 </code></pre></div></div>
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newgroup"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newgroupname"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"groups_users"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;existing_userId&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;userId_to_add&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;groupUserId_to_update_role&gt;"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;new_userId&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"is_admin"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;groupUserId_to_remove&gt;"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
   </span><span class="p">}],</span><span class="w">
   </span><span class="nl">"secrets"</span><span class="p">:[{</span><span class="w">
     </span><span class="nl">"resource_id"</span><span class="p">:</span><span class="s2">"&lt;resource_shared_with_group"</span><span class="p">,</span><span class="w">

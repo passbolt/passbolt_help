@@ -70,9 +70,6 @@ api:
       - title: Read
         slug: permissions-read
         url: /api/permissions/read
-      - title: Delete
-        slug: permissions-delete
-        url: /api/permissions/delete
   - title: Users
     slug: users
     url: /api/users

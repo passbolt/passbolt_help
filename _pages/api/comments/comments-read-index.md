@@ -99,7 +99,7 @@ The user making the request is not authenticated.
 ## Examples
 ### Request with filters
 
-Arequest to fetch all comments posted on a Resource identified by id ecf0ed85-3bfc-5f45-b11d-74e9a86aa313 and that 
+A request to fetch all comments posted on a Resource identified by id ecf0ed85-3bfc-5f45-b11d-74e9a86aa313 and that
 includes information about who created and modified will look like this:
 
 ```bash

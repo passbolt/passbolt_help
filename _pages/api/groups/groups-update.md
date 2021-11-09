@@ -14,13 +14,16 @@ PUT /groups/<groupId>.json
 ```
 ```json
 {
-  "name": "newgroup",
+  "name": "newgroupname",
   "groups_users": [{
-    "user_id": "<existing_userId>",
+    "user_id": "<userId_to_add>",
+    "is_admin": false
+  }, {
+    "id": "<groupUserId_to_update_role>",
     "is_admin": true
   }, {
-    "user_id": "<new_userId>",
-    "is_admin": false
+    "id": "<groupUserId_to_remove>",
+    "delete": true
   }],
   "secrets":[{
     "resource_id":"<resource_shared_with_group",

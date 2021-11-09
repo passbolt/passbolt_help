@@ -50,7 +50,7 @@ The endpoint does not take any additional parameter.
 </table>
 
 ### Success response
-A successful response will return a resoruce type. 
+A successful response will return a resource type.
 It will look something like this example:
 ```
 GET /resource-types/600f5f81-d99f-4763-80fc-5168561010d7.json

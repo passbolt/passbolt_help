@@ -7,7 +7,7 @@ slug: comments
 permalink: /api/comments
 ---
 
-The Comments endpoint is used manage comments posted on Resources. 
+The Comments endpoint is used to manage comments posted on Resources.
 
 ## The Comment Object
 
@@ -96,7 +96,7 @@ The Comments endpoint is used manage comments posted on Resources.
                 Can only be "Resource"
             </td>
             <td>
-                UUID
+                Plaintext
             </td>
         </tr>
         <tr>

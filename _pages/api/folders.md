@@ -72,7 +72,7 @@ You can learn more about the folder dynamics in this
         <td>UUID</td>
     </tr>
     <tr>
-        <td>created_by</td>
+        <td>modified_by</td>
         <td>String</td>
         <td>UUID of the user who modified the folder</td>
         <td>UUID</td>

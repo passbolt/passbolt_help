@@ -7,7 +7,7 @@ slug: resources-read-index
 permalink: /api/resources/read-index
 ---
 
-To fetch a list of all the passwords the user has access to, make the following request:
+To fetch a list of all the resources the user has access to, make the following request:
 ```
 GET /resources.json
 ```

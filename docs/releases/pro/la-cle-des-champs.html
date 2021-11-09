@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | La Clé Des Champs</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="La Clé Des Champs" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/la-cle-des-champs">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.2.0.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (pro)</h2></li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/senior-elfo" >v3.3.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs" >v3.2.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/love-over-entropy-sea" >v3.1.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v300-our-house" >v3.0.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v2140-sunshine" >v2.14.0</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v2135-stomp" >v2.13.5</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/pro.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro"><span>pro</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs"><span>la-cle-des-champs</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v3.2.0 ~ La Clé Des Champs (pro)</h1>
+                            <p>Release date: 
+May
+31st,
+2021.
+</p>
+                            <div class="message notice">
+    <p>
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
+
+<p>The team is pleased to announce that the much awaited “Internationalisation” feature is available to Passbolt Pro, Passbolt Cloud (in progress) as well as Passbolt CE subscribers as part of this release. It is the beginning of continuous effort to provide passbolt in the favorite language of our users. This release ships with the French translation, but other languages such as German and Spanish are in the works.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/05/translations_status.png" alt="Translations status" style="max-width:;" />
+    <span class="legend">fig. Translations status</span>
+</figure>
+
+<p>More languages will come as we go and we are of course counting on the community contributions to keep proposing new ones and make Passbolt available to everyone. If you’d like to contribute and understand how you can translate passbolt in your favorite language, check out the <a href="https://help.passbolt.com/contribute/translation">documentation</a>. We have tried our best to make the translation process fairly easy and accessible to everyone.</p>
+
+<p>This release also introduces a new subscription key management feature available directly from the application’s main administration panel. This feature will help administrators manage their subscriptions more efficiently.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/05/AD_subscription_management.png" alt="Subscription management" style="max-width:;" />
+    <span class="legend">fig. Subscription management</span>
+</figure>
+
+<p>Another aspect of this release is the upgrade of the passbolt API code base to CakePHP v4. This upgrade was necessary and sets the foundations of the new avatars management system, where the users’ avatars are now stored primarily in the database rather than in the file system. This long planned improvement has several benefits among which is a simpler backup workflow as well as the ability to deploy passbolt in high availability.</p>
+
+<p>Finally, the team is proud to share with the community the results of the annual security audit part II performed by <a href="https://cure53.de">Cure53</a> with a focus on the webextensions. The positive results validate the continuous efforts of the team.</p>
+
+<p>“<em>The Passbolt extension stands strong and the audit and pentest did not manage to unveil any serious severity bugs, whereas the overall number of problems is also limited to just two minor flaws.</em>”</p>
+
+<p>To know more about this audit, checkout the <a href="https://medium.com/passbolt/passbolt-security-audit-2021-da77bac10ed9">blog article</a>.</p>
+
+<p>A big thank you to <a href="https://www.crowdin.com">Crowdin</a> for providing us with their amazing translation platform for free. Huge thanks also to the people who have reported and documented bugs on github and the community forum including: @noinlj, @flifloo, @svenseeberg, @Kassouma and many more.</p>
+
+<h1 id="api">API</h1>
+<h2 id="322---2021-06-16">[3.2.2] - 2021-06-16</h2>
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>PB-5910 Fix ldap admin screen should load only default admin users who are active and not deleted</li>
+</ul>
+
+<h2 id="321---2021-06-04">[3.2.1] - 2021-06-04</h2>
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>GITHUB-402 Fix API v3 regression, login must accept JSON data</li>
+</ul>
+
+<h2 id="320---2021-05-31">[3.2.0] - 2021-05-31</h2>
+<h3 id="added">Added</h3>
+<ul>
+  <li>PB-5054 French internationalisation</li>
+  <li>
+    <p>PB-5171 As logged-in user, I can paginate the result of the users and resources index controllers</p>
+  </li>
+  <li>
+    <p>PB-5526 As admin I can save the subscription key as an organisation setting</p>
+  </li>
+  <li>PB-5854 As logged-in user I can save the locale of a user as an account setting</li>
+  <li>
+    <p>PB-5854 As admin I can save the locale the organisation as organisation setting</p>
+  </li>
+  <li>PB-5985 As a system administrator I should be able to import a subscription key from the command line</li>
+</ul>
+
+<h3 id="fixed-2">Fixed</h3>
+<ul>
+  <li>PB-5523 Fix as system administrator I should see the healthcheck errors colored in red</li>
+  <li>
+    <p>PB-5860 Fix password max length should be set to 4096 in resource type definitions</p>
+  </li>
+  <li>
+    <p>PB-6007 Fix all group managers should receive an email when a new user is added to a group after a Ldap synchronization</p>
+  </li>
+  <li>PB-6031 Fix as LU I shouldn’t get a fatal error when using a scalar instead of an array for some filters values</li>
+  <li>PB-6131 Fix healthcheck error messages display</li>
+</ul>
+
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>PB-5975 Test code with PHPStan - level 4</li>
+  <li>PB-7576 Avatar table should use created and modified for timestamp and not created_at and modified_at</li>
+  <li>PB-5527 Move avatar in database</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-5527 Migration to CakePHP4</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>Remove X-XSS-Protection as per Cure53 <a href="https://help.passbolt.com/assets/files/PBL-01-report.pdf">audit result and recommendations</a></li>
+</ul>
+
+<h1 id="browser-extension">Browser Extension</h1>
+<h2 id="323---2021-06-07">[3.2.3] - 2021-06-07</h2>
+<h3 id="fixed-3">Fixed</h3>
+<ul>
+  <li>PB-7561 Fix as LU I should import CSV containing non latin1 characters</li>
+  <li>PB-7563 Update passbolt styleguide dependencies</li>
+</ul>
+
+<h2 id="322---2021-05-31">[3.2.2] - 2021-05-31</h2>
+<h3 id="fixed-4">Fixed</h3>
+<ul>
+  <li>PB-7569 As AN with an unconfigured extension on chrome I should not get an error clicking on the toolbar passbolt icon</li>
+</ul>
+
+<h2 id="321---2021-05-26">[3.2.1] - 2021-05-26</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-5054 French internationalisation</li>
+  <li>PB-5526 As AD I can manage the subscription key from the administration panel</li>
+</ul>
+
+<h3 id="fixed-5">Fixed</h3>
+<ul>
+  <li>PB-5366 Fix share autocomplete search results can be invalid</li>
+  <li>PB-5498 Fix image version displayed after avatar upload</li>
+  <li>PB-5861 Fix serializePlaintextDto should validate secret maxlength if resourceTypeId is set to legacy type, or not set</li>
+  <li>PB-5909 Fix as logged-in user aborting a preview operation I should not see an empty preview</li>
+  <li>PB-5983 Fix as logged-in user I can import passwords with non latin characters</li>
+  <li>PB-6008 Fix as logged-in user I should get a feedback in the quickaccess when I try to autofill credentials on a page, but an error occurred</li>
+  <li>PB-6080 Fix add favorites fetch payload error</li>
+</ul>
+
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>PB-5443 As logged-in user I should get a visual feedback when the maximum length of the secret fields is reached so that I do not lose data</li>
+  <li>PB-5455 As logged-in user selecting a description order to copy it should not enter the description edit mode</li>
+  <li>PB-5496 As logged-in user updating my avatar I should see the error message if an error occurred</li>
+  <li>PB-5857 As logged-in user I should be able to change the user role in the create/edit user dialog by clicking on the checkbox label</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-6012 Fix the quickaccess suggestion component should not suggest TLD entries (PB-01-002)</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-5069 Migrate moment to Luxon</li>
+  <li>PB-5884 Move quickaccess front end code to the styleguide repository</li>
+  <li>PB-5887 Fix semantic gap in naming conventions in styleguide</li>
+  <li>PB-5959 Bump webpack to v5</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"La Clé Des Champs"</p>
+                                <a href="https://youtu.be/qd_8mm906GA" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

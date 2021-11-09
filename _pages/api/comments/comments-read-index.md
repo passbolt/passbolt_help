@@ -103,7 +103,7 @@ Arequest to fetch all comments posted on a Resource identified by id ecf0ed85-3b
 includes information about who created and modified will look like this:
 
 ```bash
-GET /comments/resource/ecf0ed85-3bfc-5f45-b11d-74e9a86aa313.json?api-version=v2
+GET /comments/resource/ecf0ed85-3bfc-5f45-b11d-74e9a86aa313.json
     &contain[creator]=1
     &contain[modifier]=1
 ```

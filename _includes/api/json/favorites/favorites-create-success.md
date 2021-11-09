@@ -4,10 +4,9 @@
         "id": "0bade2b5-db54-4537-872e-b82f33dee3e6",
         "status": "success",
         "servertime": 1555055916,
-        "title": "app_favorites_add_success",
         "action": "0ed6c4a8-8c1f-52c6-9859-67f37794a02e",
         "message": "The resource was marked as favorite.",
-        "url": "/favorites/resource/4d7adb92-0d85-56d7-8b92-e2b919ef8eb8.json?api-version=v2",
+        "url": "/favorites/resource/4d7adb92-0d85-56d7-8b92-e2b919ef8eb8.json",
         "code": 200
     },
     "body": {

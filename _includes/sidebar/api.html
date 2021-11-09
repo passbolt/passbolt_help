@@ -8,7 +8,14 @@
       {% else %}
       <li>
       {% endif %}
-          <a href="{{ item.url | absolute_url }}">{{ item.title }}</a>
+          <a href="{{ item.url | absolute_url }}">
+              {{ item.title }}
+              {% if item.pro %}
+              <span class="pill">
+                  PRO
+              </span>
+              {% endif %}
+          </a>
 
           {% if page.category contains item.slug %}
           {% if item.data %}

@@ -11,7 +11,7 @@ A Comment can only be deleted by it’s owner.
 A Comment can be deleted subject to relevant permissions by sending a `DELETE` request to `/comments/commentId.json`
 
 ```
-DELETE /comments/commentId.json?api-version=v2
+DELETE /comments/commentId.json
 ```
 
 ### Possible responses

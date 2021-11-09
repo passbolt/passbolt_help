@@ -16,16 +16,17 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a...">
-    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Backing up a passbolt installation" />
-    <meta property="og:description" content="Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important information, it is equally important to have a..." />
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/cookie-eu-banner.css">
-    <link rel="canonical" href="http://localhost:4000/hosting/backup/from-source">
-    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/backup/from-source">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
 </head>
 
@@ -98,27 +99,27 @@
         </li>
         
         <li >
-            <a href="http://localhost:4000/faq/hosting">Hosting FAQ</a>
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
         </li>
         
         
         <li >
-            <a href="http://localhost:4000/hosting/install">Installation</a>
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
         </li>
         
         
         <li >
-            <a href="http://localhost:4000/hosting/update">Update</a>
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
         </li>
         
         
         <li >
-            <a href="http://localhost:4000/hosting/upgrade">Upgrade</a>
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
         </li>
         
         
         <li >
-            <a href="http://localhost:4000/hosting/backup">Backup</a>
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
         </li>
         
         
@@ -164,12 +165,12 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting"><span>hosting</span></a>
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
                     </div>
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting/backup"><span>backup</span></a>
+                        <a href="https://help.passbolt.com/hosting/backup"><span>backup</span></a>
                     </div>
                 </li>
                 
@@ -177,7 +178,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="http://localhost:4000/hosting/backup/from-source.html"><span>from_source</span></a>
+                        <a href="https://help.passbolt.com/hosting/backup/from-source.html"><span>from_source</span></a>
                     </div>
                 </li>
                 
@@ -194,6 +195,7 @@
 
                         <div class="row">
   <div class="col7">
+
     <p>Making regular backups is a critical aspect of managing a passbolt instance. Because passbolt stores important
 information, it is equally important to have a backup strategy in place.</p>
 
@@ -211,22 +213,27 @@ Please automate and customize this process to match the needs and policies of yo
 
     <h2 id="what-to-backup">What to backup?</h2>
 
-    <p>There are several elements you need to backup:</p>
+    <p>If you are a PRO user, ensure you have a backup of your subscription key.</p>
+
+    <p>There are also several elements you need to backup:</p>
 
     <h4 id="the-database">1. The database</h4>
 
     <p>This can be easily scripted using <a href="https://mariadb.com/kb/en/mariadb/mysqldump/">mysqldump</a> for example:</p>
+
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>pass] <span class="o">[</span>db] <span class="o">&gt;</span> /path/to/backup.sql
 </code></pre></div>    </div>
-    <h4 id="the-avatars">2. The avatars</h4>
 
-    <p>The images in <code class="language-plaintext highlighter-rouge">webroot/img/public</code> also need to be backed up, otherwise profile images will be lost.</p>
+    <h4 id="the-server-public-and-private-keys">2. The server public and private keys</h4>
 
-    <h4 id="the-server-public-and-private-keys">3. The server public and private keys</h4>
+    <p>The easiest way is copy the server OpenPGP key in <code class="language-plaintext highlighter-rouge">config/gpg</code>.</p>
 
-    <p>You can copy the server OpenPGP key in <code class="language-plaintext highlighter-rouge">config/gpg</code> or export it directly from GnuPG.</p>
+    <ul>
+      <li>private key is <code class="language-plaintext highlighter-rouge">serverkey_private.asc</code></li>
+      <li>public key is <code class="language-plaintext highlighter-rouge">serverkey.asc</code></li>
+    </ul>
 
-    <p>To export it using GnuPG you can use the email attached to your keys to identify them or use the fingerprint.
+    <p>Another method is to export it using GnuPG. You can use the email attached to your keys to identify them or use the fingerprint.
 In order to find the fingerprint if you do not know the email attached to your keys:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"gpg --list-keys"</span>
@@ -239,13 +246,41 @@ In order to find the fingerprint if you do not know the email attached to your k
 </code></pre></div>    </div>
     <p>Where <identifier> can be the key fingerprint or the email associated with the key you want to export.</identifier></p>
 
-    <h5 id="note">Note</h5>
+    <div class="message warning">
+    <p>
+        Be sure to <strong>remove the expiration time</strong> before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.
+    </p>
+    
+</div>
 
-    <p>Be sure to <strong>remove the expiration time</strong> before importing the keys at backup restore. While restoring the backup, the imported keys cannot have an expiry date.</p>
+    <h4 id="the-application-configuration">3. The application configuration</h4>
 
-    <h4 id="the-application-configuration">4. The application configuration</h4>
+    <p>Passbolt configuration file is located in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>.</p>
 
-    <p>The file located in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>. It is optional, but it can save you some time if you need to rebuild a new instance.</p>
+    <h4 id="the-avatars-for-passbolt-version-prior-to-32">4. The avatars (for Passbolt version prior to 3.2)</h4>
+
+    <div class="message notice">
+    <p>
+    Since Passbolt 3.2, user’s avatars are no longer stored on disk but on the avatars table of passbolt database.
+    </p>
+    
+</div>
+
+    <p>Back up <code class="language-plaintext highlighter-rouge">webroot/img/public</code> to avoid losing the profile images.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo tar </span>cvfzp passbolt-avatars.tar.gz <span class="nt">-C</span> /var/www/passbolt/ webroot/img/avatar
+</code></pre></div>    </div>
+
+    <h2 id="backup-list">Backup list</h2>
+
+    <p>At the end of the backup process you should have:</p>
+
+    <ul>
+      <li>a dump of your database</li>
+      <li>the server public and private GPG keys</li>
+      <li>a copy of your config/passbolt.php configuration file</li>
+      <li>a copy of your avatar folder (<strong>only if Passbolt version &lt; 3.2</strong>)</li>
+    </ul>
 
     <h2 id="what-about-the-secret-keys-of-my-collaborators">What about the secret keys of my collaborators?</h2>
 
@@ -313,9 +348,9 @@ March
     </div>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
 <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
-<script src="http://localhost:4000/assets/js/cookies-eu-banner.js"></script>
-<script src="http://localhost:4000/assets/js/analytics.js"></script>
-<script src="http://localhost:4000/assets/js/greedynav.js"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
 </body>
 
 </html>

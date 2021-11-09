@@ -10,7 +10,7 @@ permalink: /api/favorites/delete
 To remove a resource from your favorite list:
 
 ```
-DELETE /favorites/<favoriteId>.json?api-version=v2
+DELETE /favorites/<favoriteId>.json
 ```
 
 ### Possible responses

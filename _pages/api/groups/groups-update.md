@@ -10,7 +10,7 @@ permalink: /api/groups/update
 A Group can be updated by sending the `PUT` request to `/groups/<groupId>.json`.
 
 ```
-PUT /groups/<groupId>.json?api-version=v2
+PUT /groups/<groupId>.json
 ```
 ```json
 {
@@ -35,7 +35,7 @@ The dry-run gives information about this.
 
 A dry run can also be performed before actually attempting to update a group:
 ```
-PUT /groups/<groupId>/dry-run.json?api-version=v2
+PUT /groups/<groupId>/dry-run.json
 ```
 
 This will check all the constraints and return a 200 OK response if the group can be updated safely.

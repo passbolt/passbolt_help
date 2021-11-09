@@ -11,12 +11,12 @@ It is possible to get data for a single user identified by the unique UUID.
 All you need is to make a `GET` request to `/users/<userId>.json`.
 
 ```
-GET /users/<userId>.json?api-version=v2
+GET /users/<userId>.json
 ```
 
 Alternatively you can request information about the current user using:
 ```
-GET /users/me.json?api-version=v2
+GET /users/me.json
 ```
 
 ### Possible responses

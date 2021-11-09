@@ -11,7 +11,7 @@ A Resource can be deleted subject to relevant permissions by sending a `DELETE` 
  `/resources/<resourceId>.json`.
 
 ```
-DELETE /resources/<resourceId>.json?api-version=v2
+DELETE /resources/<resourceId>.json
 ```
 
 ### Possible responses

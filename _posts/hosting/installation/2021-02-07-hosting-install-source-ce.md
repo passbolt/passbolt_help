@@ -26,17 +26,17 @@ taking into account the specifics related to each and every linux distribution.
 
 ## System requirements
 
-{% include hosting/v3-requirements.md %}
+{% include hosting/v3-sources-requirements.md %}
 
 ## Installation steps
 
 ### 1. Create a web server matching the system requirements.
 
 Spin up a new fresh server with your favorite distribution, install a database server
-and a webserver with a TLS certificate. If you are using apache as web server make sure you 
+and a webserver with a TLS certificate. If you are using apache as web server make sure you
 have mod_rewrite module enabled.
 
-Find out your web server user. Some commands need to be run as the same user running the web server. Generally on Debian 
+Find out your web server user. Some commands need to be run as the same user running the web server. Generally on Debian
 systems it will be `www-data` but on other distributions like Centos it could be for example `nginx` or `http`.
 For the rest of this tutorial we will assume that the user named `www-data`.
 
@@ -70,8 +70,8 @@ subsequent updates.
 ### 4. Generate an OpenPGP key
 
 Passbolt API uses an OpenPGP key for the server in order to authenticate and sign the outgoing JSON requests.
-For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the 
-php module. 
+For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the
+php module.
 
 {% include hosting/install/warning-gpg-key-generation.html %}
 
@@ -155,9 +155,81 @@ Optionally you can also run the health check to see if everything is fine.
 $ sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
 ```
 
-### 9. Setup the emails
+### 9. Configure Nginx
 
-For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the 
+#### Configure Nginx for serving HTTPS
+
+Depending on your needs there are two different options to setup nginx and SSL :
+
+- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
+- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
+
+Be sure to write down the full path to your cert/key combo, it will be needed later in the Nginx configuration process.
+
+Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.
+
+#### Configure Nginx to serve passbolt
+
+For Nginx to serve passbolt, you will need to set up a server block file :
+
+```shell
+$ nano /etc/nginx/sites-enabled/passbolt.conf
+```
+
+You can use this default configuration sample (do not forget to replace PLACEHOLDERS with your values) :
+
+```shell
+server {
+  listen [::]:443 ssl http2;
+  listen 443 ssl http2;
+
+  server_name __SERVER_NAME__;
+
+  client_body_buffer_size     100K;
+  client_header_buffer_size   1k;
+  client_max_body_size        5M;
+  client_body_timeout   10;
+  client_header_timeout 10;
+  keepalive_timeout     5 5;
+  send_timeout          10;
+
+  ssl_certificate     __CERTIFICATE_PATH__;
+  ssl_certificate_key __KEY_PATH__;
+  ssl_session_timeout 1d;
+  ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
+  ssl_session_tickets off;
+  ssl_protocols TLSv1.2 TLSv1.3;
+  ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
+  ssl_prefer_server_ciphers off;
+  root /var/www/passbolt/webroot;
+  index index.php;
+  location / {
+    try_files $uri $uri/ /index.php?$args;
+  }
+  location ~ \.php$ {
+    try_files                $uri =404;
+    include                  fastcgi_params;
+    fastcgi_pass             unix:/run/php/__PHP_VERSION__-fpm.sock;
+    fastcgi_index            index.php;
+    fastcgi_intercept_errors on;
+    fastcgi_split_path_info  ^(.+\.php)(.+)$;
+    fastcgi_param            SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    fastcgi_param            SERVER_NAME $http_host;
+    fastcgi_param PHP_VALUE  "upload_max_filesize=5M \n post_max_size=5M";
+  }
+}
+```
+
+Then, reload the Nginx process so that it takes your new configuration into account :
+
+```
+$ sudo systemctl reload nginx
+```
+
+
+### 10. Setup the emails
+
+For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the
 `config/passbolt.php` file to match your provider smtp details.
 
 Emails are placed in a queue that needs to be processed by the following shell.
@@ -165,15 +237,13 @@ Emails are placed in a queue that needs to be processed by the following shell.
 $ ./bin/cake EmailQueue.sender
 ```
 
-In order to have your emails sent automatically, you can add a cron call to the script so the emails 
+In order to have your emails sent automatically, you can add a cron call to the script so the emails
 will be sent every minute. Run the following command to edit the crontab for the www-data user:
 ```bash
 $ crontab -u www-data -e
 ```
 
-Add the following line to the crontab:
-```bash
-You can add a cron call to the script so the emails will be sent every minute. 
+You can add a cron call to the script so the emails will be sent every minute.
 Add the following line to you crontab:
 ```bash
  * * * * * /var/www/passbolt/bin/cron >> /var/log/passbolt.log

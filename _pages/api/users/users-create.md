@@ -8,11 +8,11 @@ permalink: /api/users/create
 ---
 
 Only users with Admin role can create other users.
-To create a new User, make a `POST` request to `/users.json?api-version=v2` with the user data in 
+To create a new User, make a `POST` request to `/users.json` with the user data in 
 request body.
 
 ```
-POST /users.json?api-version=v2
+POST /users.json
 ```
 
 ### Request data
@@ -144,7 +144,7 @@ The user making the request is not authenticated
 And a valid request body will look like:
 
 ```
-POST /users.json?api-version=v2
+POST /users.json
 ```
 ```json
 {
@@ -167,10 +167,9 @@ For example sending a blank request body will return:
         "id": "a91e1c30-568f-4889-8eec-dd78c0a00543",
         "status": "error",
         "servertime": 1554981597,
-        "title": "app_users_addPost_error",
         "action": "a1a15b91-72f6-5708-8d7f-6940e51d8595",
         "message": "Could not validate user data.",
-        "url": "\/users.json?api-version=v2",
+        "url": "\/users.json",
         "code": 400
     },
     "body": {

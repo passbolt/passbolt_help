@@ -11,7 +11,7 @@ It is possible to get data for a single group identified by the unique UUID.
 All you need is to make a `GET` request to `/groups/<groupId>.json`.
 
 ```
-GET /groups/<groupId>.json?api-version=v2
+GET /groups/<groupId>.json
 ```
 
 ### Possible responses
@@ -65,10 +65,9 @@ GET /groups/<groupId>.json?api-version=v2
         "id": "0021ec45-b990-4217-81e8-c1818d7554be",
         "status": "success",
         "servertime": 1556046857,
-        "title": "app_groups_view_success",
         "action": "f0c5d1cd-b3e3-5494-8fb7-73a427790ce2",
         "message": "The operation was successful.",
-        "url": "\/groups\/469edf9d-ca1e-5003-91d6-3a46755d5a50.json?api-version=v2",
+        "url": "\/groups\/469edf9d-ca1e-5003-91d6-3a46755d5a50.json",
         "code": 200
     },
     "body": {

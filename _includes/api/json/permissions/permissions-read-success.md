@@ -4,10 +4,9 @@
         "id": "b41a75a3-4139-44fb-87b8-beea815dc650",
         "status": "success",
         "servertime": 1555068081,
-        "title": "app_permissions_viewAcoPermissions_success",
         "action": "1df624ae-eea2-5055-a202-d1068feefe04",
         "message": "The operation was successful.",
-        "url": "\/permissions\/resource\/4d7adb92-0d85-56d7-8b92-e2b919ef8eb8.json?api-version=v2",
+        "url": "\/permissions\/resource\/4d7adb92-0d85-56d7-8b92-e2b919ef8eb8.json",
         "code": 200
     },
     "body": [

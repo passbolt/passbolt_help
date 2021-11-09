@@ -7,7 +7,8 @@ slug: resources-share
 permalink: /api/resources/share
 ---
 
-A [Resource](/api/resources) can be shared with another [User](/api/users) or [Group](/api/groups). Which essentially means adding permissions to the Resource for the User/Group.
+A [Resource](/api/resources) can be shared with another [User](/api/users) or [Group](/api/groups). 
+Which essentially means adding permissions to the Resource for the User/Group.
 
 Permissions in passbolt use some Access Control List (ACL) lingo. Mostly two concepts:
 - Access Control Object (ACO) that represents something that is wanted, like a resource and its secrets.
@@ -20,7 +21,7 @@ In order to know the list of AROs with whom a Resource can be shared, you can us
 To get the ARO list make a GET request to /share/search-aros.json
 
 ```
-GET /share/search-aros.json?api-version=v2
+GET /share/search-aros.json
 ```
 
 The response returned will have an array of json objects, each representing either a Group or a User.
@@ -31,10 +32,9 @@ The response returned will have an array of json objects, each representing eith
         "id": "1e0b7ca1-8427-4ec4-a46e-b3dc4f11f878",
         "status": "success",
         "servertime": 1554968444,
-        "title": "app_share_searchArosToShareWith_success",
         "action": "10807e9e-d525-5acc-b05d-cccbbd252a93",
         "message": "The operation was successful.",
-        "url": "\/share\/search-aros.json?api-version=v2",
+        "url": "\/share\/search-aros.json",
         "code": 200
     },
     "body": [
@@ -183,7 +183,7 @@ you can make a `POST` request to `/share/simulate/resource/<resourceId>.json` wh
 [Resource](/api/resources) you wish to share.
 
 ```
-POST /share/simulate/resource/<resourceId>.json?api-version=v2
+POST /share/simulate/resource/<resourceId>.json
 ```
 
 If the resource can be shared safely, this returns an associative array that contains a list of new users who 
@@ -196,10 +196,9 @@ encrypt the secrets for the users who get access and to remove the secrets of th
         "id": "499657b1-463c-49e3-99d0-7d4bca7392c2",
         "status": "success",
         "servertime": 1554972001,
-        "title": "app_share_dryRun_success",
         "action": "7df37cb5-cfb9-57c2-a7a5-b65c9f573de0",
         "message": "The operation was successful.",
-        "url": "\/share\/simulate\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json?api-version=v2",
+        "url": "\/share\/simulate\/resource\/8e3874ae-4b40-590b-968a-418f704b9d9a.json",
         "code": 200
     },
     "body": {
@@ -218,7 +217,7 @@ you can make a `PUT` request to `/share/simulate/resource/<resourceId>.json` whe
 [Resource](/api/resources) you wish to share.
 
 ```
-PUT /share/resource/<resourceId>.json?api-version=v2
+PUT /share/resource/<resourceId>.json
 ```
 
 The request schema is same as above while the response can be either of the following.

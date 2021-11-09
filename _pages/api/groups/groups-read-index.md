@@ -11,7 +11,7 @@ To fetch a list of all the groups the current user making the request has access
 a `GET` request to `/groups.json`
 
 ```
-GET /groups.json?api-version=v2
+GET /groups.json
 ```
 ### Parameters
 
@@ -156,7 +156,7 @@ So a request to fetch list of groups and to
 will look like this:
 
 ```
-GET /groups.json?api-version=v2
+GET /groups.json
   &contain[user]=1
   &order[]=Group.name+ASC
   
@@ -172,7 +172,6 @@ Something like this example below:
         "id": "f5f4aceb-6919-4b7d-8b33-2c22f463192d",
         "status": "success",
         "servertime": 1554983137,
-        "title": "app_groups_index_success",
         "action": "3cffe6ef-ea4c-5bc3-869b-945f26e2601a",
         "message": "The operation was successful.",
         "url": "\/groups.json?contain%5Buser%5D=1\u0026order%5B%5D=Group.name+ASC\u0026api-version=v2",

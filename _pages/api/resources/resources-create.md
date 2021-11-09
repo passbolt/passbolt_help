@@ -11,14 +11,14 @@ To create a new Resource, make a `POST` request to `/resources.json` with the en
 You must encrypt the data with the current user public key. And a valid request body will look like:
 
 ```
-POST /resources.json?api-version=v2
+POST /resources.json
 ```
 ```json
 { 
   "name": "<string>",
   "description": "<string>",
   "secrets": [{
-    "data": "<encrypted_password>"
+    "data": "<encrypted_data>"
   }]
 }
 ```
@@ -78,6 +78,12 @@ The request body expects the following parameters:
             </td>
         </tr>
         <tr>
+            <td>resource_type_id</td>
+            <td>UUID</td>
+            <td>The resource type id</td>
+            <td>No</td>
+        </tr>
+        <tr>
             <td>secrets</td>
             <td>An array of secrets in object format</td>
             <td>Array</td>
@@ -125,13 +131,25 @@ The request body expects the following parameters:
 ## Examples
 ### Valid request
 
+For example for a resource with encrypted description (assuming the resource_type_id is correct):
+```
+POST /resources.json
+```
 ```json
 { 
   "name": "Apple developer ID",
-  "description": "Official apple account to publish apps on the app store",
+  "resource_type_id": "e2aa01a9-84ec-55f8-aaed-24ee23259339",
   "secrets": [{
-    "data": "<encrypted_password>"
+    "data": "-----BEGIN PGP MESSAGE-----"
   }]
+}
+```
+
+The non encrypted data OpenPGP message would look like:
+```
+{
+    "password": "Correct Horse Battery Staple",
+    "description": "Official apple account to publish apps on the app store"
 }
 ```
 

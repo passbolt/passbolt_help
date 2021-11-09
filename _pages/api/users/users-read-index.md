@@ -12,7 +12,7 @@ permalink: /api/users/read-index
 To fetch a list of all the users use the request:
 
 ```
-GET /users.json?api-version=v2
+GET /users.json
 ```
 
 ### Request Parameters:
@@ -250,10 +250,9 @@ A successful response will have an array of json objects. Each representing a si
         "id": "9f78d01c-f2df-453c-b1d4-aa600547ae93",
         "status": "success",
         "servertime": 1554976847,
-        "title": "app_users_index_success",
         "action": "d7bc9044-a64e-5421-a4d7-7a94eaa39d37",
         "message": "The operation was successful.",
-        "url": "\/users.json?api-version=v2",
+        "url": "\/users.json",
         "code": 200
     },
     "body": [

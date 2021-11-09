@@ -6,16 +6,32 @@
 	  /_/    \__,_/____/____/_,___/\____/_/\__/
 	
 	The open-source password management solution for teams
-	(c) 2019 Passbolt SA
+	(c) 2021 Passbolt SA
 	https://www.passbolt.com
-
 
 ## License
 
-Passbolt help code is distributed under the [Affero General Public License v3](http://www.gnu.org/licenses/agpl-3.0.html)
-Passbolt help text is distributed under [Creative Common BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+Passbolt help site code is distributed under the [Affero General Public License v3](http://www.gnu.org/licenses/agpl-3.0.html)
 
-Logos in /assets/img/third_party belongs to their respective owners.
+Passbolt help text are distributed under [Creative Common BY-SA-4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
+Logos in /assets/img/third_party belongs to their respective owners and used for illustrative purpose.
+
+Passbolt - Open source password manager for teams
+(c) 2021 Passbolt SA
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General 
+Public License (AGPL) as published by the Free Software Foundation version 3.
+
+The name "Passbolt" is a registered trademark of Passbolt SA, and Passbolt SA hereby declines to grant a trademark 
+license to "Passbolt" pursuant to the GNU Affero General Public License version 3 Section 7(e), without a separate 
+agreement with Passbolt SA.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied 
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with this program. If not, see GNU 
+Affero General Public License v3.
 
 ## About Passbolt help site
 
@@ -26,6 +42,8 @@ Find out more about passbolt here:
 ## Quick start
 This site is developed using Jekyll.
 To get started please read Jekyll [quick start guide](https://jekyllrb.com/docs/quickstart/).
+
+*Note: On MacOs BigSur, the known ruby working  version is 2.7.4*
 
 ```
 gem install jekyll bundler
@@ -57,8 +75,5 @@ See [npm-link](https://docs.npmjs.com/cli/link) for more information.
 
 ### Adding images
 Similarly if you want to add images to this site make sure you do not include them in assets folders that are
-reserved by the styleguide such as `/assets/img/screenshots` or `/assets/img/logo`. Instead you can place them in `/assets/img/help`.
-
-## Credits
-
-https://www.passbolt.com/credits
+reserved by the styleguide such as `/assets/img/screenshots` or `/assets/img/logo`. Instead you can place 
+them in `/assets/img/help`.

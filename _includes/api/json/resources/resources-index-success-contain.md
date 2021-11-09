@@ -5,7 +5,6 @@
         "id": "886a798f-11cd-4340-b488-70e57d56f5db",
         "status": "success",
         "servertime": 1555054043,
-        "title": "app_resources_index_success",
         "action": "c506210f-7866-5691-8fc1-58772e8f49f1",
         "message": "The operation was successful.",
         "url": "\/resources.json?contain%5Bcreator%5D=1\u0026contain%5Bfavorite%5D=1\u0026contain%5Bmodifier%5D=1\u0026contain%5Bpermission%5D=1\u0026contain%5Btag%5D=1\u0026order%5B%5D=Resource.modified+DESC",
@@ -23,6 +22,7 @@
             "modified": "2019-04-11T08:53:06+00:00",
             "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
             "modified_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "resource_type_id": "e2aa01a9-84ec-55f8-aaed-24ee23259339",
             "favorite": null,
             "modifier": {
                 "id": "f848277c-5398-58f8-a82a-72397af2d450",
@@ -88,6 +88,7 @@
             "modified": "2019-04-11T07:23:00+00:00",
             "created_by": "f848277c-5398-58f8-a82a-72397af2d450",
             "modified_by": "f848277c-5398-58f8-a82a-72397af2d450",
+            "resource_type_id": "e2aa01a9-84ec-55f8-aaed-24ee23259339",
             "favorite": null,
             "modifier": {
                 "id": "f848277c-5398-58f8-a82a-72397af2d450",

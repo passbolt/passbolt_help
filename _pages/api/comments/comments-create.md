@@ -11,7 +11,7 @@ To create a new comment on a resource, make a POST request with the comment data
 And a valid request will look like:
 
 ```
-POST /comments/resource/<resourceId>.json?api-version=v2
+POST /comments/resource/<resourceId>.json
 ```
 ```json
 {

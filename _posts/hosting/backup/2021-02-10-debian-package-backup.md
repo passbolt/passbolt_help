@@ -4,6 +4,7 @@ date: 2021-02-10 00:00:00 Z
 card_teaser: Backing up a debian package passbolt installation
 card_title: Debian package
 icon: fa-download
+card_position: 2
 categories: [hosting,backup]
 sidebar: hosting
 layout: default
@@ -11,44 +12,18 @@ slug: debian
 permalink: /:categories/:slug.html
 ---
 
+{% assign product = 'pro' %}
+{% assign distribution = 'debian' %}
+{% assign distributionVersion = '10' %}
+{% assign distributionVersionName = 'buster' %}
+{% assign distributionSlug = 'debian' %}
+{% assign distributionLabel = 'Debian' %}
+{% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
+
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/backup/backup_intro.md %}
-
-#### 1. The database
-
-A simple script using [mysqldump](https://mariadb.com/kb/en/mariadb/mysqldump/)
-would work. For instance:
-
-```bash
-mysqldump -u[user] -p[pass] [db] > /path/to/backup.sql
-```
-
-#### 2. The configuration files
-
-Passbolt debian package stores all configuration files under `/etc/passbolt/*`
-
-This includes:
-  - Gpg serverkeys under `/etc/passbolt/gpg/*`
-  - Configuration files such as passbolt.php `/etc/passbolt/passbolt.php`
-
-Back this files up with the following example:
-
-```bash
-sudo tar cvfz passbolt-config.tar.gz /etc/passbolt
-```
-
-#### 2. The avatars
-
-Back up `/usr/share/php/passbolt/webroot/img/avatar` to avoid losing
-the profile images.
-
-```bash
-sudo tar cvfz passbolt-avatar.tar.gz /usr/share/php/passbolt/webroot/img/avatar
-```
-
-{% include hosting/backup/backup_collaborators_keys.md %}
+{% include hosting/backup/backup_package_full_page.md %}
 
 {% include date/updated.html %}
 

@@ -47,6 +47,19 @@ api:
       - title: Share
         slug: resources-share
         url: /api/resources/share
+      - title: Move
+        slug: resources-move
+        url: /api/resources/move
+  - title: Resources Types
+    slug: resource-types
+    url: /api/resource-types
+    data:
+      - title: Index
+        slug: resources-read-index
+        url: /api/resource-types/read-index
+      - title: Read
+        slug: resources-read
+        url: /api/resource-types/read
   - title: Secrets
     slug: secrets
     url: /api/secrets
@@ -134,3 +147,29 @@ api:
       - title: Delete
         slug: favorites-delete
         url: /api/favorites/delete
+  - title: Folders
+    slug: folders
+    pro: true
+    url: /api/folders
+    data:
+     - title: Index
+       slug: folders-read-index
+       url: /api/folders/read-index
+     - title: Read
+       slug: folders-read
+       url: /api/folders/read
+     - title: Create
+       slug: folders-create
+       url: /api/folders/create
+     - title: Update
+       slug: folders-update
+       url: /api/folders/update
+     - title: Delete
+       slug: folders-delete
+       url: /api/folders/delete
+     - title: Share
+       slug: folders-share
+       url: /api/folders/share
+     - title: Move
+       slug: folders-move
+       url: /api/folders/move

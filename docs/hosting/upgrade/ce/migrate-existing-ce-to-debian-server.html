@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Migrate an existing Passbolt CE to a new Debian server</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Migrate an existing Passbolt CE to a new Debian server" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-debian-server">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-09-16-migrate-existing-ce-to-debian-server.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li>
+            <h2>Hosting</h2>
+        </li>
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
+        
+        
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-debian-server.html"><span>migrate-existing-ce-to-debian-server</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Migrate an existing Passbolt CE to a new Debian server</h1>
+</div>
+</div>
+
+                        
+<div class="row">
+  <div class="col7">
+
+    <p>This document describes how to migrate an existing passbolt to a new Debian server.</p>
+
+    <h2 id="pre-requisites">Pre-requisites</h2>
+
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>Passbolt installed on an old server</li>
+      <li>A minimal Debian 10 new server</li>
+    </ul>
+
+    <h2 id="backup-the-existing-data">Backup the existing data</h2>
+
+    <p>Prior to the migration you will need to backup the existing passbolt instance data. Please refer to <a href="/hosting/backup">the official backup documentations</a>.</p>
+
+    <p>Depending on your SSL configuration you might need to copy the certificate and key from the existing instance. If you are using let’s encrypt you can continue you’ll configure it later directly in the new server.</p>
+
+    <p>Don’t delete the existing instance yet!</p>
+
+    <h2 id="prepare-the-new-debian-server">Prepare the new Debian server</h2>
+
+    <h2 id="install-the-server-components">1. Install the server components</h2>
+    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
+
+    <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt CE and install it.</p>
+
+    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
+
+    <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+</code></pre></div>    </div>
+
+    <p>Optionally you can install certbot to enable <a href="https://letsencrypt.org/">Let’s Encrypt</a> configuration:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
+</code></pre></div>    </div>
+
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key
+From keys.mailvelope.com:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Or from pgp.mit.edu:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Or from keys.gnupg.net:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key fingerprint 0xDE8B853FC155581D
+</code></pre></div>    </div>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+</code></pre></div>    </div>
+
+    <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/debian buster stable" | \
+sudo tee /etc/apt/sources.list.d/passbolt.list
+</code></pre></div>    </div>
+
+    <p><strong>Step 5.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div>    </div>
+
+    <h3 id="install-passbolt">1.2. Install passbolt</h3>
+
+    <p>By default, passbolt Debian package will install Passbolt server component, mariadb-server, php-fpm and nginx
+as dependencies.</p>
+
+    <p>There are two main ways to install the passbolt Debian package:</p>
+
+    <ul>
+      <li><strong>Interactive</strong>: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
+beginning. The user will be asked for the path and name of the certificate and key.</li>
+      <li><strong>Non-interactive</strong>: no questions will be asked. Useful for users with specific needs or users that want to automate the
+installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Read this FAQ page to know more</a></li>
+    </ul>
+
+    <h4 id="install-passbolt-package">Install passbolt package</h4>
+
+    <p>Install the main passbolt server component:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
+</code></pre></div>    </div>
+
+    <h4 id="configure-mariadb">Configure mariadb</h4>
+
+    <p>If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
+an empty mariadb database for passbolt to use.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql.png" alt="Configure mariadb dialog" style="max-width:450px;" />
+    <span class="legend">fig. Configure mariadb dialog</span>
+</figure>
+
+    <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
+You will find the root password on the server in the file <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user pass dialog</span>
+</figure>
+
+    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user pass dialog</span>
+</figure>
+
+    <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name.png" alt="Mariadb database name dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb database name dialog</span>
+</figure>
+
+    <h2 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h2>
+
+    <p>Depending on your needs there are two different options to setup nginx and SSL using the Debian package:</p>
+
+    <ul>
+      <li><a href="/configure/https/ce/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
+      <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
+    </ul>
+
+    <h2 id="migrate-the-data">Migrate the data</h2>
+
+    <p>Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
+
+    <p>You should have:</p>
+
+    <ul>
+      <li>the private and public GPG key</li>
+      <li>Your database dump</li>
+      <li>The avatar archive file <code class="language-plaintext highlighter-rouge">passbolt-avatars.tar.gz</code> if you are coming from Passbolt prior to 3.2</li>
+    </ul>
+
+    <p><strong>Step 1.</strong> Restore Passbolt configuration file and ensure rights and ownership are correct:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/passbolt.php /etc/passbolt
+sudo chown www-data:www-data /etc/passbolt/passbolt.php
+sudo chmod 440 /etc/passbolt/passbolt.php
+</code></pre></div>    </div>
+
+    <p><strong>Step 2.</strong> Restore GPG public and private keys and ensure rights and ownership are correct:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
+sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
+sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
+sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong> Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
+sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
+</code></pre></div>    </div>
+
+    <p><strong>Step 4.</strong> Load the database</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
+</code></pre></div>    </div>
+
+    <p><strong>Step 5.</strong> Migrate the Passbolt data to the latest version</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong> Test passbolt</p>
+
+    <p>Try to access your passbolt application with your browser.</p>
+
+    <p>If you are encountering any issues, you can run the following command to assess the status of your instance:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck"
+</code></pre></div>    </div>
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+September
+16th,
+2021.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when updating passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
+
+    <div class="message ">
+    <p></p>
+    
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

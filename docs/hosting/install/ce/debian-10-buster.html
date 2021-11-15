@@ -197,29 +197,11 @@
 <div class="row">
   <div class="col7">
 
-    <!---
-Required variables for this page to be displayed properly.
-product (string): The product this page will be rendered for:  ce or pro
-distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
-distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
--->
-
-    <p>This tutorial describes how to install Passbolt CE on a minimal Debian 10 (Buster) server. The installation procedure is based on install scripts that will do
-the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
-
-    <p>Installation time: 10 minutes.</p>
-
-    <p>Any doubt? Check out this <a href="https://youtu.be/rMgCQaAfJwE">step by step video of the installation</a>.</p>
-
-    <p>If you prefer to install passbolt manually please refer to this documentation: <a href="/hosting/install/ce/from-source.html">Install passbolt from source</a>.</p>
-
     <h2 id="prerequisites">Prerequisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Debian 10 (Buster) server.</li>
+      <li>A minimal Debian 10 (Buster) latest  server.</li>
       <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
     </ul>
 
@@ -236,83 +218,144 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
     
 </div>
 
-    <h2 id="configure-your-server">1. Configure your server</h2>
+    <h2 id="install-the-server-components">1. Install the server components</h2>
+    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
 
-    <h3 id="download-and-execute-the-installation-script">Download and execute the installation script</h3>
+    <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt CE and install it.</p>
 
-    <p><em>Note that you can find the source code of the install scripts on our <a href="https://github.com/passbolt/passbolt_install_scripts">git repository</a>.</em></p>
+    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
 
-    <p>The script will take care of installing all the services required by passbolt.
-It will ask you a few questions in order to adapt the environment to your needs.</p>
+    <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-O</span> passbolt-ce-installer-debian-10.tar.gz https://www.passbolt.com/ce/download/installers/debian/latest
-wget <span class="nt">-O</span> passbolt-installer-checksum https://www.passbolt.com/ce/download/installers/debian/latest-checksum
-<span class="nb">sha512sum</span> <span class="nt">-c</span> passbolt-installer-checksum
-<span class="nb">tar</span> <span class="nt">-xzf</span> passbolt-ce-installer-debian-10.tar.gz
-<span class="nb">sudo</span> ./passbolt_ce_debian_installer.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
 </code></pre></div>    </div>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png" alt="execute the install script" style="max-width:586px;" />
-    <span class="legend">fig. execute the install script</span>
-</figure>
+    <p>Optionally you can install certbot to enable <a href="https://letsencrypt.org/">Let’s Encrypt</a> configuration:</p>
 
-    <h3 id="do-you-want-to-install-a-local-mariadb-server-on-this-machine">Do you want to install a local mariadb server on this machine?</h3>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
+</code></pre></div>    </div>
+
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+</code></pre></div>    </div>
+
+    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
+
+    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Must return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+</code></pre></div>    </div>
+
+    <p><strong>Step 4.</strong> Create APT GPG keyring</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
+</code></pre></div>    </div>
+
+    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
+Types: deb
+URIs: https://download.passbolt.com/ce/debian
+Suites: 
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+</code></pre></div>    </div>
+
+    <h3 id="install-passbolt">1.2. Install passbolt</h3>
+
+    <p>By default, passbolt Debian 10 (Buster) package will install Passbolt server component, mariadb-server, php-fpm and nginx
+as dependencies.</p>
+
+    <p>There are two main ways to install the passbolt Debian 10 (Buster) package:</p>
 
     <ul>
-      <li><strong>Yes</strong>: if you are not planning on using an external mysql / mariadb server.</li>
-      <li><strong>No</strong>: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.</li>
+      <li><strong>Interactive</strong>: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
+beginning. The user will be asked for the path and name of the certificate and key.</li>
+      <li><strong>Non-interactive</strong>: no questions will be asked. Useful for users with specific needs or users that want to automate the
+installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Read this FAQ page to know more</a></li>
     </ul>
 
-    <p>The script will then ask you for the database details: root user password, non-root user name, non-root user password, database name, and database password.</p>
+    <h4 id="install-passbolt-package">Install passbolt package</h4>
 
-    <h3 id="hostname">Hostname</h3>
+    <p>Install the main passbolt server component:</p>
 
-    <p>To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
-the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
+</code></pre></div>    </div>
 
-    <p>example: my-passbolt.acme.com</p>
+    <h4 id="configure-mariadb">Configure mariadb</h4>
 
-    <h3 id="ssl-setup">SSL Setup</h3>
-    <p>Because passbolt is designed to run with HTTPS by default it is best to try to setup passbolt 
-with SSL even if this is just a test instance.</p>
-
-    <ul>
-      <li><strong>manual</strong>: (recommended) choose manual if you have your own ssl certificates.</li>
-      <li><strong>auto</strong>: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. 
-Use this option only if you have a domain name that is reachable by the outside world, or it will not work.</li>
-      <li><strong>none</strong>: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
-    </ul>
-
-    <p><strong>Important:</strong> if you choose ‘none’ and want to test the MFA, later on you will need to set 
-PASSBOLT_SECURITY_COOKIE_SECURE environment variable to false. This is to prevent a misconfigured
-server with both HTTP and HTTPS enabled from leaking sensitive cookie.</p>
-
-    <h3 id="common-gnupg-issues">Common GnuPG issues</h3>
-
-    <p>On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
-Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
- Haveged.</p>
-
-    <p>Haveged is a useful tool to fix entropy issues, however it can have security implications. Make sure you understand 
-the risks before answering yes to this question.</p>
-
-    <p><div class="message warning">
-    <strong>Do not set a passphrase or an expiration date</strong>
-    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
-    Similarly do not set an expiration date. Otherwise all your users will need to
-    perform an account recovery when you will eventually need to update the key.
-</div></p>
-
-    <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
-with the flow.</p>
-
-    <p>Your environment is now ready to support passbolt.</p>
+    <p>If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
+an empty mariadb database for passbolt to use.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png" alt="completion of the install script" style="max-width:586px;" />
-    <span class="legend">fig. completion of the install script</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql.png" alt="Configure mariadb dialog" style="max-width:450px;" />
+    <span class="legend">fig. Configure mariadb dialog</span>
 </figure>
+
+    <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
+By default in most installations the admin username would be <code class="language-plaintext highlighter-rouge">root</code> and the password would be empty.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb admin user pass dialog</span>
+</figure>
+
+    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user dialog</span>
+</figure>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb passbolt user pass dialog</span>
+</figure>
+
+    <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name.png" alt="Mariadb database name dialog" style="max-width:450px;" />
+    <span class="legend">fig. Mariadb database name dialog</span>
+</figure>
+
+    <h4 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h4>
+
+    <p>Depending on your needs there are two different options to setup nginx and SSL using the Debian 10 (Buster) package:</p>
+
+    <ul>
+      <li><a href="/configure/https/ce/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
+      <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
+    </ul>
 
     <h2 id="configure-passbolt">2. Configure passbolt</h2>
 
@@ -471,13 +514,6 @@ attacks. Each time you are performing a sensitive operation on passbolt, you sho
 
     <p>Your administrator account is configured. You will be redirected to the login page of passbolt. Enjoy!</p>
 
-    <h3 id="frequently-asked-questions">Frequently asked questions</h3>
-    <ul>
-      <li><a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a></li>
-      <li><a href="/faq/hosting/how-to-increase-auto-logout-time">How to I increase auto logout timeout?</a></li>
-      <li><a href="/faq/hosting/how-to-backup">How do I make backups</a></li>
-    </ul>
-
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
@@ -490,9 +526,9 @@ November
   <div class="col4 last push1">
 
     <div class="message tldr warning">
-    <p>This is an old method to install passbolt, please considering using the debian package</p>
+    <p>This documentation is relative to an old distribution, please consider installing passbolt on the latest Debian</p>
     
-    <a href="debian/debian.html" class="button ">Install passbolt with debian package</a>
+    <a href="debian/debian.html" class="button ">Read install manual</a>
     
 </div>
 

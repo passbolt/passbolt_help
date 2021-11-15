@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Upgrade Passbolt from CE to Pro on Debian</title>
+    <title>Passbolt Help | Upgrade from Debian 10 to Debian 11</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Upgrade Passbolt from CE to Pro on Debian" />
+    <meta property="og:title" content="Upgrade from Debian 10 to Debian 11" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-debian">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -75,7 +75,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-11-02-hosting-upgrade-pro-from-ce-debian.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-11-03-from-debian-10-to-debian-11-pro.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -178,7 +178,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-debian.html"><span>upgrade-pro-from-ce-debian</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro.html"><span>from-debian-10-to-debian-11-pro</span></a>
                     </div>
                 </li>
                 
@@ -189,7 +189,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Upgrade Passbolt from CE to Pro on Debian</h1>
+<h1>Upgrade from Debian 10 to Debian 11</h1>
 </div>
 </div>
 
@@ -197,17 +197,19 @@
 <div class="row">
   <div class="col7">
 
-    <h2 id="pre-requisites">Pre-requisites</h2>
+    <h2 id="prerequisites">Prerequisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Debian server.</li>
-      <li>Passbolt CE Debian package installed.</li>
+      <li>A Debian 10 server.</li>
+      <li>Passbolt Debian package installed.</li>
+      <li>Ensure you have sufficient space for the upgrade.</li>
     </ul>
 
-    <h2 id="upgrading-passbolt">Upgrading passbolt</h2>
+    <p>This manual has for aim to help you upgrade your distribution, but it does not replace 
+<a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">the official Debian guide</a>, please refer to it if you have any doubt.</p>
 
-    <h3 id="take-down-your-site">1. Take down your site</h3>
+    <h2 id="take-down-your-site">1. Take down your site</h2>
 
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade.</p>
@@ -215,41 +217,57 @@ such as active users corrupting the data in the middle of an upgrade.</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
-    <h3 id="backup-passbolt">2. Backup passbolt</h3>
+    <h2 id="backup-your-instance">2. Backup your instance</h2>
 
-    <p>First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss.
-You can follow our <a href="/hosting/backup/debian">backup process</a>.</p>
+    <p>First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+You can follow our <a href="/hosting/backup">backup process</a>.</p>
 
-    <h3 id="upload-your-subscription-key">3. Upload your subscription key</h3>
+    <h2 id="prepare-repositories">3. Prepare repositories</h2>
 
-    <p>You should copy your subscription key to <code class="language-plaintext highlighter-rouge">/etc/passbolt/license</code> and ensure the permissions are correct.</p>
+    <h3 id="upgrade-the-os-and-other-third-party-repositories">3.1. Upgrade the OS and other third party repositories</h3>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root:www-data /etc/passbolt/license
-<span class="nb">sudo chmod </span>640 /etc/passbolt/license
+    <p>Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
+Debian 11. This can be easily done with sed:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/*.list
 </code></pre></div>    </div>
 
-    <h3 id="uninstall-passbolt-ce">4. Uninstall passbolt CE</h3>
+    <p>Take care of the debian security repository !! The format has changed and the correct one is now, edit the file 
+<em>/etc/apt/sources.list</em> and update the security repositories as following:</p>
 
-    <p>Passbolt CE package should be removed prior to installing passbolt Pro.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get remove passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deb https://security.debian.org/debian-security bullseye-security main
+deb-src https://security.debian.org/debian-security bullseye-security main
 </code></pre></div>    </div>
 
-    <h3 id="update-passbolt-package-repository">5. Update passbolt package repository</h3>
+    <h3 id="remove-the-old-passbolt-repository-source">3.2. Remove the old passbolt repository source</h3>
 
-    <p>Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+    <p>With Debian 11 apt-key is now deprecated and with this change let’s migrate to 
+the new source-file format (DEB822).</p>
+
+    <p>Remove the old passbolt source-file:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/apt/sources.list.d/passbolt.list
+</code></pre></div>    </div>
+
+    <p>Remove the passbolt GnuPG key from apt-key:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key del 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <h3 id="retrieve-and-store-the-passbolt-gnupg-repository-key">3.3. Retrieve and store the passbolt GnuPG repository key</h3>
+
+    <p>Retrieve passbolt repository package official GnuPG key from <em>hkps://keys.mailvelope.com</em>, <em>hkps://pgp.mit.edu</em> or <em>hkps://keys.gnupg.net</em>:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
 </code></pre></div>    </div>
 
-    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
-
-    <p>Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+    <p>Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code>:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
 </code></pre></div>    </div>
 
-    <p>Must return:</p>
+    <p>It must return:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
@@ -257,13 +275,15 @@ uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.co
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p>Create APT GPG keyring</p>
+    <p>Stock the passbolt GnuPG key on disk for later use:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
   /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
 </code></pre></div>    </div>
 
-    <p>Add passbolt repository:</p>
+    <h3 id="add-the-new-passbolt-repository-source">3.4. Add the new passbolt repository source</h3>
+
+    <p>Create a new repository source-file following the format DEB822 for passbolt.</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
 Types: deb
@@ -274,70 +294,96 @@ Signed-By: /usr/share/keyrings/passbolt-repository.gpg
 EOF
 </code></pre></div>    </div>
 
-    <p>Update the apt indexes with the new passbolt apt repository:</p>
+    <h2 id="upgrade-your-system">4. Upgrade your system</h2>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+    <p>Update the apt indexes :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
 </code></pre></div>    </div>
 
-    <h3 id="install-passbolt-pro">6. Install passbolt Pro</h3>
+    <p>You can now upgrade your system :</p>
 
-    <p>Now you can install the passbolt Pro package.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Upgrade first
+sudo apt upgrade
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>passbolt-pro-server
+# Then perform the dist-upgrade
+sudo apt dist-upgrade
 </code></pre></div>    </div>
 
-    <p>As you have already configured passbolt CE, and passbolt Pro relies on the same configuration, you should reply:</p>
+    <h2 id="update-passbolt-nginx-configuration">5. Update passbolt nginx configuration</h2>
 
-    <ul>
-      <li><strong>No</strong> for mysql configuration</li>
-      <li><strong>No</strong> to nginx configuration</li>
-    </ul>
+    <p>As php-fpm has been upgraded from 7.3 to 7.4, nginx configuration has to be updated accordingly.</p>
 
-    <h3 id="migrate-the-data">7. Migrate the data</h3>
+    <p>It can easily be done with sed :</p>
 
-    <p>Once the package installed, run the following command to migrate the data to passbolt Pro:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data /bin/bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt migrate"</span>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/php7.3-fpm/php-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
 </code></pre></div>    </div>
 
-    <h3 id="clear-the-cache">8. Clear the cache</h3>
+    <p>Check if you have no configuration issue :</p>
 
-    <p>Make sure you clear the application cache, to make sure any changes in the database structure are reflected in
-model cache files:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake cache clear_all"</span>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nginx -t
 </code></pre></div>    </div>
 
-    <h3 id="take-your-site-back-up">9. Take your site back up</h3>
+    <p>It should return:</p>
 
-    <p>Finally take passbolt back up:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre></div>    </div>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
+    <p>You can now safely reload the nginx web server:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl reload nginx.service
+</code></pre></div>    </div>
+
+    <h2 id="reboot-your-server">6. Reboot your server</h2>
+
+    <p>With Debian 11 comes a new Linux kernel, you must reboot your server.</p>
+
+    <h2 id="clean-useless-packages">7. Clean useless packages</h2>
+
+    <p>Once the server rebooted on the new kernel, you can now remove useless packages:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt autoremove --purge
+sudo apt autoclean
+</code></pre></div>    </div>
+
+    <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+    <h3 id="mariadb-went-missing">MariaDB went missing</h3>
+
+    <p>It is possible your MariaDB instance has been uninstalled. You can install it back:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install default-mysql-server
 </code></pre></div>    </div>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
 November
-2nd,
+3rd,
 2021.</p>
     </div>
 
   </div>
   <div class="col4 last push1">
 
-    <div class="message tldr">
-    <p>Your installation is not based on a debian package?</p>
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when updating passbolt?</p>
     
-    <a href="/hosting/upgrade/ce/migrate-to-debian.html" class="button ">Migrate passbolt to debian package</a>
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
     
 </div>
 
-    <div class="message tldr notice">
-    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
-    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
-    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
+    <div class="message ">
+    <p></p>
+    
+</div>
 
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
 </div>
 
   </div>

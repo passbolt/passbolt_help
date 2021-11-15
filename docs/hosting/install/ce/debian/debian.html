@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Install Passbolt CE on Debian 10</title>
+    <title>Passbolt Help | Install Passbolt CE on Debian 11 (Bullseye)</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install Passbolt CE on Debian 10" />
+    <meta property="og:title" content="Install Passbolt CE on Debian 11 (Bullseye)" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -75,7 +75,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-02-10-hosting-install-debian-ce.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-11-02-hosting-install-debian-ce.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -189,7 +189,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install Passbolt CE on Debian 10</h1>
+<h1>Install Passbolt CE on Debian 11 (Bullseye)</h1>
 </div>
 </div>
 
@@ -201,7 +201,7 @@
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Debian 10  server.</li>
+      <li>A minimal Debian 11  server.</li>
       <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
     </ul>
 
@@ -242,36 +242,44 @@ sudo apt-get install \
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key
-From keys.mailvelope.com:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
 </code></pre></div>    </div>
 
-    <p>Or from pgp.mit.edu:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://pgp.mit.edu --recv-keys 0xDE8B853FC155581D
-</code></pre></div>    </div>
-
-    <p>Or from keys.gnupg.net:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key adv --keyserver hkps://keys.gnupg.net --recv-keys 0xDE8B853FC155581D
-</code></pre></div>    </div>
+    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
 
     <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key fingerprint 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
 </code></pre></div>    </div>
+
+    <p>Must return:</p>
+
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
 uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
+    <p><strong>Step 4.</strong> Create APT GPG keyring</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo  "deb https://download.passbolt.com/ce/debian buster stable" | \
-sudo tee /etc/apt/sources.list.d/passbolt.list
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
+Types: deb
+URIs: https://download.passbolt.com/ce/debian
+Suites: buster
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 </code></pre></div>    </div>
@@ -509,8 +517,8 @@ attacks. Each time you are performing a sensitive operation on passbolt, you sho
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-February
-10th,
+November
+2nd,
 2021.</p>
     </div>
 

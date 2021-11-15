@@ -1,22 +1,22 @@
 ---
-title: Migrate from install scripts to Debian package
-date: 2021-02-03 00:00:00 Z
-description: Migrate from install scripts to Debian package
-categories: [hosting, upgrade, pro]
+title: Migrate passbolt CE from install scripts to Debian package
+date: 2021-11-02 00:00:00 Z
+description: Migrate passbolt CE from install scripts to Debian package
+categories: [hosting,upgrade,ce]
 card_teaser: Migrate from install script to Debian package
 card_title: Migrate to Debian package
-card_position: 2
+card_position: 1
 sidebar: [hosting, upgrade]
-passbolt_version: pro
+passbolt_version: ce
 icon: fa-server
 layout: default
 slug: migrate-to-debian
 permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
+{% assign distributionVersion = '11' %}
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
@@ -31,8 +31,14 @@ permalink: /:categories/:slug.html
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/pro-support.html %}
-{% include aside/contribute.html %}
+{% include aside/message.html
+    class="tldr notice"
+    content="Are you experiencing issues when updating passbolt?"
+    link="https://community.passbolt.com/c/installation-issues"
+    ask="Ask the community!"
+    button="primary"
+%}
 
-{% include layout/col_end.html %}
+{% include aside/message.html %}
+{% include aside/contribute.html %}
 {% include layout/row_end.html %}

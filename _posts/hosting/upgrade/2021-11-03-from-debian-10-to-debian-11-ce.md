@@ -1,23 +1,25 @@
 ---
-title: Migrate an existing Passbolt PRO to a new Debian server 
-date: 2021-09-16 00:00:00 Z
-description: Migrate an existing Passbolt PRO to a new Debian server
-categories: [hosting,upgrade,pro]
-card_teaser: Migrate an existing Passbolt PRO to a new Debian server 
-card_title: Migrate to new Debian server
-card_position: 8
+title: Upgrade from Debian 10 to Debian 11
+date: 2021-11-03 00:00:00 Z
+description: Upgrade your Debian 10 Operating System running Passbolt to Debian 11
+categories: [hosting,upgrade,ce]
+card_teaser: Upgrade your Debian 10 Operating System running Passbolt to Debian 11
+card_title: Debian 11 upgrade
+card_position: 10
 sidebar: [hosting, upgrade]
-passbolt_version: pro
+passbolt_version: ce
+new: true
 icon: fa-server
 layout: default
-new: true
-slug: migrate-existing-pro-to-debian-server
+slug: from-debian-10-to-debian-11-ce
 permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
+{% assign distributionVersionOld = '10' %}
+{% assign distributionVersion = '11' %}
+{% assign distributionVersionNameOld = 'buster' %}
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
@@ -26,7 +28,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/upgrade/upgrade-existing-to-new-server.md %}
+{% include hosting/upgrade/upgrade-debian-like-os.md %}
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

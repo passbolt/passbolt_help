@@ -1,6 +1,6 @@
 ---
 title: Migrate an existing Passbolt CE to a new Debian server 
-date: 2021-09-16 00:00:00 Z
+date: 2021-11-02 00:00:00 Z
 description: Migrate an existing Passbolt CE to a new Debian server
 categories: [hosting,upgrade,ce]
 card_teaser: Migrate an existing Passbolt CE to a new Debian server 
@@ -17,7 +17,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
+{% assign distributionVersion = '11' %}
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}

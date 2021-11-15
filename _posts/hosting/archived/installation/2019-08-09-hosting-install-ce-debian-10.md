@@ -23,7 +23,7 @@ permalink: hosting/install/ce/debian-10-buster.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/install/install.md column="7" %}
+{% include hosting/install/packages/debian/install-debian-package.md %}
 
 {% include date/updated.html %}
 
@@ -32,9 +32,9 @@ permalink: hosting/install/ce/debian-10-buster.html
 
 {% include aside/message.html
     class="tldr warning"
-    content="This is an old method to install passbolt, please considering using the debian package"
+    content="This documentation is relative to an old distribution, please consider installing passbolt on the latest Debian"
     link="debian/debian.html"
-    ask="Install passbolt with debian package"
+    ask="Read install manual"
 %}
 
 {% include aside/ce-install-community-forum-cta.md %}

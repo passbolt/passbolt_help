@@ -1,17 +1,24 @@
 ---
-title: Upgrade Passbolt from CE to Pro on Debian
-card_title: From CE on Debian
-card_teaser: Upgrade Passbolt from CE to Pro on Debian
-card_position: 4
+title: Upgrade Passbolt from CE to Pro on Ubuntu
+card_title: From CE on Ubuntu
+card_teaser: Upgrade Passbolt from CE to Pro on Ubuntu
+card_position: 5
 date: 2021-02-10 00:00:00 Z
-description: Upgrade Passbolt from CE to Pro on Debian
+description: Upgrade Passbolt from CE to Pro on Ubuntu
 icon: fa-server
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
-slug: upgrade-pro-from-ce-debian
+slug: upgrade-pro-from-ce-ubuntu
 permalink: /:categories/:slug.html
 ---
+
+{% assign product = 'pro' %}
+{% assign distribution = 'ubuntu' %}
+{% assign distributionVersion = '20.04' %}
+{% assign distributionVersionName = 'focal' %}
+{% assign distributionSlug = 'ubuntu' %}
+{% assign distributionLabel = 'Ubuntu' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
@@ -19,8 +26,8 @@ permalink: /:categories/:slug.html
 ## Pre-requisites
 
 For this tutorial, you will need:
-- A minimal Debian 10 server.
-- Passbolt CE Debian package installed.
+- A minimal Ubuntu 20.04 server.
+- Passbolt CE Ubuntu package installed.
 
 ## Upgrading passbolt
 
@@ -57,10 +64,51 @@ sudo apt-get remove passbolt-ce-server
 
 ### 5. Update passbolt package repository
 
-Update your repository to make passbolt-pro available for installation.
+Add Passbolt package official GnuPG key from keys.mailvelope.com:
 
-```bash
-echo "deb https://download.passbolt.com/pro/debian buster stable" | sudo tee /etc/apt/sources.list.d/passbolt-pro.list
+```
+gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+```
+
+Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.
+
+Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
+
+```
+gpg --list-key --with-fingerprint 0xDE8B853FC155581D
+```
+
+Must return:
+
+```
+pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
+uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+```
+
+Create APT GPG keyring
+
+```
+gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg >/dev/null
+```
+
+Add passbolt repository:
+
+```
+cat << EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources > /dev/null
+Types: deb
+URIs: https://download.passbolt.com/{{ product }}/{{ distribution }}
+Suites: {{ distributionVersionName }}
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+```
+
+Update the apt indexes with the new passbolt apt repository:
+
+```
 sudo apt-get update
 ```
 
@@ -87,7 +135,7 @@ sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migr
 
 ### 8. Clear the cache
 
-Make sure you clear the application cache, to make sure any changes in the database structure are reflected in
+Make sure you clear the application cache, to make sure any changes in the database structure are reflected in 
 model cache files:
 
 ```bash
@@ -102,6 +150,7 @@ Finally take passbolt back up:
 sudo systemctl start nginx
 ```
 
+
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}
@@ -109,9 +158,9 @@ sudo systemctl start nginx
 
 {% include aside/message.html
 class="tldr"
-content="Your installation is not based on a debian package?"
-link="/hosting/upgrade/ce/migrate-to-debian.html"
-ask="Migrate passbolt to debian package"
+content="Your installation is not based on a Ubuntu package?"
+link="/hosting/upgrade/ce/migrate-to-ubuntu.html"
+ask="Migrate passbolt to Ubuntu package"
 %}
 
 {% include aside/pro-support.html %}

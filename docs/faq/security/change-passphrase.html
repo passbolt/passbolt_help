@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Currently it is not possible to change your passphrase from within passbolt itself (we do have an item in our backlog for this, ref. PASSBOLT-1283).">
+    <meta name="description" content="Since version 3.1">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="How can I change my passphrase?" />
-    <meta property="og:description" content="Currently it is not possible to change your passphrase from within passbolt itself (we do have an item in our backlog for this, ref. PASSBOLT-1283)." />
+    <meta property="og:description" content="Since version 3.1" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -169,9 +169,43 @@
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
                          <h1>How can I change my passphrase?</h1>
-                            <p>Currently it is not possible to change your passphrase from within passbolt itself (we do have an item in our backlog for this, ref. PASSBOLT-1283).</p>
+                            <h2 id="since-version-31">Since version 3.1</h2>
 
-<p>However there is a non-trivial workaround if you really need it:</p>
+<p>Since version 3.1, you can change your passphrase from the passphrase menu in the profile section: https://your.passbolt.url/app/settings/passphrase</p>
+
+<p>Before getting started, please notice than the passphrase is stored on your device and never sent server side. Changing your passphrase will only change it locally. If you have multiple browsers configured, the passphrase will need to be changed in all places individually.</p>
+
+<p>Check the “Ok, I understand what I need to do.” and press Start button.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/11/change-passphrase-01.jpg" alt="Update passphrase - step 1" style="max-width:;" />
+    <span class="legend">fig. Update passphrase - step 1</span>
+</figure>
+
+<p>Enter your current passphrase:</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/11/change-passphrase-02.jpg" alt="Update passphrase - step 2" style="max-width:;" />
+    <span class="legend">fig. Update passphrase - step 2</span>
+</figure>
+
+<p>Then enter your new passphrase, make if possible all our recommendations green and press the Update button. Please ensure you have entered the correct new passphrase by pressing the eye button:</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/11/change-passphrase-03.jpg" alt="Update passphrase - step 3" style="max-width:;" />
+    <span class="legend">fig. Update passphrase - step 3</span>
+</figure>
+
+<p>Your passphrase is now updated, you are now prompted to download a backup of your new private key. Be sure to keep it in a safe place. It will be needed in case of an account recovery.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2021/11/change-passphrase-04.jpg" alt="Update passphrase - step 4" style="max-width:;" />
+    <span class="legend">fig. Update passphrase - step 4</span>
+</figure>
+
+<h2 id="passbolt-version-prior-to-31">Passbolt version prior to 3.1</h2>
+
+<p>For Passbolt version prior to 3.1, the command line is the only way to update your passphrase.</p>
 
 <ul>
   <li>In passbolt, go to your profile and export your secret key</li>
@@ -202,6 +236,8 @@
                         <div class="col7" markdown="1">
                             <h3>Other frequently asked questions in the same category</h3>
                             <ul>
+    
+    
     
     
     
@@ -388,14 +424,6 @@
     
     
     <li>
-        <a href="/faq/security/change-passphrase">How can I change my passphrase?</a>
-    </li>
-    
-    
-    
-    
-    
-    <li>
         <a href="/faq/security/is-open-source-secure">Is open source software less secure?</a>
     </li>
     
@@ -491,6 +519,8 @@
     
     
     
+    
+    
     <li>
         <a href="/faq/security/is-passbolt-secure">Is it secure to use passbolt in its current version?</a>
     </li>
@@ -518,6 +548,10 @@
     
     
     
+    
+    <li>
+        <a href="/faq/security/change-passphrase">How can I change my passphrase?</a>
+    </li>
     
     
     

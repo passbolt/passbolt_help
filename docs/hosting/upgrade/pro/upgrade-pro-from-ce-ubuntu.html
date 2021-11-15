@@ -75,7 +75,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-02-10-hosting-upgrade-pro-from-ce-ubuntu.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-11-02-hosting-upgrade-pro-from-ce-ubuntu.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -193,7 +193,8 @@
 </div>
 </div>
 
-                        <div class="row">
+                        
+<div class="row">
   <div class="col7">
 
     <h2 id="pre-requisites">Pre-requisites</h2>
@@ -236,10 +237,46 @@ You can follow our <a href="/hosting/backup/debian">backup process</a>.</p>
 
     <h3 id="update-passbolt-package-repository">5. Update passbolt package repository</h3>
 
-    <p>Update your repository to make passbolt-pro available for installation.</p>
+    <p>Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb https://download.passbolt.com/pro/ubuntu focal stable"</span> | <span class="nb">sudo tee</span> /etc/apt/sources.list.d/passbolt-pro.list
-<span class="nb">sudo </span>apt-get update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+</code></pre></div>    </div>
+
+    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
+
+    <p>Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>Must return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+</code></pre></div>    </div>
+
+    <p>Create APT GPG keyring</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
+</code></pre></div>    </div>
+
+    <p>Add passbolt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
+Types: deb
+URIs: https://download.passbolt.com/pro/ubuntu
+Suites: focal
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+</code></pre></div>    </div>
+
+    <p>Update the apt indexes with the new passbolt apt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
 </code></pre></div>    </div>
 
     <h3 id="install-passbolt-pro">6. Install passbolt Pro</h3>

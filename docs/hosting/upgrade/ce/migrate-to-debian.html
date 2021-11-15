@@ -75,7 +75,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2020-06-20-migrate-to-debian-package.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-11-02-migrate-to-debian-package.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -203,7 +203,7 @@
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Debian 10 server.</li>
+      <li>A minimal Debian 11 server.</li>
       <li>Passbolt installed with the Debian install script.</li>
     </ul>
 
@@ -224,7 +224,7 @@ You can follow our <a href="/hosting/backup">backup process</a>.</p>
 
     <p>Passbolt requires PHP 7.3 and supports PHP 7.4.</p>
 
-    <p>A full system upgrade to Debian 10 is necessary before installing the passbolt Debian package.
+    <p>A full system upgrade to Debian 11 is necessary before installing the passbolt Debian package.
 <a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">Here</a> is the official Debian guide to 
 upgrade your system with a step by step tutorial.</p>
 
@@ -248,33 +248,44 @@ before you download Passbolt CE and install it.</p>
     software-properties-common
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key</p>
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
 
-    <p>From keys.gnupg.net:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keys.gnupg.net <span class="nt">--recv-keys</span> 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
 </code></pre></div>    </div>
 
-    <p>Or from hkps://keys.mailvelope.com:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkps://keys.mailvelope.com <span class="nt">--recv-keys</span> 0xDE8B853FC155581D
-</code></pre></div>    </div>
+    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
 
     <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-key fingerprint 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
 </code></pre></div>    </div>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 <span class="o">[</span>SC] <span class="o">[</span>expires: 2022-05-18]
+
+    <p>Must return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           <span class="o">[</span> unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
-sub   rsa2048 2020-05-18 <span class="o">[</span>E] <span class="o">[</span>expires: 2022-05-18]
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
+    <p><strong>Step 4.</strong> Create APT GPG keyring</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span>  <span class="s2">"deb https://download.passbolt.com/ce/debian buster stable"</span> | <span class="se">\</span>
-<span class="nb">sudo tee</span> /etc/apt/sources.list.d/passbolt.list
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
+Types: deb
+URIs: https://download.passbolt.com/ce/debian
+Suites: buster
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
 </code></pre></div>    </div>
@@ -396,8 +407,8 @@ you can delete it:</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-February
-3rd,
+November
+2nd,
 2021.</p>
     </div>
 

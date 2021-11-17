@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-11-15T14:48:45+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade from Debian 10 to Debian 11</title><link href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro.html" rel="alternate" type="text/html" title="Upgrade from Debian 10 to Debian 11" /><published>2021-11-03T01:00:00+01:00</published><updated>2021-11-03T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-11-16T10:08:26+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade from Debian 10 to Debian 11</title><link href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro.html" rel="alternate" type="text/html" title="Upgrade from Debian 10 to Debian 11" /><published>2021-11-03T01:00:00+01:00</published><updated>2021-11-03T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -33,8 +33,8 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
 Debian 11. This can be easily done with sed:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/*.list
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list
+sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list.d/*.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Take care of the debian security repository !! The format has changed and the correct one is now, edit the file 
@@ -120,7 +120,7 @@ sudo apt dist-upgrade
 
     &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/php7.3-fpm/php-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.3-fpm/php-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
@@ -226,8 +226,8 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
 Debian 11. This can be easily done with sed:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
-sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/*.list
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list
+sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list.d/*.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Take care of the debian security repository !! The format has changed and the correct one is now, edit the file 
@@ -313,7 +313,7 @@ sudo apt dist-upgrade
 
     &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/php7.3-fpm/php-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.3-fpm/php-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
@@ -514,7 +514,7 @@ EOF
 
     &lt;p&gt;If you are running mysql 8, please change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quoteIdentifiers&lt;/code&gt; setting of the passbolt.php as follow:&lt;/p&gt;
 
-    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;'quoteIdentifiers'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;&apos;quoteIdentifiers&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;php-fpm&quot;&gt;6. PHP-FPM&lt;/h2&gt;
@@ -2215,7 +2215,7 @@ EOF
 
     &lt;p&gt;If you are running mysql 8, please change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quoteIdentifiers&lt;/code&gt; setting of the passbolt.php as follow:&lt;/p&gt;
 
-    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;'quoteIdentifiers'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;&apos;quoteIdentifiers&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;copy-the-subscription-key&quot;&gt;5.3. Copy the subscription key&lt;/h3&gt;

@@ -1,6 +1,6 @@
 ---
 title: Install Passbolt CE on Debian 10 (Buster)
-date: 2018-11-13 00:00:00 Z
+date: 2021-11-22 00:00:00 Z
 description: How to install Passbolt CE on Debian 10 (Buster)
 card_title: Debian 10 guide
 card_teaser: Step by step guide to install passbolt on Debian 10
@@ -17,6 +17,7 @@ permalink: hosting/install/ce/debian-10-buster.html
 {% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
 {% assign distributionVersion = 'latest' %}
+{% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian-10' %}
 {% assign distributionLabel = 'Debian 10 (Buster)' %}
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-11-22T07:14:27+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 10 (Buster)" /><published>2021-11-22T01:00:00+01:00</published><updated>2021-11-22T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-11-23T15:31:08+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 10 (Buster)" /><published>2021-11-22T01:00:00+01:00</published><updated>2021-11-22T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -2449,13 +2449,6 @@ EOF
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;php-fpm&quot;&gt;6. PHP-FPM&lt;/h2&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
 
     &lt;p&gt;Edit &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/php/7.3/fpm/pool.d/www.conf&lt;/code&gt; and look for the line that looks like this:&lt;/p&gt;
 

@@ -21,6 +21,7 @@ permalink: /:categories/:slug.html
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}
 {% assign distributionUpgradeGuide = 'https://ubuntu.com/blog/how-to-upgrade-from-ubuntu-18-04-lts-to-20-04-lts-today' %}
+{% assign distributionPhpVersion = '7.4' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

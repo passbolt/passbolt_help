@@ -190,6 +190,13 @@ to generation of poor entropy so, in order to stay safe, the recommendation woul
   <li>If rng-tools is not enough then use Haveged as well.</li>
 </ol>
 
+<p>You can check the current available entropy on your system by executing this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /proc/sys/kernel/random/entropy_avail
+</code></pre></div></div>
+
+<p>A good number of available entropy is usually between 2500 and 4096 bits. Entropy is considered to be low when it is below 1000.</p>
+
                         </div>
 
                     <div class="col4 last push1" markdown="1">

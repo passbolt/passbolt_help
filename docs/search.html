@@ -1061,6 +1061,12 @@
 "content": "Since version 3.1, you can change your passphrase from passbolt itself.Before getting started, please note that your passphrase is stored on your device and never sent server side. Changing your passphrase will only change it locally. If you have multiple devices configured, the passphrase will need to be changed in all places individually.In order to change your passphrase, navigate to Profile Settings &gt; Passphrase. Confirm that you understand what you have to do and press “Start”.        fig. Update passphrase - step 1Enter your current passphrase.        fig. Update passphrase - step 2Then enter your new passphrase, if possible follow all our recommendations, and press the “Update” button. You can ensure the new passphrase is correct by pressing the eye icon.        fig. Update passphrase - step 3Your passphrase is now updated, and you will be prompted to download a backup of your private key encrypted with it. Be sure to keep it in a safe place, it will be needed in case of an account recovery.        fig. Update passphrase - step 4",
 "url": "https://help.passbolt.com/faq/security/change-passphrase"
 },
+"faq-hosting-firewall-rules": {
+"title": "Firewall rules",
+"category": "hosting",
+"content": "You must allow these rules to make Passbolt work in a firewalled environment:Inbound rules            Protocol name      Port number      Transport Layer Protocol      Comment                  HTTP      80      TCP      Optional, should be used only to redirect to HTTPS              HTTPS      443      TCP      To serve Passbolt through HTTPS      Outbound rules            Protocol name      Port number      Transport Layer Protocol      Comment                  SMTP      usually 587      TCP      To send email notifications, used port depends of your SMTP server configuration, usually 25/TCP, 587/TCP or 465/TCP              DNS      53      UDP      To be able to resolve SMTP server name, or download.passbolt.com to check for updates              NTP      123      UDP      To make server synchronized to a NTP server. Mandatory to make GPG or MFA/OTP work      ",
+"url": "https://help.passbolt.com/faq/hosting/firewall-rules"
+},
 "hosting-install-pro-debian-10-buster-html": {
 "title": "Install Passbolt Pro on Debian 10 (Buster)",
 "category": "",

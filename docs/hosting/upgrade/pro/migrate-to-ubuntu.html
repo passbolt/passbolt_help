@@ -338,24 +338,17 @@ EOF
 
     <h2 id="php-fpm">6. PHP-FPM</h2>
 
-    <div class="message notice">
-    <p>
-    Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly.
-    </p>
-    
-</div>
-
-    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
+    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> 127.0.0.1:9000
 </code></pre></div>    </div>
 
     <p>Change it to look like this:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.3-fpm.sock
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.4-fpm.sock
 </code></pre></div>    </div>
 
-    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code>:</p>
+    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/pool.d/www.conf</code>:</p>
 
     <p>Look for the line containing:</p>
 
@@ -410,7 +403,7 @@ you can delete it:</p>
     <p>Finally take passbolt back up:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
-<span class="nb">sudo </span>systemctl restart php7.3-fpm
+<span class="nb">sudo </span>systemctl restart php7.4-fpm
 </code></pre></div>    </div>
 
     <div class="last-updated">

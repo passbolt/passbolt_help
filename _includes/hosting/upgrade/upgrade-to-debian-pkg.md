@@ -150,11 +150,7 @@ sudo chmod g-w /etc/passbolt/license
 
 ## 6. PHP-FPM
 
-{% include messages/notice.html
-    content="Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly."
-%}
-
-Edit `/etc/php/7.3/fpm/pool.d/www.conf` and look for the line that looks like this:
+Edit `/etc/php/{{ distributionPhpVersion }}/fpm/pool.d/www.conf` and look for the line that looks like this:
 
 ```bash
 listen = 127.0.0.1:9000
@@ -163,10 +159,10 @@ listen = 127.0.0.1:9000
 Change it to look like this:
 
 ```bash
-listen = /run/php/php7.3-fpm.sock
+listen = /run/php/php{{ distributionPhpVersion }}-fpm.sock
 ```
 
-Due to a bug on the install scripts some installations might need to do an additional substitution on `/etc/php/7.3/fpm/pool.d/www.conf`:
+Due to a bug on the install scripts some installations might need to do an additional substitution on `/etc/php/{{ distributionPhpVersion }}/fpm/pool.d/www.conf`:
 
 Look for the line containing:
 
@@ -227,5 +223,5 @@ Finally take passbolt back up:
 
 ```bash
 sudo systemctl start nginx
-sudo systemctl restart php7.3-fpm
+sudo systemctl restart php{{ distributionPhpVersion }}-fpm
 ```

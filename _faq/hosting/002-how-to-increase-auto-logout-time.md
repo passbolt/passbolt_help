@@ -4,7 +4,7 @@ slug: how-to-increase-auto-logout-time
 layout: faq
 category: hosting
 permalink: /faq/hosting/:slug
-date: 2019-09-01 00:00:00 Z
+date: 2021-11-23 00:00:00 Z
 ---
 
 By default passbolt uses the PHP session duration setting to define when the auto logout should
@@ -17,9 +17,13 @@ See the directive
 In order to change this number you must locate your `php.ini` file. Its location depends on your
 operating system and php versions.
 
-For example on Debian if you are using Nginx and PHP 7.3 it will be in
-`/etc/php/7.3/fpm/php.ini`, using Debian 8 on nApache it will be located in 
-`/etc/php/7.0/apache2/php.ini`, etc.
+For example on Debian or Ubuntu if you are using Nginx and PHP 7.4 it will be in
+`/etc/php/7.4/fpm/php.ini` but the easy way to find it is to execute this command:
+
+```
+$ grep -lr session.gc_maxlifetime /etc/ | grep fpm
+/etc/php/7.4/fpm/php.ini
+```
 
 Once located replace the `1440` timout value in seconds with for example `2700` for 45 minutes:
 ```

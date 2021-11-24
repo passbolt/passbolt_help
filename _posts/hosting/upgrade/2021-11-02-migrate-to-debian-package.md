@@ -1,32 +1,32 @@
 ---
-title: Migrate an existing Passbolt PRO to a new Debian server 
-date: 2021-09-16 00:00:00 Z
-description: Migrate an existing Passbolt PRO to a new Debian server
-categories: [hosting,upgrade,pro]
-card_teaser: Migrate an existing Passbolt PRO to a new Debian server 
-card_title: Migrate to new Debian server
-card_position: 8
+title: Migrate passbolt CE from install scripts to Debian package
+date: 2021-11-02 00:00:00 Z
+description: Migrate passbolt CE from install scripts to Debian package
+categories: [hosting,upgrade,ce]
+card_teaser: Migrate from install script to Debian package
+card_title: Migrate to Debian package
+card_position: 1
 sidebar: [hosting, upgrade]
-passbolt_version: pro
+passbolt_version: ce
 icon: fa-server
 layout: default
-new: true
-slug: migrate-existing-pro-to-debian-server
+slug: migrate-to-debian
 permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
+{% assign distributionVersion = '11' %}
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
+{% assign distributionPhpVersion = '7.3' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/upgrade/upgrade-existing-to-new-server.md %}
+{% include hosting/upgrade/upgrade-to-debian-pkg.md %}
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

@@ -25,3 +25,5 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jekyll-sitemap', '>= 1.4.0'
 gem 'kramdown-parser-gfm'
+
+gem "webrick", "~> 1.7"

@@ -1,6 +1,6 @@
 ---
 title: Migrate from install scripts to Debian package
-date: 2021-02-03 00:00:00 Z
+date: 2021-11-02 00:00:00 Z
 description: Migrate from install scripts to Debian package
 categories: [hosting, upgrade, pro]
 card_teaser: Migrate from install script to Debian package
@@ -16,11 +16,12 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
+{% assign distributionVersion = '11' %}
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
+{% assign distributionPhpVersion = '7.3' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

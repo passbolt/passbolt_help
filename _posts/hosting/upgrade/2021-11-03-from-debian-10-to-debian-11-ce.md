@@ -1,22 +1,25 @@
 ---
-title: Migrate passbolt CE from install scripts to Debian package
-date: 2021-02-03 00:00:00 Z
-description: Migrate passbolt CE from install scripts to Debian package
+title: Upgrade from Debian 10 to Debian 11
+date: 2021-11-03 00:00:00 Z
+description: Upgrade your Debian 10 Operating System running Passbolt to Debian 11
 categories: [hosting,upgrade,ce]
-card_teaser: Migrate from install script to Debian package
-card_title: Migrate to Debian package
-card_position: 1
+card_teaser: Upgrade your Debian 10 Operating System running Passbolt to Debian 11
+card_title: Debian 11 upgrade
+card_position: 10
 sidebar: [hosting, upgrade]
 passbolt_version: ce
+new: true
 icon: fa-server
 layout: default
-slug: migrate-to-debian
+slug: from-debian-10-to-debian-11-ce
 permalink: /:categories/:slug.html
 ---
 
 {% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
+{% assign distributionVersionOld = '10' %}
+{% assign distributionVersion = '11' %}
+{% assign distributionVersionNameOld = 'buster' %}
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
@@ -25,7 +28,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/upgrade/upgrade-to-debian-pkg.md %}
+{% include hosting/upgrade/upgrade-debian-like-os.md %}
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

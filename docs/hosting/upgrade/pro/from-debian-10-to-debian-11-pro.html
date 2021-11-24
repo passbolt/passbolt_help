@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Upgrade from Debian 10 to Debian 11</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Upgrade from Debian 10 to Debian 11" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-11-03-from-debian-10-to-debian-11-pro.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li>
+            <h2>Hosting</h2>
+        </li>
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
+        
+        
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-10-to-debian-11-pro.html"><span>from-debian-10-to-debian-11-pro</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Upgrade from Debian 10 to Debian 11</h1>
+</div>
+</div>
+
+                        
+<div class="row">
+  <div class="col7">
+
+    <h2 id="prerequisites">Prerequisites</h2>
+
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>A Debian 10 server.</li>
+      <li>Passbolt Debian package installed.</li>
+      <li>Ensure you have sufficient space for the upgrade.</li>
+    </ul>
+
+    <p>This manual has for aim to help you upgrade your distribution, but it does not replace 
+<a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">the official Debian guide</a>, please refer to it if you have any doubt.</p>
+
+    <h2 id="take-down-your-site">1. Take down your site</h2>
+
+    <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
+</code></pre></div>    </div>
+
+    <h2 id="backup-your-instance">2. Backup your instance</h2>
+
+    <p>First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+You can follow our <a href="/hosting/backup">backup process</a>.</p>
+
+    <h2 id="prepare-repositories">3. Prepare repositories</h2>
+
+    <h3 id="upgrade-the-os-and-other-third-party-repositories">3.1. Upgrade the OS and other third party repositories</h3>
+
+    <p>Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
+Debian 11. This can be easily done with sed:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/*.list
+</code></pre></div>    </div>
+
+    <p>Take care of the debian security repository !! The format has changed and the correct one is now, edit the file 
+<em>/etc/apt/sources.list</em> and update the security repositories as following:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deb https://security.debian.org/debian-security bullseye-security main
+deb-src https://security.debian.org/debian-security bullseye-security main
+</code></pre></div>    </div>
+
+    <h3 id="remove-the-old-passbolt-repository-source">3.2. Remove the old passbolt repository source</h3>
+
+    <p>With Debian 11 apt-key is now deprecated and with this change let’s migrate to 
+the new source-file format (DEB822).</p>
+
+    <p>Remove the old passbolt source-file:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm /etc/apt/sources.list.d/passbolt.list
+</code></pre></div>    </div>
+
+    <p>Remove the passbolt GnuPG key from apt-key:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-key del 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <h3 id="retrieve-and-store-the-passbolt-gnupg-repository-key">3.3. Retrieve and store the passbolt GnuPG repository key</h3>
+
+    <p>Retrieve passbolt repository package official GnuPG key from <em>hkps://keys.mailvelope.com</em>, <em>hkps://pgp.mit.edu</em> or <em>hkps://keys.gnupg.net</em>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+</code></pre></div>    </div>
+
+    <p>Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
+</code></pre></div>    </div>
+
+    <p>It must return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
+      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
+</code></pre></div>    </div>
+
+    <p>Stock the passbolt GnuPG key on disk for later use:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
+</code></pre></div>    </div>
+
+    <h3 id="add-the-new-passbolt-repository-source">3.4. Add the new passbolt repository source</h3>
+
+    <p>Create a new repository source-file following the format DEB822 for passbolt.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
+Types: deb
+URIs: https://download.passbolt.com/pro/debian
+Suites: buster
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+</code></pre></div>    </div>
+
+    <h2 id="upgrade-your-system">4. Upgrade your system</h2>
+
+    <p>Update the apt indexes :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+</code></pre></div>    </div>
+
+    <p>You can now upgrade your system :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Upgrade first
+sudo apt upgrade
+
+# Then perform the dist-upgrade
+sudo apt dist-upgrade
+</code></pre></div>    </div>
+
+    <h2 id="update-passbolt-nginx-configuration">5. Update passbolt nginx configuration</h2>
+
+    <p>As php-fpm has been upgraded from 7.3 to 7.4, nginx configuration has to be updated accordingly.</p>
+
+    <p>It can easily be done with sed :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/php7.3-fpm/php-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
+</code></pre></div>    </div>
+
+    <p>Check if you have no configuration issue :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nginx -t
+</code></pre></div>    </div>
+
+    <p>It should return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre></div>    </div>
+
+    <p>You can now safely reload the nginx web server:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl reload nginx.service
+</code></pre></div>    </div>
+
+    <h2 id="reboot-your-server">6. Reboot your server</h2>
+
+    <p>With Debian 11 comes a new Linux kernel, you must reboot your server.</p>
+
+    <h2 id="clean-useless-packages">7. Clean useless packages</h2>
+
+    <p>Once the server rebooted on the new kernel, you can now remove useless packages:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt autoremove --purge
+sudo apt autoclean
+</code></pre></div>    </div>
+
+    <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+    <h3 id="mariadb-went-missing">MariaDB went missing</h3>
+
+    <p>It is possible your MariaDB instance has been uninstalled. You can install it back:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install default-mysql-server
+</code></pre></div>    </div>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+November
+3rd,
+2021.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when updating passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
+
+    <div class="message ">
+    <p></p>
+    
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

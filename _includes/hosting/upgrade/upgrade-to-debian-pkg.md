@@ -49,38 +49,49 @@ sudo apt-get install \
     software-properties-common
 ```
 
-**Step 2.**  Add Passbolt package official GnuPG key
+**Step 2.**  Add Passbolt package official GnuPG key from keys.mailvelope.com:
 
-From keys.gnupg.net:
-```bash
-sudo apt-key adv --keyserver keys.gnupg.net --recv-keys 0xDE8B853FC155581D
+```
+gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
 ```
 
-Or from hkps://keys.mailvelope.com:
-```bash
-sudo apt-key adv --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D
-```
+Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.
 
 **Step 3.**  Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
 
-```bash
-sudo apt-key fingerprint 0xDE8B853FC155581D
 ```
-```bash
+gpg --list-key --with-fingerprint 0xDE8B853FC155581D
+```
+
+Must return:
+
+```
 pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
 uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 ```
 
-**Step 4.**  Add passbolt repository to your apt lists:
+**Step 4.** Create APT GPG keyring
 
-```bash
-echo  "deb https://download.passbolt.com/{{ product }}/{{ distribution }} {{ distributionVersionName }} stable" | \
-sudo tee /etc/apt/sources.list.d/passbolt.list
+```
+gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg >/dev/null
 ```
 
-**Step 5.**  Update the apt indexes with the new passbolt apt repository:
+**Step 5.**  Add passbolt repository:
+
+```
+cat << EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources > /dev/null
+Types: deb
+URIs: https://download.passbolt.com/{{ product }}/{{ distribution }}
+Suites: {{ distributionVersionName }}
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+```
+
+**Step 6.**  Update the apt indexes with the new passbolt apt repository:
 
 ```bash
 sudo apt-get update
@@ -139,11 +150,7 @@ sudo chmod g-w /etc/passbolt/license
 
 ## 6. PHP-FPM
 
-{% include messages/notice.html
-    content="Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly."
-%}
-
-Edit `/etc/php/7.3/fpm/pool.d/www.conf` and look for the line that looks like this:
+Edit `/etc/php/{{ distributionPhpVersion }}/fpm/pool.d/www.conf` and look for the line that looks like this:
 
 ```bash
 listen = 127.0.0.1:9000
@@ -152,10 +159,10 @@ listen = 127.0.0.1:9000
 Change it to look like this:
 
 ```bash
-listen = /run/php/php7.3-fpm.sock
+listen = /run/php/php{{ distributionPhpVersion }}-fpm.sock
 ```
 
-Due to a bug on the install scripts some installations might need to do an additional substitution on `/etc/php/7.3/fpm/pool.d/www.conf`:
+Due to a bug on the install scripts some installations might need to do an additional substitution on `/etc/php/{{ distributionPhpVersion }}/fpm/pool.d/www.conf`:
 
 Look for the line containing:
 
@@ -220,5 +227,5 @@ Finally take passbolt back up:
 
 ```bash
 sudo systemctl start nginx
-sudo systemctl restart php7.3-fpm
+sudo systemctl restart php{{ distributionPhpVersion }}-fpm
 ```

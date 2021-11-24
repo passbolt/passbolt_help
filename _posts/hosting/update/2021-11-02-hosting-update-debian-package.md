@@ -1,9 +1,9 @@
 ---
-title: Update passbolt on Debian 10
-date: 2021-02-10 00:00:00 Z
-description: How to update your server on Debian 10.
+title: Update passbolt on Debian
+date: 2021-11-02 00:00:00 Z
+description: How to update your server on Debian.
 card_teaser: Guide for instances installed using Debian package.
-card_title: Update for Debian 10
+card_title: Update for Debian
 card_position: 1
 icon: fa-server
 categories: [hosting, update]
@@ -20,7 +20,7 @@ permalink: /:categories/:slug.html
 ## Prerequisites
 
 For this tutorial, you will need:
-- A minimal Debian 10 server.
+- A minimal Debian server.
 - Passbolt Debian package installed.
 
 ## Update passbolt

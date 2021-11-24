@@ -65,7 +65,7 @@ provided here:
   </tr>
   <tr>
    <td>X-GPGAuth-User-Auth-Token</td>
-   <td>An encrypted token sent from the server for the client to decrypt in order to confirm it identity.
+   <td>An encrypted token sent from the server for the client to decrypt in order to confirm its identity.
    </td>
   </tr>
   <tr>
@@ -100,7 +100,7 @@ provided here:
 
 ### Verify Step
 
-The verify step is used the verify your passbolt server identity. It is useful in some security cases such as
+The verify step is used to verify your passbolt server identity. It is useful in some security cases such as
 when a domain name is seized. This server identity verification should not be understood as an end-to-end server
 authentication, e.g. it does not protect against an attacker performing a man in the middle attack.
 
@@ -199,6 +199,9 @@ X-GPGAuth-Version: 1.3.0
 %}
 
 #### Step 4 detail
+The client asks the user the private key passphrase. Then with the private key, the client decrypts the token given by the server and verifies its format.
+
+#### Step 5 detail
 The token is returned encoded as a url. To be used, it first needs to be decoded.
 
 ##### Decode token with PHP
@@ -250,7 +253,7 @@ POST /auth/login.json
     ]
 ]
 ```
-#### Step 5 detail
+#### Step 6 detail
 Finally, the server verifies the plaintext token against the one stored locally in step 2 and upon success:
 *   Initiates a session
 *   Logs the user in

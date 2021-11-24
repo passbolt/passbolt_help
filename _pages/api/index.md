@@ -39,7 +39,7 @@ For example, requesting a single resource by id will result in something like:
 {% include api/json/resources/resources-create-success.md %}
 
 {% include messages/notice.html
-    content="<b>Notice:</b> The <code>title</code> under header in deprecated and will be removed in future release.
+    content="<b>Notice:</b> The <code>title</code> under header is deprecated and will be removed in future release.
     Similarly, the <code>code</code> is only indicated to improve readability for an administrator when debugging and should
     not be relied on."
 %}

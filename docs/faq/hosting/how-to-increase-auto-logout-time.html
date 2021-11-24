@@ -179,9 +179,12 @@ the PHP configuration.</p>
 <p>In order to change this number you must locate your <code class="language-plaintext highlighter-rouge">php.ini</code> file. Its location depends on your
 operating system and php versions.</p>
 
-<p>For example on Debian if you are using Nginx and PHP 7.3 it will be in
-<code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/php.ini</code>, using Debian 8 on nApache it will be located in 
-<code class="language-plaintext highlighter-rouge">/etc/php/7.0/apache2/php.ini</code>, etc.</p>
+<p>For example on Debian or Ubuntu if you are using Nginx and PHP 7.4 it will be in
+<code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/php.ini</code> but the easy way to find it is to execute this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ grep -lr session.gc_maxlifetime /etc/ | grep fpm
+/etc/php/7.4/fpm/php.ini
+</code></pre></div></div>
 
 <p>Once located replace the <code class="language-plaintext highlighter-rouge">1440</code> timout value in seconds with for example <code class="language-plaintext highlighter-rouge">2700</code> for 45 minutes:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>; After this number of seconds, stored data will be seen as 'garbage' and
@@ -453,12 +456,6 @@ session.gc_maxlifetime = 2700
     
     
     
-    
-    
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
     </li>
@@ -504,14 +501,6 @@ session.gc_maxlifetime = 2700
     
     
     <li>
-        <a href="/faq/hosting/how-to-increase-auto-logout-time">How to increase auto logout time?</a>
-    </li>
-    
-    
-    
-    
-    
-    <li>
         <a href="/faq/configure/why-am-i-getting-ldap-synchronization-issues">Why am I getting ldap synchronization issues?</a>
     </li>
     
@@ -526,6 +515,28 @@ session.gc_maxlifetime = 2700
     <li>
         <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install Passbolt non-interactive ?</a>
     </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-increase-auto-logout-time">How to increase auto logout time?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/firewall-rules">Firewall rules</a>
+    </li>
+    
+    
     
     
     

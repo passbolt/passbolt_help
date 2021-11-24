@@ -248,33 +248,44 @@ before you download Passbolt PRO and install it.</p>
     software-properties-common
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key</p>
+    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
 
-    <p>From keys.gnupg.net:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> keys.gnupg.net <span class="nt">--recv-keys</span> 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
 </code></pre></div>    </div>
 
-    <p>Or from hkps://keys.mailvelope.com:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-key adv <span class="nt">--keyserver</span> hkps://keys.mailvelope.com <span class="nt">--recv-keys</span> 0xDE8B853FC155581D
-</code></pre></div>    </div>
+    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
 
     <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-key fingerprint 0xDE8B853FC155581D
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
 </code></pre></div>    </div>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 <span class="o">[</span>SC] <span class="o">[</span>expires: 2022-05-18]
+
+    <p>Must return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
       3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           <span class="o">[</span> unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
-sub   rsa2048 2020-05-18 <span class="o">[</span>E] <span class="o">[</span>expires: 2022-05-18]
+uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
+sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p><strong>Step 4.</strong>  Add passbolt repository to your apt lists:</p>
+    <p><strong>Step 4.</strong> Create APT GPG keyring</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span>  <span class="s2">"deb https://download.passbolt.com/pro/ubuntu focal stable"</span> | <span class="se">\</span>
-<span class="nb">sudo tee</span> /etc/apt/sources.list.d/passbolt.list
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
+  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
+Types: deb
+URIs: https://download.passbolt.com/pro/ubuntu
+Suites: focal
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+EOF
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
 </code></pre></div>    </div>
@@ -327,24 +338,17 @@ sub   rsa2048 2020-05-18 <span class="o">[</span>E] <span class="o">[</span>expi
 
     <h2 id="php-fpm">6. PHP-FPM</h2>
 
-    <div class="message notice">
-    <p>
-    Notice: The above examples show using PHP 7.3 - if your server has PHP 7.4 adjust these examples accordingly.
-    </p>
-    
-</div>
-
-    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
+    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> 127.0.0.1:9000
 </code></pre></div>    </div>
 
     <p>Change it to look like this:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.3-fpm.sock
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.4-fpm.sock
 </code></pre></div>    </div>
 
-    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code>:</p>
+    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/pool.d/www.conf</code>:</p>
 
     <p>Look for the line containing:</p>
 
@@ -399,7 +403,7 @@ you can delete it:</p>
     <p>Finally take passbolt back up:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
-<span class="nb">sudo </span>systemctl restart php7.3-fpm
+<span class="nb">sudo </span>systemctl restart php7.4-fpm
 </code></pre></div>    </div>
 
     <div class="last-updated">

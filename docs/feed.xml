@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-11-23T17:04:53+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 10 (Buster)" /><published>2021-11-22T01:00:00+01:00</published><updated>2021-11-22T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2021-11-24T17:16:27+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Debian 10 (Buster)</title><link href="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 10 (Buster)" /><published>2021-11-22T01:00:00+01:00</published><updated>2021-11-22T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/Debian%2010%20(Buster)</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian-10-buster.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -351,7 +351,7 @@ November
 &lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;&lt;strong&gt;Don&apos;t want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with an out of the box ready-to-use VM.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Don't want the hassle of a manual installation?&lt;/strong&gt; Passbolt Pro comes with an out of the box ready-to-use VM.&lt;/p&gt;
     &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot; class=&quot;button primary&quot;&gt;Get Passbolt Pro&lt;/a&gt;
 
 &lt;/div&gt;
@@ -748,8 +748,8 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
 Debian 11. This can be easily done with sed:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list
-sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list.d/*.list
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/*.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Take care of the debian security repository !! The format has changed and the correct one is now, edit the file 
@@ -835,7 +835,7 @@ sudo apt dist-upgrade
 
     &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.3-fpm/php-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/php7.3-fpm/php-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
@@ -941,8 +941,8 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
 Debian 11. This can be easily done with sed:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list
-sudo sed -i &apos;s/buster/bullseye/g&apos; /etc/apt/sources.list.d/*.list
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list
+sudo sed -i 's/buster/bullseye/g' /etc/apt/sources.list.d/*.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Take care of the debian security repository !! The format has changed and the correct one is now, edit the file 
@@ -1028,7 +1028,7 @@ sudo apt dist-upgrade
 
     &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.3-fpm/php-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/php7.3-fpm/php-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
@@ -2329,7 +2329,7 @@ such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
 
     &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
 
-    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss.
 You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;upgrade-your-system&quot;&gt;3. Upgrade your system&lt;/h2&gt;
@@ -2337,7 +2337,7 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Passbolt requires PHP 7.3 and supports PHP 7.4.&lt;/p&gt;
 
     &lt;p&gt;A full system upgrade to Debian 11 is necessary before installing the passbolt Debian package.
-&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;Here&lt;/a&gt; is the official Debian guide to 
+&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;Here&lt;/a&gt; is the official Debian guide to
 upgrade your system with a step by step tutorial.&lt;/p&gt;
 
     &lt;h2 id=&quot;install-the-package&quot;&gt;4. Install the package&lt;/h2&gt;
@@ -2436,7 +2436,7 @@ EOF
 
     &lt;p&gt;If you are running mysql 8, please change the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;quoteIdentifiers&lt;/code&gt; setting of the passbolt.php as follow:&lt;/p&gt;
 
-    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;&apos;quoteIdentifiers&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s1&quot;&gt;'quoteIdentifiers'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h3 id=&quot;copy-the-subscription-key&quot;&gt;5.3. Copy the subscription key&lt;/h3&gt;
@@ -2473,6 +2473,13 @@ EOF
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;nginx&quot;&gt;7. Nginx&lt;/h2&gt;
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    Note to users with Apache installed instead: make sure
+    to transfer over the .htaccess file from the old webroot folder.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
 
     &lt;p&gt;Now you can remove all the old nginx configuration files from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/conf.d/&lt;/code&gt;&lt;/p&gt;
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo rm&lt;/span&gt; /etc/nginx/conf.d/passbolt.conf

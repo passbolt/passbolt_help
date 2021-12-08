@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.4.0 | Black Sunrise</title>
+    <link>https://help.passbolt.com/releases/ce/black-sunrise</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/black-sunrise</guid>
+    <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce the v3.4 immediate availability which includes new features as well as some fixes requested by the community. In a...</description>
+    <pubDate>Tue, 07 Dec 2021 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.3.0 | Senior Elfo</title>
     <link>https://help.passbolt.com/releases/ce/senior-elfo</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/senior-elfo</guid>

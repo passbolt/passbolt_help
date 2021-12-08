@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Something we all adore</title>
+    <title>Passbolt Help | Black Sunrise</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a maintenance release that fixes issues reported by the community. Passbolt API Fixed COMMUNITY-599: Make email MX validation optional and not enable...">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Something we all adore" />
-    <meta property="og:description" content="This is a maintenance release that fixes issues reported by the community. Passbolt API Fixed COMMUNITY-599: Make email MX validation optional and not enable..." />
+    <meta property="og:title" content="Black Sunrise" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v204-somethingwealladore">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/black-sunrise">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.0.4.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.4.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -88,7 +88,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/black-sunrise" >v3.4.0</a>
                     </li>
                     
@@ -185,7 +185,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v204-somethingwealladore"><span>somethingwealladore</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/black-sunrise"><span>black-sunrise</span></a>
                     </div>
                 </li>
                 
@@ -194,27 +194,159 @@
     </div>
 </div>
 
-                            <h1>v2.0.4 ~ Something we all adore (pro)</h1>
+                            <h1>v3.4.0 ~ Black Sunrise (pro)</h1>
                             <p>Release date: 
-April
-26th,
-2018.
+December
+7th,
+2021.
 </p>
-                            <p>This is a maintenance release that fixes issues reported by the community.</p>
+                            <div class="message notice">
+    <p>
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
 
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="fixed">Fixed</h4>
+<p>The team is pleased to announce the v3.4 immediate availability which includes new features as well as some fixes requested by the community.</p>
+
+<p>In a few words, fresh from the oven:</p>
 <ul>
-  <li>COMMUNITY-599: Make email MX validation optional and not enabled by default</li>
-  <li>GITHUB-247: Fix secrets are not deleted when deleting a group or a user</li>
+  <li>A native support of the Edge browser, Safari in the works!</li>
+  <li>A better integration of the dark theme</li>
+  <li>A fine tuned in-form integration for a better browsing experience</li>
+  <li>A fresh RPM package in beta test</li>
+  <li>Mobile apps in final beta test</li>
+</ul>
+
+<p>Checkout the <a href="https://blog.passbolt.com/passbolt-v3-4-0-is-out-20e95bcea2fa">v3.4 blog article</a> to get all the details about this release.</p>
+
+<p>We wish to thank the contributors who participated:</p>
+<ul>
+  <li>All the community members who reported bugs and submitted pull requests (reederda, fgietzen, garrettboone,  Ecentrix, zdenak11, jsm222 and many others).</li>
+  <li>All the community members who are participating in the mobile app beta testing effort  and who are reporting issues with tidy logs (jskribek, g0dsCookie, okami, dlist, solaire, and many others).</li>
+</ul>
+
+<h1 id="api">API</h1>
+<h2 id="340---2021-12-07">[3.4.0] - 2021-12-07</h2>
+<h3 id="added">Added</h3>
+<ul>
+  <li>PB-9826 As a user I want to use passbolt natively on Edge</li>
+  <li>PB-8371 As LU I want to see the authentication screens in dark mode</li>
+</ul>
+
+<h3 id="improvement">Improvement</h3>
+
+<ul>
+  <li>
+    <p>PB-8522 As LU I should see the MFA verify field having focus</p>
+  </li>
+  <li>
+    <p>PB-9730 As AD I should be able to check avatars read issues from the healthcheck</p>
+  </li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+
+<ul>
+  <li>
+    <p>PB-8932 Fix as LU I should see an animation when I successfully configured MFA</p>
+  </li>
+  <li>PB-9286 Fix as LU I should see the locale dropdown field of the setup/recover screen well positioned</li>
+  <li>PB-9397 Fix as AD I shouldn’t see an error on the healthcheck if the JWT auth is disabled and I never configured it</li>
+  <li>PB-9114 Fix as lu I should be able to upload a transparent avatar in .png format.</li>
+  <li>PB-9750 Fix spelling mistakes reported by the community</li>
+  <li>PB-9762 Fix requesting /auth/login.json should not trigger an unexpected error</li>
+  <li>PB-9888 Fix MFA &amp; JWT refresh token issue, remove Bearer from the hashed session identifier</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-7374 As soft deleted but logged in user I should be forbidden to request the API</li>
+  <li>PB-9340 Fix email queue data should be stored and deserialized as json and not php</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-9311 Refactor JWT and MFA plugins for better code maintainability.</li>
+  <li>PB-8320 Implement the tests that are marked as incomplete for cleaner continuous integration test reports</li>
+  <li>PB-8211 Psalm set to level 4</li>
+  <li>PB-9726 Fix do not load cleanup tasks unless in CLI mode</li>
+  <li>PB-9753 Improve table fields validation tests, do not save entity when testing the validation of properties</li>
+  <li>PB-9310 Move avatar file_storage logic into AvatarsTable</li>
+  <li>PB-9785 Update JWT healthcheck help messages</li>
+  <li>PB-9656 Migrate fields from utf8mb4 to a more performant encoding when possible</li>
+</ul>
+
+<h1 id="browser-extension">Browser extension</h1>
+<h2 id="340---2021-12-01">[3.4.0] - 2021-12-01</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>
+    <p>PB-9826 As a user I want to use passbolt natively on Edge</p>
+  </li>
+  <li>
+    <p>PB-1743 As LU I want to tag resource using drag and drop</p>
+  </li>
+  <li>PB-8372 As LU I want to see the quickaccess application in dark mode</li>
+  <li>PB-8371 As LU I want to see the login screen in dark mode</li>
+  <li>PB-8371 As AN I want to see the recover &amp; setup screens in dark mode as per my OS preferences</li>
+</ul>
+
+<h3 id="improvement-1">Improvement</h3>
+<ul>
+  <li>PB-9374 As LU I want to see the loading text translated in all the setup/recover screens</li>
+  <li>PB-9374 As LU I want to see the next button translated in all the setup/recover screens</li>
+  <li>PB-8521 As LU I want to preview my passphrase when I sign-in with the quickaccess</li>
+  <li>PB-8521 As LU I want to preview the password protecting a kdbx when I import a kdbx protected by password</li>
+  <li>PB-9292 As LU I want to see the neat grids checkboxes</li>
+  <li>PB-8935 As LU changing my passphrase I want to see my security token when my current passphrase is requested</li>
+  <li>PB-9315 As AN I want to see some space between my name and my avatar on the login screen</li>
+  <li>PB-9318 As LU already logged in I don’t want to see any error when I try to sign-in again</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-9316 Fix as LU I don’t want to see a padding at the right of the quickaccess right after signing in</li>
+  <li>PB-9759 Fix as LU I don’t want to see in form menu CTA if the associated input field was removed from the DOM</li>
+  <li>PB-9376 Fix as LU I want to see the sub-folders caret aligned with the sub-folders names</li>
+  <li>PB-8900 Fix as LU I don’t want to see the sub-folders of the last folder displayed on top of the tags section</li>
+  <li>PB-9648 Fix as LU I don’t want to see in form menu CTA displayed out of its associated input field</li>
+  <li>PB-9409 Fix as LU I don’t want to see a dead link on the update my passphrase settings screen</li>
+  <li>PB-8934 Fix as LU I want to see the key UI in the key inspector screen of the profile instead of my account full name</li>
+  <li>PB-9410 Fix as LU changing my passphrase I should see the processing button aligned with the other form button</li>
+  <li>PB-9321 Fix spelling mistakes reported by the community</li>
+  <li>PB-9287 Fix as LU I want to see the text displayed in the recovery process “check your email” screen will the right size</li>
+  <li>PB-8939 Fix as LU I don’t want to see the progress dialog current operation details on 2 lines</li>
+  <li>PB-9286 Fix as LU I want to see the locale dropdown field of the setup/recover screen well positioned</li>
+  <li>PB-8938 Fix as LU previewing a password in the resource details sidebar I don’t want to see the password spread over 2 lines</li>
+  <li>PB-8937 Fix as LU previewing a password in the grid I don’t want to see the password spread over 2 lines</li>
+  <li>PB-9285 Fix as LU uploading an invalid avatar I want to see an error having the same style as other form fields errors</li>
+  <li>PB-9331 Fix as LU I should not see the in-form menu CTA on the passbolt trusted domain</li>
+  <li>PB-9317 Fix theme selection screen does not work when server url is not a TLD</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>SEC-315 Upgrade validator dependency</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-8523 Ignore “src/css” folder in .gitignore and .npmignore</li>
+  <li>PB-8432 Improve the way styles are loaded in storybook</li>
+  <li>PB-5897 Add language switch in storybook for all components</li>
+  <li>PB-8374 Lint background page source code</li>
 </ul>
 
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Win or lose, red or blue, we must all stay true"</p>
-                                <a href="https://www.youtube.com/watch?v=J8PnEXw7hkc" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Black Sunrise"</p>
+                                <a href="https://youtu.be/BjnjfVLLuOA" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

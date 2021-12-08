@@ -8,7 +8,7 @@ card_title: Migrate to Debian package
 card_position: 1
 sidebar: [hosting, upgrade]
 passbolt_version: ce
-icon: fa-server
+icon: fa-debian
 layout: default
 slug: migrate-to-debian
 permalink: /:categories/:slug.html
@@ -21,7 +21,9 @@ permalink: /:categories/:slug.html
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
-{% assign distributionPhpVersion = '7.3' %}
+{% assign distributionPhpVersion = '7.4' %}
+{% assign distributionPackage = 'apt' %}
+{% assign webServerUser = 'www-data' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

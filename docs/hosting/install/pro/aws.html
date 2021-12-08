@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/install/pro/aws">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -341,14 +340,35 @@ authenticate itself during the login handshake process.</p>
     <span class="legend">fig. wizard - generate a key pair</span>
 </figure>
 
-    <p>Import a key if you already have one and you want your server to use it.</p>
+    <p><strong>Optional</strong>: Import a key if you already have one and you want your server to use it.</p>
 
     <p><div class="message warning">
     <strong>Do not set a passphrase or an expiration date</strong>
-    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set one.
     Similarly do not set an expiration date. Otherwise all your users will need to
     perform an account recovery when you will eventually need to update the key.
 </div></p>
+
+    <p>To create a new GnuPG key without passphrase:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --batch --no-tty --gen-key &lt;&lt;EOF
+  Key-Type: default
+  Key-Length: 2048
+  Subkey-Type: default
+  Subkey-Length: 2048
+  Name-Real: John Doe
+  Name-Email: email@domain.tld
+  Expire-Date: 0
+  %no-protection
+  %commit
+EOF
+</code></pre></div>    </div>
+
+    <p>Feel free to replace <strong>Name-Real</strong> and <strong>Name-Email</strong> with your own.</p>
+
+    <p>To display your new key:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --armor --export-secret-keys email@domain.tld
+</code></pre></div>    </div>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />

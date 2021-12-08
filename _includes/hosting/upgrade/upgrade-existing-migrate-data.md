@@ -1,6 +1,6 @@
 
 
-## Migrate the data
+## Migrate {{ webServerUser }}
 
 Load the backup files into the new {{ distributionLabel }} server, for the following tasks we will consider that the backup files are in your user home directory `~/backup`
 
@@ -26,7 +26,7 @@ You received your subscription key by email, copy it as `/etc/passbolt/subscript
 
 ```
 sudo mv ~/backup/passbolt.php /etc/passbolt
-sudo chown www-data:www-data /etc/passbolt/passbolt.php
+sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/passbolt.php
 sudo chmod 440 /etc/passbolt/passbolt.php
 ```
 
@@ -35,8 +35,8 @@ sudo chmod 440 /etc/passbolt/passbolt.php
 ```
 sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
-sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/gpg/serverkey_private.asc
+sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 ```
@@ -45,7 +45,7 @@ sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 
 ```
 sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
-sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
+sudo chown -R {{ webServerUser }}:{{ webServerUser }} /usr/share/php/passbolt/webroot/img/public
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Load the database
@@ -54,10 +54,10 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE < passbolt-backup.sql
 ```
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Migrate the Passbolt data to the latest version
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Migrate the Passb{{ webServerUser }} to the latest version
 
 ```
-sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
+sudo -H -u {{ webServerUser }} /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Test passbolt
@@ -67,5 +67,5 @@ Try to access your passbolt application with your browser.
 If you are encountering any issues, you can run the following command to assess the status of your instance:
 
 ```
-sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck"
+sudo -H -u {{ webServerUser }} /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck"
 ```

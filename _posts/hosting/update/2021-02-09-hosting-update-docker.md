@@ -4,8 +4,8 @@ date: 2021-02-09 00:00:00 Z
 description: How to update passbolt docker container
 card_teaser: Guide for instances using docker container.
 card_title: Update for Docker
-card_position: 4
-icon: fa-server
+card_position: 3
+icon: fa-docker
 categories: [hosting, update]
 sidebar: hosting
 layout: default

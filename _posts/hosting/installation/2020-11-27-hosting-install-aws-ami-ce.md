@@ -5,7 +5,7 @@ card_teaser: Use passbolt CE on AWS
 card_position: 5
 date: 2019-08-07 00:00:00 Z
 description: Start using passbolt CE on AWS
-icon: fa-server
+icon: fa-aws
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default

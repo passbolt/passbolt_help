@@ -1,16 +1,15 @@
 ---
 title: Install Passbolt CE on Ubuntu 20.04
-date: 2021-02-10 00:00:00 Z
+date: 2021-11-24 00:00:00 Z
 description: How to install Passbolt CE on Ubuntu 20.04
 card_title: Ubuntu 20.04
 card_teaser: Step by step guide to install passbolt CE on Ubuntu 20.04
 card_position: 2
-icon: fa-server
+icon: fa-ubuntu
 categories: [hosting,install,ce,ubuntu]
 sidebar: hosting
 layout: default
 slug: ubuntu
-popular: true
 permalink: /:categories/:slug.html
 ---
 
@@ -20,6 +19,7 @@ permalink: /:categories/:slug.html
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}
+{% assign distributionPackage = 'apt' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

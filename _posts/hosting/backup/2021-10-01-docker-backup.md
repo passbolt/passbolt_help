@@ -8,7 +8,6 @@ card_position: 4
 categories: [hosting,backup]
 sidebar: hosting
 layout: default
-new: true
 slug: docker
 permalink: /:categories/:slug.html
 ---

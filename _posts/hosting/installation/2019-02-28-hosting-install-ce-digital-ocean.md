@@ -5,7 +5,7 @@ description: How to install Passbolt CE Digital Ocean
 card_title: Digital Ocean
 card_teaser: Use passbolt CE on Digital Ocean
 card_position: 6
-icon: fa-server
+icon: fa-digitalocean
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default

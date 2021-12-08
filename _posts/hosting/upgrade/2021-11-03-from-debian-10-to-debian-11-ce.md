@@ -8,8 +8,7 @@ card_title: Debian 11 upgrade
 card_position: 10
 sidebar: [hosting, upgrade]
 passbolt_version: ce
-new: true
-icon: fa-server
+icon: fa-debian
 layout: default
 slug: from-debian-10-to-debian-11-ce
 permalink: /:categories/:slug.html

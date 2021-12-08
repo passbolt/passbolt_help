@@ -4,7 +4,8 @@ date: 2021-02-07 00:00:00 Z
 description: How to update passbolt CE AWS ami.
 card_teaser: Update passbolt CE AWS ami.
 card_title: Update for AWS ami
-icon: fa-server
+icon: fa-aws
+card_position: 100
 categories: [hosting, update]
 sidebar: hosting
 layout: default

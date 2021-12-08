@@ -10,7 +10,6 @@ sidebar: [hosting, upgrade]
 passbolt_version: pro
 icon: fa-server
 layout: default
-new: true
 slug: migrate-existing-pro-to-virtual-machine
 permalink: /:categories/:slug.html
 ---
@@ -23,6 +22,8 @@ permalink: /:categories/:slug.html
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
+{% assign distributionPackage = 'apt' %}
+{% assign webServerUser = 'www-data' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

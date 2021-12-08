@@ -4,7 +4,8 @@ date: 2021-02-07 00:00:00 Z
 description: How to update passbolt CE digital ocean appliance.
 card_teaser: Update passbolt CE digital ocean appliance.
 card_title: Update for Digital Ocean
-icon: fa-server
+icon: fa-digitalocean
+card_position: 100
 categories: [hosting, update]
 sidebar: hosting
 layout: default

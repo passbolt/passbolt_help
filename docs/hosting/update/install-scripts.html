@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Update passbolt on Centos 7</title>
+    <title>Passbolt Help | Update passbolt on Centos 7 (installation script)</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Update passbolt on Centos 7" />
+    <meta property="og:title" content="Update passbolt on Centos 7 (installation script)" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/update/install-scripts">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -189,7 +188,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Update passbolt on Centos 7</h1>
+<h1>Update passbolt on Centos 7 (installation script)</h1>
 </div>
 </div>
 
@@ -278,7 +277,7 @@ reflected in model cache files:</p>
 </figure>
 
     <p>You can also run the following command:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span>  bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt healthcheck"</span>
 </code></pre></div>    </div>
 
     <h4 id="if-you-run-into-some-issues">If you run into some issues</h4>

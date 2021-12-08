@@ -5,7 +5,7 @@ card_teaser: Upgrade from CE source install to Pro
 card_position: 7
 date: 2018-04-03 00:00:00 Z
 description: Upgrade from CE source install to Pro
-icon: fa-server
+icon: fa-git
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Install Passbolt Pro on CentOS 7</title>
+    <title>Passbolt Help | Install Passbolt PRO on CentOS 7</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install Passbolt Pro on CentOS 7" />
+    <meta property="og:title" content="Install Passbolt PRO on CentOS 7" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/install/pro/centos-7">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -75,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2018-11-13-hosting-install-pro-centos-7.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/archived/installation/2021-11-24-hosting-install-pro-centos-7.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -178,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/pro/centos-7.html"><span>CentOS 7</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/pro/centos-7.html"><span>centos-7</span></a>
                     </div>
                 </li>
                 
@@ -189,7 +188,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install Passbolt Pro on CentOS 7</h1>
+<h1>Install Passbolt PRO on CentOS 7</h1>
 </div>
 </div>
 
@@ -197,27 +196,11 @@
 <div class="row">
   <div class="col7">
 
-    <!---
-Required variables for this page to be displayed properly.
-product (string): The product this page will be rendered for:  ce or pro
-distribution (string): The target distribution (lower case): debian, centos or ubuntu. It will be used in the urls and fule name to target script
-distributionSlug (string): The target distribution slug: debian-9, centos-7, ubuntu-18.04. It will be used in the url to target script
-distributionLabel (string): The target distribution label: Debian 9 (Stretch), Centos 7 ...
--->
-
-    <p>This tutorial describes how to install Passbolt PRO on a minimal CentOS 7 server. The installation procedure is based on install scripts that will do
-the heavy lifting for you. They will configure your operating system to be passbolt ready and will take care of installing and configuring the web
-server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
-
-    <p>Installation time: 10 minutes.</p>
-
-    <p>If you prefer to install passbolt manually please refer to this documentation: <a href="/hosting/install/ce/from-source.html">Install passbolt from source</a>.</p>
-
     <h2 id="prerequisites">Prerequisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal CentOS 7 server.</li>
+      <li>A minimal CentOS 7  server.</li>
       <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
     </ul>
 
@@ -234,83 +217,197 @@ server (Nginx), database (MariaDb), PHP, SSL and GPG keyring.</p>
     
 </div>
 
-    <h2 id="configure-your-server">1. Configure your server</h2>
+    <h2 id="install-the-server-components">1. Install the server components</h2>
+    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
 
-    <h3 id="download-and-execute-the-installation-script">Download and execute the installation script</h3>
+    <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt PRO and install it.</p>
 
-    <p><em>Note that you can find the source code of the install scripts on our <a href="https://bitbucket.org/passbolt/passbolt_install_scripts">git repository</a>.</em></p>
+    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
 
-    <p>The script will take care of installing all the services required by passbolt.
-It will ask you a few questions in order to adapt the environment to your needs.</p>
+    <p><strong>Step 1.</strong> Configure Extra Packages for Enterprise Linux (EPEL) repository</p>
 
-    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-L</span> <span class="nt">-o</span> passbolt-pro-installer-centos-7.tar.gz https://www.passbolt.com/pro/download/installers/centos/latest
-curl <span class="nt">-L</span> <span class="nt">-o</span> passbolt-installer-checksum https://www.passbolt.com/pro/download/installers/centos/latest-checksum
-<span class="nb">sha512sum</span> <span class="nt">-c</span> passbolt-installer-checksum
-<span class="nb">tar</span> <span class="nt">-xzf</span> passbolt-pro-installer-centos-7.tar.gz
-<span class="nb">sudo</span> ./passbolt_pro_centos_installer.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install epel-release
 </code></pre></div>    </div>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png" alt="execute the install script" style="max-width:586px;" />
-    <span class="legend">fig. execute the install script</span>
-</figure>
+    <p>While installing packages from this repository, you will be asked to accept GPG key of this repository. You nust verify if the displayed fingerprint is correct on <a href="https://getfedora.org/security/">this reference page</a>.</p>
 
-    <h3 id="do-you-want-to-install-a-local-mariadb-server-on-this-machine">Do you want to install a local mariadb server on this machine?</h3>
+    <p><strong>Step 2.</strong> Configure Remi’s RPM repository</p>
+
+    <p>As CentOS 7 don’t provide the mandatory <strong>php-pecl-gnupg</strong> package for Passbolt, we rely on Remi’s RPM repository for the PHP packages.</p>
+
+    <p>Install Remi repository configuration package.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+</code></pre></div>    </div>
+
+    <p>During the next package installations, if you are prompted for Remi GPG key import, you must check if the displayed fingerprint matches <a href="https://blog.remirepo.net/pages/Config-en">with the one on the bottom of this reference page</a>.</p>
+
+    <p>Install the <code class="language-plaintext highlighter-rouge">yum-utils</code> package:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install yum-utils
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong> Enable the module stream for PHP 7.4:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum-config-manager --disable 'remi-php*'
+sudo yum-config-manager --enable   remi-php74
+</code></pre></div>    </div>
+
+    <p><strong>Step 4.</strong> Let’s Encrypt</p>
+
+    <p>Install certbot if you plan to manage your SSL certificates with <a href="https://letsencrypt.org/">Let’s Encrypt</a>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install certbot python3-certbot-nginx
+</code></pre></div>    </div>
+
+    <p><strong>Step 5.</strong> Setup MariaDB 10.3 repository</p>
+
+    <p>CentOS 7 comes with an outated MariaDB 5.x version and performance issues has been reported by using it. That’s why you should consider to upgrade MariaDB to version 10.3.</p>
+
+    <p>Add MariaDB 10.3 repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/yum.repos.d/mariadb.repo
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.3/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1
+EOF
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong>  Add passbolt repository:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/yum.repos.d/passbolt.repo
+[passbolt-server]
+name=Passbolt Server
+baseurl=https://download.passbolt.com/pro/rpm/el7/stable
+enabled=1
+gpgcheck=1
+gpgkey=https://download.passbolt.com/pub.key
+EOF
+</code></pre></div>    </div>
+
+    <h4 id="install-passbolt-package">Install passbolt package</h4>
+
+    <p>Install the main passbolt server component:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install passbolt-pro-server
+</code></pre></div>    </div>
+
+    <p>During the installation, you will be asked to accept the Passbolt repository GPG key. You must ensure the fingerprint is exactly the same as the one below:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Importing GPG key 0xC155581D:
+ Userid     : "Passbolt SA package signing key &lt;contact@passbolt.com&gt;"
+ Fingerprint: 3D1A 0346 C8E1 802F 774A EF21 DE8B 853F C155 581D
+ From       : https://download.passbolt.com/pub.key
+</code></pre></div>    </div>
+
+    <h4 id="mariadb--nginx--ssl-settings">MariaDB / Nginx / SSL settings</h4>
+
+    <p>Passbolt PRO RPM package on CentOS 7 come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.</p>
+
+    <p>You must prepare beforehand your SSL certificates before launching the tool. Be sure to write down the full path to your cert/key combo, as it will be needed in the nginx configuration process.</p>
+
+    <p>Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.</p>
+
+    <p>Launch <code class="language-plaintext highlighter-rouge">passbolt-configure</code> tool and answer to the questions:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo /usr/local/bin/passbolt-configure
+</code></pre></div>    </div>
+
+    <h4 id="mariadb">MariaDB</h4>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================================================
+Do you want to configure a local mariadb server on this machine?
+================================================================
+1) yes
+2) no
+#?
+</code></pre></div>    </div>
+
+    <p>Answer <strong>1</strong> for yes if you want to configure a local MariaDB database, otherwise <strong>2</strong> for no if you plan to use an existing one.</p>
+
+    <p>If you chose yes, answer the questions:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=======================================================
+Please enter a new password for the root database user:
+=======================================================
+MariaDB Root Password: ****
+MariaDB Root Password (verify): ****
+======================================================
+Please enter a name for the passbolt database username
+======================================================
+Passbolt database user name:passboltuser
+=======================================================
+Please enter a new password for the mysql passbolt user
+=======================================================
+MariaDB passbolt user password: ****
+MariaDB passbolt user password (verify): ****
+==============================================
+Please enter a name for the passbolt database:
+==============================================
+Passbolt database name:passboltdb
+</code></pre></div>    </div>
+
+    <h4 id="haveged">Haveged</h4>
+
+    <p>On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt will not run properly.</p>
+
+    <p>You should consider to install Haveged to speed up the entropy generation. Please check <a href="https://help.passbolt.com/faq/hosting/why-haveged-virtual-env">our FAQ page about this</a> for more informations.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==================
+Install Haveged ?
+==================
+1) yes
+2) no
+#?
+</code></pre></div>    </div>
+
+    <h4 id="nginx">Nginx</h4>
+
+    <p>Please enter the domain name under which passbolt will run.</p>
+
+    <p>Note this hostname will be used as server_name for nginx and as the domain name to register a SSL certificate with let’s encrypt if you don’t have your own SSL certificates.</p>
+
+    <p>If you don’t have a domain name and you do not plan to use let’s encrypt please enter the ip address to access this machine.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=========
+Hostname: passbolt.domain.tld
+=========
+</code></pre></div>    </div>
+
+    <h4 id="ssl-configuration">SSL configuration</h4>
+
+    <p>3 available choices for SSL configuration:</p>
 
     <ul>
-      <li><strong>Yes</strong>: if you are not planning on using an external mysql / mariadb server.</li>
-      <li><strong>No</strong>: if you have a mysql / mariadb server installed somewhere else and want to use it for passbolt.</li>
+      <li>manual: Prompts for the path of user uploaded ssl certificates and set up nginx</li>
+      <li>auto:   Will issue a free SSL certificate with https://www.letsencrypt.org and set up nginx</li>
+      <li>none:   Do not setup HTTPS at all</li>
     </ul>
 
-    <p>The script will then ask you for the database details: root user password, non-root user name, non-root user password, database name, and database password.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==================
+Setting up SSL...
+==================
+1) manual
+2) auto
+3) none
+#?
+</code></pre></div>    </div>
 
-    <h3 id="hostname">Hostname</h3>
+    <p>If you choose <strong>1</strong>, you will be prompted for the full path of your certificates:</p>
 
-    <p>To configure your webserver, the script needs to know under which hostname or ip it is going to run. Enter here
-the address (domain, hostname or ip) at which you are planning to access your passbolt after installation.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter the path to the SSL certificate: /path/to/certs/cert.pem
+Enter the path to the SSL privkey: /path/to/certs/key.pem
+</code></pre></div>    </div>
 
-    <p>example: my-passbolt.acme.com</p>
+    <p>Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the Passbolt web interface to finish the configuration.</p>
 
-    <h3 id="ssl-setup">SSL Setup</h3>
-    <p>Because passbolt is designed to run with HTTPS by default it is best to try to setup passbolt 
-with SSL even if this is just a test instance.</p>
-
-    <ul>
-      <li><strong>manual</strong>: (recommended) choose manual if you have your own ssl certificates.</li>
-      <li><strong>auto</strong>: this option will issue a SSL certificate automatically through <a href="https://letsencrypt.org">Let’s Encrypt</a>. 
-Use this option only if you have a domain name that is reachable by the outside world, or it will not work.</li>
-      <li><strong>none</strong>: choose this option if you don’t want your webserver to run https. This is not recommended.</li>
-    </ul>
-
-    <p><strong>Important:</strong> if you choose ‘none’ and want to test the MFA, later on you will need to set 
-PASSBOLT_SECURITY_COOKIE_SECURE environment variable to false. This is to prevent a misconfigured
-server with both HTTP and HTTPS enabled from leaking sensitive cookie.</p>
-
-    <h3 id="common-gnupg-issues">Common GnuPG issues</h3>
-
-    <p>On virtualized environments GnuPG will most likely not be able to find enough entropy to generate a key. 
-Therefore, Passbolt will not run properly. The script needs to know if you want to help fix this issue by installing
- Haveged.</p>
-
-    <p>Haveged is a useful tool to fix entropy issues, however it can have security implications. Make sure you understand 
-the risks before answering yes to this question.</p>
-
-    <p><div class="message warning">
-    <strong>Do not set a passphrase or an expiration date</strong>
-    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
-    Similarly do not set an expiration date. Otherwise all your users will need to
-    perform an account recovery when you will eventually need to update the key.
-</div></p>
-
-    <p>For each question, depending on your answer, some more precisions can be asked. Just answer the questions and go 
-with the flow.</p>
-
-    <p>Your environment is now ready to support passbolt.</p>
-
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/end-install-script.png" alt="completion of the install script" style="max-width:586px;" />
-    <span class="legend">fig. completion of the install script</span>
-</figure>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>===============================================================
+Installation is almost complete. Please point your browser to
+  https://passbolt.domain.tld to complete the process
+===============================================================
+</code></pre></div>    </div>
 
     <h2 id="configure-passbolt">2. Configure passbolt</h2>
 
@@ -364,14 +461,35 @@ authenticate itself during the login handshake process.</p>
     <span class="legend">fig. wizard - generate a key pair</span>
 </figure>
 
-    <p>Import a key if you already have one and you want your server to use it.</p>
+    <p><strong>Optional</strong>: Import a key if you already have one and you want your server to use it.</p>
 
     <p><div class="message warning">
     <strong>Do not set a passphrase or an expiration date</strong>
-    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set one.
     Similarly do not set an expiration date. Otherwise all your users will need to
     perform an account recovery when you will eventually need to update the key.
 </div></p>
+
+    <p>To create a new GnuPG key without passphrase:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --batch --no-tty --gen-key &lt;&lt;EOF
+  Key-Type: default
+  Key-Length: 2048
+  Subkey-Type: default
+  Subkey-Length: 2048
+  Name-Real: John Doe
+  Name-Email: email@domain.tld
+  Expire-Date: 0
+  %no-protection
+  %commit
+EOF
+</code></pre></div>    </div>
+
+    <p>Feel free to replace <strong>Name-Real</strong> and <strong>Name-Email</strong> with your own.</p>
+
+    <p>To display your new key:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --armor --export-secret-keys email@domain.tld
+</code></pre></div>    </div>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-pro-server-key-import.png" alt="wizard - import a key pair" style="max-width:586px;" />
@@ -479,29 +597,36 @@ attacks. Each time you are performing a sensitive operation on passbolt, you sho
 
     <p>Your administrator account is configured. You will be redirected to the login page of passbolt. Enjoy!</p>
 
-    <h3 id="frequently-asked-questions">Frequently asked questions</h3>
-    <ul>
-      <li><a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a></li>
-      <li><a href="/faq/hosting/how-to-increase-auto-logout-time">How to I increase auto logout timeout?</a></li>
-      <li><a href="/faq/hosting/how-to-backup">How do I make backups</a></li>
-    </ul>
-
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
 November
-13th,
-2018.</p>
+24th,
+2021.</p>
     </div>
 
   </div>
   <div class="col4 last push1">
+
+    <div class="message tldr warning">
+    <p>This documentation is relative to an old distribution, please consider installing passbolt on the latest CentOS</p>
+    
+    <a href="centos.html" class="button ">Read install manual</a>
+    
+</div>
 
     <div class="message tldr notice">
     <p>Are you experiencing issues with Passbolt Pro Edition?</p>
     <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
     <p>or <a href="https://community.passbolt.com">ask the community</a></p>
 
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
 </div>
 
   </div>

@@ -5,12 +5,11 @@ card_teaser: Use passbolt Pro on AWS
 card_position: 5
 date: 2021-08-11 00:00:00 Z
 description: Start using passbolt Pro on AWS
-icon: fa-server
+icon: fa-aws
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: aws
-new: true
 permalink: /:categories/:slug.html
 ---
 

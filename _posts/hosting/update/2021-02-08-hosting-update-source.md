@@ -4,9 +4,9 @@ date: 2021-02-08 00:00:00 Z
 description: How to update passbolt on your server.
 card_teaser: Guide for instances installed from source.
 card_title: Update for source install
-card_position: 6
+card_position: 200
 categories: [hosting, update]
-icon: fa-server
+icon: fa-git
 sidebar: hosting
 layout: default
 slug: source

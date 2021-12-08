@@ -1,6 +1,29 @@
 <p><div class="message warning" >
     <strong>Do not set a passphrase or an expiration date</strong>
-    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set a passphrase.
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set one.
     Similarly do not set an expiration date. Otherwise all your users will need to
     perform an account recovery when you will eventually need to update the key.
 </div></p>
+
+To create a new GnuPG key without passphrase:
+```
+gpg --batch --no-tty --gen-key <<EOF
+  Key-Type: default
+  Key-Length: 2048
+  Subkey-Type: default
+  Subkey-Length: 2048
+  Name-Real: John Doe
+  Name-Email: email@domain.tld
+  Expire-Date: 0
+  %no-protection
+  %commit
+EOF
+```
+
+Feel free to replace **Name-Real** and **Name-Email** with your own.
+
+To display your new key:
+
+```
+gpg --armor --export-secret-keys email@domain.tld
+```

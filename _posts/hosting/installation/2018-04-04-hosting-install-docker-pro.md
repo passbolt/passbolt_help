@@ -2,10 +2,10 @@
 title: Docker install
 card_title: Docker
 card_teaser: Step by step guide to install passbolt Pro using Docker.
-card_position: 4
+card_position: 3
 date: 2018-04-09 00:00:00 Z
 description: Install passbolt Pro using Docker
-icon: fa-server
+icon: fa-docker
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default

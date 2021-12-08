@@ -54,7 +54,7 @@ Generate a key if you don't have one.
 {% include articles/figure.html url="/assets/img/help/2018/11/web-installer-ce-server-key-generate.png" legend="wizard - generate a key pair" width="586px" %}
 {% endif %}
 
-Import a key if you already have one and you want your server to use it.
+**Optional**: Import a key if you already have one and you want your server to use it.
 
 {% include hosting/install/warning-gpg-key-generation.html %}
 

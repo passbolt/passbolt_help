@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/migrate-to-debian">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -224,13 +223,15 @@ You can follow our <a href="/hosting/backup">backup process</a>.</p>
 
     <p>Passbolt requires PHP 7.3 and supports PHP 7.4.</p>
 
-    <p>A full system upgrade to Debian 11 is necessary before installing the passbolt Debian package.
-<a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">Here</a> is the official Debian guide to
+    <p>A full system upgrade to Debian 11 is necessary before installing the passbolt Debian package.</p>
+
+    <p><a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">Here</a> is the official Debian guide to
 upgrade your system with a step by step tutorial.</p>
 
     <h2 id="install-the-package">4. Install the package</h2>
 
-    <h3 id="setup-the-package-repository">4.1. Setup the package repository</h3>
+    <h2 id="install-the-server-components">1. Install the server components</h2>
+    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
 
     <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt PRO and install it.</p>
@@ -239,23 +240,30 @@ before you download Passbolt PRO and install it.</p>
 
     <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
-<span class="nb">sudo </span>apt-get <span class="nb">install</span> <span class="se">\</span>
-    apt-transport-https <span class="se">\</span>
-    ca-certificates <span class="se">\</span>
-    curl <span class="se">\</span>
-    gnupg-agent <span class="se">\</span>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
     software-properties-common
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+    <p><strong>Step 2.</strong> Let’s Encrypt</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+    <p>Install certbot if you plan to manage your SSL certificates with <a href="https://letsencrypt.org/">Let’s Encrypt</a>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install certbot python3-certbot-nginx
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D 
 </code></pre></div>    </div>
 
     <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
 
-    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+    <p><strong>Step 4.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
 </code></pre></div>    </div>
@@ -268,13 +276,13 @@ uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.co
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p><strong>Step 4.</strong> Create APT GPG keyring</p>
+    <p><strong>Step 5.</strong> Create GPG package keyring</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
   /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
+    <p><strong>Step 6.</strong>  Add passbolt repository:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
 Types: deb
@@ -285,16 +293,31 @@ Signed-By: /usr/share/keyrings/passbolt-repository.gpg
 EOF
 </code></pre></div>    </div>
 
-    <p><strong>Step 6.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+    <p><strong>Step 7.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
 </code></pre></div>    </div>
 
-    <h3 id="install-the-package-1">4.2. Install the package</h3>
+    <h3 id="install-passbolt">1.2. Install passbolt</h3>
+
+    <p>By default, passbolt Debian package will install Passbolt server component, mariadb-server, php-fpm and nginx
+as dependencies.</p>
+
+    <p>There are two main ways to install the passbolt Debian package:</p>
+
+    <ul>
+      <li><strong>Interactive</strong>: the package will guide the user through a set of questions to setup mariadb and nginx. If you are
+going to use existing SSL certs for the web server, they need to be created and installed to the location of your choosing before
+beginning. The user will be asked for the path and name of the certificate and key.</li>
+      <li><strong>Non-interactive</strong>: no questions will be asked. Useful for users with specific needs or users that want to automate the
+installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Read this FAQ page to know more</a></li>
+    </ul>
+
+    <h4 id="install-passbolt-package">Install passbolt package</h4>
 
     <p>Install the main passbolt server component:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>passbolt-pro-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install passbolt-pro-server
 </code></pre></div>    </div>
 
     <p>It is recommended at this point to select:</p>
@@ -338,17 +361,17 @@ EOF
 
     <h2 id="php-fpm">6. PHP-FPM</h2>
 
-    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
+    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> 127.0.0.1:9000
 </code></pre></div>    </div>
 
     <p>Change it to look like this:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.3-fpm.sock
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.4-fpm.sock
 </code></pre></div>    </div>
 
-    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code>:</p>
+    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.4/fpm/pool.d/www.conf</code>:</p>
 
     <p>Look for the line containing:</p>
 
@@ -374,6 +397,7 @@ EOF
 <span class="nb">sudo rm</span> /etc/nginx/conf.d/passbolt_ssl.conf
 </code></pre></div>    </div>
     <p>Then you can reconfigure the Debian package using:</p>
+
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>dpkg-reconfigure passbolt-pro-server
 </code></pre></div>    </div>
 
@@ -410,7 +434,7 @@ you can delete it:</p>
     <p>Finally take passbolt back up:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
-<span class="nb">sudo </span>systemctl restart php7.3-fpm
+<span class="nb">sudo </span>systemctl restart php7.4-fpm
 </code></pre></div>    </div>
 
     <div class="last-updated">

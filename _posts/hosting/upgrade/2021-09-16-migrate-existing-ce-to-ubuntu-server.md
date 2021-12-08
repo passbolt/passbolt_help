@@ -8,9 +8,8 @@ card_title: Migrate to new Ubuntu server
 card_position: 9
 sidebar: [hosting, upgrade]
 passbolt_version: ce
-icon: fa-server
+icon: fa-ubuntu
 layout: default
-new: true
 slug: migrate-existing-ce-to-ubuntu-server
 permalink: /:categories/:slug.html
 ---
@@ -21,6 +20,8 @@ permalink: /:categories/:slug.html
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}
+{% assign distributionPackage = 'apt' %}
+{% assign webServerUser = 'www-data' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

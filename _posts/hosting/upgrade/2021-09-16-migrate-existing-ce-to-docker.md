@@ -8,9 +8,8 @@ card_title: Migrate to new Docker
 card_position: 9
 sidebar: [hosting, upgrade]
 passbolt_version: ce
-icon: fa-server
+icon: fa-docker
 layout: default
-new: true
 slug: migrate-existing-ce-to-docker
 permalink: /:categories/:slug.html
 ---

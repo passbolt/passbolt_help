@@ -1,24 +1,16 @@
 ---
-title: Debian package
-date: 2021-02-10 00:00:00 Z
-card_teaser: Backing up a debian package passbolt installation
-card_title: Debian package
+title: Backing up a Passbolt package installation
+date: 2021-11-24 00:00:00 Z
+card_teaser: Backing up a Passbolt package installation
+card_title: DEB/RPM package
 icon: fa-download
-card_position: 2
+card_position: 3
 categories: [hosting,backup]
 sidebar: hosting
 layout: default
-slug: debian
+slug: package
 permalink: /:categories/:slug.html
 ---
-
-{% assign product = 'pro' %}
-{% assign distribution = 'debian' %}
-{% assign distributionVersion = '10' %}
-{% assign distributionVersionName = 'buster' %}
-{% assign distributionSlug = 'debian' %}
-{% assign distributionLabel = 'Debian' %}
-{% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

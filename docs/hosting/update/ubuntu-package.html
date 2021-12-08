@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/update/ubuntu-package">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -193,14 +192,15 @@
 </div>
 </div>
 
-                        <div class="row">
+                        
+<div class="row">
   <div class="col7">
 
     <h2 id="prerequisites">Prerequisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal Ubuntu 20.04 server.</li>
+      <li>A minimal Ubuntu server.</li>
       <li>Passbolt Ubuntu package installed.</li>
     </ul>
 
@@ -219,10 +219,10 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 
     <h3 id="upgrade-your-system">3. Upgrade your system</h3>
 
-    <p>This commands will trigger an upgrade on your whole ubuntu system:</p>
+    <p>This commands will trigger an upgrade on your whole Ubuntu system:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get update
-<span class="nv">$ </span><span class="nb">sudo </span>apt-get upgrade
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt update
+<span class="nv">$ </span><span class="nb">sudo </span>apt upgrade
 </code></pre></div>    </div>
 
     <h3 id="clear-the-cache">4. Clear the cache</h3>
@@ -250,7 +250,7 @@ reflected in model cache files:</p>
 </figure>
 
     <p>You can also run the following command:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"./bin/cake passbolt healthcheck"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt healthcheck"</span>
 </code></pre></div>    </div>
 
     <h4 id="if-you-run-into-some-issues">If you run into some issues</h4>
@@ -277,8 +277,8 @@ the easiest it will be for people to help you.</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-February
-12th,
+November
+26th,
 2021.</p>
     </div>
 

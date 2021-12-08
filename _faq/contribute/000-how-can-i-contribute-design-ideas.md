@@ -1,6 +1,6 @@
 ---
 title: How can I request a feature?
-slug: design-contribution
+slug: feature-request
 layout: faq
 category: contribute
 permalink: /faq/contribute/:slug

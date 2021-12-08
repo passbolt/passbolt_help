@@ -5,6 +5,7 @@ card_teaser: Backing up an ubuntu package passbolt installation
 card_title: Ubuntu package
 icon: fa-download
 card_position: 3
+archived: true
 categories: [hosting,backup]
 sidebar: hosting
 layout: default

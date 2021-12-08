@@ -5,7 +5,7 @@ card_teaser: Upgrade Passbolt from CE to Pro on Debian
 card_position: 4
 date: 2021-11-02 00:00:00 Z
 description: Upgrade Passbolt from CE to Pro on Debian
-icon: fa-server
+icon: fa-debian
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
@@ -88,7 +88,7 @@ uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 ```
 
-Create APT GPG keyring
+Create GPG package keyring
 
 ```
 gpg --export 0xDE8B853FC155581D | sudo tee \

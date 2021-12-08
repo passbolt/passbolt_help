@@ -14,3 +14,47 @@
     line-height: 1em;
     text-transform: uppercase;
 }
+
+.fa-debian:before {
+    content: url(../img/fa-server/fa-debian.svg);
+}
+
+.fa-ubuntu:before {
+    content: url(../img/fa-server/fa-ubuntu.svg);
+}
+
+.fa-aws:before {
+    content: url(../img/fa-server/fa-aws.svg);
+}
+
+.fa-digitalocean:before {
+    content: url(../img/fa-server/fa-digitalocean.svg);
+}
+
+.fa-rockylinux:before {
+    content: url(../img/fa-server/fa-rockylinux.svg);
+}
+
+.fa-redhat:before {
+    content: url(../img/fa-server/fa-redhat.svg);
+}
+
+.fa-oraclelinux:before {
+    content: url(../img/fa-server/fa-oraclelinux.svg);
+}
+
+.fa-centos:before {
+    content: url(../img/fa-server/fa-centos.svg);
+}
+
+.fa-almalinux:before {
+    content: url(../img/fa-server/fa-almalinux.svg);
+}
+
+.fa-docker:before {
+    content: url(../img/fa-server/fa-docker.svg);
+}
+
+.fa-git:before {
+    content: url(../img/fa-server/fa-git.svg);
+}

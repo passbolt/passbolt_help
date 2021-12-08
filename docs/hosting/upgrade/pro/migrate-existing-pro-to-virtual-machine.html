@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -333,7 +332,7 @@ You will find the root password on the server in the file <code class="language-
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
 </code></pre></div>    </div>
 
-    <h2 id="migrate-the-data">Migrate the data</h2>
+    <h2 id="migrate-www-data">Migrate www-data</h2>
 
     <p>Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
 
@@ -363,8 +362,8 @@ sudo chmod 440 /etc/passbolt/passbolt.php
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
-sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chown www-data:www-data /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data:www-data /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 </code></pre></div>    </div>
@@ -380,7 +379,7 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
 </code></pre></div>    </div>
 
-    <p><strong>Step 6.</strong> Migrate the Passbolt data to the latest version</p>
+    <p><strong>Step 6.</strong> Migrate the Passbwww-data to the latest version</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>

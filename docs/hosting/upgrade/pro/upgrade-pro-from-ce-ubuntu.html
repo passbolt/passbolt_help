@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-ubuntu">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -257,7 +256,7 @@ uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.co
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p>Create APT GPG keyring</p>
+    <p>Create GPG package keyring</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
   /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null

@@ -6,3 +6,4 @@ node_modules/
 .DS_store
 vendor
 .bundle
+.jekyll-cache

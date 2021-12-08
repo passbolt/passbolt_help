@@ -18,13 +18,5 @@ Don’t delete the existing instance yet!
 
 {% include hosting/install/packages/debian/install-server-components.md %}
 {% assign migrate = true %}
-{% include configure/configure-debian-package-mariadb.md %}
-
-## Configure nginx for serving HTTPS
-
-Depending on your needs there are two different options to setup nginx and SSL using the {{ distributionLabel }} package:
-
-- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
-- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
-
+{% include hosting/install/packages/debian/package-configuration.md %}
 {% include hosting/upgrade/upgrade-existing-migrate-data.md %}

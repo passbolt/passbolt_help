@@ -5,7 +5,7 @@ card_teaser: Upgrade Passbolt from CE to Pro on Ubuntu
 card_position: 5
 date: 2021-02-10 00:00:00 Z
 description: Upgrade Passbolt from CE to Pro on Ubuntu
-icon: fa-server
+icon: fa-ubuntu
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default
@@ -87,7 +87,7 @@ uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 ```
 
-Create APT GPG keyring
+Create GPG package keyring
 
 ```
 gpg --export 0xDE8B853FC155581D | sudo tee \

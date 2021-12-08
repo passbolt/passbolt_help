@@ -27,7 +27,6 @@
     <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-debian-server">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
-
 </head>
 
 
@@ -227,8 +226,8 @@ before you download Passbolt CE and install it.</p>
 
     <p><strong>Step 1.</strong> Update the apt indexes and install packages to allow apt to use https repositories:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
-sudo apt-get install \
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+sudo apt install \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -236,19 +235,21 @@ sudo apt-get install \
     software-properties-common
 </code></pre></div>    </div>
 
-    <p>Optionally you can install certbot to enable <a href="https://letsencrypt.org/">Let’s Encrypt</a> configuration:</p>
+    <p><strong>Step 2.</strong> Let’s Encrypt</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install certbot python3-certbot-nginx
+    <p>Install certbot if you plan to manage your SSL certificates with <a href="https://letsencrypt.org/">Let’s Encrypt</a>:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install certbot python3-certbot-nginx
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+    <p><strong>Step 3.</strong>  Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --recv-keys 0xDE8B853FC155581D 
 </code></pre></div>    </div>
 
     <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
 
-    <p><strong>Step 3.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
+    <p><strong>Step 4.</strong>  Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
 </code></pre></div>    </div>
@@ -261,13 +262,13 @@ uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.co
 sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
 </code></pre></div>    </div>
 
-    <p><strong>Step 4.</strong> Create APT GPG keyring</p>
+    <p><strong>Step 5.</strong> Create GPG package keyring</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
   /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
+    <p><strong>Step 6.</strong>  Add passbolt repository:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
 Types: deb
@@ -278,9 +279,9 @@ Signed-By: /usr/share/keyrings/passbolt-repository.gpg
 EOF
 </code></pre></div>    </div>
 
-    <p><strong>Step 6.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
+    <p><strong>Step 7.</strong>  Update the apt indexes with the new passbolt apt repository:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
 </code></pre></div>    </div>
 
     <h3 id="install-passbolt">1.2. Install passbolt</h3>
@@ -302,7 +303,7 @@ installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Rea
 
     <p>Install the main passbolt server component:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install passbolt-ce-server
 </code></pre></div>    </div>
 
     <h4 id="configure-mariadb">Configure mariadb</h4>
@@ -347,7 +348,7 @@ You will find the root password on the server in the file <code class="language-
     <span class="legend">fig. Mariadb database name dialog</span>
 </figure>
 
-    <h2 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h2>
+    <h4 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h4>
 
     <p>Depending on your needs there are two different options to setup nginx and SSL using the Debian package:</p>
 
@@ -356,7 +357,7 @@ You will find the root password on the server in the file <code class="language-
       <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
 
-    <h2 id="migrate-the-data">Migrate the data</h2>
+    <h2 id="migrate-www-data">Migrate www-data</h2>
 
     <p>Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
 
@@ -379,8 +380,8 @@ sudo chmod 440 /etc/passbolt/passbolt.php
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data: /etc/passbolt/gpg/serverkey_private.asc
-sudo chown www-data: /etc/passbolt/gpg/serverkey.asc
+sudo chown www-data:www-data /etc/passbolt/gpg/serverkey_private.asc
+sudo chown www-data:www-data /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 </code></pre></div>    </div>
@@ -396,7 +397,7 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong> Migrate the Passbolt data to the latest version</p>
+    <p><strong>Step 5.</strong> Migrate the Passbwww-data to the latest version</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>

@@ -5,7 +5,7 @@ card_teaser: Upgrade from CE to Pro using docker
 card_position: 6
 date: 2018-04-09 00:00:00 Z
 description: Upgrade from CE to Passbolt Pro using docker
-icon: fa-server
+icon: fa-docker
 categories: [hosting,upgrade,pro]
 sidebar: hosting
 layout: default

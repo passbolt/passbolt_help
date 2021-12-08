@@ -25,90 +25,27 @@ You can follow our [backup process](/hosting/backup).
 Passbolt requires PHP 7.3 and supports PHP 7.4.
 
 A full system upgrade to {{ distributionLabel }} {{ distributionVersion }} is necessary before installing the passbolt {{ distributionLabel }} package.
+{% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}
+```
+{{ distributionPackage }} upgrade
+```
+{% elsif distributionPackage == 'apt' %}
 [Here]({{distributionUpgradeGuide}}) is the official {{ distributionLabel }} guide to
 upgrade your system with a step by step tutorial.
-
+{% endif %}
 ## 4. Install the package
 
-### 4.1. Setup the package repository
+{% assign migrateToPackage = 'yes' %}
+{% include hosting/install/packages/debian/install-server-components.md %}
 
-For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt {{ product | upcase }} and install it.
-
-These steps assume you have already installed sudo and added your user to the sudo group.
-
-**Step 1.** Update the apt indexes and install packages to allow apt to use https repositories:
-
-```bash
-sudo apt-get update
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-```
-
-**Step 2.**  Add Passbolt package official GnuPG key from keys.mailvelope.com:
-
-```
-gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
-```
-
-Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.
-
-**Step 3.**  Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
-
-```
-gpg --list-key --with-fingerprint 0xDE8B853FC155581D
-```
-
-Must return:
-
-```
-pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
-      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
-sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
-```
-
-**Step 4.** Create APT GPG keyring
-
-```
-gpg --export 0xDE8B853FC155581D | sudo tee \
-  /usr/share/keyrings/passbolt-repository.gpg >/dev/null
-```
-
-**Step 5.**  Add passbolt repository:
-
-```
-cat << EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources > /dev/null
-Types: deb
-URIs: https://download.passbolt.com/{{ product }}/{{ distribution }}
-Suites: {{ distributionVersionName }}
-Components: stable
-Signed-By: /usr/share/keyrings/passbolt-repository.gpg
-EOF
-```
-
-**Step 6.**  Update the apt indexes with the new passbolt apt repository:
-
-```bash
-sudo apt-get update
-```
-
-### 4.2. Install the package
-
-Install the main passbolt server component:
-
-```bash
-sudo apt-get install passbolt-{{product}}-server
-```
-
+{% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}
+{% elsif distributionPackage == 'apt' %}
 It is recommended at this point to select:
 
 - **No** for mysql configuration as it is already configured
 - **No** to nginx configuration as we will do it at the end
+
+{% endif %}
 
 ## 5. Copy existing configuration to the new location
 
@@ -188,9 +125,15 @@ sudo rm /etc/nginx/conf.d/passbolt.conf
 sudo rm /etc/nginx/conf.d/passbolt_ssl.conf
 ```
 Then you can reconfigure the {{ distributionLabel }} package using:
+{% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}
+```
+sudo /usr/local/bin/passbolt-configure
+```
+{% elsif distributionPackage == 'apt' %}
 ```bash
 sudo dpkg-reconfigure passbolt-{{ page.passbolt_version }}-server
 ```
+{% endif %}
 
 Answer the following way:
 

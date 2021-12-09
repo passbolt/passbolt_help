@@ -15,7 +15,7 @@ permalink: /:categories/:slug.html
 
 {% assign distribution = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
-{% assign distributionPackage = 'dnf' %}
+{% assign distributionPackage = 'yum' %}
 {% assign webServerUser = 'nginx' %}
 
 {% include layout/row_start.html %}

@@ -9,6 +9,7 @@ icon: fa-centos
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
+archived: true
 slug: centos
 permalink: /:categories/:slug.html
 ---

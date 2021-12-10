@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Install Passbolt CE on CentOS 7</title>
+    <title>Passbolt Help | Install Passbolt CE on CentOS 8</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install Passbolt CE on CentOS 7" />
+    <meta property="og:title" content="Install Passbolt CE on CentOS 8" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/centos-7">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/ce/centos-8">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-11-24-hosting-install-ce-centos-7.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/archived/installation/2021-11-24-hosting-install-ce-centos-8.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -177,7 +177,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/ce/centos-7.html"><span>centos-7</span></a>
+                        <a href="https://help.passbolt.com/hosting/install/ce/centos-8.html"><span>centos-8</span></a>
                     </div>
                 </li>
                 
@@ -188,7 +188,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install Passbolt CE on CentOS 7</h1>
+<h1>Install Passbolt CE on CentOS 8</h1>
 </div>
 </div>
 
@@ -200,7 +200,7 @@
 
     <p>For this tutorial, you will need:</p>
     <ul>
-      <li>A minimal CentOS 7  server.</li>
+      <li>A minimal CentOS 8  server.</li>
       <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
     </ul>
 
@@ -227,60 +227,41 @@ before you download Passbolt CE and install it.</p>
 
     <p><strong>Step 1.</strong> Configure Extra Packages for Enterprise Linux (EPEL) repository</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install epel-release
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install epel-release
 </code></pre></div>    </div>
 
     <p>While installing packages from this repository, you will be asked to accept GPG key of this repository. You nust verify if the displayed fingerprint is correct on <a href="https://getfedora.org/security/">this reference page</a>.</p>
 
     <p><strong>Step 2.</strong> Configure Remi’s RPM repository</p>
 
-    <p>As CentOS 7 don’t provide the mandatory <strong>php-pecl-gnupg</strong> package for Passbolt, we rely on Remi’s RPM repository for the PHP packages.</p>
+    <p>As CentOS 8 don’t provide the mandatory <strong>php-pecl-gnupg</strong> package for Passbolt, we rely on Remi’s RPM repository for the PHP packages.</p>
 
     <p>Install Remi repository configuration package.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 </code></pre></div>    </div>
 
     <p>During the next package installations, if you are prompted for Remi GPG key import, you must check if the displayed fingerprint matches <a href="https://blog.remirepo.net/pages/Config-en">with the one on the bottom of this reference page</a>.</p>
 
-    <p>Install the <code class="language-plaintext highlighter-rouge">yum-utils</code> package:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install yum-utils
-</code></pre></div>    </div>
-
     <p><strong>Step 3.</strong> Enable the module stream for PHP 7.4:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum-config-manager --disable 'remi-php*'
-sudo yum-config-manager --enable   remi-php74
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf module reset php
+sudo dnf module install php:remi-7.4
 </code></pre></div>    </div>
 
     <p><strong>Step 4.</strong> Let’s Encrypt</p>
 
     <p>Install certbot if you plan to manage your SSL certificates with <a href="https://letsencrypt.org/">Let’s Encrypt</a>:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install certbot python3-certbot-nginx
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install certbot python3-certbot-nginx
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong> Setup MariaDB 10.3 repository</p>
-
-    <p>CentOS 7 comes with an outated MariaDB 5.x version and performance issues has been reported by using it. That’s why you should consider to upgrade MariaDB to version 10.3.</p>
-
-    <p>Add MariaDB 10.3 repository:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/yum.repos.d/mariadb.repo
-[mariadb]
-name = MariaDB
-baseurl = http://yum.mariadb.org/10.3/centos7-amd64
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
-gpgcheck=1
-EOF
-</code></pre></div>    </div>
-
-    <p><strong>Step 6.</strong>  Add passbolt repository:</p>
+    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/yum.repos.d/passbolt.repo
 [passbolt-server]
 name=Passbolt Server
-baseurl=https://download.passbolt.com/ce/rpm/el7/stable
+baseurl=https://download.passbolt.com/ce/rpm/el8/stable
 enabled=1
 gpgcheck=1
 gpgkey=https://download.passbolt.com/pub.key
@@ -291,7 +272,7 @@ EOF
 
     <p>Install the main passbolt server component:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum install passbolt-ce-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install passbolt-ce-server
 </code></pre></div>    </div>
 
     <p>During the installation, you will be asked to accept the Passbolt repository GPG key. You must ensure the fingerprint is exactly the same as the one below:</p>
@@ -304,7 +285,7 @@ EOF
 
     <h4 id="mariadb--nginx--ssl-settings">MariaDB / Nginx / SSL settings</h4>
 
-    <p>Passbolt CE RPM package on CentOS 7 come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.</p>
+    <p>Passbolt CE RPM package on CentOS 8 come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.</p>
 
     <p>You must prepare beforehand your SSL certificates before launching the tool. Be sure to write down the full path to your cert/key combo, as it will be needed in the nginx configuration process.</p>
 

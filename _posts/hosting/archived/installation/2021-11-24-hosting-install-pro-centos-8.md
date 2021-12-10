@@ -10,7 +10,7 @@ categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 archived: true
-slug: centos
+slug: centos-8
 permalink: /:categories/:slug.html
 ---
 

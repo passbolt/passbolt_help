@@ -9,7 +9,8 @@ icon: fa-centos
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
-slug: centos
+archived: true
+slug: centos-8
 permalink: /:categories/:slug.html
 ---
 

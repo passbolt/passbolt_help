@@ -1,12 +1,14 @@
 ---
-title: Account Recovery configuration
-date: 2022-07-28 00:00:00 Z
-card_title: How to configure the Account Recovery
+title: Generate an Organization Recovery Key manually
+date: 2021-12-23 00:00:00 Z
+card_teaser: How to generate an Organization Recovery Key (ORK)
+card_title: Generate account recovery key
+description: How to manually generate an Organization Recovery Key (ORK)
 icon: fa-key
 categories: [configure]
 sidebar: configure
 layout: default
-slug: account-recovery
+slug: generate-organization-recovery-key
 permalink: /:categories/:slug.html
 ---
 
@@ -14,7 +16,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include configure/configure-account-recovery.md %}
+{% include configure/generate-organization-recovery-key.md %}
 
 {% include date/updated.html %}
 

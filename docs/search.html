@@ -910,12 +910,6 @@
 "content": "Open source software is not by default more or less secure than closed source software.Typically, when the source code of a software is not available you need to trust your vendor without having any means to verify their claims. For example you do not have any guarantee that they will fix vulnerabilities, introduce backdoors or that they will not use your data without your consent. When the source code is freely available, anyone can organize a review and check if the level of security the product provides is adequate.Some people may argue that an attacker could find vulnerabilities more easily if the code is available to everyone.While it is true, but the corollary is also true, e.g. people without malicious intent too can find these vulnerabilities and fix them, making the solution stronger in the long term. Greater visibility allows more users and experts around the world to go through the source code, discover and fix bugs early.",
 "url": "https://help.passbolt.com/faq/security/is-open-source-secure"
 },
-"faq-security-compromised-secret-key": {
-"title": "My secret key and passphrase are compromised, what do I do?",
-"category": "security",
-"content": "The secret key is in itself encrypted with a passphrase and cannot be used without it.If your passphrase has also been compromised, you will need to start a new with a fresh key and use your revocation certificate (see other FAQ in this section).",
-"url": "https://help.passbolt.com/faq/security/compromised-secret-key"
-},
 "faq-security-revocation-certificate": {
 "title": "Does passbolt support revocation certificates?",
 "category": "security",
@@ -1065,6 +1059,12 @@
 "category": "hosting",
 "content": "You must allow these rules to make Passbolt work in a firewalled environment:Inbound rules            Protocol name      Port number      Transport Layer Protocol      Comment                  HTTP      80      TCP      Optional, should be used only to redirect to HTTPS              HTTPS      443      TCP      To serve Passbolt through HTTPS      Outbound rules            Protocol name      Port number      Transport Layer Protocol      Comment                  SMTP      usually 587      TCP      To send email notifications, used port depends of your SMTP server configuration, usually 25/TCP, 587/TCP or 465/TCP              DNS      53      UDP      To be able to resolve SMTP server name, or download.passbolt.com to check for updates              NTP      123      UDP      To make server synchronized to a NTP server. Mandatory to make GPG or MFA/OTP work      ",
 "url": "https://help.passbolt.com/faq/hosting/firewall-rules"
+},
+"faq-security-compromised-secret-key": {
+"title": "My secret key and passphrase are compromised, what do I do?",
+"category": "security",
+"content": "            Warning: Use of a revocation certificate is not yet implemented.        The secret key is in itself encrypted with a passphrase and cannot be used without it.If your passphrase has also been compromised, you will need to start a new with a fresh key and use your revocation certificate (see other FAQ in this section).",
+"url": "https://help.passbolt.com/faq/security/compromised-secret-key"
 },
 "hosting-upgrade-ce-migrate-to-centos-html": {
 "title": "Migrate passbolt CE from install scripts to CentOS 7 package",

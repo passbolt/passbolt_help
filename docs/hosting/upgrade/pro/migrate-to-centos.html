@@ -211,7 +211,7 @@
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
     <h2 id="backup-your-instance">2. Backup your instance</h2>
@@ -225,7 +225,7 @@ You can follow our <a href="/hosting/backup">backup process</a>.</p>
 
     <p>A full system upgrade to CentOS 7 is necessary before installing the passbolt CentOS package.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum upgrade
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo yum upgrade
 </code></pre></div>    </div>
 
     <h2 id="install-the-package">4. Install the package</h2>
@@ -348,8 +348,9 @@ EOF
     <h3 id="copy-the-server-keys">5.1. Copy the server keys</h3>
 
     <p>Copy the GPG server keys as following:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/<span class="k">*</span> /etc/passbolt/gpg/
-<span class="nb">sudo chown</span> <span class="nt">-R</span> root:www-data /etc/passbolt/gpg
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/serverkey.asc /etc/passbolt/gpg/
+<span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/serverkey_private.asc /etc/passbolt/gpg/
+<span class="nb">sudo chown</span> <span class="nt">-R</span> root:nginx /etc/passbolt/gpg
 <span class="nb">sudo chmod </span>g-w /etc/passbolt/gpg
 </code></pre></div>    </div>
 
@@ -357,7 +358,7 @@ EOF
 
     <p>Copy passbolt configuration as following:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
-<span class="nb">sudo chown </span>root:www-data /etc/passbolt/passbolt.php
+<span class="nb">sudo chown </span>root:nginx /etc/passbolt/passbolt.php
 <span class="nb">sudo chmod </span>g-w /etc/passbolt/passbolt.php
 </code></pre></div>    </div>
 
@@ -370,43 +371,12 @@ EOF
 
     <p>Copy subscription key as following:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> /var/www/passbolt/config/license /etc/passbolt/license
-<span class="nb">sudo chown </span>root:www-data /etc/passbolt/license
-<span class="nb">sudo chmod </span>g-w /etc/passbolt/license
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> /var/www/passbolt/config/license /etc/passbolt/subscription_key.txt
+<span class="nb">sudo chown </span>root:nginx /etc/passbolt/subscription_key.txt
+<span class="nb">sudo chmod </span>g-w /etc/passbolt/subscription_key.txt
 </code></pre></div>    </div>
 
-    <h2 id="php-fpm">6. PHP-FPM</h2>
-
-    <p>Edit <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code> and look for the line that looks like this:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> 127.0.0.1:9000
-</code></pre></div>    </div>
-
-    <p>Change it to look like this:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen <span class="o">=</span> /run/php/php7.3-fpm.sock
-</code></pre></div>    </div>
-
-    <p>Due to a bug on the install scripts some installations might need to do an additional substitution on <code class="language-plaintext highlighter-rouge">/etc/php/7.3/fpm/pool.d/www.conf</code>:</p>
-
-    <p>Look for the line containing:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen.group <span class="o">=</span> _WWW_GROUP_
-</code></pre></div>    </div>
-
-    <p>And change it to look like:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>listen.group <span class="o">=</span> www-data
-</code></pre></div>    </div>
-
-    <h2 id="nginx">7. Nginx</h2>
-    <div class="message notice">
-    <p>
-    Note to users with Apache installed instead: make sure
-    to transfer over the .htaccess file from the old webroot folder.
-    </p>
-    
-</div>
+    <h2 id="nginx">6. Nginx</h2>
 
     <p>Now you can remove all the old nginx configuration files from <code class="language-plaintext highlighter-rouge">/etc/nginx/conf.d/</code></p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> /etc/nginx/conf.d/passbolt.conf
@@ -420,20 +390,20 @@ EOF
     <p>Answer the following way:</p>
 
     <ul>
-      <li><strong>No</strong> to mysql configuration</li>
+      <li><strong>No</strong> to mariadb configuration</li>
       <li><strong>Yes</strong> to nginx configuration</li>
     </ul>
 
     <p>You can then select the SSL method that suits best your needs.</p>
 
-    <h2 id="run-the-database-migrations">8. Run the database migrations</h2>
+    <h2 id="run-the-database-migrations">7. Run the database migrations</h2>
 
     <p>Now it is time to run the migrations to upgrade the database schemas:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt migrate"</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> nginx bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt migrate"</span>
 </code></pre></div>    </div>
 
-    <h2 id="cleanup">9. Cleanup</h2>
+    <h2 id="cleanup">8. Cleanup</h2>
 
     <p>After you have checked you can access your new setup with the CentOS package make a backup of <code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> and then
 you can delete it:</p>
@@ -442,15 +412,15 @@ you can delete it:</p>
 </code></pre></div>    </div>
 
     <p>You may also want to check for the old CRON job that may need to be removed:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>crontab <span class="nt">-u</span> nginx <span class="nt">-e</span>
 </code></pre></div>    </div>
 
-    <h2 id="take-your-site-back-up">10. Take your site back up</h2>
+    <h2 id="take-your-site-back-up">9. Take your site back up</h2>
 
     <p>Finally take passbolt back up:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl start nginx
-<span class="nb">sudo </span>systemctl restart php7.3-fpm
+<span class="nb">sudo </span>systemctl restart php-fpm
 </code></pre></div>    </div>
 
     <div class="last-updated">

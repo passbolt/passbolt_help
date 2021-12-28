@@ -54,7 +54,7 @@ sudo chown -R {{ webServerUser }}:{{ webServerUser }} /usr/share/php/passbolt/we
 mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE < passbolt-backup.sql
 ```
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Migrate the Passb{{ webServerUser }} to the latest version
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Migrate passbolt to the latest version
 
 ```
 sudo -H -u {{ webServerUser }} /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"

@@ -12,7 +12,7 @@ It is generally a good idea to stop running the site prior to the upgrade. This 
 such as active users corrupting the data in the middle of an upgrade.
 
 ```bash
-$ sudo systemctl stop nginx
+sudo systemctl stop nginx
 ```
 
 ## 2. Backup your instance
@@ -27,7 +27,7 @@ Passbolt requires PHP 7.3 and supports PHP 7.4.
 A full system upgrade to {{ distributionLabel }} {{ distributionVersion }} is necessary before installing the passbolt {{ distributionLabel }} package.
 {% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}
 ```
-{{ distributionPackage }} upgrade
+sudo {{ distributionPackage }} upgrade
 ```
 {% elsif distributionPackage == 'apt' %}
 [Here]({{distributionUpgradeGuide}}) is the official {{ distributionLabel }} guide to
@@ -53,8 +53,9 @@ It is recommended at this point to select:
 
 Copy the GPG server keys as following:
 ```bash
-sudo cp -a /var/www/passbolt/config/gpg/* /etc/passbolt/gpg/
-sudo chown -R root:www-data /etc/passbolt/gpg
+sudo cp -a /var/www/passbolt/config/gpg/serverkey.asc /etc/passbolt/gpg/
+sudo cp -a /var/www/passbolt/config/gpg/serverkey_private.asc /etc/passbolt/gpg/
+sudo chown -R root:{{ webServerUser }} /etc/passbolt/gpg
 sudo chmod g-w /etc/passbolt/gpg
 ```
 
@@ -63,7 +64,7 @@ sudo chmod g-w /etc/passbolt/gpg
 Copy passbolt configuration as following:
 ```bash
 sudo cp /var/www/passbolt/config/passbolt.php /etc/passbolt/passbolt.php
-sudo chown root:www-data /etc/passbolt/passbolt.php
+sudo chown root:{{ webServerUser }} /etc/passbolt/passbolt.php
 sudo chmod g-w /etc/passbolt/passbolt.php
 ```
 
@@ -79,13 +80,16 @@ If you are running mysql 8, please change the `quoteIdentifiers` setting of the 
 Copy subscription key as following:
 
 ```bash
-sudo cp /var/www/passbolt/config/license /etc/passbolt/license
-sudo chown root:www-data /etc/passbolt/license
-sudo chmod g-w /etc/passbolt/license
+sudo cp /var/www/passbolt/config/license /etc/passbolt/subscription_key.txt
+sudo chown root:{{ webServerUser }} /etc/passbolt/subscription_key.txt
+sudo chmod g-w /etc/passbolt/subscription_key.txt
 ```
 {% endif %}
 
-## 6. PHP-FPM
+{% assign stepNumber = 6 %}
+
+{% if distributionPackage == 'apt' %}
+## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. PHP-FPM
 
 Edit `/etc/php/{{ distributionPhpVersion }}/fpm/pool.d/www.conf` and look for the line that looks like this:
 
@@ -113,11 +117,8 @@ And change it to look like:
 listen.group = www-data
 ```
 
-## 7. Nginx
-{% include messages/notice.html
-    content="Note to users with Apache installed instead: make sure
-    to transfer over the .htaccess file from the old webroot folder."
-%}
+{% endif %}
+## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Nginx
 
 Now you can remove all the old nginx configuration files from `/etc/nginx/conf.d/`
 ```bash
@@ -137,20 +138,20 @@ sudo dpkg-reconfigure passbolt-{{ page.passbolt_version }}-server
 
 Answer the following way:
 
-- **No** to mysql configuration
+- **No** to mariadb configuration
 - **Yes** to nginx configuration
 
 You can then select the SSL method that suits best your needs.
 
-## 8. Run the database migrations
+## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Run the database migrations
 
 Now it is time to run the migrations to upgrade the database schemas:
 
 ```bash
-sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
+sudo -H -u {{ webServerUser }} bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 ```
 
-## 9. Cleanup
+## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Cleanup
 
 After you have checked you can access your new setup with the {{ distributionLabel }} package make a backup of `/var/www/passbolt` and then
 you can delete it:
@@ -161,10 +162,10 @@ sudo rm -rf /var/www/passbolt
 
 You may also want to check for the old CRON job that may need to be removed:
 ```bash
-sudo crontab -u www-data -e
+sudo crontab -u {{ webServerUser }} -e
 ```
 
-## 10. Take your site back up
+## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Take your site back up
 
 Finally take passbolt back up:
 

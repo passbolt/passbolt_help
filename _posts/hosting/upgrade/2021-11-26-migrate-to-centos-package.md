@@ -20,8 +20,7 @@ permalink: /:categories/:slug.html
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
 {% assign distributionPackage = 'yum' %}
-{% assign distributionPhpVersion = '7.3' %}
-
+{% assign webServerUser = 'nginx' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

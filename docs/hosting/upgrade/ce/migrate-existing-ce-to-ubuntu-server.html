@@ -397,7 +397,7 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong> Migrate the Passbwww-data to the latest version</p>
+    <p><strong>Step 5.</strong> Migrate passbolt to the latest version</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>

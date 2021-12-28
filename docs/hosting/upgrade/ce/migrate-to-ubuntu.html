@@ -211,7 +211,7 @@
     <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
 such as active users corrupting the data in the middle of an upgrade.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl stop nginx
 </code></pre></div>    </div>
 
     <h2 id="backup-your-instance">2. Backup your instance</h2>
@@ -332,7 +332,8 @@ installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Rea
     <h3 id="copy-the-server-keys">5.1. Copy the server keys</h3>
 
     <p>Copy the GPG server keys as following:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/<span class="k">*</span> /etc/passbolt/gpg/
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/serverkey.asc /etc/passbolt/gpg/
+<span class="nb">sudo cp</span> <span class="nt">-a</span> /var/www/passbolt/config/gpg/serverkey_private.asc /etc/passbolt/gpg/
 <span class="nb">sudo chown</span> <span class="nt">-R</span> root:www-data /etc/passbolt/gpg
 <span class="nb">sudo chmod </span>g-w /etc/passbolt/gpg
 </code></pre></div>    </div>
@@ -375,13 +376,6 @@ installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Rea
 </code></pre></div>    </div>
 
     <h2 id="nginx">7. Nginx</h2>
-    <div class="message notice">
-    <p>
-    Note to users with Apache installed instead: make sure
-    to transfer over the .htaccess file from the old webroot folder.
-    </p>
-    
-</div>
 
     <p>Now you can remove all the old nginx configuration files from <code class="language-plaintext highlighter-rouge">/etc/nginx/conf.d/</code></p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo rm</span> /etc/nginx/conf.d/passbolt.conf
@@ -395,7 +389,7 @@ installation. <a href="/faq/hosting/how-to-install-passbolt-non-interactive">Rea
     <p>Answer the following way:</p>
 
     <ul>
-      <li><strong>No</strong> to mysql configuration</li>
+      <li><strong>No</strong> to mariadb configuration</li>
       <li><strong>Yes</strong> to nginx configuration</li>
     </ul>
 

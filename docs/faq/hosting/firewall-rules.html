@@ -210,6 +210,18 @@
   </thead>
   <tbody>
     <tr>
+      <td>HTTP</td>
+      <td>80</td>
+      <td>TCP</td>
+      <td>To be able to connect to operating system repositories who don’t use https (Ubuntu)</td>
+    </tr>
+    <tr>
+      <td>HTTPS</td>
+      <td>443</td>
+      <td>TCP</td>
+      <td>To be able to connect to package repository or bitbucket repository</td>
+    </tr>
+    <tr>
       <td>SMTP</td>
       <td>usually 587</td>
       <td>TCP</td>
@@ -226,6 +238,12 @@
       <td>123</td>
       <td>UDP</td>
       <td>To make server synchronized to a NTP server. Mandatory to make GPG or MFA/OTP work</td>
+    </tr>
+    <tr>
+      <td>HKPS</td>
+      <td>11371</td>
+      <td>TCP</td>
+      <td>HKPS protocol for receiving GPG keys</td>
     </tr>
   </tbody>
 </table>

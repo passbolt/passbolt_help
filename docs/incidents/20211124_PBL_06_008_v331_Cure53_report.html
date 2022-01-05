@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Security issue in experimental JWT authentication in v3.3</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Security issue in experimental JWT authentication in v3.3" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20211124_PBL_06_008_v331_Cure53_report">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2021-11-24-PBL-06-008-v331-Cure53-report.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                <div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>Incidents</h2></li>
+
+        
+        <li>
+        
+            <a href="/incidents">All incidents</a>
+        </li>
+
+        
+        
+        
+        <li class="selected">
+        
+            <a href="https://help.passbolt.com/incidents/20211124_PBL_06_008_v331_Cure53_report">
+November
+24th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210419_PBL01_Cure53_report">
+October
+19th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210210_v3_webextension_issues">
+February
+10th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20191126_autofill_suggestions">
+November
+26th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20190807_multiple_vulnerabilities">
+August
+7th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities">
+February
+11th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20181109_gke_incident">
+November
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180509_nginx_webroot_configuration">
+May
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng">
+May
+8th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain">
+December
+28th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
+October
+13th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170914_xss_on_resource_urls">
+September
+14th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170210_chrome_not_available">
+February
+10th,
+2017
+</a>
+        </li>
+        
+
+    </ul>
+</div>
+
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents"><span>incidents</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/"><span></span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/20211124_PBL_06_008_v331_Cure53_report"><span>2021-11-24 PBL-06-008 v3.3.1</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Security issue in experimental JWT authentication in v3.3</h1>
+</div>
+</div>
+
+                        <div class="row">
+  <div class="col7">
+
+    <h2 id="pbl-06-008-wp3-jwt-key-confusion-leads-to-authentication-bypass-high-beta">PBL-06-008 WP3: JWT key confusion leads to authentication bypass (High) (BETA)</h2>
+
+    <h3 id="summary">Summary</h3>
+
+    <p>As part of the audit of the mobile application, security researcher Johannes Moritz, from Cure53 team, 
+while reviewing the JWT authentication procedure, found that the Passbolt API is prone to a key 
+confusion attack.</p>
+
+    <ul>
+      <li><strong>CVE:</strong> N/A.</li>
+      <li><strong>Product affected:</strong> API (Pro and CE).</li>
+      <li><strong>Version affected:</strong> v3.3.0</li>
+      <li><strong>Version fixed:</strong> v3.3.1</li>
+      <li><strong>Affected component:</strong> JWT Authentication plugin.</li>
+      <li><strong>Vulnerability Type:</strong> Authentication bypass.</li>
+      <li><strong>Severity:</strong> High (8.3).</li>
+    </ul>
+
+    <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
+
+    <p>The attacker can change the algorithm field of the JWT header from RS256 to HS256 and misuse the 
+RSA public key as HMAC secret key. With the knowledge of another user’s id, the attacker can issue 
+arbitrary valid tokens and authenticate as other users.</p>
+
+    <p>Even though Passbolt only configures the RS256 algorithm, the custom configuration is merged with 
+the default configuration by CakePHP. Therefore, both algorithms are supported.</p>
+
+    <h3 id="fix">Fix</h3>
+
+    <p>V3.3.1 enforces the RS256 algorithm in the JWT header. It is being done by removing the HS256 
+algorithm from the JWTAuthenticator instance after initializing the object.</p>
+
+    <h3 id="severity">Severity</h3>
+
+    <p>The severity of this issue is high. However it is not rated as critical as the plugin is disabled 
+by default. Moreover an attacker must know the user id. Additionally the passwords inside passbolt 
+are encrypted and therefore cannot be decrypted by the attacker.</p>
+
+    <p>If you are currently beta testing the mobile application on your production site you must patch as 
+soon as possible or disable the JWT Authentication and Mobile plugins.</p>
+
+    <h3 id="follow-up">Follow up</h3>
+
+    <p>We will publish a more complete report once the audit period is completed. Furthermore we reported
+the issue to CakePHP team to avoid accidental merge with JwtAuthenticator default configuration.</p>
+
+    <h3 id="event-timeline">Event timeline</h3>
+
+    <ul>
+      <li>2021-11-24 10:30 CET: Vulnerability details sent by reporter.</li>
+      <li>2021-11-24 10:30 CET: We acknowledge the issue, start working on a fix</li>
+      <li>2021-11-24 12:50 CET: A fix is proposed to the reporter</li>
+      <li>2021-11-24 16:40 PM CET: We publish the fix as part of v3.3.1 release</li>
+      <li>2021-11-24 17:00 PM CET: We publish the release notes and this report.</li>
+    </ul>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+November
+24th,
+2021.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+    <div class="tldr message success">
+    <h4>Current status:</h4>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Release new version<br />
+    4. Prepare a report about the issue<br />
+    <strong>5. Feature the problem in the release</strong>
+    <h5>Last updated: 2021-11-24 16:30:00 CET</h5>
+</div>
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

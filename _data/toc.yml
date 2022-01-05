@@ -19,7 +19,7 @@
       icon: fa-tags
       teaser: Find out what have changed since last time!
     - title: Incident reports
-      url: https://www.passbolt.com/incidents
+      url: https://help.passbolt.com/incidents
       icon: fa-bullhorn
       teaser: What went wrong and what we did to fix it.
     - title: Talk to a human

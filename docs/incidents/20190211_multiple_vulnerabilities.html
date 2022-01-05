@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Security audit results</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Security audit results" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2019-02-11-multiple-vulnerabilities.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                <div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>Incidents</h2></li>
+
+        
+        <li>
+        
+            <a href="/incidents">All incidents</a>
+        </li>
+
+        
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20211124_PBL_06_008_v331_Cure53_report">
+November
+24th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210419_PBL01_Cure53_report">
+October
+19th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210210_v3_webextension_issues">
+February
+10th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20191126_autofill_suggestions">
+November
+26th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20190807_multiple_vulnerabilities">
+August
+7th,
+2019
+</a>
+        </li>
+        
+        
+        <li class="selected">
+        
+            <a href="https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities">
+February
+11th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20181109_gke_incident">
+November
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180509_nginx_webroot_configuration">
+May
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng">
+May
+8th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain">
+December
+28th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
+October
+13th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170914_xss_on_resource_urls">
+September
+14th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170210_chrome_not_available">
+February
+10th,
+2017
+</a>
+        </li>
+        
+
+    </ul>
+</div>
+
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents"><span>incidents</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/"><span></span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities"><span>2019-02-11 Security audit results</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Security audit results</h1>
+</div>
+</div>
+
+                        <div class="row">
+  <div class="col7">
+
+    <h2 id="summary">Summary</h2>
+
+    <p>During January an independent security audit of Passbolt API was conducted by french security researcher 
+Jose-Alexandre Mayan.</p>
+
+    <p>The tests have been performed for 3 days, between 2019-01-16 to 2019-01-18 (included) on Passbolt Pro Edition 
+version 2.6.1. 4 vulnerabilities have been found, 3 of which have little to no impact, and the last one having a 
+high impact but a medium risk due to being only exploitable during Passbolt’s installation phase.</p>
+
+    <p>3 issues has been fixed in v2.7.0. One issue was already known (and listed as a risk in the documentation) and 
+won’t be fixed in the short term.</p>
+
+    <h2 id="vulnerability-1-remote-code-execution">Vulnerability #1: Remote code execution</h2>
+
+    <h3 id="issue-description">Issue description</h3>
+
+    <p>Passbolt provides a way for system administrators to generate a PGP key for the server during installation. The 
+wizard requests a username, an e-mail address and an optional comment. No escaping or verification is done by 
+Passbolt, effectively allowing a user to inject bash code.</p>
+
+    <p>The impact is very high, but the probability is very low given that this vulnerability can only be exploited during 
+Passbolt’s installation stage.</p>
+
+    <h3 id="current-status">Current status</h3>
+
+    <p>Since Passbolt v2.7.0 the server side generation of keys (or any similar operations) performed during the installation 
+by the web installer wizard, has been moved client side, in javascript using OpenPGP.js.</p>
+
+    <p>Moving this logic to the client is a trade off however as the private key will be transiting on the network instead 
+of remaining always server side. If administrators do not want to take this risk, then they can still proceed with 
+a manual configuration in command line and not use the wizard.</p>
+
+    <h2 id="vulnerability-2-retrieval-of-http-only-cookies">Vulnerability #2: Retrieval of HTTP-only cookies</h2>
+
+    <h3 id="issue-description-1">Issue description</h3>
+
+    <p>Passbolt uses three cookies: a session cookie, a CSRF protection cookie and a cookie to keep track of the 
+multiple-factor authentication process.</p>
+
+    <p>Both the session cookie and the mfa cookie are properly set HTTP-only to prevent an attacker from retrieving the 
+content of those cookies if they managed to exploit an XSS.</p>
+
+    <p>The /auth/verify.json endpoint returns a JSON that, among other things, contains the cookies sent in the request. 
+(similar to the TRACE HTTP method)</p>
+
+    <p>An attacker who manages to leverage an XSS vulnerability could retrieve the session cookies of a legitimate user, 
+effectively granting them the ability to retrieve information (such as encrypted password list or group list) 
+without requiring user interaction.</p>
+
+    <p>This vulnerability has a low impact, but no immediate risk due to it requiring the exploitation of an XSS vulnerability 
+that has yet to be found.</p>
+
+    <h3 id="current-status-1">Current status</h3>
+
+    <p>Fixed in v2.7.0</p>
+
+    <h2 id="vulnerability-3-user-enumeration">Vulnerability #3: User enumeration</h2>
+
+    <h3 id="issue-description-2">Issue description</h3>
+
+    <p>Passbolt implements a mechanism to verify the server’s authenticity. The /auth/verify.json endpoint used to verify 
+the server’s authenticity returns a JSON that displays errors that occurred during the request.</p>
+
+    <p>An attacker could use this unauthenticated endpoint to enumerate users registered on a Passbolt instance. They could 
+retrieve a huge list of PGP public keys (by scrapping a widely-populated HKP server) and try every fingerprint to 
+list potential users.</p>
+
+    <p>This vulnerability has a low impact. It requires an attacker to know the victim’s public key’s fingerprint.</p>
+
+    <h3 id="current-status-2">Current status</h3>
+
+    <p>Since Passbolt v1 this issue is listed as a drawback in the 
+<a href="https://help.passbolt.com/tech/auth">authentication documentation</a>. A long term solution would be to implement a 
+new protocol for authentication, which is something the team will consider this year. A middle term solution will 
+be to provide throttle mechanism for the API authentication request (e.g. slow down and notify an admin when somebody 
+behave like they are enumerating users).</p>
+
+    <h2 id="vulnerability-4-e-mail-html-injection">Vulnerability #4: e-mail HTML injection</h2>
+
+    <h3 id="issue-description-3">Issue description</h3>
+
+    <p>Passbolt sends e-mail to users to warn them about different type of events such as the creation, modification or 
+deletion of a password. Those e-mails may contain user-specified input, such as a password’s title or description.</p>
+
+    <p>Passbolt does not escape the user’s input properly, resulting in the user being able to inject HTML code in an e-mail.</p>
+
+    <p>An authenticated attacker could share a password containing an img HTML tag in its description with an other user to 
+obtain information about their mail user-agent.</p>
+
+    <p>This vulnerability has a very low impact. Most MUA do not embed remote images to protect their users’ privacy.</p>
+
+    <h3 id="current-status-3">Current status</h3>
+
+    <p>Fixed in v2.7.0</p>
+
+    <h3 id="event-timeline">Event timeline</h3>
+
+    <ul>
+      <li>2019-01-22 17:30 CET: Receive an email from security researcher</li>
+      <li>2019-01-22 17:55 CET: Acknowledge reception and reported issues</li>
+      <li>2019-01-31 08:55 CET: Start working on a fix</li>
+      <li>2019-02-04 20:55 CET: Fix ready, communicate back with researcher</li>
+      <li>2019-02-12 12:00 CET: Fix rolled out as part of release v2.7</li>
+    </ul>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+February
+11th,
+2019.</p>
+    </div>
+  </div>
+  <div class="col4 last push1">
+
+    <div class="tldr message success">
+    <h4>Current status:</h4>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Release new version<br />
+    4. Prepare a report about the issue<br />
+    <strong>5. Feature the problem in the release</strong>
+    <h5>Last updated: 2019-02-12 12:00:00 CET</h5>
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

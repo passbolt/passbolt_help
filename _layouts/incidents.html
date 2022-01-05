@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+{% include common/head.html %}
+
+<body>
+    <div id="container" class="help page background">
+        {% include common/header.html %}
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                {% include sidebar/incidents.html selected=page.slug %}
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        {% include breadcrumbs/default.html %}
+                        {% include common/page-title.html %}
+                        {{ content }}
+                    </article>
+                </div>
+            </div>
+        </div>
+        {% include common/footer.html %}
+    </div>
+    {% include common/analytics.html %}
+</body>
+
+</html>

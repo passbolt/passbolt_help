@@ -1,0 +1,79 @@
+---
+title: Incidents
+layout: home
+slug: incidents
+permalink: /incidents/index.html
+---
+<div class="panel main">
+    <div class="panel left">
+        {% include sidebar/incidents.html selected=all %}
+    </div>
+    <div class="panel middle">
+        <article>
+            <div class="grid grid-responsive-12">
+                <div class="row">
+                    <h1>All the incidents</h1>
+                    <div class="col7">
+                        <ul>
+                            {% assign items = site.incidents | sort: 'date' %}
+
+                            <h2>2021</h2>
+                            {% for item in items reversed %}
+                            {% assign pre_date = item.date | date: '%Y' %}
+                            {% if pre_date == '2021' %}
+                            <li>
+                                <span style=""><a href="{{ item.url }}">{{ item.title }}</a></span> -
+                                <span style="color:#888;">{% include date/format-date.html date=item.date %}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+
+                            <h2>2020</h2>
+                            <li>
+                                <span style="color:#888;">No issues</a></span>
+                            </li>
+
+                            <h2>2019</h2>
+                            {% for item in items reversed %}
+                            {% assign pre_date = item.date | date: '%Y' %}
+                            {% if pre_date == '2019' %}
+                            <li>
+                                <span style=""><a href="{{ item.url }}">{{ item.title }}</a></span> -
+                                <span style="color:#888;">{% include date/format-date.html date=item.date %}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+
+                            <h2>Older issues</h2>
+                            {% for item in items reversed %}
+                            {% assign pre_date = item.date | date: '%Y' %}
+                            {% if pre_date == '2017' or pre_date == '2016' or pre_date == '2018' %}
+                            <li>
+                                <span style=""><a href="{{ item.url }}">{{ item.title }}</a></span> -
+                                <span style="color:#888;">{% include date/format-date.html date=item.date %}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col4 push1">
+                        {% include aside/message.html
+                        class="tldr notice"
+                        content="You have found a vulnerability or would you like to discuss a security issue?"
+                        link="/faq/security/security-vulnerability"
+                        ask="Get in touch!"
+                        button="primary"
+                        %}
+
+                        {% include aside/message.html
+                        class="tldr"
+                        content="Do you want to check system status page?"
+                        link="https://status.passbolt.com"
+                        ask="Status page"
+                        %}
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

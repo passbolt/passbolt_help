@@ -1,6 +1,6 @@
 This release also includes 3 fixes found during an independent security audit
 conducted by french security researcher Jose-Alexandre Mayan. You can learn more about these
-fixes on the dedicated [security incident page](https://www.passbolt.com/incidents/20190211_multiple_vulnerabilities).
+fixes on the dedicated [security incident page](https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities).
 
 The team also wanted to thank everyone who reported issues and helped us investigate them further, especially
 Ricardo Marinho, Marc-Daniell Hess, Christoph Grabmer and Eric Wright.

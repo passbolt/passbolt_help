@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Bug bounty results</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bug Bounty: multiple vulnerabilities">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Bug bounty results" />
+    <meta property="og:description" content="Bug Bounty: multiple vulnerabilities" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20190807_multiple_vulnerabilities">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2019-08-07-multiple-vulnerabilities.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                <div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>Incidents</h2></li>
+
+        
+        <li>
+        
+            <a href="/incidents">All incidents</a>
+        </li>
+
+        
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20211124_PBL_06_008_v331_Cure53_report">
+November
+24th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210419_PBL01_Cure53_report">
+October
+19th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210210_v3_webextension_issues">
+February
+10th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20191126_autofill_suggestions">
+November
+26th,
+2019
+</a>
+        </li>
+        
+        
+        <li class="selected">
+        
+            <a href="https://help.passbolt.com/incidents/20190807_multiple_vulnerabilities">
+August
+7th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities">
+February
+11th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20181109_gke_incident">
+November
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180509_nginx_webroot_configuration">
+May
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng">
+May
+8th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain">
+December
+28th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
+October
+13th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170914_xss_on_resource_urls">
+September
+14th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170210_chrome_not_available">
+February
+10th,
+2017
+</a>
+        </li>
+        
+
+    </ul>
+</div>
+
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents"><span>incidents</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/"><span></span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/20190807_multiple_vulnerabilities"><span>2019-08-07 Bug bounty results</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Bug bounty results</h1>
+</div>
+</div>
+
+                        <div class="row">
+  <div class="col7">
+    <h1 id="bug-bounty-multiple-vulnerabilities">Bug Bounty: multiple vulnerabilities</h1>
+
+    <p>As part of Passbolt Bug Bounty program, security researcher René Kroka reported several vulnerabilities, one 
+affecting the extension and three affecting the API.</p>
+
+    <h2 id="vulnerability-1-stored-xss-on-firstlast-name-during-setup">Vulnerability #1: Stored XSS on first/last name during setup</h2>
+
+    <h3 id="summary">Summary</h3>
+
+    <table class="table-parameters">
+  <tbody>
+    <tr>
+      <td><strong>Product affected:</strong></td>
+      <td>Passbolt API Community Edition, Pro Edition, Passbolt Cloud</td>
+    </tr>
+    <tr>
+      <td><strong>Version affected:</strong></td>
+      <td>v2.10 and below.</td>
+    </tr>
+    <tr>
+      <td><strong>Version fixed:</strong></td>
+      <td>v2.11</td>
+    </tr>
+    <tr>
+      <td><strong>Affected component:</strong></td>
+      <td>Setup or recovery start page.</td>
+    </tr>
+    <tr>
+      <td><strong>Vulnerability Type: </strong></td>
+      <td>
+        <a href="https://cwe.mitre.org/data/definitions/79.html">
+          Cross-site Scripting (XSS) - Stored (CWE-79)
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>CVSS Score: </strong></td>
+      <td>
+        <a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H">
+          6.8 (High)
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3 id="description">Description</h3>
+
+    <p>An administrator can craft a user with a malicious first name and last name, using a payload such as</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;svg onload="confirm(document.domain)"&gt;'); ?&gt;&lt;/svg&gt;
+</code></pre></div>    </div>
+
+    <p>The user will then receive the invitation email and click on the setup link. The setup start page served by the 
+server will fire the XSS.</p>
+
+    <h3 id="impact-of-issue">Impact of issue</h3>
+
+    <p>An administrator could use this exploit to edit the setup start page for a given user, for example, trick the user 
+into installing another extension. Even though the severity of this issue in itself is high, the likelihood is low 
+because the exploit will be visible in clear by the user in the email notification, and also requires an action 
+from a malicious administrator.</p>
+
+    <h3 id="fix">Fix</h3>
+
+    <p>Sanitize the firstname and lastname in the page that is used to trigger the extension setup process.</p>
+
+    <p>Additionally since v2.11 some default CSP are inserted in the server response headers to prevent inline-scripts or 
+3rd party domain scripts on pages served by the passbolt API. This is to cater for the case where the administrator 
+has not set them up as part of the web server configuration.</p>
+
+    <h2 id="vulnerability-2-stored-xss-in-tags-autocomplete-dropdown">Vulnerability #2: Stored XSS in tags autocomplete dropdown</h2>
+
+    <h3 id="summary-1">Summary</h3>
+
+    <table class="table-parameters">
+  <tbody>
+    <tr>
+      <td><strong>Product affected:</strong></td>
+      <td>Passbolt API Pro Edition, Passbolt Cloud</td>
+    </tr>
+    <tr>
+      <td><strong>Version affected:</strong></td>
+      <td>v2.10 and below.</td>
+    </tr>
+    <tr>
+      <td><strong>Version fixed:</strong></td>
+      <td>v2.11</td>
+    </tr>
+    <tr>
+      <td><strong>Affected component:</strong></td>
+      <td>Tag form autocomplete.</td>
+    </tr>
+    <tr>
+      <td><strong>Vulnerability Type: </strong></td>
+      <td>
+        <a href="https://cwe.mitre.org/data/definitions/79.html">
+          Cross-site Scripting (XSS) - Stored (CWE-79)
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>CVSS Score: </strong></td>
+      <td>
+        <a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:L/UI:R/S:U/C:H/I:H/A:H">
+          8 (High)
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3 id="description-1">Description</h3>
+
+    <p>A malicious logged in user can craft a shared tag containing an XSS payload and convert it to unicode in order to 
+bypass validation. When another user edits the tag and wants to add other similar tags containing similar words, the 
+tag containing the XSS will be suggested in the autocomplete and the XSS will be triggered by mouseover.</p>
+
+    <h3 id="impact-of-issue-1">Impact of issue</h3>
+
+    <p>If no CSP are set on the webserver the malicious user will be able to run JavaScript of their choice in the page, 
+for example to affect integrity (delete passwords) or confidentiality (copy encrypted data).</p>
+
+    <h3 id="fix-1">Fix</h3>
+
+    <p>The autocomplete library responsible for this issue was updated and a pull request to the maintainer will be proposed.</p>
+
+    <h2 id="vulnerability-3-tabnabbing-when-opening-uri-with-menu-open-uri-in-a-new-tab">Vulnerability #3: Tabnabbing when opening URI with menu “Open URI in a new tab”</h2>
+
+    <h3 id="summary-2">Summary</h3>
+
+    <table class="table-parameters">
+  <tbody>
+    <tr>
+      <td><strong>Product affected:</strong></td>
+      <td>Passbolt API Pro Edition, Passbolt Cloud</td>
+    </tr>
+    <tr>
+      <td><strong>Version affected:</strong></td>
+      <td>v2.10 and below.</td>
+    </tr>
+    <tr>
+      <td><strong>Version fixed:</strong></td>
+      <td>v2.11</td>
+    </tr>
+    <tr>
+      <td><strong>Affected component:</strong></td>
+      <td>Password grid URI “open in a new tab” functionality.</td>
+    </tr>
+    <tr>
+      <td><strong>Vulnerability Type: </strong></td>
+      <td>
+        <a href="https://cwe.mitre.org/data/definitions/657.html">
+          Violation of Secure Design Principles (CWE-657)
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>CVSS Score: </strong></td>
+      <td>
+        <a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L">
+          5 (Medium)
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3 id="description-2">Description</h3>
+
+    <p>A user could create and share a resource with a malicious URI. When the victim opens with menu “Open URI in a
+new tab” function, the malicious page has access to the window.opener object.</p>
+
+    <h3 id="impact-of-issue-2">Impact of issue</h3>
+
+    <p>The newly opened malicious page can for example change the window.opener.location to redirect the user to a 
+phishing page, or call a JavaScript function served by the AppJS on the user behalf for example to try to affect the 
+integrity of the data.</p>
+
+    <h3 id="fix-2">Fix</h3>
+
+    <p>The code that opens a new window via window.open(); now open the tab with the noopener attribute.</p>
+
+    <h2 id="vulnerability-4-os-command-injection-in-csv-file-export-wont-fix">Vulnerability #4: OS Command Injection in CSV file export (Won’t Fix)</h2>
+
+    <h3 id="summary-3">Summary</h3>
+
+    <table class="table-parameters">
+  <tbody>
+    <tr>
+      <td><strong>Product affected:</strong></td>
+      <td>Passbolt Web Extension &amp; Microsoft Excel or similar</td>
+    </tr>
+    <tr>
+      <td><strong>Version affected:</strong></td>
+      <td>v2.10 and below.</td>
+    </tr>
+    <tr>
+      <td><strong>Version fixed:</strong></td>
+      <td>Won't fix</td>
+    </tr>
+    <tr>
+      <td><strong>Affected component:</strong></td>
+      <td>CSV file export.</td>
+    </tr>
+    <tr>
+      <td><strong>Vulnerability Type: </strong></td>
+      <td>
+        <a href="https://cwe.mitre.org/data/definitions/78.html">
+          OS Command Injection (CWE-78)
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td><strong>CVSS Score: </strong></td>
+      <td>
+        <a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:L">
+          5 (Medium)
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+    <h3 id="description-3">Description</h3>
+
+    <p>A logged in user can create a malicious resource with for example the following payload:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=cmd|' /C notepad'!'A1'
+</code></pre></div>    </div>
+
+    <p>When this file is exported as a CSV and opened in Excel (for example) the command will be interpreted.</p>
+
+    <h3 id="impact-of-issue-3">Impact of issue</h3>
+
+    <p>Impact is relatively low as it requires user interactions and a “vulnerable” 3rd party software.</p>
+
+    <h3 id="fix-3">Fix</h3>
+
+    <p>We won’t fix this issue. Residual risk must be accepted by the users, i.e. they must trust sufficiently the passwords 
+that have been shared with them in order for them to open the file in another software.</p>
+
+    <h3 id="event-timeline">Event timeline</h3>
+
+    <ul>
+      <li>2019-07-30: Security researcher notifies passbolt team about the issues.</li>
+      <li>2019-08-01: Security researcher notifies an additional issue.</li>
+      <li>2019-08-01: Passbolt acknowledges the issue and start working on a fix.</li>
+      <li>2019-08-05: Fixes are ready and included as part of v2.11 release UAT.</li>
+      <li>2019-08-07: Passbolt publishes a fix.</li>
+    </ul>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+August
+7th,
+2019.</p>
+    </div>
+  </div>
+  <div class="col4 last push1">
+
+    <div class="tldr message success">
+    <h4>Current status:</h4>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Release new version<br />
+    4. Prepare a report about the issue<br />
+    <strong>5. Feature the problem in the release</strong>
+    <h5>Last updated: 2019-08-07 16:00:00 CET</h5>
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

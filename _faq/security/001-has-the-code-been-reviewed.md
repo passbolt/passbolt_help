@@ -20,7 +20,7 @@ original AMO extension approval process, leading to several improvements in vers
 - Cakephp was reviewed by NCC Group, you can browse the full report 
 [here](https://wiki.mozilla.org/images/4/40/Cakephp-report.pdf)
 
-Additionally three [security vulnerabilities](https://www.passbolt.com/incidents) have been reported by independent 
+Additionally three [security vulnerabilities](https://help.passbolt.com/incidents) have been reported by independent 
 security researchers in the course of 2017.
 
 The code review work will never be done, feel free to contact us if you want to contribute at

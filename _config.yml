@@ -47,6 +47,11 @@ collections:
     output: true
     default:
       layout: default
+  incidents:
+    category: nil
+    output: true
+    default:
+      layout: incidents
 
 destination: docs
 

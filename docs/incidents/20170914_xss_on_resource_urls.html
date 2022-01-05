@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | XSS on resource URLs</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Summary">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="XSS on resource URLs" />
+    <meta property="og:description" content="Summary" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20170914_xss_on_resource_urls">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2017-09-14-xss-on-resource-urls.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                <div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>Incidents</h2></li>
+
+        
+        <li>
+        
+            <a href="/incidents">All incidents</a>
+        </li>
+
+        
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20211124_PBL_06_008_v331_Cure53_report">
+November
+24th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210419_PBL01_Cure53_report">
+October
+19th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20210210_v3_webextension_issues">
+February
+10th,
+2021
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20191126_autofill_suggestions">
+November
+26th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20190807_multiple_vulnerabilities">
+August
+7th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20190211_multiple_vulnerabilities">
+February
+11th,
+2019
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20181109_gke_incident">
+November
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180509_nginx_webroot_configuration">
+May
+9th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng">
+May
+8th,
+2018
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain">
+December
+28th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
+October
+13th,
+2017
+</a>
+        </li>
+        
+        
+        <li class="selected">
+        
+            <a href="https://help.passbolt.com/incidents/20170914_xss_on_resource_urls">
+September
+14th,
+2017
+</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/incidents/20170210_chrome_not_available">
+February
+10th,
+2017
+</a>
+        </li>
+        
+
+    </ul>
+</div>
+
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents"><span>incidents</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/"><span></span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/incidents/20170914_xss_on_resource_urls"><span>2017-09-14 XSS on resource URLs</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>XSS on resource URLs</h1>
+</div>
+</div>
+
+                        <div class="row">
+  <div class="col7">
+    <h2 id="summary">Summary</h2>
+
+    <p>Passbolt API version 1.6.4 is vulnerable to a XSS in the url field on the password workspace grid and sidebar.</p>
+
+    <ul>
+      <li><strong>CVE:</strong> <a href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-1000442">CVE-2017-1000442</a>.</li>
+      <li><strong>Product affected:</strong> Passbolt API, Passbolt Docker.</li>
+      <li><strong>Version affected:</strong> v1.6.4 and below.</li>
+      <li><strong>Version fixed:</strong> v1.6.5</li>
+      <li><strong>Affected component:</strong> Resource url</li>
+      <li><strong>Vulnerability Type:</strong> Cross Site Scripting (XSS)</li>
+    </ul>
+
+    <h3 id="impact-of-issue">Impact of issue</h3>
+
+    <p>Code execution in the passbolt javascript application context. The confidentiality of passwords, passphrase and 
+private key is not affected.</p>
+
+    <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
+
+    <p>A registered passbolt user can create a malicious resource url and share it with one or more victims on the same 
+passbolt instance. By clicking on the url of that resource the victim will run the javascript defined by the attacker. 
+This can be used by the attacker to modify or delete resources that the victim has access to, therefore creating data 
+integrity or availability issues.</p>
+
+    <h3 id="credits">Credits</h3>
+
+    <p>This issue was found and reported by Sumit Sahoo.</p>
+
+    <h2 id="other-information">Other information</h2>
+
+    <h3 id="how-did-this-happen">How did this happen?</h3>
+
+    <p>Initially, the passbolt resource url field implemented pretty strong validation rules allowing only certain url 
+schemes such as http or https only. Naturally, with time, our early private alpha testers requested to allow other 
+url schemes such as ftp or ssh, so more relaxed rules were introduced prior to the public launch. When the URL was 
+later on made clickable the team missed the security implications of that decision.</p>
+
+    <h3 id="are-there-other-xss-vulnerability-present">Are there other XSS vulnerability present?</h3>
+
+    <p>Passbolt is supposed to be fairly well protected from XSS triggered by users because we forbid the use of characters 
+such as ‘&lt;’ and ‘&gt;’ in the form data input / api. However in this particular case this protection was not enough.</p>
+
+    <h3 id="what-are-you-doing-about-it">What are you doing about it?</h3>
+
+    <p>With the upcoming version 2 we are in the process of relaxing user input even further, so to compensate for that 
+extra risk we will review all our use of innerHTML function or similar (such as jQuery.html). We have already 
+completed this review in the plugin with version 1.6.5. We are also looking into adding additional automated XSS 
+tests as part of our continuous integration processes.</p>
+
+    <h3 id="event-timeline">Event timeline</h3>
+
+    <ul>
+      <li>2017-09-13 22:30:00 CET: Passbolt team received a security vulnerability report from Sumit Sahoo.</li>
+      <li>2017-09-14 07:00:00 CET: early morning we acknowledge the issue, start working on a fix and start looking for similar issues in other part of the code.</li>
+      <li>2017-09-14 14:00:00 CET: We deploy a fix on the demo server</li>
+      <li>2017-09-14 14:00:00 CET: We notify the reporter that a fix has been deployed.</li>
+      <li>2017-09-14 14:30:00 CET: We publish the fix on github, the release notes and this report.</li>
+    </ul>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+September
+14th,
+2017.</p>
+    </div>
+  </div>
+  <div class="col4 last push1">
+
+    <div class="tldr message success">
+    <h4>Current status:</h4>
+    1. Try first to reproduce the issue<br />
+    2. Acknowledge to the reporter<br />
+    3. Get a fix/patch prepared<br />
+    4. Release new version.<br />
+    5. Prepare a report about the issue.<br />
+    <strong>6. Feature the problem in the release.</strong>
+    <h5>Last updated: 2017-09-14 16:40:00 CET</h5>
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

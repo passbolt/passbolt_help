@@ -1,0 +1,25 @@
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>Incidents</h2></li>
+
+        {% if all == include.selected %}
+        <li class="selected">
+        {% else %}
+        <li>
+        {% endif %}
+            <a href="/incidents">All incidents</a>
+        </li>
+
+        {% assign items = site.incidents | sort: 'date' | limit: 7 %}
+        {% for item in items reversed %}
+        {% if item.slug == include.selected %}
+        <li class="selected">
+        {% else %}
+        <li>
+        {% endif %}
+            <a href="{{ item.url | absolute_url }}">{% include date/format-date.html date=item.date %}</a>
+        </li>
+        {% endfor %}
+
+    </ul>
+</div>

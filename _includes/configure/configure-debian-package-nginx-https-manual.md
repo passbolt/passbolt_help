@@ -17,10 +17,24 @@ On this example we will assume the user is generating a self-signed certificate 
 While connected to your passbolt instance you can generate a SSL certificate in the following way:
 
 ```
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+openssl req -x509 \
+    -newkey rsa:4096 \
+    -days 120 \
+    -subj "/C=LU/ST=Luxembourg/L=Esch-Sur-Alzette/O=Passbolt SA/OU=Passbolt IT Team/CN=passbolt.domain.tld/" \
+    -nodes \
+    -addext "subjectAltName = DNS:passbolt.domain.tld" \
+    -keyout key.pem \
+    -out cert.pem
 ```
 
-This command will output two files the 'key.pem' and the 'cert.pem' identify the absolute path where these files are located.
+This command will output two files: **key.pem** and **cert.pem**. Identify the absolute path where these files are located as you will need them in next steps.
+
+Of course, replace `-subj` values with your own. It is important to set your passbolt FQDN in both CN and subjectAltName. In this way, you will be able to import the generated certificate in your operating system keychain and make your self-signed domain trusted in your browser.
+
+{% include messages/notice.html
+    content="<b>Pro tip:</b> You can use an IP address instead of a domain name for your self-signed certificate.
+    If you do that, replace DNS with IP in subjectAltName."
+%}
 
 {% include configure/install_or_reconfigure_passbolt.md %}
 

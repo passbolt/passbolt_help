@@ -1,7 +1,12 @@
 ## Prerequisites
 
 For this tutorial, you will need:
+{% if distributionLabel == 'Raspberry' %}
+- Any Raspberry PI from zero to 4
+- A minimal [Raspberry Pi OS Lite (formerly called Raspbian)](https://www.raspberrypi.com/software/operating-systems/) server or any OS based on Debian 11 Bullseye.
+{% else %}
 - A minimal {{ distributionLabel }} {{ distributionVersion }}  server.
+{% endif %}
 - A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.
 
 The recommended server requirements are:

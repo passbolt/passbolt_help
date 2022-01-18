@@ -145,6 +145,11 @@
       icon: fa-envelope
       teaser: Common issues with emails
       slug: why-email-not-sent
+    - title: Update database credentials
+      url: /configure/database/credentials
+      icon: fa-database
+      teaser: Update database credentials
+      slug: update-database-credentials
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

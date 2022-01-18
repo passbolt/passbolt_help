@@ -12,6 +12,7 @@ Launch `passbolt-configure` tool and answer to the questions:
 sudo /usr/local/bin/passbolt-configure
 ```
 
+{% if ssl_reconfigure != 'true' %}
 #### MariaDB
 
 ```
@@ -62,6 +63,8 @@ Install Haveged ?
 2) no
 #?
 ```
+
+{% endif %}
 
 #### Nginx
 

@@ -1,22 +1,23 @@
 ---
-title: Manual HTTPS configuration on Debian and Ubuntu with user provided certificates
-date: 2020-09-20 00:00:00 Z
-card_teaser: Configure HTTPS with user provided certificates
-card_title: Debian/Ubuntu manual HTTPS configuration
-description: Configure HTTPS with user provided certificates on debian and ubuntu systems
-icon: fa-server
-categories: [configure,https,pro,debian]
+title: How to configure HTTPS with RPM package
+date: 2021-12-16 00:00:00 Z
+card_title: How to configure HTTPS with RPM package
+card_teaser: Configure HTTPS with RPM package
+description: Configure HTTPS with RPM package
+icon: fa-redhat
+card_position: 5
+categories: [configure,https,ce]
 sidebar: configure
 layout: default
-slug: manual
+slug: rpm
 permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include configure/configure-debian-package-nginx-https-manual.md %}
+{% include configure/configure-rpm-package-nginx-https-auto.md %}
 
 {% include date/updated.html %}
 

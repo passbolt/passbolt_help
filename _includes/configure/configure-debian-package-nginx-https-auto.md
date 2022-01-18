@@ -1,3 +1,8 @@
+{% include messages/warning.html
+    content="If you are changing your domain from <b>HTTP to HTTPS</b>, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to <b><a href='/faq/start/account-recover'>recover their account</a></b>."
+%}
+
 {%
     include messages/warning.html
     content="**Important requirement:** This tutorial assumes your machine has a valid domain name assigned in
@@ -72,3 +77,13 @@ If everything goes fine you should see a final message that points you to finish
     url="/assets/img/help/2020/05/debian-package/success.png"
     legend="Success message" width="450px"
 %}
+
+Reload nginx after finish the reconfigure to use the SSL configuration.
+
+```bash
+sudo systemctl reload nginx
+```
+
+Finally, ensure <b>'fullBaseUrl'</b> value in <b>/etc/passbolt/passbolt.php</b> starts with <b>https://</b>.
+
+And that's it you should be able to reach your server on the domain you specified.

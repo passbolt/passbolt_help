@@ -1,6 +1,6 @@
 ---
 title: Passbolt reference environment variables
-date: 2019-05-15 00:00:00 Z
+date: 2021-12-30 00:00:00 Z
 description: Passbolt environment variable reference
 icon: fa-server
 categories: [configure,environment]
@@ -19,13 +19,5 @@ redirect_from:
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
-
-{% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when installing passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
-%}
 
 {% include layout/row_end.html %}

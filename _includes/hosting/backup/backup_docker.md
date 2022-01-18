@@ -40,7 +40,7 @@ If you are using docker-compose, environment variables are on the env folder:
 
 If you are running docker container, you should have passed these variables through the command line.
 Please check the
-[passbolt env variable reference]({{ site.baseurl }}{% link _posts/configure/2019-05-15-env-var-reference.md %})
+[passbolt env variable reference]({{ site.baseurl }}{% link _posts/configure/2021-12-30-env-var-reference.md %})
 
 #### 4. The avatars (for Passbolt version prior to 3.2)
 

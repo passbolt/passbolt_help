@@ -1,14 +1,15 @@
 ---
-title: Auto configure HTTPS with Let's Encrypt on Debian and Ubuntu
-date: 2020-09-20 00:00:00 Z
-card_title: Debian/Ubuntu auto configure HTTPS
-card_teaser: Auto configure HTTPS with Let's Encrypt
-description: Auto configure HTTPS with Let's Encrypt on debian and ubuntu systems
-icon: fa-server
+title: Manual HTTPS configuration on Debian and Ubuntu with user provided certificates
+date: 2021-12-16 00:00:00 Z
+card_teaser: Configure HTTPS with user provided certificates
+card_title: Debian/Ubuntu manual HTTPS configuration
+description: Configure HTTPS with user provided certificates on debian and ubuntu systems
+icon: fa-debian
+card_position: 2
 categories: [configure,https,ce,debian]
 sidebar: configure
 layout: default
-slug: auto
+slug: manual
 permalink: /:categories/:slug.html
 ---
 
@@ -16,7 +17,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include configure/configure-debian-package-nginx-https-auto.md %}
+{% include configure/configure-debian-package-nginx-https-manual.md %}
 
 {% include date/updated.html %}
 

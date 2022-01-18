@@ -1,3 +1,8 @@
+{% include messages/warning.html
+    content="If you are changing your domain from <b>HTTP to HTTPS</b>, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to <b><a href='/faq/start/account-recover'>recover their account</a></b>."
+%}
+
 Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:
 
 - Serve passbolt on port 80 (http)
@@ -100,6 +105,8 @@ Reload nginx after finish the reconfigure to use the SSL configuration.
 ```bash
 sudo systemctl reload nginx
 ```
+
+Finally, ensure <b>'fullBaseUrl'</b> value in <b>/etc/passbolt/passbolt.php</b> starts with <b>https://</b>.
 
 And that's it you should be able to reach your server on the domain you specified.
 

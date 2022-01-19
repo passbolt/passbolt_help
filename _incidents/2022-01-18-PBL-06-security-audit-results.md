@@ -26,7 +26,7 @@ All the issues have been fixed or a mitigation has been implemented as of 19th J
 You can read more about the security audit by [reading the full report](/assets/files/PBL-06-report.pdf).
 
 Passbolt team would like to express a warm thank you to the security researchers from Cure53 team for their collaboration on 
-this project. We would also like Samuel Lorch for rolling out fixes promptly for go-passbolt-cli.
+this project. We would also like to thank Samuel Lorch for rolling out fixes promptly for go-passbolt-cli.
 
 ## Vulnerabilities summary 
 

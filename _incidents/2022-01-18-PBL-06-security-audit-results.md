@@ -15,18 +15,18 @@ permalink: /incidents/220220118_PBL-06-security-audit-results
 
 As part of the security audit of the mobile application, Cure53 team, found 8 issues that have been solved
 with v3.5. This audit concerned all the changes related to the implementation of the mobile features for the
-API as well as both Android and iOS mobile applications. Additionally this audit included a review of the community
-project "passbolt go cli".
+API as well as both Android and iOS mobile applications. Additionally, this audit included a review of the community
+driven project "[go-passbolt-cli](https://github.com/speatzle/go-passbolt-cli)".
 
 The issues are only applicable for users participating in the mobile beta, as flagged in the previous incident report 
 which targeted release 3.3.1 containing an immediate fix for the only "High" ranked issue.
 
-All the issues for the projects managed by Passbolt as been fixed or a mitigation implemented as of 19th Jan 2022.
+All the issues have been fixed or a mitigation has been implemented as of 19th Jan 2022.
 
 You can read more about the security audit by [reading the full report](/assets/files/PBL-06-report.pdf).
 
 Passbolt team would like to express a warm thank you to the security researchers from Cure53 team for their collaboration on 
-this project.
+this project. We would also like Samuel Lorch for rolling out fixes promptly for go-passbolt-cli.
 
 ## Vulnerabilities summary 
 
@@ -88,7 +88,7 @@ this project.
       <td>GO CLI (Community)</td>
       <td>Improper file permissions for configuration file</td>
       <td>High</td>
-      <td>Maintainer notified</td>
+      <td>Fixed in v0.1.4</td>
     </tr>
     <tr>
       <td>PBL-06-008</td>
@@ -113,7 +113,7 @@ it can only be leveraged until the currently allocated JWT token expires (its li
 
 According to our test it is not possible to run ADB commands using stock androids. We were able to reproduce the
 issue on Lineage OS if the user enable "rooted debugging" in the developer option (which requires pin entry).
-Currently Android passbolt app will display a notification if the device is considered rooted, which includes this flag.
+Currently, Android passbolt app will display a notification if the device is considered rooted, which includes this flag.
 It is the responsibility of the user to either not use a rooted devices or accept the potential issues.
 
 In Q1 2022 the team will refactor the application to prevent that a fingerprint check can be
@@ -124,14 +124,13 @@ bypassed by invoking another activity directly.
 Additionally, the following issues where reported. While they are not considered as vulnerabilities as such,
 they have been reviewed and will be addressed in the future if they are not already fixed.
 
-- PBL-06-003: Android app hardening recommendations (Fixed)
+- PBL-06-003: Android app hardening recommendations (Fixed v1.3)
 - PBL-06-004: Android binary hardening recommendations (In review)
 - PBL-06-011: Missing ACL checks on TransfersView controller (Fixed v3.5)
-- PBL-06-012: URL path traversal via command line flags (Maintainer notified
-- PBL-06-013: Improper escaping of resource fields (Maintainer notified)
+- PBL-06-012: URL path traversal via command line flags ([Open](https://github.com/speatzle/go-passbolt/issues/10))
+- PBL-06-013: Improper escaping of resource fields (Fixed v0.1.5)
 - PBL-06-014: Server packages with known vulnerabilities (Process already in place)
 - PBL-06-015: Missing private key revocation process (In backlog)
-
 
 {% include date/updated.html %}
 

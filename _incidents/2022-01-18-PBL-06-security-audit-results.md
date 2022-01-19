@@ -15,13 +15,13 @@ permalink: /incidents/220220118_PBL-06-security-audit-results
 
 As part of the security audit of the mobile application, Cure53 team, found 8 issues that have been solved
 with v3.5. This audit concerned all the changes related to the implementation of the mobile features for the
-API as well as both Android and iOS mobile application. Additionally this audit included a review of the community
+API as well as both Android and iOS mobile applications. Additionally this audit included a review of the community
 project "passbolt go cli".
 
-As mentioned in the previous incident report, that contained an immediate fix for the only "High" ranked issue
-the previous version affected was 3.3, where the mobile feature flag was disabled by default. 
+The issues are only applicable for users participating in the mobile beta, as flagged in the previous incident report 
+which targeted release 3.3.1 containing an immediate fix for the only "High" ranked issue.
 
-All of the issues for the projects managed by passbolt as been fixed or a mitigation implemented as of 19th Jan 2021.
+All the issues for the projects managed by Passbolt as been fixed or a mitigation implemented as of 19th Jan 2022.
 
 You can read more about the security audit by [reading the full report](/assets/files/PBL-06-report.pdf).
 
@@ -114,14 +114,14 @@ it can only be leveraged until the currently allocated JWT token expires (its li
 According to our test it is not possible to run ADB commands using stock androids. We were able to reproduce the
 issue on Lineage OS if the user enable "rooted debugging" in the developer option (which requires pin entry).
 Currently Android passbolt app will display a notification if the device is considered rooted, which includes this flag.
-It is the responsability of the user to either not use a rooted devices or accept the potential issues.
+It is the responsibility of the user to either not use a rooted devices or accept the potential issues.
 
 In Q1 2022 the team will refactor the application to prevent that a fingerprint check can be
 bypassed by invoking another activity directly.
 
 ### Miscellaneous issues
 
-Additionally, the following issues where reported. While they are not considered as vulnerabilities as such
+Additionally, the following issues where reported. While they are not considered as vulnerabilities as such,
 they have been reviewed and will be addressed in the future if they are not already fixed.
 
 - PBL-06-003: Android app hardening recommendations (Fixed)

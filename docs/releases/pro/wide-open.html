@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Wide Open</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Wide Open" />
+    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/wide-open">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.5.0.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (pro)</h2></li>
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/pro/wide-open" >v3.5.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/black-sunrise" >v3.4.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/senior-elfo" >v3.3.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs" >v3.2.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/love-over-entropy-sea" >v3.1.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/v300-our-house" >v3.0.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/pro.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro"><span>pro</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/pro/wide-open"><span>wide-open</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v3.5.0 ~ Wide Open (pro)</h1>
+                            <p>Release date: 
+January
+18th,
+2022.
+</p>
+                            <div class="message notice">
+    <p>
+    This release introduces some new dependencies and database changes. <br />Make sure you follow 
+    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
+    </p>
+    
+    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
+    
+</div>
+
+<p>The team is pleased to announce the v3.5 immediate availability which includes the most awaited launch of the iOS and 
+Android Mobile applications (currently pending review). 
+Mobile support is available for all passbolt editions, including CE, PRO, and Cloud!</p>
+
+<p>Watch the <a href="https://youtu.be/GETFLtDAcxM">mobile apps video announcement</a> to get a quick glimpse of what’s in it. And 
+let us know what you think in the 
+<a href="https://community.passbolt.com/t/ios-and-android-mobile-apps-are-live/4790/3">dedicated community forum thread</a>.</p>
+
+<p>You’ll be pleased to know that both the mobile apps have been entirely audited by Cure 53 prior public release. 
+The <a href="https://help.passbolt.com/incidents/220220118_PBL-06-security-audit-results">audit reports are available here</a>.</p>
+
+<p>What else is in v3.5? Well, a bunch of other nice things:</p>
+<ul>
+  <li>New languages: Japanese, Dutch and Polish.</li>
+  <li>Postgresql support (experimental). The documentation on how to enable it will follow in the next few days.</li>
+  <li>A brand new CLI, written in GO (and <a href="https://help.passbolt.com/incidents/220220118_PBL-06-security-audit-results">audited too</a>): this CLI is a contribution by Samuel Lorch and supports all API entry points including share operations. It also supports operations related to folders management and sharing as well as Multi Factor Authentication.</li>
+</ul>
+
+<p>On top of that, this release ships with some more improvements and fixes.</p>
+<ul>
+  <li>Due to popular demand, the size of the resource.name and resource.username fields have been increased to 255 characters (previously 64).</li>
+  <li>The In-Form menu positioning has been improved to appear where it should be with more accuracy.</li>
+  <li>The overall performance of the api has been improved, primarily due to the optimization of the permissions table which is at the center of many operations.</li>
+</ul>
+
+<p>We wish to thank the contributors who participated:</p>
+<ul>
+  <li><a href="https://github.com/jsm222">Jesper Schmitz Mouridsen</a>, for his much awaited PostgreSQL implementation.</li>
+  <li><a href="https://github.com/speatzle">Samuel Lorch</a>, for his amazing <a href="https://github.com/speatzle/go-passbolt">GO SDK</a> and <a href="https://github.com/speatzle/go-passbolt-cli">CLI</a>, making it the first fully functional CLI for passbolt since <a href="https://github.com/passbolt/passbolt_cli">the other nodejs CLI</a> does not currently support all the operations.</li>
+  <li>All the community members who reported bugs and submitted pull requests (weebl2000,  garrettboone) and helped on the community forum to debug issues with mobile.</li>
+</ul>
+
+<h1 id="api">API</h1>
+<h2 id="350---2022-01-18">[3.5.0] - 2022-01-18</h2>
+<h3 id="added">Added</h3>
+<ul>
+  <li>PB-13161 As LU I should be able to use passbolt with my Android mobile</li>
+  <li>PB-13161 As LU I should be able to use passbolt with my IOS mobile</li>
+  <li>PB-5967 As AD I can use passbolt with a PostgreSQL database provider [experimental]</li>
+  <li>PB-5967 As AD I can migrate an existing instance to PostgreSQL with the help of the command line [experimental] and MySQL to Postgres migration tools, e.g. as described here: https://pgloader.readthedocs.io and here: https://pgloader.io/.</li>
+  <li>
+    <p>PB-8513 As LU I can request gpg keys using pagination</p>
+  </li>
+  <li>
+    <p>PB-6053 As LU I can request folders using pagination</p>
+  </li>
+  <li>PB-13321 As a user I can use passbolt in Dutch</li>
+  <li>PB-13321 As a user I can use passbolt in Japanese</li>
+  <li>PB-13321 As a user I can use passbolt in Polish</li>
+</ul>
+
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>PB-12817 As LU I can import avatars having a jpeg extension</li>
+  <li>PB-12943 As AD I should be able to see log when a user tries to sign-in with an invalid bearer token</li>
+  <li>PB-12888 Improve performances of the operations requiring permissions accesses by replacing the single index on type by a combined index involving the requested columns</li>
+  <li>PB-13177 As AD I should be able to see any gpg keys errors from the healthcheck</li>
+  <li>PB-13183 As LU I should be able create resource having a name or a username of 255 characters long</li>
+  <li>PB-13265 As AD I can create a JWT key pair even if the database is not set</li>
+  <li>PB-13164 As AD I can cleanup duplicate entries in the favorites tables, folder_relations 
+, groups_users and permissions</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>
+    <p>PB-9887 Fix as AD I can send email digest from the /bin/cron script</p>
+  </li>
+  <li>
+    <p>PB-12951 Fix as a user I shouldn’t get an error requesting the JWT refresh end point providing a MFA token with MFA disabled</p>
+  </li>
+  <li>PB-12957 Fix multiple language issues reported by community</li>
+  <li>PB-12914 Fix as a group manager I should not get multiple notifications when a group is updated</li>
+  <li>PB-13158 As AD I should see a tip with proper directory permissions when the JWT assets healthcheck fails</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-13217 PBL-06-011 Fix ACL on mobile transfer view controller</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-12835 Move users setup/recover/register controllers logic into services to welcome the upcoming account recovery feature</li>
+</ul>
+
+<h1 id="browser-extension">Browser extension</h1>
+<h2 id="350---2022-01-17">[3.5.0] - 2022-01-17</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-13161 As LU I should be able to passbolt with my Android mobile</li>
+  <li>PB-13161 As LU I should be able to passbolt with my IOS mobile</li>
+  <li>PB-13321 As a user I can use passbolt in Dutch</li>
+  <li>PB-13321 As a user I can use passbolt in Japanese</li>
+  <li>PB-13321 As a user I can use passbolt in Polish</li>
+</ul>
+
+<h3 id="improvement-1">Improvement</h3>
+<ul>
+  <li>PB-9402 As LU I should be able to create and import passwords having a name and username of 255 characters long</li>
+  <li>PB-13178 As a user visiting the web stores I should be aware that the application supports multiple languages</li>
+  <li>PB-9748 Optimize in-form menu integration performance by avoiding the CTA mutation observer to be called when passbolt manipulates the DOM itself</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-12819 Fix as LU I should autofill/auto-save on forms having only a password field</li>
+  <li>GITHUB-136 Fix as LU I want to see the in-form menu CTA well positioned on pages having no scroll but CSS transformation</li>
+  <li>GITHUB-137 Fix as a user I should see the in-form menu CTA on modal having a z-index greater that 1000</li>
+  <li>PB-13268 As LU I should be able to put comma in my user names</li>
+  <li>PB-12873 As LU I shouldn’t see double escaped characters on the translation of strings including variables</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-13162 Upgrade QRCode library to v1.5.0</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-12955 Fix error and warning messages in unit test console</li>
+  <li>PB-13309 Upgrade dev dependency webpack-dev-server to v4.7.2</li>
+</ul>
+
+<h1 id="ios-app">iOS App</h1>
+<h2 id="130---2022-01-17">[1.3.0] - 2022-01-17</h2>
+<h2 id="added-2">Added</h2>
+<ul>
+  <li>View presenting application logs allowing to share it easily</li>
+  <li>Help menu in multiple contexts allowing access to logs and quick link to help page</li>
+  <li>Quick account switch menu</li>
+  <li>Account details view allowing change local label for accounts</li>
+</ul>
+
+<h2 id="improved">Improved</h2>
+<ul>
+  <li>Added long loading messages appearing on loaders that take more time than expected</li>
+  <li>Implemented session refresh based on refresh tokens</li>
+</ul>
+
+<h2 id="fixed-2">Fixed</h2>
+<ul>
+  <li>Delay on scanning QR codes</li>
+  <li>Invalid resolve of urls on instances available under urls with additional path component</li>
+  <li>Local JWT token verification issues</li>
+</ul>
+
+<h2 id="security-2">Security</h2>
+<ul>
+  <li>Removed custom application url scheme</li>
+  <li>Added jailbreak detection</li>
+</ul>
+
+<h2 id="maintenance-2">Maintenance</h2>
+<ul>
+  <li>Refactor displayable strings for easier usage</li>
+  <li>Refactor session management</li>
+</ul>
+
+<h1 id="android-app">Android App</h1>
+<h2 id="130-4---2022-01-17">[1.3.0-4] - 2022-01-17</h2>
+<h2 id="added-3">Added</h2>
+<ul>
+  <li>Session is being refreshed now when the app is resumed or the session expires instead of a new sign in</li>
+  <li>Dark theme support to Autofill dropdown</li>
+  <li>Possibility to turn on log recording and to access and share them</li>
+  <li>Account switch drawer when clicking search avatar</li>
+  <li>Account details screen with a possibility to change label</li>
+</ul>
+
+<h2 id="improved-1">Improved</h2>
+<ul>
+  <li>Create resource from Autofill context - now it’s “Create and fill”</li>
+</ul>
+
+<h2 id="fixed-3">Fixed</h2>
+<ul>
+  <li>Resource list icons are now lighter and have correct corner radius</li>
+  <li>Always display URL field on resource details (even if empty)</li>
+  <li>When having at least 2 accounts with biometry enabled and adding a new fingerprint to the device - the biometry is deactivated on all accounts instead of only on current one</li>
+</ul>
+
+<h2 id="security-3">Security</h2>
+<ul>
+  <li>Added explicit <em>hasFragileUserData</em> flag to the Manifest with a default value of false to ensure all data is deleted when the app is uninstalled</li>
+  <li>Added rootbeer library to show root detection warning</li>
+</ul>
+
+<h2 id="maintenance-3">Maintenance</h2>
+<ul>
+  <li>Added publishing to Play Store straight from CI</li>
+  <li>Refactored Authentication Presenters to reduce constructor dependencies count</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"Wide Open"</p>
+                                <a href="https://youtu.be/BC2dRkm8ATU" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+</div>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23506466-3"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/cookies-eu-banner.js"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

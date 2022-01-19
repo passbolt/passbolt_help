@@ -6,7 +6,7 @@
 	  /_/    \__,_/____/____/_,___/\____/_/\__/
 	
 	The open-source password management solution for teams
-	(c) 2021 Passbolt SA
+	(c) 2022 Passbolt SA
 	https://www.passbolt.com
 
 ## License
@@ -18,7 +18,7 @@ Passbolt help text are distributed under [Creative Common BY-SA-4.0](https://cre
 Logos in /assets/img/third_party belongs to their respective owners and used for illustrative purpose.
 
 Passbolt - Open source password manager for teams
-(c) 2021 Passbolt SA
+(c) 2022 Passbolt SA
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General 
 Public License (AGPL) as published by the Free Software Foundation version 3.

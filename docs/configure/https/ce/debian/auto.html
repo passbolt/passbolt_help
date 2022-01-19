@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2020-09-19-configure-https-debian.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2021-12-16-configure-https-debian.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -151,6 +151,11 @@
         </li>
         
         
+        <li >
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
+        </li>
+        
+        
     </ul>
 </div>
 
@@ -215,6 +220,14 @@
                         
 <div class="row">
   <div class="col7">
+
+    <div class="message warning">
+    <p>
+        If you are changing your domain from <b>HTTP to HTTPS</b>, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to <b><a href="/faq/start/account-recover">recover their account</a></b>.
+    </p>
+    
+</div>
 
     <div class="message warning">
     <p>
@@ -287,12 +300,21 @@ you want to execute the following command to start the configuration process for
     <span class="legend">fig. Success message</span>
 </figure>
 
+    <p>Reload nginx after finish the reconfigure to use the SSL configuration.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl reload nginx
+</code></pre></div>    </div>
+
+    <p>Finally, ensure <b>‘fullBaseUrl’</b> value in <b>/etc/passbolt/passbolt.php</b> starts with <b>https://</b>.</p>
+
+    <p>And that’s it you should be able to reach your server on the domain you specified.</p>
+
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-September
-20th,
-2020.</p>
+December
+16th,
+2021.</p>
     </div>
 
   </div>

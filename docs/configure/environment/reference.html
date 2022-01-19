@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2019-05-15-env-var-reference.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2021-12-30-env-var-reference.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -147,6 +147,11 @@
         
         <li >
             <a href="https://help.passbolt.com/faq/hosting/why-email-not-sent">Troobleshoot Email config</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
         </li>
         
         
@@ -227,432 +232,292 @@
         <tr>
           <td>APP_BASE</td>
           <td>it allows people to specify the base subdir the application is running in</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>APP_ENCODING</td>
           <td>Set text encoding</td>
-          <td>‘UTF-8’</td>
+          <td><code class="language-plaintext highlighter-rouge">'UTF-8'</code></td>
         </tr>
         <tr>
           <td>APP_DEFAULT_LOCALE</td>
           <td>Set default locale</td>
-          <td>‘en_US’</td>
+          <td><code class="language-plaintext highlighter-rouge">'en_US'</code></td>
         </tr>
         <tr>
           <td>APP_FULL_BASE_URL</td>
           <td>Passbolt base url</td>
-          <td>‘false’</td>
-        </tr>
-        <tr>
-          <td>CACHE_DEFAULT_URL</td>
-          <td>CakePHP default cache DSN string</td>
-          <td>null</td>
-        </tr>
-        <tr>
-          <td>CACHE_CAKECORE_URL</td>
-          <td>CakePHP core cache DSN string</td>
-          <td>null</td>
-        </tr>
-        <tr>
-          <td>CACHE_CAKEMODEL_URL</td>
-          <td>CakePHP model cache DSN string</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">'false'</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_DATABASE</td>
           <td>Database name</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_HOST</td>
           <td>Database hostname</td>
-          <td>‘localhost’</td>
+          <td><code class="language-plaintext highlighter-rouge">'localhost'</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_PORT</td>
           <td>Database port</td>
-          <td>3306</td>
+          <td><code class="language-plaintext highlighter-rouge">3306</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_URL</td>
           <td>Database url</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_PASSWORD</td>
           <td>Database password</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_SSL_KEY</td>
           <td>Database SSL Key</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_SSL_CERT</td>
           <td>Database SSL Cert</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_SSL_CA</td>
           <td>Database SSL CA</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DATASOURCES_DEFAULT_USERNAME</td>
           <td>Database username</td>
-          <td>’’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_DATABASE</td>
-          <td>Database name</td>
-          <td>‘my_app’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_HOST</td>
-          <td>Database hostname</td>
-          <td>‘localhost’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_PORT</td>
-          <td>Database port</td>
-          <td>3306</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_PASSWORD</td>
-          <td>Database password</td>
-          <td>‘secret’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_SSL_KEY</td>
-          <td>Database SSL Key</td>
-          <td>’’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_SSL_CERT</td>
-          <td>Database SSL Cert</td>
-          <td>’’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_SSL_CA</td>
-          <td>Database SSL CA</td>
-          <td>’’</td>
-        </tr>
-        <tr>
-          <td>DATASOURCES_TEST_USERNAME</td>
-          <td>Database username</td>
-          <td>‘my_app’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
         </tr>
         <tr>
           <td>DEBUG</td>
           <td>Debug mode</td>
-          <td>‘false’</td>
+          <td><code class="language-plaintext highlighter-rouge">'false'</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_CLASS_NAME</td>
           <td>Email classname</td>
-          <td>‘Smtp’</td>
+          <td><code class="language-plaintext highlighter-rouge">'Smtp'</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_DEFAULT_FROM_NAME</td>
+          <td>From email username</td>
+          <td><code class="language-plaintext highlighter-rouge">'Passbolt'</code></td>
         </tr>
         <tr>
           <td>EMAIL_DEFAULT_FROM</td>
           <td>From email address</td>
-          <td>‘you@localhost’</td>
+          <td><code class="language-plaintext highlighter-rouge">'you@localhost'</code></td>
         </tr>
         <tr>
           <td>EMAIL_DEFAULT_TRANSPORT</td>
           <td>Sets transport method</td>
-          <td>‘default’</td>
+          <td><code class="language-plaintext highlighter-rouge">'default'</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_HOST</td>
           <td>Server hostname</td>
-          <td>‘localhost’</td>
+          <td><code class="language-plaintext highlighter-rouge">'localhost'</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_PORT</td>
           <td>Server port</td>
-          <td>25</td>
+          <td><code class="language-plaintext highlighter-rouge">25</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_TIMEOUT</td>
           <td>Timeout</td>
-          <td>30</td>
+          <td><code class="language-plaintext highlighter-rouge">30</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_USERNAME</td>
           <td>Username for email server auth</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_PASSWORD</td>
           <td>Password for email server auth</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_CLIENT</td>
           <td>Client</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_TLS</td>
           <td>Set tls</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>EMAIL_TRANSPORT_DEFAULT_URL</td>
           <td>Set url</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>GNUPGHOME</td>
           <td>path to gnupghome directory</td>
-          <td>‘/home/www-data/.gnupg’</td>
-        </tr>
-        <tr>
-          <td>LOG_DEBUG_URL</td>
-          <td>CakePHP debug log DSN string</td>
-          <td>null</td>
-        </tr>
-        <tr>
-          <td>LOG_ERROR_URL</td>
-          <td>CakePHP debug log DSN string</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">'/home/www-data/.gnupg'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_AUTH_TOKEN_EXPIRY</td>
           <td>Passbolt authorization token expiration</td>
-          <td>‘3 days’</td>
+          <td><code class="language-plaintext highlighter-rouge">'3 days'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_VALIDATE_MX</td>
-          <td>Validate server MX</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_REGISTER_TOKEN_EXPIRY</td>
+          <td>Passbolt authorization registration token expiration</td>
+          <td><code class="language-plaintext highlighter-rouge">'10 days'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_SHOW_COMMENT</td>
-          <td>Include resources comments on email notification</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_RECOVER_TOKEN_EXPIRY</td>
+          <td>Passbolt authorization recover token expiration</td>
+          <td><code class="language-plaintext highlighter-rouge">'1 day'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_SHOW_DESCRIPTION</td>
-          <td>Include resources description on email notification</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_LOGIN_TOKEN_EXPIRY</td>
+          <td>Passbolt authorization token login expiration</td>
+          <td><code class="language-plaintext highlighter-rouge">'5 minutes'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_SHOW_SECRET</td>
-          <td>Include resource encrypted secret on email notification</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_MOBILE_TRANSFER_TOKEN_EXPIRY</td>
+          <td>Passbolt mobile transfer token expiration</td>
+          <td><code class="language-plaintext highlighter-rouge">'5 minutes'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_SHOW_URI</td>
-          <td>Include resource URI on email notification</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_JWT_REFRESH_TOKEN</td>
+          <td>Passbolt authorization JWT refresh token</td>
+          <td><code class="language-plaintext highlighter-rouge">'1 month'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_SHOW_USERNAME</td>
-          <td>Include the username field of the resource on email notification</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_JWT_ACCESS_TOKEN</td>
+          <td>Passbolt authorization JWT access token</td>
+          <td><code class="language-plaintext highlighter-rouge">'5 minutes'</code></td>
         </tr>
         <tr>
-          <td>PASSBOLT_EMAIL_SEND_COMMENT_ADD</td>
-          <td>Notify when a comment is added to resource</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_PASSWORD_CREATE</td>
-          <td>Notify when a password is created</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_PASSWORD_SHARE</td>
-          <td>Notify when a password is shared</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_PASSWORD_UPDATE</td>
-          <td>Notify when a password is updated</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_PASSWORD_DELETE</td>
-          <td>Notify when a password is deleted</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_USER_CREATE</td>
-          <td>Send invite to user when created</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_USER_RECOVER</td>
-          <td>Send recovery email</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_FOLDER_CREATED</td>
-          <td>Notify the creator of a folder when it is created</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_FOLDER_UPDATED</td>
-          <td>Notify the users with access to a folder when it is updated</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_FOLDER_DELETED</td>
-          <td>Notify the users with access to a folder when it is deleted</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_FOLDER_SHARE_CREATED</td>
-          <td>Notify users who gain access when a folder permission is granted</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_FOLDER_SHARE_DROPPED</td>
-          <td>Notify users who lost access when a folder permission is removed</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_GROUP_DELETE</td>
-          <td>Notify group members when a group is deleted</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_GROUP_USER_ADD</td>
-          <td>Notify user when added to a group</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_GROUP_USER_DELETE</td>
-          <td>Notify user when deleted from group</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_GROUP_USER_UPDATE</td>
-          <td>Notify user when his/her roles change in a group</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_GROUP_MANAGER_UPDATE</td>
-          <td>Notify group manager when users change in a group</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_EMAIL_SEND_GROUP_MANAGER_DELETE</td>
-          <td>Notify group manager when user deleted in a group</td>
-          <td>true</td>
+          <td>PASSBOLT_AUTH_JWT_VERIFY_TOKEN</td>
+          <td>Passbolt authorization JWT verify token</td>
+          <td><code class="language-plaintext highlighter-rouge">'1 hour'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_GPG_SERVER_KEY_FINGERPRINT</td>
           <td>GnuPG fingerprint</td>
-          <td>null</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_GPG_SERVER_KEY_PUBLIC</td>
           <td>Path to GnuPG public server key</td>
-          <td>/var/www/passbolt/config/gpg/serverkey.asc</td>
+          <td><code class="language-plaintext highlighter-rouge">'/etc/passbolt/gpg/serverkey.asc'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_GPG_SERVER_KEY_PRIVATE</td>
           <td>Path to GnuPG private server key</td>
-          <td>/var/www/passbolt/config/gpg/serverkey_private.asc</td>
+          <td><code class="language-plaintext highlighter-rouge">'/etc/passbolt/gpg/serverkey_private.asc'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_JS_BUILD</td>
           <td>passbolt.js type of build ‘development’ or ‘production’</td>
-          <td>‘production’</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_KEY_EMAIL</td>
-          <td>Key owner email address</td>
-          <td>passbolt@yourdomain.com</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_KEY_EXPIRATION</td>
-          <td>Key expiration date</td>
-          <td>0, never expires</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_KEY_LENGTH</td>
-          <td>Gpg desired key length</td>
-          <td>2048</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_KEY_NAME</td>
-          <td>Key owner name</td>
-          <td>Passbolt default user</td>
+          <td><code class="language-plaintext highlighter-rouge">'production'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_LEGAL_PRIVACYPOLICYURL</td>
           <td>Set legal policy URL</td>
-          <td>’’</td>
+          <td><code class="language-plaintext highlighter-rouge">''</code></td>
+        </tr>
+        <tr>
+          <td>PASSBOLT_LEGAL_TERMSURL</td>
+          <td>Set legal terms URL</td>
+          <td><code class="language-plaintext highlighter-rouge">'https://www.passbolt.com/terms'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_META_DESCRIPTION</td>
           <td>Set html meta description for the site</td>
-          <td>‘Open source password manager for teams’</td>
+          <td><code class="language-plaintext highlighter-rouge">'Open source password manager for teams'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_META_ROBOTS</td>
           <td>Search engines indexing parameters</td>
-          <td>‘noindex, nofollow’</td>
+          <td><code class="language-plaintext highlighter-rouge">'noindex, nofollow'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_META_TITLE</td>
           <td>Set html meta title for</td>
-          <td>‘Passbolt’</td>
+          <td><code class="language-plaintext highlighter-rouge">'Passbolt'</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_PLUGINS_EXPORT_ENABLED</td>
           <td>Enable export plugin</td>
-          <td>true</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_PLUGINS_IMPORT_ENABLED</td>
           <td>Enable import plugin</td>
-          <td>true</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
+        </tr>
+        <tr>
+          <td>PASSBOLT_PLUGINS_PASSWORD_GENERATOR_DEFAULT_GENERATOR</td>
+          <td>Default password generator (can be password or passphrase)</td>
+          <td><code class="language-plaintext highlighter-rouge">password</code></td>
+        </tr>
+        <tr>
+          <td>PASSBOLT_PLUGINS_PASSWORD_GENERATOR_ENABLED</td>
+          <td>Enable password generator plugin</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
+        </tr>
+        <tr>
+          <td>PASSBOLT_PLUGINS_PREVIEW_PASSWORD_ENABLED</td>
+          <td>Enable password generator preview</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
+        </tr>
+        <tr>
+          <td>PASSBOLT_PLUGINS_MOBILE_ENABLED</td>
+          <td>Enable mobile plugin</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
+        </tr>
+        <tr>
+          <td>PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED</td>
+          <td>Enable jwt authentication plugin</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_REGISTRATION_PUBLIC</td>
           <td>Defines if users can register</td>
-          <td>false</td>
+          <td><code class="language-plaintext highlighter-rouge">false</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_SECURITY_SET_HEADERS</td>
           <td>Send CSP Headers</td>
-          <td>true</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_SECURITY_CSP</td>
-          <td>CSP Headers (true, false or custom CSP string)</td>
-          <td>true</td>
+          <td>CSP Headers (<code class="language-plaintext highlighter-rouge">true</code>, false or custom CSP string)</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_SECURITY_COOOKIE_SECURE</td>
           <td>Set MFA cookie secure flag</td>
-          <td>true</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
         </tr>
         <tr>
           <td>PASSBOLT_SSL_FORCE</td>
           <td>Redirects http to https</td>
-          <td>true</td>
-        </tr>
-        <tr>
-          <td>PASSBOLT_SUBKEY_LENGTH</td>
-          <td>Gpg desired subkey length</td>
-          <td>2048</td>
+          <td><code class="language-plaintext highlighter-rouge">true</code></td>
         </tr>
         <tr>
           <td>SECURITY_SALT</td>
           <td>CakePHP security salt</td>
-          <td><strong>SALT</strong></td>
+          <td><code class="language-plaintext highlighter-rouge">__SALT__</code></td>
         </tr>
         <tr>
           <td>SESSION_DEFAULTS</td>
           <td>Session engine configuration</td>
-          <td>‘php’</td>
+          <td><code class="language-plaintext highlighter-rouge">'php'</code></td>
         </tr>
       </tbody>
     </table>
@@ -660,20 +525,13 @@
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-May
-15th,
-2019.</p>
+December
+30th,
+2021.</p>
     </div>
 
   </div>
   <div class="col4 last push1">
-
-    <div class="message tldr notice">
-    <p>Are you experiencing issues when installing passbolt?</p>
-    
-    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
-    
-</div>
 
   </div>
 </div>

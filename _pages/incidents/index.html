@@ -17,6 +17,18 @@ permalink: /incidents/index.html
                         <ul>
                             {% assign items = site.incidents | sort: 'date' %}
 
+                            <h3>Recent issues</h3>
+                            <h2>2022</h2>
+                            {% for item in items reversed %}
+                            {% assign pre_date = item.date | date: '%Y' %}
+                            {% if pre_date == '2022' %}
+                            <li>
+                                <span style=""><a href="{{ item.url }}">{{ item.title }}</a></span> -
+                                <span style="color:#888;">{% include date/format-date.html date=item.date %}</span>
+                            </li>
+                            {% endif %}
+                            {% endfor %}
+
                             <h2>2021</h2>
                             {% for item in items reversed %}
                             {% assign pre_date = item.date | date: '%Y' %}
@@ -28,26 +40,10 @@ permalink: /incidents/index.html
                             {% endif %}
                             {% endfor %}
 
-                            <h2>2020</h2>
-                            <li>
-                                <span style="color:#888;">No issues</a></span>
-                            </li>
-
-                            <h2>2019</h2>
+                            <h3 style="margin-top:2em">Older issues</h3>
                             {% for item in items reversed %}
                             {% assign pre_date = item.date | date: '%Y' %}
-                            {% if pre_date == '2019' %}
-                            <li>
-                                <span style=""><a href="{{ item.url }}">{{ item.title }}</a></span> -
-                                <span style="color:#888;">{% include date/format-date.html date=item.date %}</span>
-                            </li>
-                            {% endif %}
-                            {% endfor %}
-
-                            <h2>Older issues</h2>
-                            {% for item in items reversed %}
-                            {% assign pre_date = item.date | date: '%Y' %}
-                            {% if pre_date == '2017' or pre_date == '2016' or pre_date == '2018' %}
+                            {% if pre_date == '2017' or pre_date == '2016' or pre_date == '2018' or pre_date == '2019' %}
                             <li>
                                 <span style=""><a href="{{ item.url }}">{{ item.title }}</a></span> -
                                 <span style="color:#888;">{% include date/format-date.html date=item.date %}</span>

@@ -23,6 +23,10 @@
     content: url(../img/fa-server/fa-ubuntu.svg);
 }
 
+.fa-raspberry:before {
+    content: url(../img/fa-server/fa-raspberry.svg);
+}
+
 .fa-aws:before {
     content: url(../img/fa-server/fa-aws.svg);
 }

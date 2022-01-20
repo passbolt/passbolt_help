@@ -1,9 +1,9 @@
 ## System requirements
 
-* Docker CE
-
-## Optional system requirements
-
-* MySQL < 8.x or MariaDB as separated containers or host installation.
-* docker-compose if you plan to use a docker-compose.yml file to run passbolt container.
-* rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign...) inside the docker container. [Important considerations](https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine)
+* docker: [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/){:target="_blank"}
+* docker-compose: [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/){:target="_blank"}
+* [A Linux user able to run docker commands without sudo](https://docs.docker.com/engine/install/linux-postinstall/){:target="_blank"}
+* a working SMTP server for email notifications
+* a working NTP service
+* [You have read this FAQ page about entropy](/faq/hosting/why-haveged-virtual-env){:target="_blank"}
+* [Firewall rules implemented](/faq/hosting/firewall-rules){:target="_blank"}

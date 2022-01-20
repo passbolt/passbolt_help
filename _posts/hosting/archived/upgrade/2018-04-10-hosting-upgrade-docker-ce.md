@@ -26,7 +26,6 @@ This tutorial covers the case where you want to upgrade your current docker inst
 
 {% include hosting/docker/docker-changes-section.md %}
 {% include hosting/docker/docker-backup-section.md %}
-{% include hosting/docker/docker-getting-containers.md %}
 {% include hosting/docker/docker-upgrade-section.md %}
 
 {% include date/updated.html %}

@@ -1,6 +1,6 @@
 ---
 title: Update for docker container
-date: 2021-02-09 00:00:00 Z
+date: 2021-12-30 00:00:00 Z
 description: How to update passbolt docker container
 card_teaser: Guide for instances using docker container.
 card_title: Update for Docker
@@ -16,30 +16,17 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include messages/warning.html
-    content="**Deprecation notice:** From version 3 there files changing location, so you should change your volumes accordingly. Check passbolt docker release [notes](https://github.com/passbolt/passbolt_docker)."
-%}
-
-Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
-the passbolt version so updating them is as easy as changing the image tag.
-
-Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
-some extra steps that are out of the scope of this help site.
-
-As a example if you are running passbolt docker using the docker-compose files provided [here](https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml)
-you would just need to change the following line:
+It is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags) when running in environments other than testing. So to update passbolt, you would just need to change the image tag in your docker-compose.yml file:
 
 ```
- image: passbolt/passbolt:<IMAGE_TAG>-debian
+ image: passbolt/passbolt:<IMAGE_TAG>
 ```
 
-Where <IMAGE_TAG> is the passbolt version that you want to use, for example `3.0.0` and relaunch your composer:
+Then relaunch your composer:
 
 ```
 $ docker-compose up -d
 ```
-
-Voilà
 
 
 {% include date/updated.html %}

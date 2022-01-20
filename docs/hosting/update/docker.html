@@ -195,37 +195,21 @@
                         <div class="row">
   <div class="col7">
 
-    <div class="message warning">
-    <p>
-        <strong>Deprecation notice:</strong> From version 3 there files changing location, so you should change your volumes accordingly. Check passbolt docker release <a href="https://github.com/passbolt/passbolt_docker">notes</a>.
-    </p>
-    
-</div>
+    <p>It is recommended that users <a href="https://hub.docker.com/r/passbolt/passbolt/tags">pull the tags pointing to specific passbolt versions</a> when running in environments other than testing. So to update passbolt, you would just need to change the image tag in your docker-compose.yml file:</p>
 
-    <p>Every passbolt release comes with a container release. Passbolt containers have a image tag that contains
-the passbolt version so updating them is as easy as changing the image tag.</p>
-
-    <p>Of course depending on your container scheduler, or docker-compose you might need to restart the stack or perform
-some extra steps that are out of the scope of this help site.</p>
-
-    <p>As a example if you are running passbolt docker using the docker-compose files provided <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">here</a>
-you would just need to change the following line:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> image: passbolt/passbolt:&lt;IMAGE_TAG&gt;-debian
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> image: passbolt/passbolt:&lt;IMAGE_TAG&gt;
 </code></pre></div>    </div>
 
-    <p>Where <IMAGE_TAG> is the passbolt version that you want to use, for example `3.0.0` and relaunch your composer:</IMAGE_TAG></p>
+    <p>Then relaunch your composer:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker-compose up -d
 </code></pre></div>    </div>
 
-    <p>Voilà</p>
-
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-February
-9th,
+December
+30th,
 2021.</p>
     </div>
 

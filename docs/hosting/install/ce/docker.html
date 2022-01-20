@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2018-03-14-hosting-install-docker-ce.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-12-15-hosting-install-docker-ce.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -192,68 +192,58 @@
 </div>
 </div>
 
-                        <div class="row">
+                        
+<div class="row">
   <div class="col7">
 
     <h2 id="system-requirements">System requirements</h2>
 
     <ul>
-      <li>Docker CE</li>
+      <li>docker: <a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a></li>
+      <li>docker-compose: <a href="https://docs.docker.com/compose/install/" target="_blank">https://docs.docker.com/compose/install/</a></li>
+      <li><a href="https://docs.docker.com/engine/install/linux-postinstall/" target="_blank">A Linux user able to run docker commands without sudo</a></li>
+      <li>a working SMTP server for email notifications</li>
+      <li>a working NTP service</li>
+      <li><a href="/faq/hosting/why-haveged-virtual-env" target="_blank">You have read this FAQ page about entropy</a></li>
+      <li><a href="/faq/hosting/firewall-rules" target="_blank">Firewall rules implemented</a></li>
     </ul>
 
-    <h2 id="optional-system-requirements">Optional system requirements</h2>
+    <h2 id="docker-compose">docker-compose</h2>
 
-    <ul>
-      <li>MySQL &lt; 8.x or MariaDB as separated containers or host installation.</li>
-      <li>docker-compose if you plan to use a docker-compose.yml file to run passbolt container.</li>
-      <li>rng-tools/haveged for faster filling of container entropy pool. These tools come handy in cases where GnuPG complains about no entropy is available to perform some operation (generate keys, encrypt, sign…) inside the docker container. <a href="https://security.stackexchange.com/questions/39992/is-it-safe-to-use-rng-tools-on-a-virtual-machine">Important considerations</a></li>
-    </ul>
+    <p>The easiest and recommended way to deploy your passbolt stack is to use docker-compose.</p>
 
-    <h2 id="getting-and-running-passbolt-container">1. Getting and running passbolt container</h2>
+    <p><strong>Step 1.</strong> Download our docker-compose.yml example file</p>
 
-    <p>Passbolt containers follow the following tagging:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;version_number&gt;-&lt;build_number&gt;-debian
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -Ls https://raw.githubusercontent.com/passbolt/passbolt_docker/master/docker-compose/docker-compose-ce.yaml -o docker-compose.yaml
 </code></pre></div>    </div>
 
-    <p>For convenience we also provide a  <em>latest</em> tag for Passbolt containers. Throughout these documented procedures we make use of the latest tag so users will get the last version of passbolt.
-However, it is recommended that users pull the tags pointing to specific passbolt versions when running in environments other than testing.</p>
+    <p><strong>Step 2.</strong> Ensure the file has not been corrupted by verifying its md5sum</p>
 
-    <p>Get passbolt  latest docker container:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker pull passbolt/passbolt:latest
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sha256sum docker-compose.yaml
 </code></pre></div>    </div>
 
-    <h2 id="using-docker-compose">Using docker-compose</h2>
+    <p>Must return:</p>
 
-    <p>From the docker-compose official docs: ‘Compose is a tool for defining and running multi-container Docker applications’</p>
-
-    <p>Passbolt provides a <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">docker-compose.yml</a> file. That users can download and use with docker-compose.
-The easiest way to use passbolt provided docker-compose.yml is to:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>git clone https://github.com/passbolt/passbolt_docker
-<span class="nv">$ </span><span class="nb">cd </span>passbolt_docker
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e93807fdd2be20896e17a8b4bf95f51a427df98afa066aa5b802f68332c27484  docker-compose.yaml
 </code></pre></div>    </div>
 
-    <p>At this point some users might want to customize passbolt environment variables and change the fullBaseUrl for instance. Environment variables are defined in the following files:</p>
-    <ul>
-      <li>env/mysql.env</li>
-      <li>env/passbolt.env</li>
-    </ul>
+    <div class="message warning">
+    <p>
+        <b>Warning:</b> If md5sum is not correct, the downloaded file has been corrupted. Retry the download step or ask for support on <a href="https://community.passbolt.com">our community forum</a>.
+    </p>
+    
+</div>
 
-    <p>For further reference regarding environment variables, please see the link at the bottom of the page.</p>
+    <p><strong>Step 3.</strong> Configure environment variables in docker-compose.yaml file to customize your instance.</p>
 
-    <p>Docker-compose requires the use of <code class="language-plaintext highlighter-rouge">sudo</code>. Alternatively, you may choose to add your local user to the <code class="language-plaintext highlighter-rouge">docker</code>
-group. Going forward, the second option is assumed.</p>
+    <p>For more information on which environment variables are available on Passbolt, please check the <a href="/configure/environment/reference.html" target="_blank">passbolt environment variable reference</a>.</p>
 
-    <p>Once the files fit your needs it is time to:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose.yml up
+    <p><strong>Step 4.</strong> Start your containers</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up -d
 </code></pre></div>    </div>
-    <p>If there are no errors, <code class="language-plaintext highlighter-rouge">Ctrl-C</code> to stop the docker-compose script, then run the above command again with a <code class="language-plaintext highlighter-rouge">-d</code> flag at the end
-(to run in detached mode). You can then confirm the processes are running with:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose ps
-</code></pre></div>    </div>
-    <h3 id="create-first-admin-user-using-docker-compose">Create first admin user using docker-compose</h3>
 
-    <p>If you run passbolt using <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">docker-compose.yml</a> provided by passbolt:</p>
+    <p><strong>Step 5.</strong> Create first admin user</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
                                 passbolt register_user </span><span class="se">\</span><span class="s2">
@@ -263,135 +253,38 @@ group. Going forward, the second option is assumed.</p>
                                 -r admin"</span> <span class="nt">-s</span> /bin/sh www-data
 </code></pre></div>    </div>
 
-    <h2 id="using-passbolt-container">Using passbolt container</h2>
+    <p>It will output a link similar to the below one that can be pasted on the browser to finalize user registration:</p>
 
-    <p>Passbolt requires a database backend to store the information. In this section we will be using a MariaDB database packaged as a docker container.</p>
-
-    <div class="message warning">
-    <p>
-        <strong>Please note:</strong> Passbolt uses Mariadb/MySQL as a storage backend for encrypted passwords. It is mandatory to persist <code class="language-plaintext highlighter-rouge">/var/lib/mysql</code>
-if you are running Mariadb/MySQL on a docker container to avoid data loss when restarting such containers.
-    </p>
-    
-</div>
-
-    <h3 id="manually-run-passbolt-container-and-mariadb-container">Manually run passbolt container and mariadb container</h3>
-
-    <p>It is recommended to create a user defined network to ease the container name resolution. Using a user defined network will provide a method to access containers using their names instead ip addresses:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker network create passbolt_network
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://my.domain.tld/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
 </code></pre></div>    </div>
 
-    <p>First run the mariadb container:</p>
+    <p>At this point, you should have a working docker setup running on the <strong>latest</strong> tag. However, it is recommended that users <a href="https://hub.docker.com/r/passbolt/passbolt/tags" target="_blank">pull the tags pointing to specific passbolt versions</a> when running in environments other than testing.</p>
 
-    <p>As we want all the data in mariadb to survive container restarts it is recommended to create either a docker
-volume or a host directory and mount it at <code class="language-plaintext highlighter-rouge">/var/lib/mysql</code></p>
+    <h2 id="going-further">Going further</h2>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create mariadb_passbolt_data
-<span class="nv">$ </span>docker run <span class="nt">-d</span> <span class="nt">--name</span> mariadb <span class="nt">--net</span> passbolt_network <span class="se">\</span>
-             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>mariadb_passbolt_data,target<span class="o">=</span>/var/lib/mysql <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>&lt;root_password&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">MYSQL_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">MYSQL_USER</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">MYSQL_PASSWORD</span><span class="o">=</span>&lt;mariadb_password&gt; <span class="se">\</span>
-             mariadb
-</code></pre></div>    </div>
+    <p>Docker FAQs:</p>
 
-    <p>Now we can run the passbolt container:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
-             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
-               <span class="nb">source</span><span class="o">=</span>&lt;host_path_to_gnupg_keys_dir&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/gpg <span class="se">\</span>
-             <span class="nt">-p</span> 443:443 <span class="se">\</span>
-             <span class="nt">-p</span> 80:80 <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mariadb_password&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
-             passbolt/passbolt:latest
-</code></pre></div>    </div>
-
-    <p>Note: strings between ‘&lt;’ and ‘&gt;’ are variables that the users should fill with their data.</p>
-
-    <p>Passbolt requires some data to be persistant, most notably the OpenPGP server keys. However, images and
-potentially the SSL certificate might also need to be persisted depending on your specific configuration.
-You can read more about it below.</p>
-
-    <h3 id="persisting-data-in-passbolt-container">Persisting data in passbolt container</h3>
-
-    <p>There are several locations that might be interesting for the users to persist data between container restarts:</p>
     <ul>
-      <li>Images directory: /usr/share/php/passbolt/webroot/img</li>
-      <li>Gnupg serverkeys directory: /etc/passbolt/gpg</li>
-      <li>SSL certificate files: /etc/ssl/certs/certificate.crt /etc/ssl/certs/certificate.key</li>
+      <li><a href="/configure/email/setup" target="_blank">How to configure SMTP to receive emails</a></li>
+      <li><a href="/configure/https/ce/docker/manual.html" target="_blank">How to configure HTTPS with my own certificates in docker</a></li>
+      <li><a href="/configure/https/ce/docker/auto.html" target="_blank">How to configure HTTPS with Let’s Encrypt in docker</a></li>
+      <li><a href="/faq/hosting/how-to-use-rootless-images" target="_blank">How to use rootless images</a></li>
+      <li><a href="/faq/hosting/troubleshoot-docker" target="_blank">Troubleshoot Docker</a></li>
+      <li><a href="/configure/environment/reference.html" target="_blank">Passbolt reference environment variables</a></li>
     </ul>
 
-    <p>This files and directories can be persisted in the docker volume using <a href="https://docs.docker.com/storage/volumes/">docker volumes</a> or using <a href="https://docs.docker.com/storage/bind-mounts/#start-a-container-with-a-bind-mount">bind mounts</a></p>
+    <p>Passbolt docker repository:</p>
 
-    <h3 id="examples">Examples</h3>
-
-    <p>An example for persisting the images directory could be to create a docker volume:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker volume create passbolt_images
-</code></pre></div>    </div>
-
-    <p>And run passbolt container with the previously created volume:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
-             <span class="nt">--mount</span> <span class="nb">source</span><span class="o">=</span>passbolt_images,<span class="se">\</span>
-             <span class="nv">target</span><span class="o">=</span>/usr/share/php/passbolt/webroot/img <span class="se">\</span>
-             <span class="nt">-p</span> 443:443 <span class="se">\</span>
-             <span class="nt">-p</span> 80:80 <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mariadb_password&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
-             passbolt/passbolt:latest
-</code></pre></div>    </div>
-
-    <p>Bind volumes are usually useful when, for instance, the SSL certificates or GnuPG keys have been already created in the host machine:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker run <span class="nt">--name</span> passbolt <span class="nt">--net</span> passbolt_network <span class="se">\</span>
-             <span class="nt">--mount</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bind</span>,<span class="se">\</span>
-               <span class="nb">source</span><span class="o">=</span>&lt;host_path_to_gnupg_keys_dir&gt;,<span class="se">\</span>
-               <span class="nv">target</span><span class="o">=</span>/etc/passbolt/gpg <span class="se">\</span>
-             <span class="nt">-p</span> 443:443 <span class="se">\</span>
-             <span class="nt">-p</span> 80:80 <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_HOST</span><span class="o">=</span>mariadb <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_PASSWORD</span><span class="o">=</span>&lt;mariadb_password&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_USERNAME</span><span class="o">=</span>&lt;mariadb_user&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">DATASOURCES_DEFAULT_DATABASE</span><span class="o">=</span>&lt;mariadb_database&gt; <span class="se">\</span>
-             <span class="nt">-e</span> <span class="nv">APP_FULL_BASE_URL</span><span class="o">=</span>https://mydomain.com <span class="se">\</span>
-             passbolt/passbolt:latest
-</code></pre></div>    </div>
-
-    <p>An example of the above using docker-compose can be found <a href="https://github.com/passbolt/passbolt_docker/blob/master/docker-compose.yml">here</a> where bind mounts and volumes are used.</p>
-
-    <p>NOTE: If you dont provide any GnuPG severkey or SSL certificate passbolt container will create a self signed SSL certificate and a GnuPG server key pair.</p>
-
-    <h3 id="manually-creating-first-admin-user">Manually creating first admin user</h3>
-
-    <p>Once the passbolt container is up and running use this command to generate the first admin user:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
-                                passbolt register_user </span><span class="se">\</span><span class="s2">
-                                -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
-                                -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">
-                                -l &lt;surname&gt; </span><span class="se">\</span><span class="s2">
-                                -r admin"</span> <span class="nt">-s</span> /bin/sh www-data
-</code></pre></div>    </div>
-
-    <p>It will output a link similar to the below one that can be pasted on the browser to finalize user registration:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
-</code></pre></div>    </div>
-
-    <h2 id="more-information-on-environment-variables">More information on environment variables</h2>
-    <p>For more information on which environment variables are available on Passbolt, please check the
-<a href="/configure/environment/reference.html">passbolt env variable reference</a></p>
+    <ul>
+      <li><a href="https://github.com/passbolt/passbolt_docker/" target="_blank">https://github.com/passbolt/passbolt_docker/</a></li>
+    </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-April
-2nd,
-2018.</p>
+December
+15th,
+2021.</p>
     </div>
 
   </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Docker install</title>
+    <title>Passbolt Help | Manual HTTPS configuration on Docker</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Docker install" />
+    <meta property="og:title" content="Manual HTTPS configuration on Docker" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/install/pro/docker">
+    <link rel="canonical" href="https://help.passbolt.com/configure/https/pro/docker/manual">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2021-12-15-hosting-install-docker-pro.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2021-12-16-configure-https-docker-manual-pro.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -91,48 +91,73 @@
 
 
 
+
+
 <div class="navigation-help" role="navigation">
     <ul>
         <li>
-            <h2>Hosting</h2>
+            <h2>Configure</h2>
         </li>
         
         <li >
-            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
-        </li>
-        
-        
-        <li >
-            <a href="https://help.passbolt.com/hosting/install">Installation</a>
-        </li>
-        
-        
-        
-        
-        <li >
-            <a href="https://help.passbolt.com/hosting/update">Update</a>
+            <a href="https://help.passbolt.com/configure/ldap/setup">Configure LDAP</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+            <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+            <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
         </li>
         
         
         <li >
-            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+            <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">Troubleshoot LDAP sync errors</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/environment/reference">Environment variable reference</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/email/setup">Configure Email providers</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/https">Configure HTTPS</a>
+        </li>
+        
+        
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting/why-email-not-sent">Troobleshoot Email config</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
         </li>
         
         
     </ul>
 </div>
-
-
 
 
 
@@ -164,12 +189,12 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                        <a href="https://help.passbolt.com/configure"><span>configure</span></a>
                     </div>
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install"><span>install</span></a>
+                        <a href="https://help.passbolt.com/configure/https"><span>https</span></a>
                     </div>
                 </li>
                 
@@ -177,7 +202,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/install/pro/docker.html"><span>docker</span></a>
+                        <a href="https://help.passbolt.com/configure/https/pro/docker/manual.html"><span>manual</span></a>
                     </div>
                 </li>
                 
@@ -188,7 +213,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Docker install</h1>
+<h1>Manual HTTPS configuration on Docker</h1>
 </div>
 </div>
 
@@ -196,119 +221,91 @@
 <div class="row">
   <div class="col7">
 
-    <h2 id="system-requirements">System requirements</h2>
-
-    <ul>
-      <li>docker: <a href="https://docs.docker.com/get-docker/" target="_blank">https://docs.docker.com/get-docker/</a></li>
-      <li>docker-compose: <a href="https://docs.docker.com/compose/install/" target="_blank">https://docs.docker.com/compose/install/</a></li>
-      <li><a href="https://docs.docker.com/engine/install/linux-postinstall/" target="_blank">A Linux user able to run docker commands without sudo</a></li>
-      <li>a working SMTP server for email notifications</li>
-      <li>a working NTP service</li>
-      <li><a href="/faq/hosting/why-haveged-virtual-env" target="_blank">You have read this FAQ page about entropy</a></li>
-      <li><a href="/faq/hosting/firewall-rules" target="_blank">Firewall rules implemented</a></li>
-    </ul>
-
-    <h2 id="docker-compose">docker-compose</h2>
-
-    <p>The easiest and recommended way to deploy your passbolt stack is to use docker-compose.</p>
-
-    <p><strong>Step 1.</strong> Download our docker-compose.yml example file</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -Ls https://raw.githubusercontent.com/passbolt/passbolt_docker/master/docker-compose/docker-compose-pro.yaml -o docker-compose.yaml
-</code></pre></div>    </div>
-
-    <p><strong>Step 2.</strong> Ensure the file has not been corrupted by verifying its md5sum</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sha256sum docker-compose.yaml
-</code></pre></div>    </div>
-
-    <p>Must return:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d8a6e3865b53768c2327d30bafbbc0389fd6e9d3dd89739a91a51692ebe0157c  docker-compose.yaml
-</code></pre></div>    </div>
-
     <div class="message warning">
     <p>
-        <b>Warning:</b> If md5sum is not correct, the downloaded file has been corrupted. Retry the download step or ask for support on <a href="https://community.passbolt.com">our community forum</a>.
+        If you are migrating your passbolt instance from HTTP to HTTPS, you must ensure <b>all of your users have a backup of their private key</b>.<br />
+    As for passbolt browser extension, domain will change from HTTP to HTTPS, it will trigger <b><a href="/faq/start/account-recover">an account recovery</a></b>.
     </p>
     
 </div>
 
-    <p><strong>Step 3.</strong> Create a <code class="language-plaintext highlighter-rouge">subscription_key.txt</code> file containing your subscription key.</p>
-
-    <p><strong>Step 4.</strong> Configure environment variables in docker-compose.yaml file to customize your instance.</p>
-
-    <p>For more information on which environment variables are available on Passbolt, please check the <a href="/configure/environment/reference.html" target="_blank">passbolt environment variable reference</a>.</p>
-
-    <p><strong>Step 5.</strong> Start your containers</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up -d
-</code></pre></div>    </div>
-
-    <p><strong>Step 6.</strong> Create first admin user</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
-                                passbolt register_user </span><span class="se">\</span><span class="s2">
-                                -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
-                                -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">
-                                -l &lt;surname&gt; </span><span class="se">\</span><span class="s2">
-                                -r admin"</span> <span class="nt">-s</span> /bin/sh www-data
-</code></pre></div>    </div>
-
-    <p>It will output a link similar to the below one that can be pasted on the browser to finalize user registration:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://my.domain.tld/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
-</code></pre></div>    </div>
-
-    <p>At this point, you should have a working docker setup running on the <strong>latest</strong> tag. However, it is recommended that users <a href="https://hub.docker.com/r/passbolt/passbolt/tags" target="_blank">pull the tags pointing to specific passbolt versions</a> when running in environments other than testing.</p>
-
-    <h2 id="going-further">Going further</h2>
-
-    <p>Docker FAQs:</p>
+    <h2 id="requirements">Requirements</h2>
 
     <ul>
-      <li><a href="/configure/email/setup" target="_blank">How to configure SMTP to receive emails</a></li>
-      <li><a href="/configure/https/pro/docker/manual.html" target="_blank">How to configure HTTPS with my own certificates in docker</a></li>
-      <li><a href="/configure/https/pro/docker/auto.html" target="_blank">How to configure HTTPS with Let’s Encrypt in docker</a></li>
-      <li><a href="/faq/hosting/how-to-use-rootless-images" target="_blank">How to use rootless images</a></li>
-      <li><a href="/faq/hosting/troubleshoot-docker" target="_blank">Troubleshoot Docker</a></li>
-      <li><a href="/configure/environment/reference.html" target="_blank">Passbolt reference environment variables</a></li>
+      <li><a href="/hosting/install/pro/docker.html">docker setup with docker-compose</a></li>
     </ul>
 
-    <p>Passbolt docker repository:</p>
+    <h2 id="https-configuration">HTTPS configuration</h2>
 
-    <ul>
-      <li><a href="https://github.com/passbolt/passbolt_docker/" target="_blank">https://github.com/passbolt/passbolt_docker/</a></li>
-    </ul>
+    <p>You need to bind-mount your certificates inside passbolt container to use them.</p>
+
+    <p>Create a certs folder and put your certificates there:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir certs
+mv /path/to/your/certificate.crt certs/cert.pem
+mv /path/to/your/certificate.key certs/key.pem
+</code></pre></div>    </div>
+
+    <p>The bind-mount configuration will differ depending which passbolt image you are using.</p>
+
+    <h3 id="standard-images">standard images</h3>
+
+    <p>If you are using standard passbolt image, add your certificates in the volumes definition of the passbolt service and ensure ports are well mapped:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>version: '3.7'
+services:
+  db:
+    ...
+  passbolt:
+    ...
+    volumes:
+      ...
+      - ./certs/cert.pem:/etc/ssl/certs/certificate.crt:ro
+      - ./certs/key.pem:/etc/ssl/certs/certificate.key:ro
+    ports:
+      - 80:80
+      - 443:443
+</code></pre></div>    </div>
+
+    <p>Ensure your <strong>APP_FULL_BASE_URL</strong> environment variable starts with <strong>https://</strong></p>
+
+    <h3 id="rootless-images">rootless images</h3>
+
+    <p>If you are using rootless images, <a href="https://hub.docker.com/r/passbolt/passbolt/tags?name=non-root" target="_blank">tagged as non-root</a>, the bind-mount path will be different as well as port mapping:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>version: '3.7'
+services:
+  db:
+    ...
+  passbolt:
+    ...
+    volumes:
+      ...
+      - ./certs/cert.pem:/etc/passbolt/certs/certificate.crt:ro
+      - ./certs/key.pem:/etc/passbolt/certs/certificate.key:ro
+    ports:
+      - 80:8080
+      - 443:4433
+</code></pre></div>    </div>
+
+    <p>Like standard images, ensure your <strong>APP_FULL_BASE_URL</strong> environment variable starts with <strong>https://</strong></p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
 December
-15th,
+16th,
 2021.</p>
     </div>
 
   </div>
   <div class="col4 last push1">
 
-    <div class="tldr">
-    <h4 class="visuallyhidden">Available on docker hub</h4>
-    <p>
-        <a href="https://hub.docker.com/r/passbolt/passbolt/" target="_blank" rel="noopener nofollow">
-            <img alt="Docker Logo" src="/assets/img/third_party/docker_small_h.png" style="" />
-        </a>
-    </p>
-    <a href="https://hub.docker.com/r/passbolt/passbolt/" class="primary button">
-        Get passbolt container!
-    </a>
-</div>
-
     <div class="message tldr notice">
-    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
-    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
-    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
-
+    <p>Are you experiencing issues when installing passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
 </div>
 
   </div>

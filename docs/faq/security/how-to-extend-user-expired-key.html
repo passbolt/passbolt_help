@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How are public keys trusted?</title>
+    <title>Passbolt Help | How to extend a user expired key</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Currently the client trust all the keys that are sent from the passbolt server. The server also trust the key sent by the client during setup. While we belie...">
+    <meta name="description" content="While setting up an account on passbolt, you can let the wizard generate OpenPGP keys for you or upload ones generated on your computer.">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How are public keys trusted?" />
-    <meta property="og:description" content="Currently the client trust all the keys that are sent from the passbolt server. The server also trust the key sent by the client during setup. While we belie..." />
+    <meta property="og:title" content="How to extend a user expired key" />
+    <meta property="og:description" content="While setting up an account on passbolt, you can let the wizard generate OpenPGP keys for you or upload ones generated on your computer." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/faq/security/public-key-trust">
+    <link rel="canonical" href="https://help.passbolt.com/faq/security/how-to-extend-user-expired-key">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/security/003-how-are-public-keys-trusted.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/security/004-how-to-extend-user-expired-key.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How are public keys trusted?</span></a>
+                        <a href=""><span>How to extend a user expired key</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,14 +167,181 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How are public keys trusted?</h1>
-                            <p>Currently the client trust all the keys that are sent from the passbolt server. 
-The server also trust the key sent by the client during setup. While we believe this setup 
-can be sufficient for most organisations, since the keys are sent over https,
-we also acknowledge that it is far from ideal.</p>
+                         <h1>How to extend a user expired key</h1>
+                            <p>While setting up an account on passbolt, you can let the wizard generate OpenPGP keys for you or upload ones generated on your computer.</p>
 
-<p>Our solution on the long term would be to implement key signatures, synchronization with public 
-key repositories and the possibility for users to manually accept or reject keys.</p>
+<p>Passbolt wizard OpenPGP keys has no expiration date. In case you generated OpenPGP keys with an expiry date, you won’t be able to authenticate to passbolt once the expiry date passed.</p>
+
+<p>We will explain in this FAQ page how to extend your passbolt OpenPGP key if you are in this case.</p>
+
+<h2 id="remove-expiration-date-of-your-passbolt-private-openpgp-key">Remove expiration date of your passbolt private OpenPGP key</h2>
+
+<p>Import your private expired key:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --import private.asc
+</code></pre></div></div>
+
+<p>As you can see, this key has an expiration date:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   ed25519 2022-01-21 [SC] [expires: 2024-01-21]
+      B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C
+uid                      John Doe &lt;johndoe@domain.tld&gt;
+sub   cv25519 2022-01-21 [E] [expires: 2024-01-21]
+</code></pre></div></div>
+
+<p>Edit the key by selecting its fingerprint</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --edit-key B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C
+</code></pre></div></div>
+
+<p>You will get the below output:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg (GnuPG) 2.3.4; Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec  ed25519/C9FDEB2DC5EB9F9C
+     created: 2022-01-21  expires: 2024-01-21  usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/54A4FF74028F12AF
+     created: 2022-01-21  expires: 2024-01-21  usage: E
+[ultimate] (1). John Doe &lt;johndoe@domain.tld&gt;
+</code></pre></div></div>
+
+<p>Where:</p>
+
+<ul>
+  <li>sec is the SECret key</li>
+  <li>ssb is the Secret SuBkey</li>
+</ul>
+
+<p>Disable the expiration date for the secret key with the <strong>expire</strong> command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg&gt; expire
+Changing expiration time for the primary key.
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0) 0
+Key does not expire at all
+Is this correct? (y/N) y
+
+sec  ed25519/C9FDEB2DC5EB9F9C
+     created: 2022-01-21  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb  cv25519/54A4FF74028F12AF
+     created: 2022-01-21  expires: 2024-01-21  usage: E
+[ultimate] (1). John Doe &lt;johndoe@domain.tld&gt;
+</code></pre></div></div>
+
+<p>As you can see, the expires is now <strong>never</strong> for secret key but remains 2024-01-21 for the secret subkey.</p>
+
+<p>Select the subkey with the <strong>key 1</strong> command (you will see an asterisk next to it):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg&gt; key 1
+
+sec  ed25519/C9FDEB2DC5EB9F9C
+     created: 2022-01-21  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb* cv25519/54A4FF74028F12AF
+     created: 2022-01-21  expires: 2024-01-21  usage: E
+[ultimate] (1). John Doe &lt;johndoe@domain.tld&gt;
+</code></pre></div></div>
+
+<p>Execute again the <strong>expire</strong> command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg&gt; expire
+Changing expiration time for a subkey.
+Please specify how long the key should be valid.
+         0 = key does not expire
+      &lt;n&gt;  = key expires in n days
+      &lt;n&gt;w = key expires in n weeks
+      &lt;n&gt;m = key expires in n months
+      &lt;n&gt;y = key expires in n years
+Key is valid for? (0) 0
+Key does not expire at all
+Is this correct? (y/N) y
+
+sec  ed25519/C9FDEB2DC5EB9F9C
+     created: 2022-01-21  expires: never       usage: SC
+     trust: ultimate      validity: ultimate
+ssb* cv25519/54A4FF74028F12AF
+     created: 2022-01-21  expires: never       usage: E
+[ultimate] (1). John Doe &lt;johndoe@domain.tld&gt;
+</code></pre></div></div>
+
+<p>Once done, execute the <strong>save</strong> command to save your changes:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg&gt; save
+</code></pre></div></div>
+
+<p>Export your new extended key and save it in a safe place:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --armor --export B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C &gt; public.asc
+gpg --armor --export-secret-keys B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C &gt; private.asc
+</code></pre></div></div>
+
+<h2 id="update-the-key-in-passbolt">Update the key in passbolt</h2>
+
+<p>Passbolt server side, you need to update public key in <strong>gpgkeys</strong> table of passbolt database and delete it from the passbolt keyring.</p>
+
+<p>First identify your user ID. Replace johndoe@domain.tld with email of your user:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT id, username FROM users WHERE username = johndoe@domain.tld;
+</code></pre></div></div>
+
+<p>The returned ID should be something like <strong>02aa768a-df59-4247-ab52-328373880016</strong></p>
+
+<p>Confirm now you have one unique row for the below request (replace 02aa768a-df59-4247-ab52-328373880016 with ID of your user, \G is to display results vertically)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT * FROM gpgkeys WHERE user_id = '02aa768a-df59-4247-ab52-328373880016' \G
+</code></pre></div></div>
+
+<p>If you got exactly one row, you can replace the current public OpenPGP key with the new one (replace user_id with your user’s ID and put your new OpenPGP public key as armored_key):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPDATE gpgkeys SET armored_key = "-----BEGIN PGP PUBLIC KEY BLOCK-----
+
+mQGNBGHSrQEBDADES5YK8aSSg7sIWF/GvilOYBhjYzpz1Q+mbtxZI1oZHwT0z4H5
+a/tDu821EdSkrmrK1j+VUqlZr4n0wjf5NMKITvU6UioBP6QeYgtriCKZ5DOk1VOi
+(....)
+-----END PGP PUBLIC KEY BLOCK-----" WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
+</code></pre></div></div>
+
+<p>Update the <strong>expires</strong> value of the old key with NULL (replace 02aa768a-df59-4247-ab52-328373880016 with ID of your user):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UPDATE gpgkeys SET expires = NULL WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
+</code></pre></div></div>
+
+<p>You can quit MySQL console.</p>
+
+<p>Check path of your GPG keyring from the healthcheck page of passbolt: https://url-of-your-passbolt/healthcheck, you should see <strong>/var/lib/passbolt/.gnupg/</strong> but it can be different depending on your setup:</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/01/healthcheck.png" alt="passbolt healthcheck" style="max-width:586px;" />
+    <span class="legend">fig. passbolt healthcheck</span>
+</figure>
+
+<p>You have now to remove the old OpenPGP public key from passbolt keyring. Connect as <strong>www-data</strong> user if you are using Debian or Ubuntu, or <strong>nginx</strong> if you are using CentOS:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash www-data
+</code></pre></div></div>
+
+<p>List keys and find the one you want to delete (replace <strong>/var/lib/passbolt/.gnupg</strong> with your own).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --homedir /var/lib/passbolt/.gnupg --list-keys
+</code></pre></div></div>
+
+<p>Once ID of the key found, delete it (replace <strong>/var/lib/passbolt/.gnupg</strong> with your own and <strong>444F0E2FDD421119F69368E23F1C70EE1C10B10F</strong> with the ID of the key you want to delete):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --homedir /var/lib/passbolt/.gnupg --delete-key 444F0E2FDD421119F69368E23F1C70EE1C10B10F
+</code></pre></div></div>
+
+<p>At this point, your user should be able to connect.</p>
 
                         </div>
 

@@ -11,7 +11,7 @@ The easiest and recommended way to deploy your passbolt stack is to use docker-c
 curl -Ls https://raw.githubusercontent.com/passbolt/passbolt_docker/master/docker-compose/docker-compose-{{ product }}.yaml -o docker-compose.yaml
 ```
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Ensure the file has not been corrupted by verifying its md5sum
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Ensure the file has not been corrupted by verifying its sha256sum
 
 ```
 $ sha256sum docker-compose.yaml
@@ -30,7 +30,7 @@ e93807fdd2be20896e17a8b4bf95f51a427df98afa066aa5b802f68332c27484  docker-compose
 {% endif %}
 
 {% include messages/warning.html
-    content="<b>Warning:</b> If md5sum is not correct, the downloaded file has been corrupted. Retry the download step or ask for support on <a href='https://community.passbolt.com'>our community forum</a>."
+    content="<b>Warning:</b> If sha256sum is not correct, the downloaded file has been corrupted. Retry the download step or ask for support on <a href='https://community.passbolt.com'>our community forum</a>."
 %}
 
 {% if product == 'pro' %}

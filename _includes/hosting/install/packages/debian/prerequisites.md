@@ -8,10 +8,17 @@ For this tutorial, you will need:
 - A minimal {{ distributionLabel }} {{ distributionVersion }}  server.
 {% endif %}
 - A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.
+- a working SMTP server for email notifications
+* a working NTP service to avoid GPG authentication issues
 
 The recommended server requirements are:
 - 2 cores
 - 2GB of RAM
+
+FAQ pages:
+
+* [Firewall rules](/faq/hosting/firewall-rules){:target="_blank"}
+* [Considerations about entropy](/faq/hosting/why-haveged-virtual-env){:target="_blank"}
 
 {% include messages/warning.html
     content="**Please note:** It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."

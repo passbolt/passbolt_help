@@ -229,26 +229,22 @@
     
 </div>
 
-    <h2 id="install-the-server-components">1. Install the server components</h2>
-    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
+    <h2 id="package-repository-setup">Package repository setup</h2>
 
     <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt PRO and install it.</p>
 
-    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
+    <p><strong>Step 1.</strong> Download our dependencies installation script:</p>
 
-    <p><strong>Step 1.</strong> Let’s Encrypt</p>
-
-    <p>Install certbot if you plan to manage your SSL certificates with <a href="https://letsencrypt.org/">Let’s Encrypt</a>:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo  install certbot python3-certbot-nginx
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong>  Add passbolt repository:</p>
+    <p><strong>Step 2.</strong> Ensure that the script is valid and execute it:</p>
 
-    <h4 id="install-passbolt-package">Install passbolt package</h4>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')" = "0ff97de3fec532cb0297002ae4c0f836da3b0631232634ddea751c8b3d67c049" ] &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
+</code></pre></div>    </div>
 
-    <p>Install the main passbolt server component:</p>
+    <h2 id="install-passbolt-official-linux-package">Install passbolt official linux package</h2>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo  install passbolt-pro-server
 </code></pre></div>    </div>

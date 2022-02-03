@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2018-11-14-configure-mfa-yubikey.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2022-02-02-configure-mfa-yubikey.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -246,15 +246,14 @@ the Yubikey provider in their settings.</p>
     <h2 id="get-a-yubikey-cloud-api-key">Get a Yubikey cloud api key</h2>
 
     <p>In order to use Yubikey OTP you need get an API key for Yubicloud, Yubico’s web service for verifying OTPs. 
-Please note that while it is possible to <a href="https://developers.yubico.com/Software_Projects/Yubico_OTP/YubiCloud_Validation_Servers/">host yourself the OTP validation server</a>, 
-this approach is not supported by Passbolt at the moment.</p>
+Please note that it is no longer possible to <a href="https://support.yubico.com/hc/en-us/articles/360021227000-YK-VAL-YK-KSM-and-YubiHSM-1-End-of-Life" target="_blank">host yourself the OTP validation server</a>.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2018/11/mfa-yubikey-admin.png" alt="Yubicloud registration" style="max-width:550px;" />
     <span class="legend">fig. Yubicloud registration</span>
 </figure>
 
-    <p>Before using YubiCloud, you need to get an API key from <a href="https://upgrade.yubico.com/getapikey/">upgrade.yubico.com</a> 
+    <p>Before using YubiCloud, you need to get an API key from <a href="https://upgrade.yubico.com/getapikey/" target="_blank">upgrade.yubico.com</a> 
 in order to prevent misuse of the service. You will need to authenticate yourself using a Yubikey One-Time Password 
 and provide your e-mail address as a reference, as well as read and accept the terms of service.</p>
 
@@ -290,6 +289,8 @@ you gathered in the previous steps. Click “save settings” when you are done.
 
     <h3 id="using-environment-variables">Using environment variables</h3>
 
+    <p>If you are <a href="/hosting/install/ce/docker.html">using docker</a>, you can set these environment variables to configure your Yubikey:</p>
+
     <table class="table-parameters">
 <thead>
     <tr>
@@ -313,19 +314,9 @@ you gathered in the previous steps. Click “save settings” when you are done.
 </table>
     <p><br /></p>
 
-    <p>When you using docker to set these environment variable you can pass them as arguments,
-like other variables such as the database name, for example:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
-             -p 80:80 \
-             -p 443:443 \
-             -e PASSBOLT_PLUGINS_MFA_YUBIKEY_CLIENTID=12345 \
-             -e PASSBOLT_PLUGINS_MFA_YUBIKEY_SECRETKEY="xx/xxxxxx/xxxxxxxxxxxx=" \
-</code></pre></div>    </div>
-
     <h3 id="using-config-file">Using config file</h3>
 
-    <p>In your install directory you can add the following section in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code></p>
+    <p>In your install directory you can add the following section in <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code></p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
     'multiFactorAuthentication' =&gt; [
@@ -369,9 +360,9 @@ authentication prompt.</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-November
-15th,
-2018.</p>
+February
+2nd,
+2022.</p>
     </div>
 
   </div>

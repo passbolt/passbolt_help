@@ -222,9 +222,9 @@
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -Ls https://raw.githubusercontent.com/passbolt/passbolt_docker/master/docker-compose/docker-compose-ce.yaml -o docker-compose.yaml
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong> Ensure the file has not been corrupted by verifying its sha256sum</p>
+    <p><strong>Step 2.</strong> Ensure the file has not been corrupted by verifying its shasum</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sha256sum docker-compose.yaml
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum -a 256 docker-compose.yaml
 </code></pre></div>    </div>
 
     <p>Must return:</p>
@@ -234,7 +234,7 @@
 
     <div class="message warning">
     <p>
-        <b>Warning:</b> If sha256sum is not correct, the downloaded file has been corrupted. Retry the download step or ask for support on <a href="https://community.passbolt.com">our community forum</a>.
+        <b>Warning:</b> If the <i>shasum</i> command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on <a href="https://community.passbolt.com">our community forum</a>.
     </p>
     
 </div>

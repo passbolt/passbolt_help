@@ -216,60 +216,22 @@
 
     <h2 id="prepare-the-new-rockylinux-server">Prepare the new RockyLinux server</h2>
 
-    <h2 id="install-the-server-components">1. Install the server components</h2>
-    <h3 id="package-repository-setup">1.1. Package repository setup</h3>
+    <h2 id="package-repository-setup">Package repository setup</h2>
 
     <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
 before you download Passbolt CE and install it.</p>
 
-    <p>These steps assume you have already installed sudo and added your user to the sudo group.</p>
+    <p><strong>Step 1.</strong> Download our dependencies installation script:</p>
 
-    <p><strong>Step 1.</strong> Configure Extra Packages for Enterprise Linux (EPEL) repository</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install epel-release
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbolt-repo-setup.ce.sh
 </code></pre></div>    </div>
 
-    <p>While installing packages from this repository, you will be asked to accept GPG key of this repository. You nust verify if the displayed fingerprint is correct on <a href="https://getfedora.org/security/">this reference page</a>.</p>
+    <p><strong>Step 2.</strong> Ensure that the script is valid and execute it:</p>
 
-    <p><strong>Step 2.</strong> Configure Remi’s RPM repository</p>
-
-    <p>As RockyLinux 8 don’t provide the mandatory <strong>php-pecl-gnupg</strong> package for Passbolt, we rely on Remi’s RPM repository for the PHP packages.</p>
-
-    <p>Install Remi repository configuration package.</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')" = "aefee8175e3dc2a992e0b614c3dd81ca1d666e59e0a9909967c52b88e348da59" ] &amp;&amp; sudo bash ./passbolt-repo-setup.ce.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.ce.sh
 </code></pre></div>    </div>
 
-    <p>During the next package installations, if you are prompted for Remi GPG key import, you must check if the displayed fingerprint matches <a href="https://blog.remirepo.net/pages/Config-en">with the one on the bottom of this reference page</a>.</p>
-
-    <p><strong>Step 3.</strong> Enable the module stream for PHP 7.4:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf module reset php
-sudo dnf module install php:remi-7.4
-</code></pre></div>    </div>
-
-    <p><strong>Step 4.</strong> Let’s Encrypt</p>
-
-    <p>Install certbot if you plan to manage your SSL certificates with <a href="https://letsencrypt.org/">Let’s Encrypt</a>:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install certbot python3-certbot-nginx
-</code></pre></div>    </div>
-
-    <p><strong>Step 5.</strong>  Add passbolt repository:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/yum.repos.d/passbolt.repo
-[passbolt-server]
-name=Passbolt Server
-baseurl=https://download.passbolt.com/ce/rpm/el8/stable
-enabled=1
-gpgcheck=1
-gpgkey=https://download.passbolt.com/pub.key
-EOF
-</code></pre></div>    </div>
-
-    <h4 id="install-passbolt-package">Install passbolt package</h4>
-
-    <p>Install the main passbolt server component:</p>
+    <h2 id="install-passbolt-official-linux-package">Install passbolt official linux package</h2>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install passbolt-ce-server
 </code></pre></div>    </div>
@@ -389,7 +351,7 @@ Installation is almost complete. Please point your browser to
 ===============================================================
 </code></pre></div>    </div>
 
-    <h2 id="migrate-nginx">Migrate nginx</h2>
+    <h2 id="migrate-data">Migrate data</h2>
 
     <p>Load the backup files into the new RockyLinux server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
 

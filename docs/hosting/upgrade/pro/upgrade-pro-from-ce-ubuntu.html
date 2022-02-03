@@ -236,46 +236,17 @@ You can follow our <a href="/hosting/backup/debian">backup process</a>.</p>
 
     <h3 id="update-passbolt-package-repository">5. Update passbolt package repository</h3>
 
-    <p>Add Passbolt package official GnuPG key from keys.mailvelope.com:</p>
+    <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt PRO and install it.</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
+    <p><strong>Step 1.</strong> Download our dependencies installation script:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
-    <p>Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.</p>
+    <p><strong>Step 2.</strong> Ensure that the script is valid and execute it:</p>
 
-    <p>Check that the GPG fingerprint matches <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D</code></p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --list-key --with-fingerprint 0xDE8B853FC155581D
-</code></pre></div>    </div>
-
-    <p>Must return:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
-      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           [ unknown] Passbolt SA package signing key &lt;contact@passbolt.com&gt;
-sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
-</code></pre></div>    </div>
-
-    <p>Create GPG package keyring</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --export 0xDE8B853FC155581D | sudo tee \
-  /usr/share/keyrings/passbolt-repository.gpg &gt;/dev/null
-</code></pre></div>    </div>
-
-    <p>Add passbolt repository:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat &lt;&lt; EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources &gt; /dev/null
-Types: deb
-URIs: https://download.passbolt.com/pro/ubuntu
-Suites: focal
-Components: stable
-Signed-By: /usr/share/keyrings/passbolt-repository.gpg
-EOF
-</code></pre></div>    </div>
-
-    <p>Update the apt indexes with the new passbolt apt repository:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')" = "0ff97de3fec532cb0297002ae4c0f836da3b0631232634ddea751c8b3d67c049" ] &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
     <h3 id="install-passbolt-pro">6. Install passbolt Pro</h3>

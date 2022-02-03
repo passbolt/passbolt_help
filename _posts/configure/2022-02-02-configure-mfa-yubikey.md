@@ -1,6 +1,6 @@
 ---
 title: How to configure passbolt to use Yubikey OTP
-date: 2018-11-15 00:00:00 Z
+date: 2022-02-02 00:00:00 Z
 description: How to configure passbolt to use Yubikey OTP
 icon: fa-key
 categories: [configure,mfa]
@@ -38,8 +38,7 @@ the Yubikey provider in their settings.
 ## Get a Yubikey cloud api key
 
 In order to use Yubikey OTP you need get an API key for Yubicloud, Yubico’s web service for verifying OTPs. 
-Please note that while it is possible to [host yourself the OTP validation server](https://developers.yubico.com/Software_Projects/Yubico_OTP/YubiCloud_Validation_Servers/), 
-this approach is not supported by Passbolt at the moment.
+Please note that it is no longer possible to [host yourself the OTP validation server](https://support.yubico.com/hc/en-us/articles/360021227000-YK-VAL-YK-KSM-and-YubiHSM-1-End-of-Life){:target="_blank"}.
 
 {% include articles/figure.html
     url="/assets/img/help/2018/11/mfa-yubikey-admin.png"
@@ -48,7 +47,7 @@ this approach is not supported by Passbolt at the moment.
 %}
 
 
-Before using YubiCloud, you need to get an API key from [upgrade.yubico.com](https://upgrade.yubico.com/getapikey/) 
+Before using YubiCloud, you need to get an API key from [upgrade.yubico.com](https://upgrade.yubico.com/getapikey/){:target="_blank"} 
 in order to prevent misuse of the service. You will need to authenticate yourself using a Yubikey One-Time Password 
 and provide your e-mail address as a reference, as well as read and accept the terms of service.
 
@@ -84,6 +83,8 @@ you gathered in the previous steps. Click "save settings" when you are done.
 
 ### Using environment variables
 
+If you are [using docker](/hosting/install/ce/docker.html), you can set these environment variables to configure your Yubikey:
+
 <table class="table-parameters">
 <thead>
     <tr>
@@ -107,20 +108,9 @@ you gathered in the previous steps. Click "save settings" when you are done.
 </table>
 <br>
 
-When you using docker to set these environment variable you can pass them as arguments,
-like other variables such as the database name, for example:
-
-```
-$ docker run --name passbolt \
-             -p 80:80 \
-             -p 443:443 \
-             -e PASSBOLT_PLUGINS_MFA_YUBIKEY_CLIENTID=12345 \
-             -e PASSBOLT_PLUGINS_MFA_YUBIKEY_SECRETKEY="xx/xxxxxx/xxxxxxxxxxxx=" \
-```
-
 ### Using config file
 
-In your install directory you can add the following section in `config/passbolt.php`
+In your install directory you can add the following section in `/etc/passbolt/passbolt.php`
 
 ```
 'plugins' => [

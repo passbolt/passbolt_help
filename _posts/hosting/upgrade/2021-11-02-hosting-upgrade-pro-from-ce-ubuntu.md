@@ -64,54 +64,9 @@ sudo apt-get remove passbolt-ce-server
 
 ### 5. Update passbolt package repository
 
-Add Passbolt package official GnuPG key from keys.mailvelope.com:
+{% assign upgrade_from_ce_to_pro = 'yes' %}
 
-```
-gpg --keyserver hkps://keys.mailvelope.com --receive-keys 0xDE8B853FC155581D 
-```
-
-Or alternatively from hkps://pgp.mit.edu or hkps://keys.gnupg.net.
-
-Check that the GPG fingerprint matches `3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D`
-
-```
-gpg --list-key --with-fingerprint 0xDE8B853FC155581D
-```
-
-Must return:
-
-```
-pub   rsa2048 2020-05-18 [SC] [expires: 2022-05-18]
-      3D1A 0346 C8E1 802F 774A  EF21 DE8B 853F C155 581D
-uid           [ unknown] Passbolt SA package signing key <contact@passbolt.com>
-sub   rsa2048 2020-05-18 [E] [expires: 2022-05-18]
-```
-
-Create GPG package keyring
-
-```
-gpg --export 0xDE8B853FC155581D | sudo tee \
-  /usr/share/keyrings/passbolt-repository.gpg >/dev/null
-```
-
-Add passbolt repository:
-
-```
-cat << EOF | sudo tee /etc/apt/sources.list.d/passbolt.sources > /dev/null
-Types: deb
-URIs: https://download.passbolt.com/{{ product }}/{{ distribution }}
-Suites: {{ distributionVersionName }}
-Components: stable
-Signed-By: /usr/share/keyrings/passbolt-repository.gpg
-EOF
-```
-
-Update the apt indexes with the new passbolt apt repository:
-
-```
-sudo apt-get update
-```
-
+{% include hosting/install/packages/debian/install-server-components.md %}
 ### 6. Install passbolt Pro
 
 Now you can install the passbolt Pro package.

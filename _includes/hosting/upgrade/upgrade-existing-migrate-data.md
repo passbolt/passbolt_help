@@ -1,6 +1,6 @@
 
 
-## Migrate {{ webServerUser }}
+## Migrate data
 
 Load the backup files into the new {{ distributionLabel }} server, for the following tasks we will consider that the backup files are in your user home directory `~/backup`
 

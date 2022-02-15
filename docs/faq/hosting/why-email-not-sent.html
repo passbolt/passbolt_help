@@ -176,25 +176,17 @@
 items, such as credentials, or the hostname, or the port for the selected protocol.</p>
 
 <p>By default passbolt is quite discrete on why a given configuration is not working. You can use the following
-command to send a test email and get more debug information:</p>
+command to send a test email and get more debug information (replace <strong>www-data</strong> with <strong>nginx</strong> if you are running a RHEL-like server, or <strong>wwwrun</strong> in case you are using openSUSE):</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>./bin/cake passbolt send_test_email <span class="nt">--recipient</span><span class="o">=</span>youremail@domain.com
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> www-data <span class="nt">-u</span> bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt send_test_email --recipient=youremail@domain.com"</span>
 </code></pre></div></div>
-
-<div class="message notice">
-    <p>
-    <b>Notice:</b> This command is run either from <code>/var/www/passbolt</code> or, if you installed passbolt using the Debian package or
-    are using the passbolt VM (OVA): <code>/usr/share/php/passbolt</code>.
-    </p>
-    
-</div>
 
 <p>If this fails you should double check what is the recommended configuration in your email provider documentation.
 You can also ask on the community forum in case another user have a working configuration for the same provider.</p>
 
 <h3 id="reason-2-email-notifications-are-disabled-in-the-config">Reason 2: Email notifications are disabled in the config</h3>
 
-<p>Another reason could be because email notifications are disabled in you configuration.
+<p>Another reason could be because email notifications are disabled in your configuration.
 You can review such settings in the administration panel, when you are logged in as an administrator in passbolt.</p>
 
 <figure>
@@ -202,64 +194,54 @@ You can review such settings in the administration panel, when you are logged in
     <span class="legend">fig. Email Notification Settings - Email Delivery</span>
 </figure>
 
-<p>To find the specific mail-related configurations set during setup, you will need to look
-in <code class="language-plaintext highlighter-rouge">/var/www/passbolt/config/passbolt.php</code>. If you used the debian package to install passbolt
-look in <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code>.
-If you are using the Docker version, you’ll need to review your environment variables in <code class="language-plaintext highlighter-rouge">env/passbolt.env</code>.</p>
-
-<h3 id="reason-3-the-cron-job-to-send-email-is-missing">Reason 3: The cron job to send email is missing</h3>
+<h3 id="reason-3-the-cron-system-is-stopped">Reason 3: The cron system is stopped</h3>
 
 <p>Passbolt uses a system of email queue to send email notifications.
-In practice this means there is a dedicated job that runs to go through the queue and send
-emails at the interval of your choice.</p>
+A dedicated cron job (located in <code class="language-plaintext highlighter-rouge">/etc/cron.d/passbolt-{ce|pro}-server</code>) runs every minute to go through the queue and send emails.</p>
 
 <p>So if you manage to send the test email but are not receiving notifications (such as registration emails),
-one of the reason may be that the cron job required to send the emails is missing.
-Depending on the method you used to install, it may have not be set, or failed to set.</p>
+one of the reason may be that the cron service is stopped.</p>
 
-<p>In order to find out you should check if you have the following cron for the web server user
-(<code class="language-plaintext highlighter-rouge">www-data</code> on Debian/Ubuntu, <code class="language-plaintext highlighter-rouge">nginx</code> on Centos), running where you passbolt was installed
-(<code class="language-plaintext highlighter-rouge">/var/www/passbolt</code> by default).</p>
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>crontab <span class="nt">-u</span> www-data <span class="nt">-e</span>
-<span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> /var/www/passbolt/bin/cron <span class="o">&gt;&gt;</span> /var/log/passbolt.log
+<p>You can verify if the service is running by executing this command:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl status cron.service
 </code></pre></div></div>
 
-<div class="message notice">
-    <p>
-    <b>Notice:</b> For installs from the Debian package or
-    if you are using the passbolt VM (OVA), the cron job is automatically installed
-    at <code>/etc/cron.d/passbolt-{ce|pro}-server</code>
-    </p>
-    
-</div>
+<p>You can also verify cronjobs activity with this command:</p>
 
-<p>If the cron is present, you should check if there are more data in the <code class="language-plaintext highlighter-rouge">/var/log/passbolt.log</code> log file,
-it may give you more information about the issue.</p>
-
-<h3 id="reason-4-the-webserver-user-is-not-allowed-to-run-cron-jobs">Reason 4: The webserver user is not allowed to run cron jobs</h3>
-
-<p>On some system, like RHEL or Centos, the<code class="language-plaintext highlighter-rouge">nginx</code> user may not have the right to run the cron job to send emails,
-because of your PAM configuration. In this case you may want to add <code class="language-plaintext highlighter-rouge">nginx</code> to the PAM config to have <code class="language-plaintext highlighter-rouge">cron</code>
-and <code class="language-plaintext highlighter-rouge">crond:local</code> permissions.</p>
-
-<h3 id="reason-5-there-is-an-issue-with-the-database-schema-related-to-the-email-queue">Reason 5: There is an issue with the database schema related to the email queue</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo journalctl -fu cron.service
+</code></pre></div></div>
+<h3 id="reason-4-there-is-an-issue-with-the-database-schema-related-to-the-email-queue">Reason 4: There is an issue with the database schema related to the email queue</h3>
 
 <p>If after an update you are getting error messages such as:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column ‘EmailQueue.to’ in ‘field list’ ...
 </code></pre></div></div>
 
 <p>It is possible that the wrong version of the data model is stored in the cache. This can happen
-if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this.</p>
+if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this(replace <strong>www-data</strong> with <strong>nginx</strong> if you are running a RHEL-like server, or <strong>wwwrun</strong> in case you are using openSUSE).</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake cache clear_all
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H www-data -u bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 </code></pre></div></div>
 
-<h3 id="reason-6-you-can-manually-send-emails-but-cron-job-is-not-sending-them">Reason 6: You can manually send emails but cron job is not sending them</h3>
+<h3 id="reason-5-gmail-smtp-relay-not-accepting-localhost-as-ehlo">Reason 5: Gmail SMTP-Relay not accepting ‘localhost’ as EHLO</h3>
 
-<p>You may have a file permissions issue - for example, maybe you are running commands as root or files became
-owned only by root. You can reference <a href="/hosting/update/install-scripts.html">this page</a> and look for the
-section named “Make sure the permissions are right for your current user”. The commands found in that section
-are useful for when you are updating your passbolt, and may also be helpful to resolve your mail issues.</p>
+<p>If you are using Google’s G-Suite SMTP Relay, you need to ensure you have set public IP address of your passbolt server in the EmailTransport section of <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
+    'EmailTransport' =&gt; [
+        'default' =&gt; [
+            ...
+            'client' =&gt; 'ip.add.re.ss'
+            ...
+        ],
+    ],
+(...)
+</code></pre></div></div>
+
+<p>In case you are using docker, you will have the <code class="language-plaintext highlighter-rouge">EMAIL_TRANSPORT_DEFAULT_CLIENT</code> environment variable:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>EMAIL_TRANSPORT_DEFAULT_CLIENT= 'ip.add.re.ss'
+</code></pre></div></div>
 
                         </div>
 

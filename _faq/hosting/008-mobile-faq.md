@@ -53,6 +53,14 @@ Logs are available:
 
 You can share them by clicking on the share icon on top-right of your screen.
 
+On Android, logs collection must be manually enabled:
+
+{% include articles/figure.html 
+    url="/assets/img/help/2022/02/android-enable-logs.jpg"
+    legend="Enable Android logs" 
+    width="350px"
+%}
+
 ## I can't login using Apache
 
 Apache [seems to discard](https://github.com/tymondesigns/jwt-auth/wiki/Authentication) the Authorization header if it is not a base64 encoded user/pass combo. So to fix this you can add the following to your Apache config:

@@ -268,7 +268,7 @@ trigger an action in passbolt (e.g. preventing “clickjacking”).
 
 {% include messages/notice.html
     content="Currently the csrfToken cookie is not returned in the same Success response in Step 5 above. A simple GET call
-    to /user/me.json will allow for the client to receive the cookie. This cookie can then be submitted through a special
+    to /users/me.json will allow for the client to receive the cookie. This cookie can then be submitted through a special
      `X-CSRF-Token` header. Using a header often makes it easier to integrate a CSRF token with applications consuming the API."
 %}
 

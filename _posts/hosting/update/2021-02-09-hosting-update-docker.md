@@ -1,6 +1,6 @@
 ---
 title: Update for docker container
-date: 2021-12-30 00:00:00 Z
+date: 2022-02-21 00:00:00 Z
 description: How to update passbolt docker container
 card_teaser: Guide for instances using docker container.
 card_title: Update for Docker
@@ -16,18 +16,24 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-It is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags) when running in environments other than testing. So to update passbolt, you would just need to change the image tag in your docker-compose.yml file:
+It is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags) when running in environments other than testing.
+
+To update passbolt, you would just need to change the image tag in your docker-compose.yml file:
 
 ```
  image: passbolt/passbolt:<IMAGE_TAG>
 ```
 
-Then relaunch your composer:
+Then relaunch your docker containers:
 
 ```
 $ docker-compose up -d
 ```
 
+By doing this:
+
+* a new passbolt docker image will be pulled and a new container created
+* your passbolt database schema will be updated
 
 {% include date/updated.html %}
 

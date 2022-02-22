@@ -54,25 +54,12 @@ You can easily populate your mariadb services by mounting a SQL dump into that d
 
 So you just have to mount your database backup file on `/docker-entrypoint-initdb.d` folder of the database container.
 
-If you are using docker-compose, add a volume mount in the db service:
+Edit your docker-compose.yaml file and add a volume mount in the db service:
 
 ```
 volumes:
   - database_volume:/var/lib/mysql
   - ./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-```
-
-And if you are not using compose, add a volume to your docker command, eg:
-
-```bash
-$ docker run -d --name mariadb --net passbolt_network \
-             --mount source=mariadb_passbolt_data,target=/var/lib/mysql \
-             --mount source=./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql \
-             -e MYSQL_ROOT_PASSWORD=<root_password> \
-             -e MYSQL_DATABASE=<mariadb_database> \
-             -e MYSQL_USER=<mariadb_user> \
-             -e MYSQL_PASSWORD=<mariadb_password> \
-             mariadb
 ```
 
 You can now start your database and passbolt containers, your database will be restored at the database container start.
@@ -95,7 +82,7 @@ docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey.as
 docker exec -it your-passbolt-container chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 ```
 
-### Restore avatars (if you are coming for prior 3.2)
+### Restore avatars (if you are coming from prior 3.2)
 
 {%
     include messages/warning.html

@@ -64,9 +64,12 @@ If it goes through, we will then try to execute a similar ldap query to what pas
 
 ### Step 2: Connect with ldapsearch
 
+{% include messages/warning.html
+    content="As passbolt will connect to your LDAP server as the web user, it is important to execute the ldapsearch command as this user (<b>www-data</b> for Debian/Ubuntu, <b>wwwrun</b> for openSUSE, <b>nginx</b> for RHEL based Linux distributions)."
+%} 
 
 ```bash
-ldapsearch -x -D "username" -W -H ldaps://your_ldap_server.com -b "dc=domain,dc=com" -d 9
+$ sudo su -s /bin/bash -c 'ldapsearch -x -D "username" -W -H ldaps://your_ldap_server.com -b "dc=domain,dc=com" -d 9' www-data
 ```
 
 Do not forget to replace the 'username', 'your_ldap_server.com' 'domain' and 'com' variables with the real ones.
@@ -77,7 +80,8 @@ there must be an issue with the parameters you entered in passbolt LDAP plugin. 
 If this command returns something as displayed below, then you most likely have a LDAPS certificate issue.
 
 ```bash
-root@cee4a6876f55:/var/www/passbolt# ldapsearch -x -D "ada" -W -H ldaps://your_ldap_server.com -b "dc=passbolt,dc=local" -d 9
+$ sudo su -s /bin/bash -c 'ldapsearch -x -D "ada" -W -H ldaps://your_ldap_server.com -b "dc=passbolt,dc=local" -d 9' www-data
+
 ldap_url_parse_ext(ldaps://your_ldap_server.com)
 ldap_create
 ldap_url_parse_ext(ldaps://your_ldap_server.com:636/??base)
@@ -89,7 +93,7 @@ ldap_int_open_connection
 ldap_connect_to_host: TCP your_ldap_server.com:636
 ldap_new_socket: 3
 ldap_prepare_socket: 3
-ldap_connect_to_host: Trying 34.77.243.127:636
+ldap_connect_to_host: Trying 172.16.0.50:636
 ldap_pvt_connect: fd: 3 tm: -1 async: 0
 attempting to connect:
 connect success

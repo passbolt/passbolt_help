@@ -195,22 +195,31 @@
                         <div class="row">
   <div class="col7">
 
-    <p>It is recommended that users <a href="https://hub.docker.com/r/passbolt/passbolt/tags">pull the tags pointing to specific passbolt versions</a> when running in environments other than testing. So to update passbolt, you would just need to change the image tag in your docker-compose.yml file:</p>
+    <p>It is recommended that users <a href="https://hub.docker.com/r/passbolt/passbolt/tags">pull the tags pointing to specific passbolt versions</a> when running in environments other than testing.</p>
+
+    <p>To update passbolt, you would just need to change the image tag in your docker-compose.yml file:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> image: passbolt/passbolt:&lt;IMAGE_TAG&gt;
 </code></pre></div>    </div>
 
-    <p>Then relaunch your composer:</p>
+    <p>Then relaunch your docker containers:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker-compose up -d
 </code></pre></div>    </div>
 
+    <p>By doing this:</p>
+
+    <ul>
+      <li>a new passbolt docker image will be pulled and a new container created</li>
+      <li>your passbolt database schema will be updated</li>
+    </ul>
+
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-December
-30th,
-2021.</p>
+February
+21st,
+2022.</p>
     </div>
 
   </div>

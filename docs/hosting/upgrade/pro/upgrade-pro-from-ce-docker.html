@@ -202,14 +202,44 @@
     
 </div>
 
-    <p>In order to upgrade from CE to Pro users just need to download the pro container and mount their corresponding subscription key.</p>
+    <p>In order to upgrade from CE to PRO, open your <code class="language-plaintext highlighter-rouge">docker-compose.yaml</code> file and search for the passbolt CE image definition:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>image: passbolt/passbolt:&lt;IMAGE_TAG&gt;
+</code></pre></div>    </div>
+
+    <p>And replace the CE <code class="language-plaintext highlighter-rouge">&lt;IMAGE_TAG&gt;</code> <a href="https://hub.docker.com/r/passbolt/passbolt/tags?page=1&amp;name=pro">with a PRO <code class="language-plaintext highlighter-rouge">&lt;IMAGE_TAG&gt;</code></a>.</p>
+
+    <p>In the same location of your docker-compose.yaml file, create a subscription_key.txt file containing your passbolt subscription key, and add a new volume definition in your docker-compose.yaml file:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>version: '3.7'
+services:
+  db:
+    ...
+  passbolt:
+    ...
+    volumes:
+      ...
+      - ./subscription_key.txt:/etc/passbolt/subscription_key.txt:ro
+</code></pre></div>    </div>
+
+    <p>Then relaunch your docker containers:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker-compose up -d
+</code></pre></div>    </div>
+
+    <p>By doing this:</p>
+
+    <ul>
+      <li>a new passbolt docker image will be pulled and a new container created</li>
+      <li>your passbolt database schema will be updated</li>
+    </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-December
-30th,
-2021.</p>
+February
+21st,
+2022.</p>
     </div>
 
   </div>

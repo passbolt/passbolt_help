@@ -25,7 +25,7 @@ d8a6e3865b53768c2327d30bafbbc0389fd6e9d3dd89739a91a51692ebe0157c  docker-compose
 ```
 {% elsif product == 'ce' %}
 ```
-e93807fdd2be20896e17a8b4bf95f51a427df98afa066aa5b802f68332c27484  docker-compose.yaml
+4f93b7c4f823df64c70a43b7cd34bfb73ef8641fcfde0491523282bd937df3f7  docker-compose.yaml
 ```
 {% endif %}
 

@@ -44,6 +44,12 @@ Of course, replace `-subj` values with your own. It is important to set your pas
 
 Once [your self-signed certificate configured](/configure/https/){:target="_blank"}, [import it in your mobile](/faq/hosting/how-to-import-ssl-certificate-on-mobile){:target="_blank"}.
 
+## Can I use 2FA ?
+
+Our mobile application support TOTP and [Yubikey](/configure/mfa/yubikey.html).
+
+[Duo OTP](configure/mfa/duo) is not supported yet.
+
 ## How to get logs ?
 
 Logs are available:

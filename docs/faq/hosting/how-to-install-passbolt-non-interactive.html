@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How to install Passbolt non-interactive ?</title>
+    <title>Passbolt Help | How to install passbolt in non-interactive mode ?</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This method is useful for automating passbolt installation and for users with specific needs.">
+    <meta name="description" content="The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operatin...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to install Passbolt non-interactive ?" />
-    <meta property="og:description" content="This method is useful for automating passbolt installation and for users with specific needs." />
+    <meta property="og:title" content="How to install passbolt in non-interactive mode ?" />
+    <meta property="og:description" content="The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operatin..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How to install Passbolt non-interactive ?</span></a>
+                        <a href=""><span>How to install passbolt in non-interactive mode ?</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,18 +167,24 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How to install Passbolt non-interactive ?</h1>
-                            <p>This method is useful for automating passbolt installation and for users with specific needs.</p>
+                         <h1>How to install passbolt in non-interactive mode ?</h1>
+                            <p>The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operating systems.</p>
 
-<p>If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the non-interactive command with <code class="language-plaintext highlighter-rouge">--no-install-recommends</code> param:</p>
+<p>The commands of this page assume you want to install passbolt CE. Replace <code class="language-plaintext highlighter-rouge">passbolt-ce-server</code> with <code class="language-plaintext highlighter-rouge">passbolt-pro-server</code> if you plan to install the PRO version.</p>
+
+<h3 id="simple-mode">Simple mode</h3>
+
+<p>If you don’t want to install mysql locally or you don’t want to use nginx as http server you can run the non-interactive command with <code class="language-plaintext highlighter-rouge">--no-install-recommends</code> parameter.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install \
-  --no-install-recommends passbolt--server
+  --no-install-recommends passbolt-ce-server
 </code></pre></div></div>
 
-<p>You can also automate the installation by pre-fill answers with this command (run one command per parameter):</p>
+<h3 id="advanced-mode">Advanced mode</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo passbolt--server &lt;parameter&gt; &lt;type&gt; &lt;value&gt; | \
+<p>You can automate the installation by pre-fill answers with this command (run one command per parameter):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo passbolt-ce-server &lt;parameter&gt; &lt;type&gt; &lt;value&gt; | \
   sudo debconf-set-selections
 </code></pre></div></div>
 
@@ -251,9 +257,9 @@
   </tbody>
 </table>
 
-<p>Once done, run the non-interactive install command:</p>
+<p>Once done, run this non-interactive install command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt--server
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
 </code></pre></div></div>
 
                         </div>
@@ -573,14 +579,6 @@
     
     
     
-    <li>
-        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install Passbolt non-interactive ?</a>
-    </li>
-    
-    
-    
-    
-    
     
     
     
@@ -667,6 +665,14 @@
     
     <li>
         <a href="/faq/hosting/mobile-faq">iOS / Android Mobile FAQ</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode ?</a>
     </li>
     
     

@@ -1,25 +1,31 @@
 ---
-title: How to install Passbolt non-interactive ?
+title: How to install passbolt in non-interactive mode ?
 slug: how-to-install-passbolt-non-interactive
 layout: faq
 category: hosting
 permalink: /faq/hosting/:slug
-date: 2021-09-20 00:00:00 Z
+date: 2022-03-02 00:00:00 Z
 ---
 
-This method is useful for automating passbolt installation and for users with specific needs.
+The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operating systems.
 
-If you don't want to install mysql locally or you don't want to use nginx as http server you can run the non-interactive command with `--no-install-recommends` param:
+The commands of this page assume you want to install passbolt CE. Replace `passbolt-ce-server` with `passbolt-pro-server` if you plan to install the PRO version.
+
+### Simple mode
+
+If you don't want to install mysql locally or you don't want to use nginx as http server you can run the non-interactive command with `--no-install-recommends` parameter.
 
 ```
 sudo DEBIAN_FRONTEND=noninteractive apt-get install \
-  --no-install-recommends passbolt-{{product}}-server
+  --no-install-recommends passbolt-ce-server
 ```
 
-You can also automate the installation by pre-fill answers with this command (run one command per parameter):
+### Advanced mode
+
+You can automate the installation by pre-fill answers with this command (run one command per parameter):
 
 ```
-echo passbolt-{{ product }}-server <parameter> <type> <value> | \
+echo passbolt-ce-server <parameter> <type> <value> | \
   sudo debconf-set-selections
 ```
 
@@ -40,8 +46,8 @@ Parameter and type reference table:
 | passbolt/nginx-certificate-key-file        | string   | Absolute path to SSL key path (applies only if nginx-configuration-*-choices is manual)               |
 {: .table-parameters }
 
-Once done, run the non-interactive install command:
+Once done, run this non-interactive install command:
 
 ```
-sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-{{ product }}-server
+sudo DEBIAN_FRONTEND=noninteractive apt-get install passbolt-ce-server
 ```

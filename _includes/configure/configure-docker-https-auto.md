@@ -37,7 +37,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./traefik.yaml:/traefik.yaml:ro
       - ./conf/:/etc/traefik/conf
-      - ./acme.json:/acme.json
+      - ./shared/:/shared
 ```
 
 Traefik will:
@@ -82,7 +82,7 @@ certificatesResolvers:
   letsencrypt:
     acme:
       email: yourname@domain.tld
-      storage: acme.json
+      storage: /shared/acme.json
       caServer: 'https://acme-v02.api.letsencrypt.org/directory'
       keyType: EC256
       httpChallenge:

@@ -282,6 +282,13 @@ before you download Passbolt CE and install it.</p>
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'quoteIdentifiers'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
 </code></pre></div>    </div>
 
+    <h3 id="copy-the-avatars">5.3. Copy the avatars</h3>
+
+    <p>If coming from Passbolt version prior to 3.2, copy passbolt avatars as following:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-R</span> /var/www/passbolt/webroot/img/public/avatar /usr/share/php/passbolt/webroot/img/public/
+</code></pre></div>    </div>
+
     <h2 id="nginx">6. Nginx</h2>
 
     <p>Now you can remove all the old nginx configuration files from <code class="language-plaintext highlighter-rouge">/etc/nginx/conf.d/</code></p>

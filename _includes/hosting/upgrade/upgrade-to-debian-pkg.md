@@ -74,8 +74,16 @@ If you are running mysql 8, please change the `quoteIdentifiers` setting of the 
 'quoteIdentifiers' => true
 ```
 
+### 5.3. Copy the avatars
+
+If coming from Passbolt version prior to 3.2, copy passbolt avatars as following:
+
+```bash
+sudo cp -R /var/www/passbolt/webroot/img/public/avatar /usr/share/php/passbolt/webroot/img/public/
+```
+
 {% if page.passbolt_version == 'pro' %}
-### 5.3. Copy the subscription key
+### 5.4. Copy the subscription key
 
 Copy subscription key as following:
 

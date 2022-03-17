@@ -276,14 +276,16 @@ before you download Passbolt CE and install it.</p>
 <span class="nb">sudo chmod </span>g-w /etc/passbolt/passbolt.php
 </code></pre></div>    </div>
 
-    <h3 id="copy-the-passbolt-configuration">5.3. Copy the Avatars</h3>
-
-    <p>Copy passbolt avatars as following:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> /var/www/passbolt/webroot/img/public/Avatar /usr/share/php/passbolt/webroot/img/public/
-</code></pre></div>    </div>      
     <p>If you are running mysql 8, please change the <code class="language-plaintext highlighter-rouge">quoteIdentifiers</code> setting of the passbolt.php as follow:</p>
 
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'quoteIdentifiers'</span> <span class="o">=&gt;</span> <span class="kc">true</span>
+</code></pre></div>    </div>
+
+    <h3 id="copy-the-avatars">5.3. Copy the avatars</h3>
+
+    <p>Copy passbolt avatars as following:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo cp</span> <span class="nt">-R</span> /var/www/passbolt/webroot/img/public/avatar /usr/share/php/passbolt/webroot/img/public/
 </code></pre></div>    </div>
 
     <h2 id="php-fpm">6. PHP-FPM</h2>

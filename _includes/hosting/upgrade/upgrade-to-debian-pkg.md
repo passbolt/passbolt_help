@@ -76,7 +76,7 @@ If you are running mysql 8, please change the `quoteIdentifiers` setting of the 
 
 ### 5.3. Copy the avatars
 
-Copy passbolt avatars as following:
+If coming from Passbolt version prior to 3.2, copy passbolt avatars as following:
 
 ```bash
 sudo cp -R /var/www/passbolt/webroot/img/public/avatar /usr/share/php/passbolt/webroot/img/public/

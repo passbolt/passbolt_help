@@ -65,7 +65,7 @@ If all the values are good just click on "Launch" button.
 
 If you are planning to use this AWS instance in production, it is highly recommended to setup SSL. There are two main methods described below:
 
-- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
+- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/aws/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
 
 {% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/database.md" %}

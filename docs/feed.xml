@@ -1,4 +1,530 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-03-17T11:38:34+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Upgrade from CE to Pro using docker</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker.html" rel="alternate" type="text/html" title="Upgrade from CE to Pro using docker" /><published>2022-02-21T01:00:00+01:00</published><updated>2022-02-21T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-03-29T09:53:28+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/pro/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
+    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
+    scenarios like https://mydomain.com/passbolt are not supported by default
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
+
+    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
+
+    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Execute this command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx_pro.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices_pro.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain_pro.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email_pro.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+29th,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="aws" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/ce/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
+    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
+    scenarios like https://mydomain.com/passbolt are not supported by default
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
+
+    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
+
+    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Execute this command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+29th,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="aws" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Digital Ocean</title><link href="https://help.passbolt.com/configure/https/ce/digital-ocean/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Digital Ocean" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/digital-ocean/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/digital-ocean/auto.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
+    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
+    scenarios like https://mydomain.com/passbolt are not supported by default
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
+
+    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
+
+    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Execute this command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+29th,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="digital-ocean" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on OVA</title><link href="https://help.passbolt.com/configure/https/pro/ova/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on OVA" /><published>2022-03-21T01:00:00+01:00</published><updated>2022-03-21T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/https/pro/ova/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/ova/auto.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
+    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
+    scenarios like https://mydomain.com/passbolt are not supported by default
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
+
+    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
+
+    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Execute this command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx_pro.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices_pro.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain_pro.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email_pro.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+21st,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="ova" /><summary type="html"></summary></entry><entry><title type="html">Update for docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update for docker container" /><published>2022-02-21T01:00:00+01:00</published><updated>2022-02-21T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;It is recommended that users &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/tags&quot;&gt;pull the tags pointing to specific passbolt versions&lt;/a&gt; when running in environments other than testing.&lt;/p&gt;
+
+    &lt;p&gt;To update passbolt, you would just need to change the image tag in your docker-compose.yml file:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; image: passbolt/passbolt:&amp;lt;IMAGE_TAG&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Then relaunch your docker containers:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;By doing this:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;a new passbolt docker image will be pulled and a new container created&lt;/li&gt;
+      &lt;li&gt;your passbolt database schema will be updated&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+21st,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">Upgrade from CE to Pro using docker</title><link href="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker.html" rel="alternate" type="text/html" title="Upgrade from CE to Pro using docker" /><published>2022-02-21T01:00:00+01:00</published><updated>2022-02-21T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/upgrade-pro-from-ce-docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -59,53 +585,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Update for docker container</title><link href="https://help.passbolt.com/hosting/update/docker.html" rel="alternate" type="text/html" title="Update for docker container" /><published>2022-02-21T01:00:00+01:00</published><updated>2022-02-21T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/update/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/update/docker.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;It is recommended that users &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/tags&quot;&gt;pull the tags pointing to specific passbolt versions&lt;/a&gt; when running in environments other than testing.&lt;/p&gt;
-
-    &lt;p&gt;To update passbolt, you would just need to change the image tag in your docker-compose.yml file:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; image: passbolt/passbolt:&amp;lt;IMAGE_TAG&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Then relaunch your docker containers:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker-compose up -d
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;By doing this:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;a new passbolt docker image will be pulled and a new container created&lt;/li&gt;
-      &lt;li&gt;your passbolt database schema will be updated&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-21st,
-2022.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="update" /><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2022-02-02T01:00:00+01:00</published><updated>2022-02-02T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Yubikey OTP</title><link href="https://help.passbolt.com/configure/mfa/yubikey.html" rel="alternate" type="text/html" title="How to configure passbolt to use Yubikey OTP" /><published>2022-02-02T01:00:00+01:00</published><updated>2022-02-02T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/yubikey</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/yubikey.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
@@ -1222,618 +1702,4 @@ December
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="environment" /><summary type="html">Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values. Variable name Description Default value APP_BASE it allows people to specify the base subdir the application is running in null APP_ENCODING Set text encoding &apos;UTF-8&apos; APP_DEFAULT_LOCALE Set default locale &apos;en_US&apos; APP_FULL_BASE_URL Passbolt base url &apos;false&apos; DATASOURCES_DEFAULT_DATABASE Database name &apos;&apos; DATASOURCES_DEFAULT_HOST Database hostname &apos;localhost&apos; DATASOURCES_DEFAULT_PORT Database port 3306 DATASOURCES_DEFAULT_URL Database url &apos;&apos; DATASOURCES_DEFAULT_PASSWORD Database password &apos;&apos; DATASOURCES_DEFAULT_SSL_KEY Database SSL Key &apos;&apos; DATASOURCES_DEFAULT_SSL_CERT Database SSL Cert &apos;&apos; DATASOURCES_DEFAULT_SSL_CA Database SSL CA &apos;&apos; DATASOURCES_DEFAULT_USERNAME Database username &apos;&apos; DEBUG Debug mode &apos;false&apos; EMAIL_TRANSPORT_DEFAULT_CLASS_NAME Email classname &apos;Smtp&apos; EMAIL_DEFAULT_FROM_NAME From email username &apos;Passbolt&apos; EMAIL_DEFAULT_FROM From email address &apos;you@localhost&apos; EMAIL_DEFAULT_TRANSPORT Sets transport method &apos;default&apos; EMAIL_TRANSPORT_DEFAULT_HOST Server hostname &apos;localhost&apos; EMAIL_TRANSPORT_DEFAULT_PORT Server port 25 EMAIL_TRANSPORT_DEFAULT_TIMEOUT Timeout 30 EMAIL_TRANSPORT_DEFAULT_USERNAME Username for email server auth null EMAIL_TRANSPORT_DEFAULT_PASSWORD Password for email server auth null EMAIL_TRANSPORT_DEFAULT_CLIENT Client null EMAIL_TRANSPORT_DEFAULT_TLS Set tls null EMAIL_TRANSPORT_DEFAULT_URL Set url null GNUPGHOME path to gnupghome directory &apos;/home/www-data/.gnupg&apos; PASSBOLT_AUTH_TOKEN_EXPIRY Passbolt authorization token expiration &apos;3 days&apos; PASSBOLT_AUTH_REGISTER_TOKEN_EXPIRY Passbolt authorization registration token expiration &apos;10 days&apos; PASSBOLT_AUTH_RECOVER_TOKEN_EXPIRY Passbolt authorization recover token expiration &apos;1 day&apos; PASSBOLT_AUTH_LOGIN_TOKEN_EXPIRY Passbolt authorization token login expiration &apos;5 minutes&apos; PASSBOLT_AUTH_MOBILE_TRANSFER_TOKEN_EXPIRY Passbolt mobile transfer token expiration &apos;5 minutes&apos; PASSBOLT_AUTH_JWT_REFRESH_TOKEN Passbolt authorization JWT refresh token &apos;1 month&apos; PASSBOLT_AUTH_JWT_ACCESS_TOKEN Passbolt authorization JWT access token &apos;5 minutes&apos; PASSBOLT_AUTH_JWT_VERIFY_TOKEN Passbolt authorization JWT verify token &apos;1 hour&apos; PASSBOLT_GPG_SERVER_KEY_FINGERPRINT GnuPG fingerprint null PASSBOLT_GPG_SERVER_KEY_PUBLIC Path to GnuPG public server key &apos;/etc/passbolt/gpg/serverkey.asc&apos; PASSBOLT_GPG_SERVER_KEY_PRIVATE Path to GnuPG private server key &apos;/etc/passbolt/gpg/serverkey_private.asc&apos; PASSBOLT_JS_BUILD passbolt.js type of build ‘development’ or ‘production’ &apos;production&apos; PASSBOLT_LEGAL_PRIVACYPOLICYURL Set legal policy URL &apos;&apos; PASSBOLT_LEGAL_TERMSURL Set legal terms URL &apos;https://www.passbolt.com/terms&apos; PASSBOLT_META_DESCRIPTION Set html meta description for the site &apos;Open source password manager for teams&apos; PASSBOLT_META_ROBOTS Search engines indexing parameters &apos;noindex, nofollow&apos; PASSBOLT_META_TITLE Set html meta title for &apos;Passbolt&apos; PASSBOLT_PLUGINS_EXPORT_ENABLED Enable export plugin true PASSBOLT_PLUGINS_IMPORT_ENABLED Enable import plugin true PASSBOLT_PLUGINS_IN_FORM_INTEGRATION_ENABLED Enable Passbolt icon in web forms true PASSBOLT_PLUGINS_PASSWORD_GENERATOR_DEFAULT_GENERATOR Default password generator (can be password or passphrase) password PASSBOLT_PLUGINS_PASSWORD_GENERATOR_ENABLED Enable password generator plugin true PASSBOLT_PLUGINS_PREVIEW_PASSWORD_ENABLED Enable password generator preview true PASSBOLT_PLUGINS_MOBILE_ENABLED Enable mobile plugin true PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED Enable jwt authentication plugin true PASSBOLT_REGISTRATION_PUBLIC Defines if users can register false PASSBOLT_SECURITY_SET_HEADERS Send CSP Headers true PASSBOLT_SECURITY_CSP CSP Headers (true, false or custom CSP string) true PASSBOLT_SECURITY_COOOKIE_SECURE Set MFA cookie secure flag true PASSBOLT_SSL_FORCE Redirects http to https true SECURITY_SALT CakePHP security salt __SALT__ SESSION_DEFAULTS Session engine configuration &apos;php&apos; Last updated This article was last updated on December 30th, 2021.</summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Docker</title><link href="https://help.passbolt.com/configure/https/pro/docker/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Docker" /><published>2021-12-30T01:00:00+01:00</published><updated>2021-12-30T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/https/pro/docker/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/docker/auto.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        If you are migrating your passbolt instance from HTTP to HTTPS, you must ensure &lt;b&gt;all of your users have a backup of their private key&lt;/b&gt;.&lt;br /&gt;
-    As for passbolt browser extension, domain will change from HTTP to HTTPS, it will trigger &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;an account recovery&lt;/a&gt;&lt;/b&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
-    order to work with let’s encrypt.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/hosting/install/pro/docker.html&quot;&gt;docker setup with docker-compose&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;A domain name reachable over the internet&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h3 id=&quot;add-traefik-service-to-handle-https&quot;&gt;Add traefik service to handle https&lt;/h3&gt;
-
-    &lt;p&gt;If you have followed &lt;a href=&quot;/hosting/install/pro/docker.html&quot;&gt;our installation documentation&lt;/a&gt;, you should have defined &lt;strong&gt;db&lt;/strong&gt; and &lt;strong&gt;passbolt&lt;/strong&gt; services for your passbolt stack.&lt;/p&gt;
-
-    &lt;p&gt;To handle HTTPS setup with Let’s Encrypt, add a traefik service as follow:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
-services:
-  db:
-    ...
-  passbolt:
-    ...
-  traefik:
-    image: traefik:2.6
-    restart: always
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yaml:/traefik.yaml:ro
-      - ./conf/:/etc/traefik/conf
-      - ./shared/:/shared
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Traefik will:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;act as a proxy in front of passbolt service, that’s why we defined ports 80 and 443.&lt;/li&gt;
-      &lt;li&gt;handle Let’s Encrypt certificates renew.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h3 id=&quot;configuration-files&quot;&gt;configuration files&lt;/h3&gt;
-
-    &lt;p&gt;Create a &lt;strong&gt;traefik.yaml&lt;/strong&gt; configuration file with this content (replace yourname@domain.tld with your email for Let’s Encrypt):&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;global:
-  sendAnonymousUsage: false
-log:
-  level: INFO
-  format: common
-providers:
-  docker:
-    endpoint: &apos;unix:///var/run/docker.sock&apos;
-    watch: true
-    exposedByDefault: true
-    swarmMode: false
-  file:
-    directory: /etc/traefik/conf/
-    watch: true
-api:
-  dashboard: false
-  debug: false
-  insecure: false
-entryPoints:
-  web:
-    address: &apos;:80&apos;
-    http:
-      redirections:
-        entryPoint:
-          to: websecure
-          scheme: https
-          permanent: true
-  websecure:
-    address: &apos;:443&apos;
-certificatesResolvers:
-  letsencrypt:
-    acme:
-      email: yourname@domain.tld
-      storage: /shared/acme.json
-      caServer: &apos;https://acme-v02.api.letsencrypt.org/directory&apos;
-      keyType: EC256
-      httpChallenge:
-        entryPoint: web
-      tlsChallenge: {}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Create a &lt;strong&gt;conf&lt;/strong&gt; folder:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;In the &lt;strong&gt;conf&lt;/strong&gt; folder, create 2 files:&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;conf/headers.yaml&lt;/strong&gt;:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http:
-  middlewares:
-    SslHeader:
-      headers:
-        FrameDeny: true
-        AccessControlAllowMethods: &apos;GET,OPTIONS,PUT&apos;
-        AccessControlAllowOriginList:
-          - origin-list-or-null
-        AccessControlMaxAge: 100
-        AddVaryHeader: true
-        BrowserXssFilter: true
-        ContentTypeNosniff: true
-        ForceSTSHeader: true
-        STSIncludeSubdomains: true
-        STSPreload: true
-        ContentSecurityPolicy: default-src &apos;self&apos; &apos;unsafe-inline&apos;
-        CustomFrameOptionsValue: SAMEORIGIN
-        ReferrerPolicy: same-origin
-        PermissionsPolicy: vibrate &apos;self&apos;
-        STSSeconds: 315360000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;conf/tls.conf&lt;/strong&gt;:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tls:
-  options:
-    default:
-      minVersion: VersionTLS12
-      sniStrict: true
-      curvePreferences:
-        - CurveP521
-        - CurveP384
-      cipherSuites:
-        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-        - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;traefik.yaml&lt;/strong&gt;, &lt;strong&gt;conf/headers.yaml&lt;/strong&gt; and &lt;strong&gt;conf/tls.yaml&lt;/strong&gt; will be mounted inside traefik container.&lt;/p&gt;
-
-    &lt;h3 id=&quot;handle-passbolt-with-traefik&quot;&gt;Handle passbolt with Traefik&lt;/h3&gt;
-
-    &lt;p&gt;To make Traefik redirect incoming requests to passbolt, edit the &lt;strong&gt;passbolt&lt;/strong&gt; service as follow:&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; As traefik will handle HTTPS connexion, remove the ports definition for passbolt service&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Add docker labels to make Traefik aware of passbolt service&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
-services:
-  db:
-    ...
-  passbolt:
-    ...
-    labels:
-      traefik.enable: &quot;true&quot;
-      traefik.http.routers.passbolt-http.entrypoints: &quot;web&quot;
-      traefik.http.routers.passbolt-http.rule: &quot;Host(`passbolt.domain.tld`)&quot;
-      traefik.http.routers.passbolt-http.middlewares: &quot;SslHeader@file&quot;
-      traefik.http.routers.passbolt-https.middlewares: &quot;SslHeader@file&quot;
-      traefik.http.routers.passbolt-https.entrypoints: &quot;websecure&quot;
-      traefik.http.routers.passbolt-https.rule: &quot;Host(`passbolt.domain.tld`)&quot;
-      traefik.http.routers.passbolt-https.tls: &quot;true&quot;
-      traefik.http.routers.passbolt-https.tls.certresolver: &quot;letsencrypt&quot;
-  traefik:
-    ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        Ensure you have correctly set your domain name (replace passbolt.domain.tld with your own in the example above).
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;non-root-images&quot;&gt;non-root images&lt;/h2&gt;
-
-    &lt;p&gt;If you are using non-root images, add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;loadbalancer.server.port&lt;/code&gt; label to make traefik aware of the to be used port for passbolt service:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
-services:
-  db:
-    ...
-  passbolt:
-    ...
-    labels:
-      ...
-      traefik.http.services.passbolt-https.loadbalancer.server.port: 8080
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;thats-it&quot;&gt;That’s it&lt;/h2&gt;
-
-    &lt;p&gt;Launch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose up -d&lt;/code&gt; and you should be able to reach passbolt with HTTPS and a Let’s Encrypt certificate.
-The renewal of the certificate will be handled automatically by Traefik daemon.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-December
-30th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="docker" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Docker</title><link href="https://help.passbolt.com/configure/https/ce/docker/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Docker" /><published>2021-12-30T01:00:00+01:00</published><updated>2021-12-30T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/https/ce/docker/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/docker/auto.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        If you are migrating your passbolt instance from HTTP to HTTPS, you must ensure &lt;b&gt;all of your users have a backup of their private key&lt;/b&gt;.&lt;br /&gt;
-    As for passbolt browser extension, domain will change from HTTP to HTTPS, it will trigger &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;an account recovery&lt;/a&gt;&lt;/b&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
-    order to work with let’s encrypt.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/hosting/install/ce/docker.html&quot;&gt;docker setup with docker-compose&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;A domain name reachable over the internet&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h3 id=&quot;add-traefik-service-to-handle-https&quot;&gt;Add traefik service to handle https&lt;/h3&gt;
-
-    &lt;p&gt;If you have followed &lt;a href=&quot;/hosting/install/ce/docker.html&quot;&gt;our installation documentation&lt;/a&gt;, you should have defined &lt;strong&gt;db&lt;/strong&gt; and &lt;strong&gt;passbolt&lt;/strong&gt; services for your passbolt stack.&lt;/p&gt;
-
-    &lt;p&gt;To handle HTTPS setup with Let’s Encrypt, add a traefik service as follow:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
-services:
-  db:
-    ...
-  passbolt:
-    ...
-  traefik:
-    image: traefik:2.6
-    restart: always
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./traefik.yaml:/traefik.yaml:ro
-      - ./conf/:/etc/traefik/conf
-      - ./shared/:/shared
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Traefik will:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;act as a proxy in front of passbolt service, that’s why we defined ports 80 and 443.&lt;/li&gt;
-      &lt;li&gt;handle Let’s Encrypt certificates renew.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h3 id=&quot;configuration-files&quot;&gt;configuration files&lt;/h3&gt;
-
-    &lt;p&gt;Create a &lt;strong&gt;traefik.yaml&lt;/strong&gt; configuration file with this content (replace yourname@domain.tld with your email for Let’s Encrypt):&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;global:
-  sendAnonymousUsage: false
-log:
-  level: INFO
-  format: common
-providers:
-  docker:
-    endpoint: &apos;unix:///var/run/docker.sock&apos;
-    watch: true
-    exposedByDefault: true
-    swarmMode: false
-  file:
-    directory: /etc/traefik/conf/
-    watch: true
-api:
-  dashboard: false
-  debug: false
-  insecure: false
-entryPoints:
-  web:
-    address: &apos;:80&apos;
-    http:
-      redirections:
-        entryPoint:
-          to: websecure
-          scheme: https
-          permanent: true
-  websecure:
-    address: &apos;:443&apos;
-certificatesResolvers:
-  letsencrypt:
-    acme:
-      email: yourname@domain.tld
-      storage: /shared/acme.json
-      caServer: &apos;https://acme-v02.api.letsencrypt.org/directory&apos;
-      keyType: EC256
-      httpChallenge:
-        entryPoint: web
-      tlsChallenge: {}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Create a &lt;strong&gt;conf&lt;/strong&gt; folder:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;In the &lt;strong&gt;conf&lt;/strong&gt; folder, create 2 files:&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;conf/headers.yaml&lt;/strong&gt;:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http:
-  middlewares:
-    SslHeader:
-      headers:
-        FrameDeny: true
-        AccessControlAllowMethods: &apos;GET,OPTIONS,PUT&apos;
-        AccessControlAllowOriginList:
-          - origin-list-or-null
-        AccessControlMaxAge: 100
-        AddVaryHeader: true
-        BrowserXssFilter: true
-        ContentTypeNosniff: true
-        ForceSTSHeader: true
-        STSIncludeSubdomains: true
-        STSPreload: true
-        ContentSecurityPolicy: default-src &apos;self&apos; &apos;unsafe-inline&apos;
-        CustomFrameOptionsValue: SAMEORIGIN
-        ReferrerPolicy: same-origin
-        PermissionsPolicy: vibrate &apos;self&apos;
-        STSSeconds: 315360000
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;conf/tls.conf&lt;/strong&gt;:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tls:
-  options:
-    default:
-      minVersion: VersionTLS12
-      sniStrict: true
-      curvePreferences:
-        - CurveP521
-        - CurveP384
-      cipherSuites:
-        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-        - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;traefik.yaml&lt;/strong&gt;, &lt;strong&gt;conf/headers.yaml&lt;/strong&gt; and &lt;strong&gt;conf/tls.yaml&lt;/strong&gt; will be mounted inside traefik container.&lt;/p&gt;
-
-    &lt;h3 id=&quot;handle-passbolt-with-traefik&quot;&gt;Handle passbolt with Traefik&lt;/h3&gt;
-
-    &lt;p&gt;To make Traefik redirect incoming requests to passbolt, edit the &lt;strong&gt;passbolt&lt;/strong&gt; service as follow:&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; As traefik will handle HTTPS connexion, remove the ports definition for passbolt service&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Add docker labels to make Traefik aware of passbolt service&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
-services:
-  db:
-    ...
-  passbolt:
-    ...
-    labels:
-      traefik.enable: &quot;true&quot;
-      traefik.http.routers.passbolt-http.entrypoints: &quot;web&quot;
-      traefik.http.routers.passbolt-http.rule: &quot;Host(`passbolt.domain.tld`)&quot;
-      traefik.http.routers.passbolt-http.middlewares: &quot;SslHeader@file&quot;
-      traefik.http.routers.passbolt-https.middlewares: &quot;SslHeader@file&quot;
-      traefik.http.routers.passbolt-https.entrypoints: &quot;websecure&quot;
-      traefik.http.routers.passbolt-https.rule: &quot;Host(`passbolt.domain.tld`)&quot;
-      traefik.http.routers.passbolt-https.tls: &quot;true&quot;
-      traefik.http.routers.passbolt-https.tls.certresolver: &quot;letsencrypt&quot;
-  traefik:
-    ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        Ensure you have correctly set your domain name (replace passbolt.domain.tld with your own in the example above).
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;non-root-images&quot;&gt;non-root images&lt;/h2&gt;
-
-    &lt;p&gt;If you are using non-root images, add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;loadbalancer.server.port&lt;/code&gt; label to make traefik aware of the to be used port for passbolt service:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
-services:
-  db:
-    ...
-  passbolt:
-    ...
-    labels:
-      ...
-      traefik.http.services.passbolt-https.loadbalancer.server.port: 8080
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;thats-it&quot;&gt;That’s it&lt;/h2&gt;
-
-    &lt;p&gt;Launch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;docker-compose up -d&lt;/code&gt; and you should be able to reach passbolt with HTTPS and a Let’s Encrypt certificate.
-The renewal of the certificate will be handled automatically by Traefik daemon.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-December
-30th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="docker" /><summary type="html"></summary></entry><entry><title type="html">Update my database credentials</title><link href="https://help.passbolt.com/configure/database/credentials.html" rel="alternate" type="text/html" title="Update my database credentials" /><published>2021-12-16T01:00:00+01:00</published><updated>2021-12-16T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/database/credentials</id><content type="html" xml:base="https://help.passbolt.com/configure/database/credentials.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;with-package-installation-debian-ubuntu-rpm&quot;&gt;With package installation (Debian, Ubuntu, RPM)&lt;/h2&gt;
-
-    &lt;p&gt;Open &lt;strong&gt;/etc/passbolt/passbolt.php&lt;/strong&gt; file and edit the &lt;strong&gt;Datasources&lt;/strong&gt; block:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(...)
-    // Database configuration.
-    &apos;Datasources&apos; =&amp;gt; [
-        &apos;default&apos; =&amp;gt; [
-            &apos;host&apos; =&amp;gt; &apos;127.0.0.1&apos;,
-            &apos;port&apos; =&amp;gt; &apos;3306&apos;,
-            &apos;username&apos; =&amp;gt; &apos;passbolt&apos;,
-            &apos;password&apos; =&amp;gt; &apos;password&apos;,
-            &apos;database&apos; =&amp;gt; &apos;passboltdb&apos;,
-        ],
-    ],
-(...)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Save and quit.&lt;/p&gt;
-
-    &lt;h2 id=&quot;from-source-installation&quot;&gt;From source installation&lt;/h2&gt;
-
-    &lt;p&gt;It is the same block to edit than the package installation, but passbolt configuration file is located on &lt;strong&gt;/var/www/passbolt/config/passbolt.php&lt;/strong&gt;&lt;/p&gt;
-
-    &lt;h2 id=&quot;with-docker-installation&quot;&gt;With docker installation&lt;/h2&gt;
-
-    &lt;p&gt;Database credentials are set in environment variables and you need to edit them for each container:&lt;/p&gt;
-
-    &lt;p&gt;For mariadb container:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;MYSQL_DATABASE: &quot;passboltdb&quot;
-MYSQL_USER: &quot;passbolt&quot;
-MYSQL_PASSWORD: &quot;very-strong-password&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;For passbolt container:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DATASOURCES_DEFAULT_DATABASE: &quot;passboltdb&quot;
-DATASOURCES_DEFAULT_USERNAME: &quot;passbolt&quot;
-DATASOURCES_DEFAULT_PASSWORD: &quot;very-strong-password&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-December
-16th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="database" /><summary type="html"></summary></entry><entry><title type="html">How to configure HTTPS with RPM package</title><link href="https://help.passbolt.com/configure/https/pro/rpm.html" rel="alternate" type="text/html" title="How to configure HTTPS with RPM package" /><published>2021-12-16T01:00:00+01:00</published><updated>2021-12-16T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/https/pro/rpm</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/rpm.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
-Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;If you are reconfiguring passbolt you most likely want to say &lt;strong&gt;‘NO’&lt;/strong&gt; to the mariadb or havaged setup questions and go for the nginx setup&lt;/p&gt;
-
-    &lt;h4 id=&quot;mariadb--nginx--ssl-settings&quot;&gt;MariaDB / Nginx / SSL settings&lt;/h4&gt;
-
-    &lt;p&gt;Passbolt PRO RPM package on   come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.&lt;/p&gt;
-
-    &lt;p&gt;You must prepare beforehand your SSL certificates before launching the tool. Be sure to write down the full path to your cert/key combo, as it will be needed in the nginx configuration process.&lt;/p&gt;
-
-    &lt;p&gt;Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.&lt;/p&gt;
-
-    &lt;p&gt;Launch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-configure&lt;/code&gt; tool and answer to the questions:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /usr/local/bin/passbolt-configure
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;nginx&quot;&gt;Nginx&lt;/h4&gt;
-
-    &lt;p&gt;Please enter the domain name under which passbolt will run.&lt;/p&gt;
-
-    &lt;p&gt;Note this hostname will be used as server_name for nginx and as the domain name to register a SSL certificate with let’s encrypt if you don’t have your own SSL certificates.&lt;/p&gt;
-
-    &lt;p&gt;If you don’t have a domain name and you do not plan to use let’s encrypt please enter the ip address to access this machine.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=========
-Hostname: passbolt.domain.tld
-=========
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;ssl-configuration&quot;&gt;SSL configuration&lt;/h4&gt;
-
-    &lt;p&gt;3 available choices for SSL configuration:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;manual: Prompts for the path of user uploaded ssl certificates and set up nginx&lt;/li&gt;
-      &lt;li&gt;auto:   Will issue a free SSL certificate with https://www.letsencrypt.org and set up nginx&lt;/li&gt;
-      &lt;li&gt;none:   Do not setup HTTPS at all&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;==================
-Setting up SSL...
-==================
-1) manual
-2) auto
-3) none
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you choose &lt;strong&gt;1&lt;/strong&gt;, you will be prompted for the full path of your certificates:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Enter the path to the SSL certificate: /path/to/certs/cert.pem
-Enter the path to the SSL privkey: /path/to/certs/key.pem
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the Passbolt web interface to finish the configuration.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;===============================================================
-Installation is almost complete. Please point your browser to
-  https://passbolt.domain.tld to complete the process
-===============================================================
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
-
-    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-December
-16th,
-2021.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="environment" /><summary type="html">Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values. Variable name Description Default value APP_BASE it allows people to specify the base subdir the application is running in null APP_ENCODING Set text encoding &apos;UTF-8&apos; APP_DEFAULT_LOCALE Set default locale &apos;en_US&apos; APP_FULL_BASE_URL Passbolt base url &apos;false&apos; DATASOURCES_DEFAULT_DATABASE Database name &apos;&apos; DATASOURCES_DEFAULT_HOST Database hostname &apos;localhost&apos; DATASOURCES_DEFAULT_PORT Database port 3306 DATASOURCES_DEFAULT_URL Database url &apos;&apos; DATASOURCES_DEFAULT_PASSWORD Database password &apos;&apos; DATASOURCES_DEFAULT_SSL_KEY Database SSL Key &apos;&apos; DATASOURCES_DEFAULT_SSL_CERT Database SSL Cert &apos;&apos; DATASOURCES_DEFAULT_SSL_CA Database SSL CA &apos;&apos; DATASOURCES_DEFAULT_USERNAME Database username &apos;&apos; DEBUG Debug mode &apos;false&apos; EMAIL_TRANSPORT_DEFAULT_CLASS_NAME Email classname &apos;Smtp&apos; EMAIL_DEFAULT_FROM_NAME From email username &apos;Passbolt&apos; EMAIL_DEFAULT_FROM From email address &apos;you@localhost&apos; EMAIL_DEFAULT_TRANSPORT Sets transport method &apos;default&apos; EMAIL_TRANSPORT_DEFAULT_HOST Server hostname &apos;localhost&apos; EMAIL_TRANSPORT_DEFAULT_PORT Server port 25 EMAIL_TRANSPORT_DEFAULT_TIMEOUT Timeout 30 EMAIL_TRANSPORT_DEFAULT_USERNAME Username for email server auth null EMAIL_TRANSPORT_DEFAULT_PASSWORD Password for email server auth null EMAIL_TRANSPORT_DEFAULT_CLIENT Client null EMAIL_TRANSPORT_DEFAULT_TLS Set tls null EMAIL_TRANSPORT_DEFAULT_URL Set url null GNUPGHOME path to gnupghome directory &apos;/home/www-data/.gnupg&apos; PASSBOLT_AUTH_TOKEN_EXPIRY Passbolt authorization token expiration &apos;3 days&apos; PASSBOLT_AUTH_REGISTER_TOKEN_EXPIRY Passbolt authorization registration token expiration &apos;10 days&apos; PASSBOLT_AUTH_RECOVER_TOKEN_EXPIRY Passbolt authorization recover token expiration &apos;1 day&apos; PASSBOLT_AUTH_LOGIN_TOKEN_EXPIRY Passbolt authorization token login expiration &apos;5 minutes&apos; PASSBOLT_AUTH_MOBILE_TRANSFER_TOKEN_EXPIRY Passbolt mobile transfer token expiration &apos;5 minutes&apos; PASSBOLT_AUTH_JWT_REFRESH_TOKEN Passbolt authorization JWT refresh token &apos;1 month&apos; PASSBOLT_AUTH_JWT_ACCESS_TOKEN Passbolt authorization JWT access token &apos;5 minutes&apos; PASSBOLT_AUTH_JWT_VERIFY_TOKEN Passbolt authorization JWT verify token &apos;1 hour&apos; PASSBOLT_GPG_SERVER_KEY_FINGERPRINT GnuPG fingerprint null PASSBOLT_GPG_SERVER_KEY_PUBLIC Path to GnuPG public server key &apos;/etc/passbolt/gpg/serverkey.asc&apos; PASSBOLT_GPG_SERVER_KEY_PRIVATE Path to GnuPG private server key &apos;/etc/passbolt/gpg/serverkey_private.asc&apos; PASSBOLT_JS_BUILD passbolt.js type of build ‘development’ or ‘production’ &apos;production&apos; PASSBOLT_LEGAL_PRIVACYPOLICYURL Set legal policy URL &apos;&apos; PASSBOLT_LEGAL_TERMSURL Set legal terms URL &apos;https://www.passbolt.com/terms&apos; PASSBOLT_META_DESCRIPTION Set html meta description for the site &apos;Open source password manager for teams&apos; PASSBOLT_META_ROBOTS Search engines indexing parameters &apos;noindex, nofollow&apos; PASSBOLT_META_TITLE Set html meta title for &apos;Passbolt&apos; PASSBOLT_PLUGINS_EXPORT_ENABLED Enable export plugin true PASSBOLT_PLUGINS_IMPORT_ENABLED Enable import plugin true PASSBOLT_PLUGINS_IN_FORM_INTEGRATION_ENABLED Enable Passbolt icon in web forms true PASSBOLT_PLUGINS_PASSWORD_GENERATOR_DEFAULT_GENERATOR Default password generator (can be password or passphrase) password PASSBOLT_PLUGINS_PASSWORD_GENERATOR_ENABLED Enable password generator plugin true PASSBOLT_PLUGINS_PREVIEW_PASSWORD_ENABLED Enable password generator preview true PASSBOLT_PLUGINS_MOBILE_ENABLED Enable mobile plugin true PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED Enable jwt authentication plugin true PASSBOLT_REGISTRATION_PUBLIC Defines if users can register false PASSBOLT_SECURITY_SET_HEADERS Send CSP Headers true PASSBOLT_SECURITY_CSP CSP Headers (true, false or custom CSP string) true PASSBOLT_SECURITY_COOOKIE_SECURE Set MFA cookie secure flag true PASSBOLT_SSL_FORCE Redirects http to https true SECURITY_SALT CakePHP security salt __SALT__ SESSION_DEFAULTS Session engine configuration &apos;php&apos; Last updated This article was last updated on December 30th, 2021.</summary></entry></feed>

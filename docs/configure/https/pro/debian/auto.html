@@ -250,13 +250,12 @@ Before changing the domain, you must ensure that all the users have a copy of th
     <p>If you don’t have passbolt installed please check on the <a href="/hosting/install">hosting section</a> for more information
 on how to install passbolt on debian.</p>
 
-    <p>If you have already installed passbolt or you are using our already packaged <a href="/hosting/install/pro/vm.html">virtual machine</a> or <a href="/hosting/install/ce/digital-ocean">Digital Ocean image</a> then
-you want to execute the following command to start the configuration process for SSL:</p>
+    <p>If you have already installed passbolt then you want to execute the following command to start the configuration process for SSL:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-pro-server
 </code></pre></div>    </div>
 
-    <p>If you are reconfiguring passbolt you most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup</p>
+    <p>You most likely want to say ‘NO’ to the mariadb setup question and go for the nginx setup</p>
 
     <p>Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:</p>
 

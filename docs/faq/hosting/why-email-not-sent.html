@@ -178,7 +178,7 @@ items, such as credentials, or the hostname, or the port for the selected protoc
 <p>By default passbolt is quite discrete on why a given configuration is not working. You can use the following
 command to send a test email and get more debug information (replace <strong>www-data</strong> with <strong>nginx</strong> if you are running a RHEL-like server, or <strong>wwwrun</strong> in case you are using openSUSE):</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> www-data <span class="nt">-u</span> bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt send_test_email --recipient=youremail@domain.com"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt send_test_email --recipient=youremail@domain.com"</span>
 </code></pre></div></div>
 
 <p>If this fails you should double check what is the recommended configuration in your email provider documentation.
@@ -220,7 +220,7 @@ one of the reason may be that the cron service is stopped.</p>
 <p>It is possible that the wrong version of the data model is stored in the cache. This can happen
 if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this(replace <strong>www-data</strong> with <strong>nginx</strong> if you are running a RHEL-like server, or <strong>wwwrun</strong> in case you are using openSUSE).</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H www-data -u bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 </code></pre></div></div>
 
 <h3 id="reason-5-gmail-smtp-relay-not-accepting-localhost-as-ehlo">Reason 5: Gmail SMTP-Relay not accepting ‘localhost’ as EHLO</h3>

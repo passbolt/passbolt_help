@@ -19,7 +19,7 @@ By default passbolt is quite discrete on why a given configuration is not workin
 command to send a test email and get more debug information (replace **www-data** with **nginx** if you are running a RHEL-like server, or **wwwrun** in case you are using openSUSE):
 
 ```shell
-$ sudo -H www-data -u bash -c "/usr/share/php/passbolt/bin/cake passbolt send_test_email --recipient=youremail@domain.com"
+$ sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake passbolt send_test_email --recipient=youremail@domain.com"
 ```
 
 If this fails you should double check what is the recommended configuration in your email provider documentation.
@@ -65,7 +65,7 @@ It is possible that the wrong version of the data model is stored in the cache. 
 if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this(replace **www-data** with **nginx** if you are running a RHEL-like server, or **wwwrun** in case you are using openSUSE).
 
 ```
-sudo -H www-data -u bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
+sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 ```
 
 ### Reason 5: Gmail SMTP-Relay not accepting 'localhost' as EHLO

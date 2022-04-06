@@ -2,7 +2,7 @@ Passbolt Amazon Machine Image (AMI) provides a ready to use passbolt image that 
 use for free on your Amazon Web Services infrastructure.
 The AMI includes the following software:
 
-- Debian 10
+- Debian 11
 - Nginx
 - Php-fpm
 - Mariadb

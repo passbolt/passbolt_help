@@ -54,4 +54,4 @@ services:
       - ./certs/key.pem:/etc/passbolt/certs/certificate.key:ro
 ```
 
-You can know more about how to setup https on docker on the [https configuration section](/configure/https/).
+You can know more about how to setup https on docker on the [https configuration section](/configure/https).

@@ -7,4 +7,4 @@ permalink: /faq/hosting/:slug
 date: 2021-12-27 00:00:00 Z
 ---
 
-You will find documentation about how to configure https [by clicking here](/configure/https/)
+You will find documentation about how to configure https [by clicking here](/configure/https)

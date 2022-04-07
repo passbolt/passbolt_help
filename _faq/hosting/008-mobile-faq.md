@@ -42,7 +42,7 @@ Of course, replace `-subj` values with your own. It is important to set your pas
 
 ### How to import my self-signed certificate ?
 
-Once [your self-signed certificate configured](/configure/https/){:target="_blank"}, [import it in your mobile](/faq/hosting/how-to-import-ssl-certificate-on-mobile){:target="_blank"}.
+Once [your self-signed certificate configured](/configure/https){:target="_blank"}, [import it in your mobile](/faq/hosting/how-to-import-ssl-certificate-on-mobile){:target="_blank"}.
 
 ## Can I use 2FA ?
 

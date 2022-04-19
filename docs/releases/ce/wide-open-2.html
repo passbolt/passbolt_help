@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Wide Open</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This release contains some important package changes that needs to be done before the 18th of May 2022. Make sure your follow the guide below. This release c...">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Wide Open" />
+    <meta property="og:description" content="This release contains some important package changes that needs to be done before the 18th of May 2022. Make sure your follow the guide below. This release c..." />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/wide-open-2">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.5.0-2.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help scrollspy" role="navigation">
+                <ul class="nav">
+                    <li><h2>Last releases (ce)</h2></li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="selected">
+                        <a href="https://help.passbolt.com/releases/ce/wide-open-2" >v3.5.0-2</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/wide-open" >v3.5.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/black-sunrise" >v3.4.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/senior-elfo" >v3.3.0</a>
+                    </li>
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/la-cle-des-champs" >v3.2.0</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/ce/love-over-entropy-sea" >v3.1.0</a>
+                    </li>
+                    
+                    
+                    <li>
+                        <a href="https://help.passbolt.com/releases" >all releases</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="margin:1em;">
+                <a href="https://help.passbolt.com/releases/ce.rss" class="primary button">
+                    <i class="fa fa-rss fa-fw"></i>RSS feed</a>
+            </div>
+        </div>
+        <div class="panel middle">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row">
+                        <div class="col7">
+                            <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases"><span>releases</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/ce"><span>ce</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/releases/ce/wide-open-2"><span>wide-open</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                            <h1>v3.5.0-2 ~ Wide Open (ce)</h1>
+                            <p>Release date: 
+April
+13th,
+2022.
+</p>
+                            <div class="message warning">
+    <p>
+        This release contains some important package changes that needs to be done before the <strong>18th of May 2022</strong>. Make sure your follow the guide below.
+    </p>
+    
+</div>
+
+<p>This release contains some important changes to the packages for Passbolt API. 
+If you installed passbolt from source or using docker, you are not affected.</p>
+
+<p>If you use the DEB (Debian, Ubuntu) or RPM (Centos, RedHat, Rocky, etc.) packages keep reading.</p>
+
+<h2 id="the-package-signing-key-was-updated">The package signing key was updated</h2>
+
+<p>As some of you may have noticed, the public key we are currently using to verify the signature of the package expires 
+on the 18th of May 2022. We needed to update it to remove the expiry date.</p>
+
+<p>The fingerprint stays the same: <code class="language-plaintext highlighter-rouge">3D1A 0346 C8E1 802F 774A EF21 DE8b 853F C155 581D</code>.</p>
+
+<h3 id="debian-and-ubuntu-packages">Debian and Ubuntu Packages</h3>
+
+<p>In order to make this change as smooth as possible, we released a new version of our debian package on the 13th of 
+April 2022 containing the mechanism to pull the new key and replace the old one with it.</p>
+
+<p>This is why we recommend all debian/ubuntu passbolt package users to apply this update by
+following the regular documentations:</p>
+<ul>
+  <li><a href="/hosting/update/debian-package">Update passbolt on debian</a></li>
+  <li><a href="/hosting/update/ubuntu-package">Update passbolt on ubuntu</a>.</li>
+</ul>
+
+<p>As usual, do not forget to make a backup of your passbolt instance. You can check the documentation that will guide
+you through this process:</p>
+<ul>
+  <li><a href="/hosting/backup">Backing up a passbolt package installation</a>.</li>
+</ul>
+
+<h3 id="what-if-i-dont-update-on-time">What if I don’t update on time?</h3>
+<p>If you don’t do this update, you might encounter this error next time you will try to update your passbolt instance:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Err:1 https://download.passbolt.com/pro/ubuntu focal InRelease
+The following signatures were invalid: EXPKEYSIG DE8B853FC155581D
+</code></pre></div></div>
+
+<p>You will then have to do pull the new key manually by using this command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -s https://download.passbolt.com/pub.key |\
+gpg --dearmor | tee /usr/share/keyrings/passbolt-repository.gpg &gt; /dev/null
+chmod 644 /usr/share/keyrings/passbolt-repository.gpg
+</code></pre></div></div>
+
+<h3 id="centos-redhat-and-rpm-packages">Centos, RedHat and RPM Packages</h3>
+
+<p>For the RPM users, we didn’t publish this fix as the checking of the expiration date on the package signature 
+keys isn’t implemented on RPM distros. In any case you should still pull the updated key.</p>
+
+<p>You can use this one-line command that will do it for you:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rpm -e $(rpm -q gpg-pubkey --qf ‘%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n’ | awk ‘/contact@passbolt.com/ {print $1}’) &amp;&amp; yum clean expire-cache
+</code></pre></div></div>
+
+<p>This command will erase the current key and next time you will update your passbolt instance RPM will automatically 
+pull the new key. It will prompt you this message:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Public key for passbolt-pro-server-*.noarch.rpm is not installed
+passbolt-pro-server-*.noarch.rpm    | 9.8 MB  00:00:00
+Retrieving key from https://download.passbolt.com/pub.key
+Importing GPG key 0xC155581D:
+Userid     : "Passbolt SA package signing key &lt;contact@passbolt.com&gt;"
+Fingerprint: 3d1a 0346 c8e1 802f 774a ef21 de8b 853f c155 581d
+From       : https://download.passbolt.com/pub.key
+Is this ok [y/N]:
+</code></pre></div></div>
+
+<p>You will just have to accept this change and it will import the new key in the RPM database for you.</p>
+
+<p>That’s it. Thank you for your understanding and for your continued support!
+Feel free to get in touch with us on the <a href="https://community.passbolt.com">community forum</a> or,
+if you are a customer, at <a href="mailto:support@passbolt.com">support@passbolt.com</a>.</p>
+
+<h3 id="changelog">Changelog</h3>
+<ul>
+  <li>PB-13923 Update the repository key to sign packages</li>
+  <li>PB-13749 Update firewalld install check</li>
+  <li>PB-13743 Fix bad condition logic so setup firewalld</li>
+  <li>PB-13650 Delete jwt folder only while uninstalling</li>
+  <li>PB-13783 Update selinux policy RPM package</li>
+</ul>
+
+
+                        </div>
+                        <div class="col5 last">
+                            <div class="tldr" style="margin-top:3em;">
+                                <p>"Wide Open"</p>
+                                <a href="https://youtu.be/BC2dRkm8ATU" target="_blank" rel="noopener nofollow" class="button primary">
+                                    <i class="fa fa-music"></i>
+                                    <span class="visuallyhidden">Listen to the release song!</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+</div>
+<script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

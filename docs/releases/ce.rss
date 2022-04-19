@@ -12,7 +12,7 @@
     <title>v3.5.0-2 | Wide Open</title>
     <link>https://help.passbolt.com/releases/ce/wide-open-2</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/wide-open-2</guid>
-    <description>This release contains some important package changes that needs to be done before the 18th of May 2022. Make sure your follow the guide bellow. This release contains some important changes to the packages form Passbolt API. If you installed passbolt from source or using docker, you are not affected....</description>
+    <description>This release contains some important package changes that needs to be done before the 18th of May 2022. Make sure your follow the guide below. This release contains some important changes to the packages for Passbolt API. If you installed passbolt from source or using docker, you are not affected....</description>
     <pubDate>Wed, 13 Apr 2022 02:00:00 +0200</pubDate>
 </item>
 

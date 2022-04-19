@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-04-07T11:53:26+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/pro/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-04-19T14:36:18+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/pro/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -543,7 +543,7 @@ February
 
     &lt;p&gt;In the same location of your docker-compose.yaml file, create a subscription_key.txt file containing your passbolt subscription key, and add a new volume definition in your docker-compose.yaml file:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: '3.7'
 services:
   db:
     ...
@@ -687,16 +687,16 @@ you gathered in the previous steps. Click “save settings” when you are done.
 
     &lt;p&gt;In your install directory you can add the following section in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/passbolt.php&lt;/code&gt;&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&apos;plugins&apos; =&amp;gt; [
-    &apos;multiFactorAuthentication&apos; =&amp;gt; [
-        &apos;providers&apos; =&amp;gt; [
-            &apos;totp&apos; =&amp;gt; true,
-            &apos;duo&apos; =&amp;gt; false,
-            &apos;yubikey&apos; =&amp;gt; true
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;'plugins' =&amp;gt; [
+    'multiFactorAuthentication' =&amp;gt; [
+        'providers' =&amp;gt; [
+            'totp' =&amp;gt; true,
+            'duo' =&amp;gt; false,
+            'yubikey' =&amp;gt; true
         ],
-        &apos;yubikey&apos; =&amp;gt; [
-            &apos;clientId&apos; =&amp;gt; &apos;01234&apos;,
-            &apos;secretKey&apos; =&amp;gt; &apos;xx/xxxxxx/xxxxxxxxxxxx=&apos;
+        'yubikey' =&amp;gt; [
+            'clientId' =&amp;gt; '01234',
+            'secretKey' =&amp;gt; 'xx/xxxxxx/xxxxxxxxxxxx='
         ]
     ]
 ]
@@ -794,7 +794,7 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk &apos;{print $1}&apos;)&quot; = &quot;84a7ecf5d42a729f6e015de72f9aef1fabbae13e133ff802491bb9d18950d1d6&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;84a7ecf5d42a729f6e015de72f9aef1fabbae13e133ff802491bb9d18950d1d6&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1106,7 +1106,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk &apos;{print $1}&apos;)&quot; = &quot;215b8bc3e2e78d720f6c47079f0aae36eb64c257de5b3fc86aefb391f8cf24a9&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;215b8bc3e2e78d720f6c47079f0aae36eb64c257de5b3fc86aefb391f8cf24a9&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1400,27 +1400,27 @@ January
         &lt;tr&gt;
           &lt;td&gt;APP_ENCODING&lt;/td&gt;
           &lt;td&gt;Set text encoding&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;UTF-8&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'UTF-8'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;APP_DEFAULT_LOCALE&lt;/td&gt;
           &lt;td&gt;Set default locale&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;en_US&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'en_US'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;APP_FULL_BASE_URL&lt;/td&gt;
           &lt;td&gt;Passbolt base url&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;false&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'false'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_DATABASE&lt;/td&gt;
           &lt;td&gt;Database name&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_HOST&lt;/td&gt;
           &lt;td&gt;Database hostname&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;localhost&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'localhost'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_PORT&lt;/td&gt;
@@ -1430,62 +1430,62 @@ January
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_URL&lt;/td&gt;
           &lt;td&gt;Database url&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_PASSWORD&lt;/td&gt;
           &lt;td&gt;Database password&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_SSL_KEY&lt;/td&gt;
           &lt;td&gt;Database SSL Key&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_SSL_CERT&lt;/td&gt;
           &lt;td&gt;Database SSL Cert&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_SSL_CA&lt;/td&gt;
           &lt;td&gt;Database SSL CA&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DATASOURCES_DEFAULT_USERNAME&lt;/td&gt;
           &lt;td&gt;Database username&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;DEBUG&lt;/td&gt;
           &lt;td&gt;Debug mode&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;false&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'false'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_CLASS_NAME&lt;/td&gt;
           &lt;td&gt;Email classname&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;Smtp&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'Smtp'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;EMAIL_DEFAULT_FROM_NAME&lt;/td&gt;
           &lt;td&gt;From email username&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;Passbolt&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'Passbolt'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;EMAIL_DEFAULT_FROM&lt;/td&gt;
           &lt;td&gt;From email address&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;you@localhost&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'you@localhost'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;EMAIL_DEFAULT_TRANSPORT&lt;/td&gt;
           &lt;td&gt;Sets transport method&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;default&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'default'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_HOST&lt;/td&gt;
           &lt;td&gt;Server hostname&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;localhost&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'localhost'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_PORT&lt;/td&gt;
@@ -1525,47 +1525,47 @@ January
         &lt;tr&gt;
           &lt;td&gt;GNUPGHOME&lt;/td&gt;
           &lt;td&gt;path to gnupghome directory&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;/home/www-data/.gnupg&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'/home/www-data/.gnupg'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_TOKEN_EXPIRY&lt;/td&gt;
           &lt;td&gt;Passbolt authorization token expiration&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;3 days&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'3 days'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_REGISTER_TOKEN_EXPIRY&lt;/td&gt;
           &lt;td&gt;Passbolt authorization registration token expiration&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;10 days&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'10 days'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_RECOVER_TOKEN_EXPIRY&lt;/td&gt;
           &lt;td&gt;Passbolt authorization recover token expiration&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;1 day&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'1 day'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_LOGIN_TOKEN_EXPIRY&lt;/td&gt;
           &lt;td&gt;Passbolt authorization token login expiration&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;5 minutes&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'5 minutes'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_MOBILE_TRANSFER_TOKEN_EXPIRY&lt;/td&gt;
           &lt;td&gt;Passbolt mobile transfer token expiration&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;5 minutes&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'5 minutes'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_JWT_REFRESH_TOKEN&lt;/td&gt;
           &lt;td&gt;Passbolt authorization JWT refresh token&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;1 month&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'1 month'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_JWT_ACCESS_TOKEN&lt;/td&gt;
           &lt;td&gt;Passbolt authorization JWT access token&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;5 minutes&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'5 minutes'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_AUTH_JWT_VERIFY_TOKEN&lt;/td&gt;
           &lt;td&gt;Passbolt authorization JWT verify token&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;1 hour&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'1 hour'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_GPG_SERVER_KEY_FINGERPRINT&lt;/td&gt;
@@ -1575,42 +1575,42 @@ January
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_GPG_SERVER_KEY_PUBLIC&lt;/td&gt;
           &lt;td&gt;Path to GnuPG public server key&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;/etc/passbolt/gpg/serverkey.asc&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'/etc/passbolt/gpg/serverkey.asc'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_GPG_SERVER_KEY_PRIVATE&lt;/td&gt;
           &lt;td&gt;Path to GnuPG private server key&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;/etc/passbolt/gpg/serverkey_private.asc&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'/etc/passbolt/gpg/serverkey_private.asc'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_JS_BUILD&lt;/td&gt;
           &lt;td&gt;passbolt.js type of build ‘development’ or ‘production’&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;production&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'production'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_LEGAL_PRIVACYPOLICYURL&lt;/td&gt;
           &lt;td&gt;Set legal policy URL&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;''&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_LEGAL_TERMSURL&lt;/td&gt;
           &lt;td&gt;Set legal terms URL&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;https://www.passbolt.com/terms&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'https://www.passbolt.com/terms'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_META_DESCRIPTION&lt;/td&gt;
           &lt;td&gt;Set html meta description for the site&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;Open source password manager for teams&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'Open source password manager for teams'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_META_ROBOTS&lt;/td&gt;
           &lt;td&gt;Search engines indexing parameters&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;noindex, nofollow&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'noindex, nofollow'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_META_TITLE&lt;/td&gt;
           &lt;td&gt;Set html meta title for&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;Passbolt&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'Passbolt'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
           &lt;td&gt;PASSBOLT_PLUGINS_EXPORT_ENABLED&lt;/td&gt;
@@ -1685,7 +1685,7 @@ January
         &lt;tr&gt;
           &lt;td&gt;SESSION_DEFAULTS&lt;/td&gt;
           &lt;td&gt;Session engine configuration&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;php&apos;&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;'php'&lt;/code&gt;&lt;/td&gt;
         &lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
@@ -1702,4 +1702,4 @@ December
   &lt;div class=&quot;col4 last push1&quot;&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="environment" /><summary type="html">Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values. Variable name Description Default value APP_BASE it allows people to specify the base subdir the application is running in null APP_ENCODING Set text encoding &apos;UTF-8&apos; APP_DEFAULT_LOCALE Set default locale &apos;en_US&apos; APP_FULL_BASE_URL Passbolt base url &apos;false&apos; DATASOURCES_DEFAULT_DATABASE Database name &apos;&apos; DATASOURCES_DEFAULT_HOST Database hostname &apos;localhost&apos; DATASOURCES_DEFAULT_PORT Database port 3306 DATASOURCES_DEFAULT_URL Database url &apos;&apos; DATASOURCES_DEFAULT_PASSWORD Database password &apos;&apos; DATASOURCES_DEFAULT_SSL_KEY Database SSL Key &apos;&apos; DATASOURCES_DEFAULT_SSL_CERT Database SSL Cert &apos;&apos; DATASOURCES_DEFAULT_SSL_CA Database SSL CA &apos;&apos; DATASOURCES_DEFAULT_USERNAME Database username &apos;&apos; DEBUG Debug mode &apos;false&apos; EMAIL_TRANSPORT_DEFAULT_CLASS_NAME Email classname &apos;Smtp&apos; EMAIL_DEFAULT_FROM_NAME From email username &apos;Passbolt&apos; EMAIL_DEFAULT_FROM From email address &apos;you@localhost&apos; EMAIL_DEFAULT_TRANSPORT Sets transport method &apos;default&apos; EMAIL_TRANSPORT_DEFAULT_HOST Server hostname &apos;localhost&apos; EMAIL_TRANSPORT_DEFAULT_PORT Server port 25 EMAIL_TRANSPORT_DEFAULT_TIMEOUT Timeout 30 EMAIL_TRANSPORT_DEFAULT_USERNAME Username for email server auth null EMAIL_TRANSPORT_DEFAULT_PASSWORD Password for email server auth null EMAIL_TRANSPORT_DEFAULT_CLIENT Client null EMAIL_TRANSPORT_DEFAULT_TLS Set tls null EMAIL_TRANSPORT_DEFAULT_URL Set url null GNUPGHOME path to gnupghome directory &apos;/home/www-data/.gnupg&apos; PASSBOLT_AUTH_TOKEN_EXPIRY Passbolt authorization token expiration &apos;3 days&apos; PASSBOLT_AUTH_REGISTER_TOKEN_EXPIRY Passbolt authorization registration token expiration &apos;10 days&apos; PASSBOLT_AUTH_RECOVER_TOKEN_EXPIRY Passbolt authorization recover token expiration &apos;1 day&apos; PASSBOLT_AUTH_LOGIN_TOKEN_EXPIRY Passbolt authorization token login expiration &apos;5 minutes&apos; PASSBOLT_AUTH_MOBILE_TRANSFER_TOKEN_EXPIRY Passbolt mobile transfer token expiration &apos;5 minutes&apos; PASSBOLT_AUTH_JWT_REFRESH_TOKEN Passbolt authorization JWT refresh token &apos;1 month&apos; PASSBOLT_AUTH_JWT_ACCESS_TOKEN Passbolt authorization JWT access token &apos;5 minutes&apos; PASSBOLT_AUTH_JWT_VERIFY_TOKEN Passbolt authorization JWT verify token &apos;1 hour&apos; PASSBOLT_GPG_SERVER_KEY_FINGERPRINT GnuPG fingerprint null PASSBOLT_GPG_SERVER_KEY_PUBLIC Path to GnuPG public server key &apos;/etc/passbolt/gpg/serverkey.asc&apos; PASSBOLT_GPG_SERVER_KEY_PRIVATE Path to GnuPG private server key &apos;/etc/passbolt/gpg/serverkey_private.asc&apos; PASSBOLT_JS_BUILD passbolt.js type of build ‘development’ or ‘production’ &apos;production&apos; PASSBOLT_LEGAL_PRIVACYPOLICYURL Set legal policy URL &apos;&apos; PASSBOLT_LEGAL_TERMSURL Set legal terms URL &apos;https://www.passbolt.com/terms&apos; PASSBOLT_META_DESCRIPTION Set html meta description for the site &apos;Open source password manager for teams&apos; PASSBOLT_META_ROBOTS Search engines indexing parameters &apos;noindex, nofollow&apos; PASSBOLT_META_TITLE Set html meta title for &apos;Passbolt&apos; PASSBOLT_PLUGINS_EXPORT_ENABLED Enable export plugin true PASSBOLT_PLUGINS_IMPORT_ENABLED Enable import plugin true PASSBOLT_PLUGINS_IN_FORM_INTEGRATION_ENABLED Enable Passbolt icon in web forms true PASSBOLT_PLUGINS_PASSWORD_GENERATOR_DEFAULT_GENERATOR Default password generator (can be password or passphrase) password PASSBOLT_PLUGINS_PASSWORD_GENERATOR_ENABLED Enable password generator plugin true PASSBOLT_PLUGINS_PREVIEW_PASSWORD_ENABLED Enable password generator preview true PASSBOLT_PLUGINS_MOBILE_ENABLED Enable mobile plugin true PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED Enable jwt authentication plugin true PASSBOLT_REGISTRATION_PUBLIC Defines if users can register false PASSBOLT_SECURITY_SET_HEADERS Send CSP Headers true PASSBOLT_SECURITY_CSP CSP Headers (true, false or custom CSP string) true PASSBOLT_SECURITY_COOOKIE_SECURE Set MFA cookie secure flag true PASSBOLT_SSL_FORCE Redirects http to https true SECURITY_SALT CakePHP security salt __SALT__ SESSION_DEFAULTS Session engine configuration &apos;php&apos; Last updated This article was last updated on December 30th, 2021.</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="environment" /><summary type="html">Following there is a list of the environment variables supported in passbolt both PRO and CE editions with their default values. Variable name Description Default value APP_BASE it allows people to specify the base subdir the application is running in null APP_ENCODING Set text encoding 'UTF-8' APP_DEFAULT_LOCALE Set default locale 'en_US' APP_FULL_BASE_URL Passbolt base url 'false' DATASOURCES_DEFAULT_DATABASE Database name '' DATASOURCES_DEFAULT_HOST Database hostname 'localhost' DATASOURCES_DEFAULT_PORT Database port 3306 DATASOURCES_DEFAULT_URL Database url '' DATASOURCES_DEFAULT_PASSWORD Database password '' DATASOURCES_DEFAULT_SSL_KEY Database SSL Key '' DATASOURCES_DEFAULT_SSL_CERT Database SSL Cert '' DATASOURCES_DEFAULT_SSL_CA Database SSL CA '' DATASOURCES_DEFAULT_USERNAME Database username '' DEBUG Debug mode 'false' EMAIL_TRANSPORT_DEFAULT_CLASS_NAME Email classname 'Smtp' EMAIL_DEFAULT_FROM_NAME From email username 'Passbolt' EMAIL_DEFAULT_FROM From email address 'you@localhost' EMAIL_DEFAULT_TRANSPORT Sets transport method 'default' EMAIL_TRANSPORT_DEFAULT_HOST Server hostname 'localhost' EMAIL_TRANSPORT_DEFAULT_PORT Server port 25 EMAIL_TRANSPORT_DEFAULT_TIMEOUT Timeout 30 EMAIL_TRANSPORT_DEFAULT_USERNAME Username for email server auth null EMAIL_TRANSPORT_DEFAULT_PASSWORD Password for email server auth null EMAIL_TRANSPORT_DEFAULT_CLIENT Client null EMAIL_TRANSPORT_DEFAULT_TLS Set tls null EMAIL_TRANSPORT_DEFAULT_URL Set url null GNUPGHOME path to gnupghome directory '/home/www-data/.gnupg' PASSBOLT_AUTH_TOKEN_EXPIRY Passbolt authorization token expiration '3 days' PASSBOLT_AUTH_REGISTER_TOKEN_EXPIRY Passbolt authorization registration token expiration '10 days' PASSBOLT_AUTH_RECOVER_TOKEN_EXPIRY Passbolt authorization recover token expiration '1 day' PASSBOLT_AUTH_LOGIN_TOKEN_EXPIRY Passbolt authorization token login expiration '5 minutes' PASSBOLT_AUTH_MOBILE_TRANSFER_TOKEN_EXPIRY Passbolt mobile transfer token expiration '5 minutes' PASSBOLT_AUTH_JWT_REFRESH_TOKEN Passbolt authorization JWT refresh token '1 month' PASSBOLT_AUTH_JWT_ACCESS_TOKEN Passbolt authorization JWT access token '5 minutes' PASSBOLT_AUTH_JWT_VERIFY_TOKEN Passbolt authorization JWT verify token '1 hour' PASSBOLT_GPG_SERVER_KEY_FINGERPRINT GnuPG fingerprint null PASSBOLT_GPG_SERVER_KEY_PUBLIC Path to GnuPG public server key '/etc/passbolt/gpg/serverkey.asc' PASSBOLT_GPG_SERVER_KEY_PRIVATE Path to GnuPG private server key '/etc/passbolt/gpg/serverkey_private.asc' PASSBOLT_JS_BUILD passbolt.js type of build ‘development’ or ‘production’ 'production' PASSBOLT_LEGAL_PRIVACYPOLICYURL Set legal policy URL '' PASSBOLT_LEGAL_TERMSURL Set legal terms URL 'https://www.passbolt.com/terms' PASSBOLT_META_DESCRIPTION Set html meta description for the site 'Open source password manager for teams' PASSBOLT_META_ROBOTS Search engines indexing parameters 'noindex, nofollow' PASSBOLT_META_TITLE Set html meta title for 'Passbolt' PASSBOLT_PLUGINS_EXPORT_ENABLED Enable export plugin true PASSBOLT_PLUGINS_IMPORT_ENABLED Enable import plugin true PASSBOLT_PLUGINS_IN_FORM_INTEGRATION_ENABLED Enable Passbolt icon in web forms true PASSBOLT_PLUGINS_PASSWORD_GENERATOR_DEFAULT_GENERATOR Default password generator (can be password or passphrase) password PASSBOLT_PLUGINS_PASSWORD_GENERATOR_ENABLED Enable password generator plugin true PASSBOLT_PLUGINS_PREVIEW_PASSWORD_ENABLED Enable password generator preview true PASSBOLT_PLUGINS_MOBILE_ENABLED Enable mobile plugin true PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED Enable jwt authentication plugin true PASSBOLT_REGISTRATION_PUBLIC Defines if users can register false PASSBOLT_SECURITY_SET_HEADERS Send CSP Headers true PASSBOLT_SECURITY_CSP CSP Headers (true, false or custom CSP string) true PASSBOLT_SECURITY_COOOKIE_SECURE Set MFA cookie secure flag true PASSBOLT_SSL_FORCE Redirects http to https true SECURITY_SALT CakePHP security salt __SALT__ SESSION_DEFAULTS Session engine configuration 'php' Last updated This article was last updated on December 30th, 2021.</summary></entry></feed>

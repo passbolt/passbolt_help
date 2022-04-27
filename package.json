@@ -14,7 +14,7 @@
   "license": "AGPL-3.0",
   "homepage": "https://www.passbolt.com",
   "devDependencies": {
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.2",
     "grunt-contrib-copy": "^1.0.0",
     "passbolt-styleguide": "^2.13.10"
   }

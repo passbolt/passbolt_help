@@ -47,6 +47,10 @@
     content: url(../img/fa-server/fa-oraclelinux.svg);
 }
 
+.fa-fedora:before {
+    content: url(../img/fa-server/fa-fedora.svg);
+}
+
 .fa-centos:before {
     content: url(../img/fa-server/fa-centos.svg);
 }

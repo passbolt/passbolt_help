@@ -27,9 +27,9 @@ This commands will trigger an upgrade on your whole {{ distributionLabel }} syst
 $ sudo {{ distributionPackage }} update
 $ sudo {{ distributionPackage }} upgrade
 ```
-{% elsif distributionPackage == 'dnf' or distributionPackage == 'yum' %}
+{% elsif distributionPackage == 'dnf' or distributionPackage == 'yum' or distributionPackage == 'zypper' %}
 ```bash
-$ sudo {{ distributionPackage }} upgrade
+$ sudo {{ distributionPackage }} update
 ```
 {% endif %}
 ### 4. Clear the cache

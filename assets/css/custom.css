@@ -62,3 +62,7 @@
 .fa-git:before {
     content: url(../img/fa-server/fa-git.svg);
 }
+
+.fa-opensuse:before {
+    content: url(../img/fa-server/fa-opensuse.svg);
+}

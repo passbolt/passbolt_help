@@ -15,7 +15,7 @@ wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbo
 **Step 2.** Ensure that the script is valid and execute it:
 
 ```
-[ "$(sha256sum passbolt-repo-setup.{{ product }}.sh | awk '{print $1}')" = "{% if product == 'ce' %}84a7ecf5d42a729f6e015de72f9aef1fabbae13e133ff802491bb9d18950d1d6{% else %}215b8bc3e2e78d720f6c47079f0aae36eb64c257de5b3fc86aefb391f8cf24a9{% endif %}" ] && sudo bash ./passbolt-repo-setup.{{product }}.sh || echo "Bad checksum. Aborting" && rm -f passbolt-repo-setup.{{ product }}.sh
+[ "$(sha256sum passbolt-repo-setup.{{ product }}.sh | awk '{print $1}')" = "{% if product == 'ce' %}149b17bdb3920c2b6ee9134f4f50bd29f9489571e9a8ae87a0edb1ac59e8e7f5{% else %}3d3e6a50da34abe10aa9676229c21b569aca490e955b5762f2074687bca46721{% endif %}" ] && sudo bash ./passbolt-repo-setup.{{product }}.sh || echo "Bad checksum. Aborting" && rm -f passbolt-repo-setup.{{ product }}.sh
 ```
 
 {% if upgrade_from_ce_to_pro != 'yes' %}
@@ -35,5 +35,42 @@ Importing GPG key 0xC155581D:
  Fingerprint: 3D1A 0346 C8E1 802F 774A EF21 DE8B 853F C155 581D
  From       : https://download.passbolt.com/pub.key
 ```
+{% endif %}
+{% if distributionPackage == 'zypper' %}
+
+During the installation, you will be asked to accept passbolt GPG repository key. You must ensure the fingerprint is exactly the same as the one below:
+
+```
+  Repository:       Passbolt Server
+  Key Fingerprint:  3D1A 0346 C8E1 802F 774A EF21 DE8B 853F C155 581D
+  Key Name:         Passbolt SA package signing key <contact@passbolt.com>
+  Key Algorithm:    RSA 2048
+```
+
+If the fingerprint matches, trust always by answering **a** to this question:
+
+```
+Do you want to reject the key, trust temporarily, or trust always? [r/t/a/?] (r):
+```
+
+Then, you will be asked for PHP repository GPG key, ensure the fingerprint is correct and trust it always:
+
+```
+  Repository:       php
+  Key Fingerprint:  55CF 98B4 BB5B C6CC 2E24 748F 82EE 4011 CBCA 8BB5
+  Key Name:         devel:languages:php OBS Project <devel:languages:php@build.opensuse.org>
+  Key Algorithm:    DSA 1024
+```
+
+Finally, verify and trust openSUSE PHP extensions repository GPG key:
+
+```
+  Repository:       php-extensions-x86_64
+  Key Fingerprint:  A85C D7EF 5242 1152 9A7F 994A 9B41 A048 1AF1 B065
+  Key Name:         server:php:extensions OBS Project <server:php:extensions@build.opensuse.org>
+  Key Algorithm:    RSA 2048
+```
+
+
 {% endif %}
 {% endif %}

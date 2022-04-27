@@ -1,4 +1,4 @@
-{% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}
+{% if distributionPackage == 'dnf' or distributionPackage == 'yum' or distributionPackage == 'zypper' %}
 {% include configure/configure-rpm-package.md %}
 {% elsif distributionPackage == 'apt' %}
 {% include configure/configure-debian-package-mariadb.md %}

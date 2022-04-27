@@ -48,7 +48,7 @@ Once [your self-signed certificate configured](/configure/https){:target="_blank
 
 Our mobile application support TOTP and [Yubikey](/configure/mfa/yubikey.html).
 
-[Duo OTP](configure/mfa/duo) is not supported yet.
+[Duo OTP](/configure/mfa/duo) is not supported yet.
 
 ## How to get logs ?
 

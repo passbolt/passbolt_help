@@ -21,11 +21,11 @@ Must return:
 
 {% if product == 'pro' %}
 ```
-b51baf93cb47db02135ec1e486bc0bcf05dbe3ec7bffda7bac54d4e895f7371f  docker-compose.yaml
+d849b76f170375c643b7c737874eeba5e3efa9c28b6254c400505d26d108a5d6  docker-compose.yaml
 ```
 {% elsif product == 'ce' %}
 ```
-4f93b7c4f823df64c70a43b7cd34bfb73ef8641fcfde0491523282bd937df3f7  docker-compose.yaml
+3ff1cb219ae028293ba29f808d0ed17695aeb69a3baa9399194c214881f6409e  docker-compose.yaml
 ```
 {% endif %}
 

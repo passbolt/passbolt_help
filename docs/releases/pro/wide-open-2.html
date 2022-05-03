@@ -245,6 +245,10 @@ gpg --dearmor | tee /usr/share/keyrings/passbolt-repository.gpg &gt; /dev/null
 chmod 644 /usr/share/keyrings/passbolt-repository.gpg
 </code></pre></div></div>
 
+<p>If you didn’t use the one liner to install (e.g. you installed passbolt before 2022) you will need to delete the old key from apt-key also:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if [ -f "/etc/apt/trusted.gpg" ]; then sudo gpg --no-default-keyring --keyring="/etc/apt/trusted.gpg" --batch --yes --delete-key "3D1A0346C8E1802F774AEF21DE8B853FC155581D"; fi
+</code></pre></div></div>
+
 <h3 id="centos-redhat-and-rpm-packages">Centos, RedHat and RPM Packages</h3>
 
 <p>For the RPM users, we didn’t publish this fix as the checking of the expiration date on the package signature 

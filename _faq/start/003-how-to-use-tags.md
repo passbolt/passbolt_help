@@ -69,7 +69,7 @@ A user can tag a resource by dragging a resource from the grid on a tag in the �
 
 ### Rename tag
 
-A user can delete a tag by opening the contextual menu of a tag in the “Filter by Tags” section of the primary sidebar.
+A user can rename a tag by opening the contextual menu of a tag in the “Filter by Tags” section of the primary sidebar.
 
 {% include articles/figure.html
     url="/assets/img/help/2022/05/tags-contextual-menu.png"
@@ -87,14 +87,21 @@ By clicking on "Edit Tag", a dialog will therefore be shown to the user.
 
 ### Delete tag
 
-A user can delete a tag by opening the contextual menu of a tag in the “Filter by Tags” section of the primary sidebar. To prevent someone from removing a tag by mistake, we request the user to confirm the delete action.
+A user can delete a personal tag by opening the contextual menu of a tag in the “Filter by Tags” section of the primary sidebar. To prevent someone from removing a tag by mistake, we request the user to confirm the delete action.
 
 {% include articles/figure.html
     url="/assets/img/help/2022/05/tags-delete.png"
-    legend="Delete tags"
+    legend="Delete personal tag confirmation window"
     width="400px"
 %}
 
+You cannot delete shared tags from contextual menu of the “Filter by Tags” section. On each resource of the shared tag you want to delete, you have to manually remove it from the tags editor.
+
+{% include articles/figure.html
+    url="/assets/img/help/2022/05/shared-tags-delete.png"
+    legend="Delete a shared tag from tags editor"
+    width="400px"
+%}
 ## Filter resources
 
 ### Filter resources from the user tags list

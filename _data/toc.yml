@@ -50,6 +50,10 @@
       url: /faq/start/share-password
       icon: fa-paper-plane
       teaser: Sharing is caring (but only if you really have to).
+    - title: Roles and permissions
+      url: /faq/start/roles-and-permissions
+      icon: fa-shield
+      teaser: Information about the roles and permissions system of passbolt.
     - title: Forum
       url: https://community.passbolt.com
       icon: fa-comments

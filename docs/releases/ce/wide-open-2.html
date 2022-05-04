@@ -255,7 +255,7 @@ chmod 644 /usr/share/keyrings/passbolt-repository.gpg
 keys isn’t implemented on RPM distros. In any case you should still pull the updated key.</p>
 
 <p>You can use this one-line command that will do it for you:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rpm -e $(rpm -q gpg-pubkey --qf ‘%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n’ | awk ‘/contact@passbolt.com/ {print $1}’) &amp;&amp; yum clean expire-cache
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rpm -e $(rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n' | awk '/contact@passbolt.com/ {print $1}') &amp;&amp; yum clean expire-cache
 </code></pre></div></div>
 
 <p>This command will erase the current key and next time you will update your passbolt instance RPM will automatically 

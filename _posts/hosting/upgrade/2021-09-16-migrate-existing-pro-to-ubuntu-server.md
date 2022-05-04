@@ -22,6 +22,7 @@ permalink: /:categories/:slug.html
 {% assign distributionLabel = 'Ubuntu' %}
 {% assign distributionPackage = 'apt' %}
 {% assign webServerUser = 'www-data' %}
+{% assign databaseEngine = 'mysql' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

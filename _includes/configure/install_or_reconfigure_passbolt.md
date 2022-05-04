@@ -33,4 +33,4 @@ If you have already installed passbolt then you want to execute the following co
 sudo dpkg-reconfigure passbolt-{{ product }}-server
 ```
 
-You most likely want to say 'NO' to the mariadb setup question and go for the nginx setup
+You most likely want to say 'NO' to the mariadb/mysql setup question and go for the nginx setup

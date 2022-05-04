@@ -24,6 +24,7 @@ permalink: /:categories/:slug.html
 {% assign distributionPhpVersion = '7.4' %}
 {% assign distributionPackage = 'apt' %}
 {% assign webServerUser = 'www-data' %}
+{% assign databaseEngine = 'mariadb' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

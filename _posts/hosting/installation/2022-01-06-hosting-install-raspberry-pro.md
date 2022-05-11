@@ -21,6 +21,7 @@ permalink: /:categories/:slug.html
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Raspberry' %}
 {% assign distributionPackage = 'apt' %}
+{% assign databaseEngine = 'mariadb' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

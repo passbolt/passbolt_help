@@ -42,7 +42,7 @@ upgrade your system with a step by step tutorial.
 {% elsif distributionPackage == 'apt' %}
 It is recommended at this point to select:
 
-- **No** for mysql configuration as it is already configured
+- **No** for {{ databaseEngine }} configuration as it is already configured
 - **No** to nginx configuration as we will do it at the end
 
 {% endif %}
@@ -146,7 +146,7 @@ sudo dpkg-reconfigure passbolt-{{ page.passbolt_version }}-server
 
 Answer the following way:
 
-- **No** to mariadb configuration
+- **No** to {{ databaseEngine }} configuration
 - **Yes** to nginx configuration
 
 You can then select the SSL method that suits best your needs.

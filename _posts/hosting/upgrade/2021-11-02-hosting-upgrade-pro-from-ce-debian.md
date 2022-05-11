@@ -79,7 +79,7 @@ sudo apt-get install passbolt-pro-server
 
 As you have already configured passbolt CE, and passbolt Pro relies on the same configuration, you should reply:
 
-- **No** for mysql configuration
+- **No** for mariadb configuration
 - **No** to nginx configuration
 
 ### 7. Migrate the data

@@ -20,6 +20,7 @@ permalink: /:categories/:slug.html
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}
 {% assign distributionPackage = 'apt' %}
+{% assign databaseEngine = 'mysql' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

@@ -23,6 +23,7 @@ permalink: /:categories/:slug.html
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
 {% assign distributionPackage = 'apt' %}
 {% assign webServerUser = 'www-data' %}
+{% assign databaseEngine = 'mariadb' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

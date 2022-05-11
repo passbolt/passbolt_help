@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A browser extension is needed for two reasons: first, to provide functionalities such as auto filling your passwords when visiting known websites. More impor...">
+    <meta name="description" content="A browser extension is needed to provide functionalities such as auto filling your passwords when visiting known websites, but more importantly to maintain a...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Why do I need a browser extension?" />
-    <meta property="og:description" content="A browser extension is needed for two reasons: first, to provide functionalities such as auto filling your passwords when visiting known websites. More impor..." />
+    <meta property="og:description" content="A browser extension is needed to provide functionalities such as auto filling your passwords when visiting known websites, but more importantly to maintain a..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -168,10 +168,47 @@
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
                          <h1>Why do I need a browser extension?</h1>
-                            <p>A browser extension is needed for two reasons: first, to provide functionalities such as auto 
-filling your passwords when visiting known websites. More importantly it is needed to maintain a 
-higher level of security: to ensure the integrity of the cryptographic code and provide a secure 
-random number generator.</p>
+                            <p>A browser extension is needed to provide functionalities such as auto 
+filling your passwords when visiting known websites, but more importantly to maintain a higher level of security and provide a secure random number generator.</p>
+
+<h2 id="more-info">More info</h2>
+
+<p>A regular website serves users content in the form of html, javascript, css assets. It may be cached on a content delivery network (CDN) for speed, but everything is coming from one place. In the event of an attacker accessing the server, they may be able to change these assets, such as showing you modified content, or change the application logic.</p>
+
+<p>The solution we opted-for to ensure code integrity was to split the application in two parts:</p>
+
+<ol>
+  <li>Server side: the API who serves encrypted data</li>
+  <li>Client side: the web extension who renders the assets and contains the logic to encrypt/decrypt data.</li>
+</ol>
+
+<p>The web extension is published on browsers extension marketplaces (Firefox, Chrome, Edge). Each of them requires the extension to be cryptographically signed by Passbolt developers with a secret key, to make sure nobody can change that code while it is being transmitted from the marketplace.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/05/passbolt-app-and-data-delivery.jpeg" alt="passbolt application and data delivery" style="max-width:540px;" />
+    <span class="legend">fig. passbolt application and data delivery</span>
+</figure>
+
+<h2 id="some-points-you-must-be-aware-of">Some points you must be aware of:</h2>
+
+<ul>
+  <li>The passbolt login page is rendered by the browser extension. By entering your passphrase, you unlock your PGP private key stored in the local storage of your browser to let the extension communicate with the passbolt API and perform the user <a href="/api/authentication">authentication with GnuPG protocol</a>.</li>
+  <li>Most of passbolt application (passwords, users, or profile namespaces) isn’t rendered by the server but by the browser extension.</li>
+  <li>End-to-end encryption is provided by the browser extension.</li>
+</ul>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/05/e2e-security.jpeg" alt="End to end security using OpenPGP" style="max-width:540px;" />
+    <span class="legend">fig. End to end security using OpenPGP</span>
+</figure>
+
+<h2 id="references">References:</h2>
+
+<ul>
+  <li><a href="https://blog.passbolt.com/why-does-passbolt-require-an-extension-d1b189133b2">Why does passbolt require an extension? (Blog post 2020)</a></li>
+  <li><a href="https://help.passbolt.com/api/authentication">API Authentication sequence diagram</a></li>
+  <li><a href="https://help.passbolt.com/assets/files/Security%20White%20Paper%20-%20Passbolt%20Pro%20Edition.pdf">Security white paper</a></li>
+</ul>
 
                         </div>
 

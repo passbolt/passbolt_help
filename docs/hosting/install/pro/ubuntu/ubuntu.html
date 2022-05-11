@@ -249,46 +249,46 @@ before you download Passbolt PRO and install it.</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install passbolt-pro-server
 </code></pre></div>    </div>
 
-    <h4 id="configure-mariadb">Configure mariadb</h4>
+    <h4 id="configure-mysql">Configure mysql</h4>
 
-    <p>If not instructed otherwise passbolt ubuntu package will install mariadb-server locally. This step will help you create
-an empty mariadb database for passbolt to use.</p>
+    <p>If not instructed otherwise passbolt ubuntu package will install mysql-server locally. This step will help you create
+an empty mysql database for passbolt to use.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure mariadb dialog" style="max-width:450px;" />
-    <span class="legend">fig. Configure mariadb dialog</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure database dialog" style="max-width:450px;" />
+    <span class="legend">fig. Configure database dialog</span>
 </figure>
 
-    <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
+    <p>The configuration process will ask you for the credentials of the mysql admin user to create a new database.
 By default in most installations the admin username would be <code class="language-plaintext highlighter-rouge">root</code> and the password would be empty.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Mariadb admin user dialog" style="max-width:450px;" />
-    <span class="legend">fig. Mariadb admin user dialog</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Database admin user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Database admin user dialog</span>
 </figure>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Mariadb admin user pass dialog" style="max-width:450px;" />
-    <span class="legend">fig. Mariadb admin user pass dialog</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Database admin user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Database admin user pass dialog</span>
 </figure>
 
-    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.</p>
+    <p>Now we need to create a mysql user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Mariadb passbolt user dialog" style="max-width:450px;" />
-    <span class="legend">fig. Mariadb passbolt user dialog</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Database passbolt user dialog" style="max-width:450px;" />
+    <span class="legend">fig. Database passbolt user dialog</span>
 </figure>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Mariadb passbolt user pass dialog" style="max-width:450px;" />
-    <span class="legend">fig. Mariadb passbolt user pass dialog</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Database passbolt user pass dialog" style="max-width:450px;" />
+    <span class="legend">fig. Database passbolt user pass dialog</span>
 </figure>
 
     <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Mariadb database name dialog" style="max-width:450px;" />
-    <span class="legend">fig. Mariadb database name dialog</span>
+    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Database name dialog" style="max-width:450px;" />
+    <span class="legend">fig. Database name dialog</span>
 </figure>
 
     <h4 id="configure-nginx-for-serving-https">Configure nginx for serving HTTPS</h4>

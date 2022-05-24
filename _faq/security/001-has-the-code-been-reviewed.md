@@ -4,7 +4,7 @@ slug: code-review
 layout: faq
 category: security
 permalink: /faq/security/:slug
-date: 2017-01-20 00:00:00 Z
+date: 2022-05-23 00:00:00 Z
 ---
 
 In the course of 2021 [Cure53](https://cure53.de/) performed a series of six audits in order to provide a 360 degree review of the passbolt ecosystem as a whole. Each audit involved several security researchers and each lasted for about a week.

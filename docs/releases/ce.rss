@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.6.0 | New Morning</title>
+    <link>https://help.passbolt.com/releases/ce/new-morning</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/new-morning</guid>
+    <description>The team is pleased to announce the v3.6 immediate availability which, as you may already have seen, includes a design refresh of the application. On top of that, this release ships with some more improvements and fixes. Performance boost on the client cryptographic operations; Additional key validations on setup for...</description>
+    <pubDate>Wed, 25 May 2022 14:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.5.0-2 | Wide Open</title>
     <link>https://help.passbolt.com/releases/ce/wide-open-2</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/wide-open-2</guid>

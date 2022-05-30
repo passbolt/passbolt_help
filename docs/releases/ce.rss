@@ -9,7 +9,7 @@
 
 
 <item>
-    <title>v3.6.0 | New morning</title>
+    <title>v3.6.0 | New Morning</title>
     <link>https://help.passbolt.com/releases/ce/new-morning</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/new-morning</guid>
     <description>The team is pleased to announce the v3.6 immediate availability which, as you may already have seen, includes a design refresh of the application. On top of that, this release ships with some more improvements and fixes. Performance boost on the client cryptographic operations; Additional key validations on setup for...</description>

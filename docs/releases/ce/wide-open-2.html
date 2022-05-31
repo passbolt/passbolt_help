@@ -240,15 +240,64 @@ The following signatures were invalid: EXPKEYSIG DE8B853FC155581D
 </code></pre></div></div>
 
 <p>You will then have to do pull the new key manually by using this command:</p>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -s https://download.passbolt.com/pub.key |\
-gpg --dearmor | tee /usr/share/keyrings/passbolt-repository.gpg &gt; /dev/null
-chmod 644 /usr/share/keyrings/passbolt-repository.gpg
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget -qO- https://download.passbolt.com/pub.key |\
+    gpg --dearmor | sudo tee /usr/share/keyrings/passbolt-repository.gpg &gt; /dev/null
+</code></pre></div></div>
+
+<p>Ensure the downloaded key has correct rights:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chmod 644 /usr/share/keyrings/passbolt-repository.gpg
 </code></pre></div></div>
 
 <p>If you didn’t use the one liner to install (e.g. you installed passbolt before 2022) you will need to delete the old key from apt-key also:</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if [ -f "/etc/apt/trusted.gpg" ]; then sudo gpg --no-default-keyring --keyring="/etc/apt/trusted.gpg" --batch --yes --delete-key "3D1A0346C8E1802F774AEF21DE8B853FC155581D"; fi
 </code></pre></div></div>
 
+<p>Remove the old <code class="language-plaintext highlighter-rouge">/etc/apt/sources.list.d/passbolt.list</code> file:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rm -f /etc/apt/sources.list.d/passbolt.list
+</code></pre></div></div>
+
+<p>And create a new <code class="language-plaintext highlighter-rouge">/etc/apt/sources.list.d/passbolt.sources</code> with the below content.</p>
+
+<p>If you are running passbolt CE on Debian 10 / 11:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Types: deb
+URIs: https://download.passbolt.com/ce/debian
+Suites: buster
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+</code></pre></div></div>
+
+<p>If you are running passbolt PRO on Debian 10 / 11:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Types: deb
+URIs: https://download.passbolt.com/pro/debian
+Suites: buster
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+</code></pre></div></div>
+
+<p>If you are running passbolt CE on Ubuntu 20.04:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Types: deb
+URIs: https://download.passbolt.com/ce/ubuntu
+Suites: focal
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+</code></pre></div></div>
+
+<p>If you are running passbolt PRO on Ubuntu 20.04:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Types: deb
+URIs: https://download.passbolt.com/pro/ubuntu
+Suites: focal
+Components: stable
+Signed-By: /usr/share/keyrings/passbolt-repository.gpg
+</code></pre></div></div>
+
+<p>You should be able then to refresh your package list and upgrade your system:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update &amp;&amp; sudo apt upgrade
+</code></pre></div></div>
 <h3 id="centos-redhat-and-rpm-packages">Centos, RedHat and RPM Packages</h3>
 
 <p>For the RPM users, we didn’t publish this fix as the checking of the expiration date on the package signature 

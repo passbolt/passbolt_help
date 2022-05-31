@@ -216,8 +216,49 @@ refresh of the application.</p>
 (e.g. adding users to a group), as well as preparing for the migration to
 Manifest v3, and support for PHP 8.1.</p>
 
-<h2 id="front-end--styleguide">Front-end / styleguide</h2>
-<h3 id="added">Added</h3>
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="361---2022-05-31">[3.6.1] - 2022-05-31</h3>
+<h4 id="improved">Improved</h4>
+<ul>
+  <li>PB-16116 Change user creation dialog tips following the introduction of account recovery</li>
+  <li>PB-16119 As LU changing my security token I should be able to access documentation about phishing attacks</li>
+  <li>PB-16166 Change nested folders icons size</li>
+  <li>PB-16206 Change search bar padding</li>
+  <li>PB-16207 Change midgar theme hover background colour</li>
+  <li>PB-16208 Change midgar inset shadow highlight opacity</li>
+  <li>PB-16209 Change inside fields buttons radius</li>
+  <li>PB-16210 Change midgar hover/active grid lines backgrounds</li>
+  <li>PB-16211 Change midgar active button background</li>
+  <li>PB-16212 Change authentication loading spinner padding</li>
+  <li>PB-16213 As LU I should see a beta pill next to the account recovery menu entry</li>
+  <li>PB-16556 Change midgar sign-in form background</li>
+  <li>PB-16559 Change user settings account recovery layout</li>
+  <li>PB-16588 As GM editing group memberships, I want to see the tooltip icon aligned with the username</li>
+  <li>PB-16589 Change the attention required icon color in the user settings menu</li>
+  <li>PB-16592 Change quickaccess connecting state box background</li>
+  <li>PB-16603 Change grids font weight</li>
+  <li>PB-16605 Reduce letter spacings globally</li>
+  <li>PB-16639 As LU enrolling to the account recovery program I should be requested my passphrase</li>
+</ul>
+
+<h4 id="fixed">Fixed</h4>
+<ul>
+  <li>PB-14278 As LU I should see warning messages on form fields</li>
+  <li>PB-16117 As AD I should not see the MFA status in the user sidebar if the user is not active</li>
+  <li>PB-16146 As AD I should not be able to copy the public key of a inactive user</li>
+  <li>PB-16558 As AN on unauthenticated page I should not see “about us” cta tooltip</li>
+  <li>PB-16604 As a LU I should be able to sort the grid by Username and URI</li>
+  <li>PB-16661 As a AN I can accept a server key rotation when the server key stored in the local storage cannot be parsed</li>
+</ul>
+
+<h4 id="maintenance">Maintenance</h4>
+<ul>
+  <li>PB-16155 Apply linter on all styleguide src code</li>
+  <li>PB-14951 Move common test material</li>
+</ul>
+
+<h3 id="360---2022-05-23">[3.6.0] - 2022-05-23</h3>
+<h4 id="added">Added</h4>
 <ul>
   <li>PB-15033 As a user who lost its credentials I can request help to an administrator</li>
   <li>PB-14672 As a user I should see the new design on the password workspace</li>
@@ -230,7 +271,7 @@ Manifest v3, and support for PHP 8.1.</p>
   <li>PB-14131 As AN performing a setup, I can import ECC keys</li>
 </ul>
 
-<h3 id="improved">Improved</h3>
+<h4 id="improved-1">Improved</h4>
 <ul>
   <li>PB-14896 As AN performing a setup, I should not be able to import an already decrypted key</li>
   <li>PB-14816 As AN performing a setup, I should not be able to use a passphrase which is part of a data breach</li>
@@ -239,20 +280,20 @@ Manifest v3, and support for PHP 8.1.</p>
   <li>PB-13852 Improve encryption/decryption performances</li>
 </ul>
 
-<h3 id="security">Security</h3>
+<h4 id="security">Security</h4>
 <ul>
   <li>PB-13908 As AN performing a setup, I generate key of 3072 bits</li>
   <li>PB-13908 As AN performing a setup, I cannot import keys weaker than 3072 bits</li>
 </ul>
 
-<h3 id="fixed">Fixed</h3>
+<h4 id="fixed-1">Fixed</h4>
 <ul>
   <li>PB-15241 As a user I can use the web integration inform menu in iframe authentication forms</li>
   <li>PB-13901 As AN performing a sign-in, I should be prompted the server key changed only when the parsed key changed</li>
   <li>PB-14405 Fix misc sentences plural</li>
 </ul>
 
-<h3 id="maintenance">Maintenance</h3>
+<h4 id="maintenance-1">Maintenance</h4>
 <ul>
   <li>PB-14155 Upgrade node to version 16</li>
   <li>PB-13852 Upgrade openpgp.js to version 5</li>
@@ -261,7 +302,8 @@ Manifest v3, and support for PHP 8.1.</p>
 </ul>
 
 <h2 id="api">API</h2>
-<h3 id="improved-1">Improved</h3>
+<h3 id="360---2021-05-25">[3.6.0] - 2021-05-25</h3>
+<h4 id="added-1">Added</h4>
 <ul>
   <li>PB-9739 OpenPGP key and message validation refactoring</li>
   <li>PB-14141 Enhanced public/private key validation rules</li>
@@ -270,18 +312,18 @@ Manifest v3, and support for PHP 8.1.</p>
   <li>PB-14510 Three trivial endpoints, such as GET on login are not logged anymore</li>
 </ul>
 
-<h3 id="security-1">Security</h3>
+<h4 id="security-1">Security</h4>
 <ul>
   <li>PB-14400 Upgrade firebase/php-jwt to 6.1</li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h4 id="fixed-2">Fixed</h4>
 <ul>
   <li>PB-14369 Fixes email settings issues in the test suite</li>
   <li>PB-15046 Handle user lost-passphrase scenarios with API &lt;= v3.5</li>
 </ul>
 
-<h3 id="maintenance-1">Maintenance</h3>
+<h4 id="maintenance-2">Maintenance</h4>
 <ul>
   <li>PB-14812 Upgrade cakephp/cakephp to 4.3</li>
 </ul>

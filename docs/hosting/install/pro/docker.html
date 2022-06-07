@@ -247,7 +247,57 @@
 
     <p>Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.</p>
 
-    <p>For more information on which environment variables are available on Passbolt, please check the <a href="/configure/environment/reference.html" target="_blank">passbolt environment variable reference</a>.</p>
+    <p>You must configure also SMTP settings to be able to receive notifications and recovery emails. Please find below
+the most used environment variables for this purpose:</p>
+
+    <table class="table-parameters">
+      <thead>
+        <tr>
+          <th>Variable name</th>
+          <th>Description</th>
+          <th>Default value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>EMAIL_DEFAULT_FROM_NAME</td>
+          <td>From email username</td>
+          <td><code class="language-plaintext highlighter-rouge">'Passbolt'</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_DEFAULT_FROM</td>
+          <td>From email address</td>
+          <td><code class="language-plaintext highlighter-rouge">'you@localhost'</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_TRANSPORT_DEFAULT_HOST</td>
+          <td>Server hostname</td>
+          <td><code class="language-plaintext highlighter-rouge">'localhost'</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_TRANSPORT_DEFAULT_PORT</td>
+          <td>Server port</td>
+          <td><code class="language-plaintext highlighter-rouge">25</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_TRANSPORT_DEFAULT_USERNAME</td>
+          <td>Username for email server auth</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_TRANSPORT_DEFAULT_PASSWORD</td>
+          <td>Password for email server auth</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
+        </tr>
+        <tr>
+          <td>EMAIL_TRANSPORT_DEFAULT_TLS</td>
+          <td>Set tls</td>
+          <td><code class="language-plaintext highlighter-rouge">null</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>For more information on which environment variables are available on passbolt, please check the <a href="/configure/environment/reference.html" target="_blank">passbolt environment variable reference</a>.</p>
 
     <p><strong>Step 5.</strong> Start your containers</p>
 

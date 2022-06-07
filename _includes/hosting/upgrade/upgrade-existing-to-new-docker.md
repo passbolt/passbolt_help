@@ -52,7 +52,7 @@ Furthermore, it will execute files with extensions .sh, .sql, .sql.gz, and .sql.
 You can easily populate your mariadb services by mounting a SQL dump into that directory and provide custom images with contributed data. SQL files will be imported by default to the database specified by the MARIADB_DATABASE / MYSQL_DATABASE variable.
 ```
 
-So you just have to mount your database backup file on `/docker-entrypoint-initdb.d` folder of the database container.
+This means you just have to mount your database backup file on `/docker-entrypoint-initdb.d` folder of the database container.
 
 Edit your docker-compose.yaml file and add a volume mount in the db service:
 
@@ -61,6 +61,35 @@ volumes:
   - database_volume:/var/lib/mysql
   - ./path/to/your/database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
 ```
+
+### Set your GPG server keys fingerprint and email
+
+In the scope of a migration to docker, you need to add 2 environment variables to the passbolt service
+related to the GPG server keys fingerprint and email address.
+
+Get them from your backed up keys:
+
+```
+$ gpg --show-keys /path/to/serverkey.asc
+pub   rsa2048 2022-01-20 [SC]
+      43F978AFF88B53F5ABBD12C87D5E40A4C43926ED
+uid                      Passbolt default user <passbolt@yourdomain.com>
+sub   rsa2048 2022-01-20 [E]
+```
+
+In the above output, fingerprint is `43F978AFF88B53F5ABBD12C87D5E40A4C43926ED` and email address is `passbolt@yourdomain.com`.
+
+Add the environment variables in your `docker-compose.yaml` file (replace with your own values):
+
+```
+services:
+  passbolt:
+    environment:
+      PASSBOLT_GPG_SERVER_KEY_FINGERPRINT: "43F978AFF88B53F5ABBD12C87D5E40A4C43926ED"
+      PASSBOLT_KEY_EMAIL: "passbolt@yourdomain.com"
+```
+
+### Start your containers
 
 You can now start your database and passbolt containers, your database will be restored at the database container start.
 
@@ -100,3 +129,7 @@ Then set correct rights to the avatars:
 ```
 docker exec -it your-passbolt-container chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/avatar
 ```
+
+### That's it
+
+If your passbolt URL has changed, you will have to proceed to an [account recovery](/faq/start/account-recover).

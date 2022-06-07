@@ -43,7 +43,21 @@ The `APP_FULL_BASE_URL` environment variable is set by default to [https://passb
 
 Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.
 
-For more information on which environment variables are available on Passbolt, please check the [passbolt environment variable reference](/configure/environment/reference.html){:target="_blank"}.
+You must configure also SMTP settings to be able to receive notifications and recovery emails. Please find below
+the most used environment variables for this purpose:
+
+| Variable name                    | Description                    | Default value     |
+|----------------------------------|--------------------------------|-------------------|
+| EMAIL_DEFAULT_FROM_NAME          | From email username            | `'Passbolt'`      |
+| EMAIL_DEFAULT_FROM               | From email address             | `'you@localhost'` |
+| EMAIL_TRANSPORT_DEFAULT_HOST     | Server hostname                | `'localhost'`     |
+| EMAIL_TRANSPORT_DEFAULT_PORT     | Server port                    | `25`              |
+| EMAIL_TRANSPORT_DEFAULT_USERNAME | Username for email server auth | `null`            |
+| EMAIL_TRANSPORT_DEFAULT_PASSWORD | Password for email server auth | `null`            |
+| EMAIL_TRANSPORT_DEFAULT_TLS      | Set tls                        | `null`            |
+{: .table-parameters }
+
+For more information on which environment variables are available on passbolt, please check the [passbolt environment variable reference](/configure/environment/reference.html){:target="_blank"}.
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Start your containers
 

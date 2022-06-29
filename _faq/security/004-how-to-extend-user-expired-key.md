@@ -136,6 +136,8 @@ gpg --armor --export-secret-keys B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C > priv
 
 Passbolt server side, you need to update public key in **gpgkeys** table of passbolt database and delete it from the passbolt keyring.
 
+### Database update
+
 First identify your user ID. Replace johndoe@domain.tld with email of your user:
 
 ```
@@ -158,7 +160,7 @@ UPDATE gpgkeys SET armored_key = "-----BEGIN PGP PUBLIC KEY BLOCK-----
 mQGNBGHSrQEBDADES5YK8aSSg7sIWF/GvilOYBhjYzpz1Q+mbtxZI1oZHwT0z4H5
 a/tDu821EdSkrmrK1j+VUqlZr4n0wjf5NMKITvU6UioBP6QeYgtriCKZ5DOk1VOi
 (....)
------END PGP PUBLIC KEY BLOCK-----" WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
+-----END PGP PUBLIC KEY BLOCK-----", modified = now() WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
 ```
 
 Update the **expires** value of the old key with NULL (replace 02aa768a-df59-4247-ab52-328373880016 with ID of your user):
@@ -168,6 +170,8 @@ UPDATE gpgkeys SET expires = NULL WHERE user_id = "02aa768a-df59-4247-ab52-32837
 ```
 
 You can quit MySQL console.
+
+### Passbolt GPG keyring update
 
 Check path of your GPG keyring from the healthcheck page of passbolt: https://url-of-your-passbolt/healthcheck, you should see **/var/lib/passbolt/.gnupg/** but it can be different depending on your setup:
 
@@ -191,4 +195,15 @@ Once ID of the key found, delete it (replace **/var/lib/passbolt/.gnupg** with y
 gpg --homedir /var/lib/passbolt/.gnupg --delete-key 444F0E2FDD421119F69368E23F1C70EE1C10B10F
 ```
 
-At this point, your user should be able to connect.
+## Recover your account
+
+**Step 1.** In order to recover you will need to go to your domain URL and add `/recover` at the end of the url,
+for example `https://yourpassbolt.com/recover`.
+
+**Step 2.** Complete the form by providing your email address.
+
+**Step 3.** Follow the link in your mailbox. 
+
+**Step 4.** Follow the recovery steps, which is much like the initial setup. You will need to import your private key.
+
+**Step 5.** Enter your passphrase to login!

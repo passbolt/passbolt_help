@@ -290,6 +290,8 @@ gpg --armor --export-secret-keys B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C &gt; p
 
 <p>Passbolt server side, you need to update public key in <strong>gpgkeys</strong> table of passbolt database and delete it from the passbolt keyring.</p>
 
+<h3 id="database-update">Database update</h3>
+
 <p>First identify your user ID. Replace johndoe@domain.tld with email of your user:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SELECT id, username FROM users WHERE username = johndoe@domain.tld;
@@ -309,7 +311,7 @@ gpg --armor --export-secret-keys B35F66C2B587EC54DB71A547C9FDEB2DC5EB9F9C &gt; p
 mQGNBGHSrQEBDADES5YK8aSSg7sIWF/GvilOYBhjYzpz1Q+mbtxZI1oZHwT0z4H5
 a/tDu821EdSkrmrK1j+VUqlZr4n0wjf5NMKITvU6UioBP6QeYgtriCKZ5DOk1VOi
 (....)
------END PGP PUBLIC KEY BLOCK-----" WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
+-----END PGP PUBLIC KEY BLOCK-----", modified = now(), expires = now() WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
 </code></pre></div></div>
 
 <p>Update the <strong>expires</strong> value of the old key with NULL (replace 02aa768a-df59-4247-ab52-328373880016 with ID of your user):</p>
@@ -318,6 +320,8 @@ a/tDu821EdSkrmrK1j+VUqlZr4n0wjf5NMKITvU6UioBP6QeYgtriCKZ5DOk1VOi
 </code></pre></div></div>
 
 <p>You can quit MySQL console.</p>
+
+<h3 id="passbolt-gpg-keyring-update">Passbolt GPG keyring update</h3>
 
 <p>Check path of your GPG keyring from the healthcheck page of passbolt: https://url-of-your-passbolt/healthcheck, you should see <strong>/var/lib/passbolt/.gnupg/</strong> but it can be different depending on your setup:</p>
 
@@ -341,7 +345,18 @@ a/tDu821EdSkrmrK1j+VUqlZr4n0wjf5NMKITvU6UioBP6QeYgtriCKZ5DOk1VOi
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg --homedir /var/lib/passbolt/.gnupg --delete-key 444F0E2FDD421119F69368E23F1C70EE1C10B10F
 </code></pre></div></div>
 
-<p>At this point, your user should be able to connect.</p>
+<h2 id="recover-your-account">Recover your account</h2>
+
+<p><strong>Step 1.</strong> In order to recover you will need to go to your domain URL and add <code class="language-plaintext highlighter-rouge">/recover</code> at the end of the url,
+for example <code class="language-plaintext highlighter-rouge">https://yourpassbolt.com/recover</code>.</p>
+
+<p><strong>Step 2.</strong> Complete the form by providing your email address.</p>
+
+<p><strong>Step 3.</strong> Follow the link in your mailbox.</p>
+
+<p><strong>Step 4.</strong> Follow the recovery steps, which is much like the initial setup. You will need to import your private key.</p>
+
+<p><strong>Step 5.</strong> Enter your passphrase to login!</p>
 
                         </div>
 

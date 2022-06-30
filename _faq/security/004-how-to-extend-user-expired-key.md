@@ -160,7 +160,7 @@ UPDATE gpgkeys SET armored_key = "-----BEGIN PGP PUBLIC KEY BLOCK-----
 mQGNBGHSrQEBDADES5YK8aSSg7sIWF/GvilOYBhjYzpz1Q+mbtxZI1oZHwT0z4H5
 a/tDu821EdSkrmrK1j+VUqlZr4n0wjf5NMKITvU6UioBP6QeYgtriCKZ5DOk1VOi
 (....)
------END PGP PUBLIC KEY BLOCK-----", modified = now() WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
+-----END PGP PUBLIC KEY BLOCK-----", modified = now(), expires = now() WHERE user_id = "02aa768a-df59-4247-ab52-328373880016";
 ```
 
 Update the **expires** value of the old key with NULL (replace 02aa768a-df59-4247-ab52-328373880016 with ID of your user):

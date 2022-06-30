@@ -16,7 +16,11 @@ rm /etc/passbolt/gpg/serverkey.asc
 rm /etc/passbolt/gpg/serverkey_private.asc
 ```
 
-Restart passbolt container and new GPG server keys will be generated.
+Destroy then recreate passbolt container and new GPG server keys will be generated.
+
+```bash
+docker-compose up -d --force-recreate
+```
 
 ## Other installations
 

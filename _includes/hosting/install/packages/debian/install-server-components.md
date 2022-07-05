@@ -15,7 +15,7 @@ wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbo
 **Step 2.** Ensure that the script is valid and execute it:
 
 ```
-[ "$(sha256sum passbolt-repo-setup.{{ product }}.sh | awk '{print $1}')" = "{% if product == 'ce' %}ce96ab921e2fa448d48da018e3be0e9646791629dffb13707bbc49b55c739490{% else %}4840c6c322bf39e76ae3169d8c4b02395d0e5d8e7ba7aa1de4c8c0433ba30db0{% endif %}" ] && sudo bash ./passbolt-repo-setup.{{product }}.sh || echo "Bad checksum. Aborting" && rm -f passbolt-repo-setup.{{ product }}.sh
+[ "$(sha256sum passbolt-repo-setup.{{ product }}.sh | awk '{print $1}')" = "{% if product == 'ce' %}4c84100298acec496bead5f00259a1368e653ab4ec32e4c18f82d0481210e8f2{% else %}abf8b49665943cbc99f043f2ff5c61853f14aff00f974b8ba8ac43996879d629{% endif %}" ] && sudo bash ./passbolt-repo-setup.{{product }}.sh || echo "Bad checksum. Aborting" && rm -f passbolt-repo-setup.{{ product }}.sh
 ```
 
 {% if upgrade_from_ce_to_pro != 'yes' %}

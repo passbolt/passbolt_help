@@ -1,9 +1,9 @@
 ---
-title: Update passbolt on Ubuntu 20.04
+title: Update passbolt on Ubuntu
 date: 2021-11-26 00:00:00 Z
 description: How to update your server on Ubuntu.
 card_teaser: Guide for instances installed using Ubuntu package.
-card_title: Update for Ubuntu 20.04
+card_title: Update for Ubuntu
 card_position: 2
 icon: fa-ubuntu
 categories: [hosting, update]

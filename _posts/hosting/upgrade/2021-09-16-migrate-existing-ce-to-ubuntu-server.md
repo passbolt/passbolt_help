@@ -16,7 +16,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'ce' %}
 {% assign distribution = 'ubuntu' %}
-{% assign distributionVersion = '20.04' %}
+{% assign distributionVersion = '22.04' %}
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}

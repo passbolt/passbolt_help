@@ -15,7 +15,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'ubuntu' %}
-{% assign distributionVersion = '20.04' %}
+{% assign distributionVersion = '22.04' %}
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}
@@ -26,7 +26,7 @@ permalink: /:categories/:slug.html
 ## Pre-requisites
 
 For this tutorial, you will need:
-- A minimal Ubuntu 20.04 server.
+- A minimal Ubuntu 22.04 server.
 - Passbolt CE Ubuntu package installed.
 
 ## Upgrading passbolt

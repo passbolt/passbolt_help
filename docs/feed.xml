@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-07-27T17:47:41+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-07-27T18:12:13+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -46,7 +46,7 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;ce96ab921e2fa448d48da018e3be0e9646791629dffb13707bbc49b55c739490&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -358,7 +358,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;4840c6c322bf39e76ae3169d8c4b02395d0e5d8e7ba7aa1de4c8c0433ba30db0&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1254,7 +1254,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;4840c6c322bf39e76ae3169d8c4b02395d0e5d8e7ba7aa1de4c8c0433ba30db0&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1524,7 +1524,7 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;ce96ab921e2fa448d48da018e3be0e9646791629dffb13707bbc49b55c739490&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;

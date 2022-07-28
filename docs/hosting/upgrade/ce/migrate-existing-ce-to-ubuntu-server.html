@@ -203,7 +203,7 @@
     <p>For this tutorial, you will need:</p>
     <ul>
       <li>Passbolt installed on an old server</li>
-      <li>A minimal Ubuntu 20.04 new server</li>
+      <li>A minimal Ubuntu 22.04 new server</li>
     </ul>
 
     <h2 id="backup-the-existing-data">Backup the existing data</h2>
@@ -228,7 +228,7 @@ before you download Passbolt CE and install it.</p>
 
     <p><strong>Step 2.</strong> Ensure that the script is valid and execute it:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')" = "ce96ab921e2fa448d48da018e3be0e9646791629dffb13707bbc49b55c739490" ] &amp;&amp; sudo bash ./passbolt-repo-setup.ce.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.ce.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')" = "6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347" ] &amp;&amp; sudo bash ./passbolt-repo-setup.ce.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.ce.sh
 </code></pre></div>    </div>
 
     <h2 id="install-passbolt-official-linux-package">Install passbolt official linux package</h2>

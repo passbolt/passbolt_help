@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.7.0 | Epikur</title>
+    <link>https://help.passbolt.com/releases/pro/epikur</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/epikur</guid>
+    <description>This release is a minor maintenance release focused on security, performance and compatibility optimization. It includes some security fixes related to a security audit that was performed by Cure53 on the new account recovery feature. Long story short, while the security researchers found some weaknesses, no exploitable vulnerability was found....</description>
+    <pubDate>Wed, 27 Jul 2022 10:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.6.0 | New Morning</title>
     <link>https://help.passbolt.com/releases/pro/new-morning</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/new-morning</guid>

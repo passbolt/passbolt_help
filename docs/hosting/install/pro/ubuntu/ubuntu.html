@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Install Passbolt Pro on Ubuntu 20.04</title>
+    <title>Passbolt Help | Install Passbolt Pro on Ubuntu 22.04</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Install Passbolt Pro on Ubuntu 20.04" />
+    <meta property="og:title" content="Install Passbolt Pro on Ubuntu 22.04" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -188,7 +188,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Install Passbolt Pro on Ubuntu 20.04</h1>
+<h1>Install Passbolt Pro on Ubuntu 22.04</h1>
 </div>
 </div>
 
@@ -202,7 +202,7 @@
 
     <ul>
       <li>
-        <p>A minimal Ubuntu 20.04  server.</p>
+        <p>A minimal Ubuntu 22.04  server.</p>
       </li>
       <li>A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.</li>
       <li>a working SMTP server for email notifications</li>
@@ -241,7 +241,7 @@ before you download Passbolt PRO and install it.</p>
 
     <p><strong>Step 2.</strong> Ensure that the script is valid and execute it:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')" = "4840c6c322bf39e76ae3169d8c4b02395d0e5d8e7ba7aa1de4c8c0433ba30db0" ] &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')" = "0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3" ] &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
     <h2 id="install-passbolt-official-linux-package">Install passbolt official linux package</h2>
@@ -491,9 +491,9 @@ attacks. Each time you are performing a sensitive operation on passbolt, you sho
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-November
-24th,
-2021.</p>
+July
+11th,
+2022.</p>
     </div>
 
   </div>

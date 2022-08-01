@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-07-28T13:24:34+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Install Passbolt CE on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-08-01T11:42:52+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Account Recovery configuration</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="Account Recovery configuration" /><published>2022-07-28T02:00:00+02:00</published><updated>2022-07-28T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;what-is-the-account-recovery&quot;&gt;What is the account recovery?&lt;/h2&gt;
+
+    &lt;p&gt;In short, the user’s private keys (and the associated passphrase) are stored encrypted server side with an organization-wide key. When a user wants to recover their private key, the user would as part of the recovery process generate a temporary new OpenPGP key pair and coordinate transparently through the interface with the administrator. The administrator would be able to share the user key, by decrypting it with this new organization-wide key.&lt;/p&gt;
+
+    &lt;p&gt;Some options are provided to make this account recovery process flexible, propose some four settings in the administration to either “always on”, “opt-out” (optional: default on), “opt-in” (optional: default off), “disabled” (always off, like it is now).&lt;/p&gt;
+
+    &lt;p&gt;These options are presented to the users during the setup in the form of a checkbox (checked or unchecked by default, disabled or not, depending on the scenario chosen by the admin). A personal setting screen is implemented for the user to place their key in the account recovery if they have already completed the setup prior to the feature being rolled out by an administrator.&lt;/p&gt;
+
+    &lt;h2 id=&quot;requirements-before-using-the-account-recovery&quot;&gt;Requirements before using the account recovery&lt;/h2&gt;
+
+    &lt;p&gt;This feature is available from version 3.6 of Passbolt Pro Edition. So, both the servers and the browser extensions need to be at this minimum version in order to use this feature.&lt;/p&gt;
+
+    &lt;h2 id=&quot;how-to-configure-the-account-recovery&quot;&gt;How to configure the account recovery&lt;/h2&gt;
+
+    &lt;h3 id=&quot;the-basics&quot;&gt;The basics&lt;/h3&gt;
+
+    &lt;p&gt;To access the settings, go to the administration workspace and in the menu click on the account recovery item. The setting form is composed of 2 parts: the policy type and the ORK definition.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-settings.png&quot; alt=&quot;Account recovery administration settings screen&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Account recovery administration settings screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Four options of policy type are available:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Mandatory&lt;/strong&gt;: this won’t let the user choose or not to give their encrypted private key to the organization. New users, during the setup will be prompted with an additional screen to inform them about the fact that they are giving their private key to the organization. 
+For the current existing users, it’s a bit different. They will be prompt at each login to provide their key but can postpone this action. The reason we made it this way is to let the user not provide personal passwords to the organization by giving them extra time to manage their personal passwords before sharing their encrypted private key.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Opt-in or Opt-out&lt;/strong&gt;: In these cases, the users will be able to choose to provide their encrypted private key or not. New users will be prompted with an additional screen during the setup of their account to inform them about the feature and let them choose (they cannot postpone their choice though). After login, with an opt-out policy type, current existing users will be prompted to provide their key. In any case existing users will have an attention icon on their avatar to guide them to their user account recovery setting page until they made a subscription choice. Also, if users decide not to provide their key, they are always able to change their mind. However, if a user’s encrypted private key is provided to the organization, they won’t be able to cancel their participation in the recovery program.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;&lt;strong&gt;Disabled&lt;/strong&gt;: as the name states, the feature is disabled and nobody can use the account recovery processes. It’s possible for administrators to disabled the account recovery feature at any time. By doing so, all the data related to account recovery are cleared from the database.&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4 id=&quot;setting-the-ork&quot;&gt;Setting the ORK&lt;/h4&gt;
+
+    &lt;p&gt;To enable account recovery, it is necessary to provide an ORK. Passbolt provides a way to generate it in situ but it is recommended to generate it manually and then import it.&lt;/p&gt;
+
+    &lt;p&gt;In both cases, the ORK needs to fulfill the following requirements:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;To be a public key (Passbolt instances never have access the private ORK, only the administrators)&lt;/li&gt;
+      &lt;li&gt;To use the algorithm: RSA&lt;/li&gt;
+      &lt;li&gt;To be of a length of: 4096 bits&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h5 id=&quot;importing-the-ork-from-somewhere-else-recommended&quot;&gt;Importing the ORK from somewhere else (recommended)&lt;/h5&gt;
+
+    &lt;p&gt;To import the ORK, simply copy-paste the public ORK in the text area or use the file browsing option. In order to facilitate the use of the gpg command line to generate the ORK manually, administrators can find a step by step guide can be found &lt;a href=&quot;/configure/generate-organization-recovery-key&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-setting-ORK-import.png&quot; alt=&quot;Account recovery administration settings ORK import screen&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Account recovery administration settings ORK import screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h5 id=&quot;generating-the-ork-in-passbolt&quot;&gt;Generating the ORK in passbolt&lt;/h5&gt;
+
+    &lt;p&gt;In the dialog, click on the “Generate” tab. A form appears where it is asked to provide a name, an email address and finally a passphrase.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-setting-ORK-generation.png&quot; alt=&quot;Account recovery administration settings ORK generation screen&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Account recovery administration settings ORK generation screen&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;All 3 fields are required but the passphrase has specific checks. In order to reinforce security and due to the criticality of this feature, Passbolt doesn’t allow the usage of weak passphrases at this stage. You will need to provide a passphrase that has an entropy of 80.0 bits minimum and that doesn’t exist in known dictionaries (as a reference we use the service “hasBeenPwnd” to do dictionary checks).&lt;/p&gt;
+
+    &lt;p&gt;Finally, as Passbolt instances never have access to the private ORK and that it is required that administrators keep it in a safe place. Administrators are asked to download the private key part of the ORK right after its generation. It is mandatory to have it, otherwise it’s impossible to use the account recovery feature later.&lt;/p&gt;
+
+    &lt;h4 id=&quot;validating-the-changes&quot;&gt;Validating the changes&lt;/h4&gt;
+
+    &lt;p&gt;Once everything is set, you can click on the “save settings” button. A dialog opens with a summary of the changes made. It is advised to do a careful check here before validating anything (and make sure you have the corresponding private ORK). After that, administrators are asked to provide their personal passphrase (for a safety check) plus the private key with the passphrase of the previously ORK set if the account recovery was enabled before the changes (it’s both necessary for a safety check and for when a rotation of the ORK is being made).&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-settings-summary-review-dialog.png&quot; alt=&quot;Account recovery administration settings summary review dialog&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Account recovery administration settings summary review dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;rotating-the-ork&quot;&gt;Rotating the ORK&lt;/h3&gt;
+
+    &lt;p&gt;TL;DR; it is possible to rotate an ORK without disturbing users even if they already provided their encrypted private key.&lt;/p&gt;
+
+    &lt;p&gt;It is possible at any time for an administrator to rotate the existing ORK. The process is exactly the same as setting the ORK. However, there is an extra step the browser extension is doing in such a case. 
+If it happens, it is possible that users have already provided the organization with their encrypted private key. So, in order to work without asking again all users to provide their private key, the browser extension fetches the encrypted key passwords and rotates their encryption with the new ORK. That is also why administrators are prompted to provide the private ORK with the corresponding passphrase during the rotation process.&lt;/p&gt;
+
+    &lt;h3 id=&quot;miscellaneous&quot;&gt;Miscellaneous&lt;/h3&gt;
+
+    &lt;p&gt;In order to reinforce security the browser extension ensures during the decryption of the users’ private key that the keys are provided for the current domain name. So, for example, if a key has been encrypted for domain A but during the decryption process the browser extension is set with domain B or if it’s not possible to determine the domain during the decryption, the process will stop. This means that if migration of domain is done, at the moment it is required to ask the users again to provide their key.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+July
+28th,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -46,7 +159,7 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk &apos;{print $1}&apos;)&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -358,7 +471,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk &apos;{print $1}&apos;)&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1177,7 +1290,7 @@ February
 
     &lt;p&gt;In the same location of your docker-compose.yaml file, create a subscription_key.txt file containing your passbolt subscription key, and add a new volume definition in your docker-compose.yaml file:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: '3.7'
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
 services:
   db:
     ...
@@ -1254,7 +1367,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk &apos;{print $1}&apos;)&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1489,267 +1602,4 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Migrate an existing Passbolt CE to a new openSUSE server</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-opensuse-server.html" rel="alternate" type="text/html" title="Migrate an existing Passbolt CE to a new openSUSE server" /><published>2022-02-11T01:00:00+01:00</published><updated>2022-02-11T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-opensuse-server</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-opensuse-server.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;This document describes how to migrate an existing passbolt to a new openSUSE server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Passbolt installed on an old server&lt;/li&gt;
-      &lt;li&gt;A minimal openSUSE 15 new server&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;backup-the-existing-data&quot;&gt;Backup the existing data&lt;/h2&gt;
-
-    &lt;p&gt;Prior to the migration you will need to backup the existing passbolt instance data. Please refer to &lt;a href=&quot;/hosting/backup&quot;&gt;the official backup documentations&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;p&gt;Depending on your SSL configuration you might need to copy the certificate and key from the existing instance. If you are using let’s encrypt you can continue you’ll configure it later directly in the new server.&lt;/p&gt;
-
-    &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
-
-    &lt;h2 id=&quot;prepare-the-new-opensuse-server&quot;&gt;Prepare the new openSUSE server&lt;/h2&gt;
-
-    &lt;h2 id=&quot;package-repository-setup&quot;&gt;Package repository setup&lt;/h2&gt;
-
-    &lt;p&gt;For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt CE and install it.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Download our dependencies installation script:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbolt-repo-setup.ce.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo zypper install passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;During the installation, you will be asked to accept passbolt GPG repository key. You must ensure the fingerprint is exactly the same as the one below:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Repository:       Passbolt Server
-  Key Fingerprint:  3D1A 0346 C8E1 802F 774A EF21 DE8B 853F C155 581D
-  Key Name:         Passbolt SA package signing key &amp;lt;contact@passbolt.com&amp;gt;
-  Key Algorithm:    RSA 2048
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If the fingerprint matches, trust always by answering &lt;strong&gt;a&lt;/strong&gt; to this question:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Do you want to reject the key, trust temporarily, or trust always? [r/t/a/?] (r):
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Then, you will be asked for PHP repository GPG key, ensure the fingerprint is correct and trust it always:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Repository:       php
-  Key Fingerprint:  55CF 98B4 BB5B C6CC 2E24 748F 82EE 4011 CBCA 8BB5
-  Key Name:         devel:languages:php OBS Project &amp;lt;devel:languages:php@build.opensuse.org&amp;gt;
-  Key Algorithm:    DSA 1024
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Finally, verify and trust openSUSE PHP extensions repository GPG key:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Repository:       php-extensions-x86_64
-  Key Fingerprint:  A85C D7EF 5242 1152 9A7F 994A 9B41 A048 1AF1 B065
-  Key Name:         server:php:extensions OBS Project &amp;lt;server:php:extensions@build.opensuse.org&amp;gt;
-  Key Algorithm:    RSA 2048
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;mariadb--nginx--ssl-settings&quot;&gt;MariaDB / Nginx / SSL settings&lt;/h4&gt;
-
-    &lt;p&gt;Passbolt CE RPM package on openSUSE 15 come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.&lt;/p&gt;
-
-    &lt;p&gt;You must prepare beforehand your SSL certificates before launching the tool. Be sure to write down the full path to your cert/key combo, as it will be needed in the nginx configuration process.&lt;/p&gt;
-
-    &lt;p&gt;Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.&lt;/p&gt;
-
-    &lt;p&gt;Launch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-configure&lt;/code&gt; tool and answer to the questions:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /usr/local/bin/passbolt-configure
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;mariadb&quot;&gt;MariaDB&lt;/h4&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;================================================================
-Do you want to configure a local mariadb server on this machine?
-================================================================
-1) yes
-2) no
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Answer &lt;strong&gt;1&lt;/strong&gt; for yes if you want to configure a local MariaDB database, otherwise &lt;strong&gt;2&lt;/strong&gt; for no if you plan to use an existing one.&lt;/p&gt;
-
-    &lt;p&gt;If you chose yes, answer the questions:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=======================================================
-Please enter a new password for the root database user:
-=======================================================
-MariaDB Root Password: ****
-MariaDB Root Password (verify): ****
-======================================================
-Please enter a name for the passbolt database username
-======================================================
-Passbolt database user name:passboltuser
-=======================================================
-Please enter a new password for the mysql passbolt user
-=======================================================
-MariaDB passbolt user password: ****
-MariaDB passbolt user password (verify): ****
-==============================================
-Please enter a name for the passbolt database:
-==============================================
-Passbolt database name:passboltdb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;haveged&quot;&gt;Haveged&lt;/h4&gt;
-
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt will not run properly.&lt;/p&gt;
-
-    &lt;p&gt;You should consider to install Haveged to speed up the entropy generation. Please check &lt;a href=&quot;https://help.passbolt.com/faq/hosting/why-haveged-virtual-env&quot;&gt;our FAQ page about this&lt;/a&gt; for more informations.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;==================
-Install Haveged ?
-==================
-1) yes
-2) no
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;nginx&quot;&gt;Nginx&lt;/h4&gt;
-
-    &lt;p&gt;Please enter the domain name under which passbolt will run.&lt;/p&gt;
-
-    &lt;p&gt;Note this hostname will be used as server_name for nginx and as the domain name to register a SSL certificate with let’s encrypt if you don’t have your own SSL certificates.&lt;/p&gt;
-
-    &lt;p&gt;If you don’t have a domain name and you do not plan to use let’s encrypt please enter the ip address to access this machine.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=========
-Hostname: passbolt.domain.tld
-=========
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;ssl-configuration&quot;&gt;SSL configuration&lt;/h4&gt;
-
-    &lt;p&gt;3 available choices for SSL configuration:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;manual: Prompts for the path of user uploaded ssl certificates and set up nginx&lt;/li&gt;
-      &lt;li&gt;auto:   Will issue a free SSL certificate with https://www.letsencrypt.org and set up nginx&lt;/li&gt;
-      &lt;li&gt;none:   Do not setup HTTPS at all&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;==================
-Setting up SSL...
-==================
-1) manual
-2) auto
-3) none
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you choose &lt;strong&gt;1&lt;/strong&gt;, you will be prompted for the full path of your certificates:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Enter the path to the SSL certificate: /path/to/certs/cert.pem
-Enter the path to the SSL privkey: /path/to/certs/key.pem
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the Passbolt web interface to finish the configuration.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;===============================================================
-Installation is almost complete. Please point your browser to
-  https://passbolt.domain.tld to complete the process
-===============================================================
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;migrate-data&quot;&gt;Migrate data&lt;/h2&gt;
-
-    &lt;p&gt;Load the backup files into the new openSUSE server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;You should have:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;the private and public GPG key&lt;/li&gt;
-      &lt;li&gt;Your database dump&lt;/li&gt;
-      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/passbolt.php /etc/passbolt
-sudo chown wwwrun:wwwrun /etc/passbolt/passbolt.php
-sudo chmod 440 /etc/passbolt/passbolt.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
-sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown wwwrun:wwwrun /etc/passbolt/gpg/serverkey_private.asc
-sudo chown wwwrun:wwwrun /etc/passbolt/gpg/serverkey.asc
-sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
-sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
-sudo chown -R wwwrun:wwwrun /usr/share/php/passbolt/webroot/img/public
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Migrate passbolt to the latest version&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u wwwrun /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Test passbolt&lt;/p&gt;
-
-    &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
-
-    &lt;p&gt;If you are encountering any issues, you can run the following command to assess the status of your instance:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u wwwrun /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt healthcheck&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-11th,
-2022.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry></feed>

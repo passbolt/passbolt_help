@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Account Recovery configuration</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Account Recovery configuration" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/configure/account-recovery">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2022-07-28-configure-account-recovery.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>Configure</h2></li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/ldap/setup">Configure LDAP</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">Troubleshoot LDAP sync errors</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/environment/reference">Environment variable reference</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/email/setup">Configure Email providers</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/https">Configure HTTPS</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/faq/hosting/why-email-not-sent">Troobleshoot Email config</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
+        </li>
+        
+        
+        <li class="selected">
+        
+            <a href="https://help.passbolt.com/configure/account-recovery">Configure the Account Recovery</a>
+        </li>
+        
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/configure/generate-organization-recovery-key">Generate an account recovery key</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure"><span>configure</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/account-recovery.html"><span>account-recovery</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Account Recovery configuration</h1>
+</div>
+</div>
+
+                        
+<div class="row">
+  <div class="col7">
+
+    <h2 id="what-is-the-account-recovery">What is the account recovery?</h2>
+
+    <p>In short, the user’s private keys (and the associated passphrase) are stored encrypted server side with an organization-wide key. When a user wants to recover their private key, the user would as part of the recovery process generate a temporary new OpenPGP key pair and coordinate transparently through the interface with the administrator. The administrator would be able to share the user key, by decrypting it with this new organization-wide key.</p>
+
+    <p>Some options are provided to make this account recovery process flexible, propose some four settings in the administration to either “always on”, “opt-out” (optional: default on), “opt-in” (optional: default off), “disabled” (always off, like it is now).</p>
+
+    <p>These options are presented to the users during the setup in the form of a checkbox (checked or unchecked by default, disabled or not, depending on the scenario chosen by the admin). A personal setting screen is implemented for the user to place their key in the account recovery if they have already completed the setup prior to the feature being rolled out by an administrator.</p>
+
+    <h2 id="requirements-before-using-the-account-recovery">Requirements before using the account recovery</h2>
+
+    <p>This feature is available from version 3.6 of Passbolt Pro Edition. So, both the servers and the browser extensions need to be at this minimum version in order to use this feature.</p>
+
+    <h2 id="how-to-configure-the-account-recovery">How to configure the account recovery</h2>
+
+    <h3 id="the-basics">The basics</h3>
+
+    <p>To access the settings, go to the administration workspace and in the menu click on the account recovery item. The setting form is composed of 2 parts: the policy type and the ORK definition.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-settings.png" alt="Account recovery administration settings screen" style="max-width:550px;" />
+    <span class="legend">fig. Account recovery administration settings screen</span>
+</figure>
+
+    <p>Four options of policy type are available:</p>
+
+    <ul>
+      <li>
+        <p><strong>Mandatory</strong>: this won’t let the user choose or not to give their encrypted private key to the organization. New users, during the setup will be prompted with an additional screen to inform them about the fact that they are giving their private key to the organization. 
+For the current existing users, it’s a bit different. They will be prompt at each login to provide their key but can postpone this action. The reason we made it this way is to let the user not provide personal passwords to the organization by giving them extra time to manage their personal passwords before sharing their encrypted private key.</p>
+      </li>
+      <li>
+        <p><strong>Opt-in or Opt-out</strong>: In these cases, the users will be able to choose to provide their encrypted private key or not. New users will be prompted with an additional screen during the setup of their account to inform them about the feature and let them choose (they cannot postpone their choice though). After login, with an opt-out policy type, current existing users will be prompted to provide their key. In any case existing users will have an attention icon on their avatar to guide them to their user account recovery setting page until they made a subscription choice. Also, if users decide not to provide their key, they are always able to change their mind. However, if a user’s encrypted private key is provided to the organization, they won’t be able to cancel their participation in the recovery program.</p>
+      </li>
+      <li>
+        <p><strong>Disabled</strong>: as the name states, the feature is disabled and nobody can use the account recovery processes. It’s possible for administrators to disabled the account recovery feature at any time. By doing so, all the data related to account recovery are cleared from the database.</p>
+      </li>
+    </ul>
+
+    <h4 id="setting-the-ork">Setting the ORK</h4>
+
+    <p>To enable account recovery, it is necessary to provide an ORK. Passbolt provides a way to generate it in situ but it is recommended to generate it manually and then import it.</p>
+
+    <p>In both cases, the ORK needs to fulfill the following requirements:</p>
+    <ul>
+      <li>To be a public key (Passbolt instances never have access the private ORK, only the administrators)</li>
+      <li>To use the algorithm: RSA</li>
+      <li>To be of a length of: 4096 bits</li>
+    </ul>
+
+    <h5 id="importing-the-ork-from-somewhere-else-recommended">Importing the ORK from somewhere else (recommended)</h5>
+
+    <p>To import the ORK, simply copy-paste the public ORK in the text area or use the file browsing option. In order to facilitate the use of the gpg command line to generate the ORK manually, administrators can find a step by step guide can be found <a href="/configure/generate-organization-recovery-key">here</a>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-setting-ORK-import.png" alt="Account recovery administration settings ORK import screen" style="max-width:550px;" />
+    <span class="legend">fig. Account recovery administration settings ORK import screen</span>
+</figure>
+
+    <h5 id="generating-the-ork-in-passbolt">Generating the ORK in passbolt</h5>
+
+    <p>In the dialog, click on the “Generate” tab. A form appears where it is asked to provide a name, an email address and finally a passphrase.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-setting-ORK-generation.png" alt="Account recovery administration settings ORK generation screen" style="max-width:550px;" />
+    <span class="legend">fig. Account recovery administration settings ORK generation screen</span>
+</figure>
+
+    <p>All 3 fields are required but the passphrase has specific checks. In order to reinforce security and due to the criticality of this feature, Passbolt doesn’t allow the usage of weak passphrases at this stage. You will need to provide a passphrase that has an entropy of 80.0 bits minimum and that doesn’t exist in known dictionaries (as a reference we use the service “hasBeenPwnd” to do dictionary checks).</p>
+
+    <p>Finally, as Passbolt instances never have access to the private ORK and that it is required that administrators keep it in a safe place. Administrators are asked to download the private key part of the ORK right after its generation. It is mandatory to have it, otherwise it’s impossible to use the account recovery feature later.</p>
+
+    <h4 id="validating-the-changes">Validating the changes</h4>
+
+    <p>Once everything is set, you can click on the “save settings” button. A dialog opens with a summary of the changes made. It is advised to do a careful check here before validating anything (and make sure you have the corresponding private ORK). After that, administrators are asked to provide their personal passphrase (for a safety check) plus the private key with the passphrase of the previously ORK set if the account recovery was enabled before the changes (it’s both necessary for a safety check and for when a rotation of the ORK is being made).</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-administration-settings-summary-review-dialog.png" alt="Account recovery administration settings summary review dialog" style="max-width:550px;" />
+    <span class="legend">fig. Account recovery administration settings summary review dialog</span>
+</figure>
+
+    <h3 id="rotating-the-ork">Rotating the ORK</h3>
+
+    <p>TL;DR; it is possible to rotate an ORK without disturbing users even if they already provided their encrypted private key.</p>
+
+    <p>It is possible at any time for an administrator to rotate the existing ORK. The process is exactly the same as setting the ORK. However, there is an extra step the browser extension is doing in such a case. 
+If it happens, it is possible that users have already provided the organization with their encrypted private key. So, in order to work without asking again all users to provide their private key, the browser extension fetches the encrypted key passwords and rotates their encryption with the new ORK. That is also why administrators are prompted to provide the private ORK with the corresponding passphrase during the rotation process.</p>
+
+    <h3 id="miscellaneous">Miscellaneous</h3>
+
+    <p>In order to reinforce security the browser extension ensures during the decryption of the users’ private key that the keys are provided for the current domain name. So, for example, if a key has been encrypted for domain A but during the decryption process the browser extension is set with domain B or if it’s not possible to determine the domain during the decryption, the process will stop. This means that if migration of domain is done, at the moment it is required to ask the users again to provide their key.</p>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+July
+28th,
+2022.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when installing passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

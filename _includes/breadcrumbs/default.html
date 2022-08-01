@@ -25,11 +25,13 @@
                         <a href="{{ page.categories[0] | absolute_url }}"><span>{{ page.categories[0] }}</span></a>
                     </div>
                 </li>
+                {% if page.categories[1] %}
                 <li>
                     <div class="main-cell">
                         <a href="{{ page.categories[0] | absolute_url }}/{{ page.categories[1] }}"><span>{{ page.categories[1] }}</span></a>
                     </div>
                 </li>
+                {% endif %}
                 {% endif %}
                 {% endif %}
                 {% if page.slug %}

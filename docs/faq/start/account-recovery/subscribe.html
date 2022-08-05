@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How to subscribe and use to the account recovery</title>
+    <title>Passbolt Help | How to subscribe to the account recovery program?</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="What is account recovery?">
+    <meta name="description" content="Account recovery is a feature introduced with passbolt v3.6.0 that as for aim to help users to recover their accounts in case of recovery kit or passphrase l...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to subscribe and use to the account recovery" />
-    <meta property="og:description" content="What is account recovery?" />
+    <meta property="og:title" content="How to subscribe to the account recovery program?" />
+    <meta property="og:description" content="Account recovery is a feature introduced with passbolt v3.6.0 that as for aim to help users to recover their accounts in case of recovery kit or passphrase l..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/start/006-subscribe-and-use-the-account-recovery copy.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/start/006-subscribe-to-account-recovery-program.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How to subscribe and use to the account recovery</span></a>
+                        <a href=""><span>How to subscribe to the account recovery program?</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,125 +167,66 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How to subscribe and use to the account recovery</h1>
-                            <h2 id="what-is-account-recovery">What is account recovery?</h2>
+                         <h1>How to subscribe to the account recovery program?</h1>
+                            <p>Account recovery is a feature introduced with passbolt v3.6.0 that as for aim to help users to recover their accounts
+in case of recovery kit or passphrase loss. To know more about account recovery, checkout <a href="/configure/account-recovery">this documentation</a>.</p>
 
-<p>In short, the user’s private keys (and the associated passphrase) are stored encrypted server side with an organization-wide key. When a user wants to recover their private key, the user would as part of the recovery process generate a temporary new OpenPGP key pair and coordinate transparently through the interface with the administrator. The administrator would be able to share the user key, by decrypting it with this new organization-wide key.</p>
+<h2 id="requirements">Requirements</h2>
 
-<p>From the organization perspective, some options are provided to make this account recovery process flexible, propose some four settings in the administration to either “always on”, “opt-out” (optional: default on), “opt-in” (optional: default off), “disabled” (always off, like it is now).</p>
-
-<p>These options are presented to the users during the setup in the form of a checkbox (checked or unchecked by default, disabled or not, depending on the scenario chosen by the administrators). A personal setting screen is implemented for the user to place their key in the account recovery if they have already completed the setup prior to the feature being rolled out by an administrator.</p>
-
-<h3 id="how-to-subscribe-as-a-new-user-during-the-setup-process">How to subscribe as a new user during the setup process?</h3>
-
-<p>If the organization chose to enable the account recovery feature, all users during the setup process will be prompted with a dedicated screen informing them about what account recovery is (by explaining that their private key is being shared to the organization and administrators will have access to their resources) and let them choose to share their private key or not according to the organization policy.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-during-setup.png" alt="Account recovery screen during setup process" style="max-width:550px;" />
-    <span class="legend">fig. Account recovery screen during setup process</span>
-</figure>
-
-<p>The screen varies a bit depending on the policy type the organization selected:</p>
+<p>You can follow this procedure if you are meeting the following requirements:</p>
 
 <ul>
-  <li><strong>Mandatory</strong>: as its name states, users have no other choice but to share their private key encrypted. The screen role here is mainly to inform the user about what’s going on and to make them aware that if they register personal passwords, the organization might have access to these.</li>
-  <li><strong>Opt-in / Opt-out</strong>: with these options, users have the choice to accept or reject the subscription to the account recovery program. They are informed about the consequence of such a share. The difference between both options is the selected choice by default. With <strong>opt-in</strong>, users have to explicitly opt-in so the default option is set to “reject”. With <strong>opt-out</strong>, users have to explicitly opt-out so the default option is set to “accept”.</li>
+  <li>You are in possession of an active account;</li>
+  <li>Your organisation is running passbolt Pro &gt; v3.6.0 or passbolt Cloud (coming soon).</li>
 </ul>
 
-<p>As a quick notice, during the setup process, a recovery kit is asked to be downloaded. The account recovery is not a replacement of the recovery kit. Even though it’s possible to configure another Passbolt extension for another browser with the account recovery, it’s much easier to proceed with the recovery kit in such a case.</p>
+<h2 id="how-to-subscribe-as-a-new-user-during-the-setup-process">How to subscribe as a new user during the setup process?</h2>
+
+<p>If the account recovery is enabled for the organisation, all new users will be prompted to join the account recovery program during the setup process.</p>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-during-setup.png" alt="Account recovery screen during browser extension setup process (Opt-out policy)" style="max-width:450px;" />
+    <span class="legend">fig. Account recovery screen during browser extension setup process (Opt-out policy)</span>
+</figure>
+
+<p>The prompt presents different options depending on the organisation policy:</p>
+
+<ul>
+  <li><strong>Mandatory</strong>: as its name states, users have to subscribe to the program no mater their preferences. The screen role here is mainly to inform the users about the private key transfer that is going to happen, it is useful if they prefer not to use their personal private key by instance;</li>
+  <li><strong>Opt-out</strong>: users have the choice to join or reject the program, and they are subscribed by default as per the organisation preference;</li>
+  <li><strong>Opt-in</strong>: as the <em>opt-out</em> option, users have the choice to join or reject the program, but they are not subscribed by default as per the organisation preference.</li>
+</ul>
 
 <h2 id="how-to-subscribe-as-an-already-registered-user">How to subscribe as an already registered user?</h2>
 
-<p>Passbolt browser extension is provided with dedicated screens for the registered users to subscribe or not to the account recovery program.
-The setting screen is accessible from the user profile workspace in the “Account recovery” section. To guide the users, there are attention icons displayed along the path to follow: on the user avatar, in the contextual menu of the avatar and finally in the menu of the profile workspace.</p>
+<p>If the account recovery is enabled for the organisation, all users can access their account recovery preference from the <em>account recovery</em> section of the <em>user settings workspace</em>.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-setting.png" alt="Account recovery setting screen and path" style="max-width:550px;" />
-    <span class="legend">fig. Account recovery setting screen and path</span>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-redirection-dialog.png" alt="Account recovery user prompt dialog." style="max-width:450px;" />
+    <span class="legend">fig. Account recovery user prompt dialog.</span>
 </figure>
 
-<p>If the feature is enabled for the organization, users will be able to follow the subscription procedure by clicking the “review” button. From there, users might choose to accept the subscription or reject it (only if the policy is not set as “mandatory”) or do nothing and think about it later.</p>
+<p>If the organisation account recovery policy is set to <em>mandatory</em> or <em>opt-out</em>, users will be prompted to enroll to the program immediately after signing in into passbolt. If they postpone the decision, they could follow the <em>attention crumbs</em> (❗) displayed in the interface to go to the setting screen later.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-dialog.png" alt="Account recovery subscription dialog" style="max-width:550px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-setting.png" alt="Account recovery user setting screen." style="max-width:750px;" />
+    <span class="legend">fig. Account recovery user setting screen.</span>
+</figure>
+
+<p>Users will be then able to enroll to the program by clicking the <em>review</em> button. Similarly to the setup process, the setting screen presents different options depending on the organisation policy:</p>
+
+<ul>
+  <li><strong>Mandatory</strong>: as its name states, users have no other choice but to subscribe to the program. The screen role here is mainly to inform the users about the private key transfer that is going to happen, it is useful if they prefer not to use their personal private key by instance;</li>
+  <li><strong>Opt-out</strong>: users have the choice to join or reject the program, and they are subscribed by default as per the organisation preference;</li>
+  <li><strong>Opt-in</strong>: as the <em>opt-out</em> option, users have the choice to join or reject the program, but they are not subscribed by default as per the organisation preference.</li>
+</ul>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-dialog.png" alt="Account recovery subscription dialog" style="max-width:450px;" />
     <span class="legend">fig. Account recovery subscription dialog</span>
 </figure>
 
-<p>In the user settings account recovery review dialog, the information about the administrators who requested for the subscription to the account recovery are displayed. For safety reasons, it is highly recommended to verify carefully this information: is the administrator known, is the fingerprint matching the administrator public key before accepting the share your private key.</p>
-
-<p>Also, the organization might wish to invite their users to subscribe to the account recovery program. In such a case, the policy might be set to “mandatory” or “opt-out” which as a consequence will display a dialog to register to the program each time a user signs in to the application. This dialog never appears again once users subscribed to the account recovery or explicitly rejected it (if the organization policy allows it). If users have rejected the subscription, it’s always possible for them to change their mind. But, it’s not possible to do the other way around (if the user subscribed, they can’t unsubscribe).</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-redirection-dialog.png" alt="Account recovery redirection dialog" style="max-width:550px;" />
-    <span class="legend">fig. Account recovery redirection dialog</span>
-</figure>
-
-<p>For safety reasons, it is highly recommended to verify the information displayed on the user settings dialog.</p>
-
-<p>As a quick notice, already registered users may have personal passwords saved on their account. As they might not want to share them with the organization, even if the policy is set to “mandatory”, users will always have the time to process their personal information before subscribing to the account recovery. However, they will be prompted each time after signing in to join the program.</p>
-
-<h2 id="how-to-recover-your-account">How to recover your account?</h2>
-
-<p>Before requesting for an account recovery and to make sure this goes well, some conditions must be fulfilled:</p>
-
-<ul>
-  <li>The account recovery program has to be configured by an administrator</li>
-  <li>Users must have subscribed to the account recovery program. During the subscription, the private key is provided to the organization, without this step, no recovery could be done</li>
-  <li>The process of recovering an account must be done in the same browser and browser profile all along the process. If there is a change in browser or profile, the procedure will fail at some point and users will have to restart from the beginning.</li>
-</ul>
-
-<h3 id="when-can-we-use-the-account-recovery-process">When can we use the account recovery process?</h3>
-
-<p>As long as the previous conditions are met, the process could be used at any time. But, just to clarify it, here’s a list of scenario where users might request for an account recovery:</p>
-
-<ul>
-  <li>Users have their Passbolt extension configured but they forgot their passphrase and it’s not possible to sign into the application anymore.</li>
-  <li>Users wish to configure their Passbolt extension on a new browser or browser profile but they have lost their recovery kit.</li>
-  <li>Users wish to configure their Passbolt extension on a new browser or browser profile, they have their recovery kit but forgot the passphrase associated with it.</li>
-  <li>Users wish to configure their Passbolt extension on a new browser or browser profile, they have their recovery kit and remember their passphrase. They still could use the account recovery procedures. However, using the recovery kit is much easier and faster to follow (link).</li>
-</ul>
-
-<h3 id="how-to-start-an-account-recovery-procedure">How to start an account recovery procedure?</h3>
-
-<p>There are 2 ways to start the procedure:</p>
-
-<ol>
-  <li>Assuming the browser extension is configured but the passphrase is lost: users can, at any time, click on the “help, I lost my passphrase” link in the sign in screen. An email will be sent to them to start the procedure.</li>
-</ol>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-help-lost-passphrase.png" alt="Login screen with the account recovery feature" style="max-width:550px;" />
-    <span class="legend">fig. Login screen with the account recovery feature</span>
-</figure>
-
-<ol>
-  <li>Assuming users are configuring Passbolt for a new browser or a new browser profile: during the process, they will be prompted to provide a recovery kit and its passphrase. If one of the information is missing, users can click on the “help, I lost my private key” link. Users will receive an email to start the procedure.</li>
-</ol>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-help-lost-private-key.png" alt="Recover screen with the help link" style="max-width:550px;" />
-    <span class="legend">fig. Recover screen with the help link</span>
-</figure>
-
-<h3 id="how-does-the-account-recovery-procedure-look-like">How does the account recovery procedure look like</h3>
-
-<ol>
-  <li>
-    <p>Users have asked for an account recovery and just received an email to start. The email contains a link that brings the users to the account recovery request page. Pay attention that at this moment, the browser being used must be the one on which the browser extension has to be configured to access the application. If the browser or profile is changed during the process users will be blocked at some point and might need to restart from the beginning.</p>
-  </li>
-  <li>
-    <p>Users are prompted to provide a new passphrase and set their security token. Please note that the chosen passphrase is not a temporary one and will be the new passphrase to sign in. It’s the same for the security token.</p>
-  </li>
-  <li>
-    <p>After these steps, an email is sent to the administrators to tell them that an account recovery has been requested. Users need to wait for them to accept the account recovery request (they could also reject it if they wish and users won’t be able to finish the recovery process).</p>
-  </li>
-  <li>
-    <p>If they reject or accept the request an email is sent to inform the users about their choice. If it’s accepted, the email contains a link that users can follow to go on with the account recovery procedure.</p>
-  </li>
-  <li>
-    <p>At this step, users are asked to provide the passphrase they chose previously. If they don’t remember it, they’re still able to request for another account recovery from the interface. After entering the right passphrase, the browser extension will sign the users in after ensuring they have downloaded their new recovery kit.</p>
-  </li>
-</ol>
+<p>Users will notice additional information relative to the administrator who enabled the account recovery program. For safety reasons, it is highly recommended to verify carefully this information: Is the administrator known? Is the fingerprint matching the administrator public key?</p>
 
                         </div>
 
@@ -501,14 +442,6 @@ The setting screen is accessible from the user profile workspace in the “Accou
     
     
     <li>
-        <a href="/faq/start/passphrase-recovery">How can I recover my passphrase?</a>
-    </li>
-    
-    
-    
-    
-    
-    <li>
         <a href="/faq/start/registration-token-expired">What can I do if my registration token expired?</a>
     </li>
     
@@ -555,14 +488,6 @@ The setting screen is accessible from the user profile workspace in the “Accou
     
     
     
-    
-    
-    
-    
-    
-    <li>
-        <a href="/faq/start/account-recover">How to recover an account</a>
-    </li>
     
     
     
@@ -693,7 +618,7 @@ The setting screen is accessible from the user profile workspace in the “Accou
     
     
     <li>
-        <a href="/faq/start/account-recovery/subscribe">How to subscribe and use to the account recovery</a>
+        <a href="/faq/start/account-recovery/subscribe">How to subscribe to the account recovery program?</a>
     </li>
     
     
@@ -702,6 +627,30 @@ The setting screen is accessible from the user profile workspace in the “Accou
     
     <li>
         <a href="/faq/start/account-recovery/review-request">How to review an account recovery request</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/generate-openpgp-key">How to generate an OpenPGP key</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/passphrase-recovery">How to recover my passphrase?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/account-recover">How to recover an account?</a>
     </li>
     
     

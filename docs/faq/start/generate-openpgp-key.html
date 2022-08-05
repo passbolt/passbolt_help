@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How to share passwords</title>
+    <title>Passbolt Help | How to generate an OpenPGP key</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Sharing a password Login and/ or go to password workspace Select the password you would like to share Click the “share” button Type the name of a user you wo...">
+    <meta name="description" content="Requirements">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to share passwords" />
-    <meta property="og:description" content="Sharing a password Login and/ or go to password workspace Select the password you would like to share Click the “share” button Type the name of a user you wo..." />
+    <meta property="og:title" content="How to generate an OpenPGP key" />
+    <meta property="og:description" content="Requirements" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/faq/start/share-password">
+    <link rel="canonical" href="https://help.passbolt.com/faq/start/generate-openpgp-key">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/start/003-share-password.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/start/008-generate-openpgp-key.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How to share passwords</span></a>
+                        <a href=""><span>How to generate an OpenPGP key</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,33 +167,69 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How to share passwords</h1>
-                            <h2 id="sharing-a-password">Sharing a password</h2>
+                         <h1>How to generate an OpenPGP key</h1>
+                            <h2 id="requirements">Requirements</h2>
+
+<p>In order to follow this procedure, ensure you meet with the following minimum requirements:</p>
+
+<ul>
+  <li>An access to a linux terminal machine;</li>
+  <li>The OpenPGP package installed on the linux machine;</li>
+  <li>The OpenPGP key to generate requirements: Algorithm, strength …</li>
+</ul>
+
+<h2 id="generate-a-new-openpgp-key-pair">Generate a new OpenPGP key pair</h2>
+
+<p>Execute the following command to generate a new OpenPGP key pair.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--full-generate-key</span>
+</code></pre></div></div>
+
+<p>This command will run an interactive wizard that will help you define the key settings:</p>
+
 <ol>
-  <li>Login and/ or go to password workspace</li>
-  <li>Select the password you would like to share</li>
-  <li>Click the “share” button</li>
-  <li>Type the name of  a user you would like to share this password with. Optionally, you can select the permissions you wish to give to a user</li>
-  <li>Press the save button (or enter on your keyboard)</li>
-  <li>Enter your master password. Press OK to continue.</li>
-  <li>Wait until encryption is done</li>
+  <li>Select the key type, by instance: <em>RSA</em>.</li>
+  <li>If RSA was chosen, select the keysize, by instance for a strong key: <em>3072</em>.</li>
+  <li>Select the expiration time, by instance for “no expiry”: <em>0</em>. Note that key expiration is not well handled by passbolt, set an expiration date only if you know what you are doing.</li>
+  <li>Confirm the key type information.</li>
+  <li>Enter a name, by instance: <em>Ada Lovelace</em>.</li>
+  <li>Enter an email, by instance: <em>ada.lovelace@mydomain.tld</em>.</li>
+  <li>Enter a comment, it is optional. It will only help you to identify a key in the keyring if similar name or email chosen.</li>
+  <li>Confirm the key meta information.</li>
+  <li>Define a password to protect the key, it is advised to use a strong password.</li>
 </ol>
 
-<div class="message warning">
-    <p>
-        Make sure you <strong>press the save button every time</strong> you make changes
-    </p>
-    
-</div>
+<p>Once the key generated, the key will be stored in the keyring of the user you authenticated with and OpenPGP will
+output the details of the newly generated key.</p>
 
-<h2 id="removing-yourself-from-a-password-shared-with-you">Removing yourself from a password shared with you</h2>
-<ol>
-  <li>Log in to your passbolt account.</li>
-  <li>Click on “Shared with me” from the menu on the left</li>
-  <li>Select a password you wish to remove yourself from</li>
-  <li>Remove yourself from the list of users with whom the password is shared</li>
-  <li>The password will no longer be shared with you</li>
-</ol>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public and secret key created and signed.
+
+pub   rsa3072 2022-08-04 <span class="o">[</span>SC]
+      F5B94A730D636A18815046C1408B779FE1951A9A
+uid                      Ada Lovelace &lt;ada.lovelace@mydomain.tld&gt;
+sub   rsa3072 2022-07-28 <span class="o">[</span>E]
+</code></pre></div></div>
+
+<p>The output contains a 40 characters long identifier (<em>F5B94A730D636A18815046C1408B779FE1951A9A</em>) that represents the key fingerprint,
+note it down, it will be useful later to identify the key in the keyring.</p>
+
+<h2 id="export-an-openpgp-key-pair">Export an OpenPGP key pair</h2>
+
+<h3 id="export-an-openpgp-public-key">Export an OpenPGP public key</h3>
+
+<p>Execute the following command to export a public key having <em>F5B94A730D636A18815046C1408B779FE1951A9A</em> as fingerprint from
+the OpenPGP keyring into a file in armor format.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--armor</span> <span class="nt">--export</span> F5B94A730D636A18815046C1408B779FE1951A9A <span class="o">&gt;</span> public.key
+</code></pre></div></div>
+
+<h3 id="export-an-openpgp-private-key">Export an OpenPGP private key</h3>
+
+<p>Execute the following command to export a private key having <em>F5B94A730D636A18815046C1408B779FE1951A9A</em> as fingerprint from
+the OpenPGP keyring into a file in armor format.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--armor</span> <span class="nt">--export-secret-keys</span> F5B94A730D636A18815046C1408B779FE1951A9A <span class="o">&gt;</span> private.key
+</code></pre></div></div>
 
                         </div>
 

@@ -1,7 +1,7 @@
 ---
-title: Account Recovery configuration
+title: How to configure Account Recovery
 date: 2022-07-28 00:00:00 Z
-card_title: How to configure the Account Recovery
+card_title: How to configure Account Recovery
 icon: fa-key
 categories: [configure]
 sidebar: configure
@@ -21,12 +21,6 @@ permalink: /:categories/:slug.html
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/message.html
-    class="tldr notice"
-    content="Are you experiencing issues when installing passbolt?"
-    link="https://community.passbolt.com/c/installation-issues"
-    ask="Ask the community!"
-    button="primary"
-%}
+{% include aside/pro-support.html %}
 
 {% include layout/row_end.html %}

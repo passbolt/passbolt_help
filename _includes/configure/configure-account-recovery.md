@@ -46,7 +46,7 @@ organization.
 Once you have chosen the organisation policy the next step is to set an organisation key. This key will be used to encrypt
 the escrow of the organisation users private keys. 
 
-### Import the organisation key
+#### Import the organisation key
 
 This method is the recommended one as it will keep your organisation key isolated from passbolt until the moment you
 need it. 
@@ -65,7 +65,7 @@ In order to be accepted, the organisation key should meet these requirements:
 
 If you do not know how to generate an OpenPGP key, checkout the following documentation: [how to generate an OpenPGP key](/faq/start/generate-openpgp-key).
 
-### Generate the organisation key
+#### Generate the organisation key
 
 If you cannot generate an OpenPGP key on your own, we got your back. In the import recovery key dialog, 
 click on the “Generate” tab. From there you will find a tool that will help you to generate your organisation key.

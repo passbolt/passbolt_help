@@ -1,6 +1,6 @@
 ---
 title: How to configure Account Recovery
-date: 2022-07-28 00:00:00 Z
+date: 2022-08-05 00:00:00 Z
 card_title: How to configure Account Recovery
 icon: fa-key
 categories: [configure]

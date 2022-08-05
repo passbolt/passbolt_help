@@ -154,18 +154,12 @@
       icon: fa-database
       teaser: Update database credentials
       slug: update-database-credentials
-    - title: Configure the Account Recovery
+    - title: Configure Account Recovery
       url: /configure/account-recovery
       icon: fa-key
-      teaser: How to configure the Account Recovery
+      teaser: How to configure Account Recovery
       version: pro
       slug: account-recovery
-    - title: Generate an account recovery key
-      url: /configure/generate-organization-recovery-key
-      icon: fa-key
-      teaser: How to generate an Organization Recovery Key (ORK)
-      version: pro
-      slug: generate-organization-recovery-key
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

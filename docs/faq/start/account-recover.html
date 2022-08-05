@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How to recover an account</title>
+    <title>Passbolt Help | How to recover an account?</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,10 +16,10 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The account recovery functionality can be used if you are setting up a passbolt client on a new machine because you lost, upgraded, reinstalled the previous ...">
+    <meta name="description" content="Recover an account with the recovery kit">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to recover an account" />
-    <meta property="og:description" content="The account recovery functionality can be used if you are setting up a passbolt client on a new machine because you lost, upgraded, reinstalled the previous ..." />
+    <meta property="og:title" content="How to recover an account?" />
+    <meta property="og:description" content="Recover an account with the recovery kit" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How to recover an account</span></a>
+                        <a href=""><span>How to recover an account?</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,24 +167,92 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How to recover an account</h1>
-                            <p>The account recovery functionality can be used if you are setting up a passbolt client on a new machine
-because you lost, upgraded, reinstalled the previous one. You can also use this method to configure a
-passbolt client on an additional machine.</p>
+                         <h1>How to recover an account?</h1>
+                            <h2 id="recover-an-account-with-the-recovery-kit">Recover an account with the recovery kit</h2>
 
-<p>This procedure can only be completed if you are in possession of an active user account, a copy of the private
-key associated with that account and the passphrase to decrypt the private key.</p>
+<p>The recovery kit can be used if you are setting up passbolt on a new machine because you lost, upgraded or reinstalled 
+the previous one. This procedure can also be used to configure passbolt on an additional machine.</p>
+
+<h3 id="requirements">Requirements</h3>
+
+<p>You can follow this procedure if you are meeting the following requirements:</p>
+
+<ul>
+  <li>You are in possession of an active account;</li>
+  <li>You are in possession of your recovery kit, it contains a copy of the private key associated to your account;</li>
+  <li>You remember your passphrase.</li>
+</ul>
+
+<p>If you lost your recovery kit or your passphrase and you subscribed to the account recovery program, checkout this
+<a href="#recover-account-recovery-program">documentation</a>.</p>
+
+<h3 id="procedure">Procedure</h3>
 
 <p><strong>Step 1.</strong> In order to recover you will need to go to your domain URL and add <code class="language-plaintext highlighter-rouge">/recover</code> at the end of the url,
-for example <code class="language-plaintext highlighter-rouge">https://yourpassbolt.com/recover</code>.</p>
-
-<p><strong>Step 2.</strong> Complete the form by providing your email address.</p>
+for example <code class="language-plaintext highlighter-rouge">https://yourpassbolt.com/recover</code>.
+<strong>Step 2.</strong> Complete the form by providing your email address.</p>
 
 <p><strong>Step 3.</strong> Follow the link in your mailbox.</p>
 
 <p><strong>Step 4.</strong> Follow the recovery steps, which is much like the initial setup. You will need to import your private key.</p>
 
 <p><strong>Step 5.</strong> Enter your passphrase to login!</p>
+
+<h2 id="-recover-an-account-with-the-account-recovery-program"><a name="recover-account-recovery-program"></a> Recover an account with the account recovery program</h2>
+
+<p>Account recovery is a feature introduced with passbolt v3.6.0 that as for aim to help users to recover their accounts
+in case of recovery kit or passphrase loss. To know more about account recovery, checkout <a href="/configure/account-recovery">this documentation</a>.</p>
+
+<h3 id="requirements-1">Requirements</h3>
+
+<p>You can follow this procedure if you are meeting the following requirements:</p>
+<ul>
+  <li>You are in possession of an active account;</li>
+  <li>Your organisation is running passbolt Pro &gt; v3.6.0 or passbolt Cloud (coming soon).</li>
+  <li>You subscribed to the account recovery program while installing passbolt for the first time or via in your user settings workspace.</li>
+</ul>
+
+<h3 id="procedure-1">Procedure</h3>
+
+<p>There are 2 ways to start the procedure:</p>
+
+<ol>
+  <li>Assuming the browser extension is configured but the passphrase is lost: users can, at any time, click on the “help, I lost my passphrase” link in the sign in screen. An email will be sent to them to start the procedure.</li>
+</ol>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-help-lost-passphrase.png" alt="Login screen with the account recovery feature" style="max-width:550px;" />
+    <span class="legend">fig. Login screen with the account recovery feature</span>
+</figure>
+
+<ol>
+  <li>Assuming users are configuring Passbolt for a new browser or a new browser profile: during the process, they will be prompted to provide a recovery kit and its passphrase. If one of the information is missing, users can click on the “help, I lost my private key” link. Users will receive an email to start the procedure.</li>
+</ol>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/07/account-recovery-help-lost-private-key.png" alt="Recover screen with the help link" style="max-width:550px;" />
+    <span class="legend">fig. Recover screen with the help link</span>
+</figure>
+
+<h3 id="how-does-the-account-recovery-procedure-look-like">How does the account recovery procedure look like</h3>
+
+<ol>
+  <li>
+    <p>Users have asked for an account recovery and just received an email to start. The email contains a link that brings the users to the account recovery request page. Pay attention that at this moment, the browser being used must be the one on which the browser extension has to be configured to access the application. If the browser or profile is changed during the process users will be blocked at some point and might need to restart from the beginning.</p>
+  </li>
+  <li>
+    <p>Users are prompted to provide a new passphrase and set their security token. Please note that the chosen passphrase is not a temporary one and will be the new passphrase to sign in. It’s the same for the security token.</p>
+  </li>
+  <li>
+    <p>After these steps, an email is sent to the administrators to tell them that an account recovery has been requested. Users need to wait for them to accept the account recovery request (they could also reject it if they wish and users won’t be able to finish the recovery process).</p>
+  </li>
+  <li>
+    <p>If they reject or accept the request an email is sent to inform the users about their choice. If it’s accepted, the email contains a link that users can follow to go on with the account recovery procedure.</p>
+  </li>
+  <li>
+    <p>At this step, users are asked to provide the passphrase they chose previously. If they don’t remember it, they’re still able to request for another account recovery from the interface. After entering the right passphrase, the browser extension will sign the users in after ensuring they have downloaded their new recovery kit.</p>
+  </li>
+</ol>
 
                         </div>
 
@@ -400,14 +468,6 @@ for example <code class="language-plaintext highlighter-rouge">https://yourpassb
     
     
     <li>
-        <a href="/faq/start/passphrase-recovery">How can I recover my passphrase?</a>
-    </li>
-    
-    
-    
-    
-    
-    <li>
         <a href="/faq/start/registration-token-expired">What can I do if my registration token expired?</a>
     </li>
     
@@ -454,14 +514,6 @@ for example <code class="language-plaintext highlighter-rouge">https://yourpassb
     
     
     
-    
-    
-    
-    
-    
-    <li>
-        <a href="/faq/start/account-recover">How to recover an account</a>
-    </li>
     
     
     
@@ -586,6 +638,46 @@ for example <code class="language-plaintext highlighter-rouge">https://yourpassb
     
     
     
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/account-recovery/subscribe">How to subscribe to the account recovery program?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/account-recovery/review-request">How to review an account recovery request</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/generate-openpgp-key">How to generate an OpenPGP key</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/passphrase-recovery">How to recover my passphrase?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/start/account-recover">How to recover an account?</a>
+    </li>
     
     
     

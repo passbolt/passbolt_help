@@ -154,6 +154,12 @@
       icon: fa-database
       teaser: Update database credentials
       slug: update-database-credentials
+    - title: Configure Account Recovery
+      url: /configure/account-recovery
+      icon: fa-key
+      teaser: How to configure Account Recovery
+      version: pro
+      slug: account-recovery
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

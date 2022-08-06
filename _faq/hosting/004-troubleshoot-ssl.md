@@ -264,7 +264,7 @@ This tool will show you the quality of your SSL configuration. A+ is the highest
 
 {% include articles/figure.html 
     url="/assets/img/help/2022/01/qualys-ssl-labs.jpg"
-    legend="SSL Checker Fail" 
+    legend="SSL Test Pass" 
     width="550px"
 %}
 
@@ -276,6 +276,6 @@ Mozilla Observatory is another web tool to show you the quality of your SSL conf
 
 {% include articles/figure.html 
     url="/assets/img/help/2022/01/mozilla-observatory.jpg"
-    legend="SSL Checker Fail" 
+    legend="SSL Scan Pass" 
     width="550px"
 %}

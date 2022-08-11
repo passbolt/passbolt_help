@@ -16,6 +16,10 @@ permalink: /:categories/:slug.html
 Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
 Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box. 
 
+{% include messages/notice.html
+    content="Please note than only [Yubikey 5 Series](https://www.yubico.com/products/yubikey-5-overview/) are supported. [Security Keys](https://www.yubico.com/products/security-key/) with FIDO2/U2F/WebAuthN support are currently not supported."
+%}
+
 {% include articles/figure.html
     url="/assets/img/help/2018/11/mfa-yubikey-login.jpg"
     legend="Using a Yubikey at login"

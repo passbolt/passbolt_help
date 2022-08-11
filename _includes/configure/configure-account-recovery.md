@@ -108,7 +108,7 @@ disable then enable again the feature with an organisation key of their own.
 
 {% include articles/figure.html
 url="/assets/img/help/2022/08/account-recovery-administration-settings-provide-organisation-key.png"
-legend="Account recovery administration settings disable policy"
+legend="Account recovery administration settings provide organization key"
 width="450px"
 %}
 
@@ -129,7 +129,7 @@ review the changes and to provide the organisation key currently in use. This ex
 disable then enable again the feature with an organisation key of their own.
 
 {% include articles/figure.html
-url="/assets/img/help/2022/08/account-recovery-administration-settings-provide-organisation-key.png"
-legend="Account recovery administration settings disable policy"
+url="/assets/img/help/2022/07/account-recovery-administration-settings-summary-review-dialog.png"
+legend="Account recovery administration settings summary review dialog"
 width="450px"
 %}

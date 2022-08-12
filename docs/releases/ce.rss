@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.7.1 | Last Day</title>
+    <link>https://help.passbolt.com/releases/ce/last-day</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/last-day</guid>
+    <description>This release is a maintenance release fixing some compatibility problem with Postgresql and ironing out some of the bugs reported by the community. We wish you a good end of the summer. Browser extension Fixed PB-18420 As AN completing the setup I should understand what information the account recovery feature...</description>
+    <pubDate>Fri, 12 Aug 2022 10:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.7.0 | Epikur</title>
     <link>https://help.passbolt.com/releases/ce/epikur</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/epikur</guid>

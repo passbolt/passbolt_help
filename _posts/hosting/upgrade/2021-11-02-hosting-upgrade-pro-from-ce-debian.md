@@ -19,6 +19,7 @@ permalink: /:categories/:slug.html
 {% assign distributionVersionName = 'buster' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
+{% assign migrate = 'yes' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
 
 {% include layout/row_start.html %}

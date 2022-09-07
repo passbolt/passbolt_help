@@ -1,5 +1,5 @@
 ---
-title: How to you prioritize feature development?
+title: How do you prioritize feature development?
 slug: feature-priority
 layout: faq
 category: discover

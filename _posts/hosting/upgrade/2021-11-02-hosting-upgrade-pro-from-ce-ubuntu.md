@@ -19,6 +19,7 @@ permalink: /:categories/:slug.html
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'ubuntu' %}
 {% assign distributionLabel = 'Ubuntu' %}
+{% assign migrate = 'yes' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

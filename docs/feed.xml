@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-08-12T11:05:06+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-09-26T17:40:12+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;figure&gt;
@@ -214,7 +214,7 @@ before you download Passbolt CE and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk '{print $1}')&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.ce.sh | awk &apos;{print $1}&apos;)&quot; = &quot;6a378dd2c021dbbfe25b5dba08949f81df62605babc64d4a07a5fb91b8cbd347&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -526,7 +526,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk &apos;{print $1}&apos;)&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
@@ -1345,7 +1345,7 @@ February
 
     &lt;p&gt;In the same location of your docker-compose.yaml file, create a subscription_key.txt file containing your passbolt subscription key, and add a new volume definition in your docker-compose.yaml file:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: '3.7'
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;version: &apos;3.7&apos;
 services:
   db:
     ...
@@ -1422,7 +1422,7 @@ before you download Passbolt PRO and install it.&lt;/p&gt;
 
     &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[ &quot;$(sha256sum passbolt-repo-setup.pro.sh | awk &apos;{print $1}&apos;)&quot; = &quot;0119e165a356ccef22b0fcf5cb231c827c595dc94a994604bfc6073e27716ba3&quot; ] &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.pro.sh || echo &quot;Bad checksum. Aborting&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.pro.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;

@@ -26,7 +26,9 @@ Security researchers from otto-js published a report about a [spell-jacking secu
 
 ## Problem
 
-Google Chrome and Microsoft Edge enhanced spell-checking features send the content of (non-password) form inputs to external third-party services owned by Google and Microsoft for advanced check. Consequently, these browser features break the end-to-end character of passbolt end could leak sensitive users data. Furthermore, if a proxy is enabled at an organisation scale, this proxy will also receive this data. 
+Google Chrome and Microsoft Edge enhanced spell-checking features send the content of (non-password) form inputs to external third-party services owned by Google and Microsoft. Consequently, these browser features break the end-to-end character of passbolt and leak sensitive users' data to third party. 
+
+Furthermore, if a proxy is enabled at an organisation scale, this proxy will also receive this data.
 
 For Passbolt application it means that the following data could have been leaked:
 

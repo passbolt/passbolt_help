@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.7.2 | Knight Of The Jaguar</title>
+    <link>https://help.passbolt.com/releases/pro/knight-of-the-jaguar</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/knight-of-the-jaguar</guid>
+    <description>This release is small maintenance release mainly fixing bugs reported by the community. The API and the browser extension have also been prepared to welcome new themes. If you wish to contribute and propose your theme, checkout the blog article: How to create a custom passbolt theme with the UI...</description>
+    <pubDate>Tue, 13 Sep 2022 10:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.7.1 | Last Day</title>
     <link>https://help.passbolt.com/releases/pro/last-day</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/last-day</guid>

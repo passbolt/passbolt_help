@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Autofill Suggestions</title>
+    <title>Passbolt Help | Spell-jacking on Google Chrome and Microsoft Edge</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Autofill Suggestions" />
+    <meta property="og:title" content="Spell-jacking on Google Chrome and Microsoft Edge" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/incidents/20191126_autofill_suggestions">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20220920_spell-jacking">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2019-11-26-autofill-suggestions.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2022-09-20-spell-jacking-chrome-and-edge.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -95,7 +95,7 @@
         
         
         
-        <li>
+        <li class="selected">
         
             <a href="https://help.passbolt.com/incidents/20220920_spell-jacking">
 September
@@ -155,7 +155,7 @@ February
         </li>
         
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/incidents/20191126_autofill_suggestions">
 November
@@ -289,7 +289,7 @@ February
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/incidents/20191126_autofill_suggestions"><span>2019-11-26 XSS on resource URLs</span></a>
+                        <a href="https://help.passbolt.com/incidents/20220920_spell-jacking"><span>Spell-jacking on Google Chrome and Microsoft Edge</span></a>
                     </div>
                 </li>
                 
@@ -300,108 +300,127 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Autofill Suggestions</h1>
+<h1>Spell-jacking on Google Chrome and Microsoft Edge</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <h2 id="bug-bounty-autofill-suggestions-logic-flaw">Bug Bounty: Autofill suggestions logic flaw</h2>
+    <h2 id="summary">Summary</h2>
 
-    <p>As part of Passbolt Bug Bounty program, security researcher René Kroka reported a new vulnerability affecting the 
-extension.</p>
-
-    <p>A fix has been automatically rolled out as part of the web extension auto update mechanism. If you have disabled 
-automatic updates, please update your extension manually.</p>
-
-    <h3 id="summary">Summary</h3>
-    <table class="table-parameters">
-<tr>
-    <td><strong>Product affected: </strong></td>
-    <td>Passbolt browser extension</td>
-</tr>
-<tr>
-    <td><strong>Version affected: </strong></td>
-    <td>v2.11.1 and below.</td>
-</tr>
-<tr>
-    <td><strong>Version fixed: </strong></td>
-    <td>v2.11.2</td>
-</tr>
-<tr>
-    <td><strong>Affected component: </strong>&nbsp;</td>
-    <td>Autofill suggestions</td>
-</tr>
-<tr>
-    <td><strong>Vulnerability Type: </strong></td>
-    <td><a href="https://cwe.mitre.org/data/definitions/840.html">
-            Business Logic Errors (CWE-840)
-        </a>
-    </td>
-</tr>
-<tr>
-    <td><strong>CVSS Score: </strong></td>
-    <td>
-        <a href="https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N/E:H/RL:O/RC:C">
-            6.2 (Medium)
-        </a>
-    </td>
-</tr>
-</table>
-
-    <h3 id="description">Description</h3>
-
-    <p>An attacker can craft a malicious page and URL so that the user is tricked into using passbolt to autofill 
-some credentials on the wrong domain.</p>
-
-    <p>Prior to v2.11.2 Passbolt Extension an attacker, for example, could create a page with the following url: 
-https://attacker.com/?https://valid-domain.com&amp;https://valid-domain2.com Passbolt would wrongfully suggest the 
-valid domain as part of the suggestions of credentials that could be used on the given url.</p>
-
-    <h3 id="impact-of-issue">Impact of issue</h3>
-
-    <p>An attacker could use this flaw as part of a larger phishing campaign to capture a given user credential, or 
-credentials one domain at a time. To our perspective the impact is limited by the fact that it requires two manual 
-user interactions. Moreover passbolt never autofills credentials without a user confirmation.</p>
-
-    <h3 id="fix">Fix</h3>
-
-    <p>Passbolt since v2.11.2 checks if the domain of the current url tab is matching the domain of the credentials stored in 
-passbolt. If a subdomain is defined in the credential stored in passbolt, the suggestion will only be presented for 
-that given subdomain (e.g. mail.app.com will not be suggested for calendar.app.com). If no subdomain is defined in 
-the credential stored in passbolt all subdomain urls will be matched as valid for suggestions (e.g. app.com will be 
-suggested for mail.app.com).</p>
-
-    <h3 id="event-timeline">Event timeline</h3>
+    <p>Security researchers from otto-js published a report about a <a href="https://www.otto-js.com/news/article/spell-jacking-enhanced-spellcheck-features-send-pii-even-passwords">spell-jacking security flaw</a> found on Google Chrome and Microsoft Edge. Depending on the configuration of the browsers, sensitive data could be leaked to third-party services.</p>
 
     <ul>
-      <li>2019-11-17: Security researcher notifies passbolt team about the issue.</li>
-      <li>2019-11-17: Passbolt acknowledges the issue and start working on a fix.</li>
-      <li>2019-11-20: Fix is ready and included as part of v2.11.2 release UAT.</li>
-      <li>2019-11-21: Passbolt publishes a fix.</li>
+      <li><strong>CVE:</strong> N/A</li>
+      <li><strong>Product affected:</strong> API (Pro and CE) and the browser extension</li>
+      <li><strong>Version affected:</strong> every version under v3.7.3</li>
+      <li><strong>Version fixed:</strong> v3.7.3</li>
+      <li><strong>Affected component:</strong> All form inputs.</li>
+      <li><strong>Vulnerability Type:</strong> spell-jacking</li>
+      <li><strong>Severity:</strong> N/A</li>
+    </ul>
+
+    <h2 id="problem">Problem</h2>
+
+    <p>Google Chrome and Microsoft Edge enhanced spell-checking features send the content of (non-password) form inputs to external third-party services owned by Google and Microsoft. Consequently, these browser features break the end-to-end character of passbolt and leak sensitive users’ data to third party.</p>
+
+    <p>Furthermore, if a proxy is enabled at an organisation scale, this proxy will also receive this data.</p>
+
+    <p>For Passbolt application it means that the following data could have been leaked:</p>
+
+    <ul>
+      <li>Account
+        <ul>
+          <li>OTP</li>
+          <li>passphrase</li>
+          <li>private key</li>
+          <li>security token</li>
+        </ul>
+      </li>
+      <li>Navigation
+        <ul>
+          <li>Text in the search bar</li>
+        </ul>
+      </li>
+      <li>Passwords
+        <ul>
+          <li>Passwords metadata</li>
+          <li>Passwords secrets</li>
+          <li>Comments</li>
+          <li>Password generators metadata</li>
+          <li>Share password search text content</li>
+        </ul>
+      </li>
+      <li>Passwords import/export
+        <ul>
+          <li>Keepass file password</li>
+        </ul>
+      </li>
+      <li>Groups
+        <ul>
+          <li>Groups name</li>
+          <li>Add group user search text content</li>
+        </ul>
+      </li>
+      <li>Folders
+        <ul>
+          <li>Folders name</li>
+          <li>Share folder search text content</li>
+        </ul>
+      </li>
+      <li>Tags
+        <ul>
+          <li>Tags name</li>
+          <li>Edit password tags text content</li>
+        </ul>
+      </li>
+      <li>Administration settings
+        <ul>
+          <li>MFA settings except salt and secret keys</li>
+          <li>User directory (LDAP) settings except auth password field</li>
+          <li>Passbolt Pro subscription key</li>
+          <li>Organization account recovery public and private recovery key and relative settings (including passphrase)</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h2 id="whos-impacted">Who’s impacted</h2>
+
+    <p>The users who are using Google Chrome with the advanced spell-checking feature enabled and the users using Microsoft Edge with the MS Editor extension installed.</p>
+
+    <h2 id="fix">Fix</h2>
+
+    <p>The fix consists in adding a <code class="language-plaintext highlighter-rouge">spellcheck="false"</code> tag on the body tag of every page served by Passbolt API and the browser extension.</p>
+
+    <h2 id="event-timeline">Event Timeline</h2>
+
+    <ul>
+      <li>20/09/2022 15:30: Spell-jacking issue is discovered.</li>
+      <li>21/09/2022 09:00: A fix is implemented.</li>
+      <li>26/09/2022: Extension v3.7.3 shipping with the fix is published.</li>
+      <li>27/09/2022: API v3.7.3 shipping with the fix is published.</li>
     </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-November
-26th,
-2019.</p>
+September
+20th,
+2022.</p>
     </div>
+
   </div>
   <div class="col4 last push1">
-
     <div class="tldr message success">
     <h4>Current status:</h4>
     1. Acknowledge issue with reporter<br />
     2. Get a fix/patch prepared<br />
     3. Release new version<br />
     4. Prepare a report about the issue<br />
-    <strong>5. Feature the problem on an incident page</strong>
-    <h5>Last updated: 2019-12-06 11:00:00 CET</h5>
+    <strong>5. Feature the problem in the release</strong>
+    <h5>Last updated: 2022-09-26 14:10:00 CET</h5>
 </div>
-
   </div>
 </div>
 

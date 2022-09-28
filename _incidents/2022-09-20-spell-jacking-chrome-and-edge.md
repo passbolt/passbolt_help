@@ -72,14 +72,10 @@ The fix consists in adding a `spellcheck="false"` tag on the body tag of every p
 
 ## Event Timeline
 
-- 20/09/2022 15:30: articles about the spell-jacking issue are discovered on the internet.
-- 20/09/2022 15:30 - 18:00: the problem is analysed, the issue is reproducible locally and the fix is tested and validated locally
-- 21/09/2022 09:00 - 10:00: The fix is demonstrated internally with the team, a merge request is sent for review and then approved.
-- 21/09/2022 After 10:00: A further analysis is made to understand exactly what could have been leaked, in which measure and in which conditions.
-- 21/09/2022 14:00: An internal communication has been made to ensure that the entire team is not using these features.
-- 24/09/2022: the fix is published on beta channels.
-- 26/09/2022: the fix is released on all stores.
-- 27/09/2022: the fix is released the API.
+- 20/09/2022 15:30: Spell-jacking issue is discovered.
+- 21/09/2022 09:00: A fix is implemented.
+- 26/09/2022: Extension v3.7.3 shipping with the fix is published.
+- 27/09/2022: API v3.7.3 shipping with the fix is published.
 
 {% include date/updated.html %}
 

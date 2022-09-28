@@ -9,6 +9,34 @@
 
 
 <item>
+    <title>v3.7.3 | Breathing</title>
+    <link>https://help.passbolt.com/releases/ce/breathing</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/breathing</guid>
+    <description>This release is a security release fixing a spell-jacking security flaw discovered by otto-js.
+
+You can learn more about this flaw on the dedicated security incident page.
+
+Browser extension
+Security
+
+  PB-19090 Protect forms from spell-jacking attack
+
+
+API
+Security
+
+  PB-19090 Protect forms from spell-jacking attack
+
+
+</description>
+    <pubDate>Mon, 26 Sep 2022 10:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.7.2 | Knight Of The Jaguar</title>
     <link>https://help.passbolt.com/releases/ce/knight-of-the-jaguar</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/knight-of-the-jaguar</guid>

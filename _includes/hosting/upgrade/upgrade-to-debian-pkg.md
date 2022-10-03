@@ -35,7 +35,8 @@ upgrade your system with a step by step tutorial.
 {% endif %}
 ## 4. Install the package
 
-{% assign migrateToPackage = 'yes' %}
+
+{% assign migrate = 'yes' %}
 {% include hosting/install/packages/debian/install-server-components.md %}
 
 {% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}

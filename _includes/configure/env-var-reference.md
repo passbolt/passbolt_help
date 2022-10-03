@@ -57,7 +57,7 @@ Following there is a list of the environment variables supported in passbolt bot
 | PASSBOLT_REGISTRATION_PUBLIC             | Defines if users can register                                             | `false`                                              |
 | PASSBOLT_SECURITY_SET_HEADERS            | Send CSP Headers                                                          | `true`                                               |
 | PASSBOLT_SECURITY_CSP                    | CSP Headers (`true`, false or custom CSP string)                          | `true`                                               |
-| PASSBOLT_SECURITY_COOOKIE_SECURE         | Set MFA cookie secure flag                                                | `true`                                               |
+| PASSBOLT_SECURITY_COOKIE_SECURE         | Set MFA cookie secure flag                                                | `true`                                               |
 | PASSBOLT_SSL_FORCE                       | Redirects http to https                                                   | `true`                                               |
 | SECURITY_SALT                            | CakePHP security salt                                                     | `__SALT__`                                           |
 | SESSION_DEFAULTS                         | Session engine configuration                                              | `'php'`                                              |

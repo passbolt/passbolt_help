@@ -75,10 +75,6 @@ php module.
 
 {% include hosting/install/warning-gpg-key-generation.html %}
 
-```shell
-$ gpg --gen-key
-```
-
 After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
 You can get the server key fingerprint as follow:
 

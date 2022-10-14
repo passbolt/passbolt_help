@@ -73,6 +73,23 @@ Passbolt API uses an OpenPGP key for the server in order to authenticate and sig
 For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the
 php module.
 
+**WARNING:** The OpenPGP key has to be created as www-data. In order to allow www-data to be logged, you have to run as root
+```shell
+$ nano /etc/passwd
+```
+
+Change the shell for www-data
+```shell
+$ www-data:x:33:33:www-data:/var/www:/bin/bash
+```
+
+Once the file is saved, don't forget to give www-data a password 
+```shell
+$ passwd www-data
+```
+
+We need to create an OpenPGP key, connect as www-data to proceed
+
 {% include hosting/install/warning-gpg-key-generation.html %}
 
 ```shell
@@ -95,11 +112,8 @@ $ gpg --armor --export SERVER_KEY@EMAIL.TEST > /var/www/passbolt/config/gpg/serv
 
 ### 5. Initialize the gpg keyring
 
-In order for passbolt authentication to work your server key needs to be in the keyring used by the web server.
-It is likely that there is none, so you can create one by interacting with gpg with the web server user
+You no longer need to be connected as www-data from now. In order for passbolt authentication to work your server key needs to be in the keyring used by the web server.
 
-The webserver name depends on your distribution and web server technology of choice, for example Apache user
-is called `www-data` on Debian:
 ```shell
 $ sudo su -s /bin/bash -c "gpg --list-keys" www-data
 pub   4096R/573EE67E 2015-10-26 [expires: 2019-10-26]
@@ -137,6 +151,8 @@ You will need to set at least the following:
 - Database configuration
 - Email settings
 - Server OpenPGP key fingerprint.
+
+**WARNING:** The OpenPGP key fingerprint has to be writed with no spaces
 
 You can also set your configuration using environment variables.
 Check `config/default.php` to get the names of the environment variables.
@@ -176,14 +192,18 @@ For Nginx to serve passbolt, you will need to set up a server block file :
 $ nano /etc/nginx/sites-enabled/passbolt.conf
 ```
 
-You can use this default configuration sample (do not forget to replace PLACEHOLDERS with your values) :
+You can use this default configuration sample (do not forget to replace PLACEHOLDERS with your values):
+- **SERVER_NAME** with your localhost/virtualhost address 
+- **CERTIFICATE_PATH** with the path where cert.pem is located
+- **KEY_PATH** with the path where key.pem is located
+- **PHP_VERSION** with the PHP version you are using 
 
 ```shell
 server {
   listen [::]:443 ssl http2;
   listen 443 ssl http2;
 
-  server_name __SERVER_NAME__;
+  server_name SERVER_NAME;
 
   client_body_buffer_size     100K;
   client_header_buffer_size   1k;
@@ -193,8 +213,8 @@ server {
   keepalive_timeout     5 5;
   send_timeout          10;
 
-  ssl_certificate     __CERTIFICATE_PATH__;
-  ssl_certificate_key __KEY_PATH__;
+  ssl_certificate     CERTIFICATE_PATH;
+  ssl_certificate_key KEY_PATH;
   ssl_session_timeout 1d;
   ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
   ssl_session_tickets off;
@@ -209,7 +229,7 @@ server {
   location ~ \.php$ {
     try_files                $uri =404;
     include                  fastcgi_params;
-    fastcgi_pass             unix:/run/php/__PHP_VERSION__-fpm.sock;
+    fastcgi_pass             unix:/run/php/PHP_VERSION-fpm.sock;
     fastcgi_index            index.php;
     fastcgi_intercept_errors on;
     fastcgi_split_path_info  ^(.+\.php)(.+)$;

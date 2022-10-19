@@ -10,7 +10,7 @@ Download the ova and the SHA512SUM.txt:
 
 Import the ova file using virtualbox, vmware (ESXi >= 6.0) or any other platform that supports import OVA files.
 
-Once imported, it is highly recommanded to check if the VM is actually running in 64 bits. In order to do that, just open VM's settings and it should show on which version it is running on. Now, you should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
+Once imported, it is highly recommanded to check if the VM is actually running as Debian (64-bit). In order to do that, just open VM's settings and it should show on which version it is running on. Now, you should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.
 
 ### 1.2 Credentials
 

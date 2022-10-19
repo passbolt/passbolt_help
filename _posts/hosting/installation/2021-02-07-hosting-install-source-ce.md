@@ -73,41 +73,26 @@ Passbolt API uses an OpenPGP key for the server in order to authenticate and sig
 For improved compatibility we recommend that you use the same GnuPG version for generating the keys and for the
 php module.
 
-**WARNING:** The OpenPGP key has to be created as www-data. In order to allow www-data to be logged, you have to run as root
-```shell
-$ nano /etc/passwd
-```
+**WARNING:** Some of the following commands such as the GnuPG parts need to be run as www-data. In order to do that, we recommend using
 
-Change the shell for www-data
 ```shell
-$ www-data:x:33:33:www-data:/var/www:/bin/bash
+$ sudo su -s /bin/bash -c "run the command here" www-data
 ```
-
-Once the file is saved, don't forget to give www-data a password 
-```shell
-$ passwd www-data
-```
-
-We need to create an OpenPGP key, connect as www-data to proceed
 
 {% include hosting/install/warning-gpg-key-generation.html %}
-
-```shell
-$ gpg --gen-key
-```
 
 After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
 You can get the server key fingerprint as follow:
 
 ```shell
-$ gpg --list-keys --fingerprint | grep -i -B 2 'SERVER_KEY@EMAIL.TEST'
+$ gpg --list-keys --fingerprint | grep -i -B 2 'email@domain.tld'
 ```
 
 Copy the public and private keys to the passbolt config location:
 
 ```shell
-$ gpg --armor --export-secret-keys SERVER_KEY@EMAIL.TEST > /var/www/passbolt/config/gpg/serverkey_private.asc
-$ gpg --armor --export SERVER_KEY@EMAIL.TEST > /var/www/passbolt/config/gpg/serverkey.asc
+$ gpg --armor --export-secret-keys email@domain.tld > /var/www/passbolt/config/gpg/serverkey_private.asc
+$ gpg --armor --export email@domain.tld > /var/www/passbolt/config/gpg/serverkey.asc
 ```
 
 ### 5. Initialize the gpg keyring
@@ -152,7 +137,7 @@ You will need to set at least the following:
 - Email settings
 - Server OpenPGP key fingerprint.
 
-**WARNING:** The OpenPGP key fingerprint has to be writed with no spaces
+**WARNING:** The OpenPGP key fingerprint has to be written with no spaces
 
 You can also set your configuration using environment variables.
 Check `config/default.php` to get the names of the environment variables.

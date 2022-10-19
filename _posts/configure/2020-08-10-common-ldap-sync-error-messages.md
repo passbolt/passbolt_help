@@ -49,6 +49,12 @@ Due to the end-to-end nature of the solution, the system cannot do it without a 
 
 Note: this scenario will not happen in the case of groups without direct access to shared passwords. In this case, the user will be added automatically to the group during the sync.
 
+### The user userA was not synced with existing membership for group groupA because the membership was created before.
+This happens when a user has been added to a group in Passbolt prior to being added to the group in LDAP, or prior to the change in LDAP being synchronized. This means that Passbolt has priority over that membership. To solve this the user will have to be removed from the group in Passbolt and then another synchronization has to occur. Once that happens the user should once again be in the group in Passbolt, or an email should be triggered if the group has shared passwords. 
+
+### No message, but the user I removed from a group in LDAP is still in the group in Passbolt
+This tends to happen when a user is added in a group in Passbolt prior to being added to a group in LDAP and then later being removed from the group in LDAP. If you see any errors that are in the format of "The user userA was not synced with existing membership for group groupA because the membership was created before." there is a risk of this issue occuring. This is because Passbolt has priority over this group membership. You will have to manually remove the user from the group in Passbolt in this case.
+
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

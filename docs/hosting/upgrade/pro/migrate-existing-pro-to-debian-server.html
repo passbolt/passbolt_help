@@ -17,16 +17,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
-    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:image" content="http://localhost:4000/assets/img/background/og_preview.jpg" />
     <meta property="og:title" content="Migrate an existing Passbolt PRO to a new Debian server" />
     <meta property="og:description" content="" />
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
-    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-debian-server">
-    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
-    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/help.min.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/highlight.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="http://localhost:4000/assets/css/custom.css">
+    <link rel="canonical" href="http://localhost:4000/hosting/upgrade/pro/migrate-existing-pro-to-debian-server">
+    <link rel="shortcut icon" type="image/x-icon" href="http://localhost:4000/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="http://localhost:4000/feed.xml">
 </head>
 
 
@@ -98,29 +98,29 @@
         </li>
         
         <li >
-            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+            <a href="http://localhost:4000/faq/hosting">Hosting FAQ</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+            <a href="http://localhost:4000/hosting/install">Installation</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/update">Update</a>
+            <a href="http://localhost:4000/hosting/update">Update</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+            <a href="http://localhost:4000/hosting/upgrade">Upgrade</a>
         </li>
         
         
         
         
         <li >
-            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+            <a href="http://localhost:4000/hosting/backup">Backup</a>
         </li>
         
         
@@ -164,13 +164,13 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                        <a href="http://localhost:4000/hosting"><span>hosting</span></a>
                     </div>
                 </li>
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade"><span>upgrade</span></a>
+                        <a href="http://localhost:4000/hosting/upgrade"><span>upgrade</span></a>
                     </div>
                 </li>
                 
@@ -179,7 +179,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-debian-server.html"><span>migrate-existing-pro-to-debian-server</span></a>
+                        <a href="http://localhost:4000/hosting/upgrade/pro/migrate-existing-pro-to-debian-server.html"><span>migrate-existing-pro-to-debian-server</span></a>
                     </div>
                 </li>
                 
@@ -244,7 +244,7 @@ before you download Passbolt PRO and install it.</p>
 an empty mariadb database for passbolt to use.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure database dialog" style="max-width:450px;" />
+    <img src="http://localhost:4000/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure database dialog" style="max-width:450px;" />
     <span class="legend">fig. Configure database dialog</span>
 </figure>
 
@@ -252,31 +252,31 @@ an empty mariadb database for passbolt to use.</p>
 You will find the root password on the server in the file <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code>.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Database admin user dialog" style="max-width:450px;" />
+    <img src="http://localhost:4000/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Database admin user dialog" style="max-width:450px;" />
     <span class="legend">fig. Database admin user dialog</span>
 </figure>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Database admin user pass dialog" style="max-width:450px;" />
+    <img src="http://localhost:4000/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Database admin user pass dialog" style="max-width:450px;" />
     <span class="legend">fig. Database admin user pass dialog</span>
 </figure>
 
     <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Database passbolt user dialog" style="max-width:450px;" />
+    <img src="http://localhost:4000/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Database passbolt user dialog" style="max-width:450px;" />
     <span class="legend">fig. Database passbolt user dialog</span>
 </figure>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Database passbolt user pass dialog" style="max-width:450px;" />
+    <img src="http://localhost:4000/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Database passbolt user pass dialog" style="max-width:450px;" />
     <span class="legend">fig. Database passbolt user pass dialog</span>
 </figure>
 
     <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Database name dialog" style="max-width:450px;" />
+    <img src="http://localhost:4000/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Database name dialog" style="max-width:450px;" />
     <span class="legend">fig. Database name dialog</span>
 </figure>
 
@@ -406,11 +406,11 @@ November
 
     </div>
     <script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
-<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
-<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="http://localhost:4000/assets/js/matomo-tag-manager.js"></script>
+<script src="http://localhost:4000/assets/js/matomo-analytics.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
-<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
-<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+<script src="http://localhost:4000/assets/js/analytics.js"></script>
+<script src="http://localhost:4000/assets/js/greedynav.js"></script>
 </body>
 
 </html>

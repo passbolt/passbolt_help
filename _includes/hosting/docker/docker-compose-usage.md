@@ -8,26 +8,22 @@ The easiest and recommended way to deploy your passbolt stack is to use docker-c
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Download our docker-compose.yml example file
 
 ```
-curl -Ls https://raw.githubusercontent.com/passbolt/passbolt_docker/master/docker-compose/docker-compose-{{ product }}.yaml -o docker-compose.yaml
+wget https://download.passbolt.com/{{ product }}/docker/docker-compose-{{ product }}.yaml
+wget https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-{{ product }}-SHA512SUM.txt
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Ensure the file has not been corrupted by verifying its shasum
 
 ```
-$ shasum -a 256 docker-compose.yaml
+$ sha512sum -c docker-compose-{{ product }}-SHA512SUM.txt
+
 ```
 
 Must return:
 
-{% if product == 'pro' %}
 ```
-d849b76f170375c643b7c737874eeba5e3efa9c28b6254c400505d26d108a5d6  docker-compose.yaml
+docker-compose-{{ product }}.yaml: OK
 ```
-{% elsif product == 'ce' %}
-```
-3ff1cb219ae028293ba29f808d0ed17695aeb69a3baa9399194c214881f6409e  docker-compose.yaml
-```
-{% endif %}
 
 {% include messages/warning.html
     content="<b>Warning:</b> If the <i>shasum</i> command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on <a href='https://community.passbolt.com'>our community forum</a>."
@@ -37,7 +33,7 @@ d849b76f170375c643b7c737874eeba5e3efa9c28b6254c400505d26d108a5d6  docker-compose
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Create a `subscription_key.txt` file containing your subscription key.
 {% endif %}
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure environment variables in docker-compose.yaml file to customize your instance.
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure environment variables in docker-compose-{{ product }}.yaml file to customize your instance.
 
 The `APP_FULL_BASE_URL` environment variable is set by default to [https://passbolt.local](https://passbolt.local), using a self-signed certificate.
 
@@ -62,13 +58,13 @@ For more information on which environment variables are available on passbolt, p
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Start your containers
 
 ```
-docker-compose up -d
+docker-compose -f docker-compose-{{ product }}.yaml up -d
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Create first admin user
 
 ```bash
-$ docker-compose exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake \
+$ docker-compose -f docker-compose-{{ product }}.yaml exec passbolt su -m -c "/usr/share/php/passbolt/bin/cake \
                                 passbolt register_user \
                                 -u <your@email.com> \
                                 -f <yourname> \

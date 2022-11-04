@@ -1,15 +1,15 @@
 <rss version="2.0">
 <channel>
 <title>Passbolt Pro Edition Release notes</title>
-<link>http://localhost:4000/releases/pro.rss</link>
+<link>https://help.passbolt.com/releases/pro.rss</link>
 <description>Most recent release notes.</description>
 <language>en-us</language>
 
 
 <item>
     <title>v3.7.3 | Breathing</title>
-    <link>http://localhost:4000/releases/pro/breathing</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/breathing</guid>
+    <link>https://help.passbolt.com/releases/pro/breathing</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/breathing</guid>
     <description>This release is a security release fixing a spell-jacking security flaw discovered by otto-js.
 
 You can learn more about this flaw on the dedicated security incident page.
@@ -36,8 +36,8 @@ Security
 
 <item>
     <title>v3.7.2 | Knight Of The Jaguar</title>
-    <link>http://localhost:4000/releases/pro/knight-of-the-jaguar</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/knight-of-the-jaguar</guid>
+    <link>https://help.passbolt.com/releases/pro/knight-of-the-jaguar</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/knight-of-the-jaguar</guid>
     <description>This release is small maintenance release mainly fixing bugs reported by the community. The API and the browser extension have also been prepared to welcome new themes. If you wish to contribute and propose your theme, checkout the blog article: How to create a custom passbolt theme with the UI...</description>
     <pubDate>Tue, 13 Sep 2022 10:00:00 +0200</pubDate>
 </item>
@@ -48,8 +48,8 @@ Security
 
 <item>
     <title>v3.7.1 | Last Day</title>
-    <link>http://localhost:4000/releases/pro/last-day</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/last-day</guid>
+    <link>https://help.passbolt.com/releases/pro/last-day</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/last-day</guid>
     <description>This release is a maintenance release fixing some compatibility problem with Postgresql and ironing out some of the bugs reported by the community. We wish you a good end of the summer. Browser extension Fixed PB-18420 As AN completing the setup I should understand what information the account recovery feature...</description>
     <pubDate>Fri, 12 Aug 2022 10:00:00 +0200</pubDate>
 </item>
@@ -60,8 +60,8 @@ Security
 
 <item>
     <title>v3.7.0 | Epikur</title>
-    <link>http://localhost:4000/releases/pro/epikur</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/epikur</guid>
+    <link>https://help.passbolt.com/releases/pro/epikur</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/epikur</guid>
     <description>This release is a minor maintenance release focused on security, performance and compatibility optimization. It includes some security fixes related to a security audit that was performed by Cure53 on the new account recovery feature. Long story short, while the security researchers found some weaknesses, no exploitable vulnerability was found....</description>
     <pubDate>Wed, 27 Jul 2022 10:00:00 +0200</pubDate>
 </item>
@@ -72,8 +72,8 @@ Security
 
 <item>
     <title>v3.6.0 | New Morning</title>
-    <link>http://localhost:4000/releases/pro/new-morning</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/new-morning</guid>
+    <link>https://help.passbolt.com/releases/pro/new-morning</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/new-morning</guid>
     <description>The team is pleased to announce the v3.6 immediate availability which, as you may already have seen, includes a design refresh of the application. The Pro Edition also includes the most awaiting account recovery feature, also known as secret key escrow. This feature is available in “Beta”. While it is...</description>
     <pubDate>Wed, 25 May 2022 14:00:00 +0200</pubDate>
 </item>
@@ -84,8 +84,8 @@ Security
 
 <item>
     <title>v3.5.0-2 | Wide Open</title>
-    <link>http://localhost:4000/releases/pro/wide-open-2</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/wide-open-2</guid>
+    <link>https://help.passbolt.com/releases/pro/wide-open-2</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/wide-open-2</guid>
     <description>This release contains some important package changes that needs to be done before the 18th of May 2022. Make sure your follow the guide below. This release contains some important changes to the packages for Passbolt API. If you installed passbolt from source or using docker, you are not affected....</description>
     <pubDate>Wed, 13 Apr 2022 02:00:00 +0200</pubDate>
 </item>
@@ -96,8 +96,8 @@ Security
 
 <item>
     <title>v3.5.0 | Wide Open</title>
-    <link>http://localhost:4000/releases/pro/wide-open</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/wide-open</guid>
+    <link>https://help.passbolt.com/releases/pro/wide-open</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/wide-open</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce the v3.5 immediate availability which includes the most awaited launch of the iOS and Android Mobile applications (currently pending...</description>
     <pubDate>Tue, 18 Jan 2022 01:00:00 +0100</pubDate>
 </item>
@@ -108,8 +108,8 @@ Security
 
 <item>
     <title>v3.4.0 | Black Sunrise</title>
-    <link>http://localhost:4000/releases/pro/black-sunrise</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/black-sunrise</guid>
+    <link>https://help.passbolt.com/releases/pro/black-sunrise</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/black-sunrise</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce the v3.4 immediate availability which includes new features as well as some fixes requested by the community. In a...</description>
     <pubDate>Tue, 07 Dec 2021 01:00:00 +0100</pubDate>
 </item>
@@ -120,8 +120,8 @@ Security
 
 <item>
     <title>v3.3.0 | Senior Elfo</title>
-    <link>http://localhost:4000/releases/pro/senior-elfo</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/senior-elfo</guid>
+    <link>https://help.passbolt.com/releases/pro/senior-elfo</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/senior-elfo</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce the much awaited v3.3 which includes new features as well as some fixes requested by the community. It’s been...</description>
     <pubDate>Wed, 27 Oct 2021 02:00:00 +0200</pubDate>
 </item>
@@ -132,8 +132,8 @@ Security
 
 <item>
     <title>v3.2.0 | La Clé Des Champs</title>
-    <link>http://localhost:4000/releases/pro/la-cle-des-champs</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/la-cle-des-champs</guid>
+    <link>https://help.passbolt.com/releases/pro/la-cle-des-champs</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/la-cle-des-champs</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce that the much awaited “Internationalisation” feature is available to Passbolt Pro, Passbolt Cloud (in progress) as well as Passbolt...</description>
     <pubDate>Mon, 31 May 2021 14:00:00 +0200</pubDate>
 </item>
@@ -144,8 +144,8 @@ Security
 
 <item>
     <title>v3.1.0 | Sea</title>
-    <link>http://localhost:4000/releases/pro/love-over-entropy-sea</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/love-over-entropy-sea</guid>
+    <link>https://help.passbolt.com/releases/pro/love-over-entropy-sea</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/love-over-entropy-sea</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce the immediate availability of Passbolt version 3.1. This release introduces several new features, most notably the ability to update...</description>
     <pubDate>Thu, 18 Mar 2021 13:00:00 +0100</pubDate>
 </item>
@@ -156,8 +156,8 @@ Security
 
 <item>
     <title>v3.0.0 | Our House</title>
-    <link>http://localhost:4000/releases/pro/v300-our-house</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v300-our-house</guid>
+    <link>https://help.passbolt.com/releases/pro/v300-our-house</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v300-our-house</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc The team is pleased to announce the immediate availability of Passbolt version 3. As you may have noticed with the earlier release in January and...</description>
     <pubDate>Wed, 10 Mar 2021 13:00:00 +0100</pubDate>
 </item>
@@ -168,8 +168,8 @@ Security
 
 <item>
     <title>v2.14.0 | Sunshine</title>
-    <link>http://localhost:4000/releases/pro/v2140-sunshine</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2140-sunshine</guid>
+    <link>https://help.passbolt.com/releases/pro/v2140-sunshine</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2140-sunshine</guid>
     <description>This is a maintenance release. It ships with a some bug fixes and improvements for the server, mainly performance improvements for activity logs and better feedback for LDAP error messages. Changelog API [2.14.0] 2020-08-25 Added Add an option to the migrate shell task to avoid clearing the cache after the...</description>
     <pubDate>Tue, 25 Aug 2020 14:00:00 +0200</pubDate>
 </item>
@@ -178,8 +178,8 @@ Security
 
 <item>
     <title>v2.13.5 | Stomp (Remix)</title>
-    <link>http://localhost:4000/releases/pro/v2135-stomp</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2135-stomp</guid>
+    <link>https://help.passbolt.com/releases/pro/v2135-stomp</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2135-stomp</guid>
     <description>This is a small maintenance release. It ships with a few bug fixes and improvements for the web extension. Changelog API [2.13.5] 2019-07-29 Fixed Fix display a validation error when db password contains a quote or db name contain a dash Fix email notification settings bootstrap messes up non persistent...</description>
     <pubDate>Wed, 22 Jul 2020 14:00:00 +0200</pubDate>
 </item>
@@ -190,8 +190,8 @@ Security
 
 <item>
     <title>v2.13.1 | Stomp</title>
-    <link>http://localhost:4000/releases/pro/v2131-stomp</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2131-stomp</guid>
+    <link>https://help.passbolt.com/releases/pro/v2131-stomp</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2131-stomp</guid>
     <description>This is a small maintenance release. It ships with performance improvements and fixes a bug introduced with the latest release. Thank you to everyone who helped us test and iron out the last kinks! In other news, we just published an article on the blog to explain why passbolt requires...</description>
     <pubDate>Tue, 07 Jul 2020 10:00:00 +0200</pubDate>
 </item>
@@ -202,8 +202,8 @@ Security
 
 <item>
     <title>v2.13.0 | Hammer to Fall</title>
-    <link>http://localhost:4000/releases/pro/v2130-hammer-to-fall</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2130-hammer-to-fall</guid>
+    <link>https://help.passbolt.com/releases/pro/v2130-hammer-to-fall</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2130-hammer-to-fall</guid>
     <description>We just published an article on the blog to give a quick overview of this new ‘Folders’ feature. Discover the 'Folders' feature The team is pleased to announce that the much awaited “Folders” feature is available to Passbolt Pro and Passbolt Cloud subscribers as part of this release. Most of...</description>
     <pubDate>Wed, 24 Jun 2020 18:55:00 +0200</pubDate>
 </item>
@@ -214,8 +214,8 @@ Security
 
 <item>
     <title>v2.13.0-RC1 | In The Air Tonight</title>
-    <link>http://localhost:4000/releases/pro/v2130-in-the-air-tonight</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2130-in-the-air-tonight</guid>
+    <link>https://help.passbolt.com/releases/pro/v2130-in-the-air-tonight</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2130-in-the-air-tonight</guid>
     <description>The team is pleased to announce that the much awaited folders feature is available for testing as part of this release candidate. The goal of folders is to provide a tool for passbolt users to easily organize passwords. The users will be able to use nested folders (or directories), in...</description>
     <pubDate>Fri, 29 May 2020 16:30:00 +0200</pubDate>
 </item>
@@ -224,8 +224,8 @@ Security
 
 <item>
     <title>v2.12.1 | Never Gonna Give You Up</title>
-    <link>http://localhost:4000/releases/pro/v2121-never-gonna-give-you-up</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2121-never-gonna-give-you-up</guid>
+    <link>https://help.passbolt.com/releases/pro/v2121-never-gonna-give-you-up</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2121-never-gonna-give-you-up</guid>
     <description>This release contains a security fix, please update your server as soon as possible. Make sure you follow the minor update documentation to roll out this new version. Read the doc This is a small maintenance release in order to update to jQuery v3.5. The library released an important security...</description>
     <pubDate>Tue, 14 Apr 2020 18:30:00 +0200</pubDate>
 </item>
@@ -238,8 +238,8 @@ Security
 
 <item>
     <title>v2.12.0 | Call Me</title>
-    <link>http://localhost:4000/releases/pro/v2120-call-me</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2120-call-me</guid>
+    <link>https://help.passbolt.com/releases/pro/v2120-call-me</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2120-call-me</guid>
     <description>This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version contained some security fix for an issue in the quick access suggestion system reported by security researcher Rene Kroka. You can learn more about it on the incident...</description>
     <pubDate>Fri, 06 Dec 2019 11:05:00 +0100</pubDate>
 </item>
@@ -248,8 +248,8 @@ Security
 
 <item>
     <title>v2.11.0 | Don't You (Forget about me)</title>
-    <link>http://localhost:4000/releases/pro/v2110-dont-you</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2110-dont-you</guid>
+    <link>https://help.passbolt.com/releases/pro/v2110-dont-you</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2110-dont-you</guid>
     <description>Passbolt v2.11 is maintenance release containing security fixes. Extension update will be rolled out automatically to your users like usual, but as an administrator you will need to update your server. This release introduces some security fixes. Make sure you follow the minor update documentation to roll out this new...</description>
     <pubDate>Wed, 07 Aug 2019 08:30:00 +0200</pubDate>
 </item>
@@ -260,8 +260,8 @@ Security
 
 <item>
     <title>v2.10.0 | Owner of a Lonely Heart</title>
-    <link>http://localhost:4000/releases/pro/v2100-owner-of-a-lonely-heart</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v2100-owner-of-a-lonely-heart</guid>
+    <link>https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v2100-owner-of-a-lonely-heart</guid>
     <description>This release ships with some nice improvements on the LDAP connector, administration interface and quick access features. The Ldap connector configuration UI and mapping rules have been revamped to provide a better experience, mainly for OpenLdap and FreeIPA users. The connector should now be compatible with most cases and configurations....</description>
     <pubDate>Thu, 16 May 2019 14:00:00 +0200</pubDate>
 </item>
@@ -272,8 +272,8 @@ Security
 
 <item>
     <title>v2.9.0 | Paint it black</title>
-    <link>http://localhost:4000/releases/pro/v290-paint-it-black</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v290-paint-it-black</guid>
+    <link>https://help.passbolt.com/releases/pro/v290-paint-it-black</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v290-paint-it-black</guid>
     <description>This release introduces some security fixes. Make sure you follow the minor update documentation to roll out this new version as soon as possible. Update documentation This release introduces the ability to create entries directly from the quickaccess menu, in the browser toolbar. fig. Creating an entry from quickaccess It...</description>
     <pubDate>Wed, 24 Apr 2019 14:00:00 +0200</pubDate>
 </item>
@@ -284,8 +284,8 @@ Security
 
 <item>
     <title>v2.8.4 | Where is my mind</title>
-    <link>http://localhost:4000/releases/pro/v284-where-is-my-mind</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v284-where-is-my-mind</guid>
+    <link>https://help.passbolt.com/releases/pro/v284-where-is-my-mind</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v284-where-is-my-mind</guid>
     <description>This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs reported by the community. The API has also now been fully documented. It is in 2 parts: the API documentation which is available on our help website, and the API reference which...</description>
     <pubDate>Wed, 17 Apr 2019 19:00:00 +0200</pubDate>
 </item>
@@ -296,8 +296,8 @@ Security
 
 <item>
     <title>v2.8.3 | Blue Monday</title>
-    <link>http://localhost:4000/releases/pro/v283-blue-monday</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v283-blue-monday</guid>
+    <link>https://help.passbolt.com/releases/pro/v283-blue-monday</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v283-blue-monday</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This new release of Passbolt Pro Edition ships with “passwords activity”, which takes care of providing the activity history corresponding to a password. With...</description>
     <pubDate>Mon, 01 Apr 2019 02:00:00 +0200</pubDate>
 </item>
@@ -308,8 +308,8 @@ Security
 
 <item>
     <title>v2.7.2 | Welcome To The Jungle</title>
-    <link>http://localhost:4000/releases/pro/v272-welcome-to-the-jungle</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v272-welcome-to-the-jungle</guid>
+    <link>https://help.passbolt.com/releases/pro/v272-welcome-to-the-jungle</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v272-welcome-to-the-jungle</guid>
     <description>This release contains two fixes, regressions shipped with v2.7.0.
 
 
@@ -326,8 +326,8 @@ Security
 
 <item>
     <title>v2.7.0 | Jump</title>
-    <link>http://localhost:4000/releases/pro/v270-jump</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v270-jump</guid>
+    <link>https://help.passbolt.com/releases/pro/v270-jump</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v270-jump</guid>
     <description>This release introduces some security fixes, new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version as soon as possible. Update documentation The main focus of this release was to improve the performance and reactivity of the application, as well as...</description>
     <pubDate>Mon, 11 Feb 2019 01:00:00 +0100</pubDate>
 </item>
@@ -338,8 +338,8 @@ Security
 
 <item>
     <title>v2.6.1 | Stairway to Heaven</title>
-    <link>http://localhost:4000/releases/pro/v261-stairway-to-heaven</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v261-stairway-to-heaven</guid>
+    <link>https://help.passbolt.com/releases/pro/v261-stairway-to-heaven</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v261-stairway-to-heaven</guid>
     <description>This is a maintenance release that fixes some issues introduced by the previous release. It also gives more flexibility during the installation to skip providing some email settings. A big thank you to Julius Haake, Alain Devarieux and Nate Curry for reporting these issues. Passbolt API (Pro Edition) Improved PASSBOLT-3273:...</description>
     <pubDate>Thu, 06 Dec 2018 01:00:00 +0100</pubDate>
 </item>
@@ -348,8 +348,8 @@ Security
 
 <item>
     <title>v2.6.0 | Start Me Up</title>
-    <link>http://localhost:4000/releases/pro/v260-start-me-up</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v260-start-me-up</guid>
+    <link>https://help.passbolt.com/releases/pro/v260-start-me-up</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v260-start-me-up</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This new release of Passbolt Pro Edition introduces a new workspace for administrators. In this workspace it is now possible for an admin to...</description>
     <pubDate>Tue, 04 Dec 2018 01:00:00 +0100</pubDate>
 </item>
@@ -358,8 +358,8 @@ Security
 
 <item>
     <title>v2.5.1 | Thunderstruck</title>
-    <link>http://localhost:4000/releases/pro/v251-thunderstruck</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v251-thunderstruck</guid>
+    <link>https://help.passbolt.com/releases/pro/v251-thunderstruck</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v251-thunderstruck</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This new release of Passbolt Pro Edition introduces new multi factor authentication providers: Yubikey and Duo. These functionality relies on third party services to...</description>
     <pubDate>Thu, 15 Nov 2018 01:00:00 +0100</pubDate>
 </item>
@@ -370,8 +370,8 @@ Security
 
 <item>
     <title>v2.4.0 | Final Countdown</title>
-    <link>http://localhost:4000/releases/pro/v240-final-countdown</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v240-final-countdown</guid>
+    <link>https://help.passbolt.com/releases/pro/v240-final-countdown</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v240-final-countdown</guid>
     <description>This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read the doc This release introduce the ability for users to select multiple passwords and perform a bulk action such as delete or share. This was a...</description>
     <pubDate>Thu, 11 Oct 2018 13:11:11 +0200</pubDate>
 </item>
@@ -382,8 +382,8 @@ Security
 
 <item>
     <title>v2.3.0 | Shine On You Crazy Diamond</title>
-    <link>http://localhost:4000/releases/pro/v230-shine-on-you-crazy-diamond</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v230-shine-on-you-crazy-diamond</guid>
+    <link>https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v230-shine-on-you-crazy-diamond</guid>
     <description>We are happy to announce the availability of passbolt directory synchronization feature. With this feature you can add and remove groups and users directly from your OpenLDAP or Active Directory and the changes will be reflected in passbolt. It is currently available as an experimental plugin for Passbolt Pro Edition...</description>
     <pubDate>Wed, 05 Sep 2018 02:00:00 +0200</pubDate>
 </item>
@@ -394,8 +394,8 @@ Security
 
 <item>
     <title>v2.2.0 | I want to break free</title>
-    <link>http://localhost:4000/releases/pro/v220-i-want-to-break-free</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v220-i-want-to-break-free</guid>
+    <link>https://help.passbolt.com/releases/pro/v220-i-want-to-break-free</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v220-i-want-to-break-free</guid>
     <description>Please note that Passbolt API V1.x will be officially unmaintained from 1st of September 2018. If you haven’t upgraded to V2.x yet, it is strongly advised to do it now since the next versions of the browser extension will not be compatible anymore with V1.x branch. This release is mainly...</description>
     <pubDate>Mon, 13 Aug 2018 02:00:00 +0200</pubDate>
 </item>
@@ -406,8 +406,8 @@ Security
 
 <item>
     <title>v2.1.1 | Loungin</title>
-    <link>http://localhost:4000/releases/pro/v211-loungin</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v211-loungin</guid>
+    <link>https://help.passbolt.com/releases/pro/v211-loungin</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v211-loungin</guid>
     <description>fig. Passbolt night mode This release introduces a new dark theme that you can use in the place of the black on white default theme. The goal for this theme was to be easier on the eye for people who stare at the screen for a long period of time...</description>
     <pubDate>Thu, 14 Jun 2018 02:00:00 +0200</pubDate>
 </item>
@@ -418,8 +418,8 @@ Security
 
 <item>
     <title>v2.0.9 | Cold Vein</title>
-    <link>http://localhost:4000/releases/pro/v209-cold-vein</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v209-cold-vein</guid>
+    <link>https://help.passbolt.com/releases/pro/v209-cold-vein</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v209-cold-vein</guid>
     <description>This is a maintenance release for passbolt web extension that fixes issues reported by the community. Web Extension Bug fixes Fix content scripts should not be inserted if they are already present. Fix auth pagemod should insert script when a redirection is set in url Fix json.headers should be json.header...</description>
     <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
@@ -428,8 +428,8 @@ Security
 
 <item>
     <title>v2.0.8 | They Reminisce</title>
-    <link>http://localhost:4000/releases/pro/v208-untitled</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v208-untitled</guid>
+    <link>https://help.passbolt.com/releases/pro/v208-untitled</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v208-untitled</guid>
     <description>This is a maintenance release for passbolt web extension that fixes issues reported by the community.
 
 Web Extension
@@ -446,8 +446,8 @@ Bug fixes
 
 <item>
     <title>v2.0.7 | Struggle</title>
-    <link>http://localhost:4000/releases/pro/v207-struggle</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v207-struggle</guid>
+    <link>https://help.passbolt.com/releases/pro/v207-struggle</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v207-struggle</guid>
     <description>Security notice: Nginx user, please review your configuration file to make sure you are using the correct application root. It should be: /var/www/passbolt/webroot Read more This release fixes issues introduced by the v2.0.5 both in the webextension and in the API. As you can see version v2.0.6 is skipped in...</description>
     <pubDate>Wed, 09 May 2018 02:00:00 +0200</pubDate>
 </item>
@@ -462,8 +462,8 @@ Bug fixes
 
 <item>
     <title>v2.0.5 | Everyday struggle</title>
-    <link>http://localhost:4000/releases/pro/v205-everydaystruggle</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v205-everydaystruggle</guid>
+    <link>https://help.passbolt.com/releases/pro/v205-everydaystruggle</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v205-everydaystruggle</guid>
     <description>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias vd Meent, considering the use of an unsecure pseudo random number generator when generating passwords. You can learn more about the issue on the dedicated...</description>
     <pubDate>Tue, 08 May 2018 02:00:00 +0200</pubDate>
 </item>
@@ -474,8 +474,8 @@ Bug fixes
 
 <item>
     <title>v2.0.4 | Something we all adore</title>
-    <link>http://localhost:4000/releases/pro/v204-somethingwealladore</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v204-somethingwealladore</guid>
+    <link>https://help.passbolt.com/releases/pro/v204-somethingwealladore</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v204-somethingwealladore</guid>
     <description>This is a maintenance release that fixes issues reported by the community.
 
 Passbolt API
@@ -495,8 +495,8 @@ Fixed
 
 <item>
     <title>v2.0.3 | Definition</title>
-    <link>http://localhost:4000/releases/pro/v203-definition</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v203-definition</guid>
+    <link>https://help.passbolt.com/releases/pro/v203-definition</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v203-definition</guid>
     <description>This is a maintenance release that improves compatibility with CentOS 7.
 
 Passbolt API
@@ -516,8 +516,8 @@ Fixed
 
 <item>
     <title>v2.0.2 | Mass Appeal</title>
-    <link>http://localhost:4000/releases/pro/v202-mass-appeal</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v202-mass-appeal</guid>
+    <link>https://help.passbolt.com/releases/pro/v202-mass-appeal</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v202-mass-appeal</guid>
     <description>This is a maintenance release that fixes a bug related to the v1 database migration. Thanks to @shochdoerfer for his contribution. Passbolt API Improved GITHUB-242: Add Auto-Submitted header to the email notifications Fixed PASSBOLT-2806: Force database columns charset and collation PASSBOLT-2781: Increase length of resource uri field in model validation...</description>
     <pubDate>Tue, 17 Apr 2018 02:00:00 +0200</pubDate>
 </item>
@@ -528,8 +528,8 @@ Fixed
 
 <item>
     <title>v2.0.1 | Knock You Out</title>
-    <link>http://localhost:4000/releases/pro/v201-knock-you-out</link>
-    <guid isPermaLink="true">http://localhost:4000/releases/pro/v201-knock-you-out</guid>
+    <link>https://help.passbolt.com/releases/pro/v201-knock-you-out</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v201-knock-you-out</guid>
     <description>This is a maintenance release that fixes a regression introduced in v2.0.0. Many thanks to @odyx for his blazing fast reaction at reporting the bug and submitting a fix. Passbolt API Improved PASSBOLT-2511: Improve healthcheck tables list so that tables are listed per major version Fixed GITHUB-239: Fix unsafe mode...</description>
     <pubDate>Tue, 10 Apr 2018 02:00:00 +0200</pubDate>
 </item>

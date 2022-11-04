@@ -9,13 +9,19 @@ before you download Passbolt {{ product | upcase }} and install it.
 **Step 1.** Download our dependencies installation script:
 
 ```
-wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbolt-repo-setup.{{ product }}.sh
+wget "https://download.passbolt.com/{{product}}/installer/passbolt-repo-setup.{{product}}.sh"
 ```
 
-**Step 2.** Ensure that the script is valid and execute it:
+**Step 2.** Download our SHA512SUM for the installation script:
 
 ```
-[ "$(sha256sum passbolt-repo-setup.{{ product }}.sh | awk '{print $1}')" = "{% if product == 'ce' %}1c85dbfe3e3c751be9eccecd3f262c450cad227e84300ef0137c22c7b2917c2f{% else %}684e889915029c97b7fea0f449cda77a33fee38384ee293f8ece1b7f62f21515{% endif %}" ] && sudo bash ./passbolt-repo-setup.{{product }}.sh{% if migrate %} --passbolt-migrate{% endif %} || echo "Bad checksum. Aborting" && rm -f passbolt-repo-setup.{{ product }}.sh
+wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-{{product}}-SHA512SUM.txt
+```
+
+**Step 3.** Ensure that the script is valid and execute it:
+
+```
+sha512sum -c passbolt-{{product}}-SHA512SUM.txt && sudo bash ./passbolt-repo-setup.{{product}}.sh || echo \"Bad checksum. Aborting\" && rm -f passbolt-repo-setup.{{product}}.sh
 ```
 
 {% if upgrade_from_ce_to_pro != 'yes' %}

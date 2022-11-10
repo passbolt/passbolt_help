@@ -75,15 +75,12 @@ php module.
 
 **WARNING:** Some of the following commands such as the GnuPG parts need to be run as www-data. In order to do that, we recommend using
 
-<<<<<<< HEAD
-=======
 ```shell
 $ sudo su -s /bin/bash -c "run the command here" www-data
 ```
 
 {% include hosting/install/warning-gpg-key-generation.html %}
 
->>>>>>> develop
 After creating the key make sure you note down the fingerprint, it will be requested later in the install process.
 You can get the server key fingerprint as follow:
 

@@ -221,17 +221,19 @@
 
     <p><strong>Step 1.</strong> Download our docker-compose.yml example file</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -Ls https://raw.githubusercontent.com/passbolt/passbolt_docker/master/docker-compose/docker-compose-ce.yaml -o docker-compose.yaml
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://download.passbolt.com/ce/docker/docker-compose-ce.yaml
+wget https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-ce-SHA512SUM.txt
 </code></pre></div>    </div>
 
     <p><strong>Step 2.</strong> Ensure the file has not been corrupted by verifying its shasum</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ shasum -a 256 docker-compose.yaml
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sha512sum -c docker-compose-ce-SHA512SUM.txt
+
 </code></pre></div>    </div>
 
     <p>Must return:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3ff1cb219ae028293ba29f808d0ed17695aeb69a3baa9399194c214881f6409e  docker-compose.yaml
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose-ce.yaml: OK
 </code></pre></div>    </div>
 
     <div class="message warning">
@@ -241,7 +243,7 @@
     
 </div>
 
-    <p><strong>Step 3.</strong> Configure environment variables in docker-compose.yaml file to customize your instance.</p>
+    <p><strong>Step 3.</strong> Configure environment variables in docker-compose-ce.yaml file to customize your instance.</p>
 
     <p>The <code class="language-plaintext highlighter-rouge">APP_FULL_BASE_URL</code> environment variable is set by default to <a href="https://passbolt.local">https://passbolt.local</a>, using a self-signed certificate.</p>
 
@@ -301,12 +303,12 @@ the most used environment variables for this purpose:</p>
 
     <p><strong>Step 4.</strong> Start your containers</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose up -d
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker-compose -f docker-compose-ce.yaml up -d
 </code></pre></div>    </div>
 
     <p><strong>Step 5.</strong> Create first admin user</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker-compose <span class="nt">-f</span> docker-compose-ce.yaml <span class="nb">exec </span>passbolt su <span class="nt">-m</span> <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake </span><span class="se">\</span><span class="s2">
                                 passbolt register_user </span><span class="se">\</span><span class="s2">
                                 -u &lt;your@email.com&gt; </span><span class="se">\</span><span class="s2">
                                 -f &lt;yourname&gt; </span><span class="se">\</span><span class="s2">

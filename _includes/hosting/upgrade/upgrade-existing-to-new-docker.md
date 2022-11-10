@@ -27,7 +27,7 @@ At this step, you should have a running empty Passbolt instance running on your 
 If you have chosen the `docker-compose` install, you just have to delete the volumes you created with this command (don't forget the `-v`):
 
 ```bash
-docker-compose down -v
+docker-compose -f docker-compose-{{ product }}.yaml down -v
 ```
 
 If you have chosen to run docker containers, stop them and delete the database volume:
@@ -54,7 +54,7 @@ You can easily populate your mariadb services by mounting a SQL dump into that d
 
 This means you just have to mount your database backup file on `/docker-entrypoint-initdb.d` folder of the database container.
 
-Edit your docker-compose.yaml file and add a volume mount in the db service:
+Edit your docker-compose-{{ product }}.yaml file and add a volume mount in the db service:
 
 ```
 volumes:
@@ -79,7 +79,7 @@ sub   rsa2048 2022-01-20 [E]
 
 In the above output, fingerprint is `43F978AFF88B53F5ABBD12C87D5E40A4C43926ED` and email address is `passbolt@yourdomain.com`.
 
-Add the environment variables in your `docker-compose.yaml` file (replace with your own values):
+Add the environment variables in your `docker-compose-{{ product }}.yaml` file (replace with your own values):
 
 ```
 services:

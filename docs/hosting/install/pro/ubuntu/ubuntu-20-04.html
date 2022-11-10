@@ -238,12 +238,17 @@ before you download Passbolt PRO and install it.</p>
 
     <p><strong>Step 1.</strong> Download our dependencies installation script:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/passbolt/passbolt-dep-scripts/main/passbolt-repo-setup.pro.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget "https://download.passbolt.com/pro/installer/passbolt-repo-setup.pro.sh"
 </code></pre></div>    </div>
 
-    <p><strong>Step 2.</strong> Ensure that the script is valid and execute it:</p>
+    <p><strong>Step 2.</strong> Download our SHA512SUM for the installation script:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[ "$(sha256sum passbolt-repo-setup.pro.sh | awk '{print $1}')" = "684e889915029c97b7fea0f449cda77a33fee38384ee293f8ece1b7f62f21515" ] &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo "Bad checksum. Aborting" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-pro-SHA512SUM.txt
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong> Ensure that the script is valid and execute it:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sha512sum -c passbolt-pro-SHA512SUM.txt &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo \"Bad checksum. Aborting\" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
     <h2 id="install-passbolt-official-linux-package">Install passbolt official linux package</h2>

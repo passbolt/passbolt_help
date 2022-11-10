@@ -15,7 +15,7 @@ Here is a quick summary of what you can do:
 
 ## Spread the word
 
-Writing a review on [Google Chrome Webstore] or 
+Writing a review on [Google Chrome Webstore](https://chrome.google.com/webstore/detail/passbolt-open-source-pass/didegimhafipceonhjepacocaffmoppf) or 
 [Mozilla Plugin](https://addons.mozilla.org/en-US/firefox/addon/passbolt/reviews/) page can go a long 
 way in helping passbolt get noticed. You can also give us a shout on twitter or a star 
 on [Github](http://github.com/passbolt/).

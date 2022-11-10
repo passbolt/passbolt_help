@@ -39,6 +39,11 @@ d849b76f170375c643b7c737874eeba5e3efa9c28b6254c400505d26d108a5d6  docker-compose
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure environment variables in docker-compose.yaml file to customize your instance.
 
+{% include messages/notice.html
+    content="<b>Notice:</b> By default the docker-compose.yaml file is set to **latest**. We strongly recommend 
+    changing that to the [tag](https://hub.docker.com/r/passbolt/passbolt/tags){:target='_blank'} for the version you want to install."
+%}
+
 The `APP_FULL_BASE_URL` environment variable is set by default to [https://passbolt.local](https://passbolt.local), using a self-signed certificate.
 
 Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.

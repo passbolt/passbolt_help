@@ -245,6 +245,14 @@ wget https://github.com/passbolt/passbolt_docker/releases/latest/download/docker
 
     <p><strong>Step 3.</strong> Configure environment variables in docker-compose-ce.yaml file to customize your instance.</p>
 
+    <div class="message notice">
+    <p>
+    <b>Notice:</b> By default the docker-compose.yaml file is set to <strong>latest</strong>. We strongly recommend 
+    changing that to the <a href="https://hub.docker.com/r/passbolt/passbolt/tags" target="_blank">tag</a> for the version you want to install.
+    </p>
+    
+</div>
+
     <p>The <code class="language-plaintext highlighter-rouge">APP_FULL_BASE_URL</code> environment variable is set by default to <a href="https://passbolt.local">https://passbolt.local</a>, using a self-signed certificate.</p>
 
     <p>Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.</p>

@@ -51,7 +51,7 @@ the resource type schema associated with the resource and to choose how to handl
         <td>definition</td>
         <td>String</td>
         <td>A description of the schema, e.g. properties and rules.</td>
-        <td>[JSON schemas](https://json-schema.org/).</td>
+        <td><a href="https://json-schema.org/">JSON schemas</a></td>
     </tr>
     <tr>
         <td>created</td>

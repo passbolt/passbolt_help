@@ -23,3 +23,7 @@ FAQ pages:
 {% include messages/warning.html
     content="**Please note:** It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."
 %}
+
+{% include messages/notice.html
+    content="<b>Pro tip:</b> If you are going to manually provision SSL certificates you may want to do that before beginning!"
+%}

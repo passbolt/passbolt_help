@@ -223,10 +223,10 @@ You can follow our <a href="/hosting/backup/debian">backup process</a>.</p>
 
     <h3 id="upload-your-subscription-key">3. Upload your subscription key</h3>
 
-    <p>You should copy your subscription key to <code class="language-plaintext highlighter-rouge">/etc/passbolt/license</code> and ensure the permissions are correct.</p>
+    <p>You should copy your subscription key to <code class="language-plaintext highlighter-rouge">/etc/passbolt/subscription_key.txt</code> and ensure the permissions are correct.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root:www-data /etc/passbolt/license
-<span class="nb">sudo chmod </span>640 /etc/passbolt/license
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chown </span>root:www-data /etc/passbolt/subscription_key.txt
+<span class="nb">sudo chmod </span>640 /etc/passbolt/subscription_key.txt
 </code></pre></div>    </div>
 
     <h3 id="uninstall-passbolt-ce">4. Uninstall passbolt CE</h3>
@@ -253,7 +253,7 @@ before you download Passbolt PRO and install it.</p>
 
     <p><strong>Step 3.</strong> Ensure that the script is valid and execute it:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sha512sum -c passbolt-pro-SHA512SUM.txt &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh || echo \"Bad checksum. Aborting\" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sha512sum -c passbolt-pro-SHA512SUM.txt &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh  --passbolt-migrate  || echo \"Bad checksum. Aborting\" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
     <h3 id="install-passbolt-pro">6. Install passbolt Pro</h3>

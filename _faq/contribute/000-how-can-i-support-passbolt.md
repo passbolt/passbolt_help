@@ -31,8 +31,8 @@ other languages or propose changes to [this documentation](https://github.com/pa
 
 ## Contribute to the product
 
-You can help with your [design ideas](/faq/start/design-contribution) 
-or with [code](/faq/start/code-contribution).
+You can help with your [design ideas](/faq/contribute/design-contribution)
+or with [code](/faq/contribute/code-contribution).
 
 ## Test passbolt releases
 

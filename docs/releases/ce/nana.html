@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Blue Monday</title>
+    <title>Passbolt Help | Nana</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th...">
+    <meta name="description" content="This release is a small maintenance release fixing issues reported by the community relative to the just introduced SMTP settings feature. This version shoul...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Blue Monday" />
-    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th..." />
+    <meta property="og:title" content="Nana" />
+    <meta property="og:description" content="This release is a small maintenance release fixing issues reported by the community relative to the just introduced SMTP settings feature. This version shoul..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v283-blue-monday">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/nana">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.8.3.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.8.1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/nana" >v3.8.1</a>
                     </li>
                     
@@ -173,7 +173,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro"><span>pro</span></a>
+                        <a href="https://help.passbolt.com/releases/ce"><span>ce</span></a>
                     </div>
                 </li>
                 
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v283-blue-monday"><span>blue-monday</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/nana"><span>nana</span></a>
                     </div>
                 </li>
                 
@@ -191,83 +191,34 @@
     </div>
 </div>
 
-                            <h1>v2.8.3 ~ Blue Monday (ce)</h1>
+                            <h1>v3.8.1 ~ Nana (ce)</h1>
                             <p>Release date: 
-April
-1st,
-2019.
+November
+17th,
+2022.
 </p>
-                            <div class="message warning">
-    <p>
-        This release introduces some new dependencies and database changes. Make sure you follow 
-    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
-    </p>
-    
-    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
-    
-</div>
+                            <p>This release is a small maintenance release fixing issues reported by the community relative to the just introduced SMTP 
+settings feature. This version should support more authentication use cases and be more flexible while editing an 
+existing configuration.</p>
 
-<p><br />
-This release ships with the much awaited “quick access” and “auto-fill” features. 
-It is now possible to access your passwords directly from the browser extension, 
-and have your forms auto-filled in a click.</p>
+<p>Thanks to the community members who reported issues and helped us fix them.</p>
 
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/04/LU_quick_access_screenshot.png" alt="Quick access screenshot" style="max-width:;" />
-    <span class="legend">fig. Quick access screenshot</span>
-</figure>
-
-<p>“Quick access” will keep evolving in the coming weeks with some improvements on the “auto-fill” part, 
-or the possibility to add / edit a password directly from it.</p>
-
-<p>You will also be pleased to see that both Import and Export functionalities, previously Pro Edition exclusives, 
-are now available in the Community Edition. All major password managers templates are supported, 
-such as the Keepass or 1Password file format.</p>
-
-<div class="message warning">
-    <p>
-        <strong>Beware:</strong> after this update, the import and export functionality will be available
-    to all the users (not only admins). To disable, follow the link below.
-    </p>
-    
-    <a href="https://help.passbolt.com/faq/configure/enable-disable-import-export-plugins" class="button">How to disable import / export plugins</a>
-    
-</div>
-
-<p><br /></p>
-
-<p>This release also includes an upgrade to the latest cakephp version : <a href="https://bakery.cakephp.org/2018/12/08/cakephp_370_released.html">3.7</a>, which means that passbolt is now compatible for 
-most parts with PHP 7.3. We will keep supporting 7.0 until the next Debian stable release, 
-but we invite you to switch to 7.2 as soon as possible.</p>
-
-<p>Finally the Passbolt OpenAPI specification is also available. You can find the API specifications in a swagger compatible format 
-<a href="https://github.com/passbolt/passbolt_openapi_specs">on this new repository</a>. It will be updated soon with a more detailed documentation, including code examples, to ease the learning curve.</p>
-
-<h2 id="passbolt-web-extension">Passbolt Web Extension</h2>
-<h3 id="added">Added</h3>
+<h2 id="api">API</h2>
+<h3 id="381---2022-11-17">[3.8.1] - 2022-11-17</h3>
+<h4 id="fixed">Fixed</h4>
 <ul>
-  <li>PB-3: Quickaccess: Simplified app to access passwords from the browser extension</li>
-</ul>
-
-<h2 id="passbolt-api">Passbolt API</h2>
-<h3 id="improved">Improved</h3>
-<ul>
-  <li>PB-2: Upgrade to CakePHP 3.7</li>
-  <li>PB-60: Performance - Add index on tags table</li>
-  <li>PB-95: Implement Import / Export enable switch</li>
-</ul>
-
-<h3 id="fixed">Fixed</h3>
-<ul>
-  <li>PASSBOLT-2121: Fix passbolt should run in a subdirectory</li>
+  <li>PB-21478 As an administrator, I should be able to edit SMTP settings having a sender email not being a valid email</li>
+  <li>PB-21438 As an administrator using docker, I should be able to access the SMTP settings of my organization</li>
+  <li>PB-21486 As an administrator, I can define the SMTP authentication method via the SMTP admin workspace</li>
+  <li>PB-21481 As an administrator, I want emails to be sent with the sender settings defined in database, if defined in the database</li>
 </ul>
 
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"They'll turn away no more"</p>
-                                <a href="https://youtu.be/FYH8DsU2WCk" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Nana"</p>
+                                <a href="https://youtu.be/SEJz7PthmAw" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

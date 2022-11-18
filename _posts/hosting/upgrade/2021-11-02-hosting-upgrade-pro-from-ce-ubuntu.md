@@ -48,11 +48,11 @@ You can follow our [backup process](/hosting/backup/debian).
 
 ### 3. Upload your subscription key
 
-You should copy your subscription key to `/etc/passbolt/license` and ensure the permissions are correct.
+You should copy your subscription key to `/etc/passbolt/subscription_key.txt` and ensure the permissions are correct.
 
 ```bash
-sudo chown root:www-data /etc/passbolt/license
-sudo chmod 640 /etc/passbolt/license
+sudo chown root:www-data /etc/passbolt/subscription_key.txt
+sudo chmod 640 /etc/passbolt/subscription_key.txt
 ```
 
 ### 4. Uninstall passbolt CE

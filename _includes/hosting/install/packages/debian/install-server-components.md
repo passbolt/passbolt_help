@@ -21,7 +21,7 @@ wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/p
 **Step 3.** Ensure that the script is valid and execute it:
 
 ```
-sha512sum -c passbolt-{{product}}-SHA512SUM.txt && sudo bash ./passbolt-repo-setup.{{product}}.sh || echo \"Bad checksum. Aborting\" && rm -f passbolt-repo-setup.{{product}}.sh
+sha512sum -c passbolt-{{product}}-SHA512SUM.txt && sudo bash ./passbolt-repo-setup.{{product}}.sh {% if migrate == 'yes' %} --passbolt-migrate {% endif %} || echo \"Bad checksum. Aborting\" && rm -f passbolt-repo-setup.{{product}}.sh
 ```
 
 {% if upgrade_from_ce_to_pro != 'yes' %}

@@ -42,7 +42,7 @@ $ docker run --name passbolt{{page.docker_tag}} --net passbolt_network \
              {%- if page.passbolt_version == 'Pro' %}
              --mount type=bind,\
                source=<path_subscription>,\
-               target=/etc/passbolt/license \
+               target=/etc/passbolt/subscription_key.txt \
              {% else %}
              {% endif -%}
              -p 443:443 \

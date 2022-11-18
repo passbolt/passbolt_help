@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.8.1 | Nana</title>
+    <link>https://help.passbolt.com/releases/ce/nana</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/nana</guid>
+    <description>This release is a small maintenance release fixing issues reported by the community relative to the just introduced SMTP settings feature. This version should support more authentication use cases and be more flexible while editing an existing configuration. Thanks to the community members who reported issues and helped us fix...</description>
+    <pubDate>Thu, 17 Nov 2022 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.8.0 | Syria</title>
     <link>https://help.passbolt.com/releases/ce/syria</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/syria</guid>

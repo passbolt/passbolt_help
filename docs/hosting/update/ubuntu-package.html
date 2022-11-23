@@ -221,9 +221,10 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 
     <h3 id="upgrade-your-system">3. Upgrade your system</h3>
 
-    <p>This commands will trigger an upgrade on your whole Ubuntu system:</p>
+    <p>The passbolt update might fail if the database is uptaded in the same run. So "apt upgrade" should be run separately. This commands will trigger an upgrade of the passbolt installation and then the remaining Ubuntu system:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt update
+<span class="nv">$ </span><span class="nb">sudo </span>apt --only-upgrade install passbolt-ce-server
 <span class="nv">$ </span><span class="nb">sudo </span>apt upgrade
 </code></pre></div>    </div>
 

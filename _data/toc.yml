@@ -144,7 +144,7 @@
       icon: fa-bookmark
       slug: https
       teaser: How to setup HTTPS for secure communications
-    - title: Troobleshoot Email config
+    - title: Troubleshoot Email config
       url: /faq/hosting/why-email-not-sent
       icon: fa-envelope
       teaser: Common issues with emails

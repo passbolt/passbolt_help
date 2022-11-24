@@ -15,10 +15,30 @@ helm repo add passbolt-repo https://download.passbolt.com/charts
 
 ```bash
 wget <some link to values.yaml file here>
+wget <some link to shasum file here>-SHA512SUM.txt
 ```
 
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Ensure the file has not been corrupted by verifying its shasum
+
+```
+$ sha512sum -c  ??????-SHA512SUM.txt
+```
+Must return:
+
+```
+values.yaml: OK
+```
+
+{% include messages/warning.html
+    content="<b>Warning:</b> If the <i>shasum</i> command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on <a href='https://community.passbolt.com'>our community forum</a>."
+%}
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure values file to customize your instance.
+
+{% include messages/notice.html
+    content="<b>Notice:</b> By default app.image.tag in the values.yaml file is set to **latest**. We strongly recommend 
+    changing that to the [tag](https://hub.docker.com/r/passbolt/passbolt/tags){:target='_blank'} for the version you want to install."
+%}
 
 You can find a complete list of the values included with Passbolt in the table below on this page.
 
@@ -48,4 +68,4 @@ helm install -f values.yaml my-passbolt passbolt-repo
 ```
 
 
-At this point, you should have a working docker setup running on the **latest** tag. However, it is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags){:target="_blank"} when running in environments other than testing.
+At this point, you should have a working helm setup running on the **latest** tag. However, it is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags){:target="_blank"} when running in environments other than testing.

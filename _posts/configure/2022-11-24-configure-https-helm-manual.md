@@ -3,7 +3,7 @@ title: Manual HTTPS configuration on Helm
 date: 2021-12-16 00:00:00 Z
 card_title: Helm manual HTTPS configuration
 card_teaser: Configure HTTPS with user provided certificates
-description: Configure HTTPS with user provided certificates on helm
+description: Configure HTTPS with user provided certificates on Helm
 icon: fa-helm
 card_position: 4
 categories: [configure,https,ce,helm]

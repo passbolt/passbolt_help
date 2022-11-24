@@ -1,11 +1,11 @@
 
-## helm install
+## Helm install
 
-The easiest and recommended way to deploy your passbolt helm chart is to use helm install.
+The easiest and recommended way to deploy your Passbolt Helm chart is to use `helm install`.
 
 {% assign stepNumber = 1 %}
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Set up our helm repo
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Set up our Helm repo
 
 ```bash
 helm repo add passbolt-repo https://download.passbolt.com/charts
@@ -68,4 +68,4 @@ helm install -f values.yaml my-passbolt passbolt-repo
 ```
 
 
-At this point, you should have a working helm setup running on the **latest** tag. However, it is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags){:target="_blank"} when running in environments other than testing.
+At this point, you should have a working Passbolt setup via Helm running on the **latest** tag. However, it is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags){:target="_blank"} when running in environments other than testing.

@@ -1,6 +1,6 @@
 ### Manually creating first admin user
 
-Once the chart is deployed, you can create your first user by running the following command:
+Once the Helm chart is deployed, you can create your first user by running the following command:
 
 ```bash
 kubectl exec -it <passbolt-pod-name> -- /bin/bash -c "bin/cake passbolt register_user -u <email> -f <firstname> -l <lastname> -r admin" -s /bin/bash www-data

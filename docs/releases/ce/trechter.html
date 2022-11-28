@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Boogie Wonderland</title>
+    <title>Passbolt Help | Trechter</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Another release mostly focusing on bug fixes. Big shout out to our testers: Lilian, Nikki, Marcin and Vrindha!">
+    <meta name="description" content="This release is a small maintenance release fixing issues reported by the community relative to the session expiry. Additionally it was the opportunity to sh...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Boogie Wonderland" />
-    <meta property="og:description" content="Another release mostly focusing on bug fixes. Big shout out to our testers: Lilian, Nikki, Marcin and Vrindha!" />
+    <meta property="og:title" content="Trechter" />
+    <meta property="og:description" content="This release is a small maintenance release fixing issues reported by the community relative to the session expiry. Additionally it was the opportunity to sh..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v106-boogiewonderland">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/trechter">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v1.0.6.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.8.2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/trechter" >v3.8.2</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v106-boogiewonderland"><span>BoogieWonderland</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/trechter"><span>trechter</span></a>
                     </div>
                 </li>
                 
@@ -191,53 +191,29 @@
     </div>
 </div>
 
-                            <h1>v1.0.6 ~ Boogie Wonderland (ce)</h1>
+                            <h1>v3.8.2 ~ Trechter (ce)</h1>
                             <p>Release date: 
-March
-29th,
-2016.
+November
+28th,
+2022.
 </p>
-                            <p>Another release mostly focusing on bug fixes. Big shout out to our testers: Lilian, Nikki, Marcin and Vrindha!</p>
+                            <p>This release is a small maintenance release fixing issues reported by the community relative to the session expiry. Additionally it was the opportunity to ship a long time requested improvement also relative to the session expiry. When signing in to passbolt and checking the “remember until sign out” checkbox, users will keep their session alive for the duration of their operating system user session or until they sign out manually.</p>
 
-<p>The only major new functionality is the release of a first version of a slack plugin for passbolt. 
-You can now track the signup in slack. Get in touch with us if you use slack and have some ideas on 
-how you would like it to work in the future.</p>
+<p>Thanks to the community members who reported issues and helped us fix them.</p>
 
-<p>We decided not to make this feature available as part of the default passbolt API product since not 
-everyone will make use of it. Instead it will be an extra plugin people can install on their own. 
-We will make the code available once we have finished testing and documenting it.</p>
-
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="added-improvements">Added improvements</h4>
-
+<h2 id="browser-extension">Browser extension</h2>
+<h2 id="382---2022-11-28">[3.8.2] - 2022-11-28</h2>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PASSBOLT-1343: A confirmation email link opened in chrome does not explain that passbolt works only in firefox.</li>
-  <li>PASSBOLT-1416: Improved test coverage: auth token should not be invalidated when validateAccount fails.</li>
-  <li>PASSBOLT-1444: Slack plugin for passbolt to keep track of passbolt signup registrations.</li>
+  <li>PB-21565: As a logged-in user, I should decide to keep my session alive until I sign out</li>
 </ul>
 
-<h4 id="fixed-bugs">Fixed bugs</h4>
-
-<ul>
-  <li>PASSBOLT-1395: Regression: As LU I should not be able to select two passwords.</li>
-  <li>PASSBOLT-1396: As LU I should not see a mix of two dashboards data if I click quickly on the users and passwords menu links.</li>
-  <li>PASSBOLT-1406: Space missing between first name and last name in registration email.</li>
-</ul>
-
-<h3 id="passbolt-firefox-add-on">Passbolt Firefox Add-on</h3>
-<h4 id="fixed-bugs-1">Fixed bugs</h4>
-
-<ul>
-  <li>PASSBOLT-1424: Cleanup: in Firefox addon remove URL_PLUBLIC_REGISTRATION.</li>
-  <li>PASSBOLT-1417: At the end of the setup, or in case of setup fatal error, setup data should be cleared.</li>
-  <li>PASSBOLT-1359: Setup should restart where it was left.</li>
-</ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"It’s not music if you can’t dance to it."</p>
-                                <a href="https://youtu.be/god7hAPv8f0" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Trechter"</p>
+                                <a href="https://youtu.be/QrSDDdzjMVo" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

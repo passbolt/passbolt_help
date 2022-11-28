@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.8.2 | Trechter</title>
+    <link>https://help.passbolt.com/releases/pro/trechter</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/trechter</guid>
+    <description>This release is a small maintenance release fixing issues reported by the community relative to the session expiry. Additionally it was the opportunity to ship a long time requested improvement also relative to the session expiry. When signing in to passbolt and checking the “remember until sign out” checkbox, users...</description>
+    <pubDate>Mon, 28 Nov 2022 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.8.1 | Nana</title>
     <link>https://help.passbolt.com/releases/pro/nana</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/nana</guid>

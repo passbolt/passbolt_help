@@ -11,20 +11,22 @@ Most web browsers and mobile devices include built-in password management that p
 
 We will see in this help page how to disable this feature in web browsers and set passbolt as default password manager on iOS / Android to avoid confusion and enhance security.
 
-* [Google Chrome](#google-chrome)
-* [Mozilla Firefox](#mozilla-firefox)
-* [Microsoft Edge](#microsoft-edge)
-* [Brave](#brave)
-* [iOS](#ios)
-* [Android](#android)
+- [Google Chrome](#google-chrome)
+- [Mozilla Firefox](#mozilla-firefox)
+- [Microsoft Edge](#microsoft-edge)
+- [Brave](#brave)
+- [iOS](#ios)
+  - [Disable iCloud Keychain](#disable-icloud-keychain)
+  - [Verify AutoFill settings](#verify-autofill-settings)
+- [Android](#android)
 
 ## Google Chrome
 
-* Go to **chrome://settings/autofill** and select **Passwords**
+* Go to **chrome://settings/autofill** and select **Password Manager**
 * Turn off **Offer to save passwords** and **Auto Sign-in**.
 
 {% include articles/figure.html 
-    url="/assets/img/help/2022/03/password-built-in-chrome.jpg"
+    url="/assets/img/help/2022/11/password-built-in-chrome.png"
     legend="Disable Google Chrome built-in password manager" 
     width="550px"
 %}
@@ -58,7 +60,7 @@ We will see in this help page how to disable this feature in web browsers and se
 * Turn off **Offer to save passwords** and **Auto Sign-in**.
 
 {% include articles/figure.html 
-    url="/assets/img/help/2022/03/password-built-in-brave.jpg"
+    url="/assets/img/help/2022/11/password-built-in-brave.png"
     legend="Disable Brave built-in password manager" 
     width="550px"
 %}

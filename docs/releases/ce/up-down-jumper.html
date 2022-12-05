@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Brick House</title>
+    <title>Passbolt Help | Up Down Jumper</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release brings an interesting new feature: the possibility to see the list of the users a password is shared with at a glance, directly from the sidebar.">
+    <meta name="description" content="This release is a small maintenance release of the API only fixing issues reported by the community relative to the latest introduced SMTP settings feature. ...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Brick House" />
-    <meta property="og:description" content="This release brings an interesting new feature: the possibility to see the list of the users a password is shared with at a glance, directly from the sidebar." />
+    <meta property="og:title" content="Up Down Jumper" />
+    <meta property="og:description" content="This release is a small maintenance release of the API only fixing issues reported by the community relative to the latest introduced SMTP settings feature. ..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v1012-brickhouse">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/up-down-jumper">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v1.0.12.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.8.3.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/up-down-jumper" >v3.8.3</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v1012-brickhouse"><span>brickhouse</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/up-down-jumper"><span>up-down-jumper</span></a>
                     </div>
                 </li>
                 
@@ -191,56 +191,28 @@
     </div>
 </div>
 
-                            <h1>v1.0.12 ~ Brick House (ce)</h1>
+                            <h1>v3.8.3 ~ Up Down Jumper (ce)</h1>
                             <p>Release date: 
-May
-31st,
-2016.
+December
+1st,
+2022.
 </p>
-                            <p>This release brings an interesting new feature: the possibility to see the list of the users a password is shared 
-with at a glance, directly from the sidebar.</p>
+                            <p>This release is a small maintenance release of the API only fixing issues reported by the community relative to the latest introduced SMTP settings feature. It also adds additional information to try to improve the debug process when dealing with Gnupg integration issues.</p>
 
-<p>v1.0.12 also comes with its fair share of bug fixes, and some UI improvements. As usual, we have 
-also worked on increasing the coverage, mostly for the selenium tests.</p>
+<p>A big thank you to the community members who are reporting issues and help us investigate them.</p>
 
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="added-improvements">Added improvements</h4>
-
+<h2 id="api">API</h2>
+<h3 id="383---2022-12-01">[3.8.3] - 2022-12-01</h3>
+<h4 id="fixed">Fixed</h4>
 <ul>
-  <li>PASSBOLT-1572: As LU, I should be able to see which users a password is shared with directly from the sidebar.</li>
-  <li>PASSBOLT-1407: As a LU there is no visual feedback when I upload a picture and that the process is in progress.</li>
-</ul>
-
-<h4 id="fixed-bugs">Fixed bugs</h4>
-
-<ul>
-  <li>PASSBOLT-1439: Email is sent as anonymous when a user is created from the console.</li>
-  <li>PASSBOLT-1509: As LU, when a password is shared with me in read only, I should not see the delete menu available in more.</li>
-  <li>PASSBOLT-1579: Segfault at the end of setup when trying to display login form.</li>
-  <li>PASSBOLT-1576: Fixed Hash component warning message in EmailQueue.</li>
-  <li>PASSBOLT-1322: Insertion of comments in unittest dataset display an error in the console.</li>
-  <li>PASSBOLT-1234: Authentication token used for account registration expiracy check.</li>
-</ul>
-
-<h3 id="passbolt-firefox-add-on">Passbolt Firefox Add-on</h3>
-<h4 id="added-improvements-1">Added improvements</h4>
-
-<ul>
-  <li>PASSBOLT-959: Plugin version number should be in the footer.</li>
-  <li>PASSBOLT-1488: As AP, I should not be able to complete the setup if I import a key that already exist on server.</li>
-</ul>
-
-<h4 id="fixed-bugs-1">Fixed bugs</h4>
-
-<ul>
-  <li>PASSBOLT-1255: Button height issues + missing tooltip on setup.</li>
+  <li>PB-21631 Ensure the OpenPGP server key is in the keyring prior to sending any emails</li>
 </ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"When your past calls, don't answer. It has nothing new to say."</p>
-                                <a href="https://www.youtube.com/watch?v=rrBx6mAWYPU" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Up Down Jumper"</p>
+                                <a href="https://youtu.be/BNe7OrleTlg" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

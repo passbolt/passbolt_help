@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.8.3 | Up Down Jumper</title>
+    <link>https://help.passbolt.com/releases/pro/up-down-jumper</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/up-down-jumper</guid>
+    <description>This release is a small maintenance release of the API only fixing issues reported by the community relative to the latest introduced SMTP settings feature. It also adds additional information to try to improve the debug process when dealing with Gnupg integration issues. A big thank you to the community...</description>
+    <pubDate>Thu, 01 Dec 2022 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.8.2 | Trechter</title>
     <link>https://help.passbolt.com/releases/pro/trechter</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/trechter</guid>

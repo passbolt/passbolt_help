@@ -33,6 +33,11 @@ If that is not the case, in order to start chrony, issue the following command a
 systemctl start chronyd
 ```
 
+To ensure chrony starts automatically at system start, issue the following command as `root`:
+```
+systemctl enable chronyd
+```
+
 To check if chrony is synchronized, make use of the `tracking` command:
 ```
 chronyc tracking
@@ -53,4 +58,48 @@ Root delay   : 0.013639022 seconds
 Root dispersion : 0.001100737 seconds
 Update interval : 64.2 seconds
 Leap status   : Normal
+```
+
+#### Install `ntpd` on RedHat
+
+In order to use `ntpd` the default user space daemon, `chrony`, must be stopped and disable. Issue the following commands as `root`:
+```
+systemctl stop chronyd
+```
+
+To prevent it restarting at system start, issue the following command as `root`:
+```
+systemctl disable chronyd
+```
+
+To check the status of chronyd, issue the following command:
+```
+systemctl status chronyd
+```
+
+To check if ntpd is istnalled, enter the following command as `root`:
+```
+yum install ntp
+```
+
+To enable ntpd at system start, enter the following command as root:
+```
+systemctl enable ntpd
+```
+
+To check if ntpd is running and configured to run at system start, issue the following command:
+```
+systemctl status ntpd
+```
+
+To obtain a brief status report from `ntpd`, issue the following command:
+```
+ntpstat
+```
+
+The output should be something like this:
+```
+synchronised to NTP server (10.5.26.10) at stratum 2
+  time correct to within 52 ms
+  polling server every 1024 s
 ```

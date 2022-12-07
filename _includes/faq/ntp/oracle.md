@@ -1,0 +1,1 @@
+[Official Oracle Documentation](https://docs.oracle.com/cd/E26996_01/E18548/html/manager_ntpconfig.html)

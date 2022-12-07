@@ -1,0 +1,1 @@
+[Official OpenSUSE Documentation](https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ntp.html)

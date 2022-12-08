@@ -38,6 +38,7 @@ The recommended server requirements are:
 
 FAQ pages:
 
+* [Set up NTP](/faq/hosting/set-up-ntp)
 * [Firewall rules](/faq/hosting/firewall-rules){:target="_blank"}
 * [Considerations about entropy](/faq/hosting/why-haveged-virtual-env){:target="_blank"}
 

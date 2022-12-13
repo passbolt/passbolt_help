@@ -27,6 +27,12 @@ This commands will trigger an upgrade on your whole {{ distributionLabel }} syst
 $ sudo {{ distributionPackage }} update
 $ sudo {{ distributionPackage }} upgrade
 ```
+
+{% include messages/warning.html
+    content="Sometimes when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. To resolve this run `sudo apt --only-upgrade install passbolt-ce-server` and then `sudo apt upgrade`"
+%}
+
+
 {% elsif distributionPackage == 'dnf' or distributionPackage == 'yum' or distributionPackage == 'zypper' %}
 ```bash
 $ sudo {{ distributionPackage }} update

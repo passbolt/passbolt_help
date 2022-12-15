@@ -7,6 +7,16 @@
 
 
 <item>
+    <title>v3.8.4 | Ya Amar</title>
+    <link>https://help.passbolt.com/releases/pro/ya-amar</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/ya-amar</guid>
+    <description>This maintenance release involves the Pro and Cloud versions of passbolt. It includes two minor fixes that resolve an issue reported by the community regarding the folders functionality: Users were unable to move passwords out of folders under particular circumstances. In addition to the fix, the command line cleanup script...</description>
+    <pubDate>Thu, 15 Dec 2022 01:00:00 +0100</pubDate>
+</item>
+
+
+
+<item>
     <title>v3.8.3 | Up Down Jumper</title>
     <link>https://help.passbolt.com/releases/pro/up-down-jumper</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/up-down-jumper</guid>

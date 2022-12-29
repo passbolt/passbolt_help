@@ -22,6 +22,10 @@ This tutorial covers the case where you want to upgrade your current instance of
     content="**Important:** Please take a full [backup](/hosting/backup) of your Passbolt CE before proceeding with the upgrade. Backup should include passbolt files as well as the database."
 %}
 
+{% include messages/notice.html
+    content="You may want to consider moving to one of our [packages](/hosting/upgrade) before upgrading to Pro."
+%}
+
 ## System requirements
 {% include hosting/v3-requirements.md %}
 
@@ -56,6 +60,11 @@ when you add new PHP extensions (for example with: `sudo service restart php-fpm
 
 Once you have followed all the steps of the wizard, Passbolt Pro is ready to run. You will be redirected
 automatically to the login page where you can log in.
+
+### 7. Ensure you don't have duplicate cron jobs
+
+{% include hosting/upgrade/cronjobs.md %}
+
 
 ## That's it!
 

@@ -98,7 +98,12 @@ model cache files:
 sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 ```
 
-### 9. Take your site back up
+### 9. Ensure you don't have duplicate cron jobs
+
+{% include hosting/upgrade/cronjobs.md %}
+
+
+### 10. Take your site back up
 
 Finally take passbolt back up:
 

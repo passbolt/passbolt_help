@@ -81,7 +81,7 @@ sudo cat /etc/passbolt/gpg/serverkey.asc | gpg --with-fingerprint - | grep -Ev "
 sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | grep -Ev "^(pub|sub|uid|$|sec|ssb)" | tr -d ' ' | sed 's/Keyfingerprint=//'
 ```
 
-Open **/etc/passbolt/passbolt/php** configuration file and replace old fingerprint with the new one in the **passbolt** section:
+Open **/etc/passbolt/passbolt.php** configuration file and replace old fingerprint with the new one in the **passbolt** section:
 
 ```
     'passbolt' => [

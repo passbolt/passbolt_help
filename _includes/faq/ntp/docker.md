@@ -1,0 +1,1 @@
+Docker's time is set via the host's time. You will need to follow the relevant instructions to configure NTP for the server hosting your Docker container.

@@ -18,6 +18,11 @@ archived: true
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+
+{% include messages/warning.html
+    content="**Important:** This page is depreciated. For up to date upgrade instructions please see our [help site page](/hosting/upgrade) on upgrades."
+%}
+
 There are many ways you can upgrade your version 2 Community Edition (CE) to Passbolt Pro.
 This page list the options and will point you to the right manual.
 

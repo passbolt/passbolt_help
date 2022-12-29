@@ -123,7 +123,7 @@ http:
         STSSeconds: 315360000
 ```
 
-**conf/tls.conf**:
+**conf/tls.yaml**:
 
 ```
 tls:

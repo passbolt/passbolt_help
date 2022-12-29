@@ -8,33 +8,24 @@ permalink: /faq/configure/:slug
 
 By default, the import and export plugins are enabled for all your users, which can be an issue for some admins.
 
-## Disable the import or export plugin
-
-It is quite simple. Just write the following configuration in `config/passbolt.php`, inside the main 'passbolt' section:
-
-```
-'plugins' => [
-    'import' => [
-        'enabled' => false,
-    ],
-    'export' => [
-        'enabled' => false,
-    ],
-],
-```
-
-## Enable the import or export plugin
+## Toggle the import or export plugin
 
 You can either remove the corresponding entries inside the plugins section, since the plugins are activated by default.
-Otherwise, if you prefer it to be explicit, you can add the section below to your `config/passbolt.php` file, inside the main 'passbolt' section:
+Otherwise, if you prefer it to be explicit, you can add the section below to your `/etc/passbolt/passbolt.php` file:
 
 ```
-'plugins' => [
-    'import' => [
-        'enabled' => true,
-    ],
-    'export' => [
-        'enabled' => true,
-    ],
-],
+return [
+    /* Locate or add the passbolt section */
+    'passbolt' => [
+        /* Locate or add the plugins section */
+        'plugins' => [
+            'import' => [
+                'enabled' => false,
+            ],
+            'export' => [
+                'enabled' => false,
+            ],
+        ]
+    ]
+]
 ```

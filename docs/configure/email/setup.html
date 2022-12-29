@@ -240,7 +240,90 @@
 and each one has its own setup process. The aim of this help page is to provide the basic concepts so each admin
 can setup their provider adjusting to their particular case.</p>
 
-    <h2 id="tls-email-providers">TLS email providers</h2>
+    <h2 id="requirements">Requirements</h2>
+    <p>You can follow this procedure if you are meeting the following requirements:</p>
+
+    <ul>
+      <li>You are running Passbolt Pro &gt; 3.8.0 or Passbolt Cloud</li>
+      <li>You have an active administrator account</li>
+    </ul>
+
+    <p><a href="#outdated">You are running Passbolt Pro &lt; 3.7.3 ?</a></p>
+
+    <h2 id="how-does-it-work">How does it work?</h2>
+    <p>Configuring email server, but through the UI is a feature introduced with Passbolt v3.8.0 that as for aim to help all administrators who needs to change their SMTP server settings the easiest way. <br /> 
+We moved the email configuration from <em><code class="language-plaintext highlighter-rouge">config/passbolt.php</code></em> directly into the database and your credentials are encrypted with the server GPG public key.</p>
+
+    <h2 id="access-to-email-server-configuration">Access to email server configuration</h2>
+    <p>In order to configure your email server configuration, go to administration setting workspace. <br />
+<em>Administration &gt; Email server</em></p>
+
+    <h3 id="choose-your-email-provider">Choose your email provider</h3>
+    <p>When you consult your email server settings for the first time, by default, the provider is <strong>Other</strong>. Everything is filled out except logins details. You are free to edit thoses fields to match your email configuration.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/11/email_serversettings.png" alt="Email Server - Providers" style="max-width:586px;" />
+    <span class="legend">fig. Email Server - Providers</span>
+</figure>
+
+    <p>We also provide pre-filled configuration for most common mail server such as Gmail, AWS SES, etc. 
+<br />
+But still, you can navigate through <em>advanced settings</em> to change all the setings like <em>SMTP host</em>, <em>TLS</em>, and <em>port</em>.</p>
+
+    <h3 id="save-the-settings">Save the settings</h3>
+    <p>To save the settings, you have to click on the <em>save settings</em> button.</p>
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/11/email_save.png" alt="Email Server - Save configuration" style="max-width:586px;" />
+    <span class="legend">fig. Email Server - Save configuration</span>
+</figure>
+
+    <p>If at least one mandatory field is empty or doesn’t have the expected format, an error alert will appears and the interface jumps to the first mandatory field that doesn’t fit the requirements. This field will also shows an error message in red.</p>
+
+    <h3 id="test-email-notifications">Test email notifications</h3>
+    <p>You can test your configuration by clicking on the <em>send test email</em> button. You must enter a valid recipient email to start the test procedure but the administrator current email is pre-filled.</p>
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2022/11/email_tests.png" alt="Email Server - Test notifications" style="max-width:586px;" />
+    <span class="legend">fig. Email Server - Test notifications</span>
+</figure>
+
+    <p>If the email has been successfully sent and you haven’t received anything you should check your spam folder.
+The logs are also available in a text area if you unfolds the logs section.
+<br /></p>
+
+    <h1 id="environment-variables">Environment variables</h1>
+    <p>If you are using environment variables, it is still possible to configure your email settings. 
+<br />
+Please note that the database prevails on environment variables. If you were using environment variables while updating to v3.8.0 or newer version, they will be moved into the database.</p>
+
+    <h4 id="tls">TLS</h4>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EMAIL_TRANSPORT_DEFAULT_HOST</span><span class="o">=</span>your.smtp.provider.host.com
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_PORT</span><span class="o">=</span>587
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_USERNAME</span><span class="o">=</span>user
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_PASSWORD</span><span class="o">=</span>secret
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_TLS</span><span class="o">=</span><span class="nb">true</span>
+</code></pre></div>    </div>
+    <p>You should replace:</p>
+    <ul>
+      <li>your.smtp.provider.host.com</li>
+      <li>user</li>
+      <li>secret</li>
+    </ul>
+
+    <p>With the actual values for your provider. Usually email providers that support TLS use port 587 however you should check with your provider specific requirements.</p>
+
+    <h4 id="ssl">SSL</h4>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EMAIL_TRANSPORT_DEFAULT_HOST</span><span class="o">=</span>ssl://your.smtp.provider.host.com
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_PORT</span><span class="o">=</span>465
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_USERNAME</span><span class="o">=</span>user
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_PASSWORD</span><span class="o">=</span>secret
+<span class="nv">EMAIL_TRANSPORT_DEFAULT_TLS</span><span class="o">=</span>null
+</code></pre></div>    </div>
+
+    <p>All the changes are the same as the TLS providers except that you will set <strong>EMAIL_TRANSPORT_DEFAULT_TLS</strong> to null and replace placeholders with the actual values for your provider.</p>
+
+    <h2 id="configure-smtp-with-passbolt-373-or-earlier-version"><a name="outdated"></a> Configure SMTP with Passbolt 3.7.3 or earlier version</h2>
+
+    <h3 id="tls-email-providers">TLS email providers</h3>
 
     <p>If your email provider supports TLS encryption your setup should look like this in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>:</p>
 
@@ -254,24 +337,21 @@ can setup their provider adjusting to their particular case.</p>
         <span class="o">]</span>,
     <span class="o">]</span>,
 </code></pre></div>    </div>
+    <p>You should replace:</p>
+    <ul>
+      <li>your.smtp.provider.host.com</li>
+      <li>user</li>
+      <li>secret</li>
+    </ul>
 
-    <p>Or, if you are using environment variables:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EMAIL_TRANSPORT_DEFAULT_HOST</span><span class="o">=</span>your.smtp.provider.host.com
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PORT</span><span class="o">=</span>587
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_USERNAME</span><span class="o">=</span>user
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PASSWORD</span><span class="o">=</span>secret
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_TLS</span><span class="o">=</span><span class="nb">true</span>
-</code></pre></div>    </div>
-
-    <p>Replace ‘your.smtp.provider.host.com’, ‘user’ and ‘secret’ with the actual values for your provider.
+    <p>With the actual values for your provider. 
 Usually email providers that support TLS use port 587 however you should check with your provider specific
 requirements.</p>
 
-    <h2 id="ssl-email-providers">SSL email providers</h2>
+    <h3 id="ssl-email-providers">SSL email providers</h3>
 
     <p>Some providers support SSL encryption and the setup is slightly different from the TLS case. Just change
-your <code class="language-plaintext highlighter-rouge">config/passbolt.php</code> file to look like this:</p>
+your <em><code class="language-plaintext highlighter-rouge">config/passbolt.php</code></em> file to look like this:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="s1">'EmailTransport'</span> <span class="o">=&gt;</span> <span class="o">[</span>
         <span class="s1">'default'</span> <span class="o">=&gt;</span> <span class="o">[</span>
@@ -284,14 +364,7 @@ your <code class="language-plaintext highlighter-rouge">config/passbolt.php</cod
     <span class="o">]</span>,
 </code></pre></div>    </div>
 
-    <p>In the case of using env variables:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">EMAIL_TRANSPORT_DEFAULT_HOST</span><span class="o">=</span>ssl://your.smtp.provider.host.com
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PORT</span><span class="o">=</span>465
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_USERNAME</span><span class="o">=</span>user
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_PASSWORD</span><span class="o">=</span>secret
-<span class="nv">EMAIL_TRANSPORT_DEFAULT_TLS</span><span class="o">=</span>null
-</code></pre></div>    </div>
+    <p>All the changes are the same as the TLS providers except that you will set <strong>tls</strong> to null and replace placeholders with the actual values for your provider.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>

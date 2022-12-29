@@ -227,6 +227,13 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 <span class="nv">$ </span><span class="nb">sudo </span>apt upgrade
 </code></pre></div>    </div>
 
+    <div class="message warning">
+    <p>
+        Sometimes when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. To resolve this run <code class="language-plaintext highlighter-rouge">sudo apt --only-upgrade install passbolt-ce-server</code> and then <code class="language-plaintext highlighter-rouge">sudo apt upgrade</code>
+    </p>
+    
+</div>
+
     <h3 id="clear-the-cache">4. Clear the cache</h3>
 
     <p>Finally make sure you clear the application cache, to make sure any changes in the database structure are

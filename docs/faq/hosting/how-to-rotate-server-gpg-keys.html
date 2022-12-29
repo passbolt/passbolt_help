@@ -233,7 +233,7 @@ sudo cat /etc/passbolt/gpg/serverkey.asc | gpg --with-fingerprint - | grep -Ev "
 sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | grep -Ev "^(pub|sub|uid|$|sec|ssb)" | tr -d ' ' | sed 's/Keyfingerprint=//'
 </code></pre></div></div>
 
-<p>Open <strong>/etc/passbolt/passbolt/php</strong> configuration file and replace old fingerprint with the new one in the <strong>passbolt</strong> section:</p>
+<p>Open <strong>/etc/passbolt/passbolt.php</strong> configuration file and replace old fingerprint with the new one in the <strong>passbolt</strong> section:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    'passbolt' =&gt; [
         // GPG Configuration.
@@ -378,6 +378,98 @@ sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | gr
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <li>
         <a href="/faq/hosting/how-to-install">How to install passbolt server</a>
     </li>
@@ -421,106 +513,6 @@ sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | gr
     <li>
         <a href="/faq/hosting/installation-issue-help">Where can I get help for installation issues?</a>
     </li>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -537,10 +529,6 @@ sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | gr
     <li>
         <a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -565,10 +553,6 @@ sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | gr
     <li>
         <a href="/faq/configure/why-am-i-getting-ldap-synchronization-issues">Why am I getting ldap synchronization issues?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -669,6 +653,30 @@ sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | gr
     <li>
         <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode ?</a>
     </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/set-up-ntp">How to set up NTP</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

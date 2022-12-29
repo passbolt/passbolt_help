@@ -285,7 +285,37 @@ model cache files:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> <span class="nt">-u</span> www-data bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake cache clear_all"</span>
 </code></pre></div>    </div>
 
-    <h3 id="take-your-site-back-up">9. Take your site back up</h3>
+    <h3 id="ensure-you-dont-have-duplicate-cron-jobs">9. Ensure you don’t have duplicate cron jobs</h3>
+
+    <p>As you are upgrading from CE to Pro you will need to make sure you don’t have duplicate cronjobs.</p>
+
+    <p>You can do this by checking <code class="language-plaintext highlighter-rouge">/etc/cron.d/</code></p>
+
+    <p>You may see:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/cron.d/passbolt-ce-server
+/etc/cron.d/passbolt-pro-server 
+</code></pre></div>    </div>
+
+    <p>If this is the case you’ll want to run:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm /etc/cron.d/passbolt-ce-server
+</code></pre></div>    </div>
+
+    <p>As this will clear out the no longer needed CE job to send emails. If you leave this you may experience receiving duplicate emails.</p>
+
+    <p>The other regularly occuring job which you can remove will be under <code class="language-plaintext highlighter-rouge">/etc/logrotate.d/</code></p>
+
+    <p>You may see:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/logrotate.d/passbolt-ce-server
+/etc/logrotate.d/passbolt-pro-server
+</code></pre></div>    </div>
+
+    <p>If this is the case you’ll want to run:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm /etc/logrotate.d/passbolt-ce-server
+</code></pre></div>    </div>
+
+    <p>This will clean up the no longer needed log rotation job.</p>
+
+    <h3 id="take-your-site-back-up">10. Take your site back up</h3>
 
     <p>Finally take passbolt back up:</p>
 

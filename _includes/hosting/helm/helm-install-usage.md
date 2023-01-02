@@ -9,6 +9,7 @@ The easiest and recommended way to deploy your Passbolt Helm chart is to use `he
 
 ```bash
 helm repo add passbolt-repo https://download.passbolt.com/charts
+helm dependency update passbolt 
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Download the default values.yaml file

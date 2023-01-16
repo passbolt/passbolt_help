@@ -95,6 +95,7 @@ Docker FAQs:
 * [How to use rootless images](/faq/hosting/how-to-use-rootless-images){:target="_blank"}
 * [Troubleshoot Docker](/faq/hosting/troubleshoot-docker){:target="_blank"}
 * [Passbolt reference environment variables](/configure/environment/reference.html){:target="_blank"}
+* [Docker Secrets](/faq/hosting/docker-secrets){:target="_blank"}
 
 Passbolt docker repository:
 

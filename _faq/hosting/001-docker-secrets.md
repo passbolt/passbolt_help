@@ -9,7 +9,7 @@ date: 2023-01-16 00:00:00 Z
 This page should give you the information necessary to successfully use [Docker Secrets](https://docs.docker.com/engine/swarm/secrets/) with your Passbolt installation.
 
 {% include messages/notice.html
-    content="<b>Notice:</b> To use Docker Secrets you must be using [Docker Swarm](https://docs.docker.com/engine/swarm/)!"
+    content="<b>Notice:</b> For more information you can learn about secrets for [Compose](https://docs.docker.com/compose/compose-file/#secrets) and [Swarm](https://docs.docker.com/engine/swarm/secrets/)"
 %}
 
 
@@ -126,4 +126,31 @@ services:
      ... 
      environment:
        PASSBOLT_SSL_SERVER_CERT_FILE: /run/secrets/ssl_cert
+```
+#### Create secret outside of compose file
+You can also create secrets directly so that you don't have to retain the file with the secret. This example will show you how to do that.
+
+The first step here is to create the secret:
+```
+docker secret create gpg-public public.key
+```
+
+You will then need to modify your compose file to designate this as an external secret:
+```
+secrets:
+   gpg-public:
+     external: true
+```
+
+Finally you will need to make sure this secret is used by the Passbolt service:
+```
+services:
+
+   passbolt:
+     ... 
+     environment:
+       PASSBOLT_GPG_SERVER_KEY_PUBLIC_FILE: /run/secrets/gpg-public
+     secrets:
+       - gpg-public
+     ...
 ```

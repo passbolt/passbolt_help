@@ -94,29 +94,29 @@
   slug: configure
   teaser: Configure your passbolt instance
   items:
+    - title: Configure HTTPS
+      url: /configure/https
+      icon: fa-bookmark
+      slug: https
+      teaser: How to setup HTTPS for secure communications
     - title: Configure LDAP
       url: /configure/ldap/setup
       icon: fa-address-book-o
       teaser: How to configure the directory sync plugin
       version: pro
       slug: ldap
-    - title: Configure Yubikey
-      url: /configure/mfa/yubikey
+    - title: Configure Account Recovery
+      url: /configure/account-recovery
       icon: fa-key
-      teaser: Use Yubikey OTP as multi factor authentication provider
+      teaser: How to configure Account Recovery
       version: pro
-      slug: yubikey
-    - title: Configure Duo
-      url: /configure/mfa/duo
-      icon: fa-key
-      teaser: Use Duo as multi factor authentication provider
+      slug: account-recovery
+    - title: Configure SSO
+      url: /configure/sso/azure
+      icon: fa-address-book-o
+      teaser: How to configure SSO with Microsoft / Azure AD (Alpha)
       version: pro
-      slug: duo
-    - title: Configure Email Notifications
-      url: /configure/notification/email
-      icon: fa-envelope-o
-      teaser: How to manage email notification settings
-      slug: email
+      slug: ldap
     - title: Configure LDAP with ssl
       url: /configure/ldap/ldap-with-ssl
       icon: fa-address-book-o
@@ -129,37 +129,41 @@
       teaser: Common ldap synchronization errors and their meaning
       version: pro
       slug: ldap-with-ssl
-    - title: Environment variable reference
-      url: /configure/environment/reference
-      icon: fa-bookmark
-      teaser: Reference list of all environment variables
-      slug: reference
+    - title: Configure Yubikey
+      url: /configure/mfa/yubikey
+      icon: fa-key
+      teaser: Use Yubikey OTP as multi factor authentication provider
+      slug: yubikey
+    - title: Configure Duo
+      url: /configure/mfa/duo
+      icon: fa-key
+      teaser: Use Duo as multi factor authentication provider
+      slug: duo
+    - title: Configure Email Notifications
+      url: /configure/notification/email
+      icon: fa-envelope-o
+      teaser: How to manage email notification settings
+      slug: email
     - title: Configure Email providers
       url: /configure/email/setup
       icon: fa-envelope-o
       teaser: How to setup email providers
       slug: email-setup
-    - title: Configure HTTPS
-      url: /configure/https
-      icon: fa-bookmark
-      slug: https
-      teaser: How to setup HTTPS for secure communications
     - title: Troobleshoot Email config
       url: /faq/hosting/why-email-not-sent
       icon: fa-envelope
       teaser: Common issues with emails
       slug: why-email-not-sent
+    - title: Environment variable reference
+      url: /configure/environment/reference
+      icon: fa-bookmark
+      teaser: Reference list of all environment variables
+      slug: reference
     - title: Update database credentials
       url: /configure/database/credentials
       icon: fa-database
       teaser: Update database credentials
       slug: update-database-credentials
-    - title: Configure Account Recovery
-      url: /configure/account-recovery
-      icon: fa-key
-      teaser: How to configure Account Recovery
-      version: pro
-      slug: account-recovery
 - title: Extend
   slug: extend
   teaser: Build on top of passbolt

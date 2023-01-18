@@ -13,7 +13,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-Passbolt Pro Edition since v2.5 supports Yubikey OTP as a multi factor authentication option.
+Passbolt Pro Edition since v2.5 and CE since 3.9 supports Yubikey OTP as a multi factor authentication option.
 Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box. 
 
 {% include messages/notice.html
@@ -27,7 +27,7 @@ Yubico OTP is a simple authentication mechanism that is supported by all YubiK
 %}
 
 {% include messages/warning.html
-    content="**Important:** Multi Factor Authentication is part of [Passbolt Pro](https://www.passbolt.com/pricing/pro) only and is not available in the Community Edition."
+content="**Important:** Multi Factor Authentication requires HTTPS to work."
 %}
 
 ## Security considerations
@@ -50,7 +50,6 @@ Please note that it is no longer possible to [host yourself the OTP validation s
     width="550px"
 %}
 
-
 Before using YubiCloud, you need to get an API key from [upgrade.yubico.com](https://upgrade.yubico.com/getapikey/){:target="_blank"} 
 in order to prevent misuse of the service. You will need to authenticate yourself using a Yubikey One-Time Password 
 and provide your e-mail address as a reference, as well as read and accept the terms of service.
@@ -69,12 +68,13 @@ One or more of these domains may be used to try to validate an OTP.
 
 ## Set the configuration in passbolt
 
-You can configure Yubikey OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.
+You can configure Yubikey OTP using either the admin interface or environment variables. If multiple 
+settings providers are used the settings in the admin interface will override the one used in environment variables.
 
 ### Using admin user interface
 
-Since v2.6 a user interface is provided for administrators to setup MFA providers.
-Click on "administration" in the top menu, then "multi factor authentication" on the left menu.
+A user interface is provided for administrators to setup MFA providers.
+Click on "administration" in the top menu, then "multi-factor authentication" on the left menu.
 You can then enable or disable the Yubikey provider by providing the user id and secret key that
 you gathered in the previous steps. Click "save settings" when you are done.
 
@@ -83,7 +83,6 @@ you gathered in the previous steps. Click "save settings" when you are done.
     legend="MFA organization settings for Yubikey"
     width="550px"
 %}
-
 
 ### Using environment variables
 
@@ -112,29 +111,9 @@ If you are [using docker](/hosting/install/ce/docker.html), you can set these en
 </table>
 <br>
 
-### Using config file
-
-In your install directory you can add the following section in `/etc/passbolt/passbolt.php`
-
-```
-'plugins' => [
-    'multiFactorAuthentication' => [
-        'providers' => [
-            'totp' => true,
-            'duo' => false,
-            'yubikey' => true
-        ],
-        'yubikey' => [
-            'clientId' => '01234',
-            'secretKey' => 'xx/xxxxxx/xxxxxxxxxxxx='
-        ]
-    ]
-]
-```
-
 ## Setting Yubikey for a given passbolt user account
 
-Once you have a the Yubikey integration configured and Yubikey plugged in your computer you
+Once you have the Yubikey integration configured and Yubikey plugged in your computer you
 can proceed with enabling Yubikey as provider for your user account. It is important you test
 this to make sure the integration works.
 
@@ -144,9 +123,9 @@ this to make sure the integration works.
     width="550px"
 %}
 
-When logged in passbolt go to your profile section and click on "Multi factor authentication"
+When logged in passbolt go to your profile section and click on "Multi-factor authentication"
 in the left sidebar. You should see the list of providers that are enabled for this instance.
-Click on the Yubikey provider. Passbolt will then prompt your to touch your Yubikey
+Click on the Yubikey provider. Passbolt will then prompt you to touch your Yubikey
 to enter a one time password.
 
 The next time you try login from a new device, you will be presented with a Yubikey 

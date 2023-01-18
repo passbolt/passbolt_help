@@ -206,6 +206,13 @@
     
 </div>
 
+    <div class="message notice">
+    <p>
+    You may want to consider moving to one of our <a href="/hosting/upgrade">packages</a> before upgrading to Pro.
+    </p>
+    
+</div>
+
     <h2 id="system-requirements">System requirements</h2>
     <p>Passbolt is reported to work on a large variety of operating system configurations.
 Therefore this help page is a generic guide that should work for most environments.</p>
@@ -298,6 +305,36 @@ Just point your browser to your passbolt url.</p>
 
     <p>Once you have followed all the steps of the wizard, Passbolt Pro is ready to run. You will be redirected
 automatically to the login page where you can log in.</p>
+
+    <h3 id="ensure-you-dont-have-duplicate-cron-jobs">7. Ensure you don’t have duplicate cron jobs</h3>
+
+    <p>As you are upgrading from CE to Pro you will need to make sure you don’t have duplicate cronjobs.</p>
+
+    <p>You can do this by checking <code class="language-plaintext highlighter-rouge">/etc/cron.d/</code></p>
+
+    <p>You may see:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/cron.d/passbolt-ce-server
+/etc/cron.d/passbolt-pro-server 
+</code></pre></div>    </div>
+
+    <p>If this is the case you’ll want to run:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm /etc/cron.d/passbolt-ce-server
+</code></pre></div>    </div>
+
+    <p>As this will clear out the no longer needed CE job to send emails. If you leave this you may experience receiving duplicate emails.</p>
+
+    <p>The other regularly occuring job which you can remove will be under <code class="language-plaintext highlighter-rouge">/etc/logrotate.d/</code></p>
+
+    <p>You may see:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/etc/logrotate.d/passbolt-ce-server
+/etc/logrotate.d/passbolt-pro-server
+</code></pre></div>    </div>
+
+    <p>If this is the case you’ll want to run:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm /etc/logrotate.d/passbolt-ce-server
+</code></pre></div>    </div>
+
+    <p>This will clean up the no longer needed log rotation job.</p>
 
     <h2 id="thats-it">That’s it!</h2>
 

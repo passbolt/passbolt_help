@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Why do I need a password manager?</title>
+    <title>Passbolt Help | Some potential performance tweaks</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A password manager allows you to comfortably implement best security practices and therefore reduces the risks for you and your organisation.">
+    <meta name="description" content="Table of contents:">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Why do I need a password manager?" />
-    <meta property="og:description" content="A password manager allows you to comfortably implement best security practices and therefore reduces the risks for you and your organisation." />
+    <meta property="og:title" content="Some potential performance tweaks" />
+    <meta property="og:description" content="Table of contents:" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/faq/discover/why">
+    <link rel="canonical" href="https://help.passbolt.com/faq/configure/performance-tweaks">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/discover/000-why-do-i-need-passbolt.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/configure/000-performance-tweaks.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -88,7 +88,7 @@
         
 
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/faq/discover">Discover</a>
         </li>
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>Why do I need a password manager?</span></a>
+                        <a href=""><span>Some potential performance tweaks</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,37 +167,78 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>Why do I need a password manager?</h1>
-                            <p>A password manager allows you to comfortably implement best security practices and therefore reduces the risks for
-you and your organisation.</p>
+                         <h1>Some potential performance tweaks</h1>
+                            <h2 id="table-of-contents">Table of contents:</h2>
 
-<p>With a password manager you can prevent your team from reusing the same password on multiple systems.
-You can also make sure they generate stronger passwords by default, since they do not have to remember them anymore.
-It also makes it easier to rotate credentials, e.g. help you change your passwords regularly, every 40 days for example.</p>
-
-<p>Additionally, having an overview of who has access to what, allows you to reset passwords when somebody leaves
-your organisation. Reciprocally it can also help facilitate when someone is joining your team, since a new member
-can easily be given access to the all the password they need. It also prevents loss of credentials since you can
-perform backups.</p>
-
-<h3 id="um-the-tldr">Um, the TL;DR?</h3>
 <ul>
-  <li>Decrease password reuse</li>
-  <li>Implement password rotation</li>
-  <li>Increase password strength</li>
-  <li>Help on-boarding new member</li>
+  <li><a href="#table-of-contents">Table of contents:</a></li>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#database">Database</a></li>
+  <li><a href="#php-fpm">PHP FPM</a></li>
+  <li><a href="#nginx">Nginx</a></li>
 </ul>
+
+<h2 id="introduction">Introduction</h2>
+<p>At Passbolt, we are constantly striving to enhance performance, introduce new functionality, and refine existing features.</p>
+
+<p>The default settings that come with Passbolt are suitable for the majority of our users. However, if you have a significant number of users or groups who have access to hundreds or thousands of secrets, the defaults may not meet your performance expectations.</p>
+
+<p>To address this, we have created this guide to help you optimize Passbolt’s performance.</p>
+
+<p>If you prefer not to make these adjustments, please let us know which areas of Passbolt are slowing down for you, and we will consider incorporating improvements in future releases.</p>
+
+<h2 id="database">Database</h2>
+<div class="message warning">
+    <p>
+        <strong>Important:</strong> This assumes you are running your database on the same host as your Passbolt installation
+    </p>
+    
+</div>
+
+<p>One database improvement that can be made is to skip the reverse DNS lookup in MySQL/MariaDB. To do this you will need to:</p>
+
+<p>Ensure the passbolt user in the database is allowed to connect via <code class="language-plaintext highlighter-rouge">127.0.0.1</code> and not just <code class="language-plaintext highlighter-rouge">localhost</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mysql]&gt; GRANT USAGE ON *.* TO `passboltadmin`@`127.0.0.1` IDENTIFIED BY PASSWORD `&lt;insert password hash here&gt;`;
+[mysql]&gt; GRANT ALL PRIVILEGES ON `passboltdb`.* TO `passboltadmin`@`127.0.0.1`;
+[mysql]&gt; FLUSH PRIVILEGES;
+</code></pre></div></div>
+
+<p>You can find the password hash by running:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[mysql]&gt; use mysql;
+[mysql]&gt; select user, host, password from user where user = ‘passboltadmin’;
+</code></pre></div></div>
+
+<p>Both above samples assume user is named <code class="language-plaintext highlighter-rouge">passboltadmin</code> and the database is named <code class="language-plaintext highlighter-rouge">passboltdb</code>, actual values may be different depending on what was chosen during installation.</p>
+
+<p>Edit your mysql configuration file, search for <code class="language-plaintext highlighter-rouge">[mysqld]</code> block and add:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Skip reverse DNS lookup
+skip-name-resolve
+</code></pre></div></div>
+
+<p>Then restart mysql:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart mysql
+</code></pre></div></div>
+<p>You will then need to adjust your Passbolt configuration to point to <code class="language-plaintext highlighter-rouge">127.0.0.1</code> instead of <code class="language-plaintext highlighter-rouge">localhost</code> if it is set to <code class="language-plaintext highlighter-rouge">localhost</code></p>
+
+<h2 id="php-fpm">PHP FPM</h2>
+<p>There are two values which you can change to increase the resources that PHP is able to use. These are <code class="language-plaintext highlighter-rouge">memory_limit</code> and <code class="language-plaintext highlighter-rouge">pm.max_children</code></p>
+
+<p>You can adjust <code class="language-plaintext highlighter-rouge">memory_limit</code> by editing the <code class="language-plaintext highlighter-rouge">/etc/php/X.X/fpm/php.ini</code> file where X.X is your PHP version.</p>
+
+<p>You can adjust <code class="language-plaintext highlighter-rouge">pm.max_children</code> by editing the <code class="language-plaintext highlighter-rouge">/etc/php/X.X/fpm/pool.d/www.conf</code> file where X.X is your PHP version.</p>
+
+<h2 id="nginx">Nginx</h2>
+<p>For Nginx our recommendation is less about making it more performant, but rather increasing a timeout so that your users don’t experience as many errors if they are regularly running into time outs. You can do this by editing the value for <code class="language-plaintext highlighter-rouge">keepalive_timeout</code> in your Nginx config file.</p>
 
                         </div>
 
                     <div class="col4 last push1" markdown="1">
                         
-                            <div class="tldr">
-    <h4 class="visuallyhidden">Why (Summary)</h4>
-    <p><i class="fa fa-thumbs-o-up"></i> Decrease password reuse</p>
-    <p><i class="fa fa-thumbs-o-up"></i> Implement password rotation</p>
-    <p><i class="fa fa-thumbs-o-up"></i> Increase password strength</p>
-    <p><i class="fa fa-thumbs-o-up"></i> Help on-boarding new member</p>
+                            <div class="message tldr notice">
+    <p>Not finding what you are looking for? You can also ask the community on the forum.</p>
+    
+    <a href="https://community.passbolt.com" class="button ">Talk to a human</a>
+    
 </div>
 
                         
@@ -212,46 +253,16 @@ perform backups.</p>
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <li>
+        <a href="/faq/configure/enable-disable-import-export-plugins">How can I enable or disable import / export plugins</a>
+    </li>
     
     
     
     
     
     <li>
-        <a href="/faq/discover/where-to-get-help">Where can I get help?</a>
+        <a href="/faq/configure/performance-tweaks">Some potential performance tweaks</a>
     </li>
     
     
@@ -328,81 +339,75 @@ perform backups.</p>
     
     
     
-    <li>
-        <a href="/faq/discover/what-is-passbolt">What is passbolt?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/why">Why do I need a password manager?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/how-does-it-work">How does it work?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/how-is-different">How is passbolt different from other password managers?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/is-sharing-password-a-bad-practice">Is sharing the same password with multiple users a bad practice?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/can-i-use-passbolt-as-personal-password-manager">I need a personal password manager, can I use passbolt?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/why-an-extension">Why do I need a browser extension?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/are-we-there-yet">When will you be releasing feature X or Y?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/feature-priority">How to you prioritize feature development?</a>
-    </li>
     
     
     
     
     
-    <li>
-        <a href="/faq/discover/where-can-i-login">Where can I login?</a>
-    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

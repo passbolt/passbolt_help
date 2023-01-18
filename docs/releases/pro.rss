@@ -10,7 +10,7 @@
     <title>v3.9.0 | Bunny</title>
     <link>https://help.passbolt.com/releases/pro/v390-bunny</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/v390-bunny</guid>
-    <description>The team at passbolt is thrilled to announce the release of v3.9 for immediate availability! Passbolt Pro v3.9 ships with Single Sign On (SSO) in Alpha for all Pro users. This will allow authentication and onboarding via Azure SSO (via OAuth2 and OpenID Connect. fig. SSO with Azure Learn more...</description>
+    <description>The team at passbolt is thrilled to announce the release of v3.9 for immediate availability! Passbolt Pro v3.9 ships with Single Sign On (SSO) in Alpha for all Pro users. This will allow authentication and onboarding via Azure SSO (via OAuth2 and OpenID Connect). fig. SSO with Azure Learn more...</description>
     <pubDate>Wed, 18 Jan 2023 01:00:00 +0100</pubDate>
 </item>
 

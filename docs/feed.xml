@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-01-18T14:59:33+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft (Alpha)</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft (Alpha)" /><published>2023-01-18T01:00:00+01:00</published><updated>2023-01-18T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-01-18T16:19:12+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft (Alpha)</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft (Alpha)" /><published>2023-01-18T01:00:00+01:00</published><updated>2023-01-18T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -80,8 +80,8 @@ to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
 
     &lt;p&gt;You must ensure users are present both in passbolt and Azure AD, the email is used to correlate accounts.&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;Users that are present not present in Azure AD but are present in passbolt will not be able to use SSO.&lt;/li&gt;
-      &lt;li&gt;Users that are present not present in passbolt but are present in Azure AD will not be able to login in passbolt.&lt;/li&gt;
+      &lt;li&gt;Users that are not present in Azure AD but are present in passbolt will not be able to use SSO (a message on microsoft side will be shown).&lt;/li&gt;
+      &lt;li&gt;Users that are not present in passbolt but are present in Azure AD will not be able to login in passbolt (a message on passbolt side will be shown).&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;figure&gt;

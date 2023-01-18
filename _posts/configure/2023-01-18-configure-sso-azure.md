@@ -84,8 +84,8 @@ legend="Passbolt administration"
 %}
 
 You must ensure users are present both in passbolt and Azure AD, the email is used to correlate accounts.
-- Users that are present not present in Azure AD but are present in passbolt will not be able to use SSO.
-- Users that are present not present in passbolt but are present in Azure AD will not be able to login in passbolt.
+- Users that are not present in Azure AD but are present in passbolt will not be able to use SSO (a message on microsoft side will be shown).
+- Users that are not present in passbolt but are present in Azure AD will not be able to login in passbolt (a message on passbolt side will be shown).
 
 {% include articles/figure.html
 url="/assets/img/help/2023/01/sso-0-azure-home.png"

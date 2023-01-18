@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-01-18T16:19:12+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft (Alpha)</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft (Alpha)" /><published>2023-01-18T01:00:00+01:00</published><updated>2023-01-18T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-01-18T16:22:57+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft (Alpha)</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft (Alpha)" /><published>2023-01-18T01:00:00+01:00</published><updated>2023-01-18T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -8,7 +8,7 @@
     
 &lt;/div&gt;
 
-    &lt;p&gt;Since version 3.9 Passbolt Pro Edition, supports SSO with Microsoft via Azure AD.&lt;/p&gt;
+    &lt;p&gt;Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png&quot; alt=&quot;SSO with Azure (Alpha)&quot; style=&quot;max-width:;&quot; /&gt;
@@ -19,31 +19,31 @@
 
     &lt;div class=&quot;message notice&quot;&gt;
     &lt;p&gt;
-    TL;DR: The feature is in alpha and for Pro Edition customer only because it is undergoing real life testing and
+    TL;DR: The feature is in alpha and for Pro Edition customers only because it is undergoing real life testing and
 a security audit.
     &lt;/p&gt;
     
 &lt;/div&gt;
 
-    &lt;p&gt;The feature is currently disabled by default and requires passbolt browser extension version
-3.9.1 (Note: this extension will be published on 19th of January 2023). To test latest changes you can also build the 
-latest extension &lt;a href=&quot;https://github.com/passbolt/browser_extension&quot;&gt;built from source&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;The feature is currently disabled by default and requires Passbolt browser extension version
+3.9.1 (Note: this extension will be published on 19th of January 2023). To test the latest changes you can also build the 
+latest extension &lt;a href=&quot;https://github.com/passbolt/browser_extension&quot;&gt;from source&lt;/a&gt;.&lt;/p&gt;
 
     &lt;p&gt;The feature is provided to customers who want to test this first version and provide feedback. Feel free to report
 issues at &lt;a href=&quot;mailto:support@passbolt.com&quot;&gt;support@passbolt.com&lt;/a&gt; or on the &lt;a href=&quot;https://community.passbolt.com&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
 
     &lt;p&gt;The goal is to publish a “Beta” version with 3.10 or 3.11, which will be available without being hidden behind a 
-feature flag. It will be visible directly in the UI. Then at end of february the feature will undergo an independent 
-3rd party security audit by Cure53, and once the security and  community reported issue fixes are rolled out (if any), 
-the “Beta” label will be lifted out. It will then be made available in Passbolt Cloud.&lt;/p&gt;
+feature flag. It will be visible directly in the UI. Then at end of February the feature will undergo an independent 
+3rd party security audit by Cure53, and once the security and community reported issue fixes are rolled out (if any), 
+the “Beta” label will be removed. It will then be made available in Passbolt Cloud.&lt;/p&gt;
 
     &lt;h2 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h2&gt;
 
-    &lt;p&gt;In short Passbolt SSO leverage Azure OAuth2/OpenID on top of the existing &lt;a href=&quot;/api/authentication&quot;&gt;challenge-based authentication&lt;/a&gt;.
-The user by logging in Microsoft unlock a key stored server side needed to decrypt the secret key passphrase twice encrypted
+    &lt;p&gt;In short Passbolt SSO leverages Azure OAuth2/OpenID on top of the existing &lt;a href=&quot;/api/authentication&quot;&gt;challenge-based authentication&lt;/a&gt;.
+The user by logging in Microsoft unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted
 with a non-extractable symetric key stored in the browser extension local storage client side.&lt;/p&gt;
 
-    &lt;p&gt;To understand which user flows are supported currently, the risks analysis and how it works in practice please read the 
+    &lt;p&gt;To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
 &lt;a href=&quot;https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j&quot;&gt;developer documentation&lt;/a&gt;.&lt;/p&gt;
 
     &lt;h2 id=&quot;how-to-enable-sso-azure-plugin&quot;&gt;How to enable SSO Azure plugin?&lt;/h2&gt;
@@ -55,8 +55,8 @@ with a non-extractable symetric key stored in the browser extension local storag
     
 &lt;/div&gt;
 
-    &lt;p&gt;If you use docker you can enable the SSO plugin using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PASSBOLT_PLUGINS_SSO_ENABLED=1&lt;/code&gt;. Otherwise you will need
-to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt.php&lt;/code&gt; file to add the following:&lt;/p&gt;
+    &lt;p&gt;If you use Docker you can enable the SSO plugin setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PASSBOLT_PLUGINS_SSO_ENABLED&lt;/code&gt; environment variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;. Otherwise you will need
+to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt.php&lt;/code&gt; file and add the following:&lt;/p&gt;
     &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Locate this section
 &apos;passbolt&apos; =&amp;gt; [
     // and add...
@@ -67,10 +67,10 @@ to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
 
     &lt;h2 id=&quot;how-to-configure-the-plugin&quot;&gt;How to configure the plugin?&lt;/h2&gt;
 
-    &lt;p&gt;Open both Azure portal and passbolt:&lt;/p&gt;
+    &lt;p&gt;Open both the Azure portal and Passbolt:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;Once the plugin enabled you will need to go the administration section of your passbolt instance and then to the “Single Sign On” section.&lt;/li&gt;
-      &lt;li&gt;You will need to also login to &lt;a href=&quot;https://portal.azure.com&quot;&gt;Azure Portal&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.&lt;/li&gt;
+      &lt;li&gt;You will need to also login to the &lt;a href=&quot;https://portal.azure.com&quot;&gt;Azure Portal&lt;/a&gt;.&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;figure&gt;
@@ -94,10 +94,10 @@ to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
     &lt;ul&gt;
       &lt;li&gt;Go to Azure Directory service (or set one up)
         &lt;ul&gt;
-          &lt;li&gt;Make sure your user email in Azure Directory and matches the one in passbolt&lt;/li&gt;
+          &lt;li&gt;Make sure your user email in Azure Directory matches the one in [assbolt&lt;/li&gt;
         &lt;/ul&gt;
       &lt;/li&gt;
-      &lt;li&gt;Copy your tenant id (a UUID) and paste it in passbolt&lt;/li&gt;
+      &lt;li&gt;Copy your Tenant ID (a UUID) and paste it in passbolt&lt;/li&gt;
       &lt;li&gt;Go to App Registrations &amp;gt; New registration OR “+ Add” &amp;gt; “App Registration”&lt;/li&gt;
     &lt;/ul&gt;
 
@@ -135,13 +135,13 @@ to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. App secret creation&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;In passbolt:&lt;/p&gt;
+    &lt;p&gt;In your passbolt instance:&lt;/p&gt;
     &lt;ul&gt;
       &lt;li&gt;Click save settings&lt;/li&gt;
       &lt;li&gt;A dialog will open with Microsoft button, click on it&lt;/li&gt;
-      &lt;li&gt;A popup will open asking your to perform the authentication with microsoft&lt;/li&gt;
+      &lt;li&gt;A popup will open asking you to perform the authentication with Microsoft&lt;/li&gt;
       &lt;li&gt;Once the authentication is successful you can save the settings&lt;/li&gt;
-      &lt;li&gt;Once the settings saved, you can log out, you should then see a SSO option&lt;/li&gt;
+      &lt;li&gt;Once the settings have been saved, you can log out, you should then see an SSO option&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;figure&gt;
@@ -149,8 +149,8 @@ to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;
     &lt;span class=&quot;legend&quot;&gt;fig. Passbolt SSO test settings&lt;/span&gt;
 &lt;/figure&gt;
 
-    &lt;p&gt;Please note that users must successfully perform a login using their passphrase &lt;em&gt;after SSO has been activated&lt;/em&gt;
-in order for the option to be proposed to them at login.&lt;/p&gt;
+    &lt;p&gt;Please note that users must successfully perform a login using their current passphrase &lt;em&gt;after SSO has been activated&lt;/em&gt;
+in order for the SSO option to be proposed to them at future logins.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;

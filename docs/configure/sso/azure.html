@@ -238,7 +238,7 @@
     
 </div>
 
-    <p>Since version 3.9 Passbolt Pro Edition, supports SSO with Microsoft via Azure AD.</p>
+    <p>Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png" alt="SSO with Azure (Alpha)" style="max-width:;" />
@@ -249,31 +249,31 @@
 
     <div class="message notice">
     <p>
-    TL;DR: The feature is in alpha and for Pro Edition customer only because it is undergoing real life testing and
+    TL;DR: The feature is in alpha and for Pro Edition customers only because it is undergoing real life testing and
 a security audit.
     </p>
     
 </div>
 
-    <p>The feature is currently disabled by default and requires passbolt browser extension version
-3.9.1 (Note: this extension will be published on 19th of January 2023). To test latest changes you can also build the 
-latest extension <a href="https://github.com/passbolt/browser_extension">built from source</a>.</p>
+    <p>The feature is currently disabled by default and requires Passbolt browser extension version
+3.9.1 (Note: this extension will be published on 19th of January 2023). To test the latest changes you can also build the 
+latest extension <a href="https://github.com/passbolt/browser_extension">from source</a>.</p>
 
     <p>The feature is provided to customers who want to test this first version and provide feedback. Feel free to report
 issues at <a href="mailto:support@passbolt.com">support@passbolt.com</a> or on the <a href="https://community.passbolt.com">community forum</a>.</p>
 
     <p>The goal is to publish a “Beta” version with 3.10 or 3.11, which will be available without being hidden behind a 
-feature flag. It will be visible directly in the UI. Then at end of february the feature will undergo an independent 
-3rd party security audit by Cure53, and once the security and  community reported issue fixes are rolled out (if any), 
-the “Beta” label will be lifted out. It will then be made available in Passbolt Cloud.</p>
+feature flag. It will be visible directly in the UI. Then at end of February the feature will undergo an independent 
+3rd party security audit by Cure53, and once the security and community reported issue fixes are rolled out (if any), 
+the “Beta” label will be removed. It will then be made available in Passbolt Cloud.</p>
 
     <h2 id="how-does-it-work">How does it work?</h2>
 
-    <p>In short Passbolt SSO leverage Azure OAuth2/OpenID on top of the existing <a href="/api/authentication">challenge-based authentication</a>.
-The user by logging in Microsoft unlock a key stored server side needed to decrypt the secret key passphrase twice encrypted
+    <p>In short Passbolt SSO leverages Azure OAuth2/OpenID on top of the existing <a href="/api/authentication">challenge-based authentication</a>.
+The user by logging in Microsoft unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted
 with a non-extractable symetric key stored in the browser extension local storage client side.</p>
 
-    <p>To understand which user flows are supported currently, the risks analysis and how it works in practice please read the 
+    <p>To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
 <a href="https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j">developer documentation</a>.</p>
 
     <h2 id="how-to-enable-sso-azure-plugin">How to enable SSO Azure plugin?</h2>
@@ -285,8 +285,8 @@ with a non-extractable symetric key stored in the browser extension local storag
     
 </div>
 
-    <p>If you use docker you can enable the SSO plugin using the <code class="language-plaintext highlighter-rouge">PASSBOLT_PLUGINS_SSO_ENABLED=1</code>. Otherwise you will need
-to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</code> file to add the following:</p>
+    <p>If you use Docker you can enable the SSO plugin setting the <code class="language-plaintext highlighter-rouge">PASSBOLT_PLUGINS_SSO_ENABLED</code> environment variable to <code class="language-plaintext highlighter-rouge">1</code>. Otherwise you will need
+to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</code> file and add the following:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Locate this section
 'passbolt' =&gt; [
     // and add...
@@ -297,10 +297,10 @@ to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</co
 
     <h2 id="how-to-configure-the-plugin">How to configure the plugin?</h2>
 
-    <p>Open both Azure portal and passbolt:</p>
+    <p>Open both the Azure portal and Passbolt:</p>
     <ul>
-      <li>Once the plugin enabled you will need to go the administration section of your passbolt instance and then to the “Single Sign On” section.</li>
-      <li>You will need to also login to <a href="https://portal.azure.com">Azure Portal</a>.</li>
+      <li>Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.</li>
+      <li>You will need to also login to the <a href="https://portal.azure.com">Azure Portal</a>.</li>
     </ul>
 
     <figure>
@@ -324,10 +324,10 @@ to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</co
     <ul>
       <li>Go to Azure Directory service (or set one up)
         <ul>
-          <li>Make sure your user email in Azure Directory and matches the one in passbolt</li>
+          <li>Make sure your user email in Azure Directory matches the one in [assbolt</li>
         </ul>
       </li>
-      <li>Copy your tenant id (a UUID) and paste it in passbolt</li>
+      <li>Copy your Tenant ID (a UUID) and paste it in passbolt</li>
       <li>Go to App Registrations &gt; New registration OR “+ Add” &gt; “App Registration”</li>
     </ul>
 
@@ -365,13 +365,13 @@ to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</co
     <span class="legend">fig. App secret creation</span>
 </figure>
 
-    <p>In passbolt:</p>
+    <p>In your passbolt instance:</p>
     <ul>
       <li>Click save settings</li>
       <li>A dialog will open with Microsoft button, click on it</li>
-      <li>A popup will open asking your to perform the authentication with microsoft</li>
+      <li>A popup will open asking you to perform the authentication with Microsoft</li>
       <li>Once the authentication is successful you can save the settings</li>
-      <li>Once the settings saved, you can log out, you should then see a SSO option</li>
+      <li>Once the settings have been saved, you can log out, you should then see an SSO option</li>
     </ul>
 
     <figure>
@@ -379,8 +379,8 @@ to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</co
     <span class="legend">fig. Passbolt SSO test settings</span>
 </figure>
 
-    <p>Please note that users must successfully perform a login using their passphrase <em>after SSO has been activated</em>
-in order for the option to be proposed to them at login.</p>
+    <p>Please note that users must successfully perform a login using their current passphrase <em>after SSO has been activated</em>
+in order for the SSO option to be proposed to them at future logins.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>

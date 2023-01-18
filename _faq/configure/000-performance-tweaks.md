@@ -15,7 +15,13 @@ permalink: /faq/configure/:slug
 - [Nginx](#nginx)
 
 ## Introduction
-At Passbolt we are regularly working on improving performance, adding new features, and improving the ones we already have. The default settings that come with Passbolt will work for the vast majority of our users. However, if you have a particularly large user base or have users and/or groups who have 100s to 1000s of secrets shared with them these defaults might prove a little slower than you'd like. With that in mind this page should give you a few ideas for how you can squeeze a little more performance out of Passbolt. Alternatively if you aren't comfortable making these tweaks, let us know about the areas that are slow for you and we can see about including improvements in a future release!
+At Passbolt, we are constantly striving to enhance performance, introduce new functionality, and refine existing features. 
+
+The default settings that come with Passbolt are suitable for the majority of our users. However, if you have a significant number of users or groups who have access to hundreds or thousands of secrets, the defaults may not meet your performance expectations. 
+
+To address this, we have created this guide to help you optimize Passbolt's performance. 
+
+If you prefer not to make these adjustments, please let us know which areas of Passbolt are slowing down for you, and we will consider incorporating improvements in future releases.
 
 ## Database
 {% include messages/warning.html

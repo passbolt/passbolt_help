@@ -13,7 +13,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-Passbolt Pro Edition since v2.5 and CE since 3.9 supports Duo as a multi factor authentication option.
+Passbolt Pro Edition since v2.5 and CE since 3.9 support Duo as a multi factor authentication option.
 Duo is a proprietary solution that is free for up to 10 users, and supports a bundle
 of authentication channels (such as HOTP, mobile push, phone calls, etc.) configurable
 by the Duo account administrator.

@@ -13,7 +13,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-Passbolt Pro Edition since v2.5 and CE since 3.9 supports Yubikey OTP as a multi factor authentication option.
+Passbolt Pro Edition since v2.5 and CE since 3.9 support Yubikey OTP as a multi factor authentication option.
 Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box. 
 
 {% include messages/notice.html

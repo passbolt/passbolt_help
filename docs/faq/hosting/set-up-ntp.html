@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | How to set up NTP</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Table of contents:">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="How to set up NTP" />
+    <meta property="og:description" content="Table of contents:" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/faq/hosting/set-up-ntp">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+<body>
+<div id="container" class="help page background">
+    <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/hosting/008-how-to-ntp.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel main" aria-label="Content">
+        <div class="panel left">
+            <div class="navigation-help" role="navigation">
+    <ul>
+        <li><h2>All FAQs</h2></li>
+        
+
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/faq/discover">Discover</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/faq/start">Get started</a>
+        </li>
+        
+
+        
+        <li class="selected">
+        
+            <a href="https://help.passbolt.com/faq/hosting">Hosting</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/faq/contribute">Contribute</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/faq/security">Security</a>
+        </li>
+        
+
+        
+        <li>
+        
+            <a href="https://help.passbolt.com/faq/legal">Legal</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+            <div class="grid grid-responsive-12">
+                <article>
+                    <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com"><span>help</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/faq"><span>FAQ</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href=""><span>How to set up NTP</span></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+                    <div class="row" markdown="1">
+                        <div class="col7" markdown="1">
+                         <h1>How to set up NTP</h1>
+                            <h2 id="table-of-contents">Table of contents:</h2>
+
+<ul>
+  <li><a href="#table-of-contents">Table of contents:</a></li>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#ubuntu">Ubuntu</a></li>
+  <li><a href="#debian">Debian</a></li>
+  <li><a href="#redhat">RedHat</a></li>
+  <li><a href="#opensuse">OpenSUSE</a></li>
+  <li><a href="#oracle-linux">Oracle Linux</a></li>
+  <li><a href="#fedora">Fedora</a></li>
+  <li><a href="#docker">Docker</a></li>
+</ul>
+
+<h2 id="introduction">Introduction</h2>
+<p>This page is intended to give you the resources to set up NTP(or suitable equivalent) on the main distrobutions that we support. NTP is important for two main reasons with Passbolt. The first is in regards to GPG authentication. The other area where this becomes important is if you have MFA enabled as if the server and user device time get out of sync the codes will not work.</p>
+
+<h2 id="ubuntu">Ubuntu</h2>
+<p><a href="https://ubuntu.com/server/docs/network-ntp">Official Ubuntu Documentation</a></p>
+
+<p>Ubuntu uses <code class="language-plaintext highlighter-rouge">chrony</code> for time synchronization. This package is not installed by default so you’ll need to install it.</p>
+
+<p>You can check that your server doesn’t have this enabled by running the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl status
+</code></pre></div></div>
+<p>The output should look something like the following:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>               Local time: Tue 2022-12-06 09:26:53 UTC
+           Universal time: Tue 2022-12-06 09:26:53 UTC
+                 RTC time: Tue 2022-12-06 09:26:52
+                Time zone: Etc/UTC (UTC, +0000)
+System clock synchronized: no
+              NTP service: inactive
+          RTC in local TZ: no
+</code></pre></div></div>
+
+<p>The two most important lines here being:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>System clock synchronized: no
+              NTP service: inactive
+</code></pre></div></div>
+
+<p>To install <code class="language-plaintext highlighter-rouge">chrony</code> you’ll need to run this command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install chrony
+</code></pre></div></div>
+
+<p>You can configure which time servers you want to use by editing <code class="language-plaintext highlighter-rouge">/etc/chrony/chrony.conf</code></p>
+
+<p>After you are done editing this file run the following to restart <code class="language-plaintext highlighter-rouge">chrony</code></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart chrony.service
+</code></pre></div></div>
+
+<p>To ensure this is running correctly you can once again run:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl status
+</code></pre></div></div>
+<p>Your output should now be something like:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>               Local time: Tue 2022-12-06 09:30:40 UTC
+           Universal time: Tue 2022-12-06 09:30:40 UTC
+                 RTC time: Tue 2022-12-06 09:30:40
+                Time zone: Etc/UTC (UTC, +0000)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+</code></pre></div></div>
+<p>The important lines are:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>System clock synchronized: yes
+              NTP service: active
+</code></pre></div></div>
+<p>If only one of these has changed try running <code class="language-plaintext highlighter-rouge">timedatectl status</code> after another minute or two to give it time to be fully correct.
+Once those are both correct, congratulations you’ve gotten NTP correctly set up!</p>
+
+<h2 id="debian">Debian</h2>
+<p><a href="https://wiki.debian.org/NTP">Official Debian Documentation</a></p>
+
+<p>A fresh Debian installation should already be properly configured for this. You can confirm this by running:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>timedatectl status
+</code></pre></div></div>
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>               Local time: Tue 2022-12-06 14:30:52 UTC
+           Universal time: Tue 2022-12-06 14:30:52 UTC
+                 RTC time: Tue 2022-12-06 14:30:53
+                Time zone: Etc/UTC (UTC, +0000)
+System clock synchronized: yes
+              NTP service: active
+          RTC in local TZ: no
+</code></pre></div></div>
+<p>The important lines are:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>System clock synchronized: yes
+              NTP service: active
+</code></pre></div></div>
+
+<h2 id="redhat">RedHat</h2>
+<p><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/system_administrators_guide/ch-configuring_ntp_using_ntpd">Official RedHat Documentation</a></p>
+
+<p>On Red Hat Entreprise Linux, you have two choices in terms of NTP installation <code class="language-plaintext highlighter-rouge">chrony</code> which is installed by default on some version of Red Hat Entreprise Linux 7 or <code class="language-plaintext highlighter-rouge">ntpd</code>.</p>
+
+<p>Chrony should be considered as best match for the systems which are frequently suspended or otherwise intermittently disconnected from a network.</p>
+
+<p>The NTP daemon (ntpd) should be considered for systems which are normally kept permanently on.</p>
+
+<h4 id="install-chrony-on-redhat">Install <code class="language-plaintext highlighter-rouge">chrony</code> on RedHat</h4>
+
+<p>As mentionned previously, chrony suite is installed by default on some versions of Red Hat Entreprise Linux 7, to ensure that it is, run the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install chrony
+</code></pre></div></div>
+
+<p>The default location for the chrony daemon is <em>/usr/sbin/chronyd</em>. The command line utility will be installed to <em>/usr/bin/chronyc</em>.</p>
+
+<p>To check the status of <code class="language-plaintext highlighter-rouge">chrony</code>, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status chronyd
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chronyd.service - NTP client/server
+  Loaded: loaded (/usr/lib/systemd/system/chronyd.service; enabled)
+  Active: active (running) since Wed 2013-06-12 22:23:16 CEST; 11h ago
+</code></pre></div></div>
+
+<p>If that is not the case, in order to start chrony, issue the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start chronyd
+</code></pre></div></div>
+
+<p>To ensure chrony starts automatically at system start, issue the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable chronyd
+</code></pre></div></div>
+
+<p>To check if chrony is synchronized, make use of the <code class="language-plaintext highlighter-rouge">tracking</code> command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chronyc tracking
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reference ID  : CB00710F (foo.example.net)
+Stratum     : 3
+Ref time (UTC) : Fri Jan 27 09:49:17 2017
+System time   : 0.000006523 seconds slow of NTP time
+Last offset   : -0.000006747 seconds
+RMS offset   : 0.000035822 seconds
+Frequency    : 3.225 ppm slow
+Residual freq  : 0.000 ppm
+Skew      : 0.129 ppm
+Root delay   : 0.013639022 seconds
+Root dispersion : 0.001100737 seconds
+Update interval : 64.2 seconds
+Leap status   : Normal
+</code></pre></div></div>
+
+<h4 id="install-ntpd-on-redhat">Install <code class="language-plaintext highlighter-rouge">ntpd</code> on RedHat</h4>
+
+<p>In order to use <code class="language-plaintext highlighter-rouge">ntpd</code> the default user space daemon, <code class="language-plaintext highlighter-rouge">chrony</code>, must be stopped and disable. Issue the following commands as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl stop chronyd
+</code></pre></div></div>
+
+<p>To prevent it restarting at system start, issue the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl disable chronyd
+</code></pre></div></div>
+
+<p>To check the status of chronyd, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status chronyd
+</code></pre></div></div>
+
+<p>To check if ntpd is istnalled, enter the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install ntp
+</code></pre></div></div>
+
+<p>To enable ntpd at system start, enter the following command as root:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable ntpd
+</code></pre></div></div>
+
+<p>To check if ntpd is running and configured to run at system start, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status ntpd
+</code></pre></div></div>
+
+<p>To obtain a brief status report from <code class="language-plaintext highlighter-rouge">ntpd</code>, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ntpstat
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>synchronised to NTP server (10.5.26.10) at stratum 2
+  time correct to within 52 ms
+  polling server every 1024 s
+</code></pre></div></div>
+
+<h2 id="opensuse">OpenSUSE</h2>
+<p><a href="https://doc.opensuse.org/documentation/leap/reference/html/book-reference/cha-ntp.html">Official OpenSUSE Documentation</a></p>
+
+<p>To configure NTP on OpenSUSE we will need YaST. YaST is featured in the openSUSE Linux distribution.</p>
+
+<p>To run yast you will need to run this command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sux yast2
+</code></pre></div></div>
+
+<p>Once it is running, specify when to start the network time protocol service:</p>
+
+<ul>
+  <li>Only manually</li>
+</ul>
+
+<p>Start the Network Time Protocol service manually</p>
+
+<ul>
+  <li>Synchronize without Daemon</li>
+</ul>
+
+<p>Set the system time periodically without a permanently running Network Time Protocol service. You can set the Interval of the Synchronization in Minutes.</p>
+
+<ul>
+  <li>Now and on boot</li>
+</ul>
+
+<p>Start the Network Time Protocol service automatically when the system is booting. This setting is recommended.</p>
+
+<p>After this step, you will need to specify the type of configuration source. In the Configuration Source drop-down box, select either Dynamic or Static. Set Static if your server uses only a fixed set of (public) NTP servers. If your internal network offers NTP servers via DHCP, pick Dynamic.</p>
+
+<p>You need to configure time servers. Time servers for the client to query are listed in the lower part of the NTP Configuration window. Modify this list as needed by clicking Add, Edit, and Delete.</p>
+
+<p>After you clicked <em>Add</em> to add a new time server in the address field, type the URL of the time server or pool of time servers with which you want to synchronize the machine time (for example, <em>europe.pool.ntp.org</em>). After URL is complete, click on <em>Test</em> to verify that it points to a valid time source.</p>
+
+<p>You can active <em>Quick initial Sync</em> to speed up the time synchronization by sending more request at the Network Time Protocol service start or you can active <em>Start Offline</em> to speed up the boot time on systems that start the Network Time Protocol service automatically and may not have an internet connection at boot time.</p>
+
+<p>Now that we have configured Network Time Protocol with YaST we need to restart and enable chrony with:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart chronyd.service
+sudo systemctl enable chronyd.service
+</code></pre></div></div>
+
+<h2 id="oracle-linux">Oracle Linux</h2>
+<p><a href="https://docs.oracle.com/cd/E26996_01/E18548/html/manager_ntpconfig.html">Official Oracle Documentation</a></p>
+
+<p>To configure Network Time Protocol On Oracle you need to install the NTP package:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yum install ntp
+</code></pre></div></div>
+
+<p>Once NTP is installed, you will need to start the service and set it to launch automatically upon boot:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service ntpd start
+chkconfig ntpd on
+</code></pre></div></div>
+
+<p>You can check upstream synchronization with the <code class="language-plaintext highlighter-rouge">ntpq</code> command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ntpq -p
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>     remote           refid      st t when poll reach   delay   offset  jitter
+==============================================================================
+ lists2.luv.asn. 203.161.12.165  16 u   25   64    3    3.495   -3043.1   0.678
+ ns2.novatelbg.n 130.95.179.80   16 u   27   64    3   26.633   -3016.1   0.797
+ sp1.mycdn.fr    130.234.255.83  16 u   24   64    3    4.314   -3036.3   1.039
+</code></pre></div></div>
+
+<h2 id="fedora">Fedora</h2>
+<p><a href="https://docs.fedoraproject.org/en-US/fedora/latest/system-administrators-guide">Official Fedora Documentation</a></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">chrony</code> suite is installed by default on some versions of Fedora, but you have two choices the other one being <code class="language-plaintext highlighter-rouge">ntpd</code>.</p>
+
+<p>Chrony should be considered as best match for the systems which are frequently suspended or otherwise intermittently disconnected from a network.</p>
+
+<p>The NTP daemon (ntpd) should be considered for systems which are normally kept permanently on.</p>
+
+<h4 id="install-chrony-on-fedora">Install <code class="language-plaintext highlighter-rouge">chrony</code> on Fedora</h4>
+
+<p>As mentionned previously, chrony suite is installed by default on some versions of Fedora, to ensure that it is, run the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf install chrony
+</code></pre></div></div>
+
+<p>The default location for the chrony daemon is <em>/usr/sbin/chronyd</em>. The command line utility will be installed to <em>/usr/bin/chronyc</em>.</p>
+
+<p>To check the status of <code class="language-plaintext highlighter-rouge">chrony</code>, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status chronyd
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chronyd.service - NTP client/server
+  Loaded: loaded (/usr/lib/systemd/system/chronyd.service; enabled)
+  Active: active (running) since Wed 2013-06-12 22:23:16 CEST; 11h ago
+</code></pre></div></div>
+
+<p>If that is not the case, in order to start chrony, issue the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl start chronyd
+</code></pre></div></div>
+
+<p>To ensure chrony starts automatically at system start, issue the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable chronyd
+</code></pre></div></div>
+
+<p>To check if chrony is synchronized, make use of the <code class="language-plaintext highlighter-rouge">tracking</code> command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chronyc tracking
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Reference ID  : CB00710F (foo.example.net)
+Stratum     : 3
+Ref time (UTC) : Fri Jan 27 09:49:17 2017
+System time   : 0.000006523 seconds slow of NTP time
+Last offset   : -0.000006747 seconds
+RMS offset   : 0.000035822 seconds
+Frequency    : 3.225 ppm slow
+Residual freq  : 0.000 ppm
+Skew      : 0.129 ppm
+Root delay   : 0.013639022 seconds
+Root dispersion : 0.001100737 seconds
+Update interval : 64.2 seconds
+Leap status   : Normal
+</code></pre></div></div>
+
+<h4 id="install-ntpd-on-fedora">Install <code class="language-plaintext highlighter-rouge">ntpd</code> on Fedora</h4>
+
+<p>In order to use <code class="language-plaintext highlighter-rouge">ntpd</code> the default user space daemon, <code class="language-plaintext highlighter-rouge">chrony</code>, must be stopped and disable. Issue the following commands as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl stop chronyd
+</code></pre></div></div>
+
+<p>To prevent it restarting at system start, issue the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl disable chronyd
+</code></pre></div></div>
+
+<p>To check the status of chronyd, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status chronyd
+</code></pre></div></div>
+
+<p>To check if ntpd is istnalled, enter the following command as <code class="language-plaintext highlighter-rouge">root</code>:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dnf install ntp
+</code></pre></div></div>
+
+<p>To enable ntpd at system start, enter the following command as root:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl enable ntpd
+</code></pre></div></div>
+
+<p>To check if ntpd is running and configured to run at system start, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl status ntpd
+</code></pre></div></div>
+
+<p>To obtain a brief status report from <code class="language-plaintext highlighter-rouge">ntpd</code>, issue the following command:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ntpstat
+</code></pre></div></div>
+
+<p>The output should be something like this:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>synchronised to NTP server (10.5.26.10) at stratum 2
+  time correct to within 52 ms
+  polling server every 1024 s
+</code></pre></div></div>
+
+<h2 id="docker">Docker</h2>
+<p>Docker’s time is set via the host’s time. You will need to follow the relevant instructions to configure NTP for the server hosting your Docker container.</p>
+
+                        </div>
+
+                    <div class="col4 last push1" markdown="1">
+                        
+                            <div class="message tldr notice">
+    <p>Not finding what you are looking for? You can also ask the community on the forum.</p>
+    
+    <a href="https://community.passbolt.com" class="button ">Talk to a human</a>
+    
+</div>
+
+                        
+                    </div>
+                    </div>
+
+                    
+                    <div class="row" markdown="1">
+                        <div class="col7" markdown="1">
+                            <h3>Other frequently asked questions in the same category</h3>
+                            <ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-install">How to install passbolt server</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-backup">How to make passbolt backups</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-update">How can I update my passbolt server?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/hosting-requirements">What are the minimum server requirements?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/where-to-host">Does passbolt provide hosting?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/installation-issue-help">Where can I get help for installation issues?</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/why-haveged-virtual-env">Why should I install haveged on virtual environments?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/update-evaluation-subscription-key">How to update my subscription key</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/configure/why-am-i-getting-ldap-synchronization-issues">Why am I getting ldap synchronization issues?</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-increase-auto-logout-time">How to increase auto logout time?</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/firewall-rules">Firewall rules</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-generate-jwt-key-pair-manually">How to generate JWT key pair manually</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/troubleshoot-docker">Troubleshoot Docker</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-migrate-from-http-to-https">How to migrate from HTTP to HTTPS</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-use-rootless-images">How to use docker rootless images</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-import-ssl-certificate-on-mobile">How to import SSL certificate on mobile application</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/troubleshoot-ssl">Troubleshoot SSL</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-rotate-server-gpg-keys">How to rotate server GPG keys</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/mobile-faq">iOS / Android Mobile FAQ</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode ?</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/set-up-ntp">How to set up NTP</a>
+    </li>
+    
+    
+    
+    
+    
+</ul>
+
+                        </div>
+
+                    <div class="col4 last push1" markdown="1">
+                    </div>
+
+                    </div>
+
+                    </div>
+                    
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+</div>
+<script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+</html>

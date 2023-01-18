@@ -170,33 +170,25 @@
                          <h1>How can I enable or disable import / export plugins</h1>
                             <p>By default, the import and export plugins are enabled for all your users, which can be an issue for some admins.</p>
 
-<h2 id="disable-the-import-or-export-plugin">Disable the import or export plugin</h2>
-
-<p>It is quite simple. Just write the following configuration in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>, inside the main ‘passbolt’ section:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
-    'import' =&gt; [
-        'enabled' =&gt; false,
-    ],
-    'export' =&gt; [
-        'enabled' =&gt; false,
-    ],
-],
-</code></pre></div></div>
-
-<h2 id="enable-the-import-or-export-plugin">Enable the import or export plugin</h2>
+<h2 id="toggle-the-import-or-export-plugin">Toggle the import or export plugin</h2>
 
 <p>You can either remove the corresponding entries inside the plugins section, since the plugins are activated by default.
-Otherwise, if you prefer it to be explicit, you can add the section below to your <code class="language-plaintext highlighter-rouge">config/passbolt.php</code> file, inside the main ‘passbolt’ section:</p>
+Otherwise, if you prefer it to be explicit, you can add the section below to your <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code> file:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>'plugins' =&gt; [
-    'import' =&gt; [
-        'enabled' =&gt; true,
-    ],
-    'export' =&gt; [
-        'enabled' =&gt; true,
-    ],
-],
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>return [
+    /* Locate or add the passbolt section */
+    'passbolt' =&gt; [
+        /* Locate or add the plugins section */
+        'plugins' =&gt; [
+            'import' =&gt; [
+                'enabled' =&gt; false,
+            ],
+            'export' =&gt; [
+                'enabled' =&gt; false,
+            ],
+        ]
+    ]
+]
 </code></pre></div></div>
 
                         </div>
@@ -225,6 +217,10 @@ Otherwise, if you prefer it to be explicit, you can add the section below to you
     <li>
         <a href="/faq/configure/enable-disable-import-export-plugins">How can I enable or disable import / export plugins</a>
     </li>
+    
+    
+    
+    
     
     
     

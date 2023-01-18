@@ -233,7 +233,7 @@ sudo cat /etc/passbolt/gpg/serverkey.asc | gpg --with-fingerprint - | grep -Ev "
 sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | grep -Ev "^(pub|sub|uid|$|sec|ssb)" | tr -d ' ' | sed 's/Keyfingerprint=//'
 </code></pre></div></div>
 
-<p>Open <strong>/etc/passbolt/passbolt/php</strong> configuration file and replace old fingerprint with the new one in the <strong>passbolt</strong> section:</p>
+<p>Open <strong>/etc/passbolt/passbolt.php</strong> configuration file and replace old fingerprint with the new one in the <strong>passbolt</strong> section:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    'passbolt' =&gt; [
         // GPG Configuration.
@@ -713,6 +713,14 @@ sudo cat /etc/passbolt/gpg/serverkey_private.asc | gpg --with-fingerprint - | gr
     
     
     
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/set-up-ntp">How to set up NTP</a>
+    </li>
     
     
     

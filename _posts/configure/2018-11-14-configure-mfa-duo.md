@@ -13,7 +13,7 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-Passbolt Pro Edition since v2.5 supports Duo as a multi factor authentication option.
+Passbolt Pro Edition since v2.5 and CE since 3.9 support Duo as a multi factor authentication option.
 Duo is a proprietary solution that is free for up to 10 users, and supports a bundle
 of authentication channels (such as HOTP, mobile push, phone calls, etc.) configurable
 by the Duo account administrator.
@@ -25,7 +25,7 @@ by the Duo account administrator.
 %}
 
 {% include messages/warning.html
-    content="**Important:** Multi Factor Authentication is part of [Passbolt Pro](https://www.passbolt.com/pricing/pro) only and is not available in the Community Edition."
+    content="**Important:** Multi Factor Authentication requires HTTPS to work."
 %}
 
 ## Security considerations
@@ -78,7 +78,9 @@ them to configure the integration.
 
 ## Set the configuration in passbolt
 
-You can configure Duo OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.
+You can configure Duo OTP using either the admin interface or environment variables. 
+If multiple settings providers are used the settings in the admin interface will override the one in environment 
+variables.
 
 You will need to generate a random 40 character string to be used as salt, to help
 secure your integration.
@@ -140,30 +142,6 @@ $ docker run --name passbolt \
              -p 443:443 \
              -e PASSBOLT_PLUGINS_MFA_DUO_HOST=api-26e9f2fce.duosecurity.com \
              -e etc.
-```
-
-### Using config file
-
-In your install directory you can add the following section in `config/passbolt.php`
-and replace the 
-
-```
- 'plugins' => [
-        'multiFactorAuthentication' => [
-            'providers' => [
-                'totp' => true,
-                'duo' => true,
-                'yubikey' => false
-            ],
-            'duo' => [
-                'salt' => 'THIS_MUST_BE_AT_LEAST_FOURTY_CHARACTERS',
-                'integrationKey' => 'CCCCPRC95FF3FW21FR5SJ',
-                'secretKey' => '7tkYNgxxXaGAuv3KWYYqhsJLfIc1NBnHDYC1siNYX',
-                'hostName' => 'api-21e9fcfce.duosecurity.com'
-            ]
-        ]
-    ]
-]
 ```
 
 ## Setting Duo for a given passbolt user account

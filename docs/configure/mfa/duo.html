@@ -100,7 +100,32 @@
         </li>
         
         <li >
+            <a href="https://help.passbolt.com/configure/https">Configure HTTPS</a>
+        </li>
+        
+        
+        <li >
             <a href="https://help.passbolt.com/configure/ldap/setup">Configure LDAP</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/account-recovery">Configure Account Recovery</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/sso/azure">Configure SSO</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">Troubleshoot LDAP sync errors</a>
         </li>
         
         
@@ -121,27 +146,7 @@
         
         
         <li >
-            <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
-        </li>
-        
-        
-        <li >
-            <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">Troubleshoot LDAP sync errors</a>
-        </li>
-        
-        
-        <li >
-            <a href="https://help.passbolt.com/configure/environment/reference">Environment variable reference</a>
-        </li>
-        
-        
-        <li >
             <a href="https://help.passbolt.com/configure/email/setup">Configure Email providers</a>
-        </li>
-        
-        
-        <li >
-            <a href="https://help.passbolt.com/configure/https">Configure HTTPS</a>
         </li>
         
         
@@ -151,12 +156,12 @@
         
         
         <li >
-            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
+            <a href="https://help.passbolt.com/configure/environment/reference">Environment variable reference</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/configure/account-recovery">Configure Account Recovery</a>
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
         </li>
         
         
@@ -226,7 +231,7 @@
                         <div class="row">
   <div class="col7">
 
-    <p>Passbolt Pro Edition since v2.5 supports Duo as a multi factor authentication option.
+    <p>Passbolt Pro Edition since v2.5 and CE since 3.9 support Duo as a multi factor authentication option.
 Duo is a proprietary solution that is free for up to 10 users, and supports a bundle
 of authentication channels (such as HOTP, mobile push, phone calls, etc.) configurable
 by the Duo account administrator.</p>
@@ -238,7 +243,7 @@ by the Duo account administrator.</p>
 
     <div class="message warning">
     <p>
-        <strong>Important:</strong> Multi Factor Authentication is part of <a href="https://www.passbolt.com/pricing/pro">Passbolt Pro</a> only and is not available in the Community Edition.
+        <strong>Important:</strong> Multi Factor Authentication requires HTTPS to work.
     </p>
     
 </div>
@@ -293,7 +298,9 @@ them to configure the integration.</p>
 
     <h2 id="set-the-configuration-in-passbolt">Set the configuration in passbolt</h2>
 
-    <p>You can configure Duo OTP using either the admin interface, config files or environment variables. If multiple settings providers are used the settings in the admin interface will override the one used in files. Similarly the settings in files will override environment variables.</p>
+    <p>You can configure Duo OTP using either the admin interface or environment variables. 
+If multiple settings providers are used the settings in the admin interface will override the one in environment 
+variables.</p>
 
     <p>You will need to generate a random 40 character string to be used as salt, to help
 secure your integration.</p>
@@ -353,29 +360,6 @@ like other variables such as the database name, for example:</p>
              -p 443:443 \
              -e PASSBOLT_PLUGINS_MFA_DUO_HOST=api-26e9f2fce.duosecurity.com \
              -e etc.
-</code></pre></div>    </div>
-
-    <h3 id="using-config-file">Using config file</h3>
-
-    <p>In your install directory you can add the following section in <code class="language-plaintext highlighter-rouge">config/passbolt.php</code>
-and replace the</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 'plugins' =&gt; [
-        'multiFactorAuthentication' =&gt; [
-            'providers' =&gt; [
-                'totp' =&gt; true,
-                'duo' =&gt; true,
-                'yubikey' =&gt; false
-            ],
-            'duo' =&gt; [
-                'salt' =&gt; 'THIS_MUST_BE_AT_LEAST_FOURTY_CHARACTERS',
-                'integrationKey' =&gt; 'CCCCPRC95FF3FW21FR5SJ',
-                'secretKey' =&gt; '7tkYNgxxXaGAuv3KWYYqhsJLfIc1NBnHDYC1siNYX',
-                'hostName' =&gt; 'api-21e9fcfce.duosecurity.com'
-            ]
-        ]
-    ]
-]
 </code></pre></div>    </div>
 
     <h2 id="setting-duo-for-a-given-passbolt-user-account">Setting Duo for a given passbolt user account</h2>

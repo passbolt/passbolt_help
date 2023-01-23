@@ -1,4 +1,177 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2022-12-29T09:32:18+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-01-21T14:15:24+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft (Alpha)</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft (Alpha)" /><published>2023-01-18T01:00:00+01:00</published><updated>2023-01-18T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Attention&lt;/strong&gt;: This feature is currently in Alpha, and available only in Passbolt Pro Edition.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png&quot; alt=&quot;SSO with Azure (Alpha)&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSO with Azure (Alpha)&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;why-is-it-in-alpha-what-does-it-mean&quot;&gt;Why is it in Alpha? What does it mean?&lt;/h2&gt;
+
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    TL;DR: The feature is in alpha and for Pro Edition customers only because it is undergoing real life testing and
+a security audit.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;The feature is currently disabled by default and requires Passbolt browser extension version
+3.9.1 (Note: this extension will be published on 19th of January 2023). To test the latest changes you can also build the 
+latest extension &lt;a href=&quot;https://github.com/passbolt/browser_extension&quot;&gt;from source&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;The feature is provided to customers who want to test this first version and provide feedback. Feel free to report
+issues at &lt;a href=&quot;mailto:support@passbolt.com&quot;&gt;support@passbolt.com&lt;/a&gt; or on the &lt;a href=&quot;https://community.passbolt.com&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;The goal is to publish a “Beta” version with 3.10 or 3.11, which will be available without being hidden behind a 
+feature flag. It will be visible directly in the UI. Then at end of February the feature will undergo an independent 
+3rd party security audit by Cure53, and once the security and community reported issue fixes are rolled out (if any), 
+the “Beta” label will be removed. It will then be made available in Passbolt Cloud.&lt;/p&gt;
+
+    &lt;h2 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h2&gt;
+
+    &lt;p&gt;In short Passbolt SSO leverages Azure OAuth2/OpenID on top of the existing &lt;a href=&quot;/api/authentication&quot;&gt;challenge-based authentication&lt;/a&gt;.
+The user by logging in Microsoft unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted
+with a non-extractable symetric key stored in the browser extension local storage client side.&lt;/p&gt;
+
+    &lt;p&gt;To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
+&lt;a href=&quot;https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j&quot;&gt;developer documentation&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;how-to-enable-sso-azure-plugin&quot;&gt;How to enable SSO Azure plugin?&lt;/h2&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Attention&lt;/strong&gt;: This feature requires HTTPS to work.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;If you use Docker you can enable the SSO plugin setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PASSBOLT_PLUGINS_SSO_ENABLED&lt;/code&gt; environment variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;. Otherwise you will need
+to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt.php&lt;/code&gt; file and add the following:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Locate this section
+&apos;passbolt&apos; =&amp;gt; [
+    // and add...
+    &apos;sso&apos; =&amp;gt; [
+        &apos;enabled&apos; =&amp;gt; true
+    ],
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;how-to-configure-the-plugin&quot;&gt;How to configure the plugin?&lt;/h2&gt;
+
+    &lt;p&gt;Open both the Azure portal and Passbolt:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.&lt;/li&gt;
+      &lt;li&gt;You will need to also login to the &lt;a href=&quot;https://portal.azure.com&quot;&gt;Azure Portal&lt;/a&gt;.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-admin.png&quot; alt=&quot;Passbolt administration&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt administration&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You must ensure users are present both in passbolt and Azure AD, the email is used to correlate accounts.&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Users that are not present in Azure AD but are present in passbolt will not be able to use SSO (a message on microsoft side will be shown).&lt;/li&gt;
+      &lt;li&gt;Users that are not present in passbolt but are present in Azure AD will not be able to login in passbolt (a message on passbolt side will be shown).&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-0-azure-home.png&quot; alt=&quot;Azure Portal&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Azure Portal&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;configure-azure-ad&quot;&gt;Configure Azure AD&lt;/h3&gt;
+    &lt;p&gt;In your Azure AD portal:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Go to Azure Directory service (or set one up)
+        &lt;ul&gt;
+          &lt;li&gt;Make sure your user email in Azure Directory matches the one in [assbolt&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Copy your Tenant ID (a UUID) and paste it in passbolt&lt;/li&gt;
+      &lt;li&gt;Go to App Registrations &amp;gt; New registration OR “+ Add” &amp;gt; “App Registration”&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-1-azure-directory.png&quot; alt=&quot;Azure AD&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Azure AD&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Register a new application&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Give it a Name such as “Passbolt SSO”&lt;/li&gt;
+      &lt;li&gt;Select the supported account type you desire. “Accounts in this organizational directory only” is a good default.&lt;/li&gt;
+      &lt;li&gt;Copy the redirect url from Passbolt to Azure, it should be something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://yourdomain.com/sso/azure/redirect&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;In “Select a platform”, select “Web”&lt;/li&gt;
+      &lt;li&gt;Click register, you should be back on the Azure application page&lt;/li&gt;
+      &lt;li&gt;Copy the application (client) ID back to your passbolt instance&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-2-create-app.png&quot; alt=&quot;App registration&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. App registration&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Add a secret for the application&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;On the Azure application page, click on “Certificate and secrets”&lt;/li&gt;
+      &lt;li&gt;Click on “New client secret”&lt;/li&gt;
+      &lt;li&gt;Choose a name like “Passbolt SSO Secret”&lt;/li&gt;
+      &lt;li&gt;Select an expiry date&lt;/li&gt;
+      &lt;li&gt;Copy the secret value and expiry back to your passbolt instance&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-4-create-secret.png&quot; alt=&quot;App secret creation&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. App secret creation&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;In your passbolt instance:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Click save settings&lt;/li&gt;
+      &lt;li&gt;A dialog will open with Microsoft button, click on it&lt;/li&gt;
+      &lt;li&gt;A popup will open asking you to perform the authentication with Microsoft&lt;/li&gt;
+      &lt;li&gt;Once the authentication is successful you can save the settings&lt;/li&gt;
+      &lt;li&gt;Once the settings have been saved, you can log out, you should then see an SSO option&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-test.png&quot; alt=&quot;Passbolt SSO test settings&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt SSO test settings&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Please note that users must successfully perform a login using their current passphrase &lt;em&gt;after SSO has been activated&lt;/em&gt;
+in order for the SSO option to be proposed to them at future logins.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+January
+18th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="sso" /><summary type="html"></summary></entry><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;figure&gt;
@@ -1413,272 +1586,4 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Migrate an existing Passbolt CE to a new openSUSE server</title><link href="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-opensuse-server.html" rel="alternate" type="text/html" title="Migrate an existing Passbolt CE to a new openSUSE server" /><published>2022-02-11T01:00:00+01:00</published><updated>2022-02-11T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-opensuse-server</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/migrate-existing-ce-to-opensuse-server.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;This document describes how to migrate an existing passbolt to a new openSUSE server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;pre-requisites&quot;&gt;Pre-requisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Passbolt installed on an old server&lt;/li&gt;
-      &lt;li&gt;A minimal openSUSE 15 new server&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;backup-the-existing-data&quot;&gt;Backup the existing data&lt;/h2&gt;
-
-    &lt;p&gt;Prior to the migration you will need to backup the existing passbolt instance data. Please refer to &lt;a href=&quot;/hosting/backup&quot;&gt;the official backup documentations&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;p&gt;Depending on your SSL configuration you might need to copy the certificate and key from the existing instance. If you are using let’s encrypt you can continue you’ll configure it later directly in the new server.&lt;/p&gt;
-
-    &lt;p&gt;Don’t delete the existing instance yet!&lt;/p&gt;
-
-    &lt;h2 id=&quot;prepare-the-new-opensuse-server&quot;&gt;Prepare the new openSUSE server&lt;/h2&gt;
-
-    &lt;h2 id=&quot;package-repository-setup&quot;&gt;Package repository setup&lt;/h2&gt;
-
-    &lt;p&gt;For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt CE and install it.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Download our dependencies installation script:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &quot;https://download.passbolt.com/ce/installer/passbolt-repo-setup.ce.sh&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Download our SHA512SUM for the installation script:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-ce-SHA512SUM.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sha512sum -c passbolt-ce-SHA512SUM.txt &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh  || echo \&quot;Bad checksum. Aborting\&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo zypper install passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;During the installation, you will be asked to accept passbolt GPG repository key. You must ensure the fingerprint is exactly the same as the one below:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Repository:       Passbolt Server
-  Key Fingerprint:  3D1A 0346 C8E1 802F 774A EF21 DE8B 853F C155 581D
-  Key Name:         Passbolt SA package signing key &amp;lt;contact@passbolt.com&amp;gt;
-  Key Algorithm:    RSA 2048
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If the fingerprint matches, trust always by answering &lt;strong&gt;a&lt;/strong&gt; to this question:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Do you want to reject the key, trust temporarily, or trust always? [r/t/a/?] (r):
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Then, you will be asked for PHP repository GPG key, ensure the fingerprint is correct and trust it always:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Repository:       php
-  Key Fingerprint:  55CF 98B4 BB5B C6CC 2E24 748F 82EE 4011 CBCA 8BB5
-  Key Name:         devel:languages:php OBS Project &amp;lt;devel:languages:php@build.opensuse.org&amp;gt;
-  Key Algorithm:    DSA 1024
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Finally, verify and trust openSUSE PHP extensions repository GPG key:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  Repository:       php-extensions-x86_64
-  Key Fingerprint:  A85C D7EF 5242 1152 9A7F 994A 9B41 A048 1AF1 B065
-  Key Name:         server:php:extensions OBS Project &amp;lt;server:php:extensions@build.opensuse.org&amp;gt;
-  Key Algorithm:    RSA 2048
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;mariadb--nginx--ssl-settings&quot;&gt;MariaDB / Nginx / SSL settings&lt;/h4&gt;
-
-    &lt;p&gt;Passbolt CE RPM package on openSUSE 15 come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.&lt;/p&gt;
-
-    &lt;p&gt;You must prepare beforehand your SSL certificates before launching the tool. Be sure to write down the full path to your cert/key combo, as it will be needed in the nginx configuration process.&lt;/p&gt;
-
-    &lt;p&gt;Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.&lt;/p&gt;
-
-    &lt;p&gt;Launch &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-configure&lt;/code&gt; tool and answer to the questions:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo /usr/local/bin/passbolt-configure
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;mariadb&quot;&gt;MariaDB&lt;/h4&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;================================================================
-Do you want to configure a local mariadb server on this machine?
-================================================================
-1) yes
-2) no
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Answer &lt;strong&gt;1&lt;/strong&gt; for yes if you want to configure a local MariaDB database, otherwise &lt;strong&gt;2&lt;/strong&gt; for no if you plan to use an existing one.&lt;/p&gt;
-
-    &lt;p&gt;If you chose yes, answer the questions:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=======================================================
-Please enter a new password for the root database user:
-=======================================================
-MariaDB Root Password: ****
-MariaDB Root Password (verify): ****
-======================================================
-Please enter a name for the passbolt database username
-======================================================
-Passbolt database user name:passboltuser
-=======================================================
-Please enter a new password for the mysql passbolt user
-=======================================================
-MariaDB passbolt user password: ****
-MariaDB passbolt user password (verify): ****
-==============================================
-Please enter a name for the passbolt database:
-==============================================
-Passbolt database name:passboltdb
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;haveged&quot;&gt;Haveged&lt;/h4&gt;
-
-    &lt;p&gt;On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt will not run properly.&lt;/p&gt;
-
-    &lt;p&gt;You should consider to install Haveged to speed up the entropy generation. Please check &lt;a href=&quot;https://help.passbolt.com/faq/hosting/why-haveged-virtual-env&quot;&gt;our FAQ page about this&lt;/a&gt; for more informations.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;==================
-Install Haveged ?
-==================
-1) yes
-2) no
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;nginx&quot;&gt;Nginx&lt;/h4&gt;
-
-    &lt;p&gt;Please enter the domain name under which passbolt will run.&lt;/p&gt;
-
-    &lt;p&gt;Note this hostname will be used as server_name for nginx and as the domain name to register a SSL certificate with let’s encrypt if you don’t have your own SSL certificates.&lt;/p&gt;
-
-    &lt;p&gt;If you don’t have a domain name and you do not plan to use let’s encrypt please enter the ip address to access this machine.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;=========
-Hostname: passbolt.domain.tld
-=========
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;ssl-configuration&quot;&gt;SSL configuration&lt;/h4&gt;
-
-    &lt;p&gt;3 available choices for SSL configuration:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;manual: Prompts for the path of user uploaded ssl certificates and set up nginx&lt;/li&gt;
-      &lt;li&gt;auto:   Will issue a free SSL certificate with https://www.letsencrypt.org and set up nginx&lt;/li&gt;
-      &lt;li&gt;none:   Do not setup HTTPS at all&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;==================
-Setting up SSL...
-==================
-1) manual
-2) auto
-3) none
-#?
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;If you choose &lt;strong&gt;1&lt;/strong&gt;, you will be prompted for the full path of your certificates:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Enter the path to the SSL certificate: /path/to/certs/cert.pem
-Enter the path to the SSL privkey: /path/to/certs/key.pem
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the Passbolt web interface to finish the configuration.&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;===============================================================
-Installation is almost complete. Please point your browser to
-  https://passbolt.domain.tld to complete the process
-===============================================================
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;migrate-data&quot;&gt;Migrate data&lt;/h2&gt;
-
-    &lt;p&gt;Load the backup files into the new openSUSE server, for the following tasks we will consider that the backup files are in your user home directory &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/backup&lt;/code&gt;&lt;/p&gt;
-
-    &lt;p&gt;You should have:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;the private and public GPG key&lt;/li&gt;
-      &lt;li&gt;Your database dump&lt;/li&gt;
-      &lt;li&gt;The avatar archive file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt-avatars.tar.gz&lt;/code&gt; if you are coming from Passbolt prior to 3.2&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Restore Passbolt configuration file and ensure rights and ownership are correct:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/passbolt.php /etc/passbolt
-sudo chown wwwrun:wwwrun /etc/passbolt/passbolt.php
-sudo chmod 440 /etc/passbolt/passbolt.php
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Restore GPG public and private keys and ensure rights and ownership are correct:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
-sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown wwwrun:wwwrun /etc/passbolt/gpg/serverkey_private.asc
-sudo chown wwwrun:wwwrun /etc/passbolt/gpg/serverkey.asc
-sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
-sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
-sudo chown -R wwwrun:wwwrun /usr/share/php/passbolt/webroot/img/public
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Load the database&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &amp;lt; passbolt-backup.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Migrate passbolt to the latest version&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u wwwrun /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt migrate&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Test passbolt&lt;/p&gt;
-
-    &lt;p&gt;Try to access your passbolt application with your browser.&lt;/p&gt;
-
-    &lt;p&gt;If you are encountering any issues, you can run the following command to assess the status of your instance:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H -u wwwrun /bin/bash -c &quot;/usr/share/php/passbolt/bin/cake passbolt healthcheck&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-11th,
-2022.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry></feed>

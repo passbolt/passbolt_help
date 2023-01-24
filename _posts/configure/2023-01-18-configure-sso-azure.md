@@ -67,8 +67,10 @@ to edit your `passbolt.php` file and add the following:
 // Locate this section
 'passbolt' => [
     // and add...
-    'sso' => [
-        'enabled' => true
+    'plugins' => [
+        'sso' => [
+            'enabled' => true
+        ],
     ],
 ```
 

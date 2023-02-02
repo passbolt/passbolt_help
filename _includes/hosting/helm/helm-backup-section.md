@@ -9,10 +9,10 @@ You might want to check the detailed [backup list for v1](/hosting/backup/backup
 
 There are multiple ways to backup your database following there is an example using the passbolt container:
 ```bash
-$ docker exec passbolt mysqldump -h <db_host> \
+kubectl exec -it <passbolt-pod-name> -- /bin/bash -c "mysqldump -h <db_host> \
                                  -u passbolt \
                                  -pP4ssb0lt \
-                                 passbolt > dump.sql
+                                 passbolt > dump.sql"
 ```
 
 This will output a dump.sql file on the host machine.
@@ -23,7 +23,7 @@ If you are mounting the images directory using a bind mount just copy the host i
 If you are using docker volumes to persist your images directory, or not persisting the images directory at all, you can execute the following to copy your images to the host machine.
 
 ```bash
-$ docker cp passbolt:/var/www/app/webroot/img/public public_images_backup
+$ kubectl cp <passbolt-pod-name>:/var/www/app/webroot/img/public public_images_backup
 ```
 This will output a public_images_directory with the images stored in the passbolt container.
 
@@ -32,7 +32,7 @@ This will output a public_images_directory with the images stored in the passbol
 As with the previous section you can proceed exactly the same with the gpg keys:
 
 ```bash
-$ docker cp passbolt:/var/www/app/Config/gpg/ gpg_keys_backup
+$ kubectl cp <passbolt-pod-name>:/var/www/app/Config/gpg/ gpg_keys_backup
 ```
 
 This will output a gpg_keys_backup directory with the contents of the gpg configuration folder of passbolt.

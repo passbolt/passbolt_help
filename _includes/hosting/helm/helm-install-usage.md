@@ -8,31 +8,26 @@ The easiest and recommended way to deploy your Passbolt Helm chart is to use `he
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Set up our Helm repo
 
 ```bash
-helm repo add passbolt-repo https://download.passbolt.com/charts
-helm dependency update passbolt 
+helm repo add passbolt-repo https://download.passbolt.com/charts/passbolt
 ```
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Download the default values.yaml file
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Pull the chart 
 
 ```bash
-wget <some link to values.yaml file here>
-wget <some link to shasum file here>-SHA512SUM.txt
+helm pull passbolt-repo/passbolt
 ```
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Ensure the file has not been corrupted by verifying its shasum
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Update dependencies for our chart
 
-```
-$ sha512sum -c  ??????-SHA512SUM.txt
-```
-Must return:
-
-```
-values.yaml: OK
-```
-
-{% include messages/warning.html
-    content="<b>Warning:</b> If the <i>shasum</i> command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on <a href='https://community.passbolt.com'>our community forum</a>."
+{% include messages/notice.html
+    content="<b>Notice:</b> Be sure to update the version number to match what you have from the pull command"
 %}
+
+```bash
+tar xzf passbolt-0.1.0.tgz
+helm dependency update passbolt
+```
+
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure values file to customize your instance.
 
@@ -65,7 +60,7 @@ Additionally the following charts are used by Passbolt and you can adjust the va
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Run helm install
 
 ```
-helm install -f values.yaml my-passbolt passbolt-repo
+helm install -f passbolt/values.yaml my-passbolt passbolt-repo/passbolt
 ```
 
 

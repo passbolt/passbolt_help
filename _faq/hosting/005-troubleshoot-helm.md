@@ -10,7 +10,7 @@ date: 2022-11-23 00:00:00 Z
 Connect yourself inside passbolt docker container (replace passbolt-container-name with your own):
 
 ```
-$ docker exec -ti passbolt-container-name bash
+$ kubectl exec -ti passbolt-container-name bash
 ```
 
 All troubleshooting commands must be launched as `www-data` user. It is the case if you are running non-root docker images but for root images, switch as `www-data` user:
@@ -59,6 +59,6 @@ export PASSBOLT_GPG_SERVER_KEY_FINGERPRINT="$(gpg \
 To connect into mysql container console (replace db-container-name with your own):
 
 ```
-docker exec -ti db-container-name bash -c \
+kubectl exec -ti db-container-name bash -c \
   'mysql -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'
 ```

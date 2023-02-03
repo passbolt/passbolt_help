@@ -309,7 +309,7 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.salt'</span><span class="p">,</span> <span class="s1">'put your own salt here'</span><span class="p">);</span>
 <span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.cipherSeed'</span><span class="p">,</span> <span class="s1">'put your own cipher seed here'</span><span class="p">);</span>
 </code></pre></div>    </div>
-    <p>Also for images that are sent in emails to work, we need to tell cakephp what is the base url. To fix this, uncomment and edit this line in <code class="language-plaintext highlighter-rouge">app/Config/core.php</code>:</p>
+    <p>Also for images that are sent in emails to work, we need to tell CakePHP what is the base url. To fix this, uncomment and edit this line in <code class="language-plaintext highlighter-rouge">app/Config/core.php</code>:</p>
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'App.fullBaseUrl'</span><span class="p">,</span> <span class="s1">'http://{your domain without slash}'</span><span class="p">);</span>
 </code></pre></div>    </div>
     <p>The rest of the default version of core.php is good enough to be used as it is.</p>

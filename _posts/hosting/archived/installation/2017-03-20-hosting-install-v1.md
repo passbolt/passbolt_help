@@ -122,7 +122,7 @@ However, you need to modify the cypherseed and salt. Passbolt do not actually us
 Configure::write('Security.salt', 'put your own salt here');
 Configure::write('Security.cipherSeed', 'put your own cipher seed here');
 ```
-Also for images that are sent in emails to work, we need to tell cakephp what is the base url. To fix this, uncomment and edit this line in `app/Config/core.php`:
+Also for images that are sent in emails to work, we need to tell CakePHP what is the base url. To fix this, uncomment and edit this line in `app/Config/core.php`:
 ```php
 Configure::write('App.fullBaseUrl', 'http://{your domain without slash}');
 ```

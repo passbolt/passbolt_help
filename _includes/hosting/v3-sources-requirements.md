@@ -16,7 +16,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
 
 The following PHP extensions (that may or may not come by default):
 - [PHP-GNUPG](http://php.net/manual/en/gnupg.installation.php): for key verification and authentication.
-- Cakephp default requirements: Intl, mbstring, simplexml
+- CakePHP default requirements: Intl, mbstring, simplexml
 - [FastCGI Process Manager (FPM)](https://www.php.net/manual/en/install.fpm.php)
 - Image manipulation: gd or imagick
 - Database: Mysqlnd, pdo, pdo_mysql

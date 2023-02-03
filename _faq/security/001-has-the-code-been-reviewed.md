@@ -47,7 +47,7 @@ original AMO extension approval process, leading to several improvements in vers
 - Openpgp.js code base has undergone two complete security audits from Cure53. Reports can be found 
 [here](https://github.com/openpgpjs/openpgpjs/wiki/Cure53-security-audit)
 
-- Cakephp was reviewed by NCC Group, you can browse the full report 
+- CakePHP was reviewed by NCC Group, you can browse the full report 
 [here](https://wiki.mozilla.org/images/4/40/Cakephp-report.pdf)
 
 ## Report a security issue

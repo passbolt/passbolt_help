@@ -305,7 +305,7 @@ gpg <span class="nt">--armor</span> <span class="nt">--export</span> your_email@
     <p>Copy the default core configuration file:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>app/Config/core.php.default app/Config/core.php
 </code></pre></div>    </div>
-    <p>However, you need to modify the cypherseed and salt. Passbolt do not actually use these, but it is part of the standard Cakephp installation to change these values.</p>
+    <p>However, you need to modify the cypherseed and salt. Passbolt do not actually use these, but it is part of the standard CakePHP installation to change these values.</p>
     <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.salt'</span><span class="p">,</span> <span class="s1">'put your own salt here'</span><span class="p">);</span>
 <span class="nc">Configure</span><span class="o">::</span><span class="nf">write</span><span class="p">(</span><span class="s1">'Security.cipherSeed'</span><span class="p">,</span> <span class="s1">'put your own cipher seed here'</span><span class="p">);</span>
 </code></pre></div>    </div>

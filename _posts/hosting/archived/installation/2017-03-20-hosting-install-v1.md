@@ -117,7 +117,7 @@ Copy the default core configuration file:
 ```bash
 cp app/Config/core.php.default app/Config/core.php
 ```
-However, you need to modify the cypherseed and salt. Passbolt do not actually use these, but it is part of the standard Cakephp installation to change these values.
+However, you need to modify the cypherseed and salt. Passbolt do not actually use these, but it is part of the standard CakePHP installation to change these values.
 ```php
 Configure::write('Security.salt', 'put your own salt here');
 Configure::write('Security.cipherSeed', 'put your own cipher seed here');

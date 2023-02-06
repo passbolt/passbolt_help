@@ -32,8 +32,7 @@ helm dependency update passbolt
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure values file to customize your instance.
 
 {% include messages/notice.html
-    content="<b>Notice:</b> By default app.image.tag in the values.yaml file is set to **latest**. We strongly recommend 
-    changing that to the [tag](https://hub.docker.com/r/passbolt/passbolt/tags){:target='_blank'} for the version you want to install."
+    content="<b>Notice:</b> Alternatively you can skip the above two steps and get the values file with `wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml`"
 %}
 
 You can find a complete list of the values included with Passbolt in the table below on this page.
@@ -64,4 +63,4 @@ helm install -f passbolt/values.yaml my-passbolt passbolt-repo/passbolt
 ```
 
 
-At this point, you should have a working Passbolt setup via Helm running on the **latest** tag. However, it is recommended that users [pull the tags pointing to specific passbolt versions](https://hub.docker.com/r/passbolt/passbolt/tags){:target="_blank"} when running in environments other than testing.
+At this point, you should have a working Passbolt setup via Helm running on the most up to date CE version of Passbolt.

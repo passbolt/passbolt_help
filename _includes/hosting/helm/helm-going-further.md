@@ -9,4 +9,4 @@ Helm FAQs:
 
 Passbolt docker repository:
 
-* [https://github.com/passbolt/passbolt_docker/](https://github.com/passbolt/passbolt_docker/){:target="_blank"}
+* [https://github.com/passbolt/charts-passbolt](https://github.com/passbolt/charts-passbolt){:target="_blank"}

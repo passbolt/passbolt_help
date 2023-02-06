@@ -3,7 +3,7 @@ title: Helm passbolt installation
 card_title: Helm
 card_teaser: Step by step guide to install passbolt CE using Helm.
 card_position: 3
-date: 2022-11-22 00:00:00 Z
+date: 2023-02-06 00:00:00 Z
 description: Install passbolt CE using Helm
 icon: fa-helm
 categories: [hosting,install,ce]
@@ -17,6 +17,9 @@ permalink: /:categories/:slug.html
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
+
+{% include hosting/helm/helm-warning.md %}
+
 
 {% include hosting/helm/helm-system-requirements.md %}
 {% include hosting/helm/helm-install-usage.md %}

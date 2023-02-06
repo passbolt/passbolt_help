@@ -24,7 +24,6 @@ permalink: /:categories/:slug.html
 {% include hosting/helm/helm-system-requirements.md %}
 {% include hosting/helm/helm-install-usage.md %}
 {% include hosting/helm/helm-first-user-creation.md %}
-{% include hosting/helm/helm-values.md %}
 {% include hosting/helm/helm-going-further.md %}
 
 

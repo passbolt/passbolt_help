@@ -11,31 +11,15 @@ The easiest and recommended way to deploy your Passbolt Helm chart is to use `he
 helm repo add passbolt-repo https://download.passbolt.com/charts/passbolt
 ```
 
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Pull the chart 
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Get a copy of the values file
 
 ```bash
-helm pull passbolt-repo/passbolt
-```
-
-**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Update dependencies for our chart
-
-{% include messages/notice.html
-    content="<b>Notice:</b> Be sure to update the version number to match what you have from the pull command"
-%}
-
-```bash
-tar xzf passbolt-0.1.0.tgz
-helm dependency update passbolt
+wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
 ```
 
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Configure values file to customize your instance.
 
-{% include messages/notice.html
-    content="<b>Notice:</b> Alternatively you can skip the above two steps and get the values file with `wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml`"
-%}
-
-You can find a complete list of the values included with Passbolt in the table below on this page.
 
 The `APP_FULL_BASE_URL` environment variable is set by default to [https://passbolt.local](https://passbolt.local), using a self-signed certificate.
 
@@ -52,6 +36,10 @@ You must configure also SMTP settings to be able to receive notifications and re
 
 For more information on which environment variables are available on passbolt, please check the [passbolt environment variable reference](/configure/environment/reference.html){:target="_blank"}.
 
+{% include messages/notice.html
+    content="<b>Important:</b> By default we have the ingress set to false, you'll need to decide how you want to handle this to access the web page."
+%}
+
 Additionally the following charts are used by Passbolt and you can adjust the values under their respective headings in values.yaml
 
 {% include hosting/helm/helm-required-charts.md %}
@@ -59,7 +47,7 @@ Additionally the following charts are used by Passbolt and you can adjust the va
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Run helm install
 
 ```
-helm install -f passbolt/values.yaml my-passbolt passbolt-repo/passbolt
+helm install -f values.yaml my-passbolt passbolt-repo/passbolt
 ```
 
 

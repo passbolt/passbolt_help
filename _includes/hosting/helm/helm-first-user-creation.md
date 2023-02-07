@@ -3,7 +3,7 @@
 Once the Helm chart is deployed, you can create your first user by running the following command:
 
 ```bash
-kubectl exec -it <passbolt-pod-name> -- /bin/bash -c "bin/cake passbolt register_user -u <email> -f <firstname> -l <lastname> -r admin" -s /bin/bash www-data
+kubectl exec -it  <passbolt-pod-name> -- /bin/bash -c "su -s /bin/bash -c \"bin/cake passbolt register_user -u <email> -f <firstname> -l <lastname> -r admin\" www-data"
 ```
 
 It will output a link similar to the below one that can be pasted on the browser to finalize user registration:

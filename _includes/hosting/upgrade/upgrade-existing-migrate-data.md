@@ -19,6 +19,9 @@ You should have:
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Create the subscription key file
 
 You received your subscription key by email, copy it as `/etc/passbolt/subscription_key.txt` on your server.
+````
+nano /etc/passbolt/subscription_key.txt
+````
 
 {% endif %}
 
@@ -27,6 +30,7 @@ You received your subscription key by email, copy it as `/etc/passbolt/subscript
 ```
 sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/passbolt.php
+sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/subscription_key.txt
 sudo chmod 440 /etc/passbolt/passbolt.php
 ```
 

@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.10.0 | Glue</title>
+    <link>https://help.passbolt.com/releases/ce/glue</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/glue</guid>
+    <description>The passbolt team is excited to share the latest improvements in release 3.10. With the help of our contributors and the community’s input, passbolt is proud to present the release of self-registration. Users can now self-register if their email domain matches the administrator-defined policy. This will make the registration process...</description>
+    <pubDate>Tue, 14 Feb 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.9.0 | Bunny</title>
     <link>https://help.passbolt.com/releases/ce/v390-bunny</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/v390-bunny</guid>

@@ -97,7 +97,7 @@ legend="Azure Portal"
 ### Configure Azure AD
 In your Azure AD portal:
 - Go to Azure Directory service (or set one up)
-  - Make sure your user email in Azure Directory matches the one in [assbolt
+  - Make sure your user email in Azure Directory matches the one in passbolt
 - Copy your Tenant ID (a UUID) and paste it in passbolt
 - Go to App Registrations > New registration OR "+ Add" > "App Registration"
 

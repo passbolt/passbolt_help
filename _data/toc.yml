@@ -149,6 +149,11 @@
       icon: fa-envelope-o
       teaser: How to setup email providers
       slug: email-setup
+    - title: Configure Email authentication
+      url: /configure/email/smtp-authentication
+      icon: fa-envelope-o
+      teaser: How to configure your authentication method
+      slug: email-setup
     - title: Troobleshoot Email config
       url: /faq/hosting/why-email-not-sent
       icon: fa-envelope

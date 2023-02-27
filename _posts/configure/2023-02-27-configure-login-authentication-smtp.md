@@ -99,15 +99,50 @@ If everything went as expected, do not forget to save your configuration and **"
 ## AWS SES
 
 ## ElasticEmail
+- ElasticEmail Administration panel
+- Settings
+- SMTP > Create SMTP credentials
+- Username (owners email)
+- Copy paste the generated password (40 digits)
+- Test
+- Save
 
 ## MailGun
 
+- MailGun administration panel
+- Sending > Overview
+- How to send with SMTP section with SMTP hostname, port, username, default password
+- MailGun provide a dedidacted page to manage SMTP credentials, for this example we will use the default generated
+- Default password generated should be 50 digits
+- Test
+- Save
+
 ## Mailjet
+- Mailjet admin panel
+- Senders & Domains > SMTP & Send API settings
+- MailGun provide a dedicated page to create API keys, feel free to create a new one, for this example we will use the default one
+- Username should be the API Key 
+- Password should be the Secret Key
+- Test
+- Save
 
 ## Mandrill
-
+Need to retry the setup.
+(Oops! Something went wrong Please try again later or reach out to our support team for help.)
 ## Sendgrid
-
+- Sendgrid admin panel
+- Email API > Integration Guide
+- Navigate to SMTP Relay
+- Give an API Key name (Passbolt for example)
+- Generate the API Key (70 digits)
+- Use the settings shown after the api generated key
+- Test
+- Save
 ## Sendinblue
+- Sendinblue admin panel
+- SMTP & API
+- Show the SMTP key value and use the provided smtp settings 
+- Test
+- Save
 
 ## Zoho

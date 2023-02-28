@@ -98,51 +98,228 @@ If everything went as expected, do not forget to save your configuration and **"
 
 ## AWS SES
 
+- Navigate through your navigation panel
+
+You'll see the navigation panel on the left-hand side of the screen.
+
+When you are on the navigation panel, you will need to navigate to *Email Sending > SMTP Settings*. 
+
+- Create your SMTP Credentials
+  
+Once you are on the SMTP Settings page, you can click on the "Create My SMTP Credentials" button to begin the process. When prompted, you can either accept the default name for your credentials or choose a custom name that is easy for you to remember, such as "Passbolt".
+
+Once you have selected a name for your credentials, AWS SES will generate a set of SMTP credentials that you can use to authenticate your email sending requests. These credentials will consist of an SMTP username and password.
+
+To download your newly created SMTP credentials, simply click on the "Download Credentials" button. This will download a file containing your SMTP username and password. It's important to keep this file safe and secure, as it contains sensitive information that can be used to send emails from your account.
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
+
 ## ElasticEmail
-- ElasticEmail Administration panel
-- Settings
-- SMTP > Create SMTP credentials
-- Username (owners email)
-- Copy paste the generated password (40 digits)
-- Test
-- Save
+
+- Administration panel
+
+When you are using ElasticEmail, once logged in, you will be automatically redirected to the administration panel dashboard. 
+
+You will need to navigate to *Settings > SMTP > Create SMTP credentials*.
+
+- Create your SMTP Credentials
+
+When you create new SMTP credentials, ElasticEmail will generate a unique password consisting of 40 random characters. The username for your SMTP credentials is your email address associated with your ElasticEmail account.
+
+To copy your newly generated password, simply click on the "Copy" button next to the password field. 
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
 
 ## MailGun
 
-- MailGun administration panel
-- Sending > Overview
-- How to send with SMTP section with SMTP hostname, port, username, default password
-- MailGun provide a dedidacted page to manage SMTP credentials, for this example we will use the default generated
-- Default password generated should be 50 digits
-- Test
-- Save
+- Administration panel
+
+When you are using MailGun, once logged in, you will be automatically redirected to the administration panel dashboard. 
+
+You will need to navigate to *Sending > Overview*.
+
+- Create your SMTP Credentials 
+
+On this page you will find the SMTP hostname, port, username, and default password that you will need to set up SMTP authentication for your email sending requests.
+
+MailGun provides a dedicated page for managing your SMTP credentials. To access this page, you can click on the "SMTP Credentials" link located in the "SMTP" section. Here you can create new SMTP credentials by clicking on the "Add New SMTP Credential" button.
+
+When you create new SMTP credentials on MailGun, the platform will generate a unique password consisting of 50 random characters. You can use this password to authenticate your email sending requests through the MailGun SMTP servers. The SMTP username is the same as the SMTP login for your account.
+
+It's important to keep your MailGun SMTP credentials secure, as they can be used to send emails from your account. You should never share your password or username with anyone, and you should take steps to protect your account from unauthorized access.
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
 
 ## Mailjet
-- Mailjet admin panel
-- Senders & Domains > SMTP & Send API settings
-- MailGun provide a dedicated page to create API keys, feel free to create a new one, for this example we will use the default one
-- Username should be the API Key 
-- Password should be the Secret Key
-- Test
-- Save
+
+- Administration panel
+
+When you are using Mailjet, once logged in, you will be automatically redirected to the administration panel dashboard. 
+
+You will need to navigate to *Senders & Domains > SMTP & Send API settings*.
+
+- Create your SMTP Credentials 
+
+Mailjet provides a dedicated page for managing your API keys. You can create a new API key by selecting the "SMTP & API Keys" option from the dashboard, clicking on the "Create a new API Key" button, and then following the prompts.
+
+When you create a new API key on Mailjet, the platform will generate a unique key consisting of a public API key and a secret key. The public API key can be used as the SMTP username for your email sending requests, while the secret key can be used as the SMTP password.
+
+It's important to keep your Mailjet API keys secure, as they can be used to access your Mailjet account and send emails from your account. You should never share your secret key or public API key with anyone, and you should take steps to protect your account from unauthorized access.
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
 
 ## Mandrill
 Need to retry the setup.
 (Oops! Something went wrong Please try again later or reach out to our support team for help.)
 ## Sendgrid
-- Sendgrid admin panel
-- Email API > Integration Guide
-- Navigate to SMTP Relay
-- Give an API Key name (Passbolt for example)
-- Generate the API Key (70 digits)
-- Use the settings shown after the api generated key
-- Test
-- Save
+
+- Administration panel
+
+When you are using Sendgrid, once logged in, you will be automatically redirected to the administration panel dashboard. 
+
+You will need to navigate to *Email API > Integration Guide > SMTP Relay*.
+
+- Create your SMTP Credentials 
+
+When creating a new API key, you can give it a name that's easy for you to remember, such as "Passbolt". SendGrid will then generate a unique API key consisting of 70 random characters. This key can be used to authenticate your email sending requests through the SendGrid SMTP servers.
+
+After generating the API key, you can use the settings shown to configure your email client or application. The SMTP hostname is "smtp.sendgrid.net", the port number is 587, and the SMTP username is "apikey". The SMTP password is the API key that you generated in the previous step.
+
+It's important to keep your SendGrid API key secure, as it can be used to access your SendGrid account and send emails from your account. You should never share your API key with anyone, and you should take steps to protect your account from unauthorized access. 
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
 ## Sendinblue
-- Sendinblue admin panel
-- SMTP & API
-- Show the SMTP key value and use the provided smtp settings 
-- Test
-- Save
+
+- Administration panel
+
+When you are using Sendinblue, once logged in, you will be automatically redirected to the administration panel dashboard. 
+
+You will need to navigate to *SMTP & AI*.
+
+- Create your SMTP Credentials 
+
+You will find your SMTP key value under the "SMTP Credentials" section. This key can be used to authenticate your email sending requests through the Sendinblue SMTP servers.
+
+Sendinblue also provides the SMTP settings that you can use to configure your email client or application. The SMTP username is your Sendinblue account email address. The SMTP password is your SMTP key value.
+
+It's important to keep your Sendinblue SMTP key value secure, as it can be used to access your Sendinblue account and send emails from your account. You should never share your SMTP key value with anyone, and you should take steps to protect your account from unauthorized access.
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
 
 ## Zoho
+
+- Administration panel
+
+You will need to navigate to your ZohoMail administration panel, in order to do that you can click on the gear icon located in the top-right corner of the screen. A drop-down menu will appear with several options, please click on the "Control Panel" to access the Zoho administration panel
+
+You will need to navigate to *Security > App password*.
+
+- Create your SMTP Credentials 
+
+You will be prompt to generate a name for the "App password", we recommand to use "Passbolt".
+
+Then, you will need to click on "Generate" and a random application password will be generated.
+
+Please, be sure to save this password as you will need it to authenticate on the Passbolt GUI.
+
+Your SMTP username should be the Zoho account email address and your SMTP password is the application that has been generated previously.
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.

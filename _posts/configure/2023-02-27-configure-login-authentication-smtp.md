@@ -21,7 +21,7 @@ permalink: /:categories/:slug.html
 - [ElasticEmail](#elasticemail)
 - [MailGun](#mailgun)
 - [Mailjet](#mailjet)
-- [Mandrill](#mandrill)
+- [Mailchimp](#mailchimp)
 - [Sendgrid](#sendgrid)
 - [Sendinblue](#sendinblue)
 - [Zoho](#zoho)
@@ -98,7 +98,7 @@ If everything went as expected, do not forget to save your configuration and **"
 
 ## AWS SES
 
-- Navigate through your navigation panel
+- Navigate through your AWS Management Console
 
 You'll see the navigation panel on the left-hand side of the screen.
 
@@ -106,7 +106,7 @@ When you are on the navigation panel, you will need to navigate to *Email Sendin
 
 - Create your SMTP Credentials
   
-Once you are on the SMTP Settings page, you can click on the "Create My SMTP Credentials" button to begin the process. When prompted, you can either accept the default name for your credentials or choose a custom name that is easy for you to remember, such as "Passbolt".
+Once you are on the SMTP Settings page, you can click on the "Create SMTP Credentials" button to begin the process. When prompted, you can either accept the default name for your credentials or choose a custom name that is easy for you to remember, such as "Passbolt".
 
 Once you have selected a name for your credentials, AWS SES will generate a set of SMTP credentials that you can use to authenticate your email sending requests. These credentials will consist of an SMTP username and password.
 
@@ -242,9 +242,38 @@ Before saving your configuration, you will need to test it in order to avoid any
   
 If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
 
-## Mandrill
-Need to retry the setup.
-(Oops! Something went wrong Please try again later or reach out to our support team for help.)
+## Mailchimp
+
+- Administration panel
+
+When you are using Mailchimp, once logged in, you will be automatically redirected to the administration panel dashboard. 
+
+You will need to navigate to *Transactionnal > SMTP & API > SMTP Credentials* and click on Create A Key.
+
+- Create your SMTP Credentials
+
+Give your new SMTP key a name that is easy to remember, such as the name of your web application. When you create an SMTP key, you will be prompted to give it a name that will help you remember what it's for. This is important because you may have multiple SMTP keys for different applications, and you don't want to get them confused. Make sure to choose a name that is descriptive and easy to remember, such as the name of your web application.
+
+Copy the generated SMTP key as you will need it to authenticate your SMTP requests. After you have created your SMTP key, Mailchimp will generate a unique key string that you will need to copy and use to authenticate your SMTP requests. Make sure to copy the entire key string exactly as it appears, as any errors or omissions could prevent your SMTP requests from being authenticated.
+
+Your SMTP username is the same as the username you use to log in to your Mailchimp account. When you use Mailchimp to send transactional emails via SMTP, you will need to provide your SMTP username. This is simply the same username that you use to log in to your Mailchimp account. Make sure to enter your username exactly as it appears, with the correct capitalization and any special characters.
+
+- Authentication on Passbolt GUI
+  
+On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+You will need to fill your smtp credentials to match your authentication method (username & password).
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+  
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
+
 ## Sendgrid
 
 - Administration panel

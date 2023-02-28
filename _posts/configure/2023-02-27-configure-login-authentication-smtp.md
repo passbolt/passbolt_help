@@ -82,7 +82,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 In our example, we will use Google Email, but if you are using a premium subscription with google, do not forger to use Google Workspace instead. 
 
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-username-password-authentication.png" legend="Passbolt GUI - Email authentication" width="586px" %}
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-username-password-authentication.png" legend="Passbolt - Email authentication" width="586px" %}
 
 Under authentication method, choose *Username & password*, provide your Google username which basically is your email address, for the password you can paste the previously generated application password.
 
@@ -136,15 +136,21 @@ When you are using ElasticEmail, once logged in, you will be automatically redir
 
 You will need to navigate to *Settings > SMTP > Create SMTP credentials*.
 
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-elasticemail-credentials-panel.png" legend="ElasticEmail - SMTP Credentials Panel" width="850px" %}
+
 - Create your SMTP Credentials
 
 When you create new SMTP credentials, ElasticEmail will generate a unique password consisting of 40 random characters. The username for your SMTP credentials is your email address associated with your ElasticEmail account.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-elasticemail-credentials-example.png" legend="ElasticEmail - SMTP Credentials" width="586px" %}
 
 To copy your newly generated password, simply click on the "Copy" button next to the password field. 
 
 - Authentication on Passbolt GUI
   
 On your Passbolt instance, you can navigate to *Administration > Email server*. 
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-elasticemail-authentication.png" legend="Passbolt - Email authentication" width="586px" %}
 
 You will need to fill your smtp credentials to match your authentication method (username & password).
 

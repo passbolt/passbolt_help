@@ -25,7 +25,11 @@ Passbolt import system supports the following file formats:
 *  Csv - keepass export
 *  Csv - 1password export
 *  Csv - Lastpass export
+*  Csv - Firefox platforms export (Mozilla Firefox, Waterfox, Pale Moon...)
 *  Csv - LogMeOnce export
+*  Csv - Safari
+*  Csv - Dashlane export
+*  Csv - Chromium browsers export (Google Chrome, Microsoft Edge, Brave ...)
 
 If you'd like to request the support of a specific format, you can open a request on [the community forum](https://community.passbolt.com/c/backlog).
 
@@ -54,12 +58,44 @@ Account3,,,P4ssw0Rd!,Notes Account3,server
 "My Servers","Account2","","P4ssw0Rd!","https://test.url",""
 ```
 
+**Csv (Firefox platforms browsers)**
+```
+"url","username","password"
+"https://test.url","Account1",,"P4ssw0Rd!"
+"https://test.url","Account2",,"P4ssw0Rd!"
+"https://test.url","Account3",,"P4ssw0Rd!"
+```
+
 **Csv (LogMeOnce)**
 ```
 "name","url","note","group","username","password","extra"
 "Account1","https://test.url","this is the description","My servers","account1","P4ssw0Rd!",""
 "Account2","https://test.url","","My servers","account2","P4ssw0Rd!",""
 "Account3","https://test.url","this is the description","My servers","account3","P4ssw0Rd!",""
+```
+
+**Csv (Safari)**
+```
+Title,URL,Username,Password,Notes
+Account1,https://test.url,account1,P4ssw0Rd!,this is the description
+Account2,https://test.url,account2,P4ssw0Rd!,this is the description
+Account3,https://test.url,account3,P4ssw0Rd!,,
+```
+
+**Csv (Dashlane)**
+```
+username,username2,username3,title,password,note,url,category,otpSecret
+account1,,,Account 1,P4ssw0Rd,"this is the description",https:///test.url,,
+account2@domain.tld,,,Account 2,P4ssw0Rd,"this is the description",https://test.url,,
+account3@domain.tld,,,Account 3,P4ssw0Rd,,https://test.url,,
+```
+
+**Csv (Chromium browsers)**
+```
+name,url,username,password
+Account1,https://test.url,account1,P4ssw0Rd!
+Account2,https://test.url,account2,P4ssw0Rd!
+Account3,https://test.url,account3,P4ssw0Rd!
 ```
 
 **Keepass file**

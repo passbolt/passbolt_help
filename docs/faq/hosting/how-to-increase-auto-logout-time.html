@@ -172,6 +172,12 @@
 kick in. If the default session timeout is too short for you and your user you can extend it in 
 the PHP configuration.</p>
 
+<p>Currently, the code checks every 15 minutes if the browser is idle, using this browser functionality reserved for extensions, which returns “locked” if the system is locked, “idle” if the user has not generated any input for a specified number of seconds, or “active” otherwise.</p>
+
+<p>So if there is no input, the extension will not try to keep the session alive, and will just let it timeout. So if you have a long session default normally you would need to fail several checks to get logged out.</p>
+
+<p><strong>Pro tip:</strong> If the browser window is closed (even if the browser application is not closed) you will get logged out right away.</p>
+
 <p>See the directive 
 <a href="https://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc-maxlifetime</a></p>
 
@@ -191,6 +197,7 @@ operating system and php versions.</p>
 ; http://php.net/session.gc-maxlifetime
 session.gc_maxlifetime = 2700
 </code></pre></div></div>
+
 
                         </div>
 
@@ -301,6 +308,98 @@ session.gc_maxlifetime = 2700
     
     
     
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-import-ssl-certificate-on-mobile">How to import SSL certificate on mobile application</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/how-to-rotate-server-gpg-keys">How to rotate server GPG keys</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/mobile-faq">iOS / Android Mobile FAQ</a>
+    </li>
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/set-up-ntp">How to set up NTP</a>
+    </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <li>
         <a href="/faq/hosting/how-to-install">How to install passbolt server</a>
     </li>
@@ -349,106 +448,6 @@ session.gc_maxlifetime = 2700
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/why-unsafe">Why do I see an unsafe mode banner in the footer?</a>
     </li>
@@ -460,10 +459,6 @@ session.gc_maxlifetime = 2700
     <li>
         <a href="/faq/hosting/why-email-not-sent">Why are my emails not being sent?</a>
     </li>
-    
-    
-    
-    
     
     
     
@@ -488,14 +483,6 @@ session.gc_maxlifetime = 2700
     <li>
         <a href="/faq/configure/why-am-i-getting-ldap-synchronization-issues">Why am I getting ldap synchronization issues?</a>
     </li>
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     
@@ -533,10 +520,6 @@ session.gc_maxlifetime = 2700
     
     
     
-    
-    
-    
-    
     <li>
         <a href="/faq/hosting/how-to-migrate-from-http-to-https">How to migrate from HTTP to HTTPS</a>
     </li>
@@ -554,35 +537,7 @@ session.gc_maxlifetime = 2700
     
     
     <li>
-        <a href="/faq/hosting/how-to-import-ssl-certificate-on-mobile">How to import SSL certificate on mobile application</a>
-    </li>
-    
-    
-    
-    
-    
-    <li>
         <a href="/faq/hosting/troubleshoot-ssl">Troubleshoot SSL</a>
-    </li>
-    
-    
-    
-    
-    
-    <li>
-        <a href="/faq/hosting/how-to-rotate-server-gpg-keys">How to rotate server GPG keys</a>
-    </li>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <li>
-        <a href="/faq/hosting/mobile-faq">iOS / Android Mobile FAQ</a>
     </li>
     
     
@@ -597,52 +552,8 @@ session.gc_maxlifetime = 2700
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     <li>
-        <a href="/faq/hosting/set-up-ntp">How to set up NTP</a>
+        <a href="/faq/hosting/troubleshoot-helm">Troubleshoot Helm</a>
     </li>
     
     
@@ -652,6 +563,110 @@ session.gc_maxlifetime = 2700
     <li>
         <a href="/faq/hosting/docker-secrets">Docker Secrets</a>
     </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     

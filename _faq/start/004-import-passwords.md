@@ -21,15 +21,16 @@ date: 2018-04-23 00:00:00 Z
 
 ### Supported file formats
 Passbolt import system supports the following file formats:
-*  Kdbx (file format used by Keepass 2.x)
-*  Csv - keepass export
-*  Csv - 1password export
 *  Csv - Lastpass export
-*  Csv - Firefox platforms export (Mozilla Firefox, Waterfox, Pale Moon...)
-*  Csv - LogMeOnce export
-*  Csv - Safari
+*  Csv - 1password export
+*  Csv - Keepass export
 *  Csv - Dashlane export
+*  Csv - Nordpass export
+*  Csv - LogMeOnce export
+*  Csv - Firefox platforms export (Mozilla Firefox, Waterfox, Pale Moon...)
 *  Csv - Chromium browsers export (Google Chrome, Microsoft Edge, Brave ...)
+*  Csv - Safari
+*  Kdbx (file format used by Keepass 2.x)
 
 If you'd like to request the support of a specific format, you can open a request on [the community forum](https://community.passbolt.com/c/backlog).
 
@@ -58,13 +59,22 @@ Account3,,,P4ssw0Rd!,Notes Account3,server
 "My Servers","Account2","","P4ssw0Rd!","https://test.url",""
 ```
 
-**Csv (Firefox platforms browsers)**
+**Csv (Dashlane)**
 ```
-"url","username","password"
-"https://test.url","Account1",,"P4ssw0Rd!"
-"https://test.url","Account2",,"P4ssw0Rd!"
-"https://test.url","Account3",,"P4ssw0Rd!"
+username,username2,username3,title,password,note,url,category,otpSecret
+account1,,,Account 1,P4ssw0Rd,"this is the description",https:///test.url,,
+account2@domain.tld,,,Account 2,P4ssw0Rd,"this is the description",https://test.url,,
+account3@domain.tld,,,Account 3,P4ssw0Rd,,https://test.url,,
 ```
+
+**Csv (Nordpass)**
+```
+name,url,username,password,note,folder
+Account1,https://test.url,account1,P4ssw0RD!,this is a description,PasswordFolder
+Account2,https://test.url,account2,P4ssw0RD!,this is a description,PasswordFolder
+Account3,https://test.url,account3,P4ssw0RD!,,,
+```
+
 
 **Csv (LogMeOnce)**
 ```
@@ -74,20 +84,12 @@ Account3,,,P4ssw0Rd!,Notes Account3,server
 "Account3","https://test.url","this is the description","My servers","account3","P4ssw0Rd!",""
 ```
 
-**Csv (Safari)**
+**Csv (Firefox platforms browsers)**
 ```
-Title,URL,Username,Password,Notes
-Account1,https://test.url,account1,P4ssw0Rd!,this is the description
-Account2,https://test.url,account2,P4ssw0Rd!,this is the description
-Account3,https://test.url,account3,P4ssw0Rd!,,
-```
-
-**Csv (Dashlane)**
-```
-username,username2,username3,title,password,note,url,category,otpSecret
-account1,,,Account 1,P4ssw0Rd,"this is the description",https:///test.url,,
-account2@domain.tld,,,Account 2,P4ssw0Rd,"this is the description",https://test.url,,
-account3@domain.tld,,,Account 3,P4ssw0Rd,,https://test.url,,
+"url","username","password"
+"https://test.url","Account1",,"P4ssw0Rd!"
+"https://test.url","Account2",,"P4ssw0Rd!"
+"https://test.url","Account3",,"P4ssw0Rd!"
 ```
 
 **Csv (Chromium browsers)**
@@ -96,6 +98,14 @@ name,url,username,password
 Account1,https://test.url,account1,P4ssw0Rd!
 Account2,https://test.url,account2,P4ssw0Rd!
 Account3,https://test.url,account3,P4ssw0Rd!
+```
+
+**Csv (Safari)**
+```
+Title,URL,Username,Password,Notes
+Account1,https://test.url,account1,P4ssw0Rd!,this is the description
+Account2,https://test.url,account2,P4ssw0Rd!,this is the description
+Account3,https://test.url,account3,P4ssw0Rd!,,
 ```
 
 **Keepass file**

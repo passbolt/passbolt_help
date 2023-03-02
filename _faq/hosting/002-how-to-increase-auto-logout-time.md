@@ -11,7 +11,7 @@ By default passbolt uses the PHP session duration setting to define when the aut
 kick in. If the default session timeout is too short for you and your user you can extend it in 
 the PHP configuration. 
 
-For the moment, the code checks every 15 minutes if the browser is idle, using this browser functionality reserved for extensions, which returns "locked" if the system is locked, "idle" if the user has not generated any input for a specified number of seconds, or "active" otherwise.
+Currently, the code checks every 15 minutes if the browser is idle, using this browser functionality reserved for extensions, which returns "locked" if the system is locked, "idle" if the user has not generated any input for a specified number of seconds, or "active" otherwise.
 
 So if there is no input, the extension will not try to keep the session alive, and will just let it timeout. So if you have a long session default normally you would need to fail several checks to get logged out.
 

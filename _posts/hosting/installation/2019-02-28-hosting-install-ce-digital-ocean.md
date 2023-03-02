@@ -75,16 +75,16 @@ Wait until the DNS propagation is done. To check if it is done, ping your domain
 resolve to this droplet IP. You can also check the propagation using
 [online tools](https://www.whatsmydns.net/).
 
-### 1.2. Setup HTTPS (optional, but highly recommended):
+{% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/database.md" %}
+
+{% include hosting/install/wizard/admin.md %}
+
+### 4. Setup HTTPS (optional, but highly recommended):
 
 If you are planning to use this droplet instance in production, it is highly recommended to setup SSL. There are two main methods described below:
 
 - [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/digital-ocean/auto.html)
 - [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
-
-{% include hosting/install/wizard/server.md databaseSection="hosting/install/wizard/database.md" %}
-
-{% include hosting/install/wizard/admin.md %}
 
 {% include date/updated.html %}
 

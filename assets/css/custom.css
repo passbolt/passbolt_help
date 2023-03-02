@@ -63,6 +63,10 @@
     content: url(../img/fa-server/fa-docker.svg);
 }
 
+.fa-helm:before {
+    content: url(../img/fa-server/fa-helm.svg);
+}
+
 .fa-git:before {
     content: url(../img/fa-server/fa-git.svg);
 }

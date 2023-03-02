@@ -29,6 +29,11 @@ export PASSBOLT_GPG_SERVER_KEY_FINGERPRINT="$(gpg \
   grep -Ev "^(pub|sub|uid|^$)" | tr -d ' ')"
 ```
 
+Alternatively if you are using [Docker Secrets](/faq/hosting/docker-secrets.html){:target="_blank"} you'll need to run the following to access the secrets as environment variables:
+```
+source /etc/environment
+```
+
 ### Healthcheck
 
 ```

@@ -19,6 +19,9 @@ You should have:
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Create the subscription key file
 
 You received your subscription key by email, copy it as `/etc/passbolt/subscription_key.txt` on your server.
+````
+nano /etc/passbolt/subscription_key.txt
+````
 
 {% endif %}
 
@@ -27,6 +30,7 @@ You received your subscription key by email, copy it as `/etc/passbolt/subscript
 ```
 sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/passbolt.php
+sudo chown {{ webServerUser }}:{{ webServerUser }} /etc/passbolt/subscription_key.txt
 sudo chmod 440 /etc/passbolt/passbolt.php
 ```
 
@@ -52,6 +56,12 @@ sudo chown -R {{ webServerUser }}:{{ webServerUser }} /usr/share/php/passbolt/we
 
 ```
 mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE < passbolt-backup.sql
+```
+
+**Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Import the server key
+
+```
+sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  {{ webServerUser }}
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Migrate passbolt to the latest version

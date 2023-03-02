@@ -352,11 +352,14 @@ You will find the root password on the server in the file <code class="language-
     <p><strong>Step 1.</strong> Create the subscription key file</p>
 
     <p>You received your subscription key by email, copy it as <code class="language-plaintext highlighter-rouge">/etc/passbolt/subscription_key.txt</code> on your server.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/passbolt/subscription_key.txt
+</code></pre></div>    </div>
 
     <p><strong>Step 2.</strong> Restore Passbolt configuration file and ensure rights and ownership are correct:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown www-data:www-data /etc/passbolt/passbolt.php
+sudo chown www-data:www-data /etc/passbolt/subscription_key.txt
 sudo chmod 440 /etc/passbolt/passbolt.php
 </code></pre></div>    </div>
 
@@ -381,12 +384,17 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
 </code></pre></div>    </div>
 
-    <p><strong>Step 6.</strong> Migrate passbolt to the latest version</p>
+    <p><strong>Step 6.</strong> Import the server key</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  www-data
+</code></pre></div>    </div>
+
+    <p><strong>Step 7.</strong> Migrate passbolt to the latest version</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>
 
-    <p><strong>Step 7.</strong> Test passbolt</p>
+    <p><strong>Step 8.</strong> Test passbolt</p>
 
     <p>Try to access your passbolt application with your browser.</p>
 

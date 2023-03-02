@@ -141,6 +141,11 @@
         
         
         <li >
+            <a href="https://help.passbolt.com/configure/mfa/totp">Configure TOTP</a>
+        </li>
+        
+        
+        <li >
             <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
         </li>
         
@@ -237,7 +242,7 @@ of authentication channels (such as HOTP, mobile push, phone calls, etc.) config
 by the Duo account administrator.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-website.png" alt="Duo website" style="max-width:550px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-website.png" alt="Duo website" style="max-width:550px;" />
     <span class="legend">fig. Duo website</span>
 </figure>
 
@@ -253,29 +258,39 @@ by the Duo account administrator.</p>
     <p>It is important to enable and setup at least one additional multi factor authentication 
 provider in case Duo service becomes temporarily not available.</p>
 
-    <p>In order to use Duo authentication the user will need to interact with an iframe
-with content served by passbolt. Make sure your users have access to internet or do
+    <p>In order to authenticate using Duo, the user will be redirected to Duo’s authentication
+page. Whether or not the authentication was successful, the user will be redirected back
+to passbolt. Make sure your users have access to internet or do
 not enable this authentication provider if you are running passbolt on a private network
 that is not connected to internet.</p>
 
     <h2 id="install-duo-app">Install Duo app</h2>
 
-    <p>In order to use this authentication provider each of your users will need to install
-the Duo mobile app on their phone or tablet.</p>
-
+    <p>In order to use this authentication provider, each of your users will need to have either:</p>
     <ul>
       <li><a href="https://play.google.com/store/apps/details?id=com.duosecurity.duomobile&amp;hl=en">Duo Mobile for Android</a> on google play store.</li>
       <li><a href="https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8">Duo Mobile for iOS</a> on apple itunes.</li>
+      <li>TouchID fingerprint reader on MacOS laptops</li>
+      <li>A security key</li>
+      <li>A physical token</li>
+      <li>A network administrator</li>
     </ul>
 
+    <div class="message notice">
+    <p>
+    Visit the <a href="https://duo.com/product/multi-factor-authentication-mfa/authentication-methods">Duo authentication methods page</a> for more information.
+    </p>
+    
+</div>
+
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-login.png" alt="Duo mobile application" style="max-width:250px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-app-login.png" alt="Duo mobile application" style="max-width:250px;" />
     <span class="legend">fig. Duo mobile application</span>
 </figure>
 
-    <h2 id="get-a-duo-account">Get a Duo account</h2>
+    <h2 id="register-a-duo-administrator-account">Register a Duo administrator account</h2>
 
-    <p>If you do not have a Duo account, first sign up at <a href="https://signup.duo.com/">https://signup.duo.com/</a>
+    <p>If you do not have a Duo admin account, first sign up at <a href="https://signup.duo.com/">https://signup.duo.com/</a>
 Then log in to the Duo Admin panel at <a href="https://admin.duosecurity.com/login">https://admin.duosecurity.com/login</a></p>
 
     <p>Configure your Duo policies as required by your organization.</p>
@@ -283,37 +298,40 @@ Then log in to the Duo Admin panel at <a href="https://admin.duosecurity.com/log
     <h3 id="add-a-passbolt-application">Add a passbolt application</h3>
 
     <p>In order for passbolt to enable onboarding and authentication of new users with Duo,
-you will need to create a passbolt application in Duo.</p>
+you will need to create a Web SDK application for passbolt in Duo.</p>
+
+    <p>Login to the <a href="https://admin.duosecurity.com/login">Duo Admin page</a>.
+In the left-hand side menu, click on “Applications”, then click on “Protect an Application”.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-admin.png" alt="Duo administration" style="max-width:550px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-application.png" alt="Duo protect application" style="max-width:550px;" />
+    <span class="legend">fig. Duo protect application</span>
+</figure>
+
+    <p>Find the “Web SDK” application and click on the “Protect” button.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-admin.png" alt="Duo administration" style="max-width:550px;" />
     <span class="legend">fig. Duo administration</span>
 </figure>
 
-    <p>When login in Duo Admin panel in the left menu, click on “Applications”, then click on 
-“Protect an Application”. Find the “Web SDK” application and click on “Protect this Application”.</p>
-
-    <p>Note down the Integration Key, Secret Key, and API Hostname details, as you will need
-them to configure the integration.</p>
+    <p>Note down the Client ID, Client secret, and API hostname details, as you will need them to configure the integration.</p>
 
     <h2 id="set-the-configuration-in-passbolt">Set the configuration in passbolt</h2>
 
     <p>You can configure Duo OTP using either the admin interface or environment variables. 
 If multiple settings providers are used the settings in the admin interface will override the one in environment 
-variables.</p>
-
-    <p>You will need to generate a random 40 character string to be used as salt, to help
-secure your integration.</p>
+variables. Note that we recommend using the admin interface, since it is more secure.</p>
 
     <h3 id="using-admin-user-interface">Using admin user interface</h3>
 
     <p>Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
-You can then enable or disable the Duo provider by providing the user id and secret key that
-you gathered in the previous steps. Click “save settings” when you are done.</p>
+You can then enable or disable the Duo provider by providing the API Hostname, the Client ID, and
+the Client Secret that you gathered in the previous steps. Click “save settings” when you are done.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/12/AD_mfa_org_settings_duo.png" alt="MFA organization settings for Duo" style="max-width:550px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/AD_mfa_org_settings_duo.png" alt="MFA organization settings for Duo" style="max-width:550px;" />
     <span class="legend">fig. MFA organization settings for Duo</span>
 </figure>
 
@@ -329,23 +347,18 @@ you gathered in the previous steps. Click “save settings” when you are done.
 </thead>
 <tbody>
     <tr>
-        <td>PASSBOLT_PLUGINS_MFA_DUO_SALT</td>
-        <td>Random salt</td>
-        <td>string (40 chars min.)</td>
-    </tr>
-    <tr>
-        <td>PASSBOLT_PLUGINS_MFA_DUO_INTEGRATIONKEY</td>
-        <td>Integration key</td>
+        <td>PASSBOLT_PLUGINS_MFA_DUO_CLIENT_ID</td>
+        <td>Client ID</td>
         <td>string</td>
     </tr>
     <tr>
-        <td>PASSBOLT_PLUGINS_MFA_DUO_SECRETKEY</td>
-        <td>Secret key</td>
+        <td>PASSBOLT_PLUGINS_MFA_DUO_CLIENT_SECRET</td>
+        <td>Client Secret</td>
         <td>string</td>
     </tr>
     <tr>
-        <td>PASSBOLT_PLUGINS_MFA_DUO_HOST</td>
-        <td>Host</td>
+        <td>PASSBOLT_PLUGINS_MFA_DUO_API_HOSTNAME</td>
+        <td>API Hostname</td>
         <td>string</td>
     </tr>
 </tbody>
@@ -358,42 +371,54 @@ like other variables such as the database name, for example:</p>
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ docker run --name passbolt \
              -p 80:80 \
              -p 443:443 \
-             -e PASSBOLT_PLUGINS_MFA_DUO_HOST=api-26e9f2fce.duosecurity.com \
+             -e PASSBOLT_PLUGINS_MFA_DUO_API_HOSTNAME=api-26e9f2fce.duosecurity.com \
              -e etc.
 </code></pre></div>    </div>
 
     <h2 id="setting-duo-for-a-given-passbolt-user-account">Setting Duo for a given passbolt user account</h2>
 
-    <p>Once you have a the Duo integration configured and Duo app installed on your mobile you
-can proceed with enabling Duo as provider for your user account. It is important you test
-this to make sure the integration works.</p>
+    <p>Once you have the Duo integration configured and a Duo authentication device, you can proceed
+with enabling Duo as MFA provider for your user account. It is important that you test this to
+make sure the integration works.</p>
+
+    <p>When logged in on passbolt, go to your profile section and click on “Multi factor authentication”
+in the sidebar on the left. You should see the list of providers that are enabled for this instance.
+Click on the Duo provider.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-setup.png" alt="Passbolt duo setup" style="max-width:550px;" />
-    <span class="legend">fig. Passbolt duo setup</span>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-user-setup.png" alt="Passbolt Duo setup" style="max-width:550px;" />
+    <span class="legend">fig. Passbolt Duo setup</span>
 </figure>
 
-    <p>When logged in passbolt go to your profile section and click on “Multi factor authentication”
-in the left sidebar. You should see the list of providers that are enabled for this instance.</p>
+    <p>Then, click on the “Sign-in with Duo” button to start the Duo authentication process. If this is
+the first time you are using Duo with this user and this server, you will be asked to link one or
+more device(s) to Duo to authenticate with.</p>
 
-    <p>Click on the Duo provider. Passbolt will then display an iframe that will help you setup
-your device if this is the first time you are using Duo with this instance. Follow the
-instructions provided by Duo and you should be all set.</p>
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-setup-welcome.png" alt="Duo welcome screen" style="max-width:550px;" />
+    <span class="legend">fig. Duo welcome screen</span>
+</figure>
 
-    <p>The next time you try login from a new device, you will be presented with a Duo 
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-setup-options.png" alt="Duo authentication options" style="max-width:550px;" />
+    <span class="legend">fig. Duo authentication options</span>
+</figure>
+
+    <p>Follow the instructions provided by Duo and you should be all set.
+The next time you try login from a new device, you will be presented with a Duo 
 authentication prompt.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/mfa-duo-login2.png" alt="Login prompt" style="max-width:550px;" />
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-login.png" alt="Login prompt" style="max-width:550px;" />
     <span class="legend">fig. Login prompt</span>
 </figure>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-November
-15th,
-2018.</p>
+February
+6th,
+2023.</p>
     </div>
 
   </div>

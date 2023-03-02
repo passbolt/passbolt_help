@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Helm install</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Helm install" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/install/pro/helm">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/installation/2022-11-22-hosting-install-helm-pro.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li>
+            <h2>Hosting</h2>
+        </li>
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting">Hosting FAQ</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/install">Installation</a>
+        </li>
+        
+        
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/update">Update</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/upgrade">Upgrade</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/hosting/backup">Backup</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://community.passbolt.com/c/installation-issues">Installation issues</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting"><span>hosting</span></a>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/install"><span>install</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/hosting/install/pro/helm.html"><span>helm</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Helm install</h1>
+</div>
+</div>
+
+                        
+<div class="row">
+  <div class="col7">
+
+    <div class="message warning">
+    <p>
+        <b>Important:</b> Installing Passbolt on Kubernetes with our Helm chart is considered to be a very advanced installation method. If you are not very comfortable and familiar with Kubernetes we strongly recommend that you install via one of our other methods.
+    </p>
+    
+</div>
+
+    <h2 id="system-requirements">System requirements</h2>
+
+    <ul>
+      <li>Kubernetes cluster (&gt;1.19): <a href="https://kubernetes.io/docs/setup/" target="_blank">https://kubernetes.io/docs/setup/</a></li>
+      <li>kubectl: <a href="https://kubernetes.io/docs/tasks/tools/#kubectl" target="_blank">https://kubernetes.io/docs/tasks/tools/#kubectl</a></li>
+      <li>Helm (3.X): <a href="https://helm.sh/docs/intro/install/" target="_blank">https://helm.sh/docs/intro/install/</a></li>
+      <li>a working SMTP server for email notifications</li>
+    </ul>
+
+    <p>FAQ pages:</p>
+
+    <ul>
+      <li><a href="/faq/hosting/firewall-rules" target="_blank">Firewall rules</a></li>
+      <li><a href="/faq/hosting/why-haveged-virtual-env" target="_blank">Considerations about entropy</a></li>
+    </ul>
+
+    <h2 id="helm-install">Helm install</h2>
+
+    <p>The easiest and recommended way to deploy your Passbolt Helm chart is to use <code class="language-plaintext highlighter-rouge">helm install</code>.</p>
+
+    <p><strong>Step 1.</strong> Set up our Helm repo</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm repo add passbolt-repo https://download.passbolt.com/charts/passbolt
+</code></pre></div>    </div>
+
+    <p><strong>Step 2.</strong> Get a copy of the values file</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
+</code></pre></div>    </div>
+
+    <p><strong>Step 3.</strong> Configure values file to customize your instance.</p>
+
+    <p>The <code class="language-plaintext highlighter-rouge">APP_FULL_BASE_URL</code> environment variable is set by default to <a href="https://passbolt.local">https://passbolt.local</a>, using a self-signed certificate.</p>
+
+    <p>Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.</p>
+
+    <p>If you are creating your own gpg keys the following commands can help convert them into a base64 encoded single line string which is what the values.yaml file expects.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--armor</span> <span class="nt">--export-secret-keys</span> &lt;email you created keys with&gt;  | <span class="nb">base64</span> <span class="nt">-w</span> 0
+gpg <span class="nt">--armor</span> <span class="nt">--export</span> &lt;email you created keys with&gt; | <span class="nb">base64</span> <span class="nt">-w</span> 0
+</code></pre></div>    </div>
+
+    <p>You must configure also SMTP settings to be able to receive notifications and recovery emails.</p>
+
+    <p>For more information on which environment variables are available on passbolt, please check the <a href="/configure/environment/reference.html" target="_blank">passbolt environment variable reference</a>.</p>
+
+    <div class="message notice">
+    <p>
+    <b>Important:</b> By default we have the ingress set to false, you’ll need to decide how you want to handle this to access the web page.
+    </p>
+    
+</div>
+
+    <p>Additionally the following charts are used by Passbolt and you can adjust the values under their respective headings in values.yaml</p>
+
+    <table class="table-parameters">
+      <thead>
+        <tr>
+          <th>Repository</th>
+          <th>Name</th>
+          <th>Version</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://charts.bitnami.com/bitnami">https://charts.bitnami.com/bitnami</a></td>
+          <td>mariadb</td>
+          <td>11.3.5</td>
+        </tr>
+        <tr>
+          <td><a href="https://charts.bitnami.com/bitnami">https://charts.bitnami.com/bitnami</a></td>
+          <td>redis</td>
+          <td>17.3.8</td>
+        </tr>
+        <tr>
+          <td><a href="https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library">https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library</a></td>
+          <td>passbolt-library</td>
+          <td>0.2.1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Step 4.</strong> Run helm install</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>helm install -f values.yaml my-passbolt passbolt-repo/passbolt
+</code></pre></div>    </div>
+
+    <p>At this point, you should have a working Passbolt setup via Helm running on the most up to date CE version of Passbolt.</p>
+
+    <h3 id="manually-creating-first-admin-user">Manually creating first admin user</h3>
+
+    <p>Once the Helm chart is deployed, you can create your first user by running the following command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kubectl <span class="nb">exec</span> <span class="nt">-it</span>  &lt;passbolt-pod-name&gt; <span class="nt">--</span> /bin/bash <span class="nt">-c</span> <span class="s2">"su -s /bin/bash -c </span><span class="se">\"</span><span class="s2">bin/cake passbolt register_user -u &lt;email&gt; -f &lt;firstname&gt; -l &lt;lastname&gt; -r admin</span><span class="se">\"</span><span class="s2"> www-data"</span>
+</code></pre></div>    </div>
+
+    <p>It will output a link similar to the below one that can be pasted on the browser to finalize user registration:</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
+</code></pre></div>    </div>
+
+    <h2 id="going-further">Going further</h2>
+
+    <p>Helm FAQs:</p>
+
+    <ul>
+      <li><a href="/configure/email/setup" target="_blank">How to configure SMTP to receive emails</a></li>
+      <li><a href="/faq/hosting/how-to-use-rootless-images" target="_blank">How to use rootless images</a></li>
+      <li><a href="/faq/hosting/troubleshoot-helm" target="_blank">Troubleshoot Helm</a></li>
+      <li><a href="/configure/environment/reference.html" target="_blank">Passbolt reference environment variables</a></li>
+    </ul>
+
+    <p>Passbolt docker repository:</p>
+
+    <ul>
+      <li><a href="https://github.com/passbolt/charts-passbolt" target="_blank">https://github.com/passbolt/charts-passbolt</a></li>
+    </ul>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+February
+6th,
+2022.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="tldr">
+    <h4 class="visuallyhidden">Available on ????</h4>
+    <p>
+        <a href="http://helm.chart.location" target="_blank" rel="noopener nofollow">
+            <img alt="Helm Logo" src="/assets/img/third_party/helm-horizontal-color.png" style="" />
+        </a>
+    </p>
+    <a href="http://helm.chart.location" class="primary button">  
+        Get passbolt Helm chart!
+    </a>
+</div>
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues with Passbolt Pro Edition?</p>
+    <a href="mailto:contact@passbolt.com" class="button primary">Contact Pro support</a>
+    <p>or <a href="https://community.passbolt.com">ask the community</a></p>
+
+</div>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

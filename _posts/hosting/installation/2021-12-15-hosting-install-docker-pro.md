@@ -3,7 +3,7 @@ title: Docker install
 card_title: Docker
 card_teaser: Step by step guide to install passbolt Pro using Docker.
 card_position: 3
-date: 2021-12-15 00:00:00 Z
+date: 2023-02-06 00:00:00 Z
 description: Install passbolt Pro using Docker
 icon: fa-docker
 categories: [hosting,install,pro]
@@ -17,6 +17,8 @@ permalink: /:categories/:slug.html
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
+
+{% include hosting/docker/docker-warning.md %}
 
 {% include hosting/docker/docker-system-requirements.md %}
 {% include hosting/docker/docker-compose-usage.md %}

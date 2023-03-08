@@ -16,7 +16,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'ce' %}
 {% assign distribution = 'opensuse' %}
-{% assign distributionVersion = '15' %}
+{% assign distributionVersion = 'Leap 15' %}
 {% assign distributionSlug = 'opensuse' %}
 {% assign distributionLabel = 'openSUSE' %}
 {% assign distributionPackage = 'zypper' %}

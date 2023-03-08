@@ -17,11 +17,15 @@ permalink: /:categories/:slug.html
 {% assign distribution = 'oraclelinux' %}
 {% assign distributionLabel = 'OracleLinux' %}
 {% assign distributionVersion = '7' %}
-{% assign distributionPackage = 'yum' %}
+{% assign distributionPackage = 'dnf' %}
 {% assign webServerUser = 'nginx' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, see the [Oracle Linux](oraclelinux) update page for instructions."
+%}
 
 {% include hosting/update/package-update.md %}
 
@@ -31,13 +35,6 @@ permalink: /:categories/:slug.html
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
-
-{% include aside/message.html
-    class="tldr"
-    content="Your installation is not based on a debian package?"
-    link="/hosting/upgrade/ce/migrate-to-debian.html"
-    ask="Migrate passbolt to debian package"
-%}
 
 {% include aside/message.html
     class="tldr notice"

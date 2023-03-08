@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.11.1 | Birdie</title>
+    <link>https://help.passbolt.com/releases/ce/birdie</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/birdie</guid>
+    <description>This is a small maintenance release addressing community reported issues related to the recently introduced Duo v4 support. This release also includes a security fix for the browser extension to mitigate clickjacking attacks discovered during an independent security audit of the API and browser extension by Cure53. As always, detailed...</description>
+    <pubDate>Fri, 03 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.11.0 | Regular</title>
     <link>https://help.passbolt.com/releases/ce/regular</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/regular</guid>

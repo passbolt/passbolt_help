@@ -87,6 +87,14 @@
                     
                     
                     
+                    <li class="">
+                        <a href="https://help.passbolt.com/releases/pro/birdie" >v3.11.1</a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
                     <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/regular" >v3.11.0</a>
                     </li>
@@ -127,14 +135,6 @@
                     
                     <li class="">
                         <a href="https://help.passbolt.com/releases/pro/trechter" >v3.8.2</a>
-                    </li>
-                    
-                    
-                    
-                    
-                    
-                    <li class="">
-                        <a href="https://help.passbolt.com/releases/pro/nana" >v3.8.1</a>
                     </li>
                     
                     
@@ -215,75 +215,108 @@ Alongside these SSO improvements, version 3.11 adds support for Duo v4, an upgra
 <h2 id="api">API</h2>
 <h3 id="added">Added</h3>
 <ul>
-  <li>PB-19784 As a user I can self register if my email domain matches the policy defined by the administrators</li>
-  <li>PB-21827 As an administrator I can manage the MFA policies of my organisation</li>
+  <li>PB-22435 As a user using SSO Azure I can recover my account using SSO Azure</li>
+  <li>PB-22741 As an administrator I should see an error in the healthcheck if I use php 7.3 or less</li>
+  <li>PB-22747 As an administrator I can define a regular expression to customise email validation</li>
+  <li>PB-22748 As an administrator I can access to the paginated list of action logs on the browser</li>
+  <li>PB-22866 As a user I want to use passbolt in Italian</li>
+  <li>PB-22866 As a user I want to use passbolt in Portuguese (Brazil)</li>
+  <li>PB-22866 As a user I want to use passbolt in Korean</li>
+  <li>PB-22866 As a user I want to use passbolt in Romanian</li>
 </ul>
 
 <h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-22652 As a user I can authenticate with SSO with an email address having a different case</li>
+  <li>PB-21489 As a user I should not see double headers in emails sent by the email digest</li>
 </ul>
 
 <h3 id="improved">Improved</h3>
 <ul>
-  <li>PB-21485 As a server administrator I want to configure the list of active proxies the instance
- is behind in order to get client IP when necessary</li>
-  <li>PB-21682 As an administrator I want to configure the client option of the SMTP settings</li>
-  <li>PB-22019 As a server administrator I want to configure TOTP MFA secret length</li>
-  <li>PB-22574 As a signed-in user I want the sharing of resources to not perform a cycle detection</li>
+  <li>PB-22725 As an administrator I want to manage Duo v4 settings</li>
+  <li>PB-21763 As a user I want to see a clean SSO error feedback in the popup after failing to sign-up with SSO</li>
+  <li>PB-21764 As a user I want to see a clean SSO feedback in the popup after signing-in with SSO</li>
+  <li>PB-21906 As a user I don’t want to receive email by default when I create a resource or a folder as well as I don’t want to see any details for this content by default</li>
+  <li>PB-22512 As an SSO administrator I want to see the access_token details when it is missing or has invalid claims</li>
+  <li>PB-22610 As a user I want the SSO Azure authentication to support nonce</li>
 </ul>
 
 <h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>
-    <p>PB-22327 env variable PASSBOLT_PLUGINS_SMTP_SETTINGS renamed in PASSBOLT_PLUGINS_SMTP_SETTINGS_ENABLED (backward compatible)</p>
-  </li>
-  <li>PB-22413 bump CakePHP to 4.3.11</li>
-  <li>PB-22420 SSO test routes removed</li>
+  <li>PB-22416 As a developer I can safely deactivate plugins between solutions</li>
+  <li>PB-22756 Fixes a range of failing pagination tests</li>
+  <li>PB-22760 SSO State Type refactoring</li>
+  <li>PB-22495 Refactors the SmtpTransport to enhance the code coverage of emails</li>
+  <li>PB-22430 Refactoring of SSO state to use separate table</li>
 </ul>
 
 <h2 id="browser-extension">Browser extension</h2>
 <h3 id="added-1">Added</h3>
 <ul>
-  <li>PB-21752 As a user I can self register if my email domain matches the policy defined by the administrators</li>
-  <li>PB-21999 As a signed-in administrator I can force users to authenticate with MFA at each sign-in</li>
-  <li>PB-22000 As a signed-in administrator I can force users to enable MFA</li>
-  <li>PB-22080 As a signed-in user I should be able to import chromium based browsers csv</li>
-  <li>PB-21874 As signed-in user I should be able to import bitwarden csv</li>
+  <li>PB-22081 As a signed-in user I can import my passwords from a Mozilla web browsers csv export</li>
+  <li>PB-22082 As a signed-in user I can import my passwords from Safari web browser csv export</li>
+  <li>PB-22116 As a signed-in user I can import my passwords from a Dashlane csv export</li>
+  <li>PB-22117 As a signed-in user I can import my passwords from a Nordpass csv export</li>
+  <li>PB-22510 As a signed-in user I can import my passwords from a LogMeOnce csv export</li>
+  <li>PB-22866 As a user I want to use passbolt in Italian</li>
+  <li>PB-22866 As a user I want to use passbolt in Portuguese (Brazil)</li>
+  <li>PB-22866 As a user I want to use passbolt in Korean</li>
+  <li>PB-22866 As a user I want to use passbolt in Romanian</li>
+  <li>PB-22882 As a user I can use the SSO feature to speed up the extension configuration process</li>
 </ul>
 
 <h3 id="improved-1">Improved</h3>
 <ul>
-  <li>PB-21910 As a signed-in administrator on the self registration admin settings form I want to see the domain warnings while typing and not after blur event</li>
-  <li>PB-22007 As a user finalising my account recovery I should be able to authenticate with SSO after my first sign out</li>
-  <li>PB-22619 As a user authenticating with SSO, I should close the SSO popup when I am navigating away in the mainframe</li>
-  <li>PB-22617 As a user authentication with SSO, closing the third party popup should not redirect me to the passphrase screen</li>
+  <li>PB-21408 As a logged-in user navigating to the account recovery user settings from the MFA user settings I should not see the screen blinking</li>
+  <li>PB-21548 As a signed-in user I can access my MFA settings for a given provider following a dedicated route</li>
+  <li>PB-22647 As a signed-in user I want to use my personal google email server as SMTP server</li>
+  <li>PB-22699 A a user I want a unified experience using pwned password feature</li>
+  <li>PB-22725 As a signed-in user I want to see an introduction screen prior setting up Duo v4</li>
+  <li>PB-22835 As an administrator I can define the optional SMTP Settings “client” setting</li>
+  <li>PB-22861 As an administrator I want to manage Duo v4 settings</li>
 </ul>
 
 <h3 id="fixed-1">Fixed</h3>
 <ul>
-  <li>PB-18371 Fix contextual menu positioning issue when right clicking at the bottom of the page</li>
-  <li>PB-22386 As an administrator I want to know if the weak passphrase I am entering to generate an organisation recovery key has been pwned</li>
-  <li>PB-22387 As an administrator generating an account recovery organisation key, I should see the warning banner after submitting the form</li>
-  <li>PB-22388 Fix as a user recovering my account i should not see that the passphrase i entered has been pwned if it is not the valid passphrase</li>
-  <li>PB-22084 As a signed-in user I can import my passwords from 1Password csv export with their new header conventions</li>
+  <li>PB-22387 As an administrator generating an account recovery organization key, I should see the warning banner after submitting the form</li>
+  <li>PB-22587 Fix the CSV exports columns presence and order</li>
+  <li>PB-22588 As a signed-in user I want to import resources in Lastpass csv export following their conventions</li>
+  <li>PB-22701 As a signed-in user I should not see the MFA mandatory dialog if there are no MFA providers enabled for my organization</li>
+  <li>PB-22704 As a user with a configured account and SSO, I should be able to recover/setup another account</li>
+  <li>PB-23277 As a signed-in user I should not have a 404 error with the flag mfa policy disable</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-21645 As content code application I should be restricted to open ports only for applications I am allowed to open</li>
+  <li>PB-21754 As a user I should not see any trace of previously downloaded content in my history</li>
+  <li>PB-23279 As a user completing a setup I should not have access to the background page decryption secret capabilities</li>
 </ul>
 
 <h3 id="maintenance-1">Maintenance</h3>
+<p>PB-19641 Handle the setup and recover runtime object</p>
 <ul>
-  <li>PB-21562 Refactor service worker port and add coverage</li>
-  <li>PB-21813 Unit test the private key’s passphrase rotation SSO kit regeneration</li>
-  <li>PB-21878 Unit test the user stories related to SSO via quick access</li>
-  <li>PB-21932 Unit test: As AD I want my SSO kit to be generated when saving a new SSO settings</li>
-  <li>PB-21933 Create a service to parse the sign in url</li>
-  <li>PB-22337 Merge both controller AuthController and AuthSignInController to keep consistency</li>
-  <li>PB-22353 Remove redundant toDto function in SsoClientPartEntity</li>
-  <li>PB-22403 Instead of using new URL when getting sso url login, use an entity to ensure consistency and that the data is validated</li>
-  <li>PB-22478 As a developer I should be sure my changes don’t introduce regression in the build</li>
-  <li>PB-22479 As a developer I should be sure my changes don’t introduce dependency vulnerabilities</li>
-  <li>PB-22614 Avoid telemetries to be sent to Storybook</li>
-  <li>PB-22630 Fix the Unit test in the browser extension about  method that shouldn’t be called</li>
+  <li>PB-19675 As a signed-in user I want to perform a recover using the browser extension with MV3</li>
+  <li>PB-19676 As a signed-in user I want to perform a setup using the browser extension with mv3</li>
+  <li>PB-19677 As a signed-in user I want to perform a sign-in using the browser extension with MV3</li>
+  <li>PB-19678 As a signed-in user I want to start the application using the browser extension with mv3</li>
+  <li>PB-21750 As service worker I should be able to wake up a disconnected application port</li>
+  <li>PB-21822 As a signed-in user I want to open quickaccess using the browser extension with MV3</li>
+  <li>PB-21823 As a signed-in user I want to see the web integration using the browser extension with MV3</li>
+  <li>PB-21824 As a signed-in user I want to see the web public sign in using the browser extension with MV3</li>
+  <li>PB-21829 Clean port after a web navigation on the main frame</li>
+  <li>PB-21996 As a signed-in user I want to see the in form call to action using the browser extension with MV3</li>
+  <li>PB-21997 As a signed-in user I want to see the in form menu using the browser extension with MV3</li>
+  <li>PB-22009 Create a service to parse the webIntegration in url</li>
+  <li>PB-22076 Handle flush local storage on browser runtime onStartUp for MV3</li>
+  <li>PB-22077 Handle config init and post logout on service worker startup</li>
+  <li>PB-22078 Create a polyfill to handle browser.action on MV2</li>
+  <li>PB-22113 As a signed-in user I should be able to open the quickaccess popup from inform menu with MV3</li>
+  <li>PB-22412 As a signed-in user I want to use account recovery process using the browser extension with MV3</li>
+  <li>PB-22648 Adapt payload when back return duo settings</li>
+  <li>PB-22896 Update styles to adapt to Duo forms updates</li>
+  <li>PB-22898 Update login form design styles</li>
 </ul>
+
 
                         </div>
                         <div class="col5 last">

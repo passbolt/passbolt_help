@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.11.1 | Birdie</title>
+    <link>https://help.passbolt.com/releases/pro/birdie</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/birdie</guid>
+    <description>This is a small maintenance release that addresses community reported issues related to the recently introduced Duo v4 support and SSO features. Also shipped with this release, is a security fix to the browser extension to prevent clickjacking attacks. With the upcoming SSO feature, both the passbolt API and browser...</description>
+    <pubDate>Fri, 03 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.11.0 | Regular</title>
     <link>https://help.passbolt.com/releases/pro/regular</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/regular</guid>

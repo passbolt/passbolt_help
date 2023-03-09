@@ -16,6 +16,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/warning.html
+    content="**Important:** This is no longer a recommended installation method. You may want to consider [migrating](/hosting/upgrade/pro/migrate-to-centos) to the package."
+%}
+
 ## Pre-requisites
 
 For this tutorial, you will need:
@@ -101,9 +105,9 @@ $ sudo systemctl start nginx
 
 {% include aside/message.html
     class="tldr"
-    content="You have installed passbolt from the source?"
+    content="Have you installed passbolt from source instead?"
     link="/hosting/update/source"
-    ask="Update passbolt for source install"
+    ask="Update passbolt on from source installation"
 %}
 
 {% include aside/message.html

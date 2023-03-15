@@ -2,7 +2,6 @@
 title: Folders Update
 date: 2021-04-29 14:00:00 Z
 layout: api
-pro: true
 category: api,folders,update
 slug: folders-update
 permalink: /api/folders/update

@@ -21,7 +21,8 @@ This tutorial is distribution agnostic. It details the installation steps at a h
 taking into account the specifics related to each and every linux distribution.
 
 {% include messages/warning.html
-    content="**Please note:** This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution [here](/hosting/install)."
+    content="**Please note:** This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution [here](/hosting/install). 
+    You should only attempt this if you are advanced in terms of server configuration"
 %}
 
 ## System requirements
@@ -46,7 +47,8 @@ For the rest of this tutorial we will assume that the user named `www-data`.
     ask="let's encrypt!"
 %}
 
-### 2. Create an empty database
+### 2. Database configuration
+#### Create an empty database
 
 Connect to your mysql server and create new database. Make sure it is in the utf8mb4 char set to
 support non latin characters and emojis. 👏
@@ -54,6 +56,16 @@ support non latin characters and emojis. 👏
 ```shell
 /var/www$ mysql -u[user] -p[password]
 mysql> CREATE DATABASE passbolt CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+#### Create a non-root user with according privilege
+
+The database user should not be root, create a non-root user that have privileges on the passbolt database that has been created.
+
+```shell
+mysql> CREATE USER 'your_user'@'localhost' IDENTIFIED BY 'your_password';
+mysql> GRANT ALL PRIVILEGES ON passbolt.* TO 'your_user'@'localhost';
+mysql> FLUSH PRIVILEGES;
 mysql> exit;
 ```
 
@@ -137,7 +149,7 @@ You will need to set at least the following:
 - Email settings
 - Server OpenPGP key fingerprint.
 
-**WARNING:** The OpenPGP key fingerprint has to be written with no spaces
+**WARNING:** The OpenPGP key fingerprint has to be written with no spaces and the application full base url should match the ssl configuration.
 
 You can also set your configuration using environment variables.
 Check `config/default.php` to get the names of the environment variables.
@@ -162,8 +174,8 @@ $ sudo su -s /bin/bash -c "./bin/cake passbolt healthcheck" www-data
 
 Depending on your needs there are two different options to setup nginx and SSL :
 
-- [Auto (Using Let's Encrypt)](/configure/https/{{ product }}/debian/auto.html)
-- [Manual (Using user-provided SSL certificates)](/configure/https/{{ product }}/debian/manual.html)
+- [Auto (Using Let's Encrypt)](/configure/https/ce/debian/auto.html)
+- [Manual (Using user-provided SSL certificates)](/configure/https/ce/debian/manual.html)
 
 Be sure to write down the full path to your cert/key combo, it will be needed later in the Nginx configuration process.
 
@@ -204,7 +216,6 @@ server {
   ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
   ssl_session_tickets off;
   ssl_protocols TLSv1.2 TLSv1.3;
-  ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
   ssl_prefer_server_ciphers off;
   root /var/www/passbolt/webroot;
   index index.php;
@@ -234,6 +245,9 @@ $ sudo systemctl reload nginx
 
 ### 10. Setup the emails
 
+**WARNING:** If you are running Passbolt 3.8.0 or higher version, you are able to configure your email server through the UI, any changes made will override the *config/passbolt.php*
+
+#### You are running Passbolt CE < 3.8.0 ?
 For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the
 `config/passbolt.php` file to match your provider smtp details.
 

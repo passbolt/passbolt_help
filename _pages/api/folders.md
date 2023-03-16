@@ -4,11 +4,9 @@ date: 2021-04-30 14:00:00 Z
 layout: api
 category: api,folders
 slug: folders
-pro: true
 permalink: /api/folders
 ---
 The API allows you to create, update, delete, and share folders.
-These endpoints are currently only available in the pro version.
 
 Folders can be either shared or personal. Whether they are personal or shared depends on their permissions.
 One folder (or resource) can only be in one folder for a given user perspective. However, a folder can be in 

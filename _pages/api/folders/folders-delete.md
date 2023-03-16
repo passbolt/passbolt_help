@@ -2,7 +2,6 @@
 title: Delete a folder
 date: 2021-04-29 14:00:00 Z
 layout: api
-pro: true
 category: api,folders,delete
 slug: folders-delete
 permalink: /api/folders/delete

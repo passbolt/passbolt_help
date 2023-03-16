@@ -16,6 +16,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/warning.html
+    content="**WARNING** This involves outdated versions, v3.x is the current version. You will likely want to contact us at [contact@passbolt.com](mailto:contact@passbolt.com) for assistance with this. **WARNING**"
+%}
+
 This tutorial covers the case where you want to upgrade your current instance of passbolt CE v1.x into passbolt CE v2.x.
 
 {% include messages/warning.html

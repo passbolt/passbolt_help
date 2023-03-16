@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v3.12.0 | Introspective</title>
+    <link>https://help.passbolt.com/releases/ce/introspective</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/introspective</guid>
+    <description>Release 3.12 includes a number of new features and enhancements, including the much-anticipated addition of folders in the Community Edition, which allows users to better organise resources. Another notable new feature is the ability to customise passbolt to output the action logs in syslog or a file, giving administrators more...</description>
+    <pubDate>Wed, 15 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.11.1 | Birdie</title>
     <link>https://help.passbolt.com/releases/ce/birdie</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/birdie</guid>

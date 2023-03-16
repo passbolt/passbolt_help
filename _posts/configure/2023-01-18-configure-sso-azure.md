@@ -1,6 +1,6 @@
 ---
-title: How to configure SSO with Microsoft (Alpha)
-date: 2023-01-18 00:00:00 Z
+title: How to configure SSO with Microsoft
+date: 2023-03-15 00:00:00 Z
 card_title: How to configure SSO with Microsoft
 icon: fa-address-book-o
 categories: [configure, sso]
@@ -17,34 +17,15 @@ redirect_from:
 {% include layout/col_start.html column="7" %}
 
 {% include messages/warning.html
-content="**Attention**: This feature is currently in Alpha, and available only in Passbolt Pro Edition."
+content="**Attention**: This feature is currently available only in Passbolt Pro Edition."
 %}
 
 Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD. 
 
 {% include articles/figure.html
 url="/assets/img/help/2023/01/sso-passbolt-login.png"
-legend="SSO with Azure (Alpha)"
+legend="SSO with Azure"
 %}
-
-## Why is it in Alpha? What does it mean?
-
-{% include messages/notice.html
-content="TL;DR: The feature is in alpha and for Pro Edition customers only because it is undergoing real life testing and
-a security audit."
-%}
-
-The feature is currently disabled by default and requires Passbolt browser extension version
-3.9.1 (Note: this extension will be published on 19th of January 2023). To test the latest changes you can also build the 
-latest extension [from source](https://github.com/passbolt/browser_extension).
-
-The feature is provided to customers who want to test this first version and provide feedback. Feel free to report
-issues at [support@passbolt.com](mailto:support@passbolt.com) or on the [community forum](https://community.passbolt.com).
-
-The goal is to publish a "Beta" version with 3.10 or 3.11, which will be available without being hidden behind a 
-feature flag. It will be visible directly in the UI. Then at end of February the feature will undergo an independent 
-3rd party security audit by Cure53, and once the security and community reported issue fixes are rolled out (if any), 
-the "Beta" label will be removed. It will then be made available in Passbolt Cloud.
 
 ## How does it work?
 
@@ -55,29 +36,14 @@ with a non-extractable symetric key stored in the browser extension local storag
 To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
 [developer documentation](https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j).
 
-## How to enable SSO Azure plugin?
+## How to configure the plugin?
 
 {% include messages/warning.html
 content="**Attention**: This feature requires HTTPS to work."
 %}
 
-If you use Docker you can enable the SSO plugin setting the `PASSBOLT_PLUGINS_SSO_ENABLED` environment variable to `1`. Otherwise you will need
-to edit your `passbolt.php` file and add the following:
-```
-// Locate this section
-'passbolt' => [
-    // and add...
-    'plugins' => [
-        'sso' => [
-            'enabled' => true
-        ],
-    ],
-```
-
-## How to configure the plugin?
-
 Open both the Azure portal and Passbolt:
-- Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the "Single Sign On" section. 
+- You will need to go the administration section of your Passbolt instance and then to the "Single Sign On" section. 
 - You will need to also login to the [Azure Portal](https://portal.azure.com).
 
 {% include articles/figure.html

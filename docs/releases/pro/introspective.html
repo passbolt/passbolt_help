@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Ya Amar</title>
+    <title>Passbolt Help | Introspective</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This maintenance release involves the Pro and Cloud versions of passbolt. It includes two minor fixes that resolve an issue reported by the community regardi...">
+    <meta name="description" content="Release 3.12 for passbolt includes several new features and enhancements. Starting with Microsoft Azure being enabled by default for SSO capabilities. The fe...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Ya Amar" />
-    <meta property="og:description" content="This maintenance release involves the Pro and Cloud versions of passbolt. It includes two minor fixes that resolve an issue reported by the community regardi..." />
+    <meta property="og:title" content="Introspective" />
+    <meta property="og:description" content="Release 3.12 for passbolt includes several new features and enhancements. Starting with Microsoft Azure being enabled by default for SSO capabilities. The fe..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/ya-amar">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/introspective">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.8.4.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.12.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/introspective" >v3.12.0</a>
                     </li>
                     
@@ -127,7 +127,7 @@
                     
                     
                     
-                    <li class="selected">
+                    <li class="">
                         <a href="https://help.passbolt.com/releases/pro/ya-amar" >v3.8.4</a>
                     </li>
                     
@@ -186,7 +186,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/ya-amar"><span>ya-amar</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/introspective"><span>introspective</span></a>
                     </div>
                 </li>
                 
@@ -195,30 +195,94 @@
     </div>
 </div>
 
-                            <h1>v3.8.4 ~ Ya Amar (pro)</h1>
+                            <h1>v3.12.0 ~ Introspective (pro)</h1>
                             <p>Release date: 
-December
+March
 15th,
-2022.
+2023.
 </p>
-                            <p>This maintenance release involves the Pro and Cloud versions of passbolt. It includes two minor fixes that resolve an issue reported by the community regarding the folders functionality: Users were unable to move passwords out of folders under particular circumstances. 
-In addition to the fix, the command line cleanup script will enable administrators to correct integrity shells that may have been caused by this issue.</p>
+                            <p>Release 3.12 for passbolt includes several new features and enhancements. Starting with Microsoft Azure being enabled by default for SSO capabilities. The feature has been thoroughly audited by Cure53, and the issues identified by the community have been fixed, so the feature is officially out of Beta!</p>
 
-<p>Thank you to community members who reported issues and helped us fix them.</p>
+<p>Another notable new feature is the ability to customise passbolt to output the action logs in syslog or a file, giving administrators more control and visibility on what is happening on their instance and leverage other tools for threat and unusual activity detection. Administrators can also implement their own handler for action logs to further customise their passbolt instance reporting. A blog to demonstrate this new feature will be available soon.</p>
+
+<p>Version 3.12 also includes important fixes, such as a fix to ensure that only administrators can see which users have MFA enabled. This regression was spotted during the Cure53 march security audit. The full report will be available shortly. Spoiler alert: no critical vulnerability was found.</p>
+
+<p>Lastly, more file formats for export are included in release 3.12. This provides more options for migrating data between applications.</p>
+
+<p>Overall, this release gives users more options while also improving passbolt’s functionality and security. The team extends a warm thank you to everyone who participated in the SSO alpha and beta tests cycles, for reporting issues and assisting us in resolving them.</p>
 
 <h2 id="api">API</h2>
-<h3 id="384---2022-11-12">[3.8.4] - 2022-11-12</h3>
-<h4 id="fixed">Fixed</h4>
+
+<h3 id="added">Added</h3>
 <ul>
-  <li>PB-21618 As an administrator I want to clean up duplicated folders relations located at the root</li>
-  <li>PB-21760 As signed-in user sharing a resource with a user already having access to the resource, it should not create duplicated folders relations</li>
+  <li>PB-20535 As a community user I want to use folders</li>
+  <li>PB-22749 As an administrator I can customise passbolt to output the action logs in syslog</li>
+  <li>PB-22749 As an administrator I can customise passbolt to output the action logs in a file</li>
+  <li>PB-22749 As an administrator I can implement my own action logs handler</li>
+  <li>PB-23813 Microsoft Azure as single sign on should be enabled by default</li>
 </ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>PB-23717 As a user using the json API I should get a bad request error instead of an internal error if using api-version=v1</li>
+  <li>PB-21826 Fix emails entries should not be locked when threshold limit is exceeded</li>
+  <li>PB-23519 As an administrator running the DUO v4 migration I should not see a warning message if DUO was not configured</li>
+  <li>PB-23721 As an administrator I want to be sure the server key is in the keyring before decrypting users directory settings</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-23311 As an administrator I should be the only one to know which users have enabled MFA</li>
+</ul>
+
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>PB-23333 As an administrator I should see a notice instead of a warning if I enabled the self registration plugin</li>
+  <li>PB-23722 As a developer running the unit tests I want to be sure the version from the config matches the one from the changelog</li>
+  <li>PB-22892 As a user recovering my account I want to see the success and error pages feedback</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-23287 Duo multi-factor authentication redirection refactoring</li>
+  <li>PB-23702 Update phpseclib/phpseclib dependency</li>
+</ul>
+
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-22521 As a signed-in user, I want to export resources in logmeonce csv</li>
+  <li>PB-22520 As a signed-in user, I want to export resources in nordpass csv</li>
+  <li>PB-22519 As a signed-in user, I want to export resources in dashlane csv</li>
+  <li>PB-22518 As a signed-in user, I want to export resources in safari csv format</li>
+  <li>PB-22517 As a signed-in user, I want to export resources in mozilla csv</li>
+  <li>PB-22515 As a signed-in user, I want to export resources in bitwarden csv</li>
+  <li>PB-22516 As a signed-in user, I want to export resources in chromium based browsers csv</li>
+  <li>PB-22838 As an administrator I can customise the application email validation</li>
+</ul>
+
+<h3 id="improvements">Improvements</h3>
+<ul>
+  <li>PB-22896 Improve DUO style</li>
+</ul>
+
+<h3 id="fix">Fix</h3>
+<ul>
+  <li>PB-23281 Fix as a user I should see an accurate entropy when a password contain words from a dictionary</li>
+  <li>PB-23541 As a user I can use SSO recover when Passbolt is served from a subfolder</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-23706 As an administrator I should be the only one to know which users have enabled MFA</li>
+</ul>
+
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Ya Amar"</p>
-                                <a href="https://youtu.be/zJPtppRFecQ" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Introspective"</p>
+                                <a href="https://youtu.be/qw6ZX07NZSM" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

@@ -16,7 +16,7 @@ stories are an important part of passbolt development cycle as they help us defi
 acceptance criteria for us to call a feature done.
 
 Here are a few examples of design documentation we have used in the past:
-- [Groups functionality](https://medium.com/passbolt/how-passbolt-will-implement-groups-ee49108a6ff1)
-- [Tags design discussion](https://medium.com/passbolt/tags-functionality-b7f70786a0c4)
+- [Groups functionality](https://blog.passbolt.com/how-passbolt-will-implement-groups-ee49108a6ff1)
+- [Tags design discussion](https://blog.passbolt.com/tags-functionality-b7f70786a0c4)
 - [MFA Policies](https://docs.google.com/document/d/1a9ER_0h-JqkJPK6gQDRi-4lvseEmYtPPAVdf_MuGN6g/)
 - [SMTP settings](https://docs.google.com/document/d/1elz0QK-YhhlxH4T0gfUz8XDyhAy_r3crXnU74exy2B0/)

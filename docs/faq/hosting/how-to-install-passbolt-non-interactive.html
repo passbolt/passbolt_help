@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How to install passbolt in non-interactive mode ?</title>
+    <title>Passbolt Help | How to install passbolt in non-interactive mode?</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operatin...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to install passbolt in non-interactive mode ?" />
+    <meta property="og:title" content="How to install passbolt in non-interactive mode?" />
     <meta property="og:description" content="The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operatin..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>How to install passbolt in non-interactive mode ?</span></a>
+                        <a href=""><span>How to install passbolt in non-interactive mode?</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,10 +167,30 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>How to install passbolt in non-interactive mode ?</h1>
+                         <h1>How to install passbolt in non-interactive mode?</h1>
                             <p>The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operating systems.</p>
 
-<p>The commands of this page assume you want to install passbolt CE. Replace <code class="language-plaintext highlighter-rouge">passbolt-ce-server</code> with <code class="language-plaintext highlighter-rouge">passbolt-pro-server</code> if you plan to install the PRO version.</p>
+<p>The commands of this page assume you want to install passbolt CE. Replace <code class="language-plaintext highlighter-rouge">ce</code> with <code class="language-plaintext highlighter-rouge">pro</code> if you plan to install the PRO version.</p>
+
+<h3 id="package-repository-setup">Package repository setup</h3>
+
+<p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt and install it.</p>
+
+<p><strong>Step 1.</strong> Download our dependencies installation script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget "https://download.passbolt.com/ce/installer/passbolt-repo-setup.ce.sh"
+</code></pre></div></div>
+
+<p><strong>Step 2.</strong> Download our SHA512SUM for the installation script:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-ce-SHA512SUM.txt
+</code></pre></div></div>
+
+<p><strong>Step 3.</strong> Ensure that the script is valid and execute it:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sha512sum -c passbolt-ce-SHA512SUM.txt &amp;&amp; sudo bash ./passbolt-repo-setup.ce.sh  || echo \"Bad checksum. Aborting\" &amp;&amp; rm -f passbolt-repo-setup.ce.sh
+</code></pre></div></div>
 
 <h3 id="simple-mode">Simple mode</h3>
 
@@ -608,7 +628,7 @@
     
     
     <li>
-        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode ?</a>
+        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode?</a>
     </li>
     
     

@@ -198,6 +198,13 @@
 <div class="row">
   <div class="col7">
 
+    <div class="message warning">
+    <p>
+        <strong>Important:</strong> This page has been depreciated, see the <a href="oraclelinux">Oracle Linux</a> update page for instructions.
+    </p>
+    
+</div>
+
     <h2 id="prerequisites">Prerequisites</h2>
 
     <p>For this tutorial, you will need:</p>
@@ -223,7 +230,7 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 
     <p>This commands will trigger an upgrade on your whole OracleLinux system:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>yum update
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>dnf update
 </code></pre></div>    </div>
 
     <h3 id="clear-the-cache">4. Clear the cache</h3>
@@ -285,13 +292,6 @@ November
 
   </div>
   <div class="col4 last push1">
-
-    <div class="message tldr">
-    <p>Your installation is not based on a debian package?</p>
-    
-    <a href="/hosting/upgrade/ce/migrate-to-debian.html" class="button ">Migrate passbolt to debian package</a>
-    
-</div>
 
     <div class="message tldr notice">
     <p>Are you experiencing issues when updating passbolt?</p>

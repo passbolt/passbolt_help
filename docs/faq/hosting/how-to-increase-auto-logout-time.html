@@ -174,9 +174,20 @@ the PHP configuration.</p>
 
 <p>Currently, the code checks every 15 minutes if the browser is idle, using this browser functionality reserved for extensions, which returns “locked” if the system is locked, “idle” if the user has not generated any input for a specified number of seconds, or “active” otherwise.</p>
 
-<p>So if there is no input, the extension will not try to keep the session alive, and will just let it timeout. So if you have a long session default normally you would need to fail several checks to get logged out.</p>
+<p>So if there is no direct interaction with the extension, the extension will not try to keep the session alive, and will just let it timeout. So if you have a long session default normally you would need to fail several checks to get logged out.</p>
 
-<p><strong>Pro tip:</strong> If the browser window is closed (even if the browser application is not closed) you will get logged out right away.</p>
+<div class="message notice">
+    <p>
+    <b><strong>Pro tip:</strong></b> If the browser window is closed (even if the browser application is not closed) you will get logged out right away.
+    </p>
+    
+</div>
+
+<p>The best way to keep your session active is via the remember me feature as shown here.</p>
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/03/remember-me.png" alt="Remember my password" style="max-width:;" />
+    <span class="legend">fig. Remember my password</span>
+</figure>
 
 <p>See the directive 
 <a href="https://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime">session.gc-maxlifetime</a></p>
@@ -545,7 +556,7 @@ session.gc_maxlifetime = 2700
     
     
     <li>
-        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode ?</a>
+        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode?</a>
     </li>
     
     

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Migrate an existing Passbolt PRO to Virtual Machine</title>
+    <title>Passbolt Help | Migrate an existing Passbolt PRO to a new CentOS server</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Migrate an existing Passbolt PRO to Virtual Machine" />
+    <meta property="og:title" content="Migrate an existing Passbolt PRO to a new CentOS server" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine">
+    <link rel="canonical" href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-centos-server">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2021-09-16-migrate-existing-pro-to-vm.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/hosting/upgrade/2023-02-02-migrate-existing-pro-to-centos-server.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -179,7 +179,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-virtual-machine.html"><span>migrate-existing-pro-to-virtual-machine</span></a>
+                        <a href="https://help.passbolt.com/hosting/upgrade/pro/migrate-existing-pro-to-centos-server.html"><span>migrate-existing-pro-to-centos-server</span></a>
                     </div>
                 </li>
                 
@@ -190,7 +190,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Migrate an existing Passbolt PRO to Virtual Machine</h1>
+<h1>Migrate an existing Passbolt PRO to a new CentOS server</h1>
 </div>
 </div>
 
@@ -198,13 +198,14 @@
 <div class="row">
   <div class="col7">
 
-    <p>This document describes how to migrate an existing passbolt to a new Virtual Machine Appliance.</p>
+    <p>This document describes how to migrate an existing passbolt to a new CentOS server.</p>
 
     <h2 id="pre-requisites">Pre-requisites</h2>
 
     <p>For this tutorial, you will need:</p>
     <ul>
       <li>Passbolt installed on an old server</li>
+      <li>A minimal CentOS 7 new server</li>
     </ul>
 
     <h2 id="backup-the-existing-data">Backup the existing data</h2>
@@ -215,127 +216,151 @@
 
     <p>Don’t delete the existing instance yet!</p>
 
-    <h2 id="prepare-the-virtual-machine-appliance-for-migration">Prepare the Virtual Machine Appliance for migration</h2>
+    <h2 id="prepare-the-new-centos-server">Prepare the new CentOS server</h2>
 
-    <div class="message warning">
-    <p>
-        While configuring the database ensure you are configuring the database as it was on your previous server, check the backup of the file passbolt.php for the configuration details.
-    </p>
-    
-</div>
+    <h2 id="package-repository-setup">Package repository setup</h2>
 
-    <p>Passbolt Pro provides a virtual appliance in OVA format. Users can import this appliance on their private virtualization platform and start enjoying Passbolt Pro.
-The VM includes the following software:</p>
-    <ul>
-      <li>Debian 11</li>
-      <li>Nginx</li>
-      <li>Php-fpm</li>
-      <li>Mariadb</li>
-      <li>Passbolt Pro preinstalled</li>
-      <li>certbot</li>
-    </ul>
+    <p>For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt PRO and install it.</p>
 
-    <h2 id="getting-started-with-passbolt-pro-vm">1. Getting started with Passbolt Pro VM</h2>
+    <p><strong>Step 1.</strong> Download our dependencies installation script:</p>
 
-    <h3 id="download">1.1 Download</h3>
-
-    <p>Download the ova and the SHA512SUM.txt:</p>
-
-    <ul>
-      <li><a href="https://www.passbolt.com/pro/download/vm/debian/latest">Passbolt Pro VM</a></li>
-      <li><a href="https://www.passbolt.com/pro/download/vm/debian/latest-checksum">SHA512SUM.txt</a></li>
-    </ul>
-
-    <p>Import the ova file using virtualbox, vmware (ESXi &gt;= 6.0) or any other platform that supports import OVA files.</p>
-
-    <p>Once imported, it is highly recommanded to check if the VM is actually running as Debian (64-bit). In order to do that, just open VM’s settings and it should show on which version it is running on. Now, you should be able to boot the VM and just point to the VM ip address with their web browser to initiate the passbolt install process.</p>
-
-    <h3 id="credentials">1.2 Credentials</h3>
-
-    <p>The appliance performs some actions on the first boot:</p>
-    <ul>
-      <li>Creates ssh host keys</li>
-      <li>Enables ssh</li>
-      <li>Creates a set of random mariadb credentials for the mariadb server installed on the appliance</li>
-      <li>Creates an empty database where passbolt can be installed.</li>
-    </ul>
-
-    <p>For the first login the appliance comes with the following ssh default credentials:</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>VM login credentials:
-username: passbolt
-password: admin
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget "https://download.passbolt.com/pro/installer/passbolt-repo-setup.pro.sh"
 </code></pre></div>    </div>
 
-    <p>The <code class="language-plaintext highlighter-rouge">passbolt</code> user is part of <code class="language-plaintext highlighter-rouge">sudo</code> group. There is no root password, so you cannot
-login in as root. You can however create a shell as root with the default user:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -s
+    <p><strong>Step 2.</strong> Download our SHA512SUM for the installation script:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-pro-SHA512SUM.txt
 </code></pre></div>    </div>
 
-    <h2 id="configure-the-ova-services">Configure the OVA Services</h2>
+    <p><strong>Step 3.</strong> Ensure that the script is valid and execute it:</p>
 
-    <p>Reconfigure the Passbolt package:</p>
-
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dpkg-reconfigure passbolt-pro-server
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sha512sum -c passbolt-pro-SHA512SUM.txt &amp;&amp; sudo bash ./passbolt-repo-setup.pro.sh  || echo \"Bad checksum. Aborting\" &amp;&amp; rm -f passbolt-repo-setup.pro.sh
 </code></pre></div>    </div>
 
-    <h4 id="configure-mariadb">Configure mariadb</h4>
+    <h2 id="install-passbolt-official-linux-package">Install passbolt official linux package</h2>
 
-    <p>If not instructed otherwise passbolt debian package will install mariadb-server locally. This step will help you create
-an empty mariadb database for passbolt to use.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo dnf install passbolt-pro-server
+</code></pre></div>    </div>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql_pro.png" alt="Configure database dialog" style="max-width:450px;" />
-    <span class="legend">fig. Configure database dialog</span>
-</figure>
+    <p>During the installation, you will be asked to accept the Passbolt repository GPG key. You must ensure the fingerprint is exactly the same as the one below:</p>
 
-    <p>The configuration process will ask you for the credentials of the mariadb admin user to create a new database.
-You will find the root password on the server in the file <code class="language-plaintext highlighter-rouge">/root/.mysql_credentials</code>.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Importing GPG key 0xC155581D:
+ Userid     : "Passbolt SA package signing key &lt;contact@passbolt.com&gt;"
+ Fingerprint: 3D1A 0346 C8E1 802F 774A EF21 DE8B 853F C155 581D
+ From       : https://download.passbolt.com/pub.key
+</code></pre></div>    </div>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pro.png" alt="Database admin user dialog" style="max-width:450px;" />
-    <span class="legend">fig. Database admin user dialog</span>
-</figure>
+    <h4 id="mariadb--nginx--ssl-settings">MariaDB / Nginx / SSL settings</h4>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass_pro.png" alt="Database admin user pass dialog" style="max-width:450px;" />
-    <span class="legend">fig. Database admin user pass dialog</span>
-</figure>
+    <p>Passbolt PRO RPM package on CentOS 7 come with a configuration helper tool to prepare MariaDB, Nginx and SSL settings.</p>
 
-    <p>Now we need to create a mariadb user with reduced permissions for passbolt to connect. For the passbolt database user and password, reuse the ones you have in your backup of passbolt.php.</p>
+    <p>You must prepare beforehand your SSL certificates before launching the tool. Be sure to write down the full path to your cert/key combo, as it will be needed in the nginx configuration process.</p>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name_pro.png" alt="Database passbolt user dialog" style="max-width:450px;" />
-    <span class="legend">fig. Database passbolt user dialog</span>
-</figure>
+    <p>Please, notice that for security matters we highly recommend to setup SSL to serve passbolt.</p>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass_pro.png" alt="Database passbolt user pass dialog" style="max-width:450px;" />
-    <span class="legend">fig. Database passbolt user pass dialog</span>
-</figure>
+    <p>Launch <code class="language-plaintext highlighter-rouge">passbolt-configure</code> tool and answer to the questions:</p>
 
-    <p>Lastly we need to create a database for passbolt to use, for that we need to name it:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo /usr/local/bin/passbolt-configure
+</code></pre></div>    </div>
 
-    <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name_pro.png" alt="Database name dialog" style="max-width:450px;" />
-    <span class="legend">fig. Database name dialog</span>
-</figure>
+    <h4 id="mariadb">MariaDB</h4>
 
-    <p>Depending on your needs there are two different options to setup nginx and SSL using the debian package:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>================================================================
+Do you want to configure a local mariadb server on this machine?
+================================================================
+1) yes
+2) no
+#?
+</code></pre></div>    </div>
+
+    <p>Answer <strong>1</strong> for yes if you want to configure a local MariaDB database, otherwise <strong>2</strong> for no if you plan to use an existing one.</p>
+
+    <p>If you chose yes, answer the questions:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=======================================================
+Please enter a new password for the root database user:
+=======================================================
+MariaDB Root Password: ****
+MariaDB Root Password (verify): ****
+======================================================
+Please enter a name for the passbolt database username
+======================================================
+Passbolt database user name:passboltuser
+=======================================================
+Please enter a new password for the mysql passbolt user
+=======================================================
+MariaDB passbolt user password: ****
+MariaDB passbolt user password (verify): ****
+==============================================
+Please enter a name for the passbolt database:
+==============================================
+Passbolt database name:passboltdb
+</code></pre></div>    </div>
+
+    <h4 id="haveged">Haveged</h4>
+
+    <p>On virtualized environments GnuPG happen to find not enough entropy to generate a key. Therefore, Passbolt will not run properly.</p>
+
+    <p>You should consider to install Haveged to speed up the entropy generation. Please check <a href="https://help.passbolt.com/faq/hosting/why-haveged-virtual-env">our FAQ page about this</a> for more informations.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==================
+Install Haveged ?
+==================
+1) yes
+2) no
+#?
+</code></pre></div>    </div>
+
+    <h4 id="nginx">Nginx</h4>
+
+    <p>Please enter the domain name under which passbolt will run.</p>
+
+    <p>Note this hostname will be used as server_name for nginx and as the domain name to register a SSL certificate with let’s encrypt if you don’t have your own SSL certificates.</p>
+
+    <p>If you don’t have a domain name and you do not plan to use let’s encrypt please enter the ip address to access this machine.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>=========
+Hostname: passbolt.domain.tld
+=========
+</code></pre></div>    </div>
+
+    <h4 id="ssl-configuration">SSL configuration</h4>
+
+    <p>3 available choices for SSL configuration:</p>
 
     <ul>
-      <li><a href="/configure/https/pro/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
-      <li><a href="/configure/https/pro/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
+      <li>manual: Prompts for the path of user uploaded ssl certificates and set up nginx</li>
+      <li>auto:   Will issue a free SSL certificate with https://www.letsencrypt.org and set up nginx</li>
+      <li>none:   Do not setup HTTPS at all</li>
     </ul>
 
-    <p>Once you’re done, restart the nginx server:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==================
+Setting up SSL...
+==================
+1) manual
+2) auto
+3) none
+#?
+</code></pre></div>    </div>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo systemctl restart nginx
+    <p>If you choose <strong>1</strong>, you will be prompted for the full path of your certificates:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Enter the path to the SSL certificate: /path/to/certs/cert.pem
+Enter the path to the SSL privkey: /path/to/certs/key.pem
+</code></pre></div>    </div>
+
+    <p>Nginx and MariaDB are now on the way to be configured. You will be notified at the end of the process to connect to the Passbolt web interface to finish the configuration.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>===============================================================
+Installation is almost complete. Please point your browser to
+  https://passbolt.domain.tld to complete the process
+===============================================================
 </code></pre></div>    </div>
 
     <h2 id="migrate-data">Migrate data</h2>
 
-    <p>Load the backup files into the new Debian server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
+    <p>Load the backup files into the new CentOS server, for the following tasks we will consider that the backup files are in your user home directory <code class="language-plaintext highlighter-rouge">~/backup</code></p>
 
     <p>You should have:</p>
 
@@ -357,8 +382,8 @@ You will find the root password on the server in the file <code class="language-
     <p><strong>Step 2.</strong> Restore Passbolt configuration file and ensure rights and ownership are correct:</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/passbolt.php /etc/passbolt
-sudo chown www-data:www-data /etc/passbolt/passbolt.php
-sudo chown www-data:www-data /etc/passbolt/subscription_key.txt
+sudo chown nginx:nginx /etc/passbolt/passbolt.php
+sudo chown nginx:nginx /etc/passbolt/subscription_key.txt
 sudo chmod 440 /etc/passbolt/passbolt.php
 </code></pre></div>    </div>
 
@@ -366,8 +391,8 @@ sudo chmod 440 /etc/passbolt/passbolt.php
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/serverkey.asc /etc/passbolt/gpg
 sudo mv ~/backup/serverkey_private.asc /etc/passbolt/gpg
-sudo chown www-data:www-data /etc/passbolt/gpg/serverkey_private.asc
-sudo chown www-data:www-data /etc/passbolt/gpg/serverkey.asc
+sudo chown nginx:nginx /etc/passbolt/gpg/serverkey_private.asc
+sudo chown nginx:nginx /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey.asc
 sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
 </code></pre></div>    </div>
@@ -375,7 +400,7 @@ sudo chmod 440 /etc/passbolt/gpg/serverkey_private.asc
     <p><strong>Step 4.</strong> Extract the passbolt-avatars.tar.gz archive and set correct rights (if coming from Passbolt version prior to 3.2)</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo tar xzf passbolt-avatars.tar.gz -C /usr/share/php/passbolt/
-sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
+sudo chown -R nginx:nginx /usr/share/php/passbolt/webroot/img/public
 </code></pre></div>    </div>
 
     <p><strong>Step 5.</strong> Load the database</p>
@@ -385,12 +410,12 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 
     <p><strong>Step 6.</strong> Import the server key</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  www-data
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  nginx
 </code></pre></div>    </div>
 
     <p><strong>Step 7.</strong> Migrate passbolt to the latest version</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u nginx /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>
 
     <p><strong>Step 8.</strong> Test passbolt</p>
@@ -399,13 +424,14 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 
     <p>If you are encountering any issues, you can run the following command to assess the status of your instance:</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck"
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u nginx /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck"
 </code></pre></div>    </div>
+
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-September
-16th,
+November
+26th,
 2021.</p>
     </div>
 

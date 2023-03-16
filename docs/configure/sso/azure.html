@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | How to configure SSO with Microsoft (Alpha)</title>
+    <title>Passbolt Help | How to configure SSO with Microsoft</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="How to configure SSO with Microsoft (Alpha)" />
+    <meta property="og:title" content="How to configure SSO with Microsoft" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -228,7 +228,7 @@
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>How to configure SSO with Microsoft (Alpha)</h1>
+<h1>How to configure SSO with Microsoft</h1>
 </div>
 </div>
 
@@ -238,7 +238,7 @@
 
     <div class="message warning">
     <p>
-        <strong>Attention</strong>: This feature is currently in Alpha, and available only in Passbolt Pro Edition.
+        <strong>Attention</strong>: This feature is currently available only in Passbolt Pro Edition.
     </p>
     
 </div>
@@ -246,31 +246,9 @@
     <p>Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png" alt="SSO with Azure (Alpha)" style="max-width:;" />
-    <span class="legend">fig. SSO with Azure (Alpha)</span>
+    <img src="https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png" alt="SSO with Azure" style="max-width:;" />
+    <span class="legend">fig. SSO with Azure</span>
 </figure>
-
-    <h2 id="why-is-it-in-alpha-what-does-it-mean">Why is it in Alpha? What does it mean?</h2>
-
-    <div class="message notice">
-    <p>
-    TL;DR: The feature is in alpha and for Pro Edition customers only because it is undergoing real life testing and
-a security audit.
-    </p>
-    
-</div>
-
-    <p>The feature is currently disabled by default and requires Passbolt browser extension version
-3.9.1 (Note: this extension will be published on 19th of January 2023). To test the latest changes you can also build the 
-latest extension <a href="https://github.com/passbolt/browser_extension">from source</a>.</p>
-
-    <p>The feature is provided to customers who want to test this first version and provide feedback. Feel free to report
-issues at <a href="mailto:support@passbolt.com">support@passbolt.com</a> or on the <a href="https://community.passbolt.com">community forum</a>.</p>
-
-    <p>The goal is to publish a “Beta” version with 3.10 or 3.11, which will be available without being hidden behind a 
-feature flag. It will be visible directly in the UI. Then at end of February the feature will undergo an independent 
-3rd party security audit by Cure53, and once the security and community reported issue fixes are rolled out (if any), 
-the “Beta” label will be removed. It will then be made available in Passbolt Cloud.</p>
 
     <h2 id="how-does-it-work">How does it work?</h2>
 
@@ -281,7 +259,7 @@ with a non-extractable symetric key stored in the browser extension local storag
     <p>To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
 <a href="https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j">developer documentation</a>.</p>
 
-    <h2 id="how-to-enable-sso-azure-plugin">How to enable SSO Azure plugin?</h2>
+    <h2 id="how-to-configure-the-plugin">How to configure the plugin?</h2>
 
     <div class="message warning">
     <p>
@@ -290,23 +268,9 @@ with a non-extractable symetric key stored in the browser extension local storag
     
 </div>
 
-    <p>If you use Docker you can enable the SSO plugin setting the <code class="language-plaintext highlighter-rouge">PASSBOLT_PLUGINS_SSO_ENABLED</code> environment variable to <code class="language-plaintext highlighter-rouge">1</code>. Otherwise you will need
-to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</code> file and add the following:</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Locate this section
-'passbolt' =&gt; [
-    // and add...
-    'plugins' =&gt; [
-        'sso' =&gt; [
-            'enabled' =&gt; true
-        ],
-    ],
-</code></pre></div>    </div>
-
-    <h2 id="how-to-configure-the-plugin">How to configure the plugin?</h2>
-
     <p>Open both the Azure portal and Passbolt:</p>
     <ul>
-      <li>Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.</li>
+      <li>You will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.</li>
       <li>You will need to also login to the <a href="https://portal.azure.com">Azure Portal</a>.</li>
     </ul>
 
@@ -392,8 +356,8 @@ in order for the SSO option to be proposed to them at future logins.</p>
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-January
-18th,
+March
+15th,
 2023.</p>
     </div>
 

@@ -119,7 +119,7 @@ sudo systemctl start nginx
 
 {% include aside/message.html
 class="tldr"
-content="Is your installation not based the Ubuntu package?"
+content="Is your installation not based on the Ubuntu package?"
 link="/hosting/upgrade/ce/migrate-to-ubuntu.html"
 ask="Migrate passbolt to Ubuntu package"
 %}

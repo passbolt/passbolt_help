@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Extension v3 release issues</title>
+    <title>Passbolt Help | Passbolt v3 release issues</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,7 +18,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Extension v3 release issues" />
+    <meta property="og:title" content="Passbolt v3 release issues" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
@@ -300,7 +300,7 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Extension v3 release issues</h1>
+<h1>Passbolt v3 release issues</h1>
 </div>
 </div>
 
@@ -311,16 +311,17 @@ February
 
     <h3 id="what-happened">What happened?</h3>
 
-    <p>On Wednesday 27th of January 2021, the team started the rollout of the V3 webextension using the auto update 
+    <p>On Wednesday 27th of January 2021, the team started the rollout of the passbolt API v3 which included an
+update of the webextension. The extension started rolling out using the auto update 
 functionalities provided by the Chrome and Firefox web store. This version included a major overhaul of the data
 validation logic, including a more strict validation of data coming from the server. Users with databases data that 
 were breaking relational constraints, experienced issues rendering the software partially or completely unusable.</p>
 
     <h3 id="why-was-this-happening">Why was this happening?</h3>
 
-    <p>Typically, some older instances with data coming from v1 contained some data integrity issues that were not addressed 
+    <p>Typically, some older instances with data coming from passbolt v1 contained some data integrity issues that were not addressed 
 by v2 migrations. Users that also manually edited data in the database, were also affected. Much of these issues 
-could be solved running the “data cleanup” script provided with the Passbolt API.</p>
+could be solved running the “data cleanup” script provided with the passbolt API.</p>
 
     <p>Additionally, some users are using self-made public keys that use RSA-sign only keys to encrypt the data, an unsecure 
 scheme that has been made incompatible with the latest version of OpenPGP.js 
@@ -343,7 +344,7 @@ invalid data, to make sure the application remains usable even when some or all 
     <h4 id="th-of-january">27th of January:</h4>
 
     <ul>
-      <li>08:30 CET: Web extension v3 published on webstore</li>
+      <li>08:30 CET: Passbolt web extension v3 published on webstore</li>
       <li>10:00 CET: Some users are reporting issues on forum as automatic rollout is in progress</li>
       <li>11:30 CET: v3.0.1 hotfix published on webstore fixing avatar and tag issues</li>
       <li>13:00 CET: A general post on the community forum is created providing workarounds</li>

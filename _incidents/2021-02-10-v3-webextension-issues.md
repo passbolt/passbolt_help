@@ -1,7 +1,7 @@
 ---
-title: Extension v3 release issues
+title: Passbolt v3 release issues
 date: 2021-02-10 00:00:00 Z
-description: Issues with v3 release of webextension
+description: Issues with Passbolt v3 release of webextension
 categories: [incidents]
 layout: incidents
 slug: 2021-02-10 Extension v3 release issues 
@@ -15,16 +15,17 @@ permalink: /incidents/20210210_v3_webextension_issues
 
 ### What happened?
 
-On Wednesday 27th of January 2021, the team started the rollout of the V3 webextension using the auto update 
+On Wednesday 27th of January 2021, the team started the rollout of the passbolt API v3 which included an
+update of the webextension. The extension started rolling out using the auto update 
 functionalities provided by the Chrome and Firefox web store. This version included a major overhaul of the data
 validation logic, including a more strict validation of data coming from the server. Users with databases data that 
 were breaking relational constraints, experienced issues rendering the software partially or completely unusable.
 
 ### Why was this happening?
 
-Typically, some older instances with data coming from v1 contained some data integrity issues that were not addressed 
+Typically, some older instances with data coming from passbolt v1 contained some data integrity issues that were not addressed 
 by v2 migrations. Users that also manually edited data in the database, were also affected. Much of these issues 
-could be solved running the “data cleanup” script provided with the Passbolt API.
+could be solved running the “data cleanup” script provided with the passbolt API.
 
 Additionally, some users are using self-made public keys that use RSA-sign only keys to encrypt the data, an unsecure 
 scheme that has been made incompatible with the latest version of OpenPGP.js 
@@ -46,7 +47,7 @@ We will be adding additional data integrity checks and self-repair mechanisms as
 
 #### 27th of January:
 
-*   08:30 CET: Web extension v3 published on webstore
+*   08:30 CET: Passbolt web extension v3 published on webstore
 *   10:00 CET: Some users are reporting issues on forum as automatic rollout is in progress
 *   11:30 CET: v3.0.1 hotfix published on webstore fixing avatar and tag issues
 *   13:00 CET: A general post on the community forum is created providing workarounds

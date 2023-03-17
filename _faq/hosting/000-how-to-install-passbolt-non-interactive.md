@@ -1,5 +1,5 @@
 ---
-title: How to install passbolt in non-interactive mode ?
+title: How to install passbolt in non-interactive mode?
 slug: how-to-install-passbolt-non-interactive
 layout: faq
 category: hosting
@@ -9,7 +9,30 @@ date: 2022-03-02 00:00:00 Z
 
 The non-interactive mode is useful for automating passbolt installation and for users with specific needs. It is available only on Debian and Ubuntu operating systems.
 
-The commands of this page assume you want to install passbolt CE. Replace `passbolt-ce-server` with `passbolt-pro-server` if you plan to install the PRO version.
+The commands of this page assume you want to install passbolt CE. Replace `ce` with `pro` if you plan to install the PRO version.
+
+### Package repository setup
+
+For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt and install it.
+
+**Step 1.** Download our dependencies installation script:
+
+```
+wget "https://download.passbolt.com/ce/installer/passbolt-repo-setup.ce.sh"
+```
+
+**Step 2.** Download our SHA512SUM for the installation script:
+
+```
+wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-ce-SHA512SUM.txt
+```
+
+**Step 3.** Ensure that the script is valid and execute it:
+
+```
+sha512sum -c passbolt-ce-SHA512SUM.txt && sudo bash ./passbolt-repo-setup.ce.sh {% if migrate == 'yes' %} --passbolt-migrate {% endif %} || echo \"Bad checksum. Aborting\" && rm -f passbolt-repo-setup.ce.sh
+```
 
 ### Simple mode
 

@@ -1,191 +1,133 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-03-15T16:28:12+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Docker install</title><link href="https://help.passbolt.com/hosting/install/pro/docker.html" rel="alternate" type="text/html" title="Docker install" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/docker.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-03-17T10:35:15+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;b&gt;Important:&lt;/b&gt; Installing Passbolt with Docker is considered a somewhat advanced method. Using this method assumes you are familiar with Docker and have run other applications with Docker. If you do not have experience working with Docker we recommend you use another of our installation methods.
+        &lt;strong&gt;Attention&lt;/strong&gt;: This feature is currently available only in Passbolt Pro Edition.
     &lt;/p&gt;
     
 &lt;/div&gt;
 
-    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
+    &lt;p&gt;Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.&lt;/p&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;docker: &lt;a href=&quot;https://docs.docker.com/get-docker/&quot; target=&quot;_blank&quot;&gt;https://docs.docker.com/get-docker/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;docker-compose: &lt;a href=&quot;https://docs.docker.com/compose/install/&quot; target=&quot;_blank&quot;&gt;https://docs.docker.com/compose/install/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/install/linux-postinstall/&quot; target=&quot;_blank&quot;&gt;A Linux user able to run docker commands without sudo&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
-      &lt;li&gt;a working NTP service to avoid GPG authentication issues&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png&quot; alt=&quot;SSO with Azure&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. SSO with Azure&lt;/span&gt;
+&lt;/figure&gt;
 
-    &lt;p&gt;FAQ pages:&lt;/p&gt;
+    &lt;h2 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h2&gt;
 
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/why-haveged-virtual-env&quot; target=&quot;_blank&quot;&gt;Considerations about entropy&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;In short Passbolt SSO leverages Azure OAuth2/OpenID on top of the existing &lt;a href=&quot;/api/authentication&quot;&gt;challenge-based authentication&lt;/a&gt;.
+The user by logging in Microsoft unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted
+with a non-extractable symetric key stored in the browser extension local storage client side.&lt;/p&gt;
 
-    &lt;h2 id=&quot;docker-compose&quot;&gt;docker-compose&lt;/h2&gt;
+    &lt;p&gt;To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
+&lt;a href=&quot;https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j&quot;&gt;developer documentation&lt;/a&gt;.&lt;/p&gt;
 
-    &lt;p&gt;The easiest and recommended way to deploy your passbolt stack is to use docker-compose.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Download our docker-compose.yml example file&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://download.passbolt.com/pro/docker/docker-compose-pro.yaml
-wget https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-pro-SHA512SUM.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure the file has not been corrupted by verifying its shasum&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sha512sum -c docker-compose-pro-SHA512SUM.txt
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Must return:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose-pro.yaml: OK
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;h2 id=&quot;how-to-configure-the-plugin&quot;&gt;How to configure the plugin?&lt;/h2&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;b&gt;Warning:&lt;/b&gt; If the &lt;i&gt;shasum&lt;/i&gt; command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on &lt;a href=&quot;https://community.passbolt.com&quot;&gt;our community forum&lt;/a&gt;.
+        &lt;strong&gt;Attention&lt;/strong&gt;: This feature requires HTTPS to work.
     &lt;/p&gt;
     
 &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subscription_key.txt&lt;/code&gt; file containing your subscription key.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Configure environment variables in docker-compose-pro.yaml file to customize your instance.&lt;/p&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    &lt;b&gt;Notice:&lt;/b&gt; By default the docker-compose.yaml file is set to &lt;strong&gt;latest&lt;/strong&gt;. We strongly recommend 
-    changing that to the &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/tags&quot; target=&quot;_blank&quot;&gt;tag&lt;/a&gt; for the version you want to install.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APP_FULL_BASE_URL&lt;/code&gt; environment variable is set by default to &lt;a href=&quot;https://passbolt.local&quot;&gt;https://passbolt.local&lt;/a&gt;, using a self-signed certificate.&lt;/p&gt;
-
-    &lt;p&gt;Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.&lt;/p&gt;
-
-    &lt;p&gt;You must configure also SMTP settings to be able to receive notifications and recovery emails. Please find below
-the most used environment variables for this purpose:&lt;/p&gt;
-
-    &lt;table class=&quot;table-parameters&quot;&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Variable name&lt;/th&gt;
-          &lt;th&gt;Description&lt;/th&gt;
-          &lt;th&gt;Default value&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_DEFAULT_FROM_NAME&lt;/td&gt;
-          &lt;td&gt;From email username&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;Passbolt&apos;&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_DEFAULT_FROM&lt;/td&gt;
-          &lt;td&gt;From email address&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;you@localhost&apos;&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_HOST&lt;/td&gt;
-          &lt;td&gt;Server hostname&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;localhost&apos;&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_PORT&lt;/td&gt;
-          &lt;td&gt;Server port&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;25&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_USERNAME&lt;/td&gt;
-          &lt;td&gt;Username for email server auth&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_PASSWORD&lt;/td&gt;
-          &lt;td&gt;Password for email server auth&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_TLS&lt;/td&gt;
-          &lt;td&gt;Set tls&lt;/td&gt;
-          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    &lt;p&gt;For more information on which environment variables are available on passbolt, please check the &lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;passbolt environment variable reference&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Start your containers&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose -f docker-compose-pro.yaml up -d
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Create first admin user&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker-compose &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; docker-compose-pro.yaml &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;passbolt su &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                passbolt register_user &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -u &amp;lt;your@email.com&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -f &amp;lt;yourname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -l &amp;lt;surname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
-                                -r admin&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/sh www-data
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It will output a link similar to the below one that can be pasted on the browser to finalize user registration:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://my.domain.tld/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;At this point, you should have a working docker setup running on the &lt;strong&gt;latest&lt;/strong&gt; tag. However, it is recommended that users &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/tags&quot; target=&quot;_blank&quot;&gt;pull the tags pointing to specific passbolt versions&lt;/a&gt; when running in environments other than testing.&lt;/p&gt;
-
-    &lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
-
-    &lt;p&gt;Docker FAQs:&lt;/p&gt;
-
+    &lt;p&gt;Open both the Azure portal and Passbolt:&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/email/setup&quot; target=&quot;_blank&quot;&gt;How to configure SMTP to receive emails&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/docker/manual.html&quot; target=&quot;_blank&quot;&gt;How to configure HTTPS with my own certificates in docker&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/docker/auto.html&quot; target=&quot;_blank&quot;&gt;How to configure HTTPS with Let’s Encrypt in docker&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/how-to-use-rootless-images&quot; target=&quot;_blank&quot;&gt;How to use rootless images&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/troubleshoot-docker&quot; target=&quot;_blank&quot;&gt;Troubleshoot Docker&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;Passbolt reference environment variables&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/docker-secrets&quot; target=&quot;_blank&quot;&gt;Docker Secrets&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;You will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.&lt;/li&gt;
+      &lt;li&gt;You will need to also login to the &lt;a href=&quot;https://portal.azure.com&quot;&gt;Azure Portal&lt;/a&gt;.&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;p&gt;Passbolt docker repository:&lt;/p&gt;
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-admin.png&quot; alt=&quot;Passbolt administration&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt administration&lt;/span&gt;
+&lt;/figure&gt;
 
+    &lt;p&gt;You must ensure users are present both in passbolt and Azure AD, the email is used to correlate accounts.&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/passbolt/passbolt_docker/&quot; target=&quot;_blank&quot;&gt;https://github.com/passbolt/passbolt_docker/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Users that are not present in Azure AD but are present in passbolt will not be able to use SSO (a message on microsoft side will be shown).&lt;/li&gt;
+      &lt;li&gt;Users that are not present in passbolt but are present in Azure AD will not be able to login in passbolt (a message on passbolt side will be shown).&lt;/li&gt;
     &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-0-azure-home.png&quot; alt=&quot;Azure Portal&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Azure Portal&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;configure-azure-ad&quot;&gt;Configure Azure AD&lt;/h3&gt;
+    &lt;p&gt;In your Azure AD portal:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Go to Azure Directory service (or set one up)
+        &lt;ul&gt;
+          &lt;li&gt;Make sure your user email in Azure Directory matches the one in [assbolt&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Copy your Tenant ID (a UUID) and paste it in passbolt&lt;/li&gt;
+      &lt;li&gt;Go to App Registrations &amp;gt; New registration OR “+ Add” &amp;gt; “App Registration”&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-1-azure-directory.png&quot; alt=&quot;Azure AD&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Azure AD&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Register a new application&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Give it a Name such as “Passbolt SSO”&lt;/li&gt;
+      &lt;li&gt;Select the supported account type you desire. “Accounts in this organizational directory only” is a good default.&lt;/li&gt;
+      &lt;li&gt;Copy the redirect url from Passbolt to Azure, it should be something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://yourdomain.com/sso/azure/redirect&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;In “Select a platform”, select “Web”&lt;/li&gt;
+      &lt;li&gt;Click register, you should be back on the Azure application page&lt;/li&gt;
+      &lt;li&gt;Copy the application (client) ID back to your passbolt instance&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-2-create-app.png&quot; alt=&quot;App registration&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. App registration&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Add a secret for the application&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;On the Azure application page, click on “Certificate and secrets”&lt;/li&gt;
+      &lt;li&gt;Click on “New client secret”&lt;/li&gt;
+      &lt;li&gt;Choose a name like “Passbolt SSO Secret”&lt;/li&gt;
+      &lt;li&gt;Select an expiry date&lt;/li&gt;
+      &lt;li&gt;Copy the secret value and expiry back to your passbolt instance&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-4-create-secret.png&quot; alt=&quot;App secret creation&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. App secret creation&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;In your passbolt instance:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Click save settings&lt;/li&gt;
+      &lt;li&gt;A dialog will open with Microsoft button, click on it&lt;/li&gt;
+      &lt;li&gt;A popup will open asking you to perform the authentication with Microsoft&lt;/li&gt;
+      &lt;li&gt;Once the authentication is successful you can save the settings&lt;/li&gt;
+      &lt;li&gt;Once the settings have been saved, you can log out, you should then see an SSO option&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-test.png&quot; alt=&quot;Passbolt SSO test settings&quot; style=&quot;max-width:;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt SSO test settings&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Please note that users must successfully perform a login using their current passphrase &lt;em&gt;after SSO has been activated&lt;/em&gt;
+in order for the SSO option to be proposed to them at future logins.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
       &lt;p&gt;This article was last updated on 
-February
-6th,
+March
+15th,
 2023.&lt;/p&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
   &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;tldr&quot;&gt;
-    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on docker hub&lt;/h4&gt;
-    &lt;p&gt;
-        &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
-            &lt;img alt=&quot;Docker Logo&quot; src=&quot;/assets/img/third_party/docker_small_h.png&quot; style=&quot;&quot; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;
-    &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; class=&quot;primary button&quot;&gt;
-        Get passbolt container!
-    &lt;/a&gt;
-&lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
     &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
@@ -195,7 +137,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="sso" /><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Passbolt Pro Edition since v2.5 and CE since 3.9 support Duo as a multi factor authentication option.
@@ -417,7 +359,6 @@ February
 
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/why-haveged-virtual-env&quot; target=&quot;_blank&quot;&gt;Considerations about entropy&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h2 id=&quot;helm-install&quot;&gt;Helm install&lt;/h2&gt;
@@ -434,7 +375,7 @@ February
     &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Configure values file to customize your instance.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Configure values file to customize your instance .&lt;/p&gt;
 
     &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APP_FULL_BASE_URL&lt;/code&gt; environment variable is set by default to &lt;a href=&quot;https://passbolt.local&quot;&gt;https://passbolt.local&lt;/a&gt;, using a self-signed certificate.&lt;/p&gt;
 
@@ -577,7 +518,6 @@ February
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/why-haveged-virtual-env&quot; target=&quot;_blank&quot;&gt;Considerations about entropy&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;h2 id=&quot;docker-compose&quot;&gt;docker-compose&lt;/h2&gt;
@@ -747,172 +687,193 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">How to configure SSO with Microsoft (Alpha)</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft (Alpha)" /><published>2023-01-18T01:00:00+01:00</published><updated>2023-01-18T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Docker install</title><link href="https://help.passbolt.com/hosting/install/pro/docker.html" rel="alternate" type="text/html" title="Docker install" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/pro/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Attention&lt;/strong&gt;: This feature is currently in Alpha, and available only in Passbolt Pro Edition.
+        &lt;b&gt;Important:&lt;/b&gt; Installing Passbolt with Docker is considered a somewhat advanced method. Using this method assumes you are familiar with Docker and have run other applications with Docker. If you do not have experience working with Docker we recommend you use another of our installation methods.
     &lt;/p&gt;
     
 &lt;/div&gt;
 
-    &lt;p&gt;Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.&lt;/p&gt;
+    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
 
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png&quot; alt=&quot;SSO with Azure (Alpha)&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSO with Azure (Alpha)&lt;/span&gt;
-&lt;/figure&gt;
+    &lt;ul&gt;
+      &lt;li&gt;docker: &lt;a href=&quot;https://docs.docker.com/get-docker/&quot; target=&quot;_blank&quot;&gt;https://docs.docker.com/get-docker/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;docker-compose: &lt;a href=&quot;https://docs.docker.com/compose/install/&quot; target=&quot;_blank&quot;&gt;https://docs.docker.com/compose/install/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/install/linux-postinstall/&quot; target=&quot;_blank&quot;&gt;A Linux user able to run docker commands without sudo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
+      &lt;li&gt;a working NTP service to avoid GPG authentication issues&lt;/li&gt;
+    &lt;/ul&gt;
 
-    &lt;h2 id=&quot;why-is-it-in-alpha-what-does-it-mean&quot;&gt;Why is it in Alpha? What does it mean?&lt;/h2&gt;
+    &lt;p&gt;FAQ pages:&lt;/p&gt;
 
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    TL;DR: The feature is in alpha and for Pro Edition customers only because it is undergoing real life testing and
-a security audit.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
 
-    &lt;p&gt;The feature is currently disabled by default and requires Passbolt browser extension version
-3.9.1 (Note: this extension will be published on 19th of January 2023). To test the latest changes you can also build the 
-latest extension &lt;a href=&quot;https://github.com/passbolt/browser_extension&quot;&gt;from source&lt;/a&gt;.&lt;/p&gt;
+    &lt;h2 id=&quot;docker-compose&quot;&gt;docker-compose&lt;/h2&gt;
 
-    &lt;p&gt;The feature is provided to customers who want to test this first version and provide feedback. Feel free to report
-issues at &lt;a href=&quot;mailto:support@passbolt.com&quot;&gt;support@passbolt.com&lt;/a&gt; or on the &lt;a href=&quot;https://community.passbolt.com&quot;&gt;community forum&lt;/a&gt;.&lt;/p&gt;
+    &lt;p&gt;The easiest and recommended way to deploy your passbolt stack is to use docker-compose.&lt;/p&gt;
 
-    &lt;p&gt;The goal is to publish a “Beta” version with 3.10 or 3.11, which will be available without being hidden behind a 
-feature flag. It will be visible directly in the UI. Then at end of February the feature will undergo an independent 
-3rd party security audit by Cure53, and once the security and community reported issue fixes are rolled out (if any), 
-the “Beta” label will be removed. It will then be made available in Passbolt Cloud.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Download our docker-compose.yml example file&lt;/p&gt;
 
-    &lt;h2 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h2&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://download.passbolt.com/pro/docker/docker-compose-pro.yaml
+wget https://github.com/passbolt/passbolt_docker/releases/latest/download/docker-compose-pro-SHA512SUM.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;p&gt;In short Passbolt SSO leverages Azure OAuth2/OpenID on top of the existing &lt;a href=&quot;/api/authentication&quot;&gt;challenge-based authentication&lt;/a&gt;.
-The user by logging in Microsoft unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted
-with a non-extractable symetric key stored in the browser extension local storage client side.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Ensure the file has not been corrupted by verifying its shasum&lt;/p&gt;
 
-    &lt;p&gt;To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
-&lt;a href=&quot;https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j&quot;&gt;developer documentation&lt;/a&gt;.&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ sha512sum -c docker-compose-pro-SHA512SUM.txt
 
-    &lt;h2 id=&quot;how-to-enable-sso-azure-plugin&quot;&gt;How to enable SSO Azure plugin?&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Must return:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose-pro.yaml: OK
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
     &lt;p&gt;
-        &lt;strong&gt;Attention&lt;/strong&gt;: This feature requires HTTPS to work.
+        &lt;b&gt;Warning:&lt;/b&gt; If the &lt;i&gt;shasum&lt;/i&gt; command output is not correct, the downloaded file has been corrupted. Retry step 1 or ask for support on &lt;a href=&quot;https://community.passbolt.com&quot;&gt;our community forum&lt;/a&gt;.
     &lt;/p&gt;
     
 &lt;/div&gt;
 
-    &lt;p&gt;If you use Docker you can enable the SSO plugin setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PASSBOLT_PLUGINS_SSO_ENABLED&lt;/code&gt; environment variable to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;. Otherwise you will need
-to edit your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passbolt.php&lt;/code&gt; file and add the following:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;// Locate this section
-&apos;passbolt&apos; =&amp;gt; [
-    // and add...
-    &apos;plugins&apos; =&amp;gt; [
-        &apos;sso&apos; =&amp;gt; [
-            &apos;enabled&apos; =&amp;gt; true
-        ],
-    ],
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;subscription_key.txt&lt;/code&gt; file containing your subscription key.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Configure environment variables in docker-compose-pro.yaml file to customize your instance.&lt;/p&gt;
+
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    &lt;b&gt;Notice:&lt;/b&gt; By default the docker-compose.yaml file is set to &lt;strong&gt;latest&lt;/strong&gt;. We strongly recommend 
+    changing that to the &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/tags&quot; target=&quot;_blank&quot;&gt;tag&lt;/a&gt; for the version you want to install.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APP_FULL_BASE_URL&lt;/code&gt; environment variable is set by default to &lt;a href=&quot;https://passbolt.local&quot;&gt;https://passbolt.local&lt;/a&gt;, using a self-signed certificate.&lt;/p&gt;
+
+    &lt;p&gt;Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.&lt;/p&gt;
+
+    &lt;p&gt;You must configure also SMTP settings to be able to receive notifications and recovery emails. Please find below
+the most used environment variables for this purpose:&lt;/p&gt;
+
+    &lt;table class=&quot;table-parameters&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Variable name&lt;/th&gt;
+          &lt;th&gt;Description&lt;/th&gt;
+          &lt;th&gt;Default value&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_DEFAULT_FROM_NAME&lt;/td&gt;
+          &lt;td&gt;From email username&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;Passbolt&apos;&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_DEFAULT_FROM&lt;/td&gt;
+          &lt;td&gt;From email address&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;you@localhost&apos;&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_HOST&lt;/td&gt;
+          &lt;td&gt;Server hostname&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&apos;localhost&apos;&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_PORT&lt;/td&gt;
+          &lt;td&gt;Server port&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;25&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_USERNAME&lt;/td&gt;
+          &lt;td&gt;Username for email server auth&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_PASSWORD&lt;/td&gt;
+          &lt;td&gt;Password for email server auth&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;EMAIL_TRANSPORT_DEFAULT_TLS&lt;/td&gt;
+          &lt;td&gt;Set tls&lt;/td&gt;
+          &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;null&lt;/code&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;For more information on which environment variables are available on passbolt, please check the &lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;passbolt environment variable reference&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 5.&lt;/strong&gt; Start your containers&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker-compose -f docker-compose-pro.yaml up -d
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
-    &lt;h2 id=&quot;how-to-configure-the-plugin&quot;&gt;How to configure the plugin?&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;Step 6.&lt;/strong&gt; Create first admin user&lt;/p&gt;
 
-    &lt;p&gt;Open both the Azure portal and Passbolt:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker-compose &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; docker-compose-pro.yaml &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;passbolt su &lt;span class=&quot;nt&quot;&gt;-m&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/usr/share/php/passbolt/bin/cake &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+                                passbolt register_user &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+                                -u &amp;lt;your@email.com&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+                                -f &amp;lt;yourname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+                                -l &amp;lt;surname&amp;gt; &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;
+                                -r admin&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; /bin/sh www-data
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;It will output a link similar to the below one that can be pasted on the browser to finalize user registration:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://my.domain.tld/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;At this point, you should have a working docker setup running on the &lt;strong&gt;latest&lt;/strong&gt; tag. However, it is recommended that users &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/tags&quot; target=&quot;_blank&quot;&gt;pull the tags pointing to specific passbolt versions&lt;/a&gt; when running in environments other than testing.&lt;/p&gt;
+
+    &lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
+
+    &lt;p&gt;Docker FAQs:&lt;/p&gt;
+
     &lt;ul&gt;
-      &lt;li&gt;Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.&lt;/li&gt;
-      &lt;li&gt;You will need to also login to the &lt;a href=&quot;https://portal.azure.com&quot;&gt;Azure Portal&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/email/setup&quot; target=&quot;_blank&quot;&gt;How to configure SMTP to receive emails&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/docker/manual.html&quot; target=&quot;_blank&quot;&gt;How to configure HTTPS with my own certificates in docker&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/pro/docker/auto.html&quot; target=&quot;_blank&quot;&gt;How to configure HTTPS with Let’s Encrypt in docker&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/how-to-use-rootless-images&quot; target=&quot;_blank&quot;&gt;How to use rootless images&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/troubleshoot-docker&quot; target=&quot;_blank&quot;&gt;Troubleshoot Docker&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;Passbolt reference environment variables&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/docker-secrets&quot; target=&quot;_blank&quot;&gt;Docker Secrets&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-admin.png&quot; alt=&quot;Passbolt administration&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt administration&lt;/span&gt;
-&lt;/figure&gt;
+    &lt;p&gt;Passbolt docker repository:&lt;/p&gt;
 
-    &lt;p&gt;You must ensure users are present both in passbolt and Azure AD, the email is used to correlate accounts.&lt;/p&gt;
     &lt;ul&gt;
-      &lt;li&gt;Users that are not present in Azure AD but are present in passbolt will not be able to use SSO (a message on microsoft side will be shown).&lt;/li&gt;
-      &lt;li&gt;Users that are not present in passbolt but are present in Azure AD will not be able to login in passbolt (a message on passbolt side will be shown).&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/passbolt/passbolt_docker/&quot; target=&quot;_blank&quot;&gt;https://github.com/passbolt/passbolt_docker/&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-0-azure-home.png&quot; alt=&quot;Azure Portal&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Azure Portal&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;configure-azure-ad&quot;&gt;Configure Azure AD&lt;/h3&gt;
-    &lt;p&gt;In your Azure AD portal:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Go to Azure Directory service (or set one up)
-        &lt;ul&gt;
-          &lt;li&gt;Make sure your user email in Azure Directory matches the one in [assbolt&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Copy your Tenant ID (a UUID) and paste it in passbolt&lt;/li&gt;
-      &lt;li&gt;Go to App Registrations &amp;gt; New registration OR “+ Add” &amp;gt; “App Registration”&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-1-azure-directory.png&quot; alt=&quot;Azure AD&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Azure AD&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Register a new application&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Give it a Name such as “Passbolt SSO”&lt;/li&gt;
-      &lt;li&gt;Select the supported account type you desire. “Accounts in this organizational directory only” is a good default.&lt;/li&gt;
-      &lt;li&gt;Copy the redirect url from Passbolt to Azure, it should be something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://yourdomain.com/sso/azure/redirect&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;In “Select a platform”, select “Web”&lt;/li&gt;
-      &lt;li&gt;Click register, you should be back on the Azure application page&lt;/li&gt;
-      &lt;li&gt;Copy the application (client) ID back to your passbolt instance&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-2-create-app.png&quot; alt=&quot;App registration&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. App registration&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Add a secret for the application&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;On the Azure application page, click on “Certificate and secrets”&lt;/li&gt;
-      &lt;li&gt;Click on “New client secret”&lt;/li&gt;
-      &lt;li&gt;Choose a name like “Passbolt SSO Secret”&lt;/li&gt;
-      &lt;li&gt;Select an expiry date&lt;/li&gt;
-      &lt;li&gt;Copy the secret value and expiry back to your passbolt instance&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-4-create-secret.png&quot; alt=&quot;App secret creation&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. App secret creation&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;In your passbolt instance:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Click save settings&lt;/li&gt;
-      &lt;li&gt;A dialog will open with Microsoft button, click on it&lt;/li&gt;
-      &lt;li&gt;A popup will open asking you to perform the authentication with Microsoft&lt;/li&gt;
-      &lt;li&gt;Once the authentication is successful you can save the settings&lt;/li&gt;
-      &lt;li&gt;Once the settings have been saved, you can log out, you should then see an SSO option&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-test.png&quot; alt=&quot;Passbolt SSO test settings&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt SSO test settings&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Please note that users must successfully perform a login using their current passphrase &lt;em&gt;after SSO has been activated&lt;/em&gt;
-in order for the SSO option to be proposed to them at future logins.&lt;/p&gt;
 
     &lt;div class=&quot;last-updated&quot;&gt;
       &lt;h3&gt;Last updated&lt;/h3&gt;
       &lt;p&gt;This article was last updated on 
-January
-18th,
+February
+6th,
 2023.&lt;/p&gt;
     &lt;/div&gt;
 
   &lt;/div&gt;
   &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;tldr&quot;&gt;
+    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on docker hub&lt;/h4&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
+            &lt;img alt=&quot;Docker Logo&quot; src=&quot;/assets/img/third_party/docker_small_h.png&quot; style=&quot;&quot; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;a href=&quot;https://hub.docker.com/r/passbolt/passbolt/&quot; class=&quot;primary button&quot;&gt;
+        Get passbolt container!
+    &lt;/a&gt;
+&lt;/div&gt;
 
     &lt;div class=&quot;message tldr notice&quot;&gt;
     &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
@@ -922,7 +883,7 @@ January
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="sso" /><summary type="html"></summary></entry><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;figure&gt;
@@ -1117,7 +1078,6 @@ August
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/why-haveged-virtual-env&quot; target=&quot;_blank&quot;&gt;Considerations about entropy&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -1452,7 +1412,6 @@ July
     &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/why-haveged-virtual-env&quot; target=&quot;_blank&quot;&gt;Considerations about entropy&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -1750,127 +1709,7 @@ July
 
   &lt;/div&gt;
 
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/pro/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
-Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
-    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
-    scenarios like https://mydomain.com/passbolt are not supported by default
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
-
-    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
-
-    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;Execute this command:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb/mysql setup question and go for the nginx setup&lt;/p&gt;
-
-    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
-      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx_pro.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices_pro.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain_pro.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email_pro.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
-
-    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-March
-29th,
-2022.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="aws" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/ce/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/ce/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -1990,4 +1829,124 @@ March
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="aws" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="aws" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/pro/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/pro/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/pro/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
+Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
+    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
+    scenarios like https://mydomain.com/passbolt are not supported by default
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
+
+    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
+
+    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Execute this command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb/mysql setup question and go for the nginx setup&lt;/p&gt;
+
+    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
+      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx_pro.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices_pro.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain_pro.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email_pro.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
+
+    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+March
+29th,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="pro" /><category term="aws" /><summary type="html"></summary></entry></feed>

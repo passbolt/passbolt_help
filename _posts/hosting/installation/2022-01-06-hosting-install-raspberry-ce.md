@@ -9,7 +9,6 @@ icon: fa-raspberry
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
-new: true
 slug: raspberry
 permalink: /:categories/:slug.html
 ---

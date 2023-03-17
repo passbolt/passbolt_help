@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v3.12.0 | Introspective</title>
+    <link>https://help.passbolt.com/releases/pro/introspective</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/introspective</guid>
+    <description>Release 3.12 for passbolt includes several new features and enhancements. Starting with Microsoft Azure being enabled by default for SSO capabilities. The feature has been thoroughly audited by Cure53, and the issues identified by the community have been fixed, so the feature is officially out of Beta! Another notable new...</description>
+    <pubDate>Wed, 15 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.11.1 | Birdie</title>
     <link>https://help.passbolt.com/releases/pro/birdie</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/birdie</guid>

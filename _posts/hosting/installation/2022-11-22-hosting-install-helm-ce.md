@@ -9,6 +9,7 @@ icon: fa-helm
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
+new: true
 slug: helm
 permalink: /:categories/:slug.html
 ---

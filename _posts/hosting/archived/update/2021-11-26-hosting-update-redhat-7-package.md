@@ -23,6 +23,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, see the [Red Hat](redhat) update page for instructions."
+%}
+
 {% include hosting/update/package-update.md %}
 
 {% include hosting/update/in-case-of-issues.md %}
@@ -31,13 +35,6 @@ permalink: /:categories/:slug.html
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
-
-{% include aside/message.html
-    class="tldr"
-    content="Your installation is not based on a debian package?"
-    link="/hosting/upgrade/ce/migrate-to-debian.html"
-    ask="Migrate passbolt to debian package"
-%}
 
 {% include aside/message.html
     class="tldr notice"

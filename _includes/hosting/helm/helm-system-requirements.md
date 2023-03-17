@@ -8,4 +8,3 @@
 FAQ pages:
 
 * [Firewall rules](/faq/hosting/firewall-rules){:target="_blank"}
-* [Considerations about entropy](/faq/hosting/why-haveged-virtual-env){:target="_blank"}

@@ -218,7 +218,6 @@
 
     <ul>
       <li><a href="/faq/hosting/firewall-rules" target="_blank">Firewall rules</a></li>
-      <li><a href="/faq/hosting/why-haveged-virtual-env" target="_blank">Considerations about entropy</a></li>
     </ul>
 
     <h2 id="helm-install">Helm install</h2>
@@ -235,11 +234,27 @@
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
 </code></pre></div>    </div>
 
-    <p><strong>Step 3.</strong> Configure values file to customize your instance.</p>
+    <p><strong>Step 3.</strong> Configure values file to customize your instance  and enable the Pro install .</p>
 
     <p>The <code class="language-plaintext highlighter-rouge">APP_FULL_BASE_URL</code> environment variable is set by default to <a href="https://passbolt.local">https://passbolt.local</a>, using a self-signed certificate.</p>
 
     <p>Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.</p>
+
+    <p>As the <code class="language-plaintext highlighter-rouge">values.yaml</code> file is set up for CE by default you’ll need to adjust the <a href="https://hub.docker.com/r/passbolt/passbolt/tags">tag</a> for the Passbolt image to pro. You can find this on line 59 of <code class="language-plaintext highlighter-rouge">values.yaml</code>.</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    # -- Overrides the image tag whose default is the chart appVersion.
+    tag: 3.11.1-1-pro
+</code></pre></div>    </div>
+    <p>It is recommended to just change ce to pro but you can use any of the tags that you want to.</p>
+
+    <p>The next thing you will need to do is uncomment the two lines dealing with the subscription key. You can find these on lines 88 and 90.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+# -- Pro subscription key in base64 only if you are using pro version
+subscriptionKey:
+# -- Configure passbolt subscription key path
+subscription_keyPath: /etc/passbolt/subscription_key.txt
+</code></pre></div>    </div>
+    <p>For subscription key it expects the key to be base64 encoded. Yes, the one supplied to you by us is already base64 encoded once, but you’ll need to do that again and put that in as the value for <code class="language-plaintext highlighter-rouge">subscriptionKey</code>.</p>
 
     <p>If you are creating your own gpg keys the following commands can help convert them into a base64 encoded single line string which is what the values.yaml file expects.</p>
 

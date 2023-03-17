@@ -24,6 +24,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/warning.html
+    content="**Warning:** CentOS 8 is not one of our supported distributions. Please see our [install page](/hosting/install) to see which distributions we support."
+%}
+
 {% include hosting/install/packages/debian/install-debian-package.md %}
 
 {% include date/updated.html %}

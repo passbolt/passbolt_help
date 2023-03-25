@@ -7,6 +7,42 @@
 
 
 <item>
+    <title>v3.12.0 | Introspective</title>
+    <link>https://help.passbolt.com/releases/pro/introspective</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/introspective</guid>
+    <description>Release 3.12 for passbolt includes several new features and enhancements. Starting with Microsoft Azure being enabled by default for SSO capabilities. The feature has been thoroughly audited by Cure53, and the issues identified by the community have been fixed, so the feature is officially out of Beta! Another notable new...</description>
+    <pubDate>Wed, 15 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v3.11.1 | Birdie</title>
+    <link>https://help.passbolt.com/releases/pro/birdie</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/birdie</guid>
+    <description>This is a small maintenance release that addresses community reported issues related to the recently introduced Duo v4 support and SSO features. Also shipped with this release, is a security fix to the browser extension to prevent clickjacking attacks. With the upcoming SSO feature, both the passbolt API and browser...</description>
+    <pubDate>Fri, 03 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v3.11.0 | Regular</title>
+    <link>https://help.passbolt.com/releases/pro/regular</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/regular</guid>
+    <description>With the release of 3.11, passbolt is pleased to deliver new features and fixes for issues discovered in the alpha version of SSO. A significant addition to v3.11 is the ability to start the account recovery or browser extension reconfiguration using SSO. This release also includes more helpful error messages,...</description>
+    <pubDate>Wed, 01 Mar 2023 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.10.0 | Glue</title>
     <link>https://help.passbolt.com/releases/pro/glue</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/glue</guid>

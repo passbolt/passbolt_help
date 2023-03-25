@@ -139,6 +139,11 @@
       icon: fa-key
       teaser: Use Duo as multi factor authentication provider
       slug: duo
+    - title: Configure TOTP
+      url: /configure/mfa/totp
+      icon: fa-key
+      teaser: Use TOTP as multi factor authentication provider
+      slug: totp
     - title: Configure Email Notifications
       url: /configure/notification/email
       icon: fa-envelope-o
@@ -197,7 +202,7 @@
       icon: fa-plus-circle
       teaser: Propose and vote for new ideas!
     - title: Bug report
-      url: https://github.com/passbolt/passbolt_api/issues/new
+      url: /faq/contribute/bug-report
       icon: fa-bug
       teaser: Who knows, maybe it is a feature?
     - title: Translation

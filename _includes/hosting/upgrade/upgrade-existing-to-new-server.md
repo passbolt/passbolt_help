@@ -16,7 +16,9 @@ Don’t delete the existing instance yet!
 
 ## Prepare the new {{ distributionLabel }} server
 
+
 {% include hosting/install/packages/debian/install-server-components.md %}
 {% assign migrate = true %}
 {% include hosting/install/packages/debian/package-configuration.md %}
 {% include hosting/upgrade/upgrade-existing-migrate-data.md %}
+

@@ -283,6 +283,28 @@ In order to find the fingerprint if you do not know the email attached to your k
       <li>a copy of your avatar folder (<strong>only if Passbolt version &lt; 3.2</strong>)</li>
     </ul>
 
+    <h2 id="migrate-the-back-up-to-the-new-server">Migrate the back-up to the new server</h2>
+
+    <p>We will still consider that the backup files are in your user home directory ~/backup</p>
+
+    <h3 id="on-the-original-server">On the original server</h3>
+
+    <p>Use a tool such as tar to compress the backup directory</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -cvzf /home/backup.tar.gz /home/backup
+</code></pre></div>    </div>
+
+    <p>You should copy the compressed backup file to the new server. Use a tool such as scp to do it</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp /home/backup.tar.gz new_server_username@server_ip:/home
+</code></pre></div>    </div>
+
+    <h3 id="on-the-new-server">On the new server</h3>
+
+    <p>The compressed backup file should appears inside your home directory, we will extract using a tool such as tar</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xzvf /home/backup.tar.gz -C /home/backup
+</code></pre></div>    </div>
+
+    <p>The uncompressed backup file are now available inside your home directory.</p>
+
     <h2 id="what-about-the-secret-keys-of-my-collaborators">What about the secret keys of my collaborators?</h2>
 
     <p>Every user private key should also be backed up, this is however not something we/you can automate easily for now (passbolt might provide a functionality for this in the future). We believe it is best if this is the responsibility of the end user. There is a dedicated step during the extension setup to that purpose.</p>

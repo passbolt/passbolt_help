@@ -146,7 +146,6 @@ api:
         url: /api/favorites/delete
   - title: Folders
     slug: folders
-    pro: true
     url: /api/folders
     data:
      - title: Index

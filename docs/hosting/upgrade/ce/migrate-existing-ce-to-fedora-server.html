@@ -374,6 +374,7 @@ Installation is almost complete. Please point your browser to
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo mv ~/backup/passbolt.php /etc/passbolt
 sudo chown nginx:nginx /etc/passbolt/passbolt.php
+sudo chown nginx:nginx /etc/passbolt/subscription_key.txt
 sudo chmod 440 /etc/passbolt/passbolt.php
 </code></pre></div>    </div>
 
@@ -398,12 +399,17 @@ sudo chown -R nginx:nginx /usr/share/php/passbolt/webroot/img/public
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE &lt; passbolt-backup.sql
 </code></pre></div>    </div>
 
-    <p><strong>Step 5.</strong> Migrate passbolt to the latest version</p>
+    <p><strong>Step 5.</strong> Import the server key</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  nginx
+</code></pre></div>    </div>
+
+    <p><strong>Step 6.</strong> Migrate passbolt to the latest version</p>
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u nginx /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt migrate"
 </code></pre></div>    </div>
 
-    <p><strong>Step 6.</strong> Test passbolt</p>
+    <p><strong>Step 7.</strong> Test passbolt</p>
 
     <p>Try to access your passbolt application with your browser.</p>
 
@@ -411,6 +417,7 @@ sudo chown -R nginx:nginx /usr/share/php/passbolt/webroot/img/public
 
     <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u nginx /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck"
 </code></pre></div>    </div>
+
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 

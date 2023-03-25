@@ -17,6 +17,11 @@ archived: true
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/warning.html
+    content="**WARNING** This involves an outdated version, v3.x is the current version. You will likely want to contact us at [contact@passbolt.com](mailto:contact@passbolt.com) for assistance with this. **WARNING**"
+%}
+
+
 This tutorial covers the case where you want to upgrade your current instance of passbolt CE v2.x into Passbolt Pro.
 
 {% include messages/warning.html

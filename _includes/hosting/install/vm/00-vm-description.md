@@ -6,4 +6,3 @@ The VM includes the following software:
 - Mariadb
 - Passbolt Pro preinstalled
 - certbot
-- haveged to fill the entropy pool faster

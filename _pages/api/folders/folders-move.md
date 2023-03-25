@@ -2,7 +2,6 @@
 title: Folders Move
 date: 2021-04-29 14:00:00 Z
 layout: api
-pro: true
 category: api,folders,move
 slug: folders-move
 permalink: /api/folders/move

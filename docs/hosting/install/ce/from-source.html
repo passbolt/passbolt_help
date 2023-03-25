@@ -203,7 +203,8 @@ taking into account the specifics related to each and every linux distribution.<
 
     <div class="message warning">
     <p>
-        <strong>Please note:</strong> This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution <a href="/hosting/install">here</a>.
+        <strong>Please note:</strong> This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution <a href="/hosting/install">here</a>. 
+    You should only attempt this if you are advanced in terms of server configuration
     </p>
     
 </div>
@@ -261,13 +262,23 @@ For the rest of this tutorial we will assume that the user named <code class="la
     
 </div>
 
-    <h3 id="create-an-empty-database">2. Create an empty database</h3>
+    <h3 id="database-configuration">2. Database configuration</h3>
+    <h4 id="create-an-empty-database">Create an empty database</h4>
 
     <p>Connect to your mysql server and create new database. Make sure it is in the utf8mb4 char set to
 support non latin characters and emojis. 👏</p>
 
     <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/var/www<span class="nv">$ </span>mysql <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>password]
 mysql&gt; CREATE DATABASE passbolt CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci<span class="p">;</span>
+</code></pre></div>    </div>
+
+    <h4 id="create-a-non-root-user-with-according-privilege">Create a non-root user with according privilege</h4>
+
+    <p>The database user should not be root, create a non-root user that have privileges on the passbolt database that has been created.</p>
+
+    <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql&gt; CREATE USER <span class="s1">'your_user'</span>@<span class="s1">'localhost'</span> IDENTIFIED BY <span class="s1">'your_password'</span><span class="p">;</span>
+mysql&gt; GRANT ALL PRIVILEGES ON passbolt.<span class="k">*</span> TO <span class="s1">'your_user'</span>@<span class="s1">'localhost'</span><span class="p">;</span>
+mysql&gt; FLUSH PRIVILEGES<span class="p">;</span>
 mysql&gt; <span class="nb">exit</span><span class="p">;</span>
 </code></pre></div>    </div>
 
@@ -372,7 +383,7 @@ You will need to set at least the following:</p>
       <li>Server OpenPGP key fingerprint.</li>
     </ul>
 
-    <p><strong>WARNING:</strong> The OpenPGP key fingerprint has to be written with no spaces</p>
+    <p><strong>WARNING:</strong> The OpenPGP key fingerprint has to be written with no spaces and the application full base url should match the ssl configuration.</p>
 
     <p>You can also set your configuration using environment variables.
 Check <code class="language-plaintext highlighter-rouge">config/default.php</code> to get the names of the environment variables.</p>
@@ -396,8 +407,8 @@ Check <code class="language-plaintext highlighter-rouge">config/default.php</cod
     <p>Depending on your needs there are two different options to setup nginx and SSL :</p>
 
     <ul>
-      <li><a href="/configure/https//debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
-      <li><a href="/configure/https//debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
+      <li><a href="/configure/https/ce/debian/auto.html">Auto (Using Let’s Encrypt)</a></li>
+      <li><a href="/configure/https/ce/debian/manual.html">Manual (Using user-provided SSL certificates)</a></li>
     </ul>
 
     <p>Be sure to write down the full path to your cert/key combo, it will be needed later in the Nginx configuration process.</p>
@@ -439,7 +450,6 @@ Check <code class="language-plaintext highlighter-rouge">config/default.php</cod
   ssl_session_cache shared:MozSSL:10m<span class="p">;</span>  <span class="c"># about 40000 sessions</span>
   ssl_session_tickets off<span class="p">;</span>
   ssl_protocols TLSv1.2 TLSv1.3<span class="p">;</span>
-  ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384<span class="p">;</span>
   ssl_prefer_server_ciphers off<span class="p">;</span>
   root /var/www/passbolt/webroot<span class="p">;</span>
   index index.php<span class="p">;</span>
@@ -467,6 +477,9 @@ Check <code class="language-plaintext highlighter-rouge">config/default.php</cod
 
     <h3 id="setup-the-emails">10. Setup the emails</h3>
 
+    <p><strong>WARNING:</strong> If you are running Passbolt 3.8.0 or higher version, you are able to configure your email server through the UI, any changes made will override the <em>config/passbolt.php</em></p>
+
+    <h4 id="you-are-running-passbolt-ce--380-">You are running Passbolt CE &lt; 3.8.0 ?</h4>
     <p>For passbolt to be able to send emails, you must first configure properly the “EmailTransport” section in the
 <code class="language-plaintext highlighter-rouge">config/passbolt.php</code> file to match your provider smtp details.</p>
 
@@ -758,6 +771,10 @@ Add the following line to you crontab:</p>
     </li>
                 
             
+        
+    
+    
+    
         
     
     

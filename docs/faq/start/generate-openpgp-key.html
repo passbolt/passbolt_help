@@ -180,6 +180,12 @@
 
 <h2 id="generate-a-new-openpgp-key-pair">Generate a new OpenPGP key pair</h2>
 
+<p><div class="message warning">
+    <strong>Do not set a passphrase</strong>
+    Make sure you do not set a passphrase, otherwise all your users will need to
+    perform an account recovery when you will eventually need to update the key.
+</div></p>
+
 <p>Execute the following command to generate a new OpenPGP key pair.</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gpg <span class="nt">--full-generate-key</span>
@@ -196,7 +202,7 @@
   <li>Enter an email, by instance: <em>ada.lovelace@mydomain.tld</em>.</li>
   <li>Enter a comment, it is optional. It will only help you to identify a key in the keyring if similar name or email chosen.</li>
   <li>Confirm the key meta information.</li>
-  <li>Define a password to protect the key, it is advised to use a strong password.</li>
+  <li>As mentionned, please do not set a passphrase.</li>
 </ol>
 
 <p>Once the key generated, the key will be stored in the keyring of the user you authenticated with and OpenPGP will
@@ -659,6 +665,10 @@ the OpenPGP keyring into a file in armor format.</p>
     <li>
         <a href="/faq/start/account-recover">How to recover an account?</a>
     </li>
+    
+    
+    
+    
     
     
     

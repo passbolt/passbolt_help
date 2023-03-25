@@ -11,6 +11,21 @@ By default passbolt uses the PHP session duration setting to define when the aut
 kick in. If the default session timeout is too short for you and your user you can extend it in 
 the PHP configuration. 
 
+Currently, the code checks every 15 minutes if the browser is idle, using this browser functionality reserved for extensions, which returns "locked" if the system is locked, "idle" if the user has not generated any input for a specified number of seconds, or "active" otherwise.
+
+So if there is no direct interaction with the extension, the extension will not try to keep the session alive, and will just let it timeout. So if you have a long session default normally you would need to fail several checks to get logged out.
+
+{% include messages/notice.html
+    content="<b>**Pro tip:**</b> If the browser window is closed (even if the browser application is not closed) you will get logged out right away."
+%}
+ 
+The best way to keep your session active is via the remember me feature as shown here.
+{% include articles/figure.html
+url="/assets/img/help/2023/03/remember-me.png"
+legend="Remember my password"
+%}
+
+
 See the directive 
 [session.gc-maxlifetime](https://www.php.net/manual/en/session.configuration.php#ini.session.gc-maxlifetime)
 
@@ -32,3 +47,4 @@ Once located replace the `1440` timout value in seconds with for example `2700` 
 ; http://php.net/session.gc-maxlifetime
 session.gc_maxlifetime = 2700
 ```
+

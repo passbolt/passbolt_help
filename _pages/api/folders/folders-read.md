@@ -2,7 +2,6 @@
 title: Browse all Folders
 date: 2021-04-29 14:00:00 Z
 layout: api
-pro: true
 category: api,folders,read
 slug: folders-read
 permalink: /api/folders/read

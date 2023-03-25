@@ -8,7 +8,7 @@ Maybe someone else has had your issue. If not, make a post and the community wil
 - Any Unix-like major distribution (Debian, Centos, Ubuntu, *BSD)
 - A webserver (Apache or Nginx)
 - A TLS server certificate for HTTPS
-- PHP >= 7.0.0
+- PHP >= 7.3.0
 - MariaDB/Mysql >= 5.5.59
 - [Composer](https://getcomposer.org/download/)
 - [GnuPG](https://gnupg.org/)

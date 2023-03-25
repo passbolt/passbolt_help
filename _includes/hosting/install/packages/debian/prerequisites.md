@@ -19,7 +19,9 @@ FAQ pages:
 
 * [Set up NTP](/faq/hosting/set-up-ntp)
 * [Firewall rules](/faq/hosting/firewall-rules){:target="_blank"}
+{% unless distributionLabel == 'Ubuntu' or distributionLabel == 'Debian' or distributionLabel == 'Raspberry' %}
 * [Considerations about entropy](/faq/hosting/why-haveged-virtual-env){:target="_blank"}
+{% endunless %}
 
 {% include messages/warning.html
     content="**Please note:** It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server."

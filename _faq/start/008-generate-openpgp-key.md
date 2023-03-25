@@ -17,6 +17,8 @@ In order to follow this procedure, ensure you meet with the following minimum re
 
 ## Generate a new OpenPGP key pair
 
+{% include hosting/install/warning-gpg-key-server-generation.html %}
+
 Execute the following command to generate a new OpenPGP key pair.
 
 ```shell
@@ -33,7 +35,7 @@ This command will run an interactive wizard that will help you define the key se
 6. Enter an email, by instance: *ada.lovelace@mydomain.tld*.
 7. Enter a comment, it is optional. It will only help you to identify a key in the keyring if similar name or email chosen.
 8. Confirm the key meta information.
-10. Define a password to protect the key, it is advised to use a strong password.
+10. As mentionned, please do not set a passphrase.
 
 Once the key generated, the key will be stored in the keyring of the user you authenticated with and OpenPGP will
 output the details of the newly generated key. 

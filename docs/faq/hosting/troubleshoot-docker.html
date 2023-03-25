@@ -187,6 +187,10 @@
   grep -Ev "^(pub|sub|uid|^$)" | tr -d ' ')"
 </code></pre></div></div>
 
+<p>Alternatively if you are using <a href="/faq/hosting/docker-secrets.html" target="_blank">Docker Secrets</a> you’ll need to run the following to access the secrets as environment variables:</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>source /etc/environment
+</code></pre></div></div>
+
 <h3 id="healthcheck">Healthcheck</h3>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake passbolt healthcheck
@@ -614,7 +618,7 @@
     
     
     <li>
-        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode ?</a>
+        <a href="/faq/hosting/how-to-install-passbolt-non-interactive">How to install passbolt in non-interactive mode?</a>
     </li>
     
     
@@ -660,6 +664,14 @@
     
     
     
+    
+    
+    
+    
+    
+    <li>
+        <a href="/faq/hosting/troubleshoot-helm">Troubleshoot Helm</a>
+    </li>
     
     
     

@@ -52,6 +52,16 @@ Following there is a list of the environment variables supported in passbolt bot
 | PASSBOLT_PLUGINS_PASSWORD_GENERATOR_DEFAULT_GENERATOR   | Default password generator (can be password or passphrase) | `password`                                           |
 | PASSBOLT_PLUGINS_PASSWORD_GENERATOR_ENABLED  | Enable password generator plugin                                      | `true`                                               |
 | PASSBOLT_PLUGINS_PREVIEW_PASSWORD_ENABLED          | Enable password generator preview                               | `true`                                               |
+| PASSBOLT_PLUGINS_MFA_DUO_HOST            | DUO host                                                                 | `null`                                              |
+| PASSBOLT_PLUGINS_MFA_DUO_INTEGRATIONKEY  | DUO integration key                                                       | `null`                                              |
+| PASSBOLT_PLUGINS_MFA_DUO_SALT            | DUO security salt                                                         | `null`                                              |   
+| PASSBOLT_PLUGINS_MFA_DUO_SECRETKEY       | DUO secret key                                                           | `null`                                              | 
+| PASSBOLT_PLUGINS_MFA_PROVIDERS_DUO       | Enable DUO MFA                                                            | `false`                                             |
+| PASSBOLT_PLUGINS_MFA_PROVIDERS_TOTP      | Enable TOTP MFA feature                                                   | `false`                                             |
+| PASSBOLT_PLUGINS_MFA_PROVIDERS_YUBIKEY   | Enable Yubikey MFA                                                        | `false`                                             |
+| PASSBOLT_PLUGINS_MFA_TOTP_SECRET_LENGTH  | Override default of 32, must be greater than 16                           | `null`                                               |
+| PASSBOLT_PLUGINS_MFA_YUBIKEY_CLIENTID    | Yubikey ClientId                                                          | `null`                                               |
+| PASSBOLT_PLUGINS_MFA_YUBIKEY_SECRETKEY   | Yubikey SecretKey                                                         | `null`                                               |     
 | PASSBOLT_PLUGINS_MOBILE_ENABLED          | Enable mobile plugin                                                      | `true`                                               |
 | PASSBOLT_PLUGINS_JWT_AUTHENTICATION_ENABLED      | Enable jwt authentication plugin                                  | `true`                                               |
 | PASSBOLT_REGISTRATION_PUBLIC             | Defines if users can register                                             | `false`                                              |

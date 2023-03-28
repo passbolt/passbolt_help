@@ -1,15 +1,15 @@
 ---
-title: How to configure SSO with Microsoft (Alpha)
+title: How to configure SSO with Microsoft 
 date: 2023-01-18 00:00:00 Z
 card_title: How to configure SSO with Microsoft
-icon: fa-address-book-o
+card_teaser: Configure SSO with Microsoft Azure AD
+description: 
+icon: fa-brands fa-windows
 categories: [configure, sso]
 sidebar: configure
 layout: default
 slug: azure
 permalink: /:categories/:slug.html
-redirect_from:
-- /configure/sso
 ---
 
 {% assign product = 'pro' %}
@@ -17,7 +17,7 @@ redirect_from:
 {% include layout/col_start.html column="7" %}
 
 {% include messages/warning.html
-content="**Attention**: This feature is currently in Alpha, and available only in Passbolt Pro Edition."
+content="**Attention**: This feature is only available in Passbolt Pro Edition."
 %}
 
 Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD. 

@@ -112,11 +112,11 @@
       version: pro
       slug: account-recovery
     - title: Configure SSO
-      url: /configure/sso/azure
+      url: /configure/sso
       icon: fa-address-book-o
-      teaser: How to configure SSO with Microsoft / Azure AD (Alpha)
+      teaser: How to configure Single Sign-On
       version: pro
-      slug: ldap
+      slug: sso
     - title: Configure LDAP with ssl
       url: /configure/ldap/ldap-with-ssl
       icon: fa-address-book-o

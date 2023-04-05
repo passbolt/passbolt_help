@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Content scripts running on malicious domain</title>
+    <title>Passbolt Help | Android App unlisted from the Google Play Store</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Summary">
+    <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Content scripts running on malicious domain" />
-    <meta property="og:description" content="Summary" />
+    <meta property="og:title" content="Android App unlisted from the Google Play Store" />
+    <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20230404_android-app-unlisted">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2017-12-28-content-scripts-malicious-domain.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2023-04-04-Android-app-unlisted.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -95,7 +95,7 @@
         
         
         
-        <li>
+        <li class="selected">
         
             <a href="https://help.passbolt.com/incidents/20230404_android-app-unlisted">
 April
@@ -225,7 +225,7 @@ May
         </li>
         
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain">
 December
@@ -299,7 +299,7 @@ February
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/incidents/20171228_content_scripts_malicious_domain"><span>2017-12-28 Content scripts malicious domain</span></a>
+                        <a href="https://help.passbolt.com/incidents/20230404_android-app-unlisted"><span>android-app-unlisted</span></a>
                     </div>
                 </li>
                 
@@ -310,97 +310,71 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Content scripts running on malicious domain</h1>
+<h1>Android App unlisted from the Google Play Store</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
+
     <h2 id="summary">Summary</h2>
+    <p>Following the last release of the mobile application (1.13.0-17) on the Google Play Store the application was removed from the store.</p>
 
-    <p>Passbolt Web Extension version 1.6.7 is vulnerable to content scripts that can run on untrusted malicious domain.</p>
+    <h2 id="problem">Problem</h2>
+    <p>The application was not available on the store for around one day and a half.</p>
 
-    <ul>
-      <li><strong>CVE:</strong> N/A.</li>
-      <li><strong>Product affected:</strong> Passbolt Browser Extension.</li>
-      <li><strong>Version affected:</strong> v1.6.7 and below.</li>
-      <li><strong>Version fixed:</strong> v1.6.8.</li>
-      <li><strong>Affected component:</strong> Content script injection component (pagemod constructor).</li>
-      <li><strong>Vulnerability Type:</strong> Business logic vulnerability.</li>
-      <li><strong>Severity:</strong> Medium (4.2).</li>
-    </ul>
+    <h2 id="whos-impacted">Who’s impacted</h2>
+    <p>New users could not download the application however existing users are not impacted by this incident and can still continue to use the application.</p>
 
-    <h3 id="impact-of-issue">Impact of issue</h3>
+    <h2 id="fix">Fix</h2>
+    <ol>
+      <li>Updated app access instructions</li>
+      <li>Changed family policy to 18+.</li>
+      <li>Opted out of “Allow Google to use the credentials you provide for performance and app compatibility testing”.</li>
+      <li>Resubmitted app for review.</li>
+    </ol>
 
-    <p>The integrity of passwords can be affected if the user is already logged in on the trusted domain. The confidentiality 
-of passwords is not affected unless the attacker manages to add himself as a user on the victim server and trick the 
-victim into sharing a password with the attacker. The confidentiality of the private key or the passphrase is not affected.</p>
-
-    <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
-
-    <p>Since the application does not escape special characters such as ‘.’ when building the regular expression to check if a 
-given domain in trusted, an attacker can register a malicious site such as ‘demoxpassbolt.com’ to target a user of 
-‘demo.passbolt.com’. This malicious site will be considered as trusted by the extension.</p>
-
-    <p>Authentication content script: The attacker could bypass the server key verification step of the authentication process 
-and display the login form on the untrusted domain and get the user to log in on the trusted domain. The attacker then 
-needs to prevent the web extension to redirect the user to the trusted domain.</p>
-
-    <p>Application content script: If the user is logged in on the trusted domain and visiting the untrusted domain, the 
-attacker can use this trust to trick the user into performing privileged actions (e.g. open a share window, decrypt 
-and copy a password to the clipboard, etc.).</p>
-
-    <h3 id="credits">Credits</h3>
-
-    <p>This issue was found and reported by Wladimir Palant.</p>
-
-    <h2 id="other-information">Other information</h2>
-
-    <h3 id="how-did-you-fix-this">How did you fix this?</h3>
-
-    <p>Following the issue reporter proposal passbolt now escapes non letter characters in the users.settings.domain url stored in the extension.</p>
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var escapedDomain = user.settings.getDomain().replace(/\W/g, "\\$&amp;");
-var url = '^' + escapedDomain + '/auth/login/?(#.*)?$';
-var regex = new RegExp(url);
-</code></pre></div>    </div>
-
-    <h3 id="is-passbolt-server-key-verification-a-placebo">Is passbolt server key verification a placebo?</h3>
-
-    <p>Additional discussion on the utility and expectations created by the use of passbolt of the GpgAuth verify step can be 
-found <a href="https://community.passbolt.com/t/is-server-authentication-a-placebo-gpgauth-verify-step-usage-in-passbolt/212">here</a>.</p>
-
-    <h3 id="event-timeline">Event timeline</h3>
+    <h2 id="event-timeline">Event Timeline</h2>
 
     <ul>
-      <li>2017-12-27 08:13 PM CET: Vulnerability details sent by reporter.</li>
-      <li>2017-12-28 05:49 AM CET: We acknowledge the issue, start working on a fix and start looking for similar issues in other part of the code.</li>
-      <li>2017-12-28 08:19 AM CET: We release a fix on passbolt development repository and start testing with continuous integration tools.</li>
-      <li>2017-12-28 02:15 PM CET: We deploy a fix on chrome and firefox web extension stores.</li>
-      <li>2017-12-28 03:00 PM CET: We notify the reporter that a fix has been deployed.</li>
-      <li>2017-12-28 03:30 PM CET: We publish the fix on github, the release notes and this report.</li>
+      <li>07/03/2023 - 1.13.0-17 Version released - No issues</li>
+      <li>27/03/2023 - Email received by Google stating that the app is not adhering to the families policy requirements policy. Deadline is set to 4th of April.</li>
+      <li>28/03/2023 - The passbolt team update the test server and documentation related to “App Acccess”. It triggers a review.</li>
+      <li>28/03/2023 - A Google reviewer reviews the application and triggers a violation of the Google family policy.</li>
+      <li>28/03/2023 - The passbolt team set the minimum age of the application to 18+. The app is still marked as in violation of family policy.</li>
+      <li>30/03/2023 - The passbolt team pushed for review the 1.13.0-18. a new unchanged build was uploaded in order to trigger a review.</li>
+      <li>31/03/2023 - The new version of the build was accepted and published in production, however the policy remained not compliant.</li>
+      <li>31/03/2023 - Passbolt team contacts the googleplay-developer-support@google.com to ask for more details.</li>
+      <li>01/03/2023 - Google respond that they still can´t access the app with the information provided inside the app access section and attached a print screen showing an error at the end of the app access process. They also advise to send a video on youtube to demonstrate that the process is working.</li>
+      <li>03/03/2023 - Passbolt team double-check test accounts are valid, and publish a youtube video to demonstrate that the procedure is working.</li>
+      <li>04/03/2023 - 10:00 CET - Google respond the same email with the same error and unlist the passbolt app on Google Play Store.</li>
+      <li>04/03/2023 - 10:00 CET - Announcement is made to the community on the forum and twitter.</li>
+      <li>04/03/2023 - 10:00 CET - Passbolt team tries to reproduce issue. Manages when using non-standards keyboards that affects spacing in private key.</li>
+      <li>04/03/2023 - 19:00 CET - Passbolt team implements additional mitigations for key input issues and prepare a new version.</li>
+      <li>05/03/2023 - 09:00 CET - Passbolt team test for the release-1.13.1-19 starts.</li>
+      <li>05/03/2023 - 11:48 CET - Passbolt team pushes release-1.13.1-19 that includes additional trimming for private key input and update instructions to use default keyboard. Also uncheck “Allow google to use the credentials you provide for performance and app compatibility testing”, in case this affected testing.</li>
+      <li>05/03/2023 - 12:30 CET - Google accept new version and the app is back on the store. Families are safe.</li>
     </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-December
-28th,
-2017.</p>
+April
+5th,
+2023.</p>
     </div>
+
   </div>
   <div class="col4 last push1">
-
     <div class="tldr message success">
     <h4>Current status:</h4>
-    1. Try first to reproduce the issue<br />
-    2. Acknowledge to the reporter<br />
-    3. Get a fix/patch prepared<br />
-    4. Release new version.<br />
-    5. Prepare a report about the issue.<br />
-    <strong>6. Feature the problem in the release.</strong>
-    <h5>Last updated: 2017-12-28 15:30:00 CET</h5>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Release new version<br />
+    4. Prepare a report about the issue<br />
+    <strong>5. Feature the problem in the release</strong>
+    <h5>Last updated: 2023-04-05 15:20:00 CET</h5>
 </div>
-
   </div>
 </div>
 

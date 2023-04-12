@@ -207,7 +207,7 @@ reflected in model cache files:
 $ sudo -H -u www-data bash -c "./bin/cake cache clear_all"
 ```
 
-## 6. Take your site back up
+## 6. Bring your site back online
 
 Almost done:
 ```bash

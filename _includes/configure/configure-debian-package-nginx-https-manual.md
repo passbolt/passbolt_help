@@ -46,9 +46,6 @@ Of course, replace `-subj` values with your own. It is important to set your pas
 You should select yes for the nginx setup:
 
 {% assign imgUrl = '/assets/img/help/2020/09/debian-package/configure_nginx.png' %}
-{% if product == 'pro' %}
-{% assign imgUrl = '/assets/img/help/2020/05/debian-package/db_name_pro.png' %}
-{% endif %}
 {%
     include articles/figure.html
     url=imgUrl

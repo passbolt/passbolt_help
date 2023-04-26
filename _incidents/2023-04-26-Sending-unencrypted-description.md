@@ -16,7 +16,7 @@ Leak of confidential information detected during UAT phase of the Android app 1.
 
 *   **CVE:** N/A
 *   **Product affected:** API (Pro and CE) and the Android app
-*   **Version affected:** 
+*   **Versions affected:** 
     *   API version under v3.12.2
     *   Android app under 1.13.2
 *   **Version fixed:** 
@@ -27,7 +27,7 @@ Leak of confidential information detected during UAT phase of the Android app 1.
 *   **Severity:** N/A
 
 ## Problem
-The issue has been present since the first version of the passbolt mobile app released to the Google Play Store. When creating a resource from the Android app an unencrypted version of the description was sent to the API along with its encrypted version contained in the secret. However the default content type (password-and-description) should not contain the unencrypted version of the description.
+When creating a resource from the Android app an unencrypted version of the description was sent to the API along with its encrypted version contained in the secret. However the default content type (password-and-description) should not contain the unencrypted version of the description.
 
 {% include articles/figure.html
     url="/assets/img/help/2023/04/incident26april2023.png"
@@ -36,15 +36,41 @@ The issue has been present since the first version of the passbolt mobile app re
 %}
 
 
-On top of that as the API doesn’t not ignore the sent unencrypted description, it stores it in cleartext along the resources metadata in the database.
+On top of that as the API didn’t ignore the sent unencrypted description, the API stored it in cleartext along with the resource's metadata in the database.
+
+### Attack vector / exploitation
+As the API stored the unencrypted version of the description in the database and didn't perform a validation of the data when retrieving it, the unencrypted description was returned along with the resource's metadata when a client requested it via the API.
+
+{% include articles/figure.html
+    url="/assets/img/help/2023/04/incident26april2023_exploitation.png"
+    legend="2. eexample of payload retrieved from the API when retrieving a resource"
+    width="500px"
+%}
+
+An attacker who performed a man-in-the-middle (MitM) attack could see the resource description in cleartext in the payload of the resource creation request. 
+
+Additionally an attacker who gained access to the database could read the description in cleartext from the resources table. 
+
 
 ## Who's impacted
-Organizations who have users who created resources that have a non-empty description  from their Android app or directly via the API if this one was misused. Note that only the resources created are impacted, and that the issue is not occurring on the edition process.
+Organizations that have users who created resources with a non-empty description from their Android app or directly via the API if this one was misused. Note that only the resources created are impacted, and that the issue is not occurring during the edit process.
+
 
 ## Fix
 - MOB-1250 Fix the Android app by not sending the description field to the backend during resource creation
 - PB-24315 Add validation of received resource fields on the backend according to the schema
 - PB-24315 Run a script to clear the description field in all resources of type encrypted password with encrypted description
+
+## Root cause
+The root cause is a combination of issues involving the Android app as well as the API.
+
+### Android App
+The Use Case class for creating a resource for both two initial resource types (encrypted password, encrypted password with encrypted description) is reused. At first, only the encrypted password with plain text description resource type was supported and then the second one was added on top.
+
+During the implementation of the second resource type, the encrypted description was added into the secret, but it had been missed when updating the value of the original description field, so it stayed the same.
+
+### API
+The API was not strict while asserting the metadata of the created resources having the type password-and-description, therefore letting the unwanted unencrypted description pass the validation and get stored in the database.
 
 ## Event Timeline
 

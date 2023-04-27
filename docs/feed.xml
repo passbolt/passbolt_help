@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-04-05T15:27:08+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-04-27T10:53:29+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -336,164 +336,7 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="mfa" /><summary type="html"></summary></entry><entry><title type="html">Helm passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/helm.html" rel="alternate" type="text/html" title="Helm passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/helm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/helm.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;b&gt;Important:&lt;/b&gt; Installing Passbolt on Kubernetes with our Helm chart is considered to be a very advanced installation method. If you are not very comfortable and familiar with Kubernetes we strongly recommend that you install via one of our other methods.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Kubernetes cluster (&amp;gt;1.19): &lt;a href=&quot;https://kubernetes.io/docs/setup/&quot; target=&quot;_blank&quot;&gt;https://kubernetes.io/docs/setup/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;kubectl: &lt;a href=&quot;https://kubernetes.io/docs/tasks/tools/#kubectl&quot; target=&quot;_blank&quot;&gt;https://kubernetes.io/docs/tasks/tools/#kubectl&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Helm (3.X): &lt;a href=&quot;https://helm.sh/docs/intro/install/&quot; target=&quot;_blank&quot;&gt;https://helm.sh/docs/intro/install/&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;FAQ pages:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;helm-install&quot;&gt;Helm install&lt;/h2&gt;
-
-    &lt;p&gt;The easiest and recommended way to deploy your Passbolt Helm chart is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helm install&lt;/code&gt;.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Set up our Helm repo&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm repo add passbolt-repo https://download.passbolt.com/charts/passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Get a copy of the values file&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Configure values file to customize your instance .&lt;/p&gt;
-
-    &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APP_FULL_BASE_URL&lt;/code&gt; environment variable is set by default to &lt;a href=&quot;https://passbolt.local&quot;&gt;https://passbolt.local&lt;/a&gt;, using a self-signed certificate.&lt;/p&gt;
-
-    &lt;p&gt;Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.&lt;/p&gt;
-
-    &lt;p&gt;If you are creating your own gpg keys the following commands can help convert them into a base64 encoded single line string which is what the values.yaml file expects.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export-secret-keys&lt;/span&gt; &amp;lt;email you created keys with&amp;gt;  | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0
-gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export&lt;/span&gt; &amp;lt;email you created keys with&amp;gt; | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You must configure also SMTP settings to be able to receive notifications and recovery emails.&lt;/p&gt;
-
-    &lt;p&gt;For more information on which environment variables are available on passbolt, please check the &lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;passbolt environment variable reference&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    &lt;b&gt;Important:&lt;/b&gt; By default we have the ingress set to false, you’ll need to decide how you want to handle this to access the web page.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;Additionally the following charts are used by Passbolt and you can adjust the values under their respective headings in values.yaml&lt;/p&gt;
-
-    &lt;table class=&quot;table-parameters&quot;&gt;
-      &lt;thead&gt;
-        &lt;tr&gt;
-          &lt;th&gt;Repository&lt;/th&gt;
-          &lt;th&gt;Name&lt;/th&gt;
-          &lt;th&gt;Version&lt;/th&gt;
-        &lt;/tr&gt;
-      &lt;/thead&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&quot;https://charts.bitnami.com/bitnami&quot;&gt;https://charts.bitnami.com/bitnami&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;mariadb&lt;/td&gt;
-          &lt;td&gt;11.3.5&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&quot;https://charts.bitnami.com/bitnami&quot;&gt;https://charts.bitnami.com/bitnami&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;redis&lt;/td&gt;
-          &lt;td&gt;17.3.8&lt;/td&gt;
-        &lt;/tr&gt;
-        &lt;tr&gt;
-          &lt;td&gt;&lt;a href=&quot;https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library&quot;&gt;https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library&lt;/a&gt;&lt;/td&gt;
-          &lt;td&gt;passbolt-library&lt;/td&gt;
-          &lt;td&gt;0.2.1&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Run helm install&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm install -f values.yaml my-passbolt passbolt-repo/passbolt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;At this point, you should have a working Passbolt setup via Helm running on the most up to date CE version of Passbolt.&lt;/p&gt;
-
-    &lt;h3 id=&quot;manually-creating-first-admin-user&quot;&gt;Manually creating first admin user&lt;/h3&gt;
-
-    &lt;p&gt;Once the Helm chart is deployed, you can create your first user by running the following command:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;  &amp;lt;passbolt-pod-name&amp;gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;su -s /bin/bash -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bin/cake passbolt register_user -u &amp;lt;email&amp;gt; -f &amp;lt;firstname&amp;gt; -l &amp;lt;lastname&amp;gt; -r admin&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; www-data&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It will output a link similar to the below one that can be pasted on the browser to finalize user registration:&lt;/p&gt;
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
-
-    &lt;p&gt;Helm FAQs:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/email/setup&quot; target=&quot;_blank&quot;&gt;How to configure SMTP to receive emails&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/how-to-use-rootless-images&quot; target=&quot;_blank&quot;&gt;How to use rootless images&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/troubleshoot-helm&quot; target=&quot;_blank&quot;&gt;Troubleshoot Helm&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;Passbolt reference environment variables&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;Passbolt docker repository:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/passbolt/charts-passbolt&quot; target=&quot;_blank&quot;&gt;https://github.com/passbolt/charts-passbolt&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-6th,
-2023.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;tldr&quot;&gt;
-    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on ????&lt;/h4&gt;
-    &lt;p&gt;
-        &lt;a href=&quot;http://helm.chart.location&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
-            &lt;img alt=&quot;Helm Logo&quot; src=&quot;/assets/img/third_party/helm-horizontal-color.png&quot; style=&quot;&quot; /&gt;
-        &lt;/a&gt;
-    &lt;/p&gt;
-    &lt;a href=&quot;http://helm.chart.location&quot; class=&quot;primary button&quot;&gt;  
-        Get passbolt Helm chart!
-    &lt;/a&gt;
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Docker passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/docker.html" rel="alternate" type="text/html" title="Docker passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/docker.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="mfa" /><summary type="html"></summary></entry><entry><title type="html">Docker passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/docker.html" rel="alternate" type="text/html" title="Docker passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -883,7 +726,164 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Helm passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/helm.html" rel="alternate" type="text/html" title="Helm passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/helm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/helm.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;b&gt;Important:&lt;/b&gt; Installing Passbolt on Kubernetes with our Helm chart is considered to be a very advanced installation method. If you are not very comfortable and familiar with Kubernetes we strongly recommend that you install via one of our other methods.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Kubernetes cluster (&amp;gt;1.19): &lt;a href=&quot;https://kubernetes.io/docs/setup/&quot; target=&quot;_blank&quot;&gt;https://kubernetes.io/docs/setup/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;kubectl: &lt;a href=&quot;https://kubernetes.io/docs/tasks/tools/#kubectl&quot; target=&quot;_blank&quot;&gt;https://kubernetes.io/docs/tasks/tools/#kubectl&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Helm (3.X): &lt;a href=&quot;https://helm.sh/docs/intro/install/&quot; target=&quot;_blank&quot;&gt;https://helm.sh/docs/intro/install/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;FAQ pages:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;helm-install&quot;&gt;Helm install&lt;/h2&gt;
+
+    &lt;p&gt;The easiest and recommended way to deploy your Passbolt Helm chart is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helm install&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Set up our Helm repo&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm repo add passbolt-repo https://download.passbolt.com/charts/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Get a copy of the values file&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Configure values file to customize your instance .&lt;/p&gt;
+
+    &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APP_FULL_BASE_URL&lt;/code&gt; environment variable is set by default to &lt;a href=&quot;https://passbolt.local&quot;&gt;https://passbolt.local&lt;/a&gt;, using a self-signed certificate.&lt;/p&gt;
+
+    &lt;p&gt;Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.&lt;/p&gt;
+
+    &lt;p&gt;If you are creating your own gpg keys the following commands can help convert them into a base64 encoded single line string which is what the values.yaml file expects.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export-secret-keys&lt;/span&gt; &amp;lt;email you created keys with&amp;gt;  | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0
+gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export&lt;/span&gt; &amp;lt;email you created keys with&amp;gt; | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You must configure also SMTP settings to be able to receive notifications and recovery emails.&lt;/p&gt;
+
+    &lt;p&gt;For more information on which environment variables are available on passbolt, please check the &lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;passbolt environment variable reference&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    &lt;b&gt;Important:&lt;/b&gt; By default we have the ingress set to false, you’ll need to decide how you want to handle this to access the web page.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;Additionally the following charts are used by Passbolt and you can adjust the values under their respective headings in values.yaml&lt;/p&gt;
+
+    &lt;table class=&quot;table-parameters&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Repository&lt;/th&gt;
+          &lt;th&gt;Name&lt;/th&gt;
+          &lt;th&gt;Version&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&quot;https://charts.bitnami.com/bitnami&quot;&gt;https://charts.bitnami.com/bitnami&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;mariadb&lt;/td&gt;
+          &lt;td&gt;11.3.5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&quot;https://charts.bitnami.com/bitnami&quot;&gt;https://charts.bitnami.com/bitnami&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;redis&lt;/td&gt;
+          &lt;td&gt;17.3.8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&quot;https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library&quot;&gt;https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;passbolt-library&lt;/td&gt;
+          &lt;td&gt;0.2.1&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Run helm install&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm install -f values.yaml my-passbolt passbolt-repo/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;At this point, you should have a working Passbolt setup via Helm running on the most up to date CE version of Passbolt.&lt;/p&gt;
+
+    &lt;h3 id=&quot;manually-creating-first-admin-user&quot;&gt;Manually creating first admin user&lt;/h3&gt;
+
+    &lt;p&gt;Once the Helm chart is deployed, you can create your first user by running the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;  &amp;lt;passbolt-pod-name&amp;gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;su -s /bin/bash -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bin/cake passbolt register_user -u &amp;lt;email&amp;gt; -f &amp;lt;firstname&amp;gt; -l &amp;lt;lastname&amp;gt; -r admin&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; www-data&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;It will output a link similar to the below one that can be pasted on the browser to finalize user registration:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
+
+    &lt;p&gt;Helm FAQs:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/email/setup&quot; target=&quot;_blank&quot;&gt;How to configure SMTP to receive emails&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/how-to-use-rootless-images&quot; target=&quot;_blank&quot;&gt;How to use rootless images&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/troubleshoot-helm&quot; target=&quot;_blank&quot;&gt;Troubleshoot Helm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;Passbolt reference environment variables&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Passbolt docker repository:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/passbolt/charts-passbolt&quot; target=&quot;_blank&quot;&gt;https://github.com/passbolt/charts-passbolt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+6th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;tldr&quot;&gt;
+    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on ????&lt;/h4&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;http://helm.chart.location&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
+            &lt;img alt=&quot;Helm Logo&quot; src=&quot;/assets/img/third_party/helm-horizontal-color.png&quot; style=&quot;&quot; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;a href=&quot;http://helm.chart.location&quot; class=&quot;primary button&quot;&gt;  
+        Get passbolt Helm chart!
+    &lt;/a&gt;
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">How to configure Account Recovery</title><link href="https://help.passbolt.com/configure/account-recovery.html" rel="alternate" type="text/html" title="How to configure Account Recovery" /><published>2022-08-05T02:00:00+02:00</published><updated>2022-08-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/account-recovery</id><content type="html" xml:base="https://help.passbolt.com/configure/account-recovery.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;figure&gt;
@@ -1051,7 +1051,331 @@ August
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;A minimal Ubuntu 22.04  server.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
+      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
+      &lt;li&gt;a working NTP service to avoid GPG authentication issues&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;The recommended server requirements are:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;2 cores&lt;/li&gt;
+      &lt;li&gt;2GB of RAM&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;FAQ pages:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    &lt;b&gt;Pro tip:&lt;/b&gt; If you are going to manually provision SSL certificates you may want to do that before beginning!
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;package-repository-setup&quot;&gt;Package repository setup&lt;/h2&gt;
+
+    &lt;p&gt;For easier installation and update tasks Passbolt provides a package repository that you need to setup
+before you download Passbolt CE and install it.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Download our dependencies installation script:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &quot;https://download.passbolt.com/ce/installer/passbolt-repo-setup.ce.sh&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Download our SHA512SUM for the installation script:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-ce-SHA512SUM.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sha512sum -c passbolt-ce-SHA512SUM.txt &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh  || echo \&quot;Bad checksum. Aborting\&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install passbolt-ce-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h4 id=&quot;configure-mysql&quot;&gt;Configure mysql&lt;/h4&gt;
+
+    &lt;p&gt;If not instructed otherwise passbolt ubuntu package will install mysql-server locally. This step will help you create
+an empty mysql database for passbolt to use.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql.png&quot; alt=&quot;Configure database dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Configure database dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;The configuration process will ask you for the credentials of the mysql admin user to create a new database.
+By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png&quot; alt=&quot;Database admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Database admin user dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png&quot; alt=&quot;Database admin user pass dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Database admin user pass dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Now we need to create a mysql user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png&quot; alt=&quot;Database passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Database passbolt user dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png&quot; alt=&quot;Database passbolt user pass dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Database passbolt user pass dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Lastly we need to create a database for passbolt to use, for that we need to name it:&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name.png&quot; alt=&quot;Database name dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Database name dialog&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h4 id=&quot;configure-nginx-for-serving-https&quot;&gt;Configure nginx for serving HTTPS&lt;/h4&gt;
+
+    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the Ubuntu package:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
+
+    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
+can be reached. You will reach a getting started page.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
+
+    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
+“Start configuration” when ready.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;database&quot;&gt;2.2. Database&lt;/h3&gt;
+
+    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
+and password.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;gpg-key&quot;&gt;2.3. GPG key&lt;/h3&gt;
+
+    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
+authenticate itself during the login handshake process.&lt;/p&gt;
+
+    &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;&lt;strong&gt;Optional&lt;/strong&gt;: Import a key if you already have one and you want your server to use it.&lt;/p&gt;
+
+    &lt;p&gt;&lt;div class=&quot;message warning&quot;&gt;
+    &lt;strong&gt;Do not set a passphrase or an expiration date&lt;/strong&gt;
+    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set one.
+    Similarly do not set an expiration date. Otherwise all your users will need to
+    perform an account recovery when you will eventually need to update the key.
+&lt;/div&gt;&lt;/p&gt;
+
+    &lt;p&gt;To create a new GnuPG key without passphrase:&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg --batch --no-tty --gen-key &amp;lt;&amp;lt;EOF
+  Key-Type: default
+  Key-Length: 2048
+  Subkey-Type: default
+  Subkey-Length: 2048
+  Name-Real: John Doe
+  Name-Email: email@domain.tld
+  Expire-Date: 0
+  %no-protection
+  %commit
+EOF
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Feel free to replace &lt;strong&gt;Name-Real&lt;/strong&gt; and &lt;strong&gt;Name-Email&lt;/strong&gt; with your own.&lt;/p&gt;
+
+    &lt;p&gt;To display your new key:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg --armor --export-secret-keys email@domain.tld
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;mail-server-smtp&quot;&gt;2.4. Mail server (SMTP)&lt;/h3&gt;
+
+    &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;You can also test that your configuration is correct by using the test email feature at the right of your screen. Enter
+the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;preferences&quot;&gt;2.5. Preferences&lt;/h3&gt;
+
+    &lt;p&gt;The wizard will then ask you what preferences you prefer for your instance of passbolt. The recommended defaults are already pre-populated
+but you can also change them if you know what you are doing.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;first-user-creation&quot;&gt;2.6. First user creation&lt;/h3&gt;
+
+    &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;installation&quot;&gt;2.7. Installation&lt;/h3&gt;
+
+    &lt;p&gt;That’s it. The wizard has now enough information to proceed with the configuration of passbolt. Sit back and relax for a few seconds while
+the configuration process is going on.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Your user account is now created. You will see a redirection page for a few second and then will be redirected
+to the user setup process so that you can configure your user account.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;configure-your-administrator-account&quot;&gt;3. Configure your administrator account&lt;/h2&gt;
+
+    &lt;h3 id=&quot;download-the-plugin&quot;&gt;3.1. Download the plugin&lt;/h3&gt;
+
+    &lt;p&gt;Before continuing passbolt will require you to download its plugin. If you already have it installed you can go to the
+next step.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-browser-extension.png&quot; alt=&quot;download the browser extension&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. download the browser extension&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;create-a-new-key&quot;&gt;3.2. Create a new key&lt;/h3&gt;
+
+    &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.
+Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-generate-key.png&quot; alt=&quot;generate a key&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. generate a key&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;download-your-recovery-kit&quot;&gt;3.3. Download your recovery kit&lt;/h3&gt;
+
+    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
+or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
+passphrase.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-recovery-kit.png&quot; alt=&quot;download the recovery kit&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. download the recovery kit&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;define-your-security-token&quot;&gt;3.4. Define your security token&lt;/h3&gt;
+
+    &lt;p&gt;Choosing a color and a three characters token is a secondary security mechanism that helps you to mitigate phishing
+attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:586px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;thats-it&quot;&gt;3.5. That’s it!&lt;/h3&gt;
+
+    &lt;p&gt;Your administrator account is configured. You will be redirected to the login page of passbolt. Enjoy!&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+July
+11th,
+2022.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Not finding what you are looking for? You can also ask the community on the forum.&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com&quot; class=&quot;button &quot;&gt;Talk to a human&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt Pro on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/pro/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt Pro on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/pro/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/pro/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -1385,331 +1709,7 @@ July
 
   &lt;/div&gt;
 
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Ubuntu 22.04</title><link href="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html" rel="alternate" type="text/html" title="Install Passbolt CE on Ubuntu 22.04" /><published>2022-07-11T02:00:00+02:00</published><updated>2022-07-11T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/ubuntu/ubuntu.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;
-        &lt;p&gt;A minimal Ubuntu 22.04  server.&lt;/p&gt;
-      &lt;/li&gt;
-      &lt;li&gt;A domain / host name pointing to your server, or at least being able to reach your server through a static IP address.&lt;/li&gt;
-      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
-      &lt;li&gt;a working NTP service to avoid GPG authentication issues&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The recommended server requirements are:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;2 cores&lt;/li&gt;
-      &lt;li&gt;2GB of RAM&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;FAQ pages:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/set-up-ntp&quot;&gt;Set up NTP&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Please note:&lt;/strong&gt; It is important that you use a vanilla server with no other services or tools already installed on it. The install scripts could potentially damage any existing data on your server.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    &lt;b&gt;Pro tip:&lt;/b&gt; If you are going to manually provision SSL certificates you may want to do that before beginning!
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;package-repository-setup&quot;&gt;Package repository setup&lt;/h2&gt;
-
-    &lt;p&gt;For easier installation and update tasks Passbolt provides a package repository that you need to setup
-before you download Passbolt CE and install it.&lt;/p&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Download our dependencies installation script:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &quot;https://download.passbolt.com/ce/installer/passbolt-repo-setup.ce.sh&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Download our SHA512SUM for the installation script:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://github.com/passbolt/passbolt-dep-scripts/releases/latest/download/passbolt-ce-SHA512SUM.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Ensure that the script is valid and execute it:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sha512sum -c passbolt-ce-SHA512SUM.txt &amp;amp;&amp;amp; sudo bash ./passbolt-repo-setup.ce.sh  || echo \&quot;Bad checksum. Aborting\&quot; &amp;amp;&amp;amp; rm -f passbolt-repo-setup.ce.sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;install-passbolt-official-linux-package&quot;&gt;Install passbolt official linux package&lt;/h2&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h4 id=&quot;configure-mysql&quot;&gt;Configure mysql&lt;/h4&gt;
-
-    &lt;p&gt;If not instructed otherwise passbolt ubuntu package will install mysql-server locally. This step will help you create
-an empty mysql database for passbolt to use.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_mysql.png&quot; alt=&quot;Configure database dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Configure database dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;The configuration process will ask you for the credentials of the mysql admin user to create a new database.
-By default in most installations the admin username would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;root&lt;/code&gt; and the password would be empty.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user.png&quot; alt=&quot;Database admin user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Database admin user dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/mysql_admin_user_pass.png&quot; alt=&quot;Database admin user pass dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Database admin user pass dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Now we need to create a mysql user with reduced permissions for passbolt to connect. These values will also be requested later on the webconfiguration tool of passbolt so please keep them in mind.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_name.png&quot; alt=&quot;Database passbolt user dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Database passbolt user dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/passbolt_db_user_pass.png&quot; alt=&quot;Database passbolt user pass dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Database passbolt user pass dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Lastly we need to create a database for passbolt to use, for that we need to name it:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/db_name.png&quot; alt=&quot;Database name dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Database name dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h4 id=&quot;configure-nginx-for-serving-https&quot;&gt;Configure nginx for serving HTTPS&lt;/h4&gt;
-
-    &lt;p&gt;Depending on your needs there are two different options to setup nginx and SSL using the Ubuntu package:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/auto.html&quot;&gt;Auto (Using Let’s Encrypt)&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;/configure/https/ce/debian/manual.html&quot;&gt;Manual (Using user-provided SSL certificates)&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;h2 id=&quot;configure-passbolt&quot;&gt;2. Configure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;Before you can use the application, you need to configure it. Point your browser to the hostname / ip where passbolt 
-can be reached. You will reach a getting started page.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/web-installer-getting-started.png&quot; alt=&quot;passbolt welcome page before configuration&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. passbolt welcome page before configuration&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;healthcheck&quot;&gt;2.1. Healthcheck&lt;/h3&gt;
-
-    &lt;p&gt;The first page of the wizard will tell you if your environment is ready for passbolt. Solve issues if any and click on
-“Start configuration” when ready.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-healthcheck.png&quot; alt=&quot;wizard - healthcheck&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - healthcheck&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;database&quot;&gt;2.2. Database&lt;/h3&gt;
-
-    &lt;p&gt;This step is about telling passbolt which database to use. Enter the host name, port number, database name, username 
-and password.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/web-installer-ce-database.png&quot; alt=&quot;wizard - database&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - database&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;gpg-key&quot;&gt;2.3. GPG key&lt;/h3&gt;
-
-    &lt;p&gt;In this section you can either generate or import a GPG key pair. This key pair will be used by passbolt API to 
-authenticate itself during the login handshake process.&lt;/p&gt;
-
-    &lt;p&gt;Generate a key if you don’t have one.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-generate.png&quot; alt=&quot;wizard - generate a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - generate a key pair&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;&lt;strong&gt;Optional&lt;/strong&gt;: Import a key if you already have one and you want your server to use it.&lt;/p&gt;
-
-    &lt;p&gt;&lt;div class=&quot;message warning&quot;&gt;
-    &lt;strong&gt;Do not set a passphrase or an expiration date&lt;/strong&gt;
-    The php-gnupg module does not support using passphrase at the moment. Make sure you do not set one.
-    Similarly do not set an expiration date. Otherwise all your users will need to
-    perform an account recovery when you will eventually need to update the key.
-&lt;/div&gt;&lt;/p&gt;
-
-    &lt;p&gt;To create a new GnuPG key without passphrase:&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg --batch --no-tty --gen-key &amp;lt;&amp;lt;EOF
-  Key-Type: default
-  Key-Length: 2048
-  Subkey-Type: default
-  Subkey-Length: 2048
-  Name-Real: John Doe
-  Name-Email: email@domain.tld
-  Expire-Date: 0
-  %no-protection
-  %commit
-EOF
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Feel free to replace &lt;strong&gt;Name-Real&lt;/strong&gt; and &lt;strong&gt;Name-Email&lt;/strong&gt; with your own.&lt;/p&gt;
-
-    &lt;p&gt;To display your new key:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg --armor --export-secret-keys email@domain.tld
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-server-key-import.png&quot; alt=&quot;wizard - import a key pair&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - import a key pair&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;mail-server-smtp&quot;&gt;2.4. Mail server (SMTP)&lt;/h3&gt;
-
-    &lt;p&gt;At this stage, the wizard will ask you to enter the details of your SMTP server.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-email.png&quot; alt=&quot;wizard - smtp mail server details&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - smtp mail server details&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You can also test that your configuration is correct by using the test email feature at the right of your screen. Enter
-the email address at which you want the wizard to send you a test email and click on “Send test email”.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/04/wizard-test-email.png&quot; alt=&quot;wizard - test smtp settings&quot; style=&quot;max-width:300px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - test smtp settings&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;preferences&quot;&gt;2.5. Preferences&lt;/h3&gt;
-
-    &lt;p&gt;The wizard will then ask you what preferences you prefer for your instance of passbolt. The recommended defaults are already pre-populated
-but you can also change them if you know what you are doing.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png&quot; alt=&quot;wizard - preferences&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - preferences&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;first-user-creation&quot;&gt;2.6. First user creation&lt;/h3&gt;
-
-    &lt;p&gt;You need to create the first admin user account. This first admin user is probably you, so enter your details and click on next.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-first-user.png&quot; alt=&quot;wizard - first user&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - first user&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;installation&quot;&gt;2.7. Installation&lt;/h3&gt;
-
-    &lt;p&gt;That’s it. The wizard has now enough information to proceed with the configuration of passbolt. Sit back and relax for a few seconds while
-the configuration process is going on.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-install.png&quot; alt=&quot;wizard - installation&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - installation&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Your user account is now created. You will see a redirection page for a few second and then will be redirected
-to the user setup process so that you can configure your user account.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-completed.png&quot; alt=&quot;wizard - completion and redirection&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. wizard - completion and redirection&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;configure-your-administrator-account&quot;&gt;3. Configure your administrator account&lt;/h2&gt;
-
-    &lt;h3 id=&quot;download-the-plugin&quot;&gt;3.1. Download the plugin&lt;/h3&gt;
-
-    &lt;p&gt;Before continuing passbolt will require you to download its plugin. If you already have it installed you can go to the
-next step.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-browser-extension.png&quot; alt=&quot;download the browser extension&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. download the browser extension&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;create-a-new-key&quot;&gt;3.2. Create a new key&lt;/h3&gt;
-
-    &lt;p&gt;Passbolt will ask you to create or import a key that will be later use to identify you and encrypt your passwords.
-Your key needs to be protected by a password. Choose it wisely, it will be the gatekeeper to all your other passwords.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-generate-key.png&quot; alt=&quot;generate a key&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. generate a key&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;download-your-recovery-kit&quot;&gt;3.3. Download your recovery kit&lt;/h3&gt;
-
-    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
-or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
-passphrase.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-recovery-kit.png&quot; alt=&quot;download the recovery kit&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. download the recovery kit&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;define-your-security-token&quot;&gt;3.4. Define your security token&lt;/h3&gt;
-
-    &lt;p&gt;Choosing a color and a three characters token is a secondary security mechanism that helps you to mitigate phishing
-attacks. Each time you are performing a sensitive operation on passbolt, you should see this token.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-security-token.png&quot; alt=&quot;define your security token&quot; style=&quot;max-width:586px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. define your security token&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;thats-it&quot;&gt;3.5. That’s it!&lt;/h3&gt;
-
-    &lt;p&gt;Your administrator account is configured. You will be redirected to the login page of passbolt. Enjoy!&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-July
-11th,
-2022.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Not finding what you are looking for? You can also ask the community on the forum.&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com&quot; class=&quot;button &quot;&gt;Talk to a human&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/ce/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on AWS</title><link href="https://help.passbolt.com/configure/https/ce/aws/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on AWS" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/aws/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/aws/auto.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;

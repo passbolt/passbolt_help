@@ -7,6 +7,30 @@
 
 
 <item>
+    <title>v3.12.2 | Stille Einfuegen</title>
+    <link>https://help.passbolt.com/releases/pro/stille-einfuegen</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/stille-einfuegen</guid>
+    <description>This is a small security release of the API only. It addresses an information leak issue while creating a resource with encrypted description and misusing the API. A client could inadvertently insert an unencrypted version of the description along with its encrypted version in the database. If you want to...</description>
+    <pubDate>Wed, 26 Apr 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v3.12.1 | Mental Wave</title>
+    <link>https://help.passbolt.com/releases/pro/mental-wave</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/mental-wave</guid>
+    <description>This release is a small maintenance release of the browser extension only. It fixes issues reported by the community relative to users email validation and the latest introduced SSO. A big thank you to the community members who are reporting issues and help us investigate them. Browser extension Fix PB-23930...</description>
+    <pubDate>Wed, 29 Mar 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v3.12.0 | Introspective</title>
     <link>https://help.passbolt.com/releases/pro/introspective</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/introspective</guid>

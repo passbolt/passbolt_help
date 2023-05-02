@@ -328,7 +328,8 @@ February
   <div class="col7">
 
     <h2 id="summary">Summary</h2>
-    <p>Leak of confidential information detected during UAT phase of the Android app 1.13.1.</p>
+    <p>Android app prior 1.13.1. maybe leak of confidential information via by sending unencrypted the content
+of the description field, when the resource type “password with encrypted description” is selected.</p>
 
     <ul>
       <li><strong>CVE:</strong> N/A</li>
@@ -347,56 +348,77 @@ February
       </li>
       <li><strong>Affected component:</strong> Resources creation form.</li>
       <li><strong>Vulnerability Type:</strong> Information leak</li>
-      <li><strong>Severity:</strong> N/A</li>
+      <li><strong>Severity:</strong> Medium</li>
     </ul>
 
     <h2 id="problem">Problem</h2>
-    <p>When creating a resource from the Android app an unencrypted version of the description was sent to the API along with its encrypted version contained in the secret. However the default content type (password-and-description) should not contain the unencrypted version of the description.</p>
+
+    <p>When creating a resource from the Android app an unencrypted version of the description was sent to the API 
+along with its encrypted version contained in the secret. However the default content type (password-and-description) 
+should not contain the unencrypted version of the description.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2023/04/incident26april2023.png" alt="1. example of payload sent to the API while a new resource is created" style="max-width:500px;" />
     <span class="legend">fig. 1. example of payload sent to the API while a new resource is created</span>
 </figure>
 
-    <p>On top of that as the API didn’t ignore the sent unencrypted description, the API stored it in cleartext along with the resource’s metadata in the database.</p>
+    <p>On top of that as the API didn’t ignore the sent unencrypted description, the API stored it in cleartext along 
+with the resource’s metadata in the database.</p>
 
     <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
-    <p>As the API stored the unencrypted version of the description in the database and didn’t perform a validation of the data when retrieving it, the unencrypted description was returned along with the resource’s metadata when a client requested it via the API.</p>
+    <p>As the API stored the unencrypted version of the description in the database and didn’t perform a validation of 
+the data when retrieving it, the unencrypted description was returned along with the resource’s metadata when 
+a client requested it via the API.</p>
 
     <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2023/04/incident26april2023_exploitation.png" alt="2. eexample of payload retrieved from the API when retrieving a resource" style="max-width:500px;" />
-    <span class="legend">fig. 2. eexample of payload retrieved from the API when retrieving a resource</span>
+    <img src="https://help.passbolt.com/assets/img/help/2023/04/incident26april2023_exploitation.png" alt="2. example of payload retrieved from the API when retrieving a resource" style="max-width:500px;" />
+    <span class="legend">fig. 2. example of payload retrieved from the API when retrieving a resource</span>
 </figure>
 
-    <p>An attacker who performed a man-in-the-middle (MitM) attack could see the resource description in cleartext in the payload of the resource creation request.</p>
+    <p>An attacker who performed a man-in-the-middle (MitM) attack could see the resource description in cleartext 
+in the payload of the resource creation request.</p>
 
-    <p>Additionally an attacker who gained access to the database could read the description in cleartext from the resources table.</p>
+    <p>Additionally, an attacker who gained access to the database could read the description in cleartext from the resources 
+table.</p>
 
     <h2 id="whos-impacted">Who’s impacted</h2>
-    <p>Organizations that have users who created resources with a non-empty description from their Android app or directly via the API if this one was misused. Note that only the resources created are impacted, and that the issue is not occurring during the edit process.</p>
+    <p>Organizations that have users who created resources with a non-empty description from their Android app or 
+directly via the API if this one was misused. Note that only the resources created are impacted, and that the 
+issue is not occurring during the edit process.</p>
 
-    <h2 id="fix">Fix</h2>
+    <h2 id="root-cause">Root cause</h2>
+    <p>The root cause is a combination of issues involving the Android app as well as the API.</p>
+
+    <h3 id="android-app">Android App</h3>
+    <p>The Use Case class for creating a resource for both two initial resource types (encrypted password, encrypted 
+password with encrypted description) is reused. At first, only the encrypted password with plain text description 
+resource type was supported and then the second one was added on top.</p>
+
+    <p>During the implementation of the second resource type, the encrypted description was added into the secret, but it 
+had been missed when updating the value of the original description field, so it stayed the same.</p>
+
+    <h3 id="api">API</h3>
+    <p>The API was not strict while asserting the metadata of the created resources having the type password-and-description, 
+therefore letting the unwanted unencrypted description pass the validation and get stored in the database.</p>
+
+    <h1 id="how-to-fix-the-issue">How to fix the issue</h1>
+
+    <p>Users are advised to upgrade to the lastest API and Android application version.
+Administrators are advised to run the cleanup script. For example on Ubuntu/Debian system:</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -u www-data /usr/share/php/passbolt/bin/cake passbolt cleanup
+</code></pre></div>    </div>
+
+    <h2 id="what-was-done-to-fix-the-issue">What was done to fix the issue</h2>
     <ul>
       <li>MOB-1250 Fix the Android app by not sending the description field to the backend during resource creation</li>
       <li>PB-24315 Add validation of received resource fields on the backend according to the schema</li>
       <li>PB-24315 Run a script to clear the description field in all resources of type encrypted password with encrypted description</li>
     </ul>
 
-    <h2 id="root-cause">Root cause</h2>
-    <p>The root cause is a combination of issues involving the Android app as well as the API.</p>
-
-    <h3 id="android-app">Android App</h3>
-    <p>The Use Case class for creating a resource for both two initial resource types (encrypted password, encrypted password with encrypted description) is reused. At first, only the encrypted password with plain text description resource type was supported and then the second one was added on top.</p>
-
-    <p>During the implementation of the second resource type, the encrypted description was added into the secret, but it had been missed when updating the value of the original description field, so it stayed the same.</p>
-
-    <h3 id="api">API</h3>
-    <p>The API was not strict while asserting the metadata of the created resources having the type password-and-description, therefore letting the unwanted unencrypted description pass the validation and get stored in the database.</p>
-
     <h2 id="event-timeline">Event Timeline</h2>
 
     <ul>
-      <li>20/04/2023 - Bug identified</li>
+      <li>20/04/2023 - Bug identified by Mobile team during UAT</li>
       <li>26/04/2023 - Android app fixed with 1.13.2</li>
       <li>26/04/2023 - API fixed with v3.12.2</li>
     </ul>

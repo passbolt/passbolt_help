@@ -80,12 +80,7 @@ The API was not strict while asserting the metadata of the created resources hav
 therefore letting the unwanted unencrypted description pass the validation and get stored in the database.
 
 # How to fix the issue
-
-Users are advised to upgrade to the lastest API and Android application version.
-Administrators are advised to run the cleanup script. For example on Ubuntu/Debian system:
-```
-sudo -u www-data /usr/share/php/passbolt/bin/cake passbolt cleanup
-```
+Users and administrators are advised to upgrade to the lastest API and Android application version.
 
 ## What was done to fix the issue
 - MOB-1250 Fix the Android app by not sending the description field to the backend during resource creation

@@ -44,7 +44,7 @@ in case of recovery kit or passphrase loss. To know more about account recovery,
 
 You can follow this procedure if you are meeting the following requirements:
 - You are in possession of an active account;
-- Your organisation is running passbolt Pro > v3.6.0 or passbolt Cloud (coming soon).
+- Your organisation is running passbolt Pro > v3.6.0 or Passbolt Cloud.
 - You subscribed to the account recovery program while installing passbolt for the first time or via in your user settings workspace.
 
 ### Procedure

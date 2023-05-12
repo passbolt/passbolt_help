@@ -57,7 +57,7 @@ Log in to Passbolt and navigate to the settings page by clicking on your avatar.
 Navigate to *Settings > Multi Factor Authentication*. 
 You should be able to select a provider.
 
-As mentionned before, troughout this example we will take Google Authenticator TOTP.
+As mentioned before, throughout this example we will assume Google Authenticator TOTP.
 
 {% include articles/figure.html
     url="/assets/img/help/2023/01/totp-passbolt-user-enable.png"

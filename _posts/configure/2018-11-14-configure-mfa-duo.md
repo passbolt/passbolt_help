@@ -90,6 +90,19 @@ Find the "Web SDK" application and click on the "Protect" button.
 
 Note down the Client ID, Client secret, and API hostname details, as you will need them to configure the integration.
 
+## Generate a random salt
+
+Generating a random salt to configure Duo is mandatory, it's a random piece of data that is generated and used in the hashing process to protect a sentivite information. It is generated and combined with the secret key before hashing it.
+
+To generate a random salt, you can do it from the passbolt interface, generate a new password as shown below and use it a the generated salt. 
+
+{% include articles/figure.html
+    url="/assets/img/help/2023/05/password-generator.png"
+    legend="Passbolt - Password Generator"
+    width="250px"
+%}
+
+
 ## Set the configuration in passbolt
 
 You can configure Duo OTP using either the admin interface or environment variables. 
@@ -100,8 +113,7 @@ variables. Note that we recommend using the admin interface, since it is more se
 
 Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on "administration" in the top menu, then "multi factor authentication" on the left menu.
-You can then enable or disable the Duo provider by providing the API Hostname, the Client ID, and
-the Client Secret that you gathered in the previous steps. Click "save settings" when you are done.
+You can then enable or disable the Duo provider by providing the API Hostname, the Client ID, the generated salt and the Client Secret that you gathered in the previous steps. Click "save settings" when you are done.
 
 {% include articles/figure.html
     url="/assets/img/help/2023/02/AD_mfa_org_settings_duo.png"

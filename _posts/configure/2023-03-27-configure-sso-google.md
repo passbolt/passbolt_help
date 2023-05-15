@@ -149,20 +149,25 @@ legend="Google API Console - Credentials Created"
 %}
 
 {% include messages/warning.html
-    content="**Things to consider:** The Authorized redirect URIs should be the URL given by the passbolt while configuring SSO from administration (*https://<your-passbolt-url>/app/administration/sso*). Google can accept any valid URL([learn more about valid domains criteria](https://github.com/google/guava/wiki/InternetDomainNameExplained#public-suffixes-and-private-domains)) in redirect URLs but it might not work with passbolt."
+    content="**Things to consider:** The Authorized redirect URIs should be the URL given by the passbolt while configuring SSO from administration (https://<your-passbolt-url>/app/administration/sso). Google can accept any valid URL in redirect URLs but it might not work with passbolt."
 %}
 
 ## Configure SSO through the GUI
 
 To finish the configuration, navigate to *Administration > Single Sign On* 
 
-{% include articles/figure.html
-url="/assets/img/help/2023/05/passbolt-sso-google.png"
-legend="Passbolt GUI - Google SSO"
-%}
-
 Fill the fields with what we created, such as:
 1. Application ID
 2. Secret
 
-Before saving the settings, please do not forget to test if the configuration is working. 
+{% include articles/figure.html
+url="/assets/img/help/2023/05/passbolt-sso-google-test.png"
+legend="Passbolt GUI - Google SSO Test Settings"
+%}
+
+After that, a dialog will open with a "Sign in with Google" button, click on it.
+A popup will open asking you to perform the authentication with Microsoft, once the authentication is successful you can save the settings.
+Once the settings have been saved, you can log out and you should see an SSO option.
+
+**Note:** Users must successfully perform a login using their current passphrase after SSO has been activated in order for the SSO option to be proposed to them at future logins.
+

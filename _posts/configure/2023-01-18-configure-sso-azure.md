@@ -2,14 +2,14 @@
 title: How to configure SSO with Microsoft
 date: 2023-03-15 00:00:00 Z
 card_title: How to configure SSO with Microsoft
-icon: fa-address-book-o
+card_teaser: Configure SSO with Microsoft Azure AD
+description: 
+icon: fa-brands fa-windows
 categories: [configure, sso]
 sidebar: configure
 layout: default
 slug: azure
 permalink: /:categories/:slug.html
-redirect_from:
-- /configure/sso
 ---
 
 {% assign product = 'pro' %}

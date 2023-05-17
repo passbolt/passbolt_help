@@ -36,29 +36,6 @@ In short Passbolt SSO leverages Google OAuth2/OpenID on top of the existing [cha
 
 To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the [developer documentation](https://docs.google.com/document/d/1Id33XyNRxyeJ5sof5ggWNpFUq1nX6RKwU8vLIe8ROF8/edit).
 
-## How to enable Google SSO plugin?
-
-If you use Docker you can enable the SSO plugin setting the `PASSBOLT_PLUGINS_SSO_ENABLED` environment variable to **1**. Otherwise you will need to edit your `passbolt.php` file and add the following:
-
-```php
-'passbolt' => [
-    ...
-
-    'plugins' => [
-        'sso' => [
-            'enabled' => true, // `false` to disable SSO feature
-            'providers' => [
-                // `false` to disable specific provider, default `true`
-                'azure' => true,
-                'google' => true, 
-            ],
-        ],
-    ],
-],
-```
-
-Since Passbolt v4.0.0, it is possible to enable or disable particular SSO providers.
-
 ## How to configure the plugin?
 
 Open both the [Google API console](https://console.developers.google.com/) and Passbolt:

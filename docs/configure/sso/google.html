@@ -265,28 +265,6 @@
 
     <p>To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the <a href="https://docs.google.com/document/d/1Id33XyNRxyeJ5sof5ggWNpFUq1nX6RKwU8vLIe8ROF8/edit">developer documentation</a>.</p>
 
-    <h2 id="how-to-enable-google-sso-plugin">How to enable Google SSO plugin?</h2>
-
-    <p>If you use Docker you can enable the SSO plugin setting the <code class="language-plaintext highlighter-rouge">PASSBOLT_PLUGINS_SSO_ENABLED</code> environment variable to <strong>1</strong>. Otherwise you will need to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</code> file and add the following:</p>
-
-    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'passbolt'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-    <span class="mf">...</span>
-
-    <span class="s1">'plugins'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-        <span class="s1">'sso'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-            <span class="s1">'enabled'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// `false` to disable SSO feature</span>
-            <span class="s1">'providers'</span> <span class="o">=&gt;</span> <span class="p">[</span>
-                <span class="c1">// `false` to disable specific provider, default `true`</span>
-                <span class="s1">'azure'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
-                <span class="s1">'google'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> 
-            <span class="p">],</span>
-        <span class="p">],</span>
-    <span class="p">],</span>
-<span class="p">],</span>
-</code></pre></div>    </div>
-
-    <p>Since Passbolt v4.0.0, it is possible to enable or disable particular SSO providers.</p>
-
     <h2 id="how-to-configure-the-plugin">How to configure the plugin?</h2>
 
     <p>Open both the <a href="https://console.developers.google.com/">Google API console</a> and Passbolt:</p>

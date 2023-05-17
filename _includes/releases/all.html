@@ -13,7 +13,7 @@
                         {% assign items = site.releases | sort: 'date' %}
                         {% for item in items reversed %}
                         {% assign major = item.version | slice: 1 %}
-                        {% if item.product == 'pro' %}{% if major == '3' %}
+                        {% if item.product == 'pro' %}{% if major == '4' %}
                         <li>
                             <span style="width:60%; display:inline-block"><a href="{{ item.url }}">{{ item.version }} - {{ item.title }}</a></span>
                             <span style="color:#888">{% include date/format-date.html date=item.date %}</span>
@@ -27,7 +27,7 @@
                     <ul>
                         {% for item in items reversed %}
                         {% assign major = item.version | slice: 1 %}
-                        {% if item.product == 'ce' %}{% if major == '3' %}
+                        {% if item.product == 'ce' %}{% if major == '4' %}
                         <li>
                             <span style="width:60%; display:inline-block"><a href="{{ item.url }}">{{ item.version }} - {{ item.title }}</a></span>
                             <span style="color:#888">{% include date/format-date.html date=item.date %}</span>
@@ -45,7 +45,7 @@
                         {% assign items = site.releases | sort: 'date' %}
                         {% for item in items reversed %}
                         {% assign major = item.version | slice: 1 %}
-                        {% if item.product == 'pro' %}{% if major == '2' %}
+                        {% if item.product == 'pro' %}{% if major == '3' %}
                         <li>
                             <span style="width:60%; display:inline-block"><a href="{{ item.url }}">{{ item.version }} - {{ item.title }}</a></span>
                             <span style="color:#888">{% include date/format-date.html date=item.date %}</span>
@@ -59,7 +59,7 @@
                     <ul>
                         {% for item in items reversed %}
                         {% assign major = item.version | slice: 1 %}
-                        {% if item.product == 'ce' %}{% if major == '2' %}
+                        {% if item.product == 'ce' %}{% if major == '3' %}
                         <li>
                             <span style="width:60%; display:inline-block"><a href="{{ item.url }}">{{ item.version }} - {{ item.title }}</a></span>
                             <span style="color:#888">{% include date/format-date.html date=item.date %}</span>

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | How to configure SSO with Google</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="How to configure SSO with Google" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/configure/sso/google">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2023-03-27-configure-sso-google.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li>
+            <h2>Configure</h2>
+        </li>
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/https">Configure HTTPS</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/setup">Configure LDAP</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/account-recovery">Configure Account Recovery</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/sso">Configure SSO</a>
+        </li>
+        
+        
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">Troubleshoot LDAP sync errors</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/totp">Configure TOTP</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/email/setup">Configure Email providers</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting/why-email-not-sent">Troobleshoot Email config</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/environment/reference">Environment variable reference</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure"><span>configure</span></a>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/sso"><span>sso</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/sso/google.html"><span>google</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>How to configure SSO with Google</h1>
+</div>
+</div>
+
+                        
+<div class="row">
+  <div class="col7">
+
+    <div class="message notice">
+    <p>
+    <strong>Attention</strong>: This feature is only available in Passbolt Pro Edition.
+    </p>
+    
+</div>
+
+    <p>Since version 4.0.0, Passbolt Pro Edition supports SSO with Google via Google Cloud Identity.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/passbolt-sso-google-login.png" alt="Passbolt GUI - SSO Login with Google Cloud Identity" style="max-width:;" />
+    <span class="legend">fig. Passbolt GUI - SSO Login with Google Cloud Identity</span>
+</figure>
+
+    <div class="message warning">
+    <p>
+        <strong>Important:</strong> Passbolt will request a Google API for authorization, if you have firewall rules setup, you have to allow your server to request the accounts.google.com domain.
+    </p>
+    
+</div>
+
+    <h2 id="how-does-it-work">How does it work?</h2>
+
+    <p>In short Passbolt SSO leverages Google OAuth2/OpenID on top of the existing <a href="/api/authentication">challenge-based authentication</a>. The user by logging in Google unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted with a non-extractable symetric key stored in the browser extension local storage client side.</p>
+
+    <p>To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the <a href="https://docs.google.com/document/d/1Id33XyNRxyeJ5sof5ggWNpFUq1nX6RKwU8vLIe8ROF8/edit">developer documentation</a>.</p>
+
+    <h2 id="how-to-enable-google-sso-plugin">How to enable Google SSO plugin?</h2>
+
+    <p>If you use Docker you can enable the SSO plugin setting the <code class="language-plaintext highlighter-rouge">PASSBOLT_PLUGINS_SSO_ENABLED</code> environment variable to <strong>1</strong>. Otherwise you will need to edit your <code class="language-plaintext highlighter-rouge">passbolt.php</code> file and add the following:</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="s1">'passbolt'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="mf">...</span>
+
+    <span class="s1">'plugins'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">'sso'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">'enabled'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// `false` to disable SSO feature</span>
+            <span class="s1">'providers'</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="c1">// `false` to disable specific provider, default `true`</span>
+                <span class="s1">'azure'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="s1">'google'</span> <span class="o">=&gt;</span> <span class="kc">true</span><span class="p">,</span> 
+            <span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">],</span>
+</code></pre></div>    </div>
+
+    <p>Since Passbolt v4.0.0, it is possible to enable or disable particular SSO providers.</p>
+
+    <h2 id="how-to-configure-the-plugin">How to configure the plugin?</h2>
+
+    <p>Open both the <a href="https://console.developers.google.com/">Google API console</a> and Passbolt:</p>
+
+    <p>Once the plugin is enabled you will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.</p>
+
+    <p>You will need to also login to the Google API console.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/sso-google-panel.png" alt="Passbolt administration - SSO" style="max-width:;" />
+    <span class="legend">fig. Passbolt administration - SSO</span>
+</figure>
+
+    <p>With Passbolt v4.0.0, SSO users can self-register themselves if self registration plugin is enabled. Which means that if one of your users is not yet configured in the browser, he can use SSO to self-register. If self registration plugin is not enabled, you must ensure users are present both in Passbolt and Google Cloud, the email is used to correlate accounts.</p>
+
+    <ul>
+      <li>Users that are not present in Google Cloud but are present in Passbolt will not be able to use SSO (a message on google side will be shown).</li>
+      <li>Users that are not present in Passbolt but are present in Google Cloud will not be able to login in Passbolt (a message on Passbolt side will be shown).</li>
+      <li>If self registration is enabled, users that are not present in Passbolt but are present in Google Cloud will be able to self-register in Passbolt (a message on Passbolt side will be shown).</li>
+    </ul>
+
+    <h2 id="configure-google-sso">Configure Google SSO</h2>
+
+    <p>Navigate to your project lists, click on “New project” button</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-projects.png" alt="Google API Console - Projects" style="max-width:;" />
+    <span class="legend">fig. Google API Console - Projects</span>
+</figure>
+
+    <p>In the new project screen, you will be prompted to enter a project name, you can edit the project ID or accept the default one, select an organization and the location. After that, click on “Create” button to create the project, it should appear in your project list as shown above.</p>
+
+    <h3 id="set-up-oauth">Set up OAuth</h3>
+
+    <p>Once the project is create, navigate to <em>APIs &amp; Services &gt; OAuth consent screen</em></p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-oauth.png" alt="Google API Console - Burger Menu" style="max-width:;" />
+    <span class="legend">fig. Google API Console - Burger Menu</span>
+</figure>
+
+    <p>On this page, choose the user type to “Internal” and click the “Create” button. <a href="https://support.google.com/cloud/answer/10311615#user-type">Read more about user type</a></p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-oauth-type.png" alt="Google API Console - OAuth conset screen" style="max-width:;" />
+    <span class="legend">fig. Google API Console - OAuth conset screen</span>
+</figure>
+
+    <p><strong>Note:</strong> As the name suggests, the “Internal” type app will only be available to users within your organization. However selecting “External” might work, we do not recommend it to use with Passbolt as it can let any user with a valid google account can sign-in to Passbolt.</p>
+
+    <ul>
+      <li>Fill in required fields like App name, support email, and developer contact information and click the “Save and continue” button. You can also fill in the details of optional fields if you want.</li>
+    </ul>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-oauth-app-information.png" alt="Google API Console - OAuth App Information" style="max-width:;" />
+    <span class="legend">fig. Google API Console - OAuth App Information</span>
+</figure>
+
+    <ul>
+      <li>On the Scopes page, you must have to select these three scopes:
+        <ul>
+          <li>auth/userinfo.email</li>
+          <li>auth/userinfo.profile</li>
+          <li>openid</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Once it is done, click on “Save and continue” to go to the next screen.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-oauth-scopes.png" alt="Google API Console - OAuth Scopes" style="max-width:;" />
+    <span class="legend">fig. Google API Console - OAuth Scopes</span>
+</figure>
+
+    <ul>
+      <li>Verify and submit the summary of the details you selected.</li>
+    </ul>
+
+    <h2 id="create-credentials">Create credentials</h2>
+
+    <p>Navigate to <em>APIs &amp; Services &gt; Credentials</em> and click on <em>Create credentials &gt; OAuth client ID</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-credentials.png" alt="Google API Console - Create Credentials" style="max-width:;" />
+    <span class="legend">fig. Google API Console - Create Credentials</span>
+</figure>
+
+    <p>On the Create OAuth client ID screen, select Application type to “Web application”, then enter the name of your choice, Authorized Javascript origins, Authorized redirect URIs <em>(You can get this from the Passbolt SSO settings page)</em></p>
+
+    <p>Once you’ve entered all the details click on the “Create” button to create the credentials.</p>
+
+    <p>When credentials are created, you’ll get Client ID and Client secret. These are the two things you’ll need to add to Passbolt when you configure the Google SSO.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/google-api-oauth-client-created.png" alt="Google API Console - Credentials Created" style="max-width:;" />
+    <span class="legend">fig. Google API Console - Credentials Created</span>
+</figure>
+
+    <div class="message warning">
+    <p>
+        <strong>Things to consider:</strong> The Authorized redirect URIs should be the URL given by the passbolt while configuring SSO from administration (https://<your-passbolt-url>/app/administration/sso). Google can accept any valid URL in redirect URLs but it might not work with passbolt.
+    </your-passbolt-url></p>
+    
+</div>
+
+    <h2 id="configure-sso-through-the-gui">Configure SSO through the GUI</h2>
+
+    <p>To finish the configuration, navigate to <em>Administration &gt; Single Sign On</em></p>
+
+    <p>Fill the fields with what we created, such as:</p>
+    <ol>
+      <li>Application ID</li>
+      <li>Secret</li>
+    </ol>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/passbolt-sso-google-test.png" alt="Passbolt GUI - Google SSO Test Settings" style="max-width:;" />
+    <span class="legend">fig. Passbolt GUI - Google SSO Test Settings</span>
+</figure>
+
+    <p>After that, a dialog will open with a “Sign in with Google” button, click on it.
+A popup will open asking you to perform the authentication with Microsoft, once the authentication is successful you can save the settings.
+Once the settings have been saved, you can log out and you should see an SSO option.</p>
+
+    <p><strong>Note:</strong> Users must successfully perform a login using their current passphrase after SSO has been activated in order for the SSO option to be proposed to them at future logins.</p>
+
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

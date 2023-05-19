@@ -17,7 +17,7 @@ Passbolt Pro Edition since v2.5 and CE since 3.9 support Yubikey OTP as a multi 
 Yubico OTP is a simple authentication mechanism that is supported by all YubiKeys out of the box. 
 
 {% include messages/notice.html
-    content="Please note than only [Yubikey 5 Series](https://www.yubico.com/products/yubikey-5-overview/) are supported. [Security Keys](https://www.yubico.com/products/security-key/) with FIDO2/U2F/WebAuthN support are currently not supported."
+    content="Please note that only [Yubikey 5 Series](https://www.yubico.com/products/yubikey-5-overview/) are supported. [Security Keys](https://www.yubico.com/products/security-key/) with FIDO2/U2F/WebAuthN support are currently not supported."
 %}
 
 {% include articles/figure.html
@@ -41,7 +41,7 @@ the Yubikey provider in their settings.
 
 ## Get a Yubikey cloud api key
 
-In order to use Yubikey OTP you need get an API key for Yubicloud, Yubico’s web service for verifying OTPs. 
+In order to use Yubikey OTP you need to get an API key for Yubicloud, Yubico’s web service for verifying OTPs. 
 Please note that it is no longer possible to [host yourself the OTP validation server](https://support.yubico.com/hc/en-us/articles/360021227000-YK-VAL-YK-KSM-and-YubiHSM-1-End-of-Life){:target="_blank"}.
 
 {% include articles/figure.html

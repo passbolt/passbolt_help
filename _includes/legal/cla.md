@@ -2,7 +2,7 @@
 
 Thank you for your interest in contribute to Passbolt ("We" or "Us").
 
-This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by email or electronic submission, following the instructions at https://www.passbolt.com/help/legal/cla. This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.
+This contributor agreement ("Agreement") documents the rights granted by contributors to Us. To make this document effective, please sign it and send it to Us by email or electronic submission, following the instructions at https://www.passbolt.com/terms/cla. This is a legally binding document, so please read it carefully before agreeing to it. The Agreement may cover more than one software project managed by Us.
 
 ## 1. Definitions
 
@@ -56,7 +56,7 @@ You confirm that:
 
 (c) The grant of rights under Section 2 does not violate any grant of rights which You have made to third parties, including Your employer. If You are an employee, You have had Your employer approve this Agreement or sign the Entity version of this document. If You are less than eighteen years old, please have Your parents or guardian sign the Agreement.
 
-(d) You have followed the instructions in https://www.passbolt.com/help/legal/cla, if You do not own the Copyright in the entire work of authorship Submitted.
+(d) You have followed the instructions in https://www.passbolt.com/terms/cla, if You do not own the Copyright in the entire work of authorship Submitted.
 
 ## 4. Disclaimer
 

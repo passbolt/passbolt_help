@@ -6,6 +6,16 @@
 <language>en-us</language>
 
 
+<item>
+    <title>v4.0.1 | Under Pressure</title>
+    <link>https://help.passbolt.com/releases/ce/under-pressure</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/under-pressure</guid>
+    <description>Introducing the latest update of Passbolt CE, release v4.0.1. This release update fixes a bug reported by the community impacting 32 bit operating systems. The issue reported can be found HERE on the community forum. API Added PB-24644 As an admin I should be able to run migrations on a...</description>
+    <pubDate>Tue, 30 May 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
 
 
 <item>

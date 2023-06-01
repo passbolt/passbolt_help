@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v4.0.2 | Creep</title>
+    <link>https://help.passbolt.com/releases/ce/creep</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/creep</guid>
+    <description>Presenting the latest update of passbolt, version 4.0.2. This release revises a previous fix for a community-reported bug. The bug impacts 32-bit operating systems. Find out more about the reported issue on the community forum. API Fixed PB-24644 As an admin I should be able to run migrations on a...</description>
+    <pubDate>Thu, 01 Jun 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.0.1 | Under Pressure</title>
     <link>https://help.passbolt.com/releases/ce/under-pressure</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/under-pressure</guid>

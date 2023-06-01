@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v4.0.2 | Creep</title>
+    <link>https://help.passbolt.com/releases/pro/creep</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/creep</guid>
+    <description>Presenting the latest update of passbolt Pro, version 4.0.2. This release revises a previous fix for a community-reported bug which impacts 32-bit operating systems. It also includes a fix for a bug where the triage page wasn’t displayed if SSO was misconfigured. Find out more about the reported issue on...</description>
+    <pubDate>Thu, 01 Jun 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.0.1 | Under Pressure</title>
     <link>https://help.passbolt.com/releases/pro/under-pressure</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/under-pressure</guid>

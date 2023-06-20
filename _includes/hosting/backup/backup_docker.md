@@ -7,15 +7,14 @@ Please replace these names with your own. You can use `docker ps` for this.
 %}
 #### 1. The database
 
-This can be easily scripted using [mysqldump](https://mariadb.com/kb/en/mariadb/mysqldump/).
-Use `docker exec` to connect to the Passbolt database container and write mysqldump output to a local file.
+We made a dedicated command in order to make a backup of the database, it uses `mysqldump` but we recommend to use the passbolt command as it has been made to avoid any pasting or logins details errors.
 
-Be sure to use simple-quotes for the `bash -c` argument to be able to use MYSQL_USER, MYSQL_PASSWORD and MYSQL_DATABASE environment variables.
+Use `docker exec` to connect to the passbolt container and use the `passbolt mysql_export` command. 
+
+Replace *PASSBOLT_CONTAINER* with your passbolt container name and *WEB_SERVER_USER* with the correct one. For example, if you use nginx it should be www-data.
 
 ```bash
-docker exec -i database-container bash -c \
-  'mysqldump -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}' \
-  > /path/to/backup.sql
+docker exec -i {PASSBOLT_CONTAINER} bash -c "su -s /bin/bash -c '/usr/share/php/passbolt/bin/cake passbolt mysql_export' WEB_SERVER_USER"
 ```
 
 #### 2. The server public and private keys

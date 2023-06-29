@@ -1,14 +1,23 @@
 ---
-title: Install Passbolt Pro on Debian 11 (Bullseye)
-date: 2021-11-24 00:00:00 Z
-description: How to install Passbolt Pro on (Bullseye)
-slug: Debian11
+title: Install Passbolt Pro on Debian 12 (Bookworm)
+date: 2023-06-29 00:00:00 Z
+description: How to install Passbolt Pro on (Bookworm)
+card_title: Debian 12
+card_teaser: Step by step guide to install Passbolt Pro on Debian
+card_position: 1
+icon: fa-debian
+categories: [hosting,install,pro,debian]
+sidebar: hosting
+layout: default
+popular: true
+slug: Debian
+permalink: /:categories/:slug.html
 ---
 
 {% assign product = 'pro' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '11' %}
-{% assign distributionVersionName = 'buster' %}
+{% assign distributionVersion = '12' %}
+{% assign distributionVersionName = 'bookworm' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionPackage = 'apt' %}

@@ -2,15 +2,12 @@
 title: Install Passbolt CE on CentOS 8
 date: 2023-06-29 00:00:00 Z
 description: How to install Passbolt CE on CentOS 8
-card_title: CentOS 8
-card_teaser: Install Passbolt CE on CentOS
-card_position: 10
-icon: fa-centos
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
 slug: centos
 permalink: /:categories/:slug.html
+archived: true
 ---
 
 {% assign product = 'ce' %}
@@ -22,6 +19,10 @@ permalink: /:categories/:slug.html
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
 
 {% include hosting/install/packages/debian/install-debian-package.md %}
 

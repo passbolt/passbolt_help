@@ -2,16 +2,17 @@
 title: Update passbolt on Centos 8 (installation script)
 date: 2021-10-19 00:00:00 Z
 description: How to update passbolt on your server.
-card_teaser: Guide for instances installed using install scripts.
-card_title: Update for Centos 8 (script)
-card_position: 3
 categories: [hosting, update]
-icon: fa-centos
-sidebar: hosting
-layout: default
 slug: install-scripts
 permalink: /:categories/:slug.html
+archived: true
 ---
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
+{% include hosting/install/packages/debian/install-debian-package.md %}
+
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

@@ -2,8 +2,17 @@
 title: Install Passbolt PRO on CentOS 7
 date: 2021-11-24 00:00:00 Z
 description: How to install Passbolt PRO on
-slug: centos
+categories: [hosting,install,pro]
+sidebar: hosting
+layout: default
+slug: centos7
+permalink: /:categories/:slug.html
+archived: true
 ---
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}

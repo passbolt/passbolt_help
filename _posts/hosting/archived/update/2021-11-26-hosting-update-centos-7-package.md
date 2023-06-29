@@ -2,13 +2,7 @@
 title: Update passbolt on CentOS 8
 date: 2021-11-26 00:00:00 Z
 description: How to update your server on CentOS 8.
-card_teaser: Guide for instances installed using CentOS package.
-card_title: Update for CentOS 8
-card_position: 10
-icon: fa-server
 categories: [hosting, update]
-sidebar: hosting
-layout: default
 slug: centos-7
 archived: true
 permalink: /:categories/:slug.html

@@ -2,16 +2,17 @@
 title: Install Passbolt PRO on CentOS 8
 date: 2023-06-29 00:00:00 Z
 description: How to install Passbolt PRO on CentOS 8
-card_title: CentOS 8
-card_teaser: Install Passbolt PRO on CentOS
-card_position: 10
-icon: fa-centos
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: centos
 permalink: /:categories/:slug.html
+archived: true
 ---
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}

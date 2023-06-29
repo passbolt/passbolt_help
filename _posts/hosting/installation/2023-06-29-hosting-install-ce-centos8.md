@@ -1,13 +1,21 @@
 ---
-title: Install Passbolt PRO on CentOS 7
-date: 2021-11-24 00:00:00 Z
-description: How to install Passbolt PRO on
+title: Install Passbolt CE on CentOS 8
+date: 2023-06-29 00:00:00 Z
+description: How to install Passbolt CE on CentOS 8
+card_title: CentOS 8
+card_teaser: Install Passbolt CE on CentOS
+card_position: 10
+icon: fa-centos
+categories: [hosting,install,ce]
+sidebar: hosting
+layout: default
 slug: centos
+permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% assign distribution = 'centos' %}
-{% assign distributionVersion = '7' %}
+{% assign distributionVersion = '8' %}
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
 {% assign distributionPackage = 'yum' %}
@@ -22,8 +30,8 @@ slug: centos
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/pro-support.html %}
+{% include aside/ce-install-community-forum-cta.md %}
 
-{% include aside/contribute.html %}
+{% include aside/ce-stay-up-to-date.md %}
 
 {% include layout/row_end.html %}

@@ -1,34 +1,34 @@
 ---
-title: Migrate an existing Passbolt PRO to a new Debian server 
-date: 2021-11-02 00:00:00 Z
-description: Migrate an existing Passbolt PRO to a new Debian server
-categories: [hosting,upgrade,pro]
-card_teaser: Migrate an existing Passbolt PRO to a new Debian server 
-card_title: Migrate to new Debian server
-card_position: 8
+title: Upgrade from Debian 11 to Debian 12
+date: 2023-06-29 00:00:00 Z
+description: Upgrade your Debian 11 Operating System running Passbolt to Debian 12
+categories: [hosting,upgrade,ce]
+card_teaser: Upgrade your Debian 11 Operating System running Passbolt to Debian 12
+card_title: Debian 12 upgrade
+card_position: 15
 sidebar: [hosting, upgrade]
-passbolt_version: pro
+passbolt_version: ce
 icon: fa-debian
 layout: default
-slug: migrate-existing-pro-to-debian-server
+slug: from-debian-11-to-debian-12-ce
 permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
+{% assign distributionVersionOld = '11' %}
 {% assign distributionVersion = '12' %}
+{% assign distributionVersionNameOld = 'bullseye' %}
 {% assign distributionVersionName = 'bookworm' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}
-{% assign distributionPackage = 'apt' %}
-{% assign webServerUser = 'www-data' %}
 {% assign databaseEngine = 'mariadb' %}
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
-{% include hosting/upgrade/upgrade-existing-to-new-server.md %}
+{% include hosting/upgrade/upgrade-debian12-new-specs.md %}
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}

@@ -16,8 +16,8 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '11' %}
-{% assign distributionVersionName = 'buster' %}
+{% assign distributionVersion = '12' %}
+{% assign distributionVersionName = 'bookworm' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Debian' %}
 {% assign distributionUpgradeGuide = 'https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html' %}

@@ -15,8 +15,8 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'debian' %}
-{% assign distributionVersion = '' %}
-{% assign distributionVersionName = 'buster' %}
+{% assign distributionVersion = '12' %}
+{% assign distributionVersionName = 'bookworm' %}
 {% assign distributionSlug = 'debian' %}
 {% assign distributionLabel = 'Raspberry' %}
 {% assign distributionPackage = 'apt' %}

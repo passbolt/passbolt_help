@@ -1,9 +1,9 @@
 ---
-title: Update passbolt on Centos 7 (installation script)
+title: Update passbolt on Centos 8 (installation script)
 date: 2021-10-19 00:00:00 Z
 description: How to update passbolt on your server.
 card_teaser: Guide for instances installed using install scripts.
-card_title: Update for Centos 7 (script)
+card_title: Update for Centos 8 (script)
 card_position: 3
 categories: [hosting, update]
 icon: fa-centos
@@ -23,7 +23,7 @@ permalink: /:categories/:slug.html
 ## Pre-requisites
 
 For this tutorial, you will need:
-- A minimal CentOS 7 server.
+- A minimal CentOS 8 server.
 - Passbolt installed with the CentOS install script.
 
 ## Updating passbolt

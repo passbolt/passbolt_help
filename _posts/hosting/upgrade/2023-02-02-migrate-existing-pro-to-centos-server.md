@@ -16,7 +16,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}
-{% assign distributionVersion = '7' %}
+{% assign distributionVersion = '8' %}
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}

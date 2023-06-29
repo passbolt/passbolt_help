@@ -1,10 +1,10 @@
 ---
-title: Migrate passbolt PRO from install scripts to CentOS 7 package
+title: Migrate passbolt PRO from install scripts to CentOS 8 package
 date: 2021-11-26 00:00:00 Z
-description: Migrate passbolt PRO from install scripts to CentOS 7 package
+description: Migrate passbolt PRO from install scripts to CentOS 8 package
 categories: [hosting,upgrade,pro]
-card_teaser: Migrate from install script to CentOS 7 package
-card_title: Migrate to CentOS 7 package
+card_teaser: Migrate from install script to CentOS 8 package
+card_title: Migrate to CentOS 8 package
 card_position: 1
 sidebar: [hosting, upgrade]
 passbolt_version: pro
@@ -16,7 +16,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}
-{% assign distributionVersion = '7' %}
+{% assign distributionVersion = '8' %}
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
 {% assign distributionPackage = 'yum' %}

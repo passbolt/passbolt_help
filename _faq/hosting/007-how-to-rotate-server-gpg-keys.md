@@ -72,7 +72,7 @@ Ensure the fingerprint from private key is the same:
 sudo gpg --show-keys /etc/passbolt/gpg/serverkey_private.asc | grep -Ev "^(pub|sub|uid|$|sec|ssb)" | tr -d ' '
 ```
 
-CentOS7 gpg command is quite old and has no **--show-keys** parameter. Use these commands instead:
+CentOS 8 gpg command is quite old and has no **--show-keys** parameter. Use these commands instead:
 
 ```
 # public key fingerprint

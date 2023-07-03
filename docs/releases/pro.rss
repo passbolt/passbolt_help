@@ -7,6 +7,46 @@
 
 
 <item>
+    <title>v4.0.4 | The One Percent</title>
+    <link>https://help.passbolt.com/releases/pro/the-one-percent</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/the-one-percent</guid>
+    <description>This is a small maintenance release of the browser extension only. It fixes a bug that prevented users from authenticating with SSO from the web integrated in-form menu.
+
+Browser extension
+Fixed
+
+  PB-24932 Fix: As a user I want to be able to sign-in through SSO from the inform menu
+
+
+</description>
+    <pubDate>Wed, 07 Jun 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v4.0.3 | The Pretender</title>
+    <link>https://help.passbolt.com/releases/pro/the-pretender</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/the-pretender</guid>
+    <description>This is a small maintenance release of the browser extension only. It fixes a bug that prevented users from authenticating with SSO from the quickaccess.
+
+Browser extension
+Fixed
+
+  PB-24734 Fix As a registered user I would like to be able to use SSO login via the quickaccess
+
+
+</description>
+    <pubDate>Mon, 05 Jun 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.0.2 | Creep</title>
     <link>https://help.passbolt.com/releases/pro/creep</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/creep</guid>

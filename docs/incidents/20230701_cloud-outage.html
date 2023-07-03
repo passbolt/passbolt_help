@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Password generator PRNG</title>
+    <title>Passbolt Help | Cloud outage</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Password generator PRNG" />
+    <meta property="og:title" content="Cloud outage" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/incidents/20180508_password_generator_prng">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20230701_cloud-outage">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2018-05-08-password-generator-prng.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2023-07-01-Cloud-outage.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -95,7 +95,7 @@
         
         
         
-        <li>
+        <li class="selected">
         
             <a href="https://help.passbolt.com/incidents/20230701_cloud-outage">
 July
@@ -235,7 +235,7 @@ May
         </li>
         
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng">
 May
@@ -319,7 +319,7 @@ February
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng"><span>2018-05-08 Password generator PRNG</span></a>
+                        <a href="https://help.passbolt.com/incidents/20230701_cloud-outage"><span>20230701_cloud-outage</span></a>
                     </div>
                 </li>
                 
@@ -330,88 +330,71 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Password generator PRNG</h1>
+<h1>Cloud outage</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <h2 id="summary">Summary</h2>
+    <p>This report explains the timeline and resolution for the issue that led to a 1h30m downtime of the cloud service 
+on the morning of Saturday the 1st of July, 2023.</p>
 
-    <p>Passbolt Web Extension version v1 does not use a cryptographically secure pseudo random generator when automatically 
-generating random passwords for the user.</p>
+    <h2 id="what-happened">What happened</h2>
+    <p>During a routine maintenance of our internal infrastructure the engineering introduced a configuration change that 
+rendered some of our proxies unusable.</p>
 
-    <ul>
-      <li><strong>CVE:</strong> N/A.</li>
-      <li><strong>Product affected:</strong> Passbolt Browser Extension.</li>
-      <li><strong>Version affected:</strong> v1.6.10 and below</li>
-      <li><strong>Version fixed:</strong> v2.0.5.</li>
-      <li><strong>Affected component:</strong> Password generator.</li>
-      <li><strong>Vulnerability Type:</strong> Use of Dangerous API.</li>
-      <li><strong>Severity:</strong> Low (2.3).</li>
-    </ul>
+    <p>The incident started at 10:52 AM CET on 01/07/2023 and was confirmed as fixed at 12.26 PM CET.</p>
 
-    <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
+    <h2 id="root-cause">Root cause</h2>
+    <p>A minor update of one of our core networking components included a breaking configuration change that was overlooked 
+and that should have triggered a different deployment process (where a new component is deployed with the new 
+configuration and then the old service is swapped with the new one).</p>
 
-    <p>An attacker running a malicious script running on the same page (and theoretically in another tab/extension), 
-could try to guess the possible PRNG seed values to predict the result of the unsecure random calls that are used 
-to seed passbolt password generator.</p>
+    <p>This configuration change was tested on our staging/testing environments but our engineering teams failed to see a 
+production specific configuration issue during the code review, triggered by a previous production-only deployment.</p>
 
-    <p>The attacker would need to have a malicious script running on the page and know the time the password generation 
-button is pressed for this attack to be exploitable in practice. This would still not provide the generated password 
-to the attacker, but a list of possible values that could be used as part of a brute force attack.</p>
+    <p>Due to the nature of the issue the updated service stopped working and could not get downgraded. A new service with 
+the old configuration was then rebuilt and swapped with the non working one. This strategy required changes in the 
+DNS which took some time to propagate, thus extending the downtime.</p>
 
-    <h3 id="credits">Credits</h3>
+    <h2 id="lesson-learned">Lesson learned</h2>
+    <p>Rest assured that our team strives to make passbolt cloud a trusted, resilient and best in class service.</p>
 
-    <p>This issue was found and reported by Matthias vd Meent.</p>
+    <p>In order to prevent this situation from happening again we have changed the deployment process to promote changes 
+tested on staging in a shorter life cycle and better documentation of production-only configuration items to 
+mitigate missing information during deployment handovers.</p>
 
-    <h2 id="other-information">Other information</h2>
+    <p>We are also making more strict the policy to make blue green deployments for critical components even for minor 
+updates to catch these issues without affecting our customers.</p>
 
-    <h3 id="how-did-you-fix-this">How did you fix this?</h3>
-
-    <p>The function used secretComplexity.generate() uses the Math.random method it should have been using 
-window.crypto.genRandomValues() instead, like in the rest of the code.</p>
-
-    <h3 id="do-i-need-to-change-my-passwords">Do I need to change my passwords?</h3>
-
-    <p>Even considering the low exploitability of this vulnerability, we still recommend to rotate the passwords that were 
-generated by passbolt.</p>
-
-    <h3 id="are-other-part-of-the-code-affected">Are other part of the code affected?</h3>
-
-    <p>Other part of the code using PRNG (such as the secret Key generator during the setup) are not affected, as they 
-already use a secure PRNG.</p>
-
-    <h3 id="event-timeline">Event timeline</h3>
+    <h2 id="event-timeline">Event Timeline</h2>
 
     <ul>
-      <li>2018-05-07 17:00 CET: Vulnerability details sent by reporter.</li>
-      <li>2018-05-07 17:00 CET: We acknowledge the issue, start working on a fix and start looking for similar issues in other part of the code.</li>
-      <li>2018-05-08 08:30 CET: We release a fix on passbolt development repository and start testing with continuous integration tools.</li>
-      <li>2018-05-08 09:00 PM CET: We deploy a fix on chrome and firefox web extension stores.</li>
-      <li>2018-05-08 12:00 PM CET: We notify the reporter that a fix has been deployed.</li>
-      <li>2018-05-08 12:00 PM CET: We publish the fix on github, the release notes and this report.</li>
+      <li>01/07/2023 - 10:50 - Maintenance starts</li>
+      <li>01/07/2023 - 10:51 - Deployment of the network component update, outage starts</li>
+      <li>01/07/2023 - 11:00 - Attempt to rollback fails</li>
+      <li>01/07/2023 - 11:10 - New service setup starts</li>
+      <li>01/07/2023 - 12:26 - New service is operational, outage ends</li>
     </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-May
-8th,
-2018.</p>
+July
+3rd,
+2023.</p>
     </div>
+
   </div>
   <div class="col4 last push1">
     <div class="tldr message success">
     <h4>Current status:</h4>
-    1. Try first to reproduce the issue<br />
-    2. Acknowledge to the reporter<br />
-    3. Get a fix/patch prepared<br />
-    4. Release new version.<br />
-    5. Prepare a report about the issue.<br />
-    <strong>6. Feature the problem in the release.</strong>
-    <h5>Last updated: 2018-05-08 12:00 PM CET</h5>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Prepare a report about the issue<br />
+    <strong>4. Feature the incident report</strong>
+    <h5>Last updated: 2023-07-03 12:20:00 CET</h5>
 </div>
   </div>
 </div>

@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v4.1.0 | War Pig</title>
+    <link>https://help.passbolt.com/releases/ce/war-pig</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/war-pig</guid>
+    <description>Version 4.1 of Passbolt introduces the long-awaited Role-Based Access Control (RBAC) feature. In its first version, RBAC provides admins with the ability to control the capabilities offered to users through the user interface (UI). As passbolt evolves, subsequent releases will expand on this, eventually providing control over API capabilities. On...</description>
+    <pubDate>Wed, 05 Jul 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.0.4 | The One Percent</title>
     <link>https://help.passbolt.com/releases/ce/the-one-percent</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/the-one-percent</guid>

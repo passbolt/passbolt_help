@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Call Me</title>
+    <title>Passbolt Help | War Pig</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version con...">
+    <meta name="description" content="Version 4.1 of Passbolt introduces the long-awaited Role-Based Access Control (RBAC) feature. In its first version, RBAC provides admins with the ability to ...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Call Me" />
-    <meta property="og:description" content="This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. The previously published extension version con..." />
+    <meta property="og:title" content="War Pig" />
+    <meta property="og:description" content="Version 4.1 of Passbolt introduces the long-awaited Role-Based Access Control (RBAC) feature. In its first version, RBAC provides admins with the ability to ..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v2120-call-me">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/war-pig">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.12.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v4.1.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/war-pig" >v4.1.0</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v2120-call-me"><span>call-me</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/war-pig"><span>war-pig</span></a>
                     </div>
                 </li>
                 
@@ -191,102 +191,108 @@
     </div>
 </div>
 
-                            <h1>v2.12.0 ~ Call Me (pro)</h1>
+                            <h1>v4.1.0 ~ War Pig (pro)</h1>
                             <p>Release date: 
-December
-6th,
-2019.
+July
+5th,
+2023.
 </p>
-                            <p>This release is mainly a maintenance release. It ships with several fixes, mainly regarding the web extension. 
-The previously published extension version contained some security fix for an issue in the quick access suggestion system reported by security researcher Rene Kroka. 
-You can learn more about it on the <a href="https://help.passbolt.com/incidents">incident page</a>.</p>
+                            <p>Version 4.1 of Passbolt introduces the <a href="https://community.passbolt.com/t/hackathon-march-2023-role-based-access-control/7115">long-awaited</a> Role-Based Access Control (RBAC) feature. In its first version, RBAC provides admins with the ability to control the capabilities offered to users through the user interface (UI). As passbolt evolves, subsequent releases will expand on this, eventually providing control over API capabilities.</p>
 
-<p>It also ships with a much demanded improvement: the possibility to resend a new invitation to a user.</p>
+<p>On the performance side, while passbolt was able to handle thousands of passwords, sharing on large volumes was a challenge due to the end-to-end model. With this new version, users will be pleased to experience enhanced performance when sharing their passwords with others. More improvements are yet to come in future releases, so stay tuned.</p>
 
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_resend_invitation.png" alt="Resend invitation menu" style="max-width:;" />
-    <span class="legend">fig. Resend invitation menu</span>
-</figure>
+<p>Administrators are not left behind with this release. Continuing the efforts from v4.0, LDAP/AD integrations now support multi-domain (via config file, UI to be added soon) and can synchronize with large datasets. On the other hand, SSO integrations now support username/email remapping, enabling organizations with custom settings to deploy this feature</p>
 
-<p>Another improvement is the integration of the MFA status for each user in the user workspace. It is now possible for an admin to see at a glance which users have activated their MFA, and which ones have not.</p>
+<p>Additionally, users will notice improvements in some areas: passwords are now easier to read, special characters and numbers are highlighted with contrasting colors, and multi-factor authentication is now able to remember the last method used.</p>
 
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_mfa_status.png" alt="MFA status in the user workspace" style="max-width:;" />
-    <span class="legend">fig. MFA status in the user workspace</span>
-</figure>
+<p>Finally, this release also includes the latest security fixes (minor and info) identified during the March security audit by Cure53. As usual, the full report along with the mitigations will be fully disclosed on the website.</p>
 
-<p>Moreover, for users who can’t access Passbolt anymore due to a lost or inaccessible MFA device, we added the possibility for the admin to disable MFA for the given user.
-This will give them the possibility to reset their MFA settings and be able to access Passbolt again.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/AD_disable_mfa.png" alt="Disable MFA option menu" style="max-width:;" />
-    <span class="legend">fig. Disable MFA option menu</span>
-</figure>
-
-<p>Finally, it is now possible for users to manage their personal tags. They can rename and delete them directly from the tags list component.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12//LU_tag_contextual_menu.png" alt="Manage personal tags from the contextual menu" style="max-width:300px;" />
-    <span class="legend">fig. Manage personal tags from the contextual menu</span>
-</figure>
-
-<p>We hope you’ll enjoy this update!</p>
-
-<p><strong>What next?</strong> The team focus is currently on the upcoming folders feature. 
-It is taking a substantial amount of energy to implement but the result should be matching your expectations.
-It is now a matter of weeks before the feature is available. If you are interested to know how it will work, you can have a look at <a href="https://docs.google.com/document/d/1pSR97b5emJH5XxMME_lN4CqLUfYFuDw6DGCMJ_XjF-o/edit?usp=sharing">the specifications</a> (feedback is welcome). 
-The screenshot below will give you a glimpse of its look and feel:</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2019/12/LU_folder_preview.png" alt="Folders feature overview" style="max-width:;" />
-    <span class="legend">fig. Folders feature overview</span>
-</figure>
-
-<p>The team wishes you great end-of-year celebrations, merry christmas &amp; happy new year in advance, and good holidays if you are lucky enough to take some!</p>
+<p>Thank you for choosing passbolt. Your support and feedback are greatly appreciated.</p>
 
 <h2 id="api">API</h2>
-
 <h3 id="added">Added</h3>
 <ul>
-  <li>PB-575: As AD I can see the MFA status of each user in the users grid</li>
-  <li>PB-639: As LU I can delete a personal tag</li>
-  <li>PB-687: As an admin I can resend an invitation for a user that didn’t complete the setup</li>
-  <li>PB-698: As an admin I can disable MFA for a user</li>
+  <li>PB-24259 As an administrator I can define with role based access control users’ rights</li>
+  <li>PB-24054 As an administrator I can define LDAP field mapping</li>
+  <li>PB-24051 As an administrator I can define LDAP multi domain</li>
 </ul>
 
 <h3 id="improved">Improved</h3>
 <ul>
-  <li>PB-893: Update CakePHP to v3.8.6</li>
-  <li>PB-894: Improve subscription key checks and output details</li>
+  <li>PB-24744 As a LU the date time format in the response always display the time zone</li>
+  <li>PB-24929 As a LU with multiple MFA providers setup, the latest provider used is proposed by default</li>
+  <li>PB-24488 Non-JSON request should return a 404 if JSON is required</li>
+  <li>PB-24617 As LU I want improved performance while sharing a folder with a user</li>
+  <li>PB-23843 Update SSO settings endpoint to allow prompt for Azure provider</li>
+  <li>PB-24244 As an administrator I can remap email and username properties</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-25030 As an admin I can set a feature flag to prevent user email enumeration</li>
+  <li>PB-24273 As an admin I can disable the GET auth/logout.json endpoint (enabled by default)</li>
+  <li>PB-19510 As a user I should be redirected to HTTPS if SSL FORCE configuration is true</li>
+  <li>PB-24566 As an admin the email settings password should be masked in the test email command log output</li>
+  <li>PB-23591 As a user authenticating I can perform a limited amount of TOTP MFA attempts</li>
 </ul>
 
 <h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-771: Added purify subject for the email subscribers</li>
-  <li>PB-856: Added migration fix to remove unused tables</li>
-  <li>GITHUB-84: Fix gc_maxlifetime versus Session.timeout units</li>
-  <li>PB-767: Fix LDAP sync issue “when multiple users are added to a group, failed validation of one should not impact validation of others”</li>
+  <li>PB-24782 As an administrator I can perform LDAP synchronization with over 1k records with improved performance</li>
+  <li>PB-24914 As an admin I should be able to rename a tag with uppercase</li>
+  <li>PB-24658 As an admin I should see no false warning in the email notification configuration section</li>
+  <li>PB-25275 As an admin I should see the option page during installation after creating the server GPG keys</li>
+  <li>PB-25276 As an admin on installation SSL force option should be set to true if the installation is launched over https</li>
+  <li>PB-25274 Set force SSL config to false by default</li>
 </ul>
 
-<h2 id="web-extension">Web extension</h2>
-
-<h3 id="improved-1">Improved</h3>
+<h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>PB-878: Update OpenPGP.js to v4.7</li>
-  <li>PB-649: The quickaccess passphrase field text and background colors should remain as default when the field is not focused.</li>
+  <li>PB-24925 Updates the fixture factories to its latest version</li>
+  <li>PB-24913 Removes “type” from required JSON schema definition for TOTP resource types</li>
+  <li>PB-24305 Recovery and register legacy routes are not used in emails and commands outputs</li>
+  <li>PB-21604 Extract composer audit task from checkstyle job and make it non-blocking</li>
+  <li>PB-21641 Rename check-style job to static-analysis and make it blocking</li>
+</ul>
+
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-24169 As an administrator I want to customise what capabilities users are allowed to access on the UI of my organisation</li>
+  <li>PB-24598 SSO allow administrators to remap email/username properties</li>
 </ul>
 
 <h3 id="fixed-1">Fixed</h3>
 <ul>
-  <li>PB-883: The quickaccess should filter passwords by uri protocol and port if provided.</li>
-  <li>PB-766: Fix 414 server issues for features that work with batch of resources. Reduce the size of the batches.</li>
+  <li>PB-14174 As a user I want the inform menu not to be displayed outside my browser window</li>
+  <li>PB-24657 As a user I should see the triage page even when SSO is misconfigured</li>
+  <li>PB-25031 Fix margin on folder name in the information panel</li>
 </ul>
+
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>PB-24619 As LU I should see the link on the same line in a paragraph</li>
+  <li>PB-24646 As LU, I should see colored passwords</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-24622 Put back the rolled-back code for LDAP multi-domain and field-mapping feature</li>
+  <li>PB-24794 Adapt browser extension to not crash when unknown content types are retrieved from the API</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-23852 PBL-02-002 As a user I should sign-out using POST method</li>
+  <li>PB-24997 Change static images URL to be served from the browser extension instead of the API</li>
+</ul>
+
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"When you're ready we can share the wine."</p>
-                                <a href="https://youtu.be/StKVS0eI85I" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"War Pig"</p>
+                                <a href="https://youtu.be/LQUXuQ6Zd9w" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

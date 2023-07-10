@@ -136,6 +136,8 @@ One should picture a folder permission list as a permission mask, i.e. a predefi
 
 This approach is also needed to work with the limitation of the end to end encryption scheme. Indeed only a user that has access to a secret can provide such access to another user. 
 
+A user with can update as a permission is able to move a secret from one folder to another folder. In this case if the new folder is shared with more users these users won't have the secret shared with them. This is because to share a secret a user needs to have the owner permission on the secret. To ensure a secret inherits the permissions you expect it is best to have a user with the owner permission move the secret to the new folder. 
+
 ### Additional resources
 
 * [Blog post: Introducing the new “Folders” feature (2020)](https://blog.passbolt.com/introducing-the-new-folders-feature-77366ae59315)

@@ -47,7 +47,7 @@ reflected in model cache files:
 $ sudo -H -u {{ webServerUser }} bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 ```
 
-### 5. Take your site back up
+### 5. Bring your site back online
 
 Almost done:
 ```bash

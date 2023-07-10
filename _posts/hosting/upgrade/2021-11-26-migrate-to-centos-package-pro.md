@@ -1,7 +1,7 @@
 ---
-title: Migrate passbolt PRO from install scripts to CentOS 8 package
+title: Migrate passbolt PRO from install scripts to CentOS 7 package
 date: 2021-11-26 00:00:00 Z
-description: Migrate passbolt PRO from install scripts to CentOS 8 package
+description: Migrate passbolt PRO from install scripts to CentOS 7 package
 categories: [hosting,upgrade,pro]
 slug: migrate-to-centos
 permalink: /:categories/:slug.html

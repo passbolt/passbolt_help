@@ -1,5 +1,5 @@
 ---
-title: Update passbolt on Centos 8 (installation script)
+title: Update passbolt on Centos 7 (installation script)
 date: 2021-10-19 00:00:00 Z
 description: How to update passbolt on your server.
 categories: [hosting, update]

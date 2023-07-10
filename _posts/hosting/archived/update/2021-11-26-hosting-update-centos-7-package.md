@@ -1,7 +1,7 @@
 ---
-title: Update passbolt on CentOS 8
+title: Update passbolt on CentOS 7
 date: 2021-11-26 00:00:00 Z
-description: How to update your server on CentOS 8.
+description: How to update your server on CentOS 7.
 categories: [hosting, update]
 slug: centos-7
 archived: true
@@ -10,7 +10,7 @@ permalink: /:categories/:slug.html
 
 {% assign distribution = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
-{% assign distributionVersion = '8' %}
+{% assign distributionVersion = '7' %}
 {% assign distributionPackage = 'yum' %}
 {% assign webServerUser = 'nginx' %}
 

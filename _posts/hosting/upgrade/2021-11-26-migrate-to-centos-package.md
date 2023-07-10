@@ -1,7 +1,7 @@
 ---
-title: Migrate passbolt CE from install scripts to CentOS 8 package
+title: Migrate passbolt CE from install scripts to CentOS 7 package
 date: 2021-11-26 00:00:00 Z
-description: Migrate passbolt CE from install scripts to CentOS 8 package
+description: Migrate passbolt CE from install scripts to CentOS 7 package
 categories: [hosting,upgrade,ce]
 slug: migrate-to-centos
 permalink: /:categories/:slug.html
@@ -16,7 +16,7 @@ archived: true
 
 {% assign product = 'ce' %}
 {% assign distribution = 'centos' %}
-{% assign distributionVersion = '8' %}
+{% assign distributionVersion = '7' %}
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
 {% assign distributionPackage = 'yum' %}

@@ -16,7 +16,7 @@ archived: true
 
 {% assign product = 'ce' %}
 {% assign distribution = 'centos' %}
-{% assign distributionVersion = '8' %}
+{% assign distributionVersion = '7' %}
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}

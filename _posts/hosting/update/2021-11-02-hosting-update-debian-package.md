@@ -21,6 +21,10 @@ permalink: /:categories/:slug.html
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
 
+{% include messages/notice.html
+    content="<b>Pro tip:</b> These instructions are also used for updates to the [virtual machine](/hosting/install/pro/vm)."
+%}
+
 {% include hosting/update/package-update.md %}
 
 {% include hosting/update/in-case-of-issues.md %}

@@ -15,7 +15,7 @@ archived: true
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}
-{% assign distributionVersion = '8' %}
+{% assign distributionVersion = '7' %}
 {% assign distributionSlug = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}
 {% assign distributionPackage = 'yum' %}

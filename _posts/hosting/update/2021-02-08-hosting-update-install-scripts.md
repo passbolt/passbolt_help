@@ -24,7 +24,7 @@ archived: true
 ## Pre-requisites
 
 For this tutorial, you will need:
-- A minimal CentOS 8 server.
+- A minimal CentOS 7 server.
 - Passbolt installed with the CentOS install script.
 
 ## Updating passbolt

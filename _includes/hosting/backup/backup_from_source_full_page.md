@@ -3,10 +3,12 @@
 
 #### 1. The database
 
-This can be easily scripted using [mysqldump](https://mariadb.com/kb/en/mariadb/mysqldump/) for example:
+We made a dedicated command in order to make a backup of the database, it uses `mysqldump` but we recommend to use the passbolt command as it has been made to avoid any pasting or logins details errors.
+
+**Replace *WEB_SERVER_USER* with the correct one.** Depending on your OS, it could be nginx, www-data, etc.
 
 ```bash
-mysqldump -u[user] -p[pass] [db] > /path/to/backup.sql
+su -s /bin/bash -c "/var/www/passbolt/bin/cake passbolt mysql_export" WEB_SERVER_USER
 ```
 
 #### 2. The server public and private keys

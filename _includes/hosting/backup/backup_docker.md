@@ -14,9 +14,10 @@ Be sure to use simple-quotes for the `bash -c` argument to be able to use MYSQL_
 
 ```bash
 docker exec -i database-container bash -c \
-  'mysqldump -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}' \
-  > /path/to/backup.sql
+'mysqldump -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}' \
+> /path/to/backup.sql
 ```
+
 
 #### 2. The server public and private keys
 

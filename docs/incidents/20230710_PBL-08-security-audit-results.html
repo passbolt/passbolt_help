@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Passphrase information leakage</title>
+    <title>Passbolt Help | PBL-08 Security audit results</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Summary">
+    <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Passphrase information leakage" />
-    <meta property="og:description" content="Summary" />
+    <meta property="og:title" content="PBL-08 Security audit results" />
+    <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20230710_PBL-08-security-audit-results">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2017-10-13-passphrase-information-leakage.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2023-07-10-PBL-08-security-audit-results.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -95,7 +95,7 @@
         
         
         
-        <li>
+        <li class="selected">
         
             <a href="https://help.passbolt.com/incidents/20230710_PBL-08-security-audit-results">
 July
@@ -265,7 +265,7 @@ December
         </li>
         
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
 October
@@ -329,7 +329,7 @@ February
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage"><span>2017-10-13 Passphrase information leakage</span></a>
+                        <a href="https://help.passbolt.com/incidents/20230710_PBL-08-security-audit-results"><span>PBL-08 Security audit results</span></a>
                     </div>
                 </li>
                 
@@ -340,92 +340,119 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Passphrase information leakage</h1>
+<h1>PBL-08 Security audit results</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
-    <h2 id="summary">Summary</h2>
 
-    <p>Passbolt Extension version 1.6.6 is vulnerable to an information leakage during the setup.</p>
+    <h2 id="introduction">Introduction</h2>
 
-    <ul>
-      <li><strong>CVE:</strong> N/A.</li>
-      <li><strong>Product affected:</strong> Passbolt Extension.</li>
-      <li><strong>Version affected:</strong> v1.6.6 and below.</li>
-      <li><strong>Version fixed:</strong> v1.6.7</li>
-      <li><strong>Affected component:</strong> Web extension private key passphrase entered before key generation.</li>
-      <li><strong>Vulnerability Type:</strong> Information leakage.</li>
-    </ul>
+    <p>As part of the security audit of Single Sign On feature, Cure53 team, found 8 issues that have been solved progressively
+by order of importance with v3.11 to v4.1. This week-long audit involved several security researchers with a main focus on 
+all the changes related to the implementation of the SSO on the API and client side (browser extension and styleguide). 
+Additionally, this audit included a general review of the implementations of the best practices.</p>
 
-    <h3 id="impact-of-issue">Impact of issue</h3>
+    <p>Quoting the conclusion of the report: 
+“One can confirm that the focus applications have proven robust against the multitude of attack scenarios 
+instigated from a server and client-side perspective. The ten-day allocation for this examination yielded a 
+total of eight findings, which is a praiseworthy result for the Passbolt team. The volume and severity markers 
+attached to the findings is moderate for a scope of this magnitude. The absence of any major issues - with no 
+Critical-assigned vulnerability in particular - underlines the Passbolt complex’s security strength. Even so, 
+the identified flaws represent a golden opportunity to integrate additional safeguard measures.”</p>
 
-    <p>Passphrase disclosure in the browser’s local storage between the key generation phase until the end of the setup.</p>
+    <p>All the issues have been fixed or a mitigation has been implemented as of 10th July 2023.</p>
 
-    <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
+    <p>You can read more about the security audit by <a href="/assets/files/PBL-08-report.pdf">reading the full report</a>.</p>
 
-    <p>An attacker having an access to the user file system during the extension setup, in the scenario where the key 
-is generated by the extension (as opposed to being imported), at the time between the key generation step and the 
-completion, could read the passphrase directly from the local storage. This information could be used to log in 
-into passbolt on behalf of the user and access / decrypt the secrets, therefore creating data confidentiality, 
-integrity and availability issues.</p>
+    <p>Passbolt team would like to express a warm thank you to the security researchers from Cure53 team for their 
+valuable contribution to this project.</p>
 
-    <h3 id="credits">Credits</h3>
+    <h2 id="vulnerabilities-summary">Vulnerabilities summary</h2>
 
-    <p>This issue was found and reported by Juan Wajnerman.</p>
-
-    <h2 id="other-information">Other information</h2>
-
-    <h3 id="how-did-this-happen">How did this happen?</h3>
-
-    <p>Passbolt web extension use the local storage to store information about the setup so that a user that close the 
-browser window can come back at a later stage to complete the setup instead of starting from scratch.</p>
-
-    <h3 id="how-bad-is-this">How bad is this?</h3>
-
-    <p>From our perspective since the attacker requires an already high privilege in order to access to the local storage 
-of the browser via the file system, and that this information is available only temporarily (e.g. it is removed 
-when the setup is completed), we consider that the exploitability of this vulnerability is low. However considering 
-the high impact and since this vulnerability can be mitigated we decided to act on it.</p>
-
-    <h3 id="what-are-you-doing-about-it">What are you doing about it?</h3>
-
-    <p>From version 1.6.7 onward a user will not be able to continue the setup after closing the browser window and will 
-have to start the process from scratch starting by clicking on the setup link in their mailbox.</p>
-
-    <h3 id="event-timeline">Event timeline</h3>
-
-    <ul>
-      <li>2017-10-13 04:40:00 CET: Juan Wajnerman notify passbolt team about the issue.</li>
-      <li>2017-10-13 08:00:00 CET: Passbolt team starts working on an impact assessment.</li>
-      <li>2017-10-13 08:50:00 CET: Passbolt team notify Juan and starts working on afix.</li>
-      <li>2017-10-13 10:40:00 CET: v.1.6.7 is being tested on continuous integration servers.</li>
-      <li>2017-10-13 12:00:00 CET: v.1.6.7 submitted on chrome webstore and firefox add-ons.</li>
-      <li>2017-10-13 12:00:00 CET: This incident report is published.</li>
-    </ul>
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Project</th>
+      <th>Issue name</th>
+      <th>Severity</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PBL-08-001</td>
+      <td>Browser Extension</td>
+      <td>Credentials Leakage via Clickjacking</td>
+      <td>High</td>
+      <td>Fixed in v3.11.1</td>
+    </tr>
+    <tr>
+      <td>PBL-08-007</td>
+      <td>Passbolt API</td>
+      <td>SSO-Design prompt=none allows for auth bypass</td>
+      <td>Medium</td>
+      <td>Fixed v4.1</td>
+    </tr>
+    <tr>
+      <td>PBL-08-002</td>
+      <td>Passbolt styleguide</td>
+      <td>Passphrase Retained In Memory Post-Logout</td>
+      <td>Low</td>
+      <td>Fixed v3.11</td>
+    </tr>
+    <tr>
+      <td>PBL-08-003</td>
+      <td>Passbolt API</td>
+      <td>Lack of proper ACL for users Endpoint</td>
+      <td>Low</td>
+      <td>Fixed v3.11</td>
+    </tr>
+    <tr>
+      <td>PBL-08-006</td>
+      <td>Passbolt API</td>
+      <td>2FA Status Information Disclosure Via users Endpoint</td>
+      <td>Info</td>
+      <td>Fixed v3.11</td>
+    </tr>
+    <tr>
+      <td>PBL-08-004</td>
+      <td>Passbolt API</td>
+      <td>No rate-limiting for 2FA login code</td>
+      <td>Info</td>
+      <td>Fixed v4.1</td>
+    </tr>
+    <tr>
+      <td>PBL-08-005</td>
+      <td>Passbolt API</td>
+      <td>Cross-Origin-related HTTP security headers missing</td>
+      <td>Info</td>
+      <td>Fixed v4.1</td>
+    </tr>
+  </tbody>
+</table>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-October
-13th,
-2017.</p>
+July
+10th,
+2023.</p>
     </div>
+
   </div>
   <div class="col4 last push1">
-
     <div class="tldr message success">
     <h4>Current status:</h4>
-    1. Try first to reproduce the issue<br />
-    2. Acknowledge to the reporter<br />
-    3. Get a fix/patch prepared<br />
-    4. Release new version.<br />
-    5. Prepare a report about the issue.<br />
-    <strong>6. Feature the problem in the release.</strong>
-    <h5>Last updated: 2017-10-13 12:00:00 CET</h5>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Release new version<br />
+    4. Prepare a report about the issue<br />
+    <strong>5. Feature the problem in the release</strong>
+    <h5>Last updated: 2023-07-10 08:30:00 CET</h5>
 </div>
-
   </div>
 </div>
 

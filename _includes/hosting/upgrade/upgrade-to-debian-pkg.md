@@ -174,7 +174,7 @@ You may also want to check for the old CRON job that may need to be removed:
 sudo crontab -u {{ webServerUser }} -e
 ```
 
-## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Take your site back up
+## {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}. Bring your site back online
 
 Finally take passbolt back up:
 

@@ -89,7 +89,7 @@ reflected in model cache files:
 $ sudo -H -u nginx bash -c "./bin/cake cache clear_all"
 ```
 
-### 7. Take your site back up
+### 7. Bring your site back online
 
 Almost done:
 ```bash

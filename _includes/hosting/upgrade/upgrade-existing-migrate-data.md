@@ -61,7 +61,7 @@ mysql -u PASSBOLT_DATABASE_USER -p PASSBOLT_DATABASE < passbolt-backup.sql
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Import the server key
 
 ```
-sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  {{ webServerUser }}
+sudo su -s /bin/bash -c "gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc"  {{ webServerUser }}
 ```
 
 **Step {{ stepNumber }}{% assign stepNumber = stepNumber | plus:1 %}.** Migrate passbolt to the latest version

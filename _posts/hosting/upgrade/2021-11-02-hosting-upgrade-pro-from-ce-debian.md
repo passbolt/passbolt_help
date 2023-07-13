@@ -105,7 +105,7 @@ sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 {% include hosting/upgrade/cronjobs.md %}
 
 
-### 10. Take your site back up
+### 10. Bring your site back online
 
 Finally take passbolt back up:
 

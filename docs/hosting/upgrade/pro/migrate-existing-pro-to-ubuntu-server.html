@@ -346,7 +346,7 @@ sudo chown -R www-data:www-data /usr/share/php/passbolt/webroot/img/public
 
     <p><strong>Step 6.</strong> Import the server key</p>
 
-    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c “gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc”  www-data
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su -s /bin/bash -c "gpg --home /var/lib/passbolt/.gnupg --import /etc/passbolt/gpg/serverkey_private.asc"  www-data
 </code></pre></div>    </div>
 
     <p><strong>Step 7.</strong> Migrate passbolt to the latest version</p>

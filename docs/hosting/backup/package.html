@@ -220,9 +220,11 @@ Please automate and customize this process to match the needs and policies of yo
 
     <h4 id="the-database">1. The database</h4>
 
-    <p>This can be easily scripted using <a href="https://mariadb.com/kb/en/mariadb/mysqldump/">mysqldump</a> for example:</p>
+    <p>We made a dedicated command in order to make a backup of the database, it uses <code class="language-plaintext highlighter-rouge">mysqldump</code> but we recommend to use the passbolt command as it has been made to avoid any pasting or logins details errors.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysqldump <span class="nt">-u</span><span class="o">[</span>user] <span class="nt">-p</span><span class="o">[</span>pass] <span class="o">[</span>db] <span class="o">&gt;</span> /path/to/backup.sql
+    <p><strong>Replace <em>WEB_SERVER_USER</em> with the correct one.</strong> Depending on your OS, it could be nginx, www-data, etc.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt mysql_export"</span> WEB_SERVER_USER
 </code></pre></div>    </div>
 
     <h4 id="the-server-public-and-private-keys">2. The server public and private keys</h4>

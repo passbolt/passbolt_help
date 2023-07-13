@@ -238,8 +238,8 @@ Use <code class="language-plaintext highlighter-rouge">docker exec</code> to con
     <p>Be sure to use simple-quotes for the <code class="language-plaintext highlighter-rouge">bash -c</code> argument to be able to use MYSQL_USER, MYSQL_PASSWORD and MYSQL_DATABASE environment variables.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker <span class="nb">exec</span> <span class="nt">-i</span> database-container bash <span class="nt">-c</span> <span class="se">\</span>
-  <span class="s1">'mysqldump -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'</span> <span class="se">\</span>
-  <span class="o">&gt;</span> /path/to/backup.sql
+<span class="s1">'mysqldump -u${MYSQL_USER} -p${MYSQL_PASSWORD} ${MYSQL_DATABASE}'</span> <span class="se">\</span>
+<span class="o">&gt;</span> /path/to/backup.sql
 </code></pre></div>    </div>
 
     <h4 id="the-server-public-and-private-keys">2. The server public and private keys</h4>

@@ -43,7 +43,7 @@ In order to configure your email server configuration, go to administration sett
 ### Choose your email provider
 When you consult your email server settings for the first time, by default, the provider is **Other**. Everything is filled out except logins details. You are free to edit thoses fields to match your email configuration. 
 
-{% include articles/figure.html url="/assets/img/help/2022/11/email_serversettings.png" legend="Email Server - Providers" width="586px" %}
+{% include articles/figure.html url="/assets/img/help/2023/07/email_server_settings_v4.png" legend="Email Server - Providers" width="586px" %}
 
 We also provide pre-filled configuration for most common mail server such as Gmail, AWS SES, etc. 
 <br>
@@ -51,7 +51,7 @@ But still, you can navigate through *advanced settings* to change all the seting
 
 ### Save the settings
 To save the settings, you have to click on the *save settings* button.
-{% include articles/figure.html url="/assets/img/help/2022/11/email_save.png" legend="Email Server - Save configuration" width="586px" %}
+{% include articles/figure.html url="/assets/img/help/2023/07/email_success_box_v4.png" legend="Email Server - Save configuration" width="586px" %}
 If at least one mandatory field is empty or doesn’t have the expected format, an error alert will appears and the interface jumps to the first mandatory field that doesn’t fit the requirements. This field will also shows an error message in red.
 
 ### Test email notifications

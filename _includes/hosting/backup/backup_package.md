@@ -5,7 +5,7 @@ We made a dedicated command in order to make a backup of the database, it uses `
 **Replace *WEB_SERVER_USER* with the correct one.** Depending on your OS, it could be nginx, www-data, etc.
 
 ```bash
-su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt mysql_export" WEB_SERVER_USER
+sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt mysql_export" WEB_SERVER_USER
 ```
 
 #### 2. The server public and private keys

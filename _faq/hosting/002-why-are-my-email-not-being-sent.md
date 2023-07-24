@@ -70,3 +70,4 @@ sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 ### Reason 5: You are using credentials password instead of application password
 
 Some email providers will not let you use the password from your organization account for security purpose. 
+It means that if you're trying to use the authentication method **"Username & Password"** it will result in a failure if you are using something else than the application passwords.

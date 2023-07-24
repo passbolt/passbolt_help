@@ -25,6 +25,7 @@ permalink: /:categories/:slug.html
 - [Sendinblue](#sendinblue)
 - [Zoho](#zoho)
 - [AWS SES](#aws-ses)
+- [Other](#other)
 
 ## Introduction
 This page is dedicated to providing you with valuable resources to help you configure an authentication method based on the email provider you choose. Authentication is an essential security measure that verifies the identity of users and ensures that only authorized individuals have access to sensitive information. 
@@ -387,4 +388,29 @@ Before saving your configuration, you will need to test it in order to avoid any
 
 - Save your configuration
   
+If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.
+
+## Other
+
+If you are using another smtp email provider or a local one, you'd rather use the **"Other"** email provider. 
+
+- Authentication on Passbolt GUI
+
+On your Passbolt instance, you can navigate to *Administration > Email server*.
+
+You will need to fill your smtp credentials to match your authentication method, it could be: 
+1. Username & Password
+2. Username only
+3. None
+
+Please, take in consideration that if you are using an email provider that doesn't require any authentication, you'll need to use the *none* authentication method, leaving empty fields with another authentication method could result in a failure for receiving emails.
+
+- Test your configuration
+
+Before saving your configuration, you will need to test it in order to avoid any issues. It should pass and gives the results shown below.
+
+{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+
+- Save your configuration
+
 If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appears.

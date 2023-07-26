@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Breathing</title>
+    <title>Passbolt Help | Bella ciao</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release is a security release fixing a spell-jacking security flaw discovered by otto-js. You can learn more about this flaw on the dedicated security i...">
+    <meta name="description" content="Version 4.1.2 of passbolt is a maintenance release mainly solving small bugs reported by the community on the API as well as the browser extension. The API s...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Breathing" />
-    <meta property="og:description" content="This release is a security release fixing a spell-jacking security flaw discovered by otto-js. You can learn more about this flaw on the dedicated security i..." />
+    <meta property="og:title" content="Bella ciao" />
+    <meta property="og:description" content="Version 4.1.2 of passbolt is a maintenance release mainly solving small bugs reported by the community on the API as well as the browser extension. The API s..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/breathing">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/bella-ciao">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.7.3.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.1.2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/bella-ciao" >v4.1.2</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/breathing"><span>breathing</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/bella-ciao"><span>bella-ciao</span></a>
                     </div>
                 </li>
                 
@@ -191,34 +191,55 @@
     </div>
 </div>
 
-                            <h1>v3.7.3 ~ Breathing (ce)</h1>
+                            <h1>v4.1.2 ~ Bella ciao (ce)</h1>
                             <p>Release date: 
-September
+July
 26th,
-2022.
+2023.
 </p>
-                            <p>This release is a security release fixing a spell-jacking security flaw discovered by <a href="https://www.otto-js.com/news/article/spell-jacking-enhanced-spellcheck-features-send-pii-even-passwords">otto-js</a>.</p>
+                            <p>Version 4.1.2 of passbolt is a maintenance release mainly solving small bugs reported by the community on the API as well as the browser extension.
+The API ships with a fix that restores email notifications for organisations using NTLM to authenticate against their SMTP server.
+On the client side, the browser extension ships with a long time due <a href="https://github.com/passbolt/passbolt_browser_extension/issues/188">improvement</a> that will help users to distinguish look alike characters while previewing a password. Furthermore and in a continuous effort to provide the best user experience, the extension ships with fixes about the auto-fill capabilities. It should be more resilient and integrate better with web applications.</p>
 
-<p>You can learn more about this flaw on the dedicated <a href="/incidents/20220920_spell-jacking">security incident page</a>.</p>
-
-<h2 id="browser-extension">Browser extension</h2>
-<h3 id="security">Security</h3>
-<ul>
-  <li>PB-19090 Protect forms from spell-jacking attack</li>
-</ul>
+<p>Thank you for helping us make Passbolt better!</p>
 
 <h2 id="api">API</h2>
-<h3 id="security-1">Security</h3>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-19090 Protect forms from spell-jacking attack</li>
+  <li>PB-25472 Fix emails not sent for SMTP server using NTLM authentication</li>
 </ul>
 
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-25471 Crowdin should export only a selected subset of languages</li>
+</ul>
+
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="improvement">Improvement</h3>
+<ul>
+  <li>GITHUB-188 PB-25251 As a signed-in user previewing a password, I should be able to distinguish look alike characters</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-25502 Fix web navigation issue when a port already exists and port disconnection is not fired</li>
+  <li>PB-25339 Fix application refusing to load when detecting passbolt event activities</li>
+  <li>PB-25311 Fix as anonymous user with the browser extension not configured I should be redirected to passbolt getting started page when using the toolbar icon</li>
+  <li>PB-24933 Fix in-form menu detection not working when existing tab port disconnection occurs after webnavigation event</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-25471 Crowdin should export only a selected subset of languages</li>
+  <li>PB-25272 Github actions updates for storybook</li>
+  <li>PB-25172 Remove former demo application, replaced by storybook</li>
+</ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Breathing"</p>
-                                <a href="https://youtu.be/xF5PzY4b3eQ" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Bella ciao"</p>
+                                <a href="https://youtu.be/leb5pvB3B20" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

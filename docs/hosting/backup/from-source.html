@@ -224,7 +224,7 @@ Please automate and customize this process to match the needs and policies of yo
 
     <p><strong>Replace <em>WEB_SERVER_USER</em> with the correct one.</strong> Depending on your OS, it could be nginx, www-data, etc.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake passbolt mysql_export"</span> WEB_SERVER_USER
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake passbolt mysql_export"</span> WEB_SERVER_USER
 </code></pre></div>    </div>
 
     <h4 id="the-server-public-and-private-keys">2. The server public and private keys</h4>

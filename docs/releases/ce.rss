@@ -6,6 +6,8 @@
 <language>en-us</language>
 
 
+
+
 <item>
     <title>v4.1.2 | Bella ciao</title>
     <link>https://help.passbolt.com/releases/ce/bella-ciao</link>
@@ -13,8 +15,6 @@
     <description>Version 4.1.2 of passbolt is a maintenance release mainly solving small bugs reported by the community on the API as well as the browser extension. The API ships with a fix that restores email notifications for organisations using NTLM to authenticate against their SMTP server. On the client side, the...</description>
     <pubDate>Wed, 26 Jul 2023 02:00:00 +0200</pubDate>
 </item>
-
-
 
 
 

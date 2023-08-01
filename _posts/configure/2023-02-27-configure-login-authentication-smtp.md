@@ -17,6 +17,7 @@ permalink: /:categories/:slug.html
 - [Table of contents:](#table-of-contents)
 - [Introduction](#introduction)
 - [Google](#google)
+- [Office 365](#office-365)
 - [ElasticEmail](#elasticemail)
 - [MailGun](#mailgun)
 - [Mailjet](#mailjet)
@@ -87,15 +88,39 @@ In our example, we will use Google Email, but if you are using a premium subscri
 
 Under authentication method, choose *Username & password*, provide your Google username which basically is your email address, for the password you can paste the previously generated application password.
 
-- Test your configuration
+{% include configure/configure-smtp.md %}
 
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
+## Office 365
 
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
+- Administration panel
+When you are using Office 365, you will need to access your [Microsoft 365 admin center](https://admin.microsoft.com).
 
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+
+- Create your SMTP Credentials
+Office 365 uses OAuth 2.0 for authentication, so you will need to set up an *application password* to authenticate with the SMTP server.
+
+In the Microsoft 365 admin center, navigate to *[Additional security verification page](https://mysignins.microsoft.com/security-info)* > Add sign-in method > App password
+
+{% include articles/figure.html url="/assets/img/help/2023/08/office365-app-password-menu.png" legend="Microsoft - Create an application password" width="586px" %}
+
+**WARNING:** Please, note that the password could not be shown after your close the tab, please be sure to copy the application password generated otherwise you will need to generate a new one.
+
+{% include articles/figure.html url="/assets/img/help/2023/08/office365-app-password-example.png" legend="Microsoft - Application password" width="586px" %}
+
+
+Now, you'll need to get the SMTP settings that are available from Outlook in *Settings > Mail > POP and IMAP* 
+
+{% include articles/figure.html url="/assets/img/help/2023/08/office365-smtp-credentials.png" legend="Microsoft - SMTP Settings" width="586px" %}
+
+
+- Authentication on Passbolt GUI
+On your Passbolt instance, navigate to "Administration" > "Email server."
+
+You will need to fill in your SMTP credentials to match your authentication method, remember, do not use the login credentials but the application password instead. 
+
+{% include articles/figure.html url="/assets/img/help/2023/08/passbolt-office365-smtp-settings.png" legend="Passbolt - Email authentication" width="586px" %}
+
+{% include configure/configure-smtp.md %}
 
 ## ElasticEmail
 
@@ -123,15 +148,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 
 ## MailGun
 
@@ -163,15 +180,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 
 ## Mailjet
 
@@ -201,15 +210,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 
 ## Mailchimp
 
@@ -233,15 +234,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 
 ## Sendgrid
 
@@ -271,15 +264,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 ## Sendinblue
 
 - Administration panel
@@ -308,16 +293,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
-
+{% include configure/configure-smtp.md %}
 ## Zoho
 
 - Administration panel
@@ -348,15 +324,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 
 ## AWS SES
 
@@ -380,15 +348,7 @@ On your Passbolt instance, you can navigate to *Administration > Email server*.
 
 You will need to fill in your smtp credentials to match your authentication method (username & password).
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-  
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}
 
 ## Other
 
@@ -405,12 +365,4 @@ You will need to fill in your smtp credentials to match your authentication meth
 
 Please, take into consideration that if you are using an email provider that doesn't require any authentication, you'll need to use the *none* authentication method, leaving empty fields with another authentication method could result in a failure to send emails.
 
-- Test your configuration
-
-Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.
-
-{% include articles/figure.html url="/assets/img/help/2023/02/smtp-test-email-success.png" legend="Passbolt - Email test success" width="586px" %}
-
-- Save your configuration
-
-If everything went as expected, do not forget to save your configuration and **"Success: The SMTP settings have been saved successfully"** should appear.
+{% include configure/configure-smtp.md %}

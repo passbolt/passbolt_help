@@ -61,6 +61,15 @@ Update the apt indexes :
 sudo apt update
 ```
 
+Upgrade Passbolt PRO :
+```
+sudo apt --only-upgrade install passbolt-pro-server
+```
+
+{% include messages/warning.html
+content="You are using Passbolt CE? Run `sudo apt --only-upgrade install passbolt-ce-server`"
+%}
+
 You can now upgrade your system :
 
 ```

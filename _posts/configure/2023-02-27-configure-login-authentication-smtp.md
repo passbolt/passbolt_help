@@ -62,7 +62,7 @@ After clicking on *2-Step-Verification* you should be redirected to a "Get Start
 
 {% include articles/figure.html url="/assets/img/help/2023/02/smtp-enabling-mfa.png" legend="Google - MFA (Get Started)" width="586px" %}
 
-To configure MFA on Google you will need a TOTP Mobile Application. If you do not have one already, we have a dedicated guide, please [follow this link](/configure/mfa/totp).
+To configure MFA on Google you will need a TOTP Mobile Application. 
 
 - Enable Application Password
    
@@ -226,7 +226,7 @@ Give your new SMTP key a name that is easy to remember, such as the name of your
 
 Copy the generated SMTP key as you will need it to authenticate your SMTP requests. After you have created your SMTP key, Mailchimp will generate a unique key string that you will need to copy and use to authenticate your SMTP requests. Make sure to copy the entire key string exactly as it appears, as any errors or omissions could prevent your SMTP requests from being authenticated.
 
-Your SMTP username is the same as the username you use to log in to your Mailchimp account. When you use Mailchimp to send transactional emails via SMTP, you will need to provide your SMTP username. This is simply the same username that you use to log in to your Mailchimp account. Make sure to enter your username exactly as it appears, with the correct capitalization and any special characters.
+Your SMTP username is the same as the login credentials to your Mailchimp account. Make sure that it remain, with the correct capitalization and any special characters.
 
 - Authentication on Passbolt GUI
   

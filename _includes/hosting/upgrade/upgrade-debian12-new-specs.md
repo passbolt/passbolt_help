@@ -85,7 +85,7 @@ sudo apt dist-upgrade
 In order to verify the distribution :
 
 ```bash
-sb_release -a
+lsb_release -a
 ```
 
 ### 4.2. Ensure that you are running the correct PHP 8.2 version

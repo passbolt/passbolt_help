@@ -20,10 +20,6 @@ We do not tolerate discrimination based on gender, gender identity or expression
 
 We strive to create an environment that is accessible and accommodating to all individuals, regardless of gender or gender identity. We will work with individuals to ensure that they have access to the resources and accommodations they need to participate fully in our community.
 
-### Training and Education
-
-We are committed to providing training and education to all members of our community on issues related to gender and gender identity, including unconscious bias, stereotypes, and harassment. We believe that education and awareness are critical to creating a welcoming and inclusive community for all.
-
 ## Anti-harassment policy
 
 We pledge to respect everyone who contributes to this project in any way.

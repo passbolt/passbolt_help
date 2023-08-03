@@ -48,3 +48,12 @@ Once located replace the `1440` timout value in seconds with for example `2700` 
 session.gc_maxlifetime = 2700
 ```
 
+**Important:** It's really important to note that the browser extension is sending a request to the server in order to keep the session active, that means that any behaviour that is comprometting it will end the session, even if the session lifetime is not ended. We have noticed a short behaviour that will result in a session ended:
+
+- Internet connexion lost
+- Browser shutdown
+- Computer shutdown
+- Computer's session inactive (locked)
+- Changing IP address
+- Browser's Confidentiality settings
+

@@ -3,15 +3,10 @@ title: Upgrade from Debian 11 to Debian 12
 date: 2023-06-29 00:00:00 Z
 description: Upgrade your Debian 11 Operating System running Passbolt to Debian 12
 categories: [hosting,upgrade,pro]
-card_teaser: Upgrade your Debian 11 Operating System running Passbolt to Debian 12
-card_title: Debian 12 upgrade
-card_position: 15
-sidebar: [hosting, upgrade]
 passbolt_version: pro
-icon: fa-debian
-layout: default
 slug: from-debian-11-to-debian-12-pro
 permalink: /:categories/:slug.html
+archived: true
 ---
 
 {% assign product = 'ce' %}

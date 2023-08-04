@@ -1,0 +1,1 @@
+Kindly substitute the placeholder **WEB_SERVER** with the appropriate web server type. Examples of valid entries include *nginx*, *www-data*, or *http*. It is imperative for the functionality of the system that this is accurately represented.

@@ -3,16 +3,16 @@ title: Migrate passbolt CE from install scripts to CentOS 7 package
 date: 2021-11-26 00:00:00 Z
 description: Migrate passbolt CE from install scripts to CentOS 7 package
 categories: [hosting,upgrade,ce]
-card_teaser: Migrate from install script to CentOS 7 package
-card_title: Migrate to CentOS 7 package
-card_position: 1
-sidebar: [hosting, upgrade]
-passbolt_version: ce
-icon: fa-centos
-layout: default
 slug: migrate-to-centos
 permalink: /:categories/:slug.html
+archived: true
 ---
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
+{% include hosting/install/packages/debian/install-debian-package.md %}
+
 
 {% assign product = 'ce' %}
 {% assign distribution = 'centos' %}

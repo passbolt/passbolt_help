@@ -1,24 +1,25 @@
 ---
-title: Install Passbolt PRO on Raspberry PI
-date: 2022-01-06 00:00:00 Z
-description: How to install Passbolt PRO on raspberry PI
-card_title: Raspberry PI
-card_teaser: Step by step guide to install passbolt PRO on Raspberry PI
-card_position: 4
-icon: fa-raspberry
-categories: [hosting,install,pro]
+title: Install Passbolt CE on Debian 12 (Bookworm)
+date: 2023-06-29 00:00:00 Z
+description: How to install Passbolt CE on (Bookworm)
+card_title: Debian 12
+card_teaser: Step by step guide to install Passbolt CE on Debian
+card_position: 1
+icon: fa-debian
+categories: [hosting,install,ce,debian]
 sidebar: hosting
 layout: default
-slug: raspberry
+popular: true
+slug: Debian
 permalink: /:categories/:slug.html
 ---
 
-{% assign product = 'pro' %}
+{% assign product = 'ce' %}
 {% assign distribution = 'debian' %}
 {% assign distributionVersion = '12' %}
 {% assign distributionVersionName = 'bookworm' %}
 {% assign distributionSlug = 'debian' %}
-{% assign distributionLabel = 'Raspberry' %}
+{% assign distributionLabel = 'Debian' %}
 {% assign distributionPackage = 'apt' %}
 {% assign databaseEngine = 'mariadb' %}
 

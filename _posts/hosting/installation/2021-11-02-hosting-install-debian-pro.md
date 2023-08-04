@@ -2,16 +2,7 @@
 title: Install Passbolt Pro on Debian 11 (Bullseye)
 date: 2021-11-24 00:00:00 Z
 description: How to install Passbolt Pro on (Bullseye)
-card_title: Debian 11
-card_teaser: Step by step guide to install passbolt Pro on Debian
-card_position: 1
-icon: fa-debian
-categories: [hosting,install,pro,debian]
-sidebar: hosting
-layout: default
-popular: true
-slug: Debian
-permalink: /:categories/:slug.html
+slug: Debian11
 ---
 
 {% assign product = 'pro' %}

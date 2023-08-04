@@ -3,15 +3,11 @@ title: Upgrade from Debian 10 to Debian 11
 date: 2021-11-03 00:00:00 Z
 description: Upgrade your Debian 10 Operating System running Passbolt to Debian 11
 categories: [hosting,upgrade,pro]
-card_teaser: Upgrade your Debian 10 Operating System running Passbolt to Debian 11
-card_title: Debian 11 upgrade
-card_position: 10
 sidebar: [hosting, upgrade]
 passbolt_version: pro
-icon: fa-debian
-layout: default
 slug: from-debian-10-to-debian-11-pro
 permalink: /:categories/:slug.html
+archived: true
 ---
 
 {% assign product = 'pro' %}

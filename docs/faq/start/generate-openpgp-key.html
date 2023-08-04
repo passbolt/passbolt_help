@@ -181,9 +181,10 @@
 <h2 id="generate-a-new-openpgp-key-pair">Generate a new OpenPGP key pair</h2>
 
 <p><div class="message warning">
-    <strong>Do not set a passphrase</strong>
-    Make sure you do not set a passphrase, otherwise all your users will need to
-    perform an account recovery when you will eventually need to update the key.
+    <strong>Passphrase or no?</strong><br />
+    Whether or not you need to set a passphrase will depend on why you are making this keypair.<br />
+    <strong>Organization Account Recovery:</strong> In this case you want to set a passphrase. <br />
+    <strong>Server GPG keys:</strong> In this case you do not want to set a passphrase. <br />
 </div></p>
 
 <p>Execute the following command to generate a new OpenPGP key pair.</p>
@@ -202,7 +203,7 @@
   <li>Enter an email, by instance: <em>ada.lovelace@mydomain.tld</em>.</li>
   <li>Enter a comment, it is optional. It will only help you to identify a key in the keyring if similar name or email chosen.</li>
   <li>Confirm the key meta information.</li>
-  <li>As mentionned, please do not set a passphrase.</li>
+  <li>If you are creating an Organization Account Recovery key pair set a passphrase, if this is for the server GPG key pair do not set a passphrase</li>
 </ol>
 
 <p>Once the key generated, the key will be stored in the keyring of the user you authenticated with and OpenPGP will

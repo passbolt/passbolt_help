@@ -120,6 +120,11 @@
         
         
         <li >
+            <a href="https://help.passbolt.com/configure/rbac">Configure RBAC</a>
+        </li>
+        
+        
+        <li >
             <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
         </li>
         
@@ -317,6 +322,24 @@ In the left-hand side menu, click on “Applications”, then click on “Protec
 
     <p>Note down the Client ID, Client secret, and API hostname details, as you will need them to configure the integration.</p>
 
+    <div class="message warning">
+    <p>
+        <strong>Important:</strong> Passbolt versions below 3.11 use DUO v3 which means a generated salt is mandatory
+    </p>
+    
+</div>
+
+    <h2 id="generate-a-random-salt">Generate a random salt</h2>
+
+    <p>Generating a random salt to configure Duo is mandatory, a salt is a random piece of data that is generated and used in the hashing process to protect sentivite information. It is generated and combined with the secret key before hashing it.</p>
+
+    <p>To generate a random salt, you can use the passbolt interface, generate a new password as shown below and use it as the generated salt.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/password-generator.png" alt="Passbolt - Password Generator" style="max-width:250px;" />
+    <span class="legend">fig. Passbolt - Password Generator</span>
+</figure>
+
     <h2 id="set-the-configuration-in-passbolt">Set the configuration in passbolt</h2>
 
     <p>You can configure Duo OTP using either the admin interface or environment variables. 
@@ -327,8 +350,7 @@ variables. Note that we recommend using the admin interface, since it is more se
 
     <p>Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
-You can then enable or disable the Duo provider by providing the API Hostname, the Client ID, and
-the Client Secret that you gathered in the previous steps. Click “save settings” when you are done.</p>
+You can then enable or disable the Duo provider by providing the API Hostname, the Client ID and the Client Secret that you gathered in the previous steps. If you are running a Passbolt version below 3.11 you will also need the generated salt. Click “save settings” when you are done.</p>
 
     <figure>
     <img src="https://help.passbolt.com/assets/img/help/2023/02/AD_mfa_org_settings_duo.png" alt="MFA organization settings for Duo" style="max-width:550px;" />

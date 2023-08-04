@@ -93,10 +93,11 @@ Under authentication method, choose *Username & password*, provide your Google u
 ## Office 365
 
 - Administration panel
+
 When you are using Office 365, you will need to access your [Microsoft 365 admin center](https://admin.microsoft.com).
 
-
 - Create your SMTP Credentials
+
 Office 365 uses OAuth 2.0 for authentication, so you will need to set up an *application password* to authenticate with the SMTP server.
 
 In the Microsoft 365 admin center, navigate to *[Additional security verification page](https://mysignins.microsoft.com/security-info)* > Add sign-in method > App password
@@ -114,6 +115,7 @@ Now, you'll need to get the SMTP settings that are available from Outlook in *Se
 
 
 - Authentication on Passbolt GUI
+
 On your Passbolt instance, navigate to "Administration" > "Email server."
 
 You will need to fill in your SMTP credentials to match your authentication method, remember, do not use the login credentials but the application password instead. 

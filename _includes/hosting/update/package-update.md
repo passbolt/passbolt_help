@@ -24,21 +24,24 @@ This commands will trigger an upgrade on your whole {{ distributionLabel }} syst
 
 {% if distributionPackage == 'apt' %}
 ```bash
-Passbolt CE:  
 sudo {{ distributionPackage }} update
 sudo {{ distributionPackage }} --only-upgrade install passbolt-ce-server
 sudo {{ distributionPackage }} upgrade
+```
 
-Passbolt PRO: 
+{% include messages/notice.html
+content="**You are running Passbolt PRO? ↓**"
+%}
+
+```bash
 sudo {{ distributionPackage }} update
 sudo {{ distributionPackage }} --only-upgrade install passbolt-pro-server
 sudo {{ distributionPackage }} upgrade
 ```
 
-{% include messages/notice.html
-    content="**Pro tip:** Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That's why we are suggesting to manually upgrade passbolt only prior to system upgrade"
+{% include messages/warning.html
+content="**Pro tip:** Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That's why we are suggesting to manually upgrade passbolt prior to system upgrade"
 %}
-
 
 {% elsif distributionPackage == 'dnf' or distributionPackage == 'yum' or distributionPackage == 'zypper' %}
 ```bash

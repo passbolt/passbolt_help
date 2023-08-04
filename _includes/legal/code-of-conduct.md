@@ -4,6 +4,22 @@ This Code of Conduct applies to all of us: Passbolt staff, contributors, maintai
 
 We expect this Code of Conduct to be followed in any ticketing system, social network, forum, mailing list, IRC channel, wiki, web site, private correspondence, online and offline event or meeting.
 
+## Gender policy
+
+Passbolt is committed to creating a community that is safe, welcoming, and inclusive for everyone, regardless of gender or gender identity. We recognize that gender-based discrimination, harassment, and prejudice can have a negative impact on individuals and the community as a whole, and we strive to prevent such behavior.
+
+### Inclusion and Diversity
+
+We value diversity and recognize the importance of having a community that reflects a variety of perspectives and experiences. We are committed to creating an environment that welcomes and embraces individuals of all genders, including those who identify as non-binary, genderqueer, or transgender. We actively encourage the participation of individuals of all genders in our community.
+
+### Anti-Discrimination
+
+We do not tolerate discrimination based on gender, gender identity or expression, or any other characteristic protected by applicable law. We will not accept any form of derogatory remarks, images, or exclusion from activities or opportunities.
+
+### Accommodations
+
+We strive to create an environment that is accessible and accommodating to all individuals, regardless of gender or gender identity. We will work with individuals to ensure that they have access to the resources and accommodations they need to participate fully in our community.
+
 ## Anti-harassment policy
 
 We pledge to respect everyone who contributes to this project in any way.

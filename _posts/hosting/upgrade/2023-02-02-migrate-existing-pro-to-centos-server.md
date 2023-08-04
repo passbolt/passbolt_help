@@ -3,16 +3,16 @@ title: Migrate an existing Passbolt PRO to a new CentOS server
 date: 2021-11-26 00:00:00 Z
 description: Migrate an existing Passbolt PRO to new CentOS server
 categories: [hosting,upgrade,pro]
-card_teaser: Migrate an existing Passbolt PRO to new CentOS server 
-card_title: Migrate to new CentOS server
-card_position: 9
-sidebar: [hosting, upgrade]
-passbolt_version: pro
-icon: fa-centos
-layout: default
 slug: migrate-existing-pro-to-centos-server
 permalink: /:categories/:slug.html
+archived: true
 ---
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
+{% include hosting/install/packages/debian/install-debian-package.md %}
+
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}

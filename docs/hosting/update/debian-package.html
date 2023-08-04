@@ -230,13 +230,26 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 
     <p>This commands will trigger an upgrade on your whole Debian system:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt update
-<span class="nv">$ </span><span class="nb">sudo </span>apt upgrade
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nt">--only-upgrade</span> <span class="nb">install </span>passbolt-ce-server
+<span class="nb">sudo </span>apt upgrade
+</code></pre></div>    </div>
+
+    <div class="message notice">
+    <p>
+    <strong>You are running Passbolt PRO? ↓</strong>
+    </p>
+    
+</div>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt <span class="nt">--only-upgrade</span> <span class="nb">install </span>passbolt-pro-server
+<span class="nb">sudo </span>apt upgrade
 </code></pre></div>    </div>
 
     <div class="message warning">
     <p>
-        Sometimes when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. To resolve this run <code class="language-plaintext highlighter-rouge">sudo apt --only-upgrade install passbolt-ce-server</code> and then <code class="language-plaintext highlighter-rouge">sudo apt upgrade</code>
+        <strong>Pro tip:</strong> Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That’s why we are suggesting to manually upgrade passbolt prior to system upgrade
     </p>
     
 </div>

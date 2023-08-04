@@ -9,7 +9,13 @@ date: 2018-04-23 00:00:00 Z
 
 ## How to import passwords in passbolt
 
-<video controls=""><source src="https://raw.githubusercontent.com/passbolt/passbolt_styleguide/master/src/video/lu_import_passwords_864.mp4" type="video/mp4"></video>
+{% include articles/video.html
+    url="/assets/files/import-video-example.mp4"
+    mime_type="video/mp4"
+    legend="Passbolt GUI - Import passwords"
+    width="500px"
+%}
+
 
 ### Steps
 1.  Click on the "import" button at the top left, next to the "create" button.

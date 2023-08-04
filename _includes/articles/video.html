@@ -1,0 +1,8 @@
+<figure>
+    <video controls width="{{ include.width }}" poster="{{ include.poster }}">
+      <source src="{{ include.url | absolute_url }}" type="{{ include.mime_type }}">
+      Your browser does not support the video tag.
+    </video>
+    <figcaption>fig. {{ include.legend }}</figcaption>
+  </figure>
+  

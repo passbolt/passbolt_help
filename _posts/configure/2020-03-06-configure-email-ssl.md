@@ -8,6 +8,8 @@ sidebar: configure
 layout: default
 slug: setup
 permalink: /:categories/:slug.html
+redirect_from:
+- /configure/email
 ---
 
 {% include layout/row_start.html %}

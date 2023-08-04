@@ -20,6 +20,10 @@ It is recommended to always perform a backup of your passbolt installation. Plea
 
 ### 3. Upgrade your system
 
+{% include messages/warning.html
+content="**Pro tip:** Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That's why we are suggesting to manually upgrade passbolt prior to system upgrade"
+%}
+
 This commands will trigger an upgrade on your whole {{ distributionLabel }} system:
 
 {% if distributionPackage == 'apt' %}
@@ -38,10 +42,6 @@ sudo {{ distributionPackage }} update
 sudo {{ distributionPackage }} --only-upgrade install passbolt-pro-server
 sudo {{ distributionPackage }} upgrade
 ```
-
-{% include messages/warning.html
-content="**Pro tip:** Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That's why we are suggesting to manually upgrade passbolt prior to system upgrade"
-%}
 
 {% elsif distributionPackage == 'dnf' or distributionPackage == 'yum' or distributionPackage == 'zypper' %}
 ```bash

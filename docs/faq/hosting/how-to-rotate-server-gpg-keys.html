@@ -225,7 +225,7 @@ sudo chown www-data:www-data /etc/passbolt/gpg/serverkey.asc
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo gpg --show-keys /etc/passbolt/gpg/serverkey_private.asc | grep -Ev "^(pub|sub|uid|$|sec|ssb)" | tr -d ' '
 </code></pre></div></div>
 
-<p>CentOS7 gpg command is quite old and has no <strong>–show-keys</strong> parameter. Use these commands instead:</p>
+<p>CentOS 7 gpg command is quite old and has no <strong>–show-keys</strong> parameter. Use these commands instead:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># public key fingerprint
 sudo cat /etc/passbolt/gpg/serverkey.asc | gpg --with-fingerprint - | grep -Ev "^(pub|sub|uid|$)" | tr -d ' ' | sed 's/Keyfingerprint=//'

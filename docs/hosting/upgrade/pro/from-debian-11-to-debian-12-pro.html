@@ -1,0 +1,178 @@
+
+<div class="row">
+  <div class="col7">
+
+    <h2 id="prerequisites">Prerequisites</h2>
+
+    <p>For this tutorial, you will need:</p>
+    <ul>
+      <li>A Debian 11 server.</li>
+      <li>Passbolt Debian package installed.</li>
+      <li>Ensure you have sufficient space for the upgrade.</li>
+    </ul>
+
+    <p>This manual has for aim to help you upgrade your distribution, but it does not replace 
+<a href="https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html">the official Debian guide</a>, please refer to it if you have any doubt.</p>
+
+    <h2 id="take-down-your-site">1. Take down your site</h2>
+
+    <p>It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>systemctl stop nginx
+</code></pre></div>    </div>
+
+    <h2 id="backup-your-instance">2. Backup your instance</h2>
+
+    <p>First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+You can follow our <a href="/hosting/backup">backup process</a>.</p>
+
+    <h2 id="prepare-repositories">3. Prepare repositories</h2>
+
+    <h3 id="upgrade-the-os-and-other-third-party-repositories">3.1. Upgrade the OS and other third party repositories</h3>
+
+    <p>Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
+Debian 12. This can be easily done with sed:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+</code></pre></div>    </div>
+
+    <p>Please, take a moment with: <em>cat /etc/apt/sources.list</em> to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main</span>
+
+<span class="c">#deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main</span>
+
+deb http://httpredir.debian.org/debian/ bookworm main
+deb-src http://httpredir.debian.org/debian/ bookworm main
+
+deb http://security.debian.org/debian-security bookworm-security main contrib
+deb-src http://security.debian.org/debian-security bookworm-security main contrib
+
+<span class="c"># bookworm-updates, to get updates before a point release is made;</span>
+<span class="c"># see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports</span>
+deb http://httpredir.debian.org/debian/ bookworm-updates main contrib
+deb-src http://httpredir.debian.org/debian/ bookworm-updates main contrib
+
+</code></pre></div>    </div>
+
+    <h2 id="upgrade-your-system">4. Upgrade your system</h2>
+
+    <p>Update the apt indexes :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt update
+</code></pre></div>    </div>
+
+    <p>Upgrade Passbolt PRO :</p>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt --only-upgrade install passbolt-pro-server
+</code></pre></div>    </div>
+
+    <div class="message warning">
+    <p>
+        You are using Passbolt CE? Run <code class="language-plaintext highlighter-rouge">sudo apt --only-upgrade install passbolt-ce-server</code>
+    </p>
+    
+</div>
+
+    <p>You can now upgrade your system :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Upgrade first
+sudo apt upgrade
+
+# Then perform the dist-upgrade
+sudo apt dist-upgrade
+</code></pre></div>    </div>
+
+    <h3 id="ensure-that-you-are-running-the-correct-distributions">4.1. Ensure that you are running the correct distributions</h3>
+
+    <p>In order to verify the distribution :</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsb_release <span class="nt">-a</span>
+</code></pre></div>    </div>
+
+    <h3 id="ensure-that-you-are-running-the-correct-php-82-version">4.2. Ensure that you are running the correct PHP 8.2 version</h3>
+
+    <p>To verify the PHP version :</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>php <span class="nt">-v</span>
+</code></pre></div>    </div>
+
+    <h2 id="update-passbolt-nginx-configuration">5. Update passbolt nginx configuration</h2>
+
+    <p>As php-fpm has been upgraded from 7.4 to 8.2, nginx configuration has to be updated accordingly.</p>
+
+    <p>It can easily be done with sed :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo sed -i 's/php7.4-fpm/php8.2-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
+</code></pre></div>    </div>
+
+    <p>Check if you have no configuration issue :</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo nginx -t
+</code></pre></div>    </div>
+
+    <p>It should return:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+</code></pre></div>    </div>
+
+    <p>You can now safely restart the nginx web server and php-fpm:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart nginx
+<span class="nb">sudo </span>systemctl restart php8.2-fpm
+</code></pre></div>    </div>
+
+    <h2 id="reboot-your-server">6. Reboot your server</h2>
+
+    <p>With Debian 12 comes a new Linux kernel, you must reboot your server.</p>
+
+    <h2 id="clean-useless-packages">7. Clean useless packages</h2>
+
+    <p>Once the server rebooted on the new kernel, you can now remove useless packages:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt autoremove --purge
+sudo apt autoclean
+</code></pre></div>    </div>
+
+    <h2 id="troubleshooting">8. Troubleshooting</h2>
+
+    <h3 id="mariadb-went-missing">MariaDB went missing</h3>
+
+    <p>It is possible your MariaDB instance has been uninstalled. You can install it back:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install default-mysql-server
+</code></pre></div>    </div>
+
+    <div class="last-updated">
+      <h3>Last updated</h3>
+      <p>This article was last updated on 
+June
+29th,
+2023.</p>
+    </div>
+
+  </div>
+  <div class="col4 last push1">
+
+    <div class="message tldr notice">
+    <p>Are you experiencing issues when updating passbolt?</p>
+    
+    <a href="https://community.passbolt.com/c/installation-issues" class="button primary">Ask the community!</a>
+    
+</div>
+
+    <div class="message ">
+    <p></p>
+    
+</div>
+
+    <div class="message tldr">
+    <p>Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!</p>
+    
+    <a href="https://www.github.com/passbolt/passbolt_help" class="button ">View on github</a>
+    
+</div>
+
+  </div>
+</div>

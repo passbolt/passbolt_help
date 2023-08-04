@@ -2,16 +2,17 @@
 title: Update passbolt on CentOS
 date: 2021-11-26 00:00:00 Z
 description: How to update your server on CentOS.
-card_teaser: Guide for instances installed using CentOS package.
-card_title: Update for CentOS
-card_position: 10
-icon: fa-centos
 categories: [hosting, update]
-sidebar: hosting
-layout: default
 slug: centos
 permalink: /:categories/:slug.html
+archived: true
 ---
+
+{% include messages/warning.html
+    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
+%}
+{% include hosting/install/packages/debian/install-debian-package.md %}
+
 
 {% assign distribution = 'centos' %}
 {% assign distributionLabel = 'CentOS' %}

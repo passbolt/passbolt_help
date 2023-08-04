@@ -27,13 +27,13 @@ The healthcheck is used to check whether the Passbolt system is running as expec
 1. Package Installation 
 
     ```bash
-    $ sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck" WEB_SERVER
+    sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt healthcheck" www-data
     ```
 
 2. From source
 
     ```bash
-    $ sudo su -s /bin/bash -c "/var/www/passbolt/bin/cake passbolt healthcheck" WEB_SERVER
+    sudo su -s /bin/bash -c "/var/www/passbolt/bin/cake passbolt healthcheck" www-data
     ```
 
 {% include hosting/web-server-for-server-logs.md %}
@@ -44,13 +44,13 @@ The datacheck is a great tool as it aims to have a look at the data integrity fo
 1. Package Installation
 
     ```bash
-    $ sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt datacheck" WEB_SERVER
+    sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/cake passbolt datacheck" www-data
     ```
 
 2. From source
 
     ```bash
-    $ sudo su -s /bin/bash -c "/var/www/passbolt/bin/cake passbolt datacheck" WEB_SERVER
+    sudo su -s /bin/bash -c "/var/www/passbolt/bin/cake passbolt datacheck" www-data
     ```
 
 {% include hosting/web-server-for-server-logs.md %}
@@ -64,13 +64,13 @@ On top of executing the healthcheck, datacheck and retrieving the server logs on
 1. Package Installation
 
     ```bash
-    $ sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/status-report" WEB_SERVER
+    sudo su -s /bin/bash -c "/usr/share/php/passbolt/bin/status-report" www-data
     ```
 
 2. From source
 
     ```bash
-    $ sudo su -s /bin/bash -c "/var/www/passbolt/bin/status-report" WEB_SERVER
+    sudo su -s /bin/bash -c "/var/www/passbolt/bin/status-report" www-data
     ```
 
 {% include hosting/web-server-for-server-logs.md %}
@@ -82,12 +82,12 @@ The server logs contains mostly error and warnings such as bad request, invalid 
 1. Package Installation
     
     ```bash
-    $ sudo su -s /bin/bash -c "cat /var/log/passbolt/error.log" WEB_SERVER
+    sudo su -s /bin/bash -c "cat /var/log/passbolt/error.log" www-data
     ```
 
 2. From source
     ```bash
-    $ sudo su -s /bin/bash -c "cat /var/www/passbolt/logs/error.log" WEB_SERVER
+    sudo su -s /bin/bash -c "cat /var/www/passbolt/logs/error.log" www-data
     ```
 
 {% include hosting/web-server-for-server-logs.md %}

@@ -62,6 +62,7 @@ In order to be accepted, the organisation key should meet these requirements:
 - The key should be public gpg key
 - The key should use the algorithm RSA 
 - The key should have a length of 4096 bits
+- The key should have a passphrase
 
 If you do not know how to generate an OpenPGP key, checkout the following documentation: [how to generate an OpenPGP key](/faq/start/generate-openpgp-key).
 

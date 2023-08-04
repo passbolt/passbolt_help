@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-07-27T08:01:31+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-08-04T11:47:13+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure Role-Based Access Control</title><link href="https://help.passbolt.com/configure/rbac.html" rel="alternate" type="text/html" title="How to configure Role-Based Access Control" /><published>2023-07-05T02:00:00+02:00</published><updated>2023-07-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/rbac</id><content type="html" xml:base="https://help.passbolt.com/configure/rbac.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;p&gt;Since version 4.1.0, all editions of passbolt support Role-Based Access Control.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/06/rbac.png&quot; alt=&quot;Role-Based Access Control&quot; style=&quot;max-width:850px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Role-Based Access Control&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
+
+    &lt;p&gt;You can follow this procedure if you are meeting the following requirements:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;You are running passbolt &amp;gt;= v4.1.0.&lt;/li&gt;
+      &lt;li&gt;You have an active administrator account.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h2&gt;
+
+    &lt;p&gt;RBAC is a feature introduced that as for aim to restrict the access of functionalities to users.&lt;/p&gt;
+
+    &lt;p&gt;According to the administrator choices, users can be restricted to some functionalities. The administrator has only to chose between allow or deny options for the functionalities.&lt;/p&gt;
+
+    &lt;h2 id=&quot;rbac&quot;&gt;RBAC&lt;/h2&gt;
+
+    &lt;p&gt;In order to configure RBAC for your organisation, go to administration setting workspace &lt;em&gt;Administration&lt;/em&gt; &amp;gt; &lt;em&gt;Role-Based Access Control&lt;/em&gt;.&lt;/p&gt;
+
+    &lt;h3 id=&quot;choose-to-restrict-or-not-a-functionality&quot;&gt;Choose to restrict or not a functionality&lt;/h3&gt;
+
+    &lt;p&gt;By default, all functionalities are allowed. To deny one select and restrict the one that suits best your organization.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/06/rbac-select-permission.png&quot; alt=&quot;RBAC administration settings select permission&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. RBAC administration settings select permission&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;apply-the-changes&quot;&gt;Apply the changes&lt;/h3&gt;
+
+    &lt;p&gt;Once the RBAC is configured as you wish, you can apply the changes. Click on the “save settings” button.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/06/rbac-save.png&quot; alt=&quot;RBAC administration settings save changes&quot; style=&quot;max-width:550px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. RBAC administration settings save changes&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+July
+5th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -221,6 +287,24 @@ In the left-hand side menu, click on “Applications”, then click on “Protec
 
     &lt;p&gt;Note down the Client ID, Client secret, and API hostname details, as you will need them to configure the integration.&lt;/p&gt;
 
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important:&lt;/strong&gt; Passbolt versions below 3.11 use DUO v3 which means a generated salt is mandatory
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;generate-a-random-salt&quot;&gt;Generate a random salt&lt;/h2&gt;
+
+    &lt;p&gt;Generating a random salt to configure Duo is mandatory, a salt is a random piece of data that is generated and used in the hashing process to protect sentivite information. It is generated and combined with the secret key before hashing it.&lt;/p&gt;
+
+    &lt;p&gt;To generate a random salt, you can use the passbolt interface, generate a new password as shown below and use it as the generated salt.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/05/password-generator.png&quot; alt=&quot;Passbolt - Password Generator&quot; style=&quot;max-width:250px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt - Password Generator&lt;/span&gt;
+&lt;/figure&gt;
+
     &lt;h2 id=&quot;set-the-configuration-in-passbolt&quot;&gt;Set the configuration in passbolt&lt;/h2&gt;
 
     &lt;p&gt;You can configure Duo OTP using either the admin interface or environment variables. 
@@ -231,8 +315,7 @@ variables. Note that we recommend using the admin interface, since it is more se
 
     &lt;p&gt;Since v2.6 a user interface is provided for administrators to setup MFA providers.
 Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
-You can then enable or disable the Duo provider by providing the API Hostname, the Client ID, and
-the Client Secret that you gathered in the previous steps. Click “save settings” when you are done.&lt;/p&gt;
+You can then enable or disable the Duo provider by providing the API Hostname, the Client ID and the Client Secret that you gathered in the previous steps. If you are running a Passbolt version below 3.11 you will also need the generated salt. Click “save settings” when you are done.&lt;/p&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/AD_mfa_org_settings_duo.png&quot; alt=&quot;MFA organization settings for Duo&quot; style=&quot;max-width:550px;&quot; /&gt;
@@ -1117,6 +1200,7 @@ need it.&lt;/p&gt;
       &lt;li&gt;The key should be public gpg key&lt;/li&gt;
       &lt;li&gt;The key should use the algorithm RSA&lt;/li&gt;
       &lt;li&gt;The key should have a length of 4096 bits&lt;/li&gt;
+      &lt;li&gt;The key should have a passphrase&lt;/li&gt;
     &lt;/ul&gt;
 
     &lt;p&gt;If you do not know how to generate an OpenPGP key, checkout the following documentation: &lt;a href=&quot;/faq/start/generate-openpgp-key&quot;&gt;how to generate an OpenPGP key&lt;/a&gt;.&lt;/p&gt;
@@ -1868,124 +1952,4 @@ July
 
   &lt;/div&gt;
 
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="ubuntu" /><summary type="html"></summary></entry><entry><title type="html">Auto configure HTTPS with Let’s Encrypt on Digital Ocean</title><link href="https://help.passbolt.com/configure/https/ce/digital-ocean/auto.html" rel="alternate" type="text/html" title="Auto configure HTTPS with Let’s Encrypt on Digital Ocean" /><published>2022-03-29T02:00:00+02:00</published><updated>2022-03-29T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/https/ce/digital-ocean/auto</id><content type="html" xml:base="https://help.passbolt.com/configure/https/ce/digital-ocean/auto.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        If you are changing your domain from &lt;b&gt;HTTP to HTTPS&lt;/b&gt;, you will unlink the browser extension of all the users.
-Before changing the domain, you must ensure that all the users have a copy of their private key to &lt;b&gt;&lt;a href=&quot;/faq/start/account-recover&quot;&gt;recover their account&lt;/a&gt;&lt;/b&gt;.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important requirement:&lt;/strong&gt; This tutorial assumes your machine has a valid domain name assigned in
-    order to work with let’s encrypt. If you want to use user provided certificates or self-signed certificates skip to the next section
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Note:&lt;/strong&gt; the configuration does not support serving passbolt on a subdirectory fashion. For example,
-    scenarios like https://mydomain.com/passbolt are not supported by default
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;edit-nginx-configuration-file&quot;&gt;Edit nginx configuration file&lt;/h2&gt;
-
-    &lt;p&gt;By default, our nginx configuration file ensure all domain names will match with our passbolt virtual machine but to obtain a valid Let’s Encrypt SSL certificate, you will have to manually set your passbolt domain name.&lt;/p&gt;
-
-    &lt;p&gt;Open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/nginx/sites-enabled/nginx-passbolt.conf&lt;/code&gt; and search for this line:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name _;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Replace the underscore with your passbolt domain name:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server_name passbolt.domain.tld;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;reconfigure-passbolt&quot;&gt;Reconfigure passbolt&lt;/h2&gt;
-
-    &lt;p&gt;Execute this command:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo dpkg-reconfigure passbolt-ce-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You most likely want to say ‘NO’ to the mariadb/mysql setup question and go for the nginx setup&lt;/p&gt;
-
-    &lt;p&gt;Passbolt debian and ubuntu packages currently supports the configuration of nginx. It comes with a default configuration that supports:&lt;/p&gt;
-
-    &lt;ul&gt;
-      &lt;li&gt;Serve passbolt on port 80 (http)&lt;/li&gt;
-      &lt;li&gt;Serve passbolt on port 443 (https)&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;The following steps will guide you through the option that uses Let’s encrypt method to enable SSL.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/configure_nginx.png&quot; alt=&quot;Configure nginx dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Configure nginx dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;After choosing yes you will be prompted with the following dialog where you can choose which method you prefer to configure SSL on nginx:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_choices.png&quot; alt=&quot;nginx SSL dialog&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx SSL dialog&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You will now need to introduce the name of the domain name assinged to your server:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/nginx_domain.png&quot; alt=&quot;nginx domain name&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. nginx domain name&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Finally you will need to provide an email address for Let’s encrypt to notify you for renewals and other admin info:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/lets_encrypt_email.png&quot; alt=&quot;lets encrypt admin email&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. lets encrypt admin email&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;If everything goes fine you should see a final message that points you to finish passbolt configuration:&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2020/05/debian-package/success.png&quot; alt=&quot;Success message&quot; style=&quot;max-width:450px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Success message&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Reload nginx after finish the reconfigure to use the SSL configuration.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl reload nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Finally, ensure &lt;b&gt;‘fullBaseUrl’&lt;/b&gt; value in &lt;b&gt;/etc/passbolt/passbolt.php&lt;/b&gt; starts with &lt;b&gt;https://&lt;/b&gt;.&lt;/p&gt;
-
-    &lt;p&gt;And that’s it you should be able to reach your server on the domain you specified.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-March
-29th,
-2022.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="https" /><category term="ce" /><category term="digital-ocean" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><category term="ubuntu" /><summary type="html"></summary></entry></feed>

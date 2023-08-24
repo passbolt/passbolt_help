@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Passbolt Help | Configure Email authentication</title>
+    <!--
+             ____                  __          ____
+            / __ \____  _____ ____/ /_  ____  / / /_
+           / /_/ / __ `/ ___/ ___/ __ \/ __ \/ / __/
+          / ____/ /_/ (__  |__  ) /_/ / /_/ / / /_
+         /_/    \__,_/____/____/_.___/\____/_/\__/
+
+         Open source password manager for teams
+         © 2019 Passbolt SA
+
+     -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
+    <meta property="og:title" content="Configure Email authentication" />
+    <meta property="og:description" content="" />
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
+    <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
+    <link rel="canonical" href="https://help.passbolt.com/configure/email/smtp-authentication">
+    <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
+    <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
+</head>
+
+
+<body>
+    <div id="container" class="help page background">
+            <header>
+        <div class="header first ">
+            <nav class="greedy">
+                <div class="top navigation primary">
+                    <ul class="links clearfix">
+                        <li class="home with-text"><a href="http://www.passbolt.com/"><span>home</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/services"><span>pricing</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/roadmap"><span>roadmap</span></a></li>
+                        <li class="left"><a href="https://community.passbolt.com/"><span>forum</span></a></li>
+                        <li class="left"><a href="https://www.passbolt.com/blog"><span>blog</span></a></li>
+                        <li class="left selected"><a href="https://help.passbolt.com/"><span>help</span></a></li>
+                        <li class="left"><a href="https://demo.passbolt.com" class="highlighted" target="_blank" rel="noopener"><span>try it!</span></a></li>
+                    </ul>
+                    <button class="hidden" count="0">more</button>
+                    <ul class="hidden-links hidden"></ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="header second">
+        <div class="col1">
+            <div class="logo no-img">
+                <h1><span>Passbolt</span></h1>
+            </div>
+        </div>
+        <div class="col2 search-wrapper">
+            <h2 class="visuallyhidden">Help Search</h2>
+            <div>
+                <form class="search ready" action="/search.html" method="get">
+                    <div class="input required">
+                        <label for="search-box">Search</label>
+                        <input id="search-box" name="query" maxlength="64" placeholder="Help search" class="fuzzy-search" type="search">
+                    </div>
+                    <button value="search">
+                        <i class="fa fa-fw fa-search"></i>
+                        <span class="text visuallyhidden">search</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col3">
+            <div class="edit-on-github">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_posts/configure/2023-02-27-configure-login-authentication-smtp.md" class="button">
+                    <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
+            </div>
+        </div>
+    </div>
+
+        <div class="panel main" aria-label="Content">
+            <div class="panel left">
+                
+                
+
+
+
+
+
+
+
+
+
+<div class="navigation-help" role="navigation">
+    <ul>
+        <li>
+            <h2>Configure</h2>
+        </li>
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/https">Configure HTTPS</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/setup">Configure LDAP</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/account-recovery">Configure Account Recovery</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/sso">Configure SSO</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/rbac">Configure RBAC</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-with-ssl">Configure LDAP with ssl</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/ldap/ldap-common-sync-error-messages">Troubleshoot LDAP sync errors</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/mfa/totp">Configure TOTP</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/notification/email">Configure Email Notifications</a>
+        </li>
+        
+        
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/email/setup">Configure Email providers</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/email/smtp-authentication">Configure Email authentication</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/faq/hosting/why-email-not-sent">Troobleshoot Email config</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/environment/reference">Environment variable reference</a>
+        </li>
+        
+        
+        <li >
+            <a href="https://help.passbolt.com/configure/database/credentials">Update database credentials</a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+                
+            </div>
+            <div class="panel middle" data-spy="scroll" data-target=".scrollspy">
+                <div class="grid grid-responsive-12">
+                    <article>
+                        <div class="row" id="introduction">
+    <div class="col12">
+        <div class="breadcrumbs">
+            <ul>
+                <li>
+                    <div class="main-cell">
+                        <a href="https://www.passbolt.com"><span>home</span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="main-cell">
+                        <a href="/"><span>help</span></a>
+                    </div>
+                </li>
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure"><span>configure</span></a>
+                    </div>
+                </li>
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/email"><span>email</span></a>
+                    </div>
+                </li>
+                
+                
+                
+                
+                <li>
+                    <div class="main-cell">
+                        <a href="https://help.passbolt.com/configure/email/smtp-authentication.html"><span>smtp-authentication</span></a>
+                    </div>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+                        <div class="row" markdown="1">
+<div class="col7" markdown="1">
+<h1>Configure Email authentication</h1>
+</div>
+</div>
+
+                        <div class="row">
+  <div class="col7">
+
+    <h2 id="table-of-contents">Table of contents:</h2>
+    <ul>
+      <li><a href="#table-of-contents">Table of contents:</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#google">Google</a></li>
+      <li><a href="#office-365">Office 365</a></li>
+      <li><a href="#elasticemail">ElasticEmail</a></li>
+      <li><a href="#mailgun">MailGun</a></li>
+      <li><a href="#mailjet">Mailjet</a></li>
+      <li><a href="#mailchimp">Mailchimp</a></li>
+      <li><a href="#sendgrid">Sendgrid</a></li>
+      <li><a href="#sendinblue">Sendinblue</a></li>
+      <li><a href="#zoho">Zoho</a></li>
+      <li><a href="#aws-ses">AWS SES</a></li>
+      <li><a href="#other">Other</a></li>
+    </ul>
+
+    <h2 id="introduction">Introduction</h2>
+    <p>This page is dedicated to providing you with valuable resources to help you configure an authentication method based on the email provider you choose. Authentication is an essential security measure that verifies the identity of users and ensures that only authorized individuals have access to sensitive information.</p>
+
+    <p>In order to follow this guide, you will need an email provider.
+If you want to know how to configure your email provider, please <a href="/configure/email/setup">follow this link</a>.</p>
+
+    <h2 id="google">Google</h2>
+
+    <p>Passbolt provides two different options for Google: Google Workspace and Google Email.</p>
+
+    <p><strong>Google Workspace</strong> is a paid productivity suite that includes business email, cloud storage, video conferencing, and other collaboration tools. It is designed for use by businesses and organizations of all sizes, and provides additional features such as custom email addresses, shared calendars, and team drives.</p>
+
+    <p>It uses <em>smtp-relay.gmail.com</em> as its SMTP server address. This server is intended to be used by applications that send email on behalf of users, such as custom scripts or third-party applications. This server is designed to provide higher sending limits, enhanced reliability, and better tracking of email sent through it.</p>
+
+    <p><strong>Google Email</strong> is a free email service that is available to anyone with a Google account. It is primarily intended for personal use and provides users with a simple, user-friendly email interface.</p>
+
+    <p>It uses <em>smtp.gmail.com</em> as its SMTP server address. This server is intended for use by individual users who want to send email using a desktop email client, such as Microsoft Outlook or Apple Mail. This server provides standard sending limits and is intended for personal use.</p>
+
+    <p>To use Google’s authentication method on the Passbolt GUI, it is important to note that you should not use your personal Google password for security reasons. Instead, you will need to create an “App password” specifically for Passbolt. This is a unique password that will be used solely for Passbolt and is not the same as your personal Google password.</p>
+
+    <ul>
+      <li>Enable MFA</li>
+    </ul>
+
+    <p>In order to have a dedicated application password you will need to enable MFA on your Google account, if you already have MFA enabled you can skip to the second part.</p>
+
+    <p>You will have to navigate from <em>Manage your Google Account &gt; Security &gt; Signing in to Google</em></p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-gmail-mfa-not-enabled.png" alt="Google - Enable MFA" style="max-width:586px;" />
+    <span class="legend">fig. Google - Enable MFA</span>
+</figure>
+
+    <p>After clicking on <em>2-Step-Verification</em> you should be redirected to a “Get Started” page as shown below</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-enabling-mfa.png" alt="Google - MFA (Get Started)" style="max-width:586px;" />
+    <span class="legend">fig. Google - MFA (Get Started)</span>
+</figure>
+
+    <p>To configure MFA on Google you will need a TOTP Mobile Application.</p>
+
+    <ul>
+      <li>Enable Application Password</li>
+    </ul>
+
+    <p>Now that MFA is enabled on your Google account, please go back to <em>Security &gt; Signing in to Google</em></p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-gmail-mfa-enabled.png" alt="Google - MFA Enabled" style="max-width:586px;" />
+    <span class="legend">fig. Google - MFA Enabled</span>
+</figure>
+
+    <p>You will have the choice for the selection of the application, our recommendation is to use <em>Other (Custom name)</em>, as it will be easier for your organisation. In our case, we will name it “Passbolt”.</p>
+
+    <p><strong><em>An application password should have been generated, it contains 16 digits and should not be shared.</em></strong></p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-gmail-app-password.png" alt="Google - Generated App password" style="max-width:586px;" />
+    <span class="legend">fig. Google - Generated App password</span>
+</figure>
+
+    <p><strong>WARNING:</strong> Please, note that the password could not be shown after your close the tab, please be sure to copy the application password generated otherwise you will need to generate a new one.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <p>In our example, we will use Google Email, but if you are using a premium subscription with google, do not forger to use Google Workspace instead.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-username-password-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>Under authentication method, choose <em>Username &amp; password</em>, provide your Google username which basically is your email address, for the password you can paste the previously generated application password.</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="office-365">Office 365</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using Office 365, you will need to access your <a href="https://admin.microsoft.com">Microsoft 365 admin center</a>.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>Office 365 uses OAuth 2.0 for authentication, so you will need to set up an <em>application password</em> to authenticate with the SMTP server.</p>
+
+    <p>In the Microsoft 365 admin center, navigate to <em><a href="https://mysignins.microsoft.com/security-info">Additional security verification page</a></em> &gt; Add sign-in method &gt; App password</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/08/office365-app-password-menu.png" alt="Microsoft - Create an application password" style="max-width:586px;" />
+    <span class="legend">fig. Microsoft - Create an application password</span>
+</figure>
+
+    <p><strong>WARNING:</strong> Please, note that the password could not be shown after your close the tab, please be sure to copy the application password generated otherwise you will need to generate a new one.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/08/office365-app-password-example.png" alt="Microsoft - Application password" style="max-width:586px;" />
+    <span class="legend">fig. Microsoft - Application password</span>
+</figure>
+
+    <p>Now, you’ll need to get the SMTP settings that are available from Outlook in <em>Settings &gt; Mail &gt; POP and IMAP</em></p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/08/office365-smtp-credentials.png" alt="Microsoft - SMTP Settings" style="max-width:586px;" />
+    <span class="legend">fig. Microsoft - SMTP Settings</span>
+</figure>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, navigate to “Administration” &gt; “Email server.”</p>
+
+    <p>You will need to fill in your SMTP credentials to match your authentication method, remember, do not use the login credentials but the application password instead.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/08/passbolt-office365-smtp-settings.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="elasticemail">ElasticEmail</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using ElasticEmail, once logged in, you will be automatically redirected to the administration panel dashboard.</p>
+
+    <p>You will need to navigate to <em>Settings &gt; SMTP &gt; Create SMTP credentials</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-elasticemail-credentials-panel.png" alt="ElasticEmail - SMTP Credentials Panel" style="max-width:850px;" />
+    <span class="legend">fig. ElasticEmail - SMTP Credentials Panel</span>
+</figure>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>When you create new SMTP credentials, ElasticEmail will generate a unique password consisting of 40 random characters. The username for your SMTP credentials is your email address associated with your ElasticEmail account.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-elasticemail-credentials-example.png" alt="ElasticEmail - SMTP Credentials" style="max-width:586px;" />
+    <span class="legend">fig. ElasticEmail - SMTP Credentials</span>
+</figure>
+
+    <p>To copy your newly generated password, simply click on the “Copy” button next to the password field.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-elasticemail-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="mailgun">MailGun</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using MailGun, once logged in, you will be automatically redirected to the administration panel dashboard.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-mailgun-credentials-panel.png" alt="MailGun - SMTP Credentials Panel" style="max-width:586px;" />
+    <span class="legend">fig. MailGun - SMTP Credentials Panel</span>
+</figure>
+
+    <p>You will need to navigate to <em>Sending &gt; Overview</em>.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>On this page you will find the SMTP hostname, port, username, and default password that you will need to set up SMTP authentication for your email sending requests.</p>
+
+    <p>MailGun provides a dedicated page for managing your SMTP credentials. To access this page, you can click on the “SMTP Credentials” link located in the “SMTP” section. Here you can create new SMTP credentials by clicking on the “Add New SMTP Credential” button.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-mailgun-credentials-example.png" alt="MailGun - SMTP Credentials" style="max-width:586px;" />
+    <span class="legend">fig. MailGun - SMTP Credentials</span>
+</figure>
+
+    <p>When you create new SMTP credentials on MailGun, the platform will generate a unique password consisting of 50 random characters. You can use this password to authenticate your email sending requests through the MailGun SMTP servers.</p>
+
+    <p>It’s important to keep your MailGun SMTP credentials secure, as they can be used to send emails from your account. You should never share your password or username with anyone, and you should take steps to protect your account from unauthorized access.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-mailgun-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="mailjet">Mailjet</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using Mailjet, once logged in, you will be automatically redirected to the administration panel dashboard.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-mailjet-credentials-panel.png" alt="Mailjet - SMTP Credentials Panel" style="max-width:586px;" />
+    <span class="legend">fig. Mailjet - SMTP Credentials Panel</span>
+</figure>
+
+    <p>You will need to navigate to <em>Senders &amp; Domains &gt; SMTP &amp; SEND API Settings</em>.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>Mailjet provides a dedicated page for managing your API keys. You can create a new API key by selecting the “SMTP &amp; API Keys” option from the dashboard, clicking on the “Create a new API Key” button, and then following the prompts.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-mailjet-credentials-example.png" alt="Mailjet - SMTP Credentials" style="max-width:586px;" />
+    <span class="legend">fig. Mailjet - SMTP Credentials</span>
+</figure>
+
+    <p>When you create a new API key on Mailjet, the platform will generate a unique key pair consisting of a public API key and a secret key. The public API key can be used as the SMTP username for your email sending requests, while the secret key can be used as the SMTP password.</p>
+
+    <p>It’s important to keep your Mailjet API keys secure, as they can be used to access your Mailjet account and send emails from your account. You should never share your secret key or public API key with anyone, and you should take steps to protect your account from unauthorized access.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-mailjet-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="mailchimp">Mailchimp</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using Mailchimp, once logged in, you will be automatically redirected to the administration panel dashboard.</p>
+
+    <p>You will need to navigate to <em>Transactionnal &gt; SMTP &amp; API &gt; SMTP Credentials</em> and click on Create A Key.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>Give your new SMTP key a name that is easy to remember, such as the name of your web application. When you create an SMTP key, you will be prompted to give it a name that will help you remember what it’s for. This is important because you may have multiple SMTP keys for different applications, and you don’t want to get them confused. Make sure to choose a name that is descriptive and easy to remember, such as the name of your web application.</p>
+
+    <p>Copy the generated SMTP key as you will need it to authenticate your SMTP requests. After you have created your SMTP key, Mailchimp will generate a unique key string that you will need to copy and use to authenticate your SMTP requests. Make sure to copy the entire key string exactly as it appears, as any errors or omissions could prevent your SMTP requests from being authenticated.</p>
+
+    <p>Your SMTP username is the same as the login credentials to your Mailchimp account. Make sure that it remain, with the correct capitalization and any special characters.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="sendgrid">Sendgrid</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using Sendgrid, once logged in, you will be automatically redirected to the administration panel dashboard.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-sendgrid-credentials-panel.png" alt="Sendgrid - SMTP Credentials Panel" style="max-width:586px;" />
+    <span class="legend">fig. Sendgrid - SMTP Credentials Panel</span>
+</figure>
+
+    <p>You will need to navigate to <em>Settings &gt; API Keys</em> and click on Create API Key.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>When creating a new API key, you can give it a name that’s easy for you to remember, such as “Passbolt”. SendGrid will then generate a unique API key consisting of 70 random characters. This key can be used to authenticate your email sending requests through the SendGrid SMTP servers.</p>
+
+    <p>After generating the API key, you can use the settings shown to configure your email client or application. The SMTP username should be “apikey”. The SMTP password is the API key that you generated in the previous step.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-sendgrid-credentials-example.png" alt="Sendgrid - SMTP Credentials" style="max-width:586px;" />
+    <span class="legend">fig. Sendgrid - SMTP Credentials</span>
+</figure>
+
+    <p>It’s important to keep your SendGrid API key secure, as it can be used to access your SendGrid account and send emails from your account. You should never share your API key with anyone, and you should take steps to protect your account from unauthorized access.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-sendgrid-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+    <h2 id="sendinblue">Sendinblue</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>When you are using Sendinblue, once logged in, you will be automatically redirected to the administration panel dashboard.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-sendinblue-credentials-panel.png" alt="Sendinblue - SMTP Credentials Panel" style="max-width:586px;" />
+    <span class="legend">fig. Sendinblue - SMTP Credentials Panel</span>
+</figure>
+
+    <p>You will need to navigate to <em>Your Senders &amp; Domains &gt; SMTP &amp; API</em>.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>You will find your SMTP key value under the “SMTP Credentials” section. This key can be used to authenticate your email sending requests through the Sendinblue SMTP servers.</p>
+
+    <p>Sendinblue also provides the SMTP settings that you can use to configure your email client or application. The SMTP username is your Sendinblue account email address. The SMTP password is your SMTP key value.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-sendinblue-credentials-example.png" alt="Sendinblue - SMTP Credentials" style="max-width:586px;" />
+    <span class="legend">fig. Sendinblue - SMTP Credentials</span>
+</figure>
+
+    <p>It’s important to keep your Sendinblue SMTP key value secure, as it can be used to access your Sendinblue account and send emails from your account. You should never share your SMTP key value with anyone, and you should take steps to protect your account from unauthorized access.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-sendgrid-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+    <h2 id="zoho">Zoho</h2>
+
+    <ul>
+      <li>Administration panel</li>
+    </ul>
+
+    <p>You will need to navigate to your ZohoMail administration panel, in order to do that you can click on the gear icon located in the top-right corner of the screen. A drop-down menu will appear with several options, please click on the “Control Panel” to access the Zoho administration panel</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-zoho-credentials-panel.png" alt="Zoho - SMTP Credentials Panel" style="max-width:586px;" />
+    <span class="legend">fig. Zoho - SMTP Credentials Panel</span>
+</figure>
+
+    <p>You will need to navigate to <em>Security &gt; App password</em>.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>You will be prompt to generate a name for the “App password”, we recommend to use “Passbolt”.</p>
+
+    <p>Then, you will need to click on “Generate” and a random application password will be generated.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-zoho-credentials-example.png" alt="Zoho - SMTP Credentials" style="max-width:586px;" />
+    <span class="legend">fig. Zoho - SMTP Credentials</span>
+</figure>
+
+    <p>Please, be sure to save this password as you will need it to authenticate on the Passbolt GUI.</p>
+
+    <p>Your SMTP username should be the Zoho account email address and your SMTP password is the application password that has been generated previously.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-zoho-authentication.png" alt="Passbolt - Email authentication" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email authentication</span>
+</figure>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="aws-ses">AWS SES</h2>
+
+    <ul>
+      <li>Navigate through your AWS Management Console</li>
+    </ul>
+
+    <p>You’ll see the navigation panel on the left-hand side of the screen.</p>
+
+    <p>When you are on the navigation panel, you will need to navigate to <em>Email Sending &gt; SMTP Settings</em>.</p>
+
+    <ul>
+      <li>Create your SMTP Credentials</li>
+    </ul>
+
+    <p>Once you are on the SMTP Settings page, you can click on the “Create SMTP Credentials” button to begin the process. When prompted, you can either accept the default name for your credentials or choose a custom name that is easy for you to remember, such as “Passbolt”.</p>
+
+    <p>Once you have selected a name for your credentials, AWS SES will generate a set of SMTP credentials that you can use to authenticate your email sending requests. These credentials will consist of an SMTP username and password.</p>
+
+    <p>To download your newly created SMTP credentials, simply click on the “Download Credentials” button. This will download a file containing your SMTP username and password. It’s important to keep this file safe and secure, as it contains sensitive information that can be used to send emails from your account.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method (username &amp; password).</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+
+    <h2 id="other">Other</h2>
+
+    <p>If you are using another smtp email provider or a local one, you’d rather use the <strong>“Other”</strong> email provider.</p>
+
+    <ul>
+      <li>Authentication on Passbolt GUI</li>
+    </ul>
+
+    <p>On your Passbolt instance, you can navigate to <em>Administration &gt; Email server</em>.</p>
+
+    <p>You will need to fill in your smtp credentials to match your authentication method, it could be:</p>
+    <ol>
+      <li>Username &amp; Password</li>
+      <li>Username only</li>
+      <li>None</li>
+    </ol>
+
+    <p>Please, take into consideration that if you are using an email provider that doesn’t require any authentication, you’ll need to use the <em>none</em> authentication method, leaving empty fields with another authentication method could result in a failure to send emails.</p>
+
+    <ul>
+      <li>Test your configuration</li>
+    </ul>
+
+    <p>Before saving your configuration, you will need to test it in order to avoid any issues. it should pass and give the results shown below.</p>
+
+    <figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/02/smtp-test-email-success.png" alt="Passbolt - Email test success" style="max-width:586px;" />
+    <span class="legend">fig. Passbolt - Email test success</span>
+</figure>
+
+    <ul>
+      <li>Save your configuration</li>
+    </ul>
+
+    <p>If everything went as expected, do not forget to save your configuration and <strong>“Success: The SMTP settings have been saved successfully”</strong> should appear.</p>
+  </div>
+</div>
+
+                    </article>
+                </div>
+            </div>
+        </div>
+            <footer>
+        <div class="footer">
+            <ul class="footer-links">
+                <li><a href="https://www.passbolt.com/licence">Terms</a></li>
+                <li><a href="https://www.passbolt.com/privacy">Privacy</a></li>
+                <li><a href="https://www.passbolt.com/credits">Credits</a></li>
+                <li><a href="https://careers.passbolt.com">Careers</a></li>
+            </ul>
+        </div>
+    </footer>
+    <div id="cookies-eu-banner" class="visually-hidden">
+        🍪 &nbsp; Do you accept cookies for statistical purposes?
+        <a href="https://www.passbolt.com/privacy" id="cookies-eu-more">(Read more)</a>
+        <a class="button primary" id="cookies-eu-accept">Accept</a>
+        <a id="cookies-eu-reject">No thanks!</a>
+    </div>
+
+
+    </div>
+    <script src="https://consent.cookiebot.com/uc.js" data-cbid="900808a8-f178-4994-b2ad-66bf3ccca5f7" data-blockingmode="auto" strategy="beforeInteractive"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-tag-manager.js"></script>
+<script src="https://help.passbolt.com/assets/js/matomo-analytics.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.slim.min.js" integrity="sha384-/IFzzQmt1S744I+IQO4Mc1uphkxbXt1tEwjQ/qSw2p8pXWck09sLvqHmKDYYwReJ" crossorigin="anonymous"></script>
+<script src="https://help.passbolt.com/assets/js/analytics.js"></script>
+<script src="https://help.passbolt.com/assets/js/greedynav.js"></script>
+</body>
+
+</html>

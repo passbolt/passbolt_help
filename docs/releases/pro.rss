@@ -7,10 +7,22 @@
 
 
 <item>
+    <title>v4.2.0 | The man who sold the world</title>
+    <link>https://help.passbolt.com/releases/pro/the-man-who-sold-the-world</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/the-man-who-sold-the-world</guid>
+    <description>Passbolt’s latest release, Pro version 4.2, introduces some new functionalities and fixes. One of the highlights of this release is the first brick of grid modernization. With it, you’re in control of what’s shown on the password grid. You can decide which columns you want to see, as well as...</description>
+    <pubDate>Thu, 24 Aug 2023 02:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.1.3 | Borders</title>
     <link>https://help.passbolt.com/releases/pro/borders</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/borders</guid>
-    <description>Version 4.1.3 of passbolt is a maintenance &amp; security release targeting mainly the LDAP &amp; Active Directory connector. On one hand, administrators using Active Directory will now be able to map passbolt username with their directory field of preference (userPersonalName by instance) via the administration section in the UI. While...</description>
+    <description>Version 4.1.3 of passbolt is a maintenance &amp; security release targeting mainly the LDAP &amp; Active Directory connector. On one hand, administrators using Active Directory will now be able to map passbolt username with their directory field of preference (userPrincipalName by instance) via the administration section in the UI. While...</description>
     <pubDate>Fri, 04 Aug 2023 02:00:00 +0200</pubDate>
 </item>
 

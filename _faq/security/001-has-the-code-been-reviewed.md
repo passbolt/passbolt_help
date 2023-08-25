@@ -4,16 +4,20 @@ slug: code-review
 layout: faq
 category: security
 permalink: /faq/security/:slug
-date: 2023-05-22 00:00:00 Z
+date: 2023-08-25 00:00:00 Z
 ---
 
 In the last 24 months, [Cure53](https://cure53.de/) performed a series of seven audits in order to provide a 360 degree review of the passbolt ecosystem as a whole. Each audit involved several security researchers and each lasted for about a week.
 
 In the meantime, passbolt has successfully completed SOC2 Type II audit, a well established and recognized standard of information security compliance.
 ## Code and Infrastructure security audits
+### March 2023: Passbolt SSO
+
+[PBL-08 Cure53 report](/assets/files/PBL-08-report.pdf): This report describes the results of a security assessment of the passbolt complex, spanning the passbolt SSO feature, related backend API and browser extensions.
+
 ### July 2022: Passbolt Crypto and Account recovery
 
-[PBL-07 Cure53 report](/assets/files/PBL-07-report.pdf): This report describes the results of a security assessment of the Passbolt complex, spanning several of the newer Passbolt features, including the account recovery feature and the ECC key support.
+[PBL-07 Cure53 report](/assets/files/PBL-07-report.pdf): This report describes the results of a security assessment of the passbolt complex, spanning several of the newer passbolt features, including the account recovery feature and the ECC key support.
 ### December 2021: Mobile applications and go-passbolt-cli
 
 [PBL-06 Cure53 report](/assets/files/PBL-06-report.pdf): This report describes the results of a security assessment of the passbolt complex, spanning the passbolt mobile application, related backend API and CLI tool.

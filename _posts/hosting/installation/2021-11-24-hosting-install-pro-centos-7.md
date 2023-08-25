@@ -5,7 +5,7 @@ description: How to install Passbolt PRO on
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
-slug: centos7
+slug: centos
 permalink: /:categories/:slug.html
 archived: true
 ---

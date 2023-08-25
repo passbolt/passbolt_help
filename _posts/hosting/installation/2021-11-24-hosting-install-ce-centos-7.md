@@ -5,7 +5,7 @@ description: How to install Passbolt CE on
 categories: [hosting,install,ce]
 sidebar: hosting
 layout: default
-slug: centos7
+slug: centos
 permalink: /:categories/:slug.html
 archived: true
 ---

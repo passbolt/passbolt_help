@@ -3,6 +3,7 @@ title: Install Passbolt CE on Debian 11 (Bullseye)
 date: 2021-11-24 00:00:00 Z
 description: How to install Passbolt CE on (Bullseye)
 slug: Debian11
+layout: default
 ---
 
 {% assign product = 'ce' %}

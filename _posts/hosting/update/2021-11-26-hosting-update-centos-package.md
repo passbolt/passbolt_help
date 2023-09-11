@@ -4,6 +4,8 @@ date: 2021-11-26 00:00:00 Z
 description: How to update your server on CentOS.
 categories: [hosting, update]
 slug: centos
+sidebar: hosting
+layout: default
 permalink: /:categories/:slug.html
 archived: true
 ---

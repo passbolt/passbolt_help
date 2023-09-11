@@ -17,7 +17,12 @@ date: 2017-01-20 00:00:00 Z
 ## Firefox
 ### Install the Firefox add-on
 
-<video controls=""><source src="https://raw.githubusercontent.com/passbolt/passbolt_styleguide/master/src/video/an_install_plugin_firefox_864.mp4" type="video/mp4"></video>
+{% include articles/video.html
+    url="/assets/files/an_install_plugin_firefox_864.mp4"
+    mime_type="video/mp4"
+    legend="Passbolt Add-on - Install on Firefox"
+    width="500px"
+%}
 
 1. 	Make sure you Firefox version is up to date. We only support the most recent versions.  
 2. 	Go to [https://addons.mozilla.org/en-US/firefox/addon/passbolt/](https://addons.mozilla.org/en-US/firefox/addon/passbolt/)
@@ -40,7 +45,12 @@ If you are still experiencing issues after trying these options out, feel free t
 
 ### How to remove the Firefox extension
 
-<video controls=""><source src="https://raw.githubusercontent.com/passbolt/passbolt_styleguide/master/src/video/an_remove_plugin_firefox_864.mp4" type="video/mp4"></video>
+{% include articles/video.html
+    url="/assets/files/an_remove_plugin_firefox_864.mp4"
+    mime_type="video/mp4"
+    legend="Passbolt Browser Extension - Remove on Firefox"
+    width="500px"
+%}
 
 Clicking on "remove from toolbar" will only hide passbolt icon and not remove it!
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-08-24T16:50:46+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure Role-Based Access Control</title><link href="https://help.passbolt.com/configure/rbac.html" rel="alternate" type="text/html" title="How to configure Role-Based Access Control" /><published>2023-07-05T02:00:00+02:00</published><updated>2023-07-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/rbac</id><content type="html" xml:base="https://help.passbolt.com/configure/rbac.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-09-11T15:44:41+02:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to configure Role-Based Access Control</title><link href="https://help.passbolt.com/configure/rbac.html" rel="alternate" type="text/html" title="How to configure Role-Based Access Control" /><published>2023-07-05T02:00:00+02:00</published><updated>2023-07-05T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/rbac</id><content type="html" xml:base="https://help.passbolt.com/configure/rbac.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Since version 4.1.0, all editions of passbolt support Role-Based Access Control.&lt;/p&gt;
@@ -64,7 +64,359 @@ July
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 12 (Bookworm)</title><link href="https://help.passbolt.com/hosting/install/ce/debian/debian.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 12 (Bookworm)" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/debian/Debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian/debian.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">Upgrade from Debian 11 to Debian 12</title><link href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro.html" rel="alternate" type="text/html" title="Upgrade from Debian 11 to Debian 12" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A Debian 11 server.&lt;/li&gt;
+      &lt;li&gt;Passbolt Debian package installed.&lt;/li&gt;
+      &lt;li&gt;Ensure you have sufficient space for the upgrade.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;This manual has for aim to help you upgrade your distribution, but it does not replace 
+&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;the official Debian guide&lt;/a&gt;, please refer to it if you have any doubt.&lt;/p&gt;
+
+    &lt;h2 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h2&gt;
+
+    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
+
+    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;prepare-repositories&quot;&gt;3. Prepare repositories&lt;/h2&gt;
+
+    &lt;h3 id=&quot;upgrade-the-os-and-other-third-party-repositories&quot;&gt;3.1. Upgrade the OS and other third party repositories&lt;/h3&gt;
+
+    &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
+Debian 12. This can be easily done with sed:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
+
+deb http://httpredir.debian.org/debian/ bookworm main
+deb-src http://httpredir.debian.org/debian/ bookworm main
+
+deb http://security.debian.org/debian-security bookworm-security main contrib
+deb-src http://security.debian.org/debian-security bookworm-security main contrib
+
+&lt;span class=&quot;c&quot;&gt;# bookworm-updates, to get updates before a point release is made;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports&lt;/span&gt;
+deb http://httpredir.debian.org/debian/ bookworm-updates main contrib
+deb-src http://httpredir.debian.org/debian/ bookworm-updates main contrib
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;4. Upgrade your system&lt;/h2&gt;
+
+    &lt;p&gt;Update the apt indexes :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Upgrade Passbolt PRO :&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt --only-upgrade install passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        You are using Passbolt CE? Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt --only-upgrade install passbolt-ce-server&lt;/code&gt;
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;You can now upgrade your system :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Upgrade first
+sudo apt upgrade
+
+# Then perform the dist-upgrade
+sudo apt dist-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-distributions&quot;&gt;4.1. Ensure that you are running the correct distributions&lt;/h3&gt;
+
+    &lt;p&gt;In order to verify the distribution :&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsb_release &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-php-82-version&quot;&gt;4.2. Ensure that you are running the correct PHP 8.2 version&lt;/h3&gt;
+
+    &lt;p&gt;To verify the PHP version :&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;update-passbolt-nginx-configuration&quot;&gt;5. Update passbolt nginx configuration&lt;/h2&gt;
+
+    &lt;p&gt;As php-fpm has been upgraded from 7.4 to 8.2, nginx configuration has to be updated accordingly.&lt;/p&gt;
+
+    &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;It should return:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can now safely restart the nginx web server and php-fpm:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart nginx
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php8.2-fpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reboot-your-server&quot;&gt;6. Reboot your server&lt;/h2&gt;
+
+    &lt;p&gt;With Debian 12 comes a new Linux kernel, you must reboot your server.&lt;/p&gt;
+
+    &lt;h2 id=&quot;clean-useless-packages&quot;&gt;7. Clean useless packages&lt;/h2&gt;
+
+    &lt;p&gt;Once the server rebooted on the new kernel, you can now remove useless packages:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt autoremove --purge
+sudo apt autoclean
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;troubleshooting&quot;&gt;8. Troubleshooting&lt;/h2&gt;
+
+    &lt;h3 id=&quot;mariadb-went-missing&quot;&gt;MariaDB went missing&lt;/h3&gt;
+
+    &lt;p&gt;It is possible your MariaDB instance has been uninstalled. You can install it back:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install default-mysql-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+June
+29th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Upgrade from Debian 11 to Debian 12</title><link href="https://help.passbolt.com/hosting/upgrade/ce/from-debian-11-to-debian-12-ce.html" rel="alternate" type="text/html" title="Upgrade from Debian 11 to Debian 12" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/from-debian-11-to-debian-12-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/from-debian-11-to-debian-12-ce.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;A Debian 11 server.&lt;/li&gt;
+      &lt;li&gt;Passbolt Debian package installed.&lt;/li&gt;
+      &lt;li&gt;Ensure you have sufficient space for the upgrade.&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;This manual has for aim to help you upgrade your distribution, but it does not replace 
+&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;the official Debian guide&lt;/a&gt;, please refer to it if you have any doubt.&lt;/p&gt;
+
+    &lt;h2 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h2&gt;
+
+    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
+such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
+
+    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
+You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;h2 id=&quot;prepare-repositories&quot;&gt;3. Prepare repositories&lt;/h2&gt;
+
+    &lt;h3 id=&quot;upgrade-the-os-and-other-third-party-repositories&quot;&gt;3.1. Upgrade the OS and other third party repositories&lt;/h3&gt;
+
+    &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
+Debian 12. This can be easily done with sed:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
+
+deb http://httpredir.debian.org/debian/ bookworm main
+deb-src http://httpredir.debian.org/debian/ bookworm main
+
+deb http://security.debian.org/debian-security bookworm-security main contrib
+deb-src http://security.debian.org/debian-security bookworm-security main contrib
+
+&lt;span class=&quot;c&quot;&gt;# bookworm-updates, to get updates before a point release is made;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports&lt;/span&gt;
+deb http://httpredir.debian.org/debian/ bookworm-updates main contrib
+deb-src http://httpredir.debian.org/debian/ bookworm-updates main contrib
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;4. Upgrade your system&lt;/h2&gt;
+
+    &lt;p&gt;Update the apt indexes :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Upgrade Passbolt PRO :&lt;/p&gt;
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt --only-upgrade install passbolt-pro-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        You are using Passbolt CE? Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt --only-upgrade install passbolt-ce-server&lt;/code&gt;
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;You can now upgrade your system :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Upgrade first
+sudo apt upgrade
+
+# Then perform the dist-upgrade
+sudo apt dist-upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-distributions&quot;&gt;4.1. Ensure that you are running the correct distributions&lt;/h3&gt;
+
+    &lt;p&gt;In order to verify the distribution :&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsb_release &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-php-82-version&quot;&gt;4.2. Ensure that you are running the correct PHP 8.2 version&lt;/h3&gt;
+
+    &lt;p&gt;To verify the PHP version :&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;update-passbolt-nginx-configuration&quot;&gt;5. Update passbolt nginx configuration&lt;/h2&gt;
+
+    &lt;p&gt;As php-fpm has been upgraded from 7.4 to 8.2, nginx configuration has to be updated accordingly.&lt;/p&gt;
+
+    &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;It should return:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf test is successful
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You can now safely restart the nginx web server and php-fpm:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart nginx
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php8.2-fpm
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;reboot-your-server&quot;&gt;6. Reboot your server&lt;/h2&gt;
+
+    &lt;p&gt;With Debian 12 comes a new Linux kernel, you must reboot your server.&lt;/p&gt;
+
+    &lt;h2 id=&quot;clean-useless-packages&quot;&gt;7. Clean useless packages&lt;/h2&gt;
+
+    &lt;p&gt;Once the server rebooted on the new kernel, you can now remove useless packages:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt autoremove --purge
+sudo apt autoclean
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;troubleshooting&quot;&gt;8. Troubleshooting&lt;/h2&gt;
+
+    &lt;h3 id=&quot;mariadb-went-missing&quot;&gt;MariaDB went missing&lt;/h3&gt;
+
+    &lt;p&gt;It is possible your MariaDB instance has been uninstalled. You can install it back:&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install default-mysql-server
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+June
+29th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message &quot;&gt;
+    &lt;p&gt;&lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr&quot;&gt;
+    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
+    
+    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Install Passbolt CE on Debian 12 (Bookworm)</title><link href="https://help.passbolt.com/hosting/install/ce/debian/debian.html" rel="alternate" type="text/html" title="Install Passbolt CE on Debian 12 (Bookworm)" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/install/ce/debian/Debian</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/debian/debian.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -720,359 +1072,7 @@ June
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">Upgrade from Debian 11 to Debian 12</title><link href="https://help.passbolt.com/hosting/upgrade/ce/from-debian-11-to-debian-12-ce.html" rel="alternate" type="text/html" title="Upgrade from Debian 11 to Debian 12" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/ce/from-debian-11-to-debian-12-ce</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/ce/from-debian-11-to-debian-12-ce.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A Debian 11 server.&lt;/li&gt;
-      &lt;li&gt;Passbolt Debian package installed.&lt;/li&gt;
-      &lt;li&gt;Ensure you have sufficient space for the upgrade.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;This manual has for aim to help you upgrade your distribution, but it does not replace 
-&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;the official Debian guide&lt;/a&gt;, please refer to it if you have any doubt.&lt;/p&gt;
-
-    &lt;h2 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h2&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
-
-    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
-You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;prepare-repositories&quot;&gt;3. Prepare repositories&lt;/h2&gt;
-
-    &lt;h3 id=&quot;upgrade-the-os-and-other-third-party-repositories&quot;&gt;3.1. Upgrade the OS and other third party repositories&lt;/h3&gt;
-
-    &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
-Debian 12. This can be easily done with sed:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
-
-deb http://httpredir.debian.org/debian/ bookworm main
-deb-src http://httpredir.debian.org/debian/ bookworm main
-
-deb http://security.debian.org/debian-security bookworm-security main contrib
-deb-src http://security.debian.org/debian-security bookworm-security main contrib
-
-&lt;span class=&quot;c&quot;&gt;# bookworm-updates, to get updates before a point release is made;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports&lt;/span&gt;
-deb http://httpredir.debian.org/debian/ bookworm-updates main contrib
-deb-src http://httpredir.debian.org/debian/ bookworm-updates main contrib
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;4. Upgrade your system&lt;/h2&gt;
-
-    &lt;p&gt;Update the apt indexes :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Upgrade Passbolt PRO :&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt --only-upgrade install passbolt-pro-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        You are using Passbolt CE? Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt --only-upgrade install passbolt-ce-server&lt;/code&gt;
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;You can now upgrade your system :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Upgrade first
-sudo apt upgrade
-
-# Then perform the dist-upgrade
-sudo apt dist-upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-distributions&quot;&gt;4.1. Ensure that you are running the correct distributions&lt;/h3&gt;
-
-    &lt;p&gt;In order to verify the distribution :&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsb_release &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-php-82-version&quot;&gt;4.2. Ensure that you are running the correct PHP 8.2 version&lt;/h3&gt;
-
-    &lt;p&gt;To verify the PHP version :&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;update-passbolt-nginx-configuration&quot;&gt;5. Update passbolt nginx configuration&lt;/h2&gt;
-
-    &lt;p&gt;As php-fpm has been upgraded from 7.4 to 8.2, nginx configuration has to be updated accordingly.&lt;/p&gt;
-
-    &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It should return:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You can now safely restart the nginx web server and php-fpm:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart nginx
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php8.2-fpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;reboot-your-server&quot;&gt;6. Reboot your server&lt;/h2&gt;
-
-    &lt;p&gt;With Debian 12 comes a new Linux kernel, you must reboot your server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;clean-useless-packages&quot;&gt;7. Clean useless packages&lt;/h2&gt;
-
-    &lt;p&gt;Once the server rebooted on the new kernel, you can now remove useless packages:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt autoremove --purge
-sudo apt autoclean
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;troubleshooting&quot;&gt;8. Troubleshooting&lt;/h2&gt;
-
-    &lt;h3 id=&quot;mariadb-went-missing&quot;&gt;MariaDB went missing&lt;/h3&gt;
-
-    &lt;p&gt;It is possible your MariaDB instance has been uninstalled. You can install it back:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install default-mysql-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-June
-29th,
-2023.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Upgrade from Debian 11 to Debian 12</title><link href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro.html" rel="alternate" type="text/html" title="Upgrade from Debian 11 to Debian 12" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A Debian 11 server.&lt;/li&gt;
-      &lt;li&gt;Passbolt Debian package installed.&lt;/li&gt;
-      &lt;li&gt;Ensure you have sufficient space for the upgrade.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;This manual has for aim to help you upgrade your distribution, but it does not replace 
-&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;the official Debian guide&lt;/a&gt;, please refer to it if you have any doubt.&lt;/p&gt;
-
-    &lt;h2 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h2&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
-
-    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
-You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;prepare-repositories&quot;&gt;3. Prepare repositories&lt;/h2&gt;
-
-    &lt;h3 id=&quot;upgrade-the-os-and-other-third-party-repositories&quot;&gt;3.1. Upgrade the OS and other third party repositories&lt;/h3&gt;
-
-    &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
-Debian 12. This can be easily done with sed:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
-
-deb http://httpredir.debian.org/debian/ bookworm main
-deb-src http://httpredir.debian.org/debian/ bookworm main
-
-deb http://security.debian.org/debian-security bookworm-security main contrib
-deb-src http://security.debian.org/debian-security bookworm-security main contrib
-
-&lt;span class=&quot;c&quot;&gt;# bookworm-updates, to get updates before a point release is made;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports&lt;/span&gt;
-deb http://httpredir.debian.org/debian/ bookworm-updates main contrib
-deb-src http://httpredir.debian.org/debian/ bookworm-updates main contrib
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;4. Upgrade your system&lt;/h2&gt;
-
-    &lt;p&gt;Update the apt indexes :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Upgrade Passbolt PRO :&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt --only-upgrade install passbolt-pro-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        You are using Passbolt CE? Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt --only-upgrade install passbolt-ce-server&lt;/code&gt;
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;You can now upgrade your system :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Upgrade first
-sudo apt upgrade
-
-# Then perform the dist-upgrade
-sudo apt dist-upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-distributions&quot;&gt;4.1. Ensure that you are running the correct distributions&lt;/h3&gt;
-
-    &lt;p&gt;In order to verify the distribution :&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsb_release &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-php-82-version&quot;&gt;4.2. Ensure that you are running the correct PHP 8.2 version&lt;/h3&gt;
-
-    &lt;p&gt;To verify the PHP version :&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;update-passbolt-nginx-configuration&quot;&gt;5. Update passbolt nginx configuration&lt;/h2&gt;
-
-    &lt;p&gt;As php-fpm has been upgraded from 7.4 to 8.2, nginx configuration has to be updated accordingly.&lt;/p&gt;
-
-    &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It should return:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You can now safely restart the nginx web server and php-fpm:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart nginx
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php8.2-fpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;reboot-your-server&quot;&gt;6. Reboot your server&lt;/h2&gt;
-
-    &lt;p&gt;With Debian 12 comes a new Linux kernel, you must reboot your server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;clean-useless-packages&quot;&gt;7. Clean useless packages&lt;/h2&gt;
-
-    &lt;p&gt;Once the server rebooted on the new kernel, you can now remove useless packages:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt autoremove --purge
-sudo apt autoclean
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;troubleshooting&quot;&gt;8. Troubleshooting&lt;/h2&gt;
-
-    &lt;h3 id=&quot;mariadb-went-missing&quot;&gt;MariaDB went missing&lt;/h3&gt;
-
-    &lt;p&gt;It is possible your MariaDB instance has been uninstalled. You can install it back:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install default-mysql-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-June
-29th,
-2023.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><category term="debian" /><summary type="html"></summary></entry><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -1878,223 +1878,7 @@ If you want to know how to configure your email provider, please &lt;a href=&quo
 
     &lt;p&gt;If everything went as expected, do not forget to save your configuration and &lt;strong&gt;“Success: The SMTP settings have been saved successfully”&lt;/strong&gt; should appear.&lt;/p&gt;
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="email" /><summary type="html"></summary></entry><entry><title type="html">How to configure passbolt to use Duo OTP</title><link href="https://help.passbolt.com/configure/mfa/duo.html" rel="alternate" type="text/html" title="How to configure passbolt to use Duo OTP" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/mfa/duo</id><content type="html" xml:base="https://help.passbolt.com/configure/mfa/duo.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;p&gt;Passbolt Pro Edition since v2.5 and CE since 3.9 support Duo as a multi factor authentication option.
-Duo is a proprietary solution that is free for up to 10 users, and supports a bundle
-of authentication channels (such as HOTP, mobile push, phone calls, etc.) configurable
-by the Duo account administrator.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-website.png&quot; alt=&quot;Duo website&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo website&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; Multi Factor Authentication requires HTTPS to work.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;security-considerations&quot;&gt;Security considerations&lt;/h2&gt;
-
-    &lt;p&gt;It is important to enable and setup at least one additional multi factor authentication 
-provider in case Duo service becomes temporarily not available.&lt;/p&gt;
-
-    &lt;p&gt;In order to authenticate using Duo, the user will be redirected to Duo’s authentication
-page. Whether or not the authentication was successful, the user will be redirected back
-to passbolt. Make sure your users have access to internet or do
-not enable this authentication provider if you are running passbolt on a private network
-that is not connected to internet.&lt;/p&gt;
-
-    &lt;h2 id=&quot;install-duo-app&quot;&gt;Install Duo app&lt;/h2&gt;
-
-    &lt;p&gt;In order to use this authentication provider, each of your users will need to have either:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://play.google.com/store/apps/details?id=com.duosecurity.duomobile&amp;amp;hl=en&quot;&gt;Duo Mobile for Android&lt;/a&gt; on google play store.&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://itunes.apple.com/us/app/duo-mobile/id422663827?mt=8&quot;&gt;Duo Mobile for iOS&lt;/a&gt; on apple itunes.&lt;/li&gt;
-      &lt;li&gt;TouchID fingerprint reader on MacOS laptops&lt;/li&gt;
-      &lt;li&gt;A security key&lt;/li&gt;
-      &lt;li&gt;A physical token&lt;/li&gt;
-      &lt;li&gt;A network administrator&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;div class=&quot;message notice&quot;&gt;
-    &lt;p&gt;
-    Visit the &lt;a href=&quot;https://duo.com/product/multi-factor-authentication-mfa/authentication-methods&quot;&gt;Duo authentication methods page&lt;/a&gt; for more information.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-app-login.png&quot; alt=&quot;Duo mobile application&quot; style=&quot;max-width:250px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo mobile application&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;register-a-duo-administrator-account&quot;&gt;Register a Duo administrator account&lt;/h2&gt;
-
-    &lt;p&gt;If you do not have a Duo admin account, first sign up at &lt;a href=&quot;https://signup.duo.com/&quot;&gt;https://signup.duo.com/&lt;/a&gt;
-Then log in to the Duo Admin panel at &lt;a href=&quot;https://admin.duosecurity.com/login&quot;&gt;https://admin.duosecurity.com/login&lt;/a&gt;&lt;/p&gt;
-
-    &lt;p&gt;Configure your Duo policies as required by your organization.&lt;/p&gt;
-
-    &lt;h3 id=&quot;add-a-passbolt-application&quot;&gt;Add a passbolt application&lt;/h3&gt;
-
-    &lt;p&gt;In order for passbolt to enable onboarding and authentication of new users with Duo,
-you will need to create a Web SDK application for passbolt in Duo.&lt;/p&gt;
-
-    &lt;p&gt;Login to the &lt;a href=&quot;https://admin.duosecurity.com/login&quot;&gt;Duo Admin page&lt;/a&gt;.
-In the left-hand side menu, click on “Applications”, then click on “Protect an Application”.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-application.png&quot; alt=&quot;Duo protect application&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo protect application&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Find the “Web SDK” application and click on the “Protect” button.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-admin.png&quot; alt=&quot;Duo administration&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo administration&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Note down the Client ID, Client secret, and API hostname details, as you will need them to configure the integration.&lt;/p&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Important:&lt;/strong&gt; Passbolt versions below 3.11 use DUO v3 which means a generated salt is mandatory
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;h2 id=&quot;generate-a-random-salt&quot;&gt;Generate a random salt&lt;/h2&gt;
-
-    &lt;p&gt;Generating a random salt to configure Duo is mandatory, a salt is a random piece of data that is generated and used in the hashing process to protect sentivite information. It is generated and combined with the secret key before hashing it.&lt;/p&gt;
-
-    &lt;p&gt;To generate a random salt, you can use the passbolt interface, generate a new password as shown below and use it as the generated salt.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/05/password-generator.png&quot; alt=&quot;Passbolt - Password Generator&quot; style=&quot;max-width:250px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt - Password Generator&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;set-the-configuration-in-passbolt&quot;&gt;Set the configuration in passbolt&lt;/h2&gt;
-
-    &lt;p&gt;You can configure Duo OTP using either the admin interface or environment variables. 
-If multiple settings providers are used the settings in the admin interface will override the one in environment 
-variables. Note that we recommend using the admin interface, since it is more secure.&lt;/p&gt;
-
-    &lt;h3 id=&quot;using-admin-user-interface&quot;&gt;Using admin user interface&lt;/h3&gt;
-
-    &lt;p&gt;Since v2.6 a user interface is provided for administrators to setup MFA providers.
-Click on “administration” in the top menu, then “multi factor authentication” on the left menu.
-You can then enable or disable the Duo provider by providing the API Hostname, the Client ID and the Client Secret that you gathered in the previous steps. If you are running a Passbolt version below 3.11 you will also need the generated salt. Click “save settings” when you are done.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/AD_mfa_org_settings_duo.png&quot; alt=&quot;MFA organization settings for Duo&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. MFA organization settings for Duo&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;using-environment-variables&quot;&gt;Using environment variables&lt;/h3&gt;
-
-    &lt;table class=&quot;table-parameters&quot;&gt;
-&lt;thead&gt;
-    &lt;tr&gt;
-        &lt;th&gt;Variable name&lt;/th&gt;
-        &lt;th&gt;Description&lt;/th&gt;
-        &lt;th&gt;Type&lt;/th&gt;
-    &lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_CLIENT_ID&lt;/td&gt;
-        &lt;td&gt;Client ID&lt;/td&gt;
-        &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_CLIENT_SECRET&lt;/td&gt;
-        &lt;td&gt;Client Secret&lt;/td&gt;
-        &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-        &lt;td&gt;PASSBOLT_PLUGINS_MFA_DUO_API_HOSTNAME&lt;/td&gt;
-        &lt;td&gt;API Hostname&lt;/td&gt;
-        &lt;td&gt;string&lt;/td&gt;
-    &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-    &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-    &lt;p&gt;When you using docker to set these environment variable you can pass them as arguments,
-like other variables such as the database name, for example:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ docker run --name passbolt \
-             -p 80:80 \
-             -p 443:443 \
-             -e PASSBOLT_PLUGINS_MFA_DUO_API_HOSTNAME=api-26e9f2fce.duosecurity.com \
-             -e etc.
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;setting-duo-for-a-given-passbolt-user-account&quot;&gt;Setting Duo for a given passbolt user account&lt;/h2&gt;
-
-    &lt;p&gt;Once you have the Duo integration configured and a Duo authentication device, you can proceed
-with enabling Duo as MFA provider for your user account. It is important that you test this to
-make sure the integration works.&lt;/p&gt;
-
-    &lt;p&gt;When logged in on passbolt, go to your profile section and click on “Multi factor authentication”
-in the sidebar on the left. You should see the list of providers that are enabled for this instance.
-Click on the Duo provider.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-user-setup.png&quot; alt=&quot;Passbolt Duo setup&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt Duo setup&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Then, click on the “Sign-in with Duo” button to start the Duo authentication process. If this is
-the first time you are using Duo with this user and this server, you will be asked to link one or
-more device(s) to Duo to authenticate with.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-setup-welcome.png&quot; alt=&quot;Duo welcome screen&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo welcome screen&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-setup-options.png&quot; alt=&quot;Duo authentication options&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Duo authentication options&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Follow the instructions provided by Duo and you should be all set.
-The next time you try login from a new device, you will be presented with a Duo 
-authentication prompt.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/02/mfa-duo-login.png&quot; alt=&quot;Login prompt&quot; style=&quot;max-width:550px;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Login prompt&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-February
-6th,
-2023.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="mfa" /><summary type="html"></summary></entry><entry><title type="html">Docker passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/docker.html" rel="alternate" type="text/html" title="Docker passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/docker.html">&lt;div class=&quot;row&quot;&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="email" /><summary type="html"></summary></entry><entry><title type="html">Docker passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/docker.html" rel="alternate" type="text/html" title="Docker passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/docker</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/docker.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;div class=&quot;message warning&quot;&gt;
@@ -2484,4 +2268,161 @@ February
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">Helm passbolt installation</title><link href="https://help.passbolt.com/hosting/install/ce/helm.html" rel="alternate" type="text/html" title="Helm passbolt installation" /><published>2023-02-06T01:00:00+01:00</published><updated>2023-02-06T01:00:00+01:00</updated><id>https://help.passbolt.com/hosting/install/ce/helm</id><content type="html" xml:base="https://help.passbolt.com/hosting/install/ce/helm.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;b&gt;Important:&lt;/b&gt; Installing Passbolt on Kubernetes with our Helm chart is considered to be a very advanced installation method. If you are not very comfortable and familiar with Kubernetes we strongly recommend that you install via one of our other methods.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;system-requirements&quot;&gt;System requirements&lt;/h2&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Kubernetes cluster (&amp;gt;1.19): &lt;a href=&quot;https://kubernetes.io/docs/setup/&quot; target=&quot;_blank&quot;&gt;https://kubernetes.io/docs/setup/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;kubectl: &lt;a href=&quot;https://kubernetes.io/docs/tasks/tools/#kubectl&quot; target=&quot;_blank&quot;&gt;https://kubernetes.io/docs/tasks/tools/#kubectl&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;Helm (3.X): &lt;a href=&quot;https://helm.sh/docs/intro/install/&quot; target=&quot;_blank&quot;&gt;https://helm.sh/docs/intro/install/&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;a working SMTP server for email notifications&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;FAQ pages:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/firewall-rules&quot; target=&quot;_blank&quot;&gt;Firewall rules&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;helm-install&quot;&gt;Helm install&lt;/h2&gt;
+
+    &lt;p&gt;The easiest and recommended way to deploy your Passbolt Helm chart is to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;helm install&lt;/code&gt;.&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 1.&lt;/strong&gt; Set up our Helm repo&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm repo add passbolt-repo https://download.passbolt.com/charts/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 2.&lt;/strong&gt; Get a copy of the values file&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://raw.githubusercontent.com/passbolt/charts-passbolt/main/values.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 3.&lt;/strong&gt; Configure values file to customize your instance .&lt;/p&gt;
+
+    &lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;APP_FULL_BASE_URL&lt;/code&gt; environment variable is set by default to &lt;a href=&quot;https://passbolt.local&quot;&gt;https://passbolt.local&lt;/a&gt;, using a self-signed certificate.&lt;/p&gt;
+
+    &lt;p&gt;Update this variable with the server name you plan to use. You will find at the bottom of this documentation links about how to set your own SSL certificate.&lt;/p&gt;
+
+    &lt;p&gt;If you are creating your own gpg keys the following commands can help convert them into a base64 encoded single line string which is what the values.yaml file expects.&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export-secret-keys&lt;/span&gt; &amp;lt;email you created keys with&amp;gt;  | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0
+gpg &lt;span class=&quot;nt&quot;&gt;--armor&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--export&lt;/span&gt; &amp;lt;email you created keys with&amp;gt; | &lt;span class=&quot;nb&quot;&gt;base64&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-w&lt;/span&gt; 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;You must configure also SMTP settings to be able to receive notifications and recovery emails.&lt;/p&gt;
+
+    &lt;p&gt;For more information on which environment variables are available on passbolt, please check the &lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;passbolt environment variable reference&lt;/a&gt;.&lt;/p&gt;
+
+    &lt;div class=&quot;message notice&quot;&gt;
+    &lt;p&gt;
+    &lt;b&gt;Important:&lt;/b&gt; By default we have the ingress set to false, you’ll need to decide how you want to handle this to access the web page.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;Additionally the following charts are used by Passbolt and you can adjust the values under their respective headings in values.yaml&lt;/p&gt;
+
+    &lt;table class=&quot;table-parameters&quot;&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Repository&lt;/th&gt;
+          &lt;th&gt;Name&lt;/th&gt;
+          &lt;th&gt;Version&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&quot;https://charts.bitnami.com/bitnami&quot;&gt;https://charts.bitnami.com/bitnami&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;mariadb&lt;/td&gt;
+          &lt;td&gt;11.3.5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&quot;https://charts.bitnami.com/bitnami&quot;&gt;https://charts.bitnami.com/bitnami&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;redis&lt;/td&gt;
+          &lt;td&gt;17.3.8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;&lt;a href=&quot;https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library&quot;&gt;https://passbolt.gitlab.io/passbolt-ops/passbolt-helm-library&lt;/a&gt;&lt;/td&gt;
+          &lt;td&gt;passbolt-library&lt;/td&gt;
+          &lt;td&gt;0.2.1&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;p&gt;&lt;strong&gt;Step 4.&lt;/strong&gt; Run helm install&lt;/p&gt;
+
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;helm install -f values.yaml my-passbolt passbolt-repo/passbolt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;At this point, you should have a working Passbolt setup via Helm running on the most up to date CE version of Passbolt.&lt;/p&gt;
+
+    &lt;h3 id=&quot;manually-creating-first-admin-user&quot;&gt;Manually creating first admin user&lt;/h3&gt;
+
+    &lt;p&gt;Once the Helm chart is deployed, you can create your first user by running the following command:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;kubectl &lt;span class=&quot;nb&quot;&gt;exec&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-it&lt;/span&gt;  &amp;lt;passbolt-pod-name&amp;gt; &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; /bin/bash &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;su -s /bin/bash -c &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bin/cake passbolt register_user -u &amp;lt;email&amp;gt; -f &amp;lt;firstname&amp;gt; -l &amp;lt;lastname&amp;gt; -r admin&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; www-data&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;p&gt;It will output a link similar to the below one that can be pasted on the browser to finalize user registration:&lt;/p&gt;
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://mydomain.com/setup/install/1eafab88-a17d-4ad8-97af-77a97f5ff552/f097be64-3703-41e2-8ea2-d59cbe1c15bc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;going-further&quot;&gt;Going further&lt;/h2&gt;
+
+    &lt;p&gt;Helm FAQs:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/email/setup&quot; target=&quot;_blank&quot;&gt;How to configure SMTP to receive emails&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/how-to-use-rootless-images&quot; target=&quot;_blank&quot;&gt;How to use rootless images&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/faq/hosting/troubleshoot-helm&quot; target=&quot;_blank&quot;&gt;Troubleshoot Helm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;/configure/environment/reference.html&quot; target=&quot;_blank&quot;&gt;Passbolt reference environment variables&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;p&gt;Passbolt docker repository:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/passbolt/charts-passbolt&quot; target=&quot;_blank&quot;&gt;https://github.com/passbolt/charts-passbolt&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+February
+6th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;tldr&quot;&gt;
+    &lt;h4 class=&quot;visuallyhidden&quot;&gt;Available on ????&lt;/h4&gt;
+    &lt;p&gt;
+        &lt;a href=&quot;http://helm.chart.location&quot; target=&quot;_blank&quot; rel=&quot;noopener nofollow&quot;&gt;
+            &lt;img alt=&quot;Helm Logo&quot; src=&quot;/assets/img/third_party/helm-horizontal-color.png&quot; style=&quot;&quot; /&gt;
+        &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;a href=&quot;http://helm.chart.location&quot; class=&quot;primary button&quot;&gt;  
+        Get passbolt Helm chart!
+    &lt;/a&gt;
+&lt;/div&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues when installing passbolt?&lt;/p&gt;
+    
+    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
+    
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="install" /><category term="ce" /><summary type="html"></summary></entry></feed>

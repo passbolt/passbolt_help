@@ -7,10 +7,14 @@ permalink: /faq/security/:slug
 date: 2023-08-25 00:00:00 Z
 ---
 
-In the last 24 months, [Cure53](https://cure53.de/) performed a series of seven audits in order to provide a 360 degree review of the passbolt ecosystem as a whole. Each audit involved several security researchers and each lasted for about a week.
+Since 2021, [Cure53](https://cure53.de/) performed a series of seven audits in order to provide a 360 degree review of the passbolt ecosystem as a whole. Each audit involved several security researchers and each lasted for about a week.
 
 In the meantime, passbolt has successfully completed SOC2 Type II audit, a well established and recognized standard of information security compliance.
 ## Code and Infrastructure security audits
+### July 2023: User directory integration & DirectoryTree LdapRecord library
+
+[PBL-09 Cure53 report](/assets/files/PBL-09-report.pdf): This report describes the results of a security assessment of the passbolt complex, spanning the external DirectoryTree LdapRecord library and related backend API.
+
 ### March 2023: Passbolt SSO
 
 [PBL-08 Cure53 report](/assets/files/PBL-08-report.pdf): This report describes the results of a security assessment of the passbolt complex, spanning the passbolt SSO feature, related backend API and browser extensions.

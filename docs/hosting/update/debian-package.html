@@ -228,6 +228,13 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 
     <h3 id="upgrade-your-system">3. Upgrade your system</h3>
 
+    <div class="message warning">
+    <p>
+        <strong>Pro tip:</strong> Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That’s why we are suggesting to manually upgrade passbolt prior to system upgrade
+    </p>
+    
+</div>
+
     <p>This commands will trigger an upgrade on your whole Debian system:</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
@@ -246,13 +253,6 @@ such as active users corrupting the data in the middle of an upgrade.</p>
 <span class="nb">sudo </span>apt <span class="nt">--only-upgrade</span> <span class="nb">install </span>passbolt-pro-server
 <span class="nb">sudo </span>apt upgrade
 </code></pre></div>    </div>
-
-    <div class="message warning">
-    <p>
-        <strong>Pro tip:</strong> Sometimes, while updating when there is also an update to MySQL/MariaDB you will get an error on the upgrade step. That’s why we are suggesting to manually upgrade passbolt prior to system upgrade
-    </p>
-    
-</div>
 
     <h3 id="clear-the-cache">4. Clear the cache</h3>
 

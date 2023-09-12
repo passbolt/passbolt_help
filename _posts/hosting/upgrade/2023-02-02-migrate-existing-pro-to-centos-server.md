@@ -2,18 +2,17 @@
 title: Migrate an existing Passbolt PRO to a new CentOS server 
 date: 2021-11-26 00:00:00 Z
 description: Migrate an existing Passbolt PRO to new CentOS server
+card_teaser: Migrate an existing Passbolt PRO to new CentOS server 
+card_title: Migrate to new CentOS server
+card_position: 9
+sidebar: [hosting, upgrade]
+passbolt_version: pro
+icon: fa-centos
+layout: default
 categories: [hosting,upgrade,pro]
 slug: migrate-existing-pro-to-centos-server
 permalink: /:categories/:slug.html
-archived: true
 ---
-
-{% include messages/warning.html
-    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
-%}
-{% include hosting/install/packages/debian/install-debian-package.md %}
-
-
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}
 {% assign distributionVersion = '7' %}
@@ -25,7 +24,9 @@ archived: true
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
-
+{% include messages/warning.html
+    content="**Important:** You may want to consider a different distribution. CentOS 7 is expected to be end of life on 30 June 2024 so you will need to migrate to a different distribution before then."
+%}
 {% include hosting/upgrade/upgrade-existing-to-new-server.md %}
 {% include date/updated.html %}
 

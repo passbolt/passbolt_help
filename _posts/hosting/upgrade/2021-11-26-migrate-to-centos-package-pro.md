@@ -2,16 +2,18 @@
 title: Migrate passbolt PRO from install scripts to CentOS 7 package
 date: 2021-11-26 00:00:00 Z
 description: Migrate passbolt PRO from install scripts to CentOS 7 package
+card_teaser: Migrate from install script to CentOS 7 package
+card_title: Migrate to CentOS 7 package
+card_position: 1
+sidebar: [hosting, upgrade]
+passbolt_version: pro
+icon: fa-centos
+layout: default
 categories: [hosting,upgrade,pro]
 slug: migrate-to-centos
 permalink: /:categories/:slug.html
-archived: true
 ---
 
-{% include messages/warning.html
-    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
-%}
-{% include hosting/install/packages/debian/install-debian-package.md %}
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}
@@ -24,7 +26,9 @@ archived: true
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
-
+{% include messages/warning.html
+    content="**Important:** You may want to consider a different distribution. CentOS 7 is expected to be end of life on 30 June 2024 so you will need to migrate to a different distribution before then."
+%}
 {% include hosting/upgrade/upgrade-to-debian-pkg.md %}
 {% include date/updated.html %}
 

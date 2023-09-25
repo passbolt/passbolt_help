@@ -7,7 +7,7 @@ permalink: /faq/security/:slug
 date: 2023-08-25 00:00:00 Z
 ---
 
-Since 2021, [Cure53](https://cure53.de/) performed a series of seven audits in order to provide a 360 degree review of the passbolt ecosystem as a whole. Each audit involved several security researchers and each lasted for about a week.
+Since 2021, [Cure53](https://cure53.de/) performed a series of nine audits in order to provide a 360 degree review of the passbolt ecosystem as a whole. Each audit involved several security researchers and each lasted for about a week.
 
 In the meantime, passbolt has successfully completed SOC2 Type II audit, a well established and recognized standard of information security compliance.
 ## Code and Infrastructure security audits

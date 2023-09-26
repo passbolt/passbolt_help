@@ -8,6 +8,7 @@ passbolt_version: ce
 slug: from-debian-11-to-debian-12-ce
 permalink: /:categories/:slug.html
 archived: true
+layout: default
 ---
 
 {% assign product = 'ce' %}

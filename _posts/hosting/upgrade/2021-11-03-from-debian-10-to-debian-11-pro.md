@@ -8,6 +8,7 @@ passbolt_version: pro
 slug: from-debian-10-to-debian-11-pro
 permalink: /:categories/:slug.html
 archived: true
+layout: default
 ---
 
 {% assign product = 'pro' %}

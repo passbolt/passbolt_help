@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v4.3.0 | No One Knows</title>
+    <link>https://help.passbolt.com/releases/ce/no_one_knows</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/no_one_knows</guid>
+    <description>Introducing the newest release of passbolt – get to know version 4.3 This update extends the portability of TOTP (Time Based One Time Password) content. You can now access TOTP items from passbolt’s mobile app and web interface. While the ability to create a TOTP is still limited to mobile,...</description>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.2.0 | The man who sold the world</title>
     <link>https://help.passbolt.com/releases/ce/the-man-who-sold-the-world</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/the-man-who-sold-the-world</guid>

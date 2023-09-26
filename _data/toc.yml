@@ -117,6 +117,12 @@
       teaser: How to configure Single Sign-On
       version: pro
       slug: sso
+    - title: Configure Password Policies
+      url: /configure/password-policies
+      icon: fa-key
+      teaser: How to configure Password Policies
+      version: pro
+      slug: password-policies
     - title: Configure RBAC
       url: /configure/rbac
       icon: fa-cogs

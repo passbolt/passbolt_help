@@ -1,18 +1,17 @@
 ---
 title: Install Passbolt PRO on CentOS 7
 date: 2021-11-24 00:00:00 Z
-description: How to install Passbolt PRO on
+description: How to install Passbolt PRO on CentOS 7
+card_title: CentOS 7
+card_teaser: Install passbolt PRO on CentOS
+card_position: 10
+icon: fa-centos
 categories: [hosting,install,pro]
 sidebar: hosting
 layout: default
 slug: centos
 permalink: /:categories/:slug.html
-archived: true
 ---
-
-{% include messages/warning.html
-    content="**Important:** This page has been depreciated, CentOS is not supported anymore."
-%}
 
 {% assign product = 'pro' %}
 {% assign distribution = 'centos' %}
@@ -23,8 +22,9 @@ archived: true
 
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}
-
-{% include hosting/install/packages/debian/install-debian-package.md %}
+{% include messages/warning.html
+    content="**Important:** You may want to consider a different distribution. CentOS 7 is expected to be end of life on 30 June 2024 so you will need to migrate to a different distribution before then."
+%}
 
 {% include date/updated.html %}
 

@@ -22,7 +22,7 @@ You can follow our [backup process](/hosting/backup).
 
 ## 3. Upgrade your system
 
-Passbolt requires PHP 7.3 and supports PHP 7.4.
+Passbolt requires PHP 7.4 and supports PHP 8.2.
 
 A full system upgrade to {{ distributionLabel }} {{ distributionVersion }} is necessary before installing the passbolt {{ distributionLabel }} package.
 {% if distributionPackage == 'dnf' or distributionPackage == 'yum' %}

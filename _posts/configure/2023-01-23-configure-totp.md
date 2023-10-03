@@ -1,9 +1,11 @@
 ---
 title: How to configure passbolt to use TOTP
 date: 2018-11-15 00:00:00 Z
-description: How to configure passbolt to use TOTP
+card_title: How to configure TOTP with Passbolt
+card_teaser: How to configure passbolt to use TOTP
+description: 
 icon: fa-key
-categories: [configure,mfa]
+categories: [configure, mfa]
 sidebar: configure
 layout: default
 slug: totp

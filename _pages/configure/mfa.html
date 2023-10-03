@@ -1,0 +1,18 @@
+---
+title: MFA
+layout: home
+category: configure
+slug: mfa
+permalink: /configure/mfa
+---
+<div class="panel main">
+    <div class="panel left">
+        {% include sidebar/sub-section-home.html section='configure' sub=page.slug %}
+    </div>
+    <div class="panel middle">
+        <div class="grid grid-responsive-12">
+            {% assign proCategories = "configure|mfa" | split: "|" %}
+            {% include cards/jmy-section-cards.html section='configure' sub='mfa' title='Configure Multi-Factor Authentication' categories=proCategories %}
+        </div>
+    </div>
+</div>

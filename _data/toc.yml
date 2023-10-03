@@ -140,21 +140,11 @@
       teaser: Common ldap synchronization errors and their meaning
       version: pro
       slug: ldap-with-ssl
-    - title: Configure Yubikey
-      url: /configure/mfa/yubikey
+    - title: Configure MFA
+      url: /configure/mfa
       icon: fa-key
-      teaser: Use Yubikey OTP as multi factor authentication provider
-      slug: yubikey
-    - title: Configure Duo
-      url: /configure/mfa/duo
-      icon: fa-key
-      teaser: Use Duo as multi factor authentication provider
-      slug: duo
-    - title: Configure TOTP
-      url: /configure/mfa/totp
-      icon: fa-key
-      teaser: Use TOTP as multi factor authentication provider
-      slug: totp
+      teaser: How to configure Multi Factor Authentication
+      slug: mfa
     - title: Configure Email Notifications
       url: /configure/notification/email
       icon: fa-envelope-o

@@ -1,9 +1,11 @@
 ---
 title: How to configure passbolt to use Duo OTP
 date: 2023-02-06 00:00:00 Z
-description: How to configure passbolt to use Duo OTP
+card_title: How to configure DUO with Passbolt
+card_teaser: How to configure passbolt to use DUO
+description: 
 icon: fa-key
-categories: [configure,mfa]
+categories: [configure, mfa]
 sidebar: configure
 layout: default
 slug: duo

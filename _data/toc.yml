@@ -145,6 +145,11 @@
       icon: fa-key
       teaser: How to configure Multi Factor Authentication
       slug: mfa
+    - title: Configure TOTP
+      url: /configure/totp
+      icon: fa-clock-o
+      teaser: How to configure a TOTP
+      slug: totp
     - title: Configure Email Notifications
       url: /configure/notification/email
       icon: fa-envelope-o

@@ -18,7 +18,7 @@ width="500px"
 
 ### Steps
 1. Select the password(s) or the folder(s) you'd like to export.
-   1. If you want to export all the passwords you are having access to, you can click on the menu next to "Folders".
+   - If you want to export all the passwords you have access to, you can click on the menu next to "Folders".
 3. Click on the "Export" or "Export all" button.
 4. Choose the right format for the export.
 5. You will be prompted to enter your passphrase.
@@ -37,6 +37,6 @@ Passbolt export system supports the following file formats:
 *  Csv - Firefox platforms export (Mozilla Firefox, Waterfox, Pale Moon...)
 *  Csv - Chromium browsers export (Google Chrome, Microsoft Edge, Brave ...)
 *  Csv - Safari
-*  Kdbx (file format used by Keepass 2.x)
+*  Kdbx (file format used by Keepass 2.x, you'll need to specify a keepass passphrase for the encryption)
 
 If you'd like to request the support of a specific format, you can open a request on [the community forum](https://community.passbolt.com/c/backlog).

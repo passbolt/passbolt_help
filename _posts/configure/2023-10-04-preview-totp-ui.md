@@ -1,6 +1,6 @@
 ---
 title: How to preview a TOTP 
-date: 2018-11-15 00:00:00 Z
+date: 2023-10-04 00:00:00 Z
 card_title: How to preview a TOTP on the Web UI
 card_teaser: How to preview a TOTP on the web interface
 description: 
@@ -23,7 +23,7 @@ legend="Web UI - Preview TOTP"
 width="850px"
 %}
 
-There is two types of TOTP:
+There are two types of TOTP:
 - Standalone
   - That is the **Passbolt Community TOTP** resource, this is not linked to any passwords.
 - Linked to an existing password

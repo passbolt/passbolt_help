@@ -1,6 +1,6 @@
 ---
 title: How to create a TOTP
-date: 2018-11-15 00:00:00 Z
+date: 2023-10-04 00:00:00 Z
 card_title: How to create a TOTP with Mobile
 card_teaser: How to configure passbolt mobile application to create a TOTP
 description: 
@@ -65,7 +65,7 @@ legend="iOS - TOTP Advanced Settings"
 width="400px"
 %}
 
-One created, you will see a success message "TOTP has been created." then you will be able to preview the TOTP code when you need it.
+Once created, you will see a success message "TOTP has been created." then you will be able to preview the TOTP code when you need it.
 {% include articles/figure.html
 url="/assets/img/help/2023/10/totp_code_preview.png"
 legend="iOS - TOTP Preview"
@@ -115,7 +115,7 @@ legend="Android - TOTP Advanced Settings"
 width="400px"
 %}
 
-One created, you will see a success message then you will be able to preview the TOTP code when you need it.
+Once created, you will see a success message then you will be able to preview the TOTP code when you need it.
 {% include articles/figure.html
 url="/assets/img/help/2023/10/totp_android_code_preview.jpg"
 legend="Android - TOTP Preview"

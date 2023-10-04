@@ -148,7 +148,7 @@
     - title: Configure TOTP
       url: /configure/totp
       icon: fa-clock-o
-      teaser: How to configure a TOTP
+      teaser: How to configure Time-based One Time Password
       slug: totp
     - title: Configure Email Notifications
       url: /configure/notification/email

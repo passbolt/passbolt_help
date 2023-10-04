@@ -1,14 +1,14 @@
 ---
 title: How to create a TOTP
 date: 2018-11-15 00:00:00 Z
-card_title: How to create a TOTP
-card_teaser: How to configure passbolt to create a TOTP
+card_title: How to create a TOTP with Mobile
+card_teaser: How to configure passbolt mobile application to create a TOTP
 description: 
 icon: fa-key
 categories: [configure, totp]
 sidebar: configure
 layout: default
-slug: time-based-one-time-password
+slug: time-based-one-time-password-mobile
 permalink: /:categories/:slug.html
 ---
 
@@ -19,12 +19,9 @@ Since version 4.3.0, Passbolt supports creation of TOTP (Time-based One Time Pas
 
 TOTP is a mechanism that generates a unique and temporary password based on the current time. This dynamic code can be used on its own or in combination with a static password, offering an additional layer of security compared to traditional password-only systems.
 
-- Mobile
-  - [iOS](#ios)
-  - [Android](#android)
-- [Web](#creation-via-web-ui)
+- [iOS](#ios)
+- [Android](#android)
 
-## Creation via Mobile
 ### iOS
 On the iOS application, there is a new section called "TOTP"
 {% include articles/figure.html
@@ -125,14 +122,11 @@ legend="Android - TOTP Preview"
 width="400px"
 %}
 
-## Creation via Web UI
-
-
 {% include date/updated.html %}
 
 {% include layout/col_end.html %}
 {% include layout/col_start.html column="4 last push1" %}
 
-{% include aside/pro-support.html %}
+{% include aside/community.html %}
 
 {% include layout/row_end.html %}

@@ -27,7 +27,7 @@ taking into account the specifics related to each and every linux distribution.
 
 ## System requirements
 
-{% include hosting/v3-sources-requirements.md %}
+{% include hosting/v4-sources-requirements.md %}
 
 ## Installation steps
 

@@ -27,7 +27,7 @@ This tutorial covers the case where you want to upgrade your current instance of
 %}
 
 ## System requirements
-{% include hosting/v3-requirements.md %}
+{% include hosting/v4-requirements.md %}
 
 ## Upgrade to Passbolt Pro
 In the following examples we assume you are running passbolt using apache in the `/var/www/passbolt`

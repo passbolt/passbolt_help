@@ -19,7 +19,7 @@ permalink: /:categories/:slug.html
 # Pre-requisites
 
 ## System requirements
-{% include hosting/v3-requirements.md %}
+{% include hosting/v4-requirements.md %}
 
 ## Find out where is your passbolt directory
 

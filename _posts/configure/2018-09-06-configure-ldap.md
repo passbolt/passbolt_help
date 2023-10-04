@@ -61,9 +61,9 @@ Make sure the ldap extension is present in the php-cli.ini file.
 You should add `extension=ldap.so` if it is not already present:
 ```bash
 $ php -i |grep php\.ini
-Configuration File (php.ini) Path => /etc/php/7.3/cli
-Loaded Configuration File => /etc/php/7.3/cli/php.ini
-$ nano /etc/php/7.3/cli/php.ini
+Configuration File (php.ini) Path => /etc/php/7.4/cli
+Loaded Configuration File => /etc/php/7.4/cli/php.ini
+$ nano /etc/php/7.4/cli/php.ini
 ```
 
 For testing purpose, it might be handy to have some [ldap utilities](https://wiki.debian.org/LDAP/LDAPUtils)

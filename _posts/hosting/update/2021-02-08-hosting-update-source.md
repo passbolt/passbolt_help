@@ -214,7 +214,7 @@ Almost done:
 sudo systemctl start nginx
 ```
 
-{% include hosting/update/in-case-of-issues.md %}
+{% include hosting/update/in-case-of-issues-from-source.md %}
 
 {% include date/updated.html %}
 

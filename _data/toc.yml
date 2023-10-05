@@ -123,6 +123,12 @@
       teaser: How to configure Password Policies
       version: pro
       slug: password-policies
+    - title: Configure User Passphrase Policies
+      url: /configure/user-passphrase-policies
+      icon: fa-key
+      teaser: How to configure User Passphrase Policies
+      version: pro
+      slug: user-passphrase-policies
     - title: Configure RBAC
       url: /configure/rbac
       icon: fa-cogs

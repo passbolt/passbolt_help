@@ -10,7 +10,7 @@ legend="Example of healthcheck screen"
 
 You can also run the following command:
 ```bash
-$ sudo -H -u {{ webServerUser }} bash -c "./bin/cake passbolt healthcheck"
+$ sudo -H -u www-data bash -c "./bin/cake passbolt healthcheck"
 ```
 
 #### If you run into some issues

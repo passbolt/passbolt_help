@@ -21,8 +21,12 @@ This tutorial is distribution agnostic. It details the installation steps at a h
 taking into account the specifics related to each and every linux distribution.
 
 {% include messages/warning.html
-    content="**Please note:** This is not the recommended way to install passbolt. You will find guides to install passbolt on your distribution [here](/hosting/install). 
-    You should only attempt this if you are advanced in terms of server configuration"
+    content="**Please note:** This is not the recommended way to install passbolt. 
+    You will find guides to install passbolt on your distribution [here](/hosting/install). 
+    You should only attempt this if you are advanced in terms of server configuration.
+    However, installation from source allows edge cases like serving your passbolt instance
+    with a fixed path (i.e. `https://yourdomain.com/passbolt/`) in your URL. Package installation,
+    in comparison, does not accommodate this."
 %}
 
 ## System requirements
@@ -241,7 +245,11 @@ Then, reload the Nginx process so that it takes your new configuration into acco
 ```
 $ sudo systemctl reload nginx
 ```
-
+{% include messages/warning.html
+    content="**Note:** If you wish to serve passbolt with a fixed path in your URL
+    (i.e. `https://yourdomain.com/passbolt`) see [this forum post](https://community.passbolt.com/t/passbolt-install-in-a-subfolder/2885/5). This is not a standard supported feature and is not regularly 
+    tested but users have found ways to achieve it."
+%}
 
 ### 10. Setup the emails
 

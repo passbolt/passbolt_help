@@ -1,9 +1,10 @@
 ---
 title: How to configure passbolt to use Yubikey OTP
 date: 2022-02-02 00:00:00 Z
-description: How to configure passbolt to use Yubikey OTP
+card_title: How to configure YubiKey with Passbolt
+card_teaser: How to configure passbolt to use Yubikey OTP
 icon: fa-key
-categories: [configure,mfa]
+categories: [configure, mfa]
 sidebar: configure
 layout: default
 slug: yubikey

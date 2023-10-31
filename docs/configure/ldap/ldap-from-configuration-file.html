@@ -127,6 +127,11 @@
         
         
         <li >
+            <a href="https://help.passbolt.com/configure/user-passphrase-policies">Configure User Passphrase Policies</a>
+        </li>
+        
+        
+        <li >
             <a href="https://help.passbolt.com/configure/rbac">Configure RBAC</a>
         </li>
         
@@ -142,17 +147,12 @@
         
         
         <li >
-            <a href="https://help.passbolt.com/configure/mfa/yubikey">Configure Yubikey</a>
+            <a href="https://help.passbolt.com/configure/mfa">Configure MFA</a>
         </li>
         
         
         <li >
-            <a href="https://help.passbolt.com/configure/mfa/duo">Configure Duo</a>
-        </li>
-        
-        
-        <li >
-            <a href="https://help.passbolt.com/configure/mfa/totp">Configure TOTP</a>
+            <a href="https://help.passbolt.com/configure/totp">Configure TOTP</a>
         </li>
         
         
@@ -298,9 +298,9 @@ to be present on the server. If you built your own server the way you install
     <p>Make sure the ldap extension is present in the php-cli.ini file.
 You should add <code class="language-plaintext highlighter-rouge">extension=ldap.so</code> if it is not already present:</p>
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>php <span class="nt">-i</span> |grep php<span class="se">\.</span>ini
-Configuration File <span class="o">(</span>php.ini<span class="o">)</span> Path <span class="o">=&gt;</span> /etc/php/7.3/cli
-Loaded Configuration File <span class="o">=&gt;</span> /etc/php/7.3/cli/php.ini
-<span class="nv">$ </span>nano /etc/php/7.3/cli/php.ini
+Configuration File <span class="o">(</span>php.ini<span class="o">)</span> Path <span class="o">=&gt;</span> /etc/php/7.4/cli
+Loaded Configuration File <span class="o">=&gt;</span> /etc/php/7.4/cli/php.ini
+<span class="nv">$ </span>nano /etc/php/7.4/cli/php.ini
 </code></pre></div>    </div>
 
     <p>For testing purpose, it might be handy to have some <a href="https://wiki.debian.org/LDAP/LDAPUtils">ldap utilities</a>

@@ -1,0 +1,18 @@
+---
+title: TOTP
+layout: home
+category: configure
+slug: totp
+permalink: /configure/totp
+---
+<div class="panel main">
+    <div class="panel left">
+        {% include sidebar/sub-section-home.html section='configure' sub=page.slug %}
+    </div>
+    <div class="panel middle">
+        <div class="grid grid-responsive-12">
+            {% assign proCategories = "configure|totp" | split: "|" %}
+            {% include cards/jmy-section-cards.html section='configure' sub='totp' title='Configure TOTP' categories=proCategories %}
+        </div>
+    </div>
+</div>

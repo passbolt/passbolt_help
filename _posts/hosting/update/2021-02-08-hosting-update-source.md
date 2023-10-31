@@ -19,7 +19,7 @@ permalink: /:categories/:slug.html
 # Pre-requisites
 
 ## System requirements
-{% include hosting/v3-requirements.md %}
+{% include hosting/v4-requirements.md %}
 
 ## Find out where is your passbolt directory
 
@@ -214,7 +214,7 @@ Almost done:
 sudo systemctl start nginx
 ```
 
-{% include hosting/update/in-case-of-issues.md %}
+{% include hosting/update/in-case-of-issues-from-source.md %}
 
 {% include date/updated.html %}
 

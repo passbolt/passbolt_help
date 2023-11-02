@@ -9,6 +9,9 @@ Maybe someone else has had your issue. If not, make a post and the community wil
 - A webserver (Apache or Nginx)
 - A TLS server certificate for HTTPS
 - PHP >= 7.4.0
+{% include messages/warning.html
+  content="**WARNING:** PHP 8.1.0 will be required in the next major release"
+%}
 - MariaDB >= 10.3 /Mysql >= 5.7 
 - [Composer](https://getcomposer.org/download/) >= 2
 - [GnuPG](https://gnupg.org/)

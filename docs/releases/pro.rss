@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v4.4.0 | Zombie</title>
+    <link>https://help.passbolt.com/releases/pro/zombie</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/zombie</guid>
+    <description>Version 4.4 of Passbolt Pro is now available, packed full of improvements and new functionalities. With this release, users are able to manage TOTPs directly from the browser, providing an extended TOTP experience across all their devices. They can now be created, deleted, organised and shared with others just like...</description>
+    <pubDate>Tue, 07 Nov 2023 00:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.3.0 | No One Knows</title>
     <link>https://help.passbolt.com/releases/pro/no_one_knows</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/no_one_knows</guid>

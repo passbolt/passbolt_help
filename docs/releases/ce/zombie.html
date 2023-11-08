@@ -220,7 +220,8 @@ and use the latest version of the passbolt API.</p>
 <p>Get the most out of passbolt – upgrade to version 4.4. Thanks for continuing to support passbolt and for being 
 part of the community!</p>
 
-<h2 id="440---2023-11-07">[4.4.0] - 2023-11-07</h2>
+<h1 id="440---2023-11-07">[4.4.0] - 2023-11-07</h1>
+<h2 id="api">API</h2>
 <h3 id="added">Added</h3>
 <ul>
   <li>PB-27773 As an administrator I can deny access to the mobile setup screen with RBAC</li>
@@ -251,6 +252,72 @@ part of the community!</p>
 <ul>
   <li>PB-27932 Improve code static by using cakedccakephp/phpstan</li>
   <li>PB-28079 Remove deprecation warnings from the test suite</li>
+</ul>
+
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-25204 As a signed-in user I can create a standalone TOTP</li>
+  <li>PB-25206 As a signed-in user I can add a TOTP to an existing password resource</li>
+  <li>PB-25210 As a signed-in user I can edit a standalone TOTP</li>
+  <li>PB-25224 As a signed-in user I can copy a TOTP</li>
+  <li>PB-26088 As a signed-in user I can see standalone TOTP in the quickaccess</li>
+  <li>PB-27600 As an administrator I want to suspend or unsuspend a user</li>
+  <li>PB-27601 As a sign in user I should see who is suspended in the ui</li>
+  <li>PB-27773 As an administrator I can deny access to the mobile setup screen with RBAC</li>
+  <li>PB-27898 As an administrator I should have the possibility to deny TOTP copy and preview actions with RBAC</li>
+  <li>PB-27949 As a signed-in user I can see password with totp in the quickaccess</li>
+  <li>PB-27950 As a user I can use generic OAuth2 as single sign on provider</li>
+  <li>[FEATURE INACTIVE] PB-28263 As a user I can see the resource expiry status</li>
+  <li>[FEATURE INACTIVE] PB-28265 As a user I can reset resource expiry date</li>
+  <li>[FEATURE INACTIVE] PB-28266 As an administrator I can enable the password expiry feature</li>
+  <li>[FEATURE INACTIVE] PB-28267 As an administrator I can set the email notifications of the password expiry feature</li>
+</ul>
+
+<h3 id="improved-1">Improved</h3>
+<ul>
+  <li>PB-19244 As a user with encrypted description resource type present when creating a resource using quickaccess the description should be encrypted by default</li>
+  <li>PB-25560 As an administrator on the admin settings pages I can see the source of information</li>
+  <li>PB-26002 As a user downloading my recovery kit I want to be warned about the critical character of this asset</li>
+  <li>PB-26086 As an administrator generating an account recovery key for my organization I want to confirm the passphrase</li>
+  <li>PB-26094 As an administrator having a passbolt trespassing the user limits I should see a better message</li>
+  <li>PB-27668 As a user I’d like to know what the numbers by the heart mean</li>
+  <li>PB-27922 As a user entering my passphrase I should see the entropy progressing</li>
+  <li>PB-28183 As administrator I want to see warnings while synchronising the organisation users directory</li>
+  <li>PB-28378 MFA screen should be display depending on the application</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-21625 As a user I shouldn’t see apostrophe replaced by special characters</li>
+  <li>PB-25279 As a user I should see in form call to action icon be well positioned</li>
+  <li>PB-26000 As a user updating only a resource metadata I should not update the resource secret on the API</li>
+  <li>PB-27784 As an administrator I should not see the account recovery enrollment twice</li>
+  <li>PB-27794 Fix unsupported TOTP while decrypting TOTP on webapp</li>
+  <li>PB-27894 As a user I should not see my username overpass the card in the login form</li>
+  <li>PB-27947 Fix in-form menu generate password should not override all password fields but only new password fields</li>
+  <li>PB-27954 Fix message after successful transfer to mobile</li>
+  <li>PB-28170 Fix SMTP host from Sendgrid</li>
+  <li>PB-28310 As a signed-in user I should not select or unselect a resource on TOTP click</li>
+  <li>PB-28293 As a signed-in user I should be redirected when I click on the resource url in the information panel and contextual menu</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-26121 Improve Styleguide coverage of password policies</li>
+  <li>PB-27786 As a user I should not see my passphrase part of the breach if the field is empty</li>
+  <li>PB-27945 Update web-ext lib to v7.8.0</li>
+  <li>PB-27965 Upgrade node to v18</li>
+  <li>PB-28148 Migrate development watcher to package.json scripts</li>
+  <li>PB-28275 Upgrade @babel/traverse on styleguide as it has a critical security issue</li>
+  <li>[FEATURE INACTIVE] PB-27605 As a signed-in user I can set up Yubikey as two-factor authentication on the client (previously done on the API served application)</li>
+  <li>[FEATURE INACTIVE] PB-27606 As a signed-in user I can set up TOTP as two-factor authentication on the client (previously done on the API served application)</li>
+  <li>[FEATURE INACTIVE] PB-27608 As a user I can sign in with TOTP and Yubikey as 2FA on the client (previously done on the API served application)</li>
+</ul>
+
+<h3 id="security-1">Security</h3>
+<ul>
+  <li>PB-25688 As a desktop app user I should sign the exported account kit with my private key</li>
 </ul>
 
                         </div>

@@ -61,8 +61,8 @@ To replace the existing subscription key with the new one:
 $ cp -u path_to_your_new_subscription_key config/license
 ```
 {% include messages/notice.html
-    content="<b>Notice:</b> If you installed passbolt using the Debian package, or
-    are using the passbolt VM (OVA) the license file is found here: <code>/etc/passbolt/license</code>."
+    content="<b>Notice:</b> If you installed passbolt using the package, or
+    are using the passbolt VM (OVA) the subscription key file is found here: <code>/etc/passbolt/subscription_key.txt</code>."
 %}
 
 To check if the operation was successful and if the new subscription key is valid:

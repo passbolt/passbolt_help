@@ -64,6 +64,10 @@ You can adjust `memory_limit` by editing the `/etc/php/X.X/fpm/php.ini` file whe
 
 You can adjust `pm.max_children` by editing the `/etc/php/X.X/fpm/pool.d/www.conf` file where X.X is your PHP version.
 
+{% include messages/warning.html
+content="Since you edited the php configuration, you will need to restart php-fpm to apply those changes. It's important to run **sudo systemctl restart phpX.X-fpm** where X.X is your PHP version"
+%}
+
 
 ## Nginx
 For Nginx our recommendation is less about making it more performant, but rather increasing a timeout so that your users don't experience as many errors if they are regularly running into time outs. You can do this by editing the value for `keepalive_timeout` in your Nginx config file.

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-11-08T15:28:09+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to create a TOTP</title><link href="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html" rel="alternate" type="text/html" title="How to create a TOTP" /><published>2023-10-04T02:00:00+02:00</published><updated>2023-10-04T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile</id><content type="html" xml:base="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-11-22T13:06:00+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to create a TOTP</title><link href="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html" rel="alternate" type="text/html" title="How to create a TOTP" /><published>2023-10-04T02:00:00+02:00</published><updated>2023-10-04T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile</id><content type="html" xml:base="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Since version 4.3.0, Passbolt supports creation of TOTP (Time-based One Time Password).&lt;/p&gt;
@@ -732,9 +732,14 @@ Your key needs to be protected by a password. Choose it wisely, it will be the g
 
     &lt;h3 id=&quot;download-your-recovery-kit&quot;&gt;3.3. Download your recovery kit&lt;/h3&gt;
 
-    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
-or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
-passphrase.&lt;/p&gt;
+    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords.&lt;/p&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;WARNING:&lt;/strong&gt; If you lose this key (by breaking or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your passphrase.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-recovery-kit.png&quot; alt=&quot;download the recovery kit&quot; style=&quot;max-width:586px;&quot; /&gt;
@@ -1065,9 +1070,14 @@ Your key needs to be protected by a password. Choose it wisely, it will be the g
 
     &lt;h3 id=&quot;download-your-recovery-kit&quot;&gt;3.3. Download your recovery kit&lt;/h3&gt;
 
-    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
-or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
-passphrase.&lt;/p&gt;
+    &lt;p&gt;This step is essential. Your key is the only way to access your account and passwords.&lt;/p&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;WARNING:&lt;/strong&gt; If you lose this key (by breaking or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your passphrase.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
 
     &lt;figure&gt;
     &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2021/02/user-setup-download-recovery-kit.png&quot; alt=&quot;download the recovery kit&quot; style=&quot;max-width:586px;&quot; /&gt;

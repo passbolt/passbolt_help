@@ -219,29 +219,12 @@ one of the reason may be that the cron service is stopped.</p>
 
 <p>It is possible that the wrong version of the data model is stored in the cache. This can happen
 if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this(replace <strong>www-data</strong> with <strong>nginx</strong> if you are running a RHEL-like server, or <strong>wwwrun</strong> in case you are using openSUSE).</p>
-
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 </code></pre></div></div>
 
-<h3 id="reason-5-gmail-smtp-relay-not-accepting-localhost-as-ehlo">Reason 5: Gmail SMTP-Relay not accepting ‘localhost’ as EHLO</h3>
+<h3 id="reason-5-you-are-using-credentials-password-instead-of-application-password">Reason 5: You are using credentials password instead of application password</h3>
 
-<p>If you are using Google’s G-Suite SMTP Relay, you need to ensure you have set public IP address of your passbolt server in the EmailTransport section of <code class="language-plaintext highlighter-rouge">/etc/passbolt/passbolt.php</code>:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(...)
-    'EmailTransport' =&gt; [
-        'default' =&gt; [
-            ...
-            'client' =&gt; 'ip.add.re.ss'
-            ...
-        ],
-    ],
-(...)
-</code></pre></div></div>
-
-<p>In case you are using docker, you will have the <code class="language-plaintext highlighter-rouge">EMAIL_TRANSPORT_DEFAULT_CLIENT</code> environment variable:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>EMAIL_TRANSPORT_DEFAULT_CLIENT= 'ip.add.re.ss'
-</code></pre></div></div>
+<p>Some email providers will not let you use the password from your organization account for security purposes. It means that if you’re trying to use the authentication method “Username &amp; Password” it will result in a failure if you are using something other than an application password.</p>
 
                         </div>
 

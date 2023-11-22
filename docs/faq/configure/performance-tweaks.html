@@ -227,6 +227,13 @@ skip-name-resolve
 
 <p>You can adjust <code class="language-plaintext highlighter-rouge">pm.max_children</code> by editing the <code class="language-plaintext highlighter-rouge">/etc/php/X.X/fpm/pool.d/www.conf</code> file where X.X is your PHP version.</p>
 
+<div class="message warning">
+    <p>
+        Since you edited the php configuration, you will need to restart php-fpm to apply those changes. It’s important to run <strong>sudo systemctl restart phpX.X-fpm</strong> where X.X is your PHP version
+    </p>
+    
+</div>
+
 <h2 id="nginx">Nginx</h2>
 <p>For Nginx our recommendation is less about making it more performant, but rather increasing a timeout so that your users don’t experience as many errors if they are regularly running into time outs. You can do this by editing the value for <code class="language-plaintext highlighter-rouge">keepalive_timeout</code> in your Nginx config file.</p>
 

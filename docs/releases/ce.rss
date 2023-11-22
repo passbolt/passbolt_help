@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v4.4.1 | Gimme Shelter</title>
+    <link>https://help.passbolt.com/releases/ce/gimme_shelter</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/gimme_shelter</guid>
+    <description>Release song: https://youtu.be/RbmS3tQJ7Os?si=lp8QM5B-R65C8Jek Passbolt v4.4.1 is a maintenance release aimed at addressing issues reported by the community, which were introduced in the previous release. The update addresses an issue concerning user roles in email notifications. Previously, administrators received notifications when another administrator was deleted. However, the deletion of any user,...</description>
+    <pubDate>Tue, 21 Nov 2023 00:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.4.0 | Zombie</title>
     <link>https://help.passbolt.com/releases/ce/zombie</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/zombie</guid>

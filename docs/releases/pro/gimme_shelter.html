@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Everyday struggle</title>
+    <title>Passbolt Help | Gimme Shelter</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias v...">
+    <meta name="description" content="Release song: https://youtu.be/RbmS3tQJ7Os?si=lp8QM5B-R65C8Jek">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Everyday struggle" />
-    <meta property="og:description" content="This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by the community such as the vulnerability reported by Matthias v..." />
+    <meta property="og:title" content="Gimme Shelter" />
+    <meta property="og:description" content="Release song: https://youtu.be/RbmS3tQJ7Os?si=lp8QM5B-R65C8Jek" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/v205-everydaystruggle">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/gimme_shelter">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v2.0.5.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v4.4.1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/gimme_shelter" >v4.4.1</a>
                     </li>
                     
@@ -186,7 +186,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/v205-everydaystruggle"><span>everydaystruggle</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/gimme_shelter"><span>gimme_shelter</span></a>
                     </div>
                 </li>
                 
@@ -195,59 +195,45 @@
     </div>
 </div>
 
-                            <h1>v2.0.5 ~ Everyday struggle (pro)</h1>
+                            <h1>v4.4.1 ~ Gimme Shelter (pro)</h1>
                             <p>Release date: 
-May
-8th,
-2018.
+November
+21st,
+2023.
 </p>
-                            <p>This is a maintenance for both Passbolt Pro and Community edition. It fixes issues reported by 
-the <a href="https://community.passbolt.com/">community</a> such as the vulnerability reported by Matthias vd 
-Meent, considering the use of an 
-unsecure pseudo random number generator when generating passwords. You can learn more about the 
-issue on the dedicated <a href="https://help.passbolt.com/incidents/20180508_password_generator_prng">incident page</a>.</p>
+                            <p>Release song: https://youtu.be/RbmS3tQJ7Os?si=lp8QM5B-R65C8Jek</p>
 
-<p>This release fixes the issue related to the share autocomplete that was not working for groups 
-where the name was two letter long. This release also offers better feedback to help deal with 
-server side errors at login.</p>
+<p>Passbolt v4.4.1 is a maintenance release aimed at addressing issues reported by the community, which were introduced in the previous release.</p>
 
-<p>It also includes an important upgrade of the core library used for the cryptographic operations 
-<a href="https://github.com/openpgpjs/">OpenPGP.js</a>. This upgrade will allow passbolt to support 
-Public-key cryptography using elliptic 
-curves. We will first need to test this out in detail before rolling it out, to make sure the 
-limitations are clearly documented especially when it comes to the integration with GnuPG.</p>
+<p>The update addresses an issue concerning user roles in email notifications. Previously, administrators received notifications when another administrator was deleted. However, the deletion of any user, regardless of their administrator status, was incorrectly reported as an administrator deletion. This issue has been resolved.</p>
 
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="fixed">Fixed</h4>
+<p>Moreover, the release also fixes a critical issue encountered by administrators attempting to configure Single Sign-On (SSO) with Microsoft Azure AD (also referred to as Microsoft Entra). This regression was introduced in version 4.4.0 as part of the new OpenID provider support. Also the user synchronisation via active directory for users with very long names is now fixed.</p>
 
+<p>We extend our gratitude to the community members who reported these issues. Your support and patience are greatly appreciated.</p>
+
+<h2 id="441---2023-11-20">[4.4.1] - 2023-11-20</h2>
+<h3 id="improved">Improved</h3>
 <ul>
-  <li>PASSBOLT-2764: Fix Groups autocomplete does not work with less than 3 characters</li>
-  <li>PASSBOLT-2826: Upgrade styleguide to v2.1.0</li>
-  <li>PASSBOLT-2812: Rebuild fixtures with updated public keys</li>
+  <li>PB-28521 Alter the gpgkeys.uid column length to 769 to enable the synchronisation of user with very long names</li>
 </ul>
 
-<h3 id="passbolt-web-extension">Passbolt Web Extension</h3>
-<h4 id="improved">Improved</h4>
-
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PASSBOLT-2857: Fix password generator does not use secure PRNG</li>
-  <li>PASSBOLT-2853: Upgrade to OpenPGP.js 3.x</li>
-  <li>PASSBOLT-2853: Improve error feedback on login</li>
+  <li>PB-28728 Fix SSO Azure response_mode should be set to query by default to avoid session cookie SameSite issue</li>
+  <li>PB-27957 As an administrator I should be notified that an administrator was deleted only when an administrator has been deleted, and not a regular user</li>
 </ul>
 
-<h4 id="fixed-1">Fixed</h4>
+<h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>GITHUB-35: Fix login redirects in wrong tab</li>
-  <li>PASSBOLT-2764: Fix share autocomplete search concurrency issue on result display</li>
-  <li>PASSBOLT-2853: Cleanup config defaults</li>
+  <li>PB-27927 Remove unused user_agents table</li>
+  <li>PB-28616 Refactor the email digest plugin code for easier usage and maintainability</li>
 </ul>
-
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Everyday like a hustle"</p>
-                                <a href="https://youtu.be/rogvlB2SP4k" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Gimme Shelter"</p>
+                                <a href="https://youtu.be/RbmS3tQJ7Os?si=lp8QM5B-R65C8Jek" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

@@ -63,29 +63,10 @@ Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column ‘EmailQueue.
 
 It is possible that the wrong version of the data model is stored in the cache. This can happen
 if the cache is not cleared after an install or an update. You can try clearing out the cache to solve this(replace **www-data** with **nginx** if you are running a RHEL-like server, or **wwwrun** in case you are using openSUSE).
-
 ```
 sudo -H -u www-data bash -c "/usr/share/php/passbolt/bin/cake cache clear_all"
 ```
 
-### Reason 5: Gmail SMTP-Relay not accepting 'localhost' as EHLO
+### Reason 5: You are using credentials password instead of application password
 
-If you are using Google's G-Suite SMTP Relay, you need to ensure you have set public IP address of your passbolt server in the EmailTransport section of `/etc/passbolt/passbolt.php`:
-
-```
-(...)
-    'EmailTransport' => [
-        'default' => [
-            ...
-            'client' => 'ip.add.re.ss'
-            ...
-        ],
-    ],
-(...)
-```
-
-In case you are using docker, you will have the `EMAIL_TRANSPORT_DEFAULT_CLIENT` environment variable:
-
-```
-EMAIL_TRANSPORT_DEFAULT_CLIENT= 'ip.add.re.ss'
-```
+Some email providers will not let you use the password from your organization account for security purposes. It means that if you’re trying to use the authentication method “Username & Password” it will result in a failure if you are using something other than an application password.

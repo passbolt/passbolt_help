@@ -17,9 +17,11 @@ Your key needs to be protected by a password. Choose it wisely, it will be the g
 
 ### 3.3. Download your recovery kit
 
-This step is essential. Your key is the only way to access your account and passwords. If you lose this key (by breaking
-or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your
-passphrase.
+This step is essential. Your key is the only way to access your account and passwords. 
+
+{% include messages/warning.html
+content="**WARNING:** If you lose this key (by breaking or losing your computer and not having a backup for example), your encrypted data will be lost even if you remember your passphrase."
+%}
 
 {% include articles/figure.html url="/assets/img/help/2021/02/user-setup-download-recovery-kit.png" legend="download the recovery kit" width="586px" %}
 

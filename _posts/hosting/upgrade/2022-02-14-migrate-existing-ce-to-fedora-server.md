@@ -16,7 +16,7 @@ permalink: /:categories/:slug.html
 
 {% assign product = 'ce' %}
 {% assign distribution = 'fedora' %}
-{% assign distributionVersion = '34 / 35' %}
+{% assign distributionVersion = '37' %}
 {% assign distributionVersionName = 'focal' %}
 {% assign distributionSlug = 'fedora' %}
 {% assign distributionLabel = 'Fedora' %}

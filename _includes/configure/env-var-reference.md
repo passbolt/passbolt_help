@@ -4,7 +4,6 @@ Following there is a list of the environment variables supported in passbolt bot
 | ---------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------- |
 | APP_BASE                                 | it allows people to specify the base subdir the application is running in | `null`                                               |
 | APP_ENCODING                             | Set text encoding                                                         | `'UTF-8'`                                            |
-| APP_DEFAULT_LOCALE                       | Set default locale                                                        | `'en_UK'`                                            |
 | APP_FULL_BASE_URL                        | Passbolt base url                                                         | `'false'`                                            |
 | DATASOURCES_DEFAULT_DATABASE             | Database name                                                             | `''`                                                 |
 | DATASOURCES_DEFAULT_HOST                 | Database hostname                                                         | `'localhost'`                                        |

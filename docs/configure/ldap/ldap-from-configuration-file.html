@@ -531,7 +531,7 @@ composer <span class="nb">install</span>
 </figure>
 
     <p>If the result displayed is similar to what you expect to happen, you can proceed with the actual synchronization:</p>
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake directory_sync all
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/cake directory_sync all <span class="nt">--persist</span>
 </code></pre></div>    </div>
 
     <figure>
@@ -549,12 +549,12 @@ composer <span class="nb">install</span>
     <h3 id="run-it-automatically">Run it automatically</h3>
     <p>To synchronize the changes automatically you will need to add a cron job. We recommend to execute the job once a day, but you can choose as per your preference.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake directory_sync all"</span> <span class="nt">-s</span> /bin/bash www-data <span class="o">&gt;&gt;</span> /var/log/cron.log 2&gt;&amp;1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake directory_sync all --persist"</span> <span class="nt">-s</span> /bin/bash www-data <span class="o">&gt;&gt;</span> /var/log/cron.log 2&gt;&amp;1
 </code></pre></div>    </div>
 
     <p>For debian and ubuntu systems where passbolt is installed through our supported packages:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake directory_sync all"</span> <span class="nt">-s</span> /bin/bash www-data <span class="o">&gt;&gt;</span> /var/log/cron.log 2&gt;&amp;1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 0 <span class="k">*</span> <span class="k">*</span> <span class="k">*</span> su <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake directory_sync all --persist"</span> <span class="nt">-s</span> /bin/bash www-data <span class="o">&gt;&gt;</span> /var/log/cron.log 2&gt;&amp;1
 </code></pre></div>    </div>
 
     <h3 id="ignoring-records">Ignoring records</h3>

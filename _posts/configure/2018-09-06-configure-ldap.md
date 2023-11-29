@@ -367,13 +367,13 @@ If you delete this user in LDAP, he will be deleted from Passbolt on next synchr
 To synchronize the changes automatically you will need to add a cron job on your server. We recommend to execute the job once a day, but you can choose as per your preference.
 
 ```bash
-0 0 * * * su -c "/var/www/passbolt/bin/cake directory_sync all" -s /bin/bash www-data >> /var/log/cron.log 2>&1
+0 0 * * * su -c "/var/www/passbolt/bin/cake directory_sync all --persist" -s /bin/bash www-data >> /var/log/cron.log 2>&1
 ```
 
 For debian and ubuntu systems where passbolt is installed through our supported packages:
 
 ```bash
-0 0 * * * su -c "/usr/share/php/passbolt/bin/cake directory_sync all" -s /bin/bash www-data >> /var/log/cron.log 2>&1
+0 0 * * * su -c "/usr/share/php/passbolt/bin/cake directory_sync all --persist" -s /bin/bash www-data >> /var/log/cron.log 2>&1
 ```
 
 ## Configure ldap with SSL (ldaps)

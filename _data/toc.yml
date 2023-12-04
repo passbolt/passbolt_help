@@ -140,6 +140,12 @@
       teaser: How to configure the LDAP plugin with ssl (ldaps)
       version: pro
       slug: ldap-with-ssl
+    - title: Using LDAP Filters
+      url: /configure/ldap/ldap-filters
+      icon: fa-address-book-o
+      teaser: How to use the filters to configure your Users Directory
+      version: pro
+      slug: ldap-filters
     - title: Troubleshoot LDAP sync errors
       url: /configure/ldap/ldap-common-sync-error-messages
       icon: fa-address-book-o

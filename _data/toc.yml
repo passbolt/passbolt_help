@@ -117,6 +117,11 @@
       teaser: How to configure Single Sign-On
       version: pro
       slug: sso
+    - title: Configure Windows App
+      url: /windows-app
+      icon: fa-windows
+      teaser: How to configure Windows App
+      slug: windows-app
     - title: Configure Password Policies
       url: /configure/password-policies
       icon: fa-key

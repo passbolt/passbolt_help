@@ -7,7 +7,7 @@ categories: [configure]
 sidebar: configure
 layout: default
 slug: windows-app
-permalink: /:slug.html
+permalink: /:categories/:slug.html
 ---
 {% include layout/row_start.html %}
 {% include layout/col_start.html column="7" %}

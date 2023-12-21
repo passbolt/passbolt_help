@@ -118,7 +118,7 @@
       version: pro
       slug: sso
     - title: Configure Windows App
-      url: /windows-app
+      url: /configure/windows-app
       icon: fa-windows
       teaser: How to configure Windows App
       slug: windows-app

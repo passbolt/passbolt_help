@@ -1,4 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-11-29T16:17:24+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">How to create a TOTP</title><link href="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html" rel="alternate" type="text/html" title="How to create a TOTP" /><published>2023-10-04T02:00:00+02:00</published><updated>2023-10-04T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile</id><content type="html" xml:base="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2023-12-27T11:22:39+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Using LDAP Filters</title><link href="https://help.passbolt.com/configure/ldap/ldap-filters.html" rel="alternate" type="text/html" title="Using LDAP Filters" /><published>2023-11-30T01:00:00+01:00</published><updated>2023-11-30T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/ldap/ldap-filters</id><content type="html" xml:base="https://help.passbolt.com/configure/ldap/ldap-filters.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important:&lt;/strong&gt; The Ldap plugin is part of &lt;a href=&quot;https://www.passbolt.com/pricing/pro&quot;&gt;Passbolt Pro&lt;/a&gt; only and is not available in the Community Edition.
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+    &lt;p&gt;As part of the Users Directory feature passbolt offers two ways to help filter your Active Directory/OpenLDAP users and groups so you have more control over which users and groups are synchronized. This page will go over how to use both of these options.&lt;/p&gt;
+
+    &lt;h2 id=&quot;groups--users-parent-group&quot;&gt;Groups &amp;amp; Users Parent Group&lt;/h2&gt;
+    &lt;p&gt;One of the options for filtering users and groups is to use the Groups Parent Group or the Users Parent Group option. This can be found under the Synchronization options section of the Users Directory configuration page.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/11/LDAP_parent_group.png&quot; alt=&quot;Ldap settings parent group fields&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Ldap settings parent group fields&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;This option will allow you to specify a Parent Group for your users or groups. Passbolt will then only look for Users or Groups which are part of that Parent group and use those for synchronization. This is most useful if you have directory set up where the Users or Groups you want to synchronize are all under the same group. For this field you can use just the name of the group, for example:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;admins&lt;/li&gt;
+      &lt;li&gt;testers&lt;/li&gt;
+      &lt;li&gt;Passbolt_Users&lt;/li&gt;
+      &lt;li&gt;Passbolt Groups&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h2 id=&quot;group--user-custom-filters&quot;&gt;Group &amp;amp; User custom filters&lt;/h2&gt;
+    &lt;p&gt;The other option we have is to use custom filters for users or groups. This can be found under the Directory configuration section of the Users Directory configuration page.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/11/LDAP_custom_filter.png&quot; alt=&quot;Ldap settings custom filter fields&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Ldap settings custom filter fields&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;These fields will accept standard LDAP query syntax. This is useful if you need just a few groups/users or wish to exclude one which may have normally been synchronized. These fields provide more flexibility when interacting with more complicated directory structures. Some examples of the expected syntax are:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(memberof=cn=somegroup)&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;This would be for the users filter for members of “somegroup”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(|(cn=admins)(cn=testers))&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;This would be for the groups “admins” or “testers”&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(uid=*smith*)&lt;/code&gt;
+        &lt;ul&gt;
+          &lt;li&gt;This would be for any user with “smith” in their uid&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+November
+30th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="ldap" /><summary type="html"></summary></entry><entry><title type="html">Using Windows App</title><link href="https://help.passbolt.com/configure/windows-app.html" rel="alternate" type="text/html" title="Using Windows App" /><published>2023-11-30T01:00:00+01:00</published><updated>2023-11-30T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/windows-app</id><content type="html" xml:base="https://help.passbolt.com/configure/windows-app.html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col7&quot;&gt;
+
+    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+    &lt;div class=&quot;message warning&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Important:&lt;/strong&gt; The Windows application is currently in &lt;strong&gt;BETA&lt;/strong&gt; mode. To use it, you need to enable the ‘desktop’ feature flag. This will allow all your users to access and configure the Passbolt desktop application from their user profiles
+    &lt;/p&gt;
+    
+&lt;/div&gt;
+
+    &lt;p&gt;This feature flag can be enabled through different methods:&lt;/p&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;p&gt;Docker: Set the environment variable &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PASSBOLT_PLUGINS_DESKTOP_ENABLED&lt;/code&gt; to true.&lt;/p&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;p&gt;Configuration File: In &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passbolt/passbolt.php&lt;/code&gt;, add the following section:&lt;/p&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class=&quot;language-php highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;passbolt&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&quot;plugins&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;s2&quot;&gt;&quot;desktop&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&quot;enabled&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+
+    &lt;h2 id=&quot;how-to-download-and-install-the-application&quot;&gt;How to download and install the application&lt;/h2&gt;
+    &lt;p&gt;Access the application by clicking on the link in your profile space. This &lt;a href=&quot;https://apps.microsoft.com/detail/9PFXS2WVKVPB?hl=en-US&amp;amp;gl=US&quot; target=&quot;_blank&quot;&gt;link&lt;/a&gt; will redirect you to the Windows Store.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/12/desktop-app-profile.png&quot; alt=&quot;Home Desktop app page from profile&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Home Desktop app page from profile&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h2 id=&quot;import-an-existing-passbolt-account&quot;&gt;Import an existing passbolt account&lt;/h2&gt;
+    &lt;p&gt;To configure your account in the desktop application, you must transfer your private key from the browser extension to the desktop application.&lt;/p&gt;
+
+    &lt;h3 id=&quot;getting-started&quot;&gt;Getting started&lt;/h3&gt;
+    &lt;p&gt;After installing the application, you will see instructions on how to download your account kit via the web application. By clicking the ‘Next’ button, you will be guided to the process for uploading your account kit.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/12/desktop-app-get-started.png&quot; alt=&quot;How to download account kit&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. How to download account kit&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;upload-your-account-kit&quot;&gt;Upload your account kit&lt;/h3&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/12/desktop-app-import.png&quot; alt=&quot;Show account import page&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Show account import page&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;h3 id=&quot;verify-account-kit&quot;&gt;Verify account kit&lt;/h3&gt;
+    &lt;p&gt;Once the account kit is successfully uploaded, your account information, including your username and the URL of the Passbolt server, will be displayed on the screen.&lt;/p&gt;
+
+    &lt;p&gt;Please review this information carefully before proceeding. If you find any discrepancies, you can return to the upload screen by clicking on ‘Import another account’.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/12/desktop-app-import-verif.png&quot; alt=&quot;How to download account kit&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. How to download account kit&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;Once your passphrase is validated, the setup of your account will be complete, and you will be able to access the password workspace.&lt;/p&gt;
+
+    &lt;h3 id=&quot;how-can-i-reset-my-windows-application&quot;&gt;How can I reset my windows application&lt;/h3&gt;
+    &lt;p&gt;To unlink an existing account and set up a new one, first download the current entries from the Credentials Manager. To do this, use the search bar to find ‘Credential Manager’ and select it.&lt;/p&gt;
+
+    &lt;figure&gt;
+    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/12/desktop-app-import-rename.png&quot; alt=&quot;Remove credentials in Windows Credential Manager&quot; style=&quot;max-width:660px;&quot; /&gt;
+    &lt;span class=&quot;legend&quot;&gt;fig. Remove credentials in Windows Credential Manager&lt;/span&gt;
+&lt;/figure&gt;
+
+    &lt;p&gt;To remove an existing account from the application, delete the ‘account-metadata’ and ‘account-secret’ entries. This action will reset the application, enabling you to import a new account.&lt;/p&gt;
+
+    &lt;h3 id=&quot;can-i-use-windows-hello&quot;&gt;Can I Use Windows Hello?&lt;/h3&gt;
+    &lt;p&gt;Currently, we do not support Windows Hello due to certain security concerns that are under review. We are investigating the most secure implementation methods and will inform you as soon as a plan is established.&lt;/p&gt;
+
+    &lt;h3 id=&quot;how-to-report-issues-to-help-us-improve-the-product&quot;&gt;How to Report Issues to Help Us Improve the Product&lt;/h3&gt;
+    &lt;p&gt;As mentioned earlier, the app is currently in beta and is primarily intended for reporting issues that you encounter while using it. To report issues, please visit the following link: Passbolt Community - Windows Application Developer Edition v0.5.0.&lt;/p&gt;
+
+    &lt;div class=&quot;last-updated&quot;&gt;
+      &lt;h3&gt;Last updated&lt;/h3&gt;
+      &lt;p&gt;This article was last updated on 
+November
+30th,
+2023.&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+  &lt;div class=&quot;col4 last push1&quot;&gt;
+
+    &lt;div class=&quot;message tldr notice&quot;&gt;
+    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
+    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
+    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
+
+&lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/div&gt;</content><author><name></name></author><category term="configure" /><summary type="html"></summary></entry><entry><title type="html">How to create a TOTP</title><link href="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html" rel="alternate" type="text/html" title="How to create a TOTP" /><published>2023-10-04T02:00:00+02:00</published><updated>2023-10-04T02:00:00+02:00</updated><id>https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile</id><content type="html" xml:base="https://help.passbolt.com/configure/totp/time-based-one-time-password-mobile.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;p&gt;Since version 4.3.0, Passbolt supports creation of TOTP (Time-based One Time Password).&lt;/p&gt;
@@ -1300,319 +1482,4 @@ June
 &lt;/div&gt;
 
   &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry><entry><title type="html">Upgrade from Debian 11 to Debian 12</title><link href="https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro.html" rel="alternate" type="text/html" title="Upgrade from Debian 11 to Debian 12" /><published>2023-06-29T02:00:00+02:00</published><updated>2023-06-29T02:00:00+02:00</updated><id>https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro</id><content type="html" xml:base="https://help.passbolt.com/hosting/upgrade/pro/from-debian-11-to-debian-12-pro.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
-
-    &lt;p&gt;For this tutorial, you will need:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;A Debian 11 server.&lt;/li&gt;
-      &lt;li&gt;Passbolt Debian package installed.&lt;/li&gt;
-      &lt;li&gt;Ensure you have sufficient space for the upgrade.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;p&gt;This manual has for aim to help you upgrade your distribution, but it does not replace 
-&lt;a href=&quot;https://www.debian.org/releases/stable/amd64/release-notes/ch-upgrading.html&quot;&gt;the official Debian guide&lt;/a&gt;, please refer to it if you have any doubt.&lt;/p&gt;
-
-    &lt;h2 id=&quot;take-down-your-site&quot;&gt;1. Take down your site&lt;/h2&gt;
-
-    &lt;p&gt;It is generally a good idea to stop running the site prior to the upgrade. This is to avoid having side effects
-such as active users corrupting the data in the middle of an upgrade.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl stop nginx
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;backup-your-instance&quot;&gt;2. Backup your instance&lt;/h2&gt;
-
-    &lt;p&gt;First things first, as this is a sensitive operation a backup of the instance must be performed to prevent any data loss. 
-You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;prepare-repositories&quot;&gt;3. Prepare repositories&lt;/h2&gt;
-
-    &lt;h3 id=&quot;upgrade-the-os-and-other-third-party-repositories&quot;&gt;3.1. Upgrade the OS and other third party repositories&lt;/h3&gt;
-
-    &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
-Debian 12. This can be easily done with sed:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;#deb cdrom:[Debian GNU/Linux 11.6.0 _Bullseye_ - Official amd64 DVD Binary-1 20221217-10:40]/ bookworm contrib main&lt;/span&gt;
-
-deb http://httpredir.debian.org/debian/ bookworm main
-deb-src http://httpredir.debian.org/debian/ bookworm main
-
-deb http://security.debian.org/debian-security bookworm-security main contrib
-deb-src http://security.debian.org/debian-security bookworm-security main contrib
-
-&lt;span class=&quot;c&quot;&gt;# bookworm-updates, to get updates before a point release is made;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# see https://www.debian.org/doc/manuals/debian-reference/ch02.en.html#_updates_and_backports&lt;/span&gt;
-deb http://httpredir.debian.org/debian/ bookworm-updates main contrib
-deb-src http://httpredir.debian.org/debian/ bookworm-updates main contrib
-
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;upgrade-your-system&quot;&gt;4. Upgrade your system&lt;/h2&gt;
-
-    &lt;p&gt;Update the apt indexes :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt update
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Upgrade Passbolt PRO :&lt;/p&gt;
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt --only-upgrade install passbolt-pro-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        You are using Passbolt CE? Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sudo apt --only-upgrade install passbolt-ce-server&lt;/code&gt;
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;You can now upgrade your system :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Upgrade first
-sudo apt upgrade
-
-# Then perform the dist-upgrade
-sudo apt dist-upgrade
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-distributions&quot;&gt;4.1. Ensure that you are running the correct distributions&lt;/h3&gt;
-
-    &lt;p&gt;In order to verify the distribution :&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsb_release &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h3 id=&quot;ensure-that-you-are-running-the-correct-php-82-version&quot;&gt;4.2. Ensure that you are running the correct PHP 8.2 version&lt;/h3&gt;
-
-    &lt;p&gt;To verify the PHP version :&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;php &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;update-passbolt-nginx-configuration&quot;&gt;5. Update passbolt nginx configuration&lt;/h2&gt;
-
-    &lt;p&gt;As php-fpm has been upgraded from 7.4 to 8.2, nginx configuration has to be updated accordingly.&lt;/p&gt;
-
-    &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;It should return:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
-nginx: configuration file /etc/nginx/nginx.conf test is successful
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;p&gt;You can now safely restart the nginx web server and php-fpm:&lt;/p&gt;
-
-    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart nginx
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;systemctl restart php8.2-fpm
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;reboot-your-server&quot;&gt;6. Reboot your server&lt;/h2&gt;
-
-    &lt;p&gt;With Debian 12 comes a new Linux kernel, you must reboot your server.&lt;/p&gt;
-
-    &lt;h2 id=&quot;clean-useless-packages&quot;&gt;7. Clean useless packages&lt;/h2&gt;
-
-    &lt;p&gt;Once the server rebooted on the new kernel, you can now remove useless packages:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt autoremove --purge
-sudo apt autoclean
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;h2 id=&quot;troubleshooting&quot;&gt;8. Troubleshooting&lt;/h2&gt;
-
-    &lt;h3 id=&quot;mariadb-went-missing&quot;&gt;MariaDB went missing&lt;/h3&gt;
-
-    &lt;p&gt;It is possible your MariaDB instance has been uninstalled. You can install it back:&lt;/p&gt;
-
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install default-mysql-server
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-June
-29th,
-2023.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues when updating passbolt?&lt;/p&gt;
-    
-    &lt;a href=&quot;https://community.passbolt.com/c/installation-issues&quot; class=&quot;button primary&quot;&gt;Ask the community!&lt;/a&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message &quot;&gt;
-    &lt;p&gt;&lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;div class=&quot;message tldr&quot;&gt;
-    &lt;p&gt;Something is not accurate in this documentation? You can contribute by opening an issue or making pull requests!&lt;/p&gt;
-    
-    &lt;a href=&quot;https://www.github.com/passbolt/passbolt_help&quot; class=&quot;button &quot;&gt;View on github&lt;/a&gt;
-    
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="pro" /><summary type="html"></summary></entry><entry><title type="html">How to configure SSO with Microsoft</title><link href="https://help.passbolt.com/configure/sso/azure.html" rel="alternate" type="text/html" title="How to configure SSO with Microsoft" /><published>2023-03-15T01:00:00+01:00</published><updated>2023-03-15T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/sso/azure</id><content type="html" xml:base="https://help.passbolt.com/configure/sso/azure.html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col7&quot;&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Attention&lt;/strong&gt;: This feature is currently available only in Passbolt Pro Edition.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;Since version 3.9, Passbolt Pro Edition supports SSO with Microsoft via Azure AD.&lt;/p&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-login.png&quot; alt=&quot;SSO with Azure&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. SSO with Azure&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h2 id=&quot;how-does-it-work&quot;&gt;How does it work?&lt;/h2&gt;
-
-    &lt;p&gt;In short Passbolt SSO leverages Azure OAuth2/OpenID on top of the existing &lt;a href=&quot;/api/authentication&quot;&gt;challenge-based authentication&lt;/a&gt;.
-The user by logging in Microsoft unlocks a key stored server side needed to decrypt the secret key passphrase twice encrypted
-with a non-extractable symetric key stored in the browser extension local storage client side.&lt;/p&gt;
-
-    &lt;p&gt;To understand which user flows are supported currently, the risk analysis, and how it works in practice please read the 
-&lt;a href=&quot;https://docs.google.com/document/d/1S58TonJ2uXwkaKl7WwLzTzmwJGiSJdhlqP-xbmxFBd0/edit#heading=h.5z0ujk6vpr1j&quot;&gt;developer documentation&lt;/a&gt;.&lt;/p&gt;
-
-    &lt;h2 id=&quot;how-to-configure-the-plugin&quot;&gt;How to configure the plugin?&lt;/h2&gt;
-
-    &lt;div class=&quot;message warning&quot;&gt;
-    &lt;p&gt;
-        &lt;strong&gt;Attention&lt;/strong&gt;: This feature requires HTTPS to work.
-    &lt;/p&gt;
-    
-&lt;/div&gt;
-
-    &lt;p&gt;Open both the Azure portal and Passbolt:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;You will need to go the administration section of your Passbolt instance and then to the “Single Sign On” section.&lt;/li&gt;
-      &lt;li&gt;You will need to also login to the &lt;a href=&quot;https://portal.azure.com&quot;&gt;Azure Portal&lt;/a&gt;.&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-admin.png&quot; alt=&quot;Passbolt administration&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt administration&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;You must ensure users are present both in passbolt and Azure AD, the email is used to correlate accounts.&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Users that are not present in Azure AD but are present in passbolt will not be able to use SSO (a message on microsoft side will be shown).&lt;/li&gt;
-      &lt;li&gt;Users that are not present in passbolt but are present in Azure AD will not be able to login in passbolt (a message on passbolt side will be shown).&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-0-azure-home.png&quot; alt=&quot;Azure Portal&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Azure Portal&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;h3 id=&quot;configure-azure-ad&quot;&gt;Configure Azure AD&lt;/h3&gt;
-    &lt;p&gt;In your Azure AD portal:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Go to Azure Directory service (or set one up)
-        &lt;ul&gt;
-          &lt;li&gt;Make sure your user email in Azure Directory matches the one in [assbolt&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Copy your Tenant ID (a UUID) and paste it in passbolt&lt;/li&gt;
-      &lt;li&gt;Go to App Registrations &amp;gt; New registration OR “+ Add” &amp;gt; “App Registration”&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-1-azure-directory.png&quot; alt=&quot;Azure AD&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Azure AD&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Register a new application&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Give it a Name such as “Passbolt SSO”&lt;/li&gt;
-      &lt;li&gt;Select the supported account type you desire. “Accounts in this organizational directory only” is a good default.&lt;/li&gt;
-      &lt;li&gt;Copy the redirect url from Passbolt to Azure, it should be something like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;https://yourdomain.com/sso/azure/redirect&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;In “Select a platform”, select “Web”&lt;/li&gt;
-      &lt;li&gt;Click register, you should be back on the Azure application page&lt;/li&gt;
-      &lt;li&gt;Copy the application (client) ID back to your passbolt instance&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-2-create-app.png&quot; alt=&quot;App registration&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. App registration&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Add a secret for the application&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;On the Azure application page, click on “Certificate and secrets”&lt;/li&gt;
-      &lt;li&gt;Click on “New client secret”&lt;/li&gt;
-      &lt;li&gt;Choose a name like “Passbolt SSO Secret”&lt;/li&gt;
-      &lt;li&gt;Select an expiry date&lt;/li&gt;
-      &lt;li&gt;Copy the secret value and expiry back to your passbolt instance&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-4-create-secret.png&quot; alt=&quot;App secret creation&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. App secret creation&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;In your passbolt instance:&lt;/p&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Click save settings&lt;/li&gt;
-      &lt;li&gt;A dialog will open with Microsoft button, click on it&lt;/li&gt;
-      &lt;li&gt;A popup will open asking you to perform the authentication with Microsoft&lt;/li&gt;
-      &lt;li&gt;Once the authentication is successful you can save the settings&lt;/li&gt;
-      &lt;li&gt;Once the settings have been saved, you can log out, you should then see an SSO option&lt;/li&gt;
-    &lt;/ul&gt;
-
-    &lt;figure&gt;
-    &lt;img src=&quot;https://help.passbolt.com/assets/img/help/2023/01/sso-passbolt-test.png&quot; alt=&quot;Passbolt SSO test settings&quot; style=&quot;max-width:;&quot; /&gt;
-    &lt;span class=&quot;legend&quot;&gt;fig. Passbolt SSO test settings&lt;/span&gt;
-&lt;/figure&gt;
-
-    &lt;p&gt;Please note that users must successfully perform a login using their current passphrase &lt;em&gt;after SSO has been activated&lt;/em&gt;
-in order for the SSO option to be proposed to them at future logins.&lt;/p&gt;
-
-    &lt;div class=&quot;last-updated&quot;&gt;
-      &lt;h3&gt;Last updated&lt;/h3&gt;
-      &lt;p&gt;This article was last updated on 
-March
-15th,
-2023.&lt;/p&gt;
-    &lt;/div&gt;
-
-  &lt;/div&gt;
-  &lt;div class=&quot;col4 last push1&quot;&gt;
-
-    &lt;div class=&quot;message tldr notice&quot;&gt;
-    &lt;p&gt;Are you experiencing issues with Passbolt Pro Edition?&lt;/p&gt;
-    &lt;a href=&quot;mailto:contact@passbolt.com&quot; class=&quot;button primary&quot;&gt;Contact Pro support&lt;/a&gt;
-    &lt;p&gt;or &lt;a href=&quot;https://community.passbolt.com&quot;&gt;ask the community&lt;/a&gt;&lt;/p&gt;
-
-&lt;/div&gt;
-
-  &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="configure" /><category term="sso" /><summary type="html"></summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="hosting" /><category term="upgrade" /><category term="ce" /><summary type="html"></summary></entry></feed>

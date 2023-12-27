@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Does passbolt provide hosting?</title>
+    <title>Passbolt Help | How can I check logs on my server?</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Please check out the service page for a list of current professional offers.">
+    <meta name="description" content="The importance of the installation method There are three main types of installations for Passbolt, and that’s what you need to know before running one of th...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Does passbolt provide hosting?" />
-    <meta property="og:description" content="Please check out the service page for a list of current professional offers." />
+    <meta property="og:title" content="How can I check logs on my server?" />
+    <meta property="og:description" content="The importance of the installation method There are three main types of installations for Passbolt, and that’s what you need to know before running one of th..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/faq/hosting/where-to-host">
+    <link rel="canonical" href="https://help.passbolt.com/faq/hosting/logs">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/hosting/001-do-you-provide-hosting.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_faq/hosting/009-how-to-share-logs.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <div class="main-cell">
-                        <a href=""><span>Does passbolt provide hosting?</span></a>
+                        <a href=""><span>How can I check logs on my server?</span></a>
                     </div>
                 </li>
             </ul>
@@ -167,8 +167,168 @@
 
                     <div class="row" markdown="1">
                         <div class="col7" markdown="1">
-                         <h1>Does passbolt provide hosting?</h1>
-                            <p>Please check out the <a href="https://www.passbolt.com/services">service page</a> for a list of current professional offers.</p>
+                         <h1>How can I check logs on my server?</h1>
+                            <h2 id="the-importance-of-the-installation-method">The importance of the installation method</h2>
+<p>There are three main types of installations for Passbolt, and that’s what you need to know before running one of these commands as they may not work for each installation.</p>
+<ul>
+  <li>Package installation (<a href="/hosting/install/ce/debian/debian.html">Debian</a>, <a href="/hosting/install/ce/ubuntu/ubuntu.html">Ubuntu</a>, <a href="/hosting/install/ce/oraclelinux.html">OracleLinux</a>, and so on.)</li>
+  <li><a href="/hosting/install/ce/from-source.html">From source</a></li>
+  <li><a href="/hosting/install/ce/docker.html">Docker</a></li>
+</ul>
+
+<p>With <strong>package</strong> installation, the files will be split into two different directories, <em>/etc/passbolt</em> for the configuration files and <em>/usr/share/php/passbolt</em> for every other files and the CakePHP CLI.</p>
+
+<p>If you did a <strong>from source</strong> installation, the whole directory will be in <em>/var/www/passbolt</em>.</p>
+
+<p>If you are runnig <strong>docker</strong>, please, refer to the <a href="/faq/hosting/troubleshoot-docker">Troubleshoot Docker</a> guide as all is explained there.</p>
+
+<h2 id="api">API</h2>
+<h3 id="healthcheck">Healthcheck</h3>
+<p>The healthcheck is used to check whether the Passbolt system is running as expected. It evaluates various aspects of the system to ensure that all components are working properly and configured correctly. It provides a detailed report about important information such as the gpg configuration, the ssl access, database configuration, etc.</p>
+
+<ol>
+  <li>
+    <p>Package Installation</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt healthcheck"</span> www-data
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>From source</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake passbolt healthcheck"</span> www-data
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="message warning">
+    <p>
+        <strong>Pro tip:</strong> While running web server commands, it’s common to use <em>www-data</em>. However, this can vary based on your distribution. For example, <em>nginx</em> is used in distributions like CentOS, and <em>httpd</em> is used in distributions like Fedora. Always double-check what’s applicable for your specific setup to avoid errors.
+    </p>
+    
+</div>
+
+<h3 id="datacheck">Datacheck</h3>
+<p>The datacheck is a great tool as it aims to have a look at the data integrity for gpg keys, authentication tokens, groups, resources, etc.</p>
+
+<ol>
+  <li>
+    <p>Package Installation</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/cake passbolt datacheck"</span> www-data
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>From source</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/cake passbolt datacheck"</span> www-data
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="message warning">
+    <p>
+        <strong>Pro tip:</strong> While running web server commands, it’s common to use <em>www-data</em>. However, this can vary based on your distribution. For example, <em>nginx</em> is used in distributions like CentOS, and <em>httpd</em> is used in distributions like Fedora. Always double-check what’s applicable for your specific setup to avoid errors.
+    </p>
+    
+</div>
+
+<h3 id="status-report">Status Report</h3>
+
+<p>The status report is in most case the best alternative if you need to gather information from the healthcheck, datacheck, do a cleanup dry-run and retrieve the server logs.</p>
+
+<p>On top of executing the healthcheck, datacheck and retrieving the server logs one after the other, it also gives important information about the system itself such as the passbolt edition and version, the version of CakePHP and PHP, composer version etc.</p>
+
+<ol>
+  <li>
+    <p>Package Installation</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/usr/share/php/passbolt/bin/status-report"</span> www-data
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>From source</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"/var/www/passbolt/bin/status-report"</span> www-data
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="message warning">
+    <p>
+        <strong>Pro tip:</strong> While running web server commands, it’s common to use <em>www-data</em>. However, this can vary based on your distribution. For example, <em>nginx</em> is used in distributions like CentOS, and <em>httpd</em> is used in distributions like Fedora. Always double-check what’s applicable for your specific setup to avoid errors.
+    </p>
+    
+</div>
+
+<h3 id="server-logs">Server logs</h3>
+
+<p>The server logs contains mostly error and warnings such as bad request, invalid requests, applications errors, etc.</p>
+
+<ol>
+  <li>
+    <p>Package Installation</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"cat /var/log/passbolt/error.log"</span> www-data
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>From source</p>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>su <span class="nt">-s</span> /bin/bash <span class="nt">-c</span> <span class="s2">"cat /var/www/passbolt/logs/error.log"</span> www-data
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<div class="message warning">
+    <p>
+        <strong>Pro tip:</strong> While running web server commands, it’s common to use <em>www-data</em>. However, this can vary based on your distribution. For example, <em>nginx</em> is used in distributions like CentOS, and <em>httpd</em> is used in distributions like Fedora. Always double-check what’s applicable for your specific setup to avoid errors.
+    </p>
+    
+</div>
+
+<h2 id="browser-extension">Browser Extension</h2>
+<h3 id="google-chrome">Google Chrome</h3>
+<ol>
+  <li>You will need to navigate to your <a href="chrome://extensions">extensions</a></li>
+  <li>Activate the Developer mode in the top right corner</li>
+  <li>Look for Passbolt and click details button</li>
+  <li>Look for the Inspect views and the <code class="language-plaintext highlighter-rouge">index.html</code> link</li>
+  <li>A new window will appear this is the debugger of the browser extension</li>
+  <li>You can see from here, if there is any issue in the <code class="language-plaintext highlighter-rouge">console</code> tab</li>
+  <li>Go to the <code class="language-plaintext highlighter-rouge">network</code> tab</li>
+  <li>Try to reproduce the error</li>
+  <li>Export the logs by clicking the <strong>down arrow</strong></li>
+</ol>
+
+<div class="message warning">
+    <p>
+        <strong>Warning:</strong> HAR files are text files in json format. They contain sensitive data such as your Passbolt main url or your browser version. You can’t check by opening them in a text editor.
+    </p>
+    
+</div>
+
+<figure>
+    <img src="https://help.passbolt.com/assets/img/help/2023/05/browser-extension-logs.png" alt="Browser Extension Network Logs" style="max-width:900px;" />
+    <span class="legend">fig. Browser Extension Network Logs</span>
+</figure>
+
+<h3 id="firefox">Firefox</h3>
+<ol>
+  <li>You will need to navigate to your <a href="about:debugging#/runtime/this-firefox">extensions</a></li>
+  <li>Locate Passbolt and click Inspect</li>
+  <li>A new window will appear this is the debugger of the browser extension</li>
+  <li>You can see from here, if there is any issue in the <code class="language-plaintext highlighter-rouge">console</code> tab</li>
+  <li>Go to the <code class="language-plaintext highlighter-rouge">network</code> tab</li>
+  <li>Try to reproduce the error</li>
+  <li>Export logs by clicking right on the logs and select <strong>Save all As HAR</strong></li>
+</ol>
+
+<div class="message warning">
+    <p>
+        <strong>Warning:</strong> HAR files are text files in json format. They contain sensitive data such as your Passbolt main url or your browser version. You can’t check by opening them in a text editor.
+    </p>
+    
+</div>
 
                         </div>
 

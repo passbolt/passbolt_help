@@ -117,6 +117,11 @@
       teaser: How to configure Single Sign-On
       version: pro
       slug: sso
+    - title: Configure Windows App
+      url: /configure/windows-app
+      icon: fa-windows
+      teaser: How to configure Windows App
+      slug: windows-app
     - title: Configure Password Policies
       url: /configure/password-policies
       icon: fa-key
@@ -140,6 +145,12 @@
       teaser: How to configure the LDAP plugin with ssl (ldaps)
       version: pro
       slug: ldap-with-ssl
+    - title: Using LDAP Filters
+      url: /configure/ldap/ldap-filters
+      icon: fa-address-book-o
+      teaser: How to use the filters to configure your Users Directory
+      version: pro
+      slug: ldap-filters
     - title: Troubleshoot LDAP sync errors
       url: /configure/ldap/ldap-common-sync-error-messages
       icon: fa-address-book-o

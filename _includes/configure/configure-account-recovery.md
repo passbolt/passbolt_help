@@ -6,7 +6,7 @@
 
 You can follow this procedure if you are meeting the following requirements:
 
-- You are running passbolt Pro > v3.6.0 or passbolt Cloud (coming soon).
+- You are running passbolt Pro > v3.6.0 or Passbolt Cloud.
 - You have an active administrator account
 
 ## How does it work?

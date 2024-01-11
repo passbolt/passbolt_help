@@ -207,24 +207,20 @@ You can use the following environment variables to control the email delivery se
     </tr>
     <tr>
       <td>When a folder is created, notify its creator.</td>
-      <td>PASSBOLT_EMAIL_SEND_FOLDER_CREATED</td>
+      <td>PASSBOLT_EMAIL_SEND_FOLDER_CREATE</td>
     </tr>
     <tr>
       <td>When a folder is updated, notify the users who have access to it.</td>
-      <td>PASSBOLT_EMAIL_SEND_FOLDER_UPDATED</td>
+      <td>PASSBOLT_EMAIL_SEND_FOLDER_UPDATE</td>
     </tr>
     <tr>
       <td>When a folder is deleted, notify the users who had access to it.</td>
-      <td>PASSBOLT_EMAIL_SEND_FOLDER_DELETED</td>
+      <td>PASSBOLT_EMAIL_SEND_FOLDER_DELETE</td>
     </tr>
     <tr>
       <td>When a folder is shared, notify the users who gain access to it.</td>
-      <td>PASSBOLT_EMAIL_SEND_FOLDER_SHARE_CREATED</td>
-    </tr>
-    <tr>
-      <td>When permissions on a folder are removed, notify the users who lost access to it.</td>
-      <td>PASSBOLT_EMAIL_SEND_FOLDER_SHARE_DROPPED</td>
-    </tr>
+      <td>PASSBOLT_EMAIL_SEND_FOLDER_SHARE</td>
+    </tr>    
   </tbody>
 </table>
 

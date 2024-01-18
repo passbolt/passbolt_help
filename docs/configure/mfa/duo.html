@@ -273,11 +273,19 @@ by the Duo account administrator.</p>
 </figure>
 
     <div class="message warning">
-    <p>
-        <strong>Important:</strong> Multi Factor Authentication requires HTTPS to work.
-    </p>
-    
-</div>
+        <p>
+            <strong>Important:</strong> Multi Factor Authentication requires HTTPS to work.
+        </p>  
+    </div>
+   
+    <div class="message warning">
+        <p>
+            <strong>Important:</strong> DUO is not currently supported for MFA on passbolt mobile 
+            app. Therefore, if DUO is the only option selected it will result in blocking access to the 
+            mobile app. However, if an additional MFA option is selected, the mobile app will be able
+            to use the additional option while other devices can use DUO.
+        </p>
+    </div>
 
     <h2 id="security-considerations">Security considerations</h2>
 
@@ -458,10 +466,7 @@ authentication prompt.</p>
 
     <div class="last-updated">
       <h3>Last updated</h3>
-      <p>This article was last updated on 
-February
-6th,
-2023.</p>
+      <p>This article was last updated on February 23rd, 2023.</p>
     </div>
 
   </div>

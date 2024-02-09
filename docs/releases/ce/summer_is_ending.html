@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Zombie</title>
+    <title>Passbolt Help | Summer is ending</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Version 4.4 of the Community Edition has launched with new capabilities and improvements.">
+    <meta name="description" content="Release song: https://www.youtube.com/watch?v=HR1KH4zElcY">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Zombie" />
-    <meta property="og:description" content="Version 4.4 of the Community Edition has launched with new capabilities and improvements." />
+    <meta property="og:title" content="Summer is ending" />
+    <meta property="og:description" content="Release song: https://www.youtube.com/watch?v=HR1KH4zElcY" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/zombie">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/summer_is_ending">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.4.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.5.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/summer_is_ending" >v4.5.0</a>
                     </li>
                     
@@ -113,7 +113,7 @@
                     
                     
                     
-                    <li class="selected">
+                    <li class="">
                         <a href="https://help.passbolt.com/releases/ce/zombie" >v4.4.0</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/zombie"><span>zombie</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/summer_is_ending"><span>summer_is_ending</span></a>
                     </div>
                 </li>
                 
@@ -191,144 +191,80 @@
     </div>
 </div>
 
-                            <h1>v4.4.0 ~ Zombie (ce)</h1>
+                            <h1>v4.5.0 ~ Summer is ending (ce)</h1>
                             <p>Release date: 
-November
-7th,
-2023.
+February
+8th,
+2024.
 </p>
-                            <p>Version 4.4 of the Community Edition has launched with new capabilities and improvements.</p>
+                            <p>Release song: https://www.youtube.com/watch?v=HR1KH4zElcY</p>
 
-<p>With this release, users are able to manage TOTPs directly from the browser, providing an extended TOTP experience 
-across all their devices. They can now be created, deleted, organised and shared with others just like any other 
-resource type.</p>
+<p>Passbolt v4.5.0 named “Summer is Ending” brings a host of new features and improvements, all designed to make your password management experience more secure, efficient, and user-friendly.</p>
 
-<p>Another highlight of this release, administrators now have the ability to suspend/unsuspend users. This new 
-feature will offer administrators with more control over access management of their instance. By example, 
-they will be able to prevent access to the passbolt instance for users in temporary leave, therefore enforce 
-company policies.</p>
+<p>At the heart of this release is the introduction of the Password Expiry feature, a much-anticipated functionality that allows administrators to enable the automatic expiry policy, enhancing security by ensuring that potentially passwords are rotated when someone loses access to resources, for example by leaving a group or the organization.</p>
 
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2023/11/suspended-user.png" alt="Edit user dialog, mark a user as suspended" style="max-width:;" />
-    <span class="legend">fig. Edit user dialog, mark a user as suspended</span>
-</figure>
+<p>Alongside, we’re excited to introduce the Russian translation, making Passbolt more accessible to a wider audience.</p>
 
-<p>And that’s not all – a number of fixes and enhancements have been implemented to improve user experience. 
-Among them, notification emails are now aggregated in certain cases, including limiting emails when a user imports 
-a large amount of passwords.</p>
+<p>We’ve also expanded our SMTP settings to include Microsoft 365 and Outlook providers, responding to the community’s feedback for more integration options. The section to help users install and configure the Windows desktop application feature is also now enabled by default.</p>
 
-<p>If you’re a system operator, please note that using older PHP versions will now trigger a healthcheck warning. 
-Support for PHP 7.4 and 8.0 will be discontinued soon. Admins are encouraged to upgrade to PHP 8.1 or higher 
-and use the latest version of the passbolt API.</p>
+<p>Improvements in the performance of some important API endpoints and other security enhancements and bug fixes are also part of this release.</p>
 
-<p>Get the most out of passbolt – upgrade to version 4.4. Thanks for continuing to support passbolt and for being 
-part of the community!</p>
+<p>Thanks to everyone in our community for your ongoing support and contributions that made this release possible. Your feedback and involvement continue to shape Passbolt, enhancing our collective security and usability. Together, we’re making password management better for everyone.</p>
 
-<h1 id="440---2023-11-07">[4.4.0] - 2023-11-07</h1>
-<h2 id="api">API</h2>
+<h2 id="450---2024-02-08">[4.5.0] - 2024-02-08</h2>
 <h3 id="added">Added</h3>
 <ul>
-  <li>PB-27773 As an administrator I can deny access to the mobile setup screen with RBAC</li>
-  <li>PB-27951 As system operator I should be warned in the healthcheck when using PHP &lt; 8.1, as support for PHP versions 7.4 and 8.0 will soon be removed</li>
+  <li>PB-23913 As a user I can see my passwords marked as expired when users lose permissions on these</li>
+  <li>PB-23913 As an administrator I can activate the password expiry feature</li>
+  <li>PB-28923 As a user I want to be able to use passbolt in Russian</li>
+  <li>PB-21484 As an administrator I can define Microsoft 365 and Outlook providers in SMTP settings</li>
+  <li>PB-19652 As an administrator I can cleanup groups with no members with the cleanup command</li>
+  <li>PB-27707 As administrator, with RBAC I should be able to set “can see users workspace” to “Allow if group manager”</li>
+  <li>PB-28716 Desktop application flag is now enabled by default</li>
+  <li>PB-26203 Desktop app define the account kit exportation help page</li>
 </ul>
 
 <h3 id="improved">Improved</h3>
 <ul>
-  <li>PB-27948 Guest identification by their username should be case-insensitive, unless specified in configuration</li>
-  <li>PB-27957 Send notifications to all administrators when an administrator is deleted</li>
-  <li>PB-27941 Send notifications to administrators when an administrator loses its administrator role</li>
-  <li>PB-28171 Enable the email digest by default</li>
+  <li>PB-27616 Improve resources serialization performance on GET resources.json</li>
 </ul>
 
 <h3 id="security">Security</h3>
 <ul>
-  <li>PB-28274 Fixes an XSS Security issue with mail content sanitization</li>
+  <li>PB-29148 Bump selenium API plugin version to v4.5</li>
+  <li>PB-29005 Upgrades phpseclib/phpseclib to fix composer audit security vulnerability</li>
+  <li>PB-22336 As an admin I should be able to enable/disable request group managers to add users to groups emails separately (LDAP/AD)</li>
+  <li>PB-28871 Mitigate supply chain attack on PR and lint lock files</li>
+  <li>PB-28658 Mitigate supply chain attack on post npm install script</li>
 </ul>
 
 <h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-25477 As an administrator, I should be able to recreate a user with an email that exists in the db via the command line</li>
-  <li>PB-27799 As an administrator installing passbolt on PostgreSQL, the database encoding should be set to utf-8</li>
-  <li>PB-27857 Fix help site release notes automation by adding flavour on help site release notes merge request</li>
+  <li>PB-29200 Fixes the recover_user command (GITHUB #504)</li>
+  <li>PB-29164 Fix recent InstallCommand changes breaking selenium tests</li>
+  <li>PB-29132 Fix composer lock file not up-to-date message when installing dependencies</li>
+  <li>PB-29160 Fix failing static analysis job in CI</li>
+  <li>PB-29137 Fix failing in UsersEditDisableControllerTest file due to purifier</li>
+  <li>PB-29113 Fix a typo in the email sent when admins lose their admin role</li>
+  <li>PB-28130 Fix invalid cookie name should not trigger a 500</li>
+  <li>PB-29007 Fix constantly failing test in RbacsUpdateControllerTest file</li>
+  <li>PB-28991 Fix email queue entries not marked as sent</li>
 </ul>
 
 <h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>PB-27932 Improve code static by using cakedccakephp/phpstan</li>
-  <li>PB-28079 Remove deprecation warnings from the test suite</li>
-</ul>
-
-<h2 id="browser-extension">Browser extension</h2>
-<h3 id="added-1">Added</h3>
-<ul>
-  <li>PB-25204 As a signed-in user I can create a standalone TOTP</li>
-  <li>PB-25206 As a signed-in user I can add a TOTP to an existing password resource</li>
-  <li>PB-25210 As a signed-in user I can edit a standalone TOTP</li>
-  <li>PB-25224 As a signed-in user I can copy a TOTP</li>
-  <li>PB-26088 As a signed-in user I can see standalone TOTP in the quickaccess</li>
-  <li>PB-27600 As an administrator I want to suspend or unsuspend a user</li>
-  <li>PB-27601 As a sign in user I should see who is suspended in the ui</li>
-  <li>PB-27773 As an administrator I can deny access to the mobile setup screen with RBAC</li>
-  <li>PB-27898 As an administrator I should have the possibility to deny TOTP copy and preview actions with RBAC</li>
-  <li>PB-27949 As a signed-in user I can see password with totp in the quickaccess</li>
-  <li>PB-27950 As a user I can use generic OAuth2 as single sign on provider</li>
-  <li>[FEATURE INACTIVE] PB-28263 As a user I can see the resource expiry status</li>
-  <li>[FEATURE INACTIVE] PB-28265 As a user I can reset resource expiry date</li>
-  <li>[FEATURE INACTIVE] PB-28266 As an administrator I can enable the password expiry feature</li>
-  <li>[FEATURE INACTIVE] PB-28267 As an administrator I can set the email notifications of the password expiry feature</li>
-</ul>
-
-<h3 id="improved-1">Improved</h3>
-<ul>
-  <li>PB-19244 As a user with encrypted description resource type present when creating a resource using quickaccess the description should be encrypted by default</li>
-  <li>PB-25560 As an administrator on the admin settings pages I can see the source of information</li>
-  <li>PB-26002 As a user downloading my recovery kit I want to be warned about the critical character of this asset</li>
-  <li>PB-26086 As an administrator generating an account recovery key for my organization I want to confirm the passphrase</li>
-  <li>PB-26094 As an administrator having a passbolt trespassing the user limits I should see a better message</li>
-  <li>PB-27668 As a user I’d like to know what the numbers by the heart mean</li>
-  <li>PB-27922 As a user entering my passphrase I should see the entropy progressing</li>
-  <li>PB-28183 As administrator I want to see warnings while synchronising the organisation users directory</li>
-  <li>PB-28378 MFA screen should be display depending on the application</li>
-</ul>
-
-<h3 id="fixed-1">Fixed</h3>
-<ul>
-  <li>PB-21625 As a user I shouldn’t see apostrophe replaced by special characters</li>
-  <li>PB-25279 As a user I should see in form call to action icon be well positioned</li>
-  <li>PB-26000 As a user updating only a resource metadata I should not update the resource secret on the API</li>
-  <li>PB-27784 As an administrator I should not see the account recovery enrollment twice</li>
-  <li>PB-27794 Fix unsupported TOTP while decrypting TOTP on webapp</li>
-  <li>PB-27894 As a user I should not see my username overpass the card in the login form</li>
-  <li>PB-27947 Fix in-form menu generate password should not override all password fields but only new password fields</li>
-  <li>PB-27954 Fix message after successful transfer to mobile</li>
-  <li>PB-28170 Fix SMTP host from Sendgrid</li>
-  <li>PB-28310 As a signed-in user I should not select or unselect a resource on TOTP click</li>
-  <li>PB-28293 As a signed-in user I should be redirected when I click on the resource url in the information panel and contextual menu</li>
-</ul>
-
-<h3 id="maintenance-1">Maintenance</h3>
-<ul>
-  <li>PB-26121 Improve Styleguide coverage of password policies</li>
-  <li>PB-27786 As a user I should not see my passphrase part of the breach if the field is empty</li>
-  <li>PB-27945 Update web-ext lib to v7.8.0</li>
-  <li>PB-27965 Upgrade node to v18</li>
-  <li>PB-28148 Migrate development watcher to package.json scripts</li>
-  <li>PB-28275 Upgrade @babel/traverse on styleguide as it has a critical security issue</li>
-  <li>[FEATURE INACTIVE] PB-27605 As a signed-in user I can set up Yubikey as two-factor authentication on the client (previously done on the API served application)</li>
-  <li>[FEATURE INACTIVE] PB-27606 As a signed-in user I can set up TOTP as two-factor authentication on the client (previously done on the API served application)</li>
-  <li>[FEATURE INACTIVE] PB-27608 As a user I can sign in with TOTP and Yubikey as 2FA on the client (previously done on the API served application)</li>
-</ul>
-
-<h3 id="security-1">Security</h3>
-<ul>
-  <li>PB-25688 As a desktop app user I should sign the exported account kit with my private key</li>
+  <li>PB-28857 Require phpunit-speedtrap to track down slow tests</li>
+  <li>PB-25516 Remove –dev from .gitlab test options, it has not effect and will break with composer v3</li>
+  <li>PB-28844 Improves the methods testing email content</li>
+  <li>PB-28845 Skip unauthenticated exception from logging</li>
+  <li>PB-28653 Speed-up tests by mocking the client in healthcheck relevant tests</li>
 </ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Zombie"</p>
-                                <a href="https://www.youtube.com/watch?v=6Ejga4kJUts" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Summer is ending"</p>
+                                <a href="https://www.youtube.com/watch?v=HR1KH4zElcY" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

@@ -20,7 +20,7 @@ or use the demo environment. Here is the procedure to try out the demo:
 **Step 4.** Select the demo instance. 
 
 **Step 5.** Click the Register button and enter your name and email. Other users will be able to see your email (
-this is to allow testing "sharing" functionality), so you can use a throw-away email account if you are not confortable with this.
+this is to allow testing "sharing" functionality), so you can use a throw-away email account if you are not comfortable with this.
 
 **Step 6.** Passbolt sent you an email that contains a link allowing you to login.
 {% include messages/warning.html

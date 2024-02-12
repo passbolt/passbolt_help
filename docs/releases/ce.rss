@@ -9,6 +9,18 @@
 
 
 <item>
+    <title>v4.5.1 | The Times They Are A-Changin</title>
+    <link>https://help.passbolt.com/releases/ce/the-times-they-are-a-changin</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/the-times-they-are-a-changin</guid>
+    <description>Version 4.5.1 is exclusively a Passbolt browser extension maintenance release designed to address a problem that emerged with the earlier 4.5.0 release. This issue prevented Chrome users who run the Passbolt API from a subdirectory from establishing a connection. We would like to express our sincere thanks to the community...</description>
+    <pubDate>Fri, 09 Feb 2024 01:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.5.0 | Summer is ending</title>
     <link>https://help.passbolt.com/releases/ce/summer_is_ending</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/summer_is_ending</guid>

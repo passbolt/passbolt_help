@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Where is my mind</title>
+    <title>Passbolt Help | The Times They Are A-Changin</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs reported by the community.">
+    <meta name="description" content="Version 4.5.1 is exclusively a Passbolt browser extension maintenance release designed to address a problem that emerged with the earlier 4.5.0 release. This...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Where is my mind" />
-    <meta property="og:description" content="This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs reported by the community." />
+    <meta property="og:title" content="The Times They Are A-Changin" />
+    <meta property="og:description" content="Version 4.5.1 is exclusively a Passbolt browser extension maintenance release designed to address a problem that emerged with the earlier 4.5.0 release. This..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v284-where-is-my-mind">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/the-times-they-are-a-changin">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.8.4.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.5.1.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/the-times-they-are-a-changin" >v4.5.1</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v284-where-is-my-mind"><span>where-is-my-mind</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/the-times-they-are-a-changin"><span>the-times-they-are-a-changin</span></a>
                     </div>
                 </li>
                 
@@ -191,47 +191,27 @@
     </div>
 </div>
 
-                            <h1>v2.8.4 ~ Where is my mind (ce)</h1>
+                            <h1>v4.5.1 ~ The Times They Are A-Changin (ce)</h1>
                             <p>Release date: 
-April
-17th,
-2019.
+February
+9th,
+2024.
 </p>
-                            <p>This release is mainly a maintenance release. It ships with more performance improvements and fixes a few bugs 
-reported by the community.</p>
+                            <p>Version 4.5.1 is exclusively a Passbolt browser extension maintenance release designed to address a problem that emerged with the earlier 4.5.0 release. This issue prevented Chrome users who run the Passbolt API from a subdirectory from establishing a connection.</p>
 
-<p>The API has also now been fully documented. It is in 2 parts: the API documentation which is available on our 
-help website, and the <a href="https://api-reference.passbolt.com/">API reference</a> which is built directly from the 
-<a href="https://github.com/passbolt/passbolt_openapi_specs">open api</a> specifications files.</p>
+<p>We would like to express our sincere thanks to the community members who brought this issue to our attention and assisted the team in resolving it.</p>
 
-<p>Some dependencies have also been updated including jQuery, in regards to the latest security issues.</p>
-
-<h2 id="284---2019-04-17">2.8.4 - 2019-04-17</h2>
-<h3 id="improved">Improved</h3>
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-48: Improve the performance by removing the creator/modifier from the passwords workspace grid query</li>
-  <li>PB-159: Remove the usage of canjs connect-hydrate module</li>
-</ul>
-
-<p>##Fixed</p>
-<ul>
-  <li>GITHUB-315: The permalink of password don’t work anymore</li>
-  <li>PB-147: Update appjs steal dependencies</li>
-  <li>PB-152: The webinstaller should work with Firefox ESR</li>
-  <li>GITHUB-299: The passwords are shown twice in passwords workspace grid</li>
-  <li>GITHUB-10: Selecting a group on the users workspace should not reset the grid “Last Logged In” column to “Never”</li>
-  <li>GITHUB-62: Sorting the users on the users workspace should not break the infinite scroll</li>
-  <li>PB-160: Update appjs jquery dependencies</li>
-  <li>PB-163: Update jquery dependency</li>
-  <li>PB-102: Fix install process should not create schema dump lock file</li>
-  <li>PB-204: Escape shell variables of the passbolt mysql export shell command</li>
+  <li>PB-29626 As a user I should retrieve the CSRF token for APIs operating in a subfolder</li>
 </ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"But there's nothing in it"</p>
-                                <a href="https://www.youtube.com/watch?v=5iC0YXspJRM" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"The Times They Are A-Changin"</p>
+                                <a href="https://www.youtube.com/watch?v=90WD_ats6eE" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

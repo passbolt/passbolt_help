@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2024-02-09T15:31:35+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Using Windows App</title><link href="https://help.passbolt.com/configure/windows-app.html" rel="alternate" type="text/html" title="Using Windows App" /><published>2023-11-30T01:00:00+01:00</published><updated>2023-11-30T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/windows-app</id><content type="html" xml:base="https://help.passbolt.com/configure/windows-app.html">&lt;div class=&quot;row&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.1">Jekyll</generator><link href="https://help.passbolt.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://help.passbolt.com/" rel="alternate" type="text/html" /><updated>2024-02-12T12:05:44+01:00</updated><id>https://help.passbolt.com/feed.xml</id><title type="html">Passbolt | Help</title><subtitle>The help site for passbolt, the open source password manager for teams. This site contains frequently asked questions, article to troubleshoot common issues, installation tutorials, blueprints for developers, and more!</subtitle><entry><title type="html">Using Windows App</title><link href="https://help.passbolt.com/configure/windows-app.html" rel="alternate" type="text/html" title="Using Windows App" /><published>2023-11-30T01:00:00+01:00</published><updated>2023-11-30T01:00:00+01:00</updated><id>https://help.passbolt.com/configure/windows-app</id><content type="html" xml:base="https://help.passbolt.com/configure/windows-app.html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col7&quot;&gt;
 
     &lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
@@ -1013,7 +1013,7 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
 Debian 12. This can be easily done with sed:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
@@ -1082,7 +1082,7 @@ sudo apt dist-upgrade
 
     &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/php7.4-fpm/php8.2-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;
@@ -1189,7 +1189,7 @@ You can follow our &lt;a href=&quot;/hosting/backup&quot;&gt;backup process&lt;/
     &lt;p&gt;Prior to upgrading the system, ensure the OS as well as the third party repositories ar now targeting
 Debian 12. This can be easily done with sed:&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/bullseye/bookworm/g&apos; /etc/apt/sources.list
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Please, take a moment with: &lt;em&gt;cat /etc/apt/sources.list&lt;/em&gt; to ensure that there is not any bullseye left on this file. You should expect something like what’s shown below.&lt;/p&gt;
@@ -1258,7 +1258,7 @@ sudo apt dist-upgrade
 
     &lt;p&gt;It can easily be done with sed :&lt;/p&gt;
 
-    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i 's/php7.4-fpm/php8.2-fpm/g' /etc/nginx/sites-enabled/nginx-passbolt.conf
+    &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo sed -i &apos;s/php7.4-fpm/php8.2-fpm/g&apos; /etc/nginx/sites-enabled/nginx-passbolt.conf
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
 
     &lt;p&gt;Check if you have no configuration issue :&lt;/p&gt;

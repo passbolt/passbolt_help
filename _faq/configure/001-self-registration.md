@@ -22,7 +22,7 @@ The purpose of this guide is to show you how to set up user Self Registration on
 **Step {{ adminstepNumber }}{% assign adminstepNumber = adminstepNumber | plus:1 %}.** Navigate to the adminstration tab
 
 {% include articles/figure.html
-    url="/assets/img/help/self-registration/Admin1.png"
+    url="/assets/img/help/2023/02/self-registration/Admin1.png"
     legend="Navigate to admin tab"
     width="500px"
 %}
@@ -30,7 +30,7 @@ The purpose of this guide is to show you how to set up user Self Registration on
 **Step {{ adminstepNumber }}{% assign adminstepNumber = adminstepNumber | plus:1 %}.** Select the Self Registration option on the left
 
 {% include articles/figure.html
-    url="/assets/img/help/self-registration/Admin2.png"
+    url="/assets/img/help/2023/02/self-registration/Admin2.png"
     legend="Navigate to self registration"
     width="500px"
 %}
@@ -38,7 +38,7 @@ The purpose of this guide is to show you how to set up user Self Registration on
 **Step {{ adminstepNumber }}{% assign adminstepNumber = adminstepNumber | plus:1 %}.** Click the toggle to enable
 
 {% include articles/figure.html
-    url="/assets/img/help/self-registration/Admin3.png"
+    url="/assets/img/help/2023/02/self-registration/Admin3.png"
     legend="Toggle self registration"
     width="500px"
 %}
@@ -52,7 +52,7 @@ This section will require that you specify the domains you want to allow self re
 %}
 
 {% include articles/figure.html
-    url="/assets/img/help/self-registration/Admin4.png"
+    url="/assets/img/help/2023/02/self-registration/Admin4.png"
     legend="Enter domains"
     width="500px"
 %}
@@ -73,7 +73,7 @@ Congrats! At this point you have user Self Registration set up and configured an
 **Step {{ userstepNumber }}{% assign userstepNumber = userstepNumber | plus:1 %}.** Enter your email address
 
 {% include articles/figure.html
-    url="/assets/img/help/self-registration/User1.png"
+    url="/assets/img/help/2023/02/self-registration/User1.png"
     legend="Enter your email address"
     width="500px"
 %}
@@ -81,7 +81,7 @@ Congrats! At this point you have user Self Registration set up and configured an
 **Step {{ userstepNumber }}{% assign userstepNumber = userstepNumber | plus:1 %}.** Enter your name
 
 {% include articles/figure.html
-    url="/assets/img/help/self-registration/User2.png"
+    url="/assets/img/help/2023/02/self-registration/User2.png"
     legend="Enter your name"
     width="500px"
 %}

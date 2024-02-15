@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Brick House</title>
+    <title>Passbolt Help | Marching The Hate Machines</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release brings an interesting new feature: the possibility to see the list of the users a password is shared with at a glance, directly from the sidebar.">
+    <meta name="description" content="Release song: https://youtu.be/53YYph6Edd0">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Brick House" />
-    <meta property="og:description" content="This release brings an interesting new feature: the possibility to see the list of the users a password is shared with at a glance, directly from the sidebar." />
+    <meta property="og:title" content="Marching The Hate Machines" />
+    <meta property="og:description" content="Release song: https://youtu.be/53YYph6Edd0" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v1012-brickhouse">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/marching_the_hate_machines">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v1.0.12.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.5.2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/marching_the_hate_machines" >v4.5.2</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v1012-brickhouse"><span>brickhouse</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/marching_the_hate_machines"><span>marching_the_hate_machines</span></a>
                     </div>
                 </li>
                 
@@ -191,56 +191,71 @@
     </div>
 </div>
 
-                            <h1>v1.0.12 ~ Brick House (ce)</h1>
+                            <h1>v4.5.2 ~ Marching The Hate Machines (ce)</h1>
                             <p>Release date: 
-May
-31st,
-2016.
+February
+14th,
+2024.
 </p>
-                            <p>This release brings an interesting new feature: the possibility to see the list of the users a password is shared 
-with at a glance, directly from the sidebar.</p>
+                            <p>Release song: https://youtu.be/53YYph6Edd0</p>
 
-<p>v1.0.12 also comes with its fair share of bug fixes, and some UI improvements. As usual, we have 
-also worked on increasing the coverage, mostly for the selenium tests.</p>
+<p>Passbolt is pleased to announce the immediate availability of version 4.5.2. This is a maintenance update that contains important fixes for both the API and browser extension, addressing issues reported by the community since version 4.5.0.</p>
 
-<h3 id="passbolt-api">Passbolt API</h3>
-<h4 id="added-improvements">Added improvements</h4>
+<p>Most notably this update fixes a problem that previously prevented the autofill feature from working with certain web applications.</p>
 
+<p>Additionally, the release improves the process for importing TOTPs from kdbx files on Windows, ensuring better support for TOTPs across various Keepass clients, including Keepass, KeepassXC, and Macpass.</p>
+
+<p>Administrators would also be pleased to be able to host the API using PHP 8.3. While PHP 7.4 and PHP 8.0 are still supported on some distributions such as Debian, they will be discontinued soon and administrators are encouraged to upgrade to PHP 8.1 or higher and use the latest version of the passbolt API.</p>
+
+<p>We would like to express our sincere thanks to the community members who brought issues to our attention and helped the team to make passbolt better.</p>
+
+<h1 id="452---2024-02-14">[4.5.2] - 2024-02-14</h1>
+<h2 id="api">API</h2>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PASSBOLT-1572: As LU, I should be able to see which users a password is shared with directly from the sidebar.</li>
-  <li>PASSBOLT-1407: As a LU there is no visual feedback when I upload a picture and that the process is in progress.</li>
+  <li>PB-29621 As a user I should get a 400 if the locale passed in the URL is not a string</li>
+  <li>PB-28867 As a user I should see an improved performance when requesting the folder index endpoint</li>
 </ul>
 
-<h4 id="fixed-bugs">Fixed bugs</h4>
-
+<h3 id="improved">Improved</h3>
 <ul>
-  <li>PASSBOLT-1439: Email is sent as anonymous when a user is created from the console.</li>
-  <li>PASSBOLT-1509: As LU, when a password is shared with me in read only, I should not see the delete menu available in more.</li>
-  <li>PASSBOLT-1579: Segfault at the end of setup when trying to display login form.</li>
-  <li>PASSBOLT-1576: Fixed Hash component warning message in EmailQueue.</li>
-  <li>PASSBOLT-1322: Insertion of comments in unittest dataset display an error in the console.</li>
-  <li>PASSBOLT-1234: Authentication token used for account registration expiracy check.</li>
+  <li>PB-28635 As an administrator I can disable the email digest without having to change the command sending the emails</li>
 </ul>
 
-<h3 id="passbolt-firefox-add-on">Passbolt Firefox Add-on</h3>
-<h4 id="added-improvements-1">Added improvements</h4>
-
+<h3 id="security">Security</h3>
 <ul>
-  <li>PASSBOLT-959: Plugin version number should be in the footer.</li>
-  <li>PASSBOLT-1488: As AP, I should not be able to complete the setup if I import a key that already exist on server.</li>
+  <li>PB-29680 Bump dependency composer/composer to v2.7.0</li>
 </ul>
 
-<h4 id="fixed-bugs-1">Fixed bugs</h4>
-
+<h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>PASSBOLT-1255: Button height issues + missing tooltip on setup.</li>
+  <li>PB-29109 Support PHP 8.3 for passbolt API</li>
+  <li>PB-29376 GITHUB-506 Bump dependency duosecurity/duo_universal_php to 1.0.2 (#506)</li>
+  <li>PB-29514 Fix password expiry test which randomly fails</li>
+  <li>PB-29625 Fix CI to support latest composer dependency version</li>
 </ul>
+
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="added">Added</h3>
+<ul>
+  <li>PB-28672 As a user exporting resources I should also export TOTPs</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-25865 As a signed-in user I can autofill credentials using input and change events</li>
+  <li>PB-29258 As a signed-in user with a large dataset I can select a resource quickly</li>
+  <li>PB-29548 As a signed-in administrator I should refresh password expiry cache when navigating to the password expiry administration page</li>
+  <li>PB-29560 As a user importing a resources from a Windows keepass kdbx I should also import TOTPs</li>
+  <li>PB-29606 As a user exporting a resources to a Windows keepass kdbx I should also export TOTPs</li>
+</ul>
+
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"When your past calls, don't answer. It has nothing new to say."</p>
-                                <a href="https://www.youtube.com/watch?v=rrBx6mAWYPU" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Marching The Hate Machines"</p>
+                                <a href="https://youtu.be/53YYph6Edd0" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

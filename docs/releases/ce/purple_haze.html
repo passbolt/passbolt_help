@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Under Pressure</title>
+    <title>Passbolt Help | Purple Haze</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Introducing the latest update of Passbolt CE, release v4.0.1. This release update fixes a bug reported by the community impacting 32 bit operating systems. T...">
+    <meta name="description" content="Release song: https://youtu.be/Ub0NtPOj7es?si=3IL4HKS4-g17uPal">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Under Pressure" />
-    <meta property="og:description" content="Introducing the latest update of Passbolt CE, release v4.0.1. This release update fixes a bug reported by the community impacting 32 bit operating systems. T..." />
+    <meta property="og:title" content="Purple Haze" />
+    <meta property="og:description" content="Release song: https://youtu.be/Ub0NtPOj7es?si=3IL4HKS4-g17uPal" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/under-pressure">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/purple_haze">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.0.1.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.6.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/purple_haze" >v4.6.0</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/under-pressure"><span>under-pressure</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/purple_haze"><span>purple_haze</span></a>
                     </div>
                 </li>
                 
@@ -191,27 +191,66 @@
     </div>
 </div>
 
-                            <h1>v4.0.1 ~ Under Pressure (ce)</h1>
+                            <h1>v4.6.0 ~ Purple Haze (ce)</h1>
                             <p>Release date: 
-May
-30th,
-2023.
+March
+14th,
+2024.
 </p>
-                            <p>Introducing the latest update of Passbolt CE, release v4.0.1. This release update fixes a bug reported by the community impacting 32 bit operating systems.
-The issue reported can be found on the <a href="https://community.passbolt.com/t/testing-update-to-v4-crashes-on-raspberrypi4/7409">community forum</a>.</p>
+                            <p>Release song: https://youtu.be/Ub0NtPOj7es?si=3IL4HKS4-g17uPal</p>
 
-<h2 id="api">API</h2>
+<p>The Passbolt Community Edition 4.6.0 release “Purple Haze”, brings enhancements that focus primarily on the administrative aspect and overall system health.</p>
+
+<p>This update introduces the Health Check feature within the Admin workspace, designed to offer administrators a comprehensive tool for system assessment and upkeep.
+In addition, this version addresses a range of minor bugs and delivers the awaited PHP 8.3 support.</p>
+
+<p>This version furthermore lays the foundations for successive performance gains by refining data verification processes and reducing memory usage, particularly when browsing. Expect more significant improvements with the next releases.</p>
+
+<p>For more details, check out the video below:
+<a href="https://youtube.com/shorts/Re4Kch1EfmU" target="_blank"><img src="https://img.youtube.com/vi/Re4Kch1EfmU/maxresdefault.jpg" alt="fig. Passbolt v4.6.0 - New features" /></a></p>
+
+<h2 id="460---2024-03-14">[4.6.0] - 2024-03-14</h2>
 <h3 id="added">Added</h3>
 <ul>
-  <li>PB-24644 As an admin I should be able to run migrations on a 32 bit environment</li>
+  <li>PB-24485 As an administrator I can view the API healthcheck in the administration section</li>
+  <li>PB-29396 As an administrator I can hide the share folder capability with a RBAC</li>
+  <li>PB-25463 As an administrator I can disable the healthcheck index endpoint with a flag</li>
+  <li>PB-29397 As an administrator I can disable the healthcheck administration panel with a flag</li>
 </ul>
 
+<h3 id="improved">Improved</h3>
+<ul>
+  <li>PB-29009 As an administrator completing my setup I should not receive a notification that I completed my setup</li>
+  <li>PB-26152 The API should identify openpgpjs v5.10 revoked key as revoked</li>
+  <li>PB-29437 As an administrator I can log internal errors with the complete trace in Json format</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-30155 Update phpseclib/phpseclib to fix composer security vulnerability</li>
+</ul>
+
+<h3 id="fixed">Fixed</h3>
+<ul>
+  <li>PB-30019 As a user I should not get a 500 when editing a user with payload containing integers as fields</li>
+  <li>PB-29964 As an administrator disabling a user I should not get a 500 if the disabled date is not valid</li>
+  <li>PB-29970 As a group manager I should receive an accurate summary in my notifications on group permission changes</li>
+  <li>PB-29054 As an administrator I should not get an error when running the cleanup command and the users table does not exist</li>
+  <li>PB-28719 As an administrator sending emails the timezone displayed in the emails should be in the correct time zone</li>
+  <li>PB-30266 As an administrator sending emails with the email digest the message ID should be defined</li>
+  <li>PB-30182 Build the styleguide on version 4.6.1</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-28247 Update cakephp/cakephp to version 4.5</li>
+</ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Under Pressure"</p>
-                                <a href="https://youtu.be/a01QQZyl-_I" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Purple Haze"</p>
+                                <a href="https://youtu.be/Ub0NtPOj7es?si=3IL4HKS4-g17uPal" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

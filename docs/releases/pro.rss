@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v4.6.0 | Purple Haze</title>
+    <link>https://help.passbolt.com/releases/pro/purple_haze</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/purple_haze</guid>
+    <description>Release song: https://youtu.be/Ub0NtPOj7es?si=3IL4HKS4-g17uPal The Passbolt Pro 4.6.0 release “Purple Haze”, brings a new SSO provider and improves administrative aspects and overall system health. A major addition in this release is the Beta implementation of SSO AD FS (Active Directory Federation Services), enabling streamlined single sign-on capabilities for improved user access...</description>
+    <pubDate>Thu, 14 Mar 2024 00:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.5.2 | Marching The Hate Machines</title>
     <link>https://help.passbolt.com/releases/pro/marching_the_hate_machines</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/marching_the_hate_machines</guid>

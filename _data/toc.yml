@@ -1,19 +1,28 @@
 - title: Introduction
-  slug: discover
+  slug: introduction
   teaser: Everybody has to start somewhere
+  url: https://help.passbolt.com
   items:
-    - title: Discovery FAQ
-      url: /faq/discover
+    - title: User Guide
+      url: https://www.passbolt.com/docs/user
       icon: fa-compass
-      teaser: Everybody has to start somewhere.
-    - title: Roadmap
-      url: https://www.passbolt.com/roadmap
-      icon: fa-map
-      teaser: What are the current and upcoming features.
-    - title: Security
-      url: /faq/security
-      icon: fa-shield
-      teaser: Learn more about the security and threat model.
+      teaser: How to get started and basic functionalities explained.
+    - title: Admin Guide
+      url: https://www.passbolt.com/docs/admin
+      icon: fa-compass
+      teaser: A guide on how to configuration passbolt.
+    - title: Hosting Guide
+      url: https://www.passbolt.com/docs/hosting
+      icon: fa-compass
+      teaser: A guide to install and run a passbolt server.
+    - title: Developer Guide
+      url: https://help.passbolt.com/api
+      icon: fa-compass
+      teaser: A guide to call the passbolt API.
+    - title: Contributor Guide
+      url: https://help.passbolt.com/contribute
+      icon: fa-compass
+      teaser: A guide to contribute to the project.
     - title: Release notes
       url: /releases
       icon: fa-tags
@@ -26,178 +35,16 @@
       url: https://community.passbolt.com/c/site-feedback
       icon: fa-comment
       teaser: We are not machines and it's a cold world out there.
-- title: Installation
-  url: /hosting/install
-  slug: installation
-  teaser: Installation guides
-- title: Getting started
-  slug: start
-  teaser: All the basics to set up and use passbolt
-  items:
-    - title: Get started using passbolt
-      url: /faq/discover
-      icon: fa-compass
-      teaser: Frequently asked questions during first time use.
-    - title: Browser extension
-      url: /faq/start/browser-extensions
-      icon: fa-firefox
-      teaser: How to install and remove the browser extensions.
-    - title: Password basics
-      url: /faq/start/create-edit-delete-password
-      icon: fa-lock
-      teaser: Creating, editing, sharing and deleting passwords
-    - title: Sharing passwords
-      url: /faq/start/share-password
-      icon: fa-paper-plane
-      teaser: Sharing is caring (but only if you really have to).
-    - title: Roles and permissions
-      url: /faq/start/roles-and-permissions
-      icon: fa-shield
-      teaser: Information about the roles and permissions system of passbolt.
-    - title: Forum
-      url: https://community.passbolt.com
-      icon: fa-comments
-      teaser: When in doubt, you can also ask the community!
-- title: Hosting
-  slug: hosting
-  teaser: Hosting a passbolt server
-  items:
-    - title: Hosting FAQ
-      url: /faq/hosting
-      icon: fa-server
-      teaser: Frequently asked questions about hosting
-    - title: Installation
-      slug: install
-      url: /hosting/install
-      icon: fa-cogs
-      teaser: How to install passbolt on your own server
-    - title: Update
-      slug: update
-      url: /hosting/update
-      icon: fa-refresh
-      teaser: How to update a self-hosted passbolt instance
-    - title: Upgrade
-      slug: upgrade
-      url: /hosting/upgrade
-      icon: fa-refresh
-      teaser: How to upgrade passbolt.
-    - title: Backup
-      slug: backup
-      url: /hosting/backup
-      icon: fa-download
-      teaser: Guidelines to backup a passbolt instance
-    - title: Installation issues
-      url: https://community.passbolt.com/c/installation-issues
-      icon: fa-life-saver
-      teaser: Do you need help installing passbolt?
-- title: Configure
+- title: User Guide
+  slug: discover
+  url: https://www.passbolt.com/docs/user
+- title: Admin Guide
   slug: configure
-  teaser: Configure your passbolt instance
-  items:
-    - title: Configure HTTPS
-      url: /configure/https
-      icon: fa-bookmark
-      slug: https
-      teaser: How to setup HTTPS for secure communications
-    - title: Configure LDAP
-      url: /configure/ldap/setup
-      icon: fa-address-book-o
-      teaser: How to configure the directory sync plugin
-      version: pro
-      slug: ldap
-    - title: Configure Account Recovery
-      url: /configure/account-recovery
-      icon: fa-key
-      teaser: How to configure Account Recovery
-      version: pro
-      slug: account-recovery
-    - title: Configure SSO
-      url: /configure/sso
-      icon: fa-address-book-o
-      teaser: How to configure Single Sign-On
-      version: pro
-      slug: sso
-    - title: Configure Windows App
-      url: /configure/windows-app
-      icon: fa-windows
-      teaser: How to configure Windows App
-      slug: windows-app
-    - title: Configure Password Policies
-      url: /configure/password-policies
-      icon: fa-key
-      teaser: How to configure Password Policies
-      version: pro
-      slug: password-policies
-    - title: Configure User Passphrase Policies
-      url: /configure/user-passphrase-policies
-      icon: fa-key
-      teaser: How to configure User Passphrase Policies
-      version: pro
-      slug: user-passphrase-policies
-    - title: Configure RBAC
-      url: /configure/rbac
-      icon: fa-cogs
-      teaser: How to configure Role-Based Access Control
-      slug: rbac
-    - title: Configure LDAP with ssl
-      url: /configure/ldap/ldap-with-ssl
-      icon: fa-address-book-o
-      teaser: How to configure the LDAP plugin with ssl (ldaps)
-      version: pro
-      slug: ldap-with-ssl
-    - title: Using LDAP Filters
-      url: /configure/ldap/ldap-filters
-      icon: fa-address-book-o
-      teaser: How to use the filters to configure your Users Directory
-      version: pro
-      slug: ldap-filters
-    - title: Troubleshoot LDAP sync errors
-      url: /configure/ldap/ldap-common-sync-error-messages
-      icon: fa-address-book-o
-      teaser: Common ldap synchronization errors and their meaning
-      version: pro
-      slug: ldap-with-ssl
-    - title: Configure MFA
-      url: /configure/mfa
-      icon: fa-key
-      teaser: How to configure Multi Factor Authentication
-      slug: mfa
-    - title: Configure TOTP
-      url: /configure/totp
-      icon: fa-clock-o
-      teaser: How to configure Time-based One Time Password
-      slug: totp
-    - title: Configure Email Notifications
-      url: /configure/notification/email
-      icon: fa-envelope-o
-      teaser: How to manage email notification settings
-      slug: email
-    - title: Configure Email providers
-      url: /configure/email/setup
-      icon: fa-envelope-o
-      teaser: How to setup email providers
-      slug: email-setup
-    - title: Configure Email authentication
-      url: /configure/email/smtp-authentication
-      icon: fa-envelope-o
-      teaser: How to configure your authentication method
-      slug: email-setup
-    - title: Troobleshoot Email config
-      url: /faq/hosting/why-email-not-sent
-      icon: fa-envelope
-      teaser: Common issues with emails
-      slug: why-email-not-sent
-    - title: Environment variable reference
-      url: /configure/environment/reference
-      icon: fa-bookmark
-      teaser: Reference list of all environment variables
-      slug: reference
-    - title: Update database credentials
-      url: /configure/database/credentials
-      icon: fa-database
-      teaser: Update database credentials
-      slug: update-database-credentials
-- title: Extend
+  url: https://www.passbolt.com/docs/admin
+- title: Hosting guide
+  slug: hosting
+  url: https://www.passbolt.com/docs/hosting
+- title: Developer Guide
   slug: extend
   teaser: Build on top of passbolt
   items:
@@ -217,7 +64,7 @@
       url: https://github.com/passbolt
       icon: fa-github
       teaser: Want to see the code? This way!
-- title: Contribute
+- title: Contributor Guide
   slug: contribute
   teaser: Are you doing your part?
   items:
@@ -244,28 +91,4 @@
 - title: Small print
   slug: legal
   teaser: The small print
-  items:
-    - title: Terms of service
-      url: https://www.passbolt.com/terms
-      icon: fa-balance-scale
-      teaser: Did you read the small print?
-    - title: Privacy policy
-      url: https://www.passbolt.com/privacy
-      icon: fa-street-view
-      teaser: What we do with your data.
-    - title: CLA Policy
-      url: https://www.passbolt.com/legal/cla
-      icon: fa-pencil
-      teaser: Contributor licence agreement
-    - title: Code of conduct
-      url: https://www.passbolt.com/code_of_conduct
-      icon: fa-handshake-o
-      teaser: Because everyone should feel welcome
-    - title: Credits
-      url: https://www.passbolt.com/credits
-      teaser: Passbolt would not be possible without...
-      icon: fa-hand-peace-o
-    - title: Legal FAQ
-      url: /faq/legal
-      teaser: Frequently asked questions about legal matters
-      icon: fa-question
+  url: https://www.passbolt.com/terms

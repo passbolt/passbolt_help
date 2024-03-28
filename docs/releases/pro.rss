@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v4.6.1 | Reptillia</title>
+    <link>https://help.passbolt.com/releases/pro/reptillia</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/reptillia</guid>
+    <description>Release song: https://www.youtube.com/watch?v=b8-tXG8KrWs Passbolt is pleased to announce the immediate availability of version 4.6.1. This is a maintenance update that contains an important fix for the API, addressing the issue reported by the community since version 4.6.0. Most notably this update fixes a problem when an administrator is not able...</description>
+    <pubDate>Wed, 27 Mar 2024 00:00:00 +0100</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.6.0 | Purple Haze</title>
     <link>https://help.passbolt.com/releases/pro/purple_haze</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/purple_haze</guid>

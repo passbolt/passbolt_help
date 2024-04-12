@@ -30,11 +30,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/</loc>
-<lastmod>2024-04-12T08:39:54+02:00</lastmod>
+<lastmod>2024-04-12T09:19:15+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/</loc>
-<lastmod>2024-04-12T08:39:54+02:00</lastmod>
+<lastmod>2024-04-12T09:19:15+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/security-vulnerability</loc>
@@ -98,7 +98,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/</loc>
-<lastmod>2024-04-12T08:39:54+02:00</lastmod>
+<lastmod>2024-04-12T09:19:15+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/incidents/20170210_chrome_not_available</loc>
@@ -779,6 +779,14 @@
 <url>
 <loc>https://help.passbolt.com/releases/pro/reptillia</loc>
 <lastmod>2024-03-27T00:00:00+01:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/releases/ce/one_nation_under_a_groove</loc>
+<lastmod>2024-04-11T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/releases/pro/one_nation_under_a_groove</loc>
+<lastmod>2024-04-11T00:00:00+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/api/authentication</loc>

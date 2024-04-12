@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Glue</title>
+    <title>Passbolt Help | One Nation Under A Groove</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="The passbolt team is excited to share the latest improvements in release 3.10. With the help of our contributors and the community’s input, passbolt is proud...">
+    <meta name="description" content="Release song: https://youtu.be/3WOZwwRH6XU?si=jvTiezg7eEEpEh-S">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Glue" />
-    <meta property="og:description" content="The passbolt team is excited to share the latest improvements in release 3.10. With the help of our contributors and the community’s input, passbolt is proud..." />
+    <meta property="og:title" content="One Nation Under A Groove" />
+    <meta property="og:description" content="Release song: https://youtu.be/3WOZwwRH6XU?si=jvTiezg7eEEpEh-S" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/glue">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/one_nation_under_a_groove">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v3.10.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.6.2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/one_nation_under_a_groove" >v4.6.2</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/glue"><span>glue</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/one_nation_under_a_groove"><span>one_nation_under_a_groove</span></a>
                     </div>
                 </li>
                 
@@ -191,85 +191,29 @@
     </div>
 </div>
 
-                            <h1>v3.10.0 ~ Glue (ce)</h1>
+                            <h1>v4.6.2 ~ One Nation Under A Groove (ce)</h1>
                             <p>Release date: 
-February
-14th,
-2023.
+April
+11th,
+2024.
 </p>
-                            <p>The passbolt team is excited to share the latest improvements in release 3.10. With the help of our contributors and the community’s input, passbolt is proud to present the release of self-registration.</p>
+                            <p>Release song: https://youtu.be/3WOZwwRH6XU?si=jvTiezg7eEEpEh-S</p>
 
-<p>Users can now self-register if their email domain matches the administrator-defined policy. This will make the registration process more efficient and move smoother, especially with larger teams.</p>
+<p>Passbolt is pleased to announce the immediate availability of version v4.6.2. This version is a targeted security release of both the API and the browser extension focusing on fixing security issues reported by security researchers.</p>
 
-<p>Thanks to everyone who contributed to this release, we look forward to continuing to enhance passbolt with your support.</p>
+<p>We would like to express our appreciation to the community for their assistance in making Passbolt more secure. Further details about the issues will be shared in a separate communication.</p>
 
-<h2 id="api">API</h2>
-<h3 id="added">Added</h3>
+<h2 id="462---2024-04-11">[4.6.2] - 2024-04-11</h2>
+<h3 id="security">Security</h3>
 <ul>
-  <li>PB-19784 As a user I can self register if my email domain matches the policy defined by the administrators</li>
+  <li>PB-32932 Fix error template title</li>
 </ul>
-
-<h3 id="improved">Improved</h3>
-<ul>
-  <li>PB-21485 As a server administrator I want to configure the list of active proxies the instance
- is behind in order to get client IP when necessary</li>
-  <li>PB-21682 As an administrator I want to configure the client option of the SMTP settings</li>
-  <li>PB-22019 As a server administrator I want to configure TOTP MFA secret length</li>
-  <li>PB-22574 As a signed-in user I want the sharing of resources to not perform a cycle detection</li>
-</ul>
-
-<h3 id="maintenance">Maintenance</h3>
-<ul>
-  <li>PB-22327 env variable PASSBOLT_PLUGINS_SMTP_SETTINGS renamed in PASSBOLT_PLUGINS_SMTP_SETTINGS_ENABLED (backward compatible)</li>
-  <li>PB-22406 curl and openssl extensions requirements added</li>
-  <li>PB-22413 bump CakePHP to 4.3.11</li>
-</ul>
-
-<h2 id="browser-extension">Browser extension</h2>
-<h3 id="added-1">Added</h3>
-<ul>
-  <li>
-    <p>PB-21752 As a user I can self register if my email domain matches the policy defined by the administrators</p>
-  </li>
-  <li>PB-22080 As a signed-in user I should be able to import chromium based browsers csv</li>
-  <li>PB-21874 As signed-in user I should be able to import bitwarden csv</li>
-</ul>
-
-<h3 id="improved-1">Improved</h3>
-<ul>
-  <li>PB-21910 As a signed-in administrator on the self registration admin settings form I want to see the domain warnings while typing and not after blur event</li>
-</ul>
-
-<h3 id="fixed">Fixed</h3>
-<ul>
-  <li>PB-18371 Fix contextual menu positioning issue when right clicking at the bottom of the page</li>
-  <li>
-    <p>PB-22386 As an administrator I want to know if the weak passphrase I am entering to generate an organisation recovery key has been pwned</p>
-  </li>
-  <li>PB-22084 As a signed-in user I can import my passwords from 1Password csv export with their new header conventions</li>
-</ul>
-
-<h3 id="maintenance-1">Maintenance</h3>
-<ul>
-  <li>
-    <p>PB-21562 Refactor service worker port and add coverage</p>
-  </li>
-  <li>PB-21933 Create a service to parse the sign in url</li>
-  <li>
-    <p>PB-22337 Merge both controller AuthController and AuthSignInController to keep consistency</p>
-  </li>
-  <li>PB-22478 As a developer I should be sure my changes don’t introduce regression in the build</li>
-  <li>PB-22479 As a developer I should be sure my changes don’t introduce dependency vulnerabilities</li>
-  <li>PB-22614 Avoid telemetries to be sent to Storybook</li>
-  <li>PB-22630 Fix the Unit test in the browser extension about  method that shouldn’t be called</li>
-</ul>
-
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Glue"</p>
-                                <a href="https://open.spotify.com/track/2aJDlirz6v2a4HREki98cP?si=51e34d30904b4459" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"One Nation Under A Groove"</p>
+                                <a href="https://youtu.be/3WOZwwRH6XU?si=jvTiezg7eEEpEh-S" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

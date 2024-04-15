@@ -30,11 +30,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/</loc>
-<lastmod>2024-04-12T09:19:15+02:00</lastmod>
+<lastmod>2024-04-15T11:33:41+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/</loc>
-<lastmod>2024-04-12T09:19:15+02:00</lastmod>
+<lastmod>2024-04-15T11:33:41+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/security-vulnerability</loc>
@@ -98,7 +98,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/</loc>
-<lastmod>2024-04-12T09:19:15+02:00</lastmod>
+<lastmod>2024-04-15T11:33:41+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/incidents/20170210_chrome_not_available</loc>
@@ -183,6 +183,10 @@
 <url>
 <loc>https://help.passbolt.com/incidents/20230911_PBL-09-security-audit-results</loc>
 <lastmod>2023-09-11T02:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/incidents/20240415_PBL-11-security-audit-results</loc>
+<lastmod>2024-04-15T02:00:00+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/releases/ce/v105-moveonup</loc>
@@ -990,6 +994,10 @@
 <url>
 <loc>https://help.passbolt.com/assets/files/PBL-09-report.pdf</loc>
 <lastmod>2024-02-09T15:30:50+01:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/assets/files/PBL-11-report.pdf</loc>
+<lastmod>2024-04-15T11:31:21+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/assets/files/Security%20White%20Paper%20-%20Passbolt%20Pro%20Edition.pdf</loc>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Chrome not available</title>
+    <title>Passbolt Help | PBL-11 Security audit results</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -18,13 +18,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Chrome not available" />
+    <meta property="og:title" content="PBL-11 Security audit results" />
     <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/incidents/20170210_chrome_not_available">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20240415_PBL-11-security-audit-results">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2017-02-10-chrome-not-available.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2024-04-15-PBL-11-security-audit-results.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -95,7 +95,7 @@
         
         
         
-        <li>
+        <li class="selected">
         
             <a href="https://help.passbolt.com/incidents/20240415_PBL-11-security-audit-results">
 April
@@ -305,7 +305,7 @@ September
         </li>
         
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/incidents/20170210_chrome_not_available">
 February
@@ -349,7 +349,7 @@ February
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/incidents/20170210_chrome_not_available"><span>2017-02-10 Chrome not available</span></a>
+                        <a href="https://help.passbolt.com/incidents/20240415_PBL-11-security-audit-results"><span>PBL-11 Security audit results</span></a>
                     </div>
                 </li>
                 
@@ -360,100 +360,82 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Chrome not available</h1>
+<h1>PBL-11 Security audit results</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
 
-    <h2 id="summary">Summary</h2>
-    <h3 id="what-happened">What happened?</h3>
+    <h2 id="introduction">Introduction</h2>
 
-    <p>On Thursday 9th of February 2017 evening, the extension was taken down by google from
-the chrome web store without notice. In parallel we started receiving report of
-the passbolt extension crashing during the setup, on the key generation step.
-On Friday afternoon the extension had reappeared on the web store, however the
-key generation was still unstable.</p>
+    <p>In the lead-up to the stable release of the Passbolt UWP Windows application, the Cure53 team dedicated two days to a focused audit on the application’s native layer. This review revealed a total of five findings—four security vulnerabilities and one general weakness—which were all solved prior to the v1.0 release.</p>
 
-    <p>The issue was introduced in chrome release version 56.</p>
+    <p>Quotes from the conclusion of the report: “Upon completion of this security audit, Cure53 gained a strong impression of the security premise employed by the Passbolt team. The quality of the codebase was generally impressive, while the architecture and frameworks employed generally installed resilient design paradigms.”</p>
 
-    <h3 id="what-is-the-current-status">What is the current status?</h3>
-    <p>Even though we cannot produce a bug fix for chrome itself we have
-reported the issue to Google as well as
-<a href="https://bugs.chromium.org/p/chromium/issues/detail?id=692721">Chrome</a>
- and Openpgpjs maintainers and published a new version (
- <a href="https://github.com/passbolt/passbolt_browser_extension/releases/tag/v1.4.2">v1.4.2</a>)
-of passbolt with a workaround to make the plugin stable again.</p>
+    <p>In addition to the detailed findings of this audit, the security incident section also houses separate reports that examine the browser extensions. Interestingly, some of the code of the extension is also used in the Desktop application, and will give more details on other components of this application.</p>
 
-    <h3 id="why-was-this-happening">Why was this happening?</h3>
-    <p>The browser and extension were crashing when calling some functions of cryptographic
-libraries in two situations.</p>
+    <p>All the issues have been fixed or mitigations have been implemented as of 11th April 2024.</p>
 
-    <p>Firstly Openpgpjs uses native functions implemented by the Web Cryptography API of the browser
-whenever available. In chrome 56, these native functions seem to be buggy and our
-extension crashed whenever it was trying to use them.</p>
+    <p>You can read more about the security audit by <a href="/assets/files/PBL-11-report.pdf">reading the full report</a>.</p>
 
-    <p>Also even without using the native chrome Crypto API another issue
-leading to crashes was identified when parsing the keys.</p>
+    <p>A big thank you from the Passbolt team to Cure53 for their collaborative spirit and expertise shared during this project.</p>
 
-    <h3 id="what-does-it-mean-for-passbolt-security">What does it mean for passbolt security?</h3>
-    <p>Since this is a chrome stability issue there is no change in the risk model.</p>
+    <h2 id="vulnerabilities-summary">Vulnerabilities summary</h2>
 
-    <h3 id="status-step-by-step">Status step by step</h3>
-
-    <ul>
-      <li><strong>Identification of the exact cause:</strong> we know exactly which primitives are causing this crash. We have published a <a href="https://github.com/passbolt/chrome56_openpgp_crashtest">test extension</a> to help other developers reproduce the issue.</li>
-      <li><strong>Make a fix for the extension:</strong> we proposed a temporary fix until the bug in chrome gets fixed by Google.</li>
-      <li><strong>Republish it and wait:</strong> we published the extension and waited for Google validation.</li>
-      <li><strong>Chrome extension is back in business</strong></li>
-      <li><strong>Wrap up this incident report</strong>. We will work on follow up activities and potential fixes to avoid similar issue in the future.</li>
-    </ul>
-
-    <h3 id="event-timeline">Event timeline</h3>
-
-    <ul>
-      <li>2017-02-09 20:30:00 CET: Receive our user first feedback informing us that the chrome extension is not available anymore on the webstore.</li>
-      <li>2017-02-09 20:45:00 CET: Confirm that chrome extension has been taken down. We haven’t received any communication from google regarding the removal, nor any explanation.</li>
-      <li>2017-02-09 20:50:00 CET: Start investigating and try to understand what changes we’ve made in our extension that could break the compliancy with the chrome rules.</li>
-      <li>2017-02-09 22:00:00 CET: Receive our first report saying that the plugin crashes during passbolt setup.</li>
-      <li>2017-02-09 22:25:00 CET: Confirm that the extension crashes during the setup on chrome 56 only. It’s working fine on chrome 55. We start investigating in that direction.</li>
-      <li>2017-02-09 22:35:00 CET: Confirm the extension crashes only when generating a key. Importing a key works fine.</li>
-      <li>2017-02-09 23:00:00 CET: After playing with openpgpjs configuration options, we realize that setting use_native=false (which disable the use of browser’s native crypto functions) fixes the crash issue during the setup when the key is generating. But introduces a new crash at password encryption. Setting use_native on and off could be a possible workaround.</li>
-      <li>2017-02-09 23:30:00 CET: Write the chrome team to have more details regarding the take down of our extension, through different channels.</li>
-      <li>2017-02-10 00:30:00 CET: Realize that mailvelope another chrome extension, who is using openpgpjs1.x is not affected by the issue. The issue seems to be only between chrome56 and openpgpjs 2.x.</li>
-      <li>2017-02-10 00:50:00 CET: Chrome team confirms that they received our email, and that it has been forwarded to the pertinent team.</li>
-      <li>2017-02-10 02:30:00 CET: Communication on facebook / twitter about the chrome extension taken down. Firefox can still be used.</li>
-      <li>2017-02-10 03:03:00 CET: Contact the maintainers of openpgpjs and mailvelope by email to explain the issue and know if they received similar reports.</li>
-      <li>2017-02-10 07:30:00 CET: Technical investigation continues. We’ll come up with a fix asap. Still waiting to hear from chrome team.</li>
-      <li>2017-02-10 13:30:00 CET: Investigation on-going. We publish this page. Still no response from Google.</li>
-      <li>2017-02-10 15:40:00 CET: The passbolt plugin page is back on google chrome web store but the plugin key generation step is still unstable. Thomas from Mailvelope joined us to investigate the issue.</li>
-      <li>2017-02-11 12:40:00 CET: Investigation on-going to try reproduce the issue. Switching openpgp.config.use_native = false solve the key generation issue but another issue is still present.</li>
-      <li>2017-02-11 17:00:00 CET: All issues isolated and published on a <a href="https://github.com/passbolt/chrome56_openpgp_crashtest">minimal chrome extension</a></li>
-      <li>2017-02-11 20:30:00 CET: Update on twitter and this page. Fix in progress.</li>
-      <li>2017-02-11 21:00:00 CET: Reported the issue back to openpgpjs and chrome with details on how to reproduce the issue.</li>
-      <li>2017-02-11 21:30:00 CET: A fix is published on Google chrome webstore. chrome extension download link is restored and don’t link to this page anymore.</li>
-      <li>2017-02-15 21:30:00 CET: Bug report filled on <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=692721">Chrome tracker</a>.</li>
-    </ul>
+    <table class="table-parameters">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Issue name</th>
+      <th>Severity</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PBL-11-001</td>
+      <td>Insecure Regex pattern allows canNavigate bypass</td>
+      <td>Medium</td>
+      <td>Mitigated in v1.0</td>
+    </tr>
+    <tr>
+      <td>PBL-11-002</td>
+      <td>PasswordVault can be accessed by Desktop apps</td>
+      <td>Low</td>
+      <td>Mitigated in v1.0</td>
+    </tr>
+    <tr>
+      <td>PBL-11-003</td>
+      <td>JS execution by modifying LocalFolder Resources</td>
+      <td>Low</td>
+      <td>Mitigated in v1.0</td>
+    </tr>
+    <tr>
+      <td>PBL-11-004</td>
+      <td>Insecure CSP Configuration in renderers</td>
+      <td>Low</td>
+      <td>Mitigated in v1.0</td>
+    </tr>
+    <tr>
+      <td>PBL-11-005</td>
+      <td>Arbitrary requestId used as topic in background</td>
+      <td>Medium</td>
+      <td>Mitigated in v1.0</td>
+    </tr>
+  </tbody>
+</table>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-February
-10th,
-2017.</p>
+April
+15th,
+2024.</p>
     </div>
+
   </div>
   <div class="col4 last push1">
-
-    <div class="tldr message success">
-    <h4>Current status:</h4>
-    1. Root cause identification<br />
-    2. Make a fix for the extension<br />
-    3. Publish a new version<br />
-    <strong>4. Chrome extension is back<br /></strong>
-    <h5>Last updated: 2017-02-15 21:30:00 CET</h5>
-</div>
 
   </div>
 </div>

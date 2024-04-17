@@ -1,6 +1,6 @@
 ---
 title: Pwned Password Service Information Leak Incident
-date: 2024-04-17 09:00:00 Z
+date: 2024-04-17 07:00:00 Z
 description: Pwned Password Service Information Leak Incident Report Page
 categories: [incidents]
 layout: incidents

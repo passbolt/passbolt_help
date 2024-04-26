@@ -18,7 +18,7 @@ This vulnerability would have allowed an attacker capable of observing Passbolt 
 Pwned Password API to more easily bruteforce and therefore guess manually entered passwords.
 
 - **CVSS Score**: [5.5 (Medium)](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?vector=AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:N/A:N/E:P/RL:O/RC:C)
-- **CVE**: In progress
+- **CVE**: [CVE-2024-33669](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2024-33669)
 - **Vulnerability Type**: Information leak
 - **Product affected**: Browser extension, Windows app
 - **Versions affected**: Browser extension <= v4.6.0, Windows application <= v0.6

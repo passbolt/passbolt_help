@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | La Clé Des Champs</title>
+    <title>Passbolt Help | Bulls On Parade</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ...">
+    <meta name="description" content="Release song: https://youtu.be/3L4YrGaR8E4">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="La Clé Des Champs" />
-    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the update documentation to roll out this new version. Read the doc ..." />
+    <meta property="og:title" content="Bulls On Parade" />
+    <meta property="og:description" content="Release song: https://youtu.be/3L4YrGaR8E4" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/pro/la-cle-des-champs">
+    <link rel="canonical" href="https://help.passbolt.com/releases/pro/bulls_on_parade">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v3.2.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/pro/v4.7.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -87,7 +87,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/pro/bulls_on_parade" >v4.7.0</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/pro/la-cle-des-champs"><span>la-cle-des-champs</span></a>
+                        <a href="https://help.passbolt.com/releases/pro/bulls_on_parade"><span>bulls_on_parade</span></a>
                     </div>
                 </li>
                 
@@ -191,167 +191,135 @@
     </div>
 </div>
 
-                            <h1>v3.2.0 ~ La Clé Des Champs (pro)</h1>
+                            <h1>v4.7.0 ~ Bulls On Parade (pro)</h1>
                             <p>Release date: 
-May
-31st,
-2021.
+April
+30th,
+2024.
 </p>
-                            <div class="message notice">
-    <p>
-    This release introduces some new dependencies and database changes. <br />Make sure you follow 
-    the <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
-    </p>
-    
-    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
-    
-</div>
+                            <p>Release song: https://youtu.be/3L4YrGaR8E4</p>
 
-<p>The team is pleased to announce that the much awaited “Internationalisation” feature is available to Passbolt Pro, Passbolt Cloud (in progress) as well as Passbolt CE subscribers as part of this release. It is the beginning of continuous effort to provide passbolt in the favorite language of our users. This release ships with the French translation, but other languages such as German and Spanish are in the works.</p>
+<p>Passbolt Pro v4.7 is a maintenance release that resolves multiple issues identified by the community. Furthermore, this release supports the commitment to improving customization options and integration features, making it easier for organizations to tailor the system to their specific needs.</p>
+
+<p>A key enhancement in this release is the ability for administrators to use custom SSL certificates for <a href="https://www.passbolt.com/docs/admin/emails/email-server/">SMTP</a> and <a href="https://www.passbolt.com/docs/hosting/configure/ldap/ldaps/">Users Directory</a> server connections. These long-awaited features are particularly beneficial for organizations operating in air-gapped environments or those using their own root CAs, enabling passbolt to more securely integrate with internal tools.</p>
+
+<p>All of these customizations are visible in the API status report of the administration workspace, providing a clear and manageable overview for administrators.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2021/05/translations_status.png" alt="Translations status" style="max-width:;" />
-    <span class="legend">fig. Translations status</span>
+    <img src="https://help.passbolt.com/assets/img/help/2024/05/Passbolt-API-Status-in-UI.png" alt="Passbolt API Status" style="max-width:780px;" />
+    <span class="legend">fig. Passbolt API Status</span>
 </figure>
 
-<p>More languages will come as we go and we are of course counting on the community contributions to keep proposing new ones and make Passbolt available to everyone. If you’d like to contribute and understand how you can translate passbolt in your favorite language, check out the <a href="https://help.passbolt.com/contribute/translation">documentation</a>. We have tried our best to make the translation process fairly easy and accessible to everyone.</p>
-
-<p>This release also introduces a new subscription key management feature available directly from the application’s main administration panel. This feature will help administrators manage their subscriptions more efficiently.</p>
+<p>As usual this information is also available for administrators via the health check command line.</p>
 
 <figure>
-    <img src="https://help.passbolt.com/assets/img/help/2021/05/AD_subscription_management.png" alt="Subscription management" style="max-width:;" />
-    <span class="legend">fig. Subscription management</span>
+    <img src="https://help.passbolt.com/assets/img/help/2024/05/Healthcheck-Directory-Sync-in-CLI.png" alt="Directory Sync" style="max-width:780px;" />
+    <span class="legend">fig. Directory Sync</span>
 </figure>
 
-<p>Another aspect of this release is the upgrade of the passbolt API code base to CakePHP v4. This upgrade was necessary and sets the foundations of the new avatars management system, where the users’ avatars are now stored primarily in the database rather than in the file system. This long planned improvement has several benefits among which is a simpler backup workflow as well as the ability to deploy passbolt in high availability.</p>
+<p>Moreover, the integration with user directories has been improved, now enabling the synchronization of user accounts using multiple fields as email identifiers. This allows organizations with heterogeneous data environments to synchronize more seamlessly with passbolt. This improvement is part of a broader initiative aimed at modernizing the integration with your user directories. Stay tuned, more enhancements are planned for future releases.</p>
 
-<p>Finally, the team is proud to share with the community the results of the annual security audit part II performed by <a href="https://cure53.de">Cure53</a> with a focus on the webextensions. The positive results validate the continuous efforts of the team.</p>
-
-<p>“<em>The Passbolt extension stands strong and the audit and pentest did not manage to unveil any serious severity bugs, whereas the overall number of problems is also limited to just two minor flaws.</em>”</p>
-
-<p>To know more about this audit, checkout the <a href="https://medium.com/passbolt/passbolt-security-audit-2021-da77bac10ed9">blog article</a>.</p>
-
-<p>A big thank you to <a href="https://www.crowdin.com">Crowdin</a> for providing us with their amazing translation platform for free. Huge thanks also to the people who have reported and documented bugs on github and the community forum including: @noinlj, @flifloo, @svenseeberg, @Kassouma and many more.</p>
-
-<h1 id="api">API</h1>
-<h2 id="322---2021-06-16">[3.2.2] - 2021-06-16</h2>
-<h3 id="fixed">Fixed</h3>
-<ul>
-  <li>PB-5910 Fix ldap admin screen should load only default admin users who are active and not deleted</li>
-</ul>
-
-<h2 id="321---2021-06-04">[3.2.1] - 2021-06-04</h2>
-<h3 id="fixed-1">Fixed</h3>
-<ul>
-  <li>GITHUB-402 Fix API v3 regression, login must accept JSON data</li>
-</ul>
-
-<h2 id="320---2021-05-31">[3.2.0] - 2021-05-31</h2>
+<h2 id="api">API</h2>
 <h3 id="added">Added</h3>
 <ul>
-  <li>PB-5054 French internationalisation</li>
-  <li>
-    <p>PB-5171 As logged-in user, I can paginate the result of the users and resources index controllers</p>
-  </li>
-  <li>
-    <p>PB-5526 As admin I can save the subscription key as an organisation setting</p>
-  </li>
-  <li>PB-5854 As logged-in user I can save the locale of a user as an account setting</li>
-  <li>
-    <p>PB-5854 As admin I can save the locale the organisation as organisation setting</p>
-  </li>
-  <li>PB-5985 As a system administrator I should be able to import a subscription key from the command line</li>
-</ul>
-
-<h3 id="fixed-2">Fixed</h3>
-<ul>
-  <li>PB-5523 Fix as system administrator I should see the healthcheck errors colored in red</li>
-  <li>
-    <p>PB-5860 Fix password max length should be set to 4096 in resource type definitions</p>
-  </li>
-  <li>
-    <p>PB-6007 Fix all group managers should receive an email when a new user is added to a group after a Ldap synchronization</p>
-  </li>
-  <li>PB-6031 Fix as LU I shouldn’t get a fatal error when using a scalar instead of an array for some filters values</li>
-  <li>PB-6131 Fix healthcheck error messages display</li>
-</ul>
-
-<h3 id="improved">Improved</h3>
-<ul>
-  <li>PB-5975 Test code with PHPStan - level 4</li>
-  <li>PB-7576 Avatar table should use created and modified for timestamp and not created_at and modified_at</li>
-  <li>PB-5527 Move avatar in database</li>
-</ul>
-
-<h3 id="maintenance">Maintenance</h3>
-<ul>
-  <li>PB-5527 Migration to CakePHP4</li>
+  <li>PB-30330 Add HTTP HEAD method support to /healthcheck/status.json to support more uptime monitoring tools (GITHUB #507)</li>
+  <li>PB-26156 As an administrator I can configure SMTP to use TLS with a self-signed cert on my mail server (GITHUB #498)</li>
 </ul>
 
 <h3 id="security">Security</h3>
 <ul>
-  <li>Remove X-XSS-Protection as per Cure53 <a href="https://help.passbolt.com/assets/files/PBL-01-report.pdf">audit result and recommendations</a></li>
+  <li>PB-30255 As an authenticated user I cannot access to the healthcheck endpoint when debug is on</li>
 </ul>
 
-<h1 id="browser-extension">Browser Extension</h1>
-<h2 id="323---2021-06-07">[3.2.3] - 2021-06-07</h2>
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-7561 Fix as LU I should import CSV containing non latin1 characters</li>
-  <li>PB-7563 Update passbolt styleguide dependencies</li>
+  <li>PB-30379 As an authenticating user I should not get a 500 if the gpg_auth is not an array</li>
+  <li>PB-32889 As an administrator I should not get an exception when running core healthcheck and the host cannot be resolved</li>
+  <li>PB-32928 As user I should see the accurate URL in the email footer when passbolt runs on multiple instances</li>
+  <li>PB-32566 As a user setting up my account I should not get an unexpected 500</li>
+  <li>PB-32903 Fix deprecation error on password expiry settings validation</li>
 </ul>
 
-<h2 id="322---2021-05-31">[3.2.2] - 2021-05-31</h2>
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>PB-7569 As AN with an unconfigured extension on chrome I should not get an error clicking on the toolbar passbolt icon</li>
+  <li>PB-29983 Refactor health check code domain for better maintenance</li>
+  <li>PB-30394 Moves code in ActionLogsModelListener into a dedicated service</li>
+  <li>PB-32881 Disable by default all plugins in integration tests</li>
+  <li>PB-32978 Use dependency proxy to reduce docker pull limit</li>
+  <li>PB-22605 Refactor ShareSearchControllerTest, SecretViewControllerTest and GroupsDeleteControllerTest with fixture factories</li>
+  <li>PB-32594 Add tests for SecretCreateService</li>
 </ul>
 
-<h2 id="321---2021-05-26">[3.2.1] - 2021-05-26</h2>
+<h2 id="browser-extension">Browser extension</h2>
 <h3 id="added-1">Added</h3>
 <ul>
-  <li>PB-5054 French internationalisation</li>
-  <li>PB-5526 As AD I can manage the subscription key from the administration panel</li>
+  <li>PB-32931 As administrator, I see SSO and Directory Sync health checks in Passbolt API Status page</li>
+  <li>PB-33065 As an administrator I can add a fallback property to map my organisation AD user username</li>
+  <li>PB-33070 Request passphrase when exporting account kit</li>
 </ul>
 
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-1">Fixed</h3>
 <ul>
-  <li>PB-5366 Fix share autocomplete search results can be invalid</li>
-  <li>PB-5498 Fix image version displayed after avatar upload</li>
-  <li>PB-5861 Fix serializePlaintextDto should validate secret maxlength if resourceTypeId is set to legacy type, or not set</li>
-  <li>PB-5909 Fix as logged-in user aborting a preview operation I should not see an empty preview</li>
-  <li>PB-5983 Fix as logged-in user I can import passwords with non latin characters</li>
-  <li>PB-6008 Fix as logged-in user I should get a feedback in the quickaccess when I try to autofill credentials on a page, but an error occurred</li>
-  <li>PB-6080 Fix add favorites fetch payload error</li>
-</ul>
-
-<h3 id="improvement">Improvement</h3>
-<ul>
-  <li>PB-5443 As logged-in user I should get a visual feedback when the maximum length of the secret fields is reached so that I do not lose data</li>
-  <li>PB-5455 As logged-in user selecting a description order to copy it should not enter the description edit mode</li>
-  <li>PB-5496 As logged-in user updating my avatar I should see the error message if an error occurred</li>
-  <li>PB-5857 As logged-in user I should be able to change the user role in the create/edit user dialog by clicking on the checkbox label</li>
-</ul>
-
-<h3 id="security-1">Security</h3>
-<ul>
-  <li>PB-6012 Fix the quickaccess suggestion component should not suggest TLD entries (PB-01-002)</li>
+  <li>PB-32420 Fix double calls to PwnedPassword API service</li>
+  <li>PB-32631 Fix healthCheck Entity to support air gapped instances</li>
+  <li>PB-33066 As AD, I should not see directorySync and SSO checks if they are disabled</li>
+  <li>PB-33067 After an unexpected error during setup, recover or account recovery, only the iframe reload and the port cannot reconnect</li>
 </ul>
 
 <h3 id="maintenance-1">Maintenance</h3>
 <ul>
-  <li>PB-5069 Migrate moment to Luxon</li>
-  <li>PB-5884 Move quickaccess front end code to the styleguide repository</li>
-  <li>PB-5887 Fix semantic gap in naming conventions in styleguide</li>
-  <li>PB-5959 Bump webpack to v5</li>
+  <li>PB-22623 Start service worker in an insecure environment</li>
+  <li>PB-22640 As a signed-in user the inform call to action should remain after the port is disconnected only for MV3</li>
+  <li>PB-22644 The passbolt icon should detect if the user is still connected after the service worker awake</li>
+  <li>PB-23928 Handle when the extension is updated, the webIntegration should be destroy and injected again</li>
+  <li>PB-29622 Simulate user keyboard input for autofill event</li>
+  <li>PB-29946 When the service worker is shutdown and a navigation is detected the service worker do not reconnect port and stay in error mode</li>
+  <li>PB-29965 Use a dedicated service to verify the server</li>
+  <li>PB-29966 Update apiClient to support form data body and custom header</li>
+  <li>PB-29967 Use a dedicated service to do the step challenge with the server</li>
+  <li>PB-29968 use a dedicated service to check the user authentication status</li>
+  <li>PB-29969 Use a dedicated service to logout the user</li>
+  <li>PB-29988 Update the alarm in the class StartLoopAuthSessionCheckService to use the property periodInMinutes</li>
+  <li>PB-29989 Put the alarm listener at the top level for the StartLoopAuthSessionCheckService to check the authentication status</li>
+  <li>PB-29990 Move PassphraseStorageService keep alive alarm listener in top level</li>
+  <li>PB-30272 Add message service in the app content script in order to reconnect the port from a message sent by the service worker</li>
+  <li>PB-30273 On the post logout event the service worker should reconnect port that needs to receive the post logout message</li>
+  <li>PB-30274 Add message service in the browser integration content script in order to reconnect the port from a message sent by the service worker</li>
+  <li>PB-30310 Improve invalid groups users sanitization strategy</li>
+  <li>PB-30335 Use timeout instead alarms for service worker</li>
+  <li>PB-30336 Use timeout instead alarms for promise timeout service</li>
+  <li>PB-30337 Put the alarm listener at the top level for the passphraseStorageService to flush passphrase after a time duration</li>
+  <li>PB-30341 Remove alarms for toolbar controller</li>
+  <li>PB-30342 Use timeout instead of alarm for the resource in progress cache service to flush the resource not consumed</li>
+  <li>PB-30374 Check if AuthService from styleguide is still used in the Bext otherwise remove it</li>
+  <li>PB-30375 Improve CI unit test performance by running them in band</li>
+  <li>PB-32291 Cleanup legacy code and unused passbolt.auth.is-authenticated related elements</li>
+  <li>PB-32335 Split PassphraseStorageService to put the KeepSessionAlive feature on its own service</li>
+  <li>PB-32345 Ensures on the desktop app during import account that the file to import is taken into account</li>
+  <li>PB-32597 Ensure ToolbarController are set on index.js</li>
+  <li>PB-32598 Ensure add listener from authentication event controller are set on index.js</li>
+  <li>PB-32599 Ensure add listener from StartLoopAuthSessionCheckService are set on index.js</li>
+  <li>PB-32604 Ensure add listener from on extension update available controller are set on index.js</li>
+  <li>PB-32602 Ensure add listener from user.js are set on index.js</li>
+  <li>PB-32603 Ensure add listener from ResourceInProgressCacheService are set on index.js</li>
+  <li>PB-32915 Update code to remove the destruction of the public web sign-in on port disconnected</li>
+  <li>PB-32916 Update code to remove the destruction of the setup on port disconnected</li>
+  <li>PB-32917 Update code to remove the destruction of the recover on port disconnected</li>
+  <li>PB-33018 Automate browser extension npm publication</li>
+  <li>PB-33024 Ensure only stable tags of the styleguide are published to npm</li>
+  <li>PB-33024 Ensure only stable tag of the browser extension are sent for review or publish to the store</li>
+  <li>PB-33061 Create account temporary storage</li>
+  <li>PB-33062 Use temporary account storage for setup process</li>
+  <li>PB-33063 Use temporary account storage for recover process</li>
+  <li>PB-33064 Use temporary account storage for account recovery process</li>
+  <li>PB-33068 Remove beta information for the windows app</li>
 </ul>
-
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"La Clé Des Champs"</p>
-                                <a href="https://youtu.be/qd_8mm906GA" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Bulls On Parade"</p>
+                                <a href="https://youtu.be/3L4YrGaR8E4" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

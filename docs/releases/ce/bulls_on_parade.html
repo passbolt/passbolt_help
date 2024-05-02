@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Stomp</title>
+    <title>Passbolt Help | Bulls On Parade</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This is a small maintenance release. It fixes a bug introduced with the latest release.">
+    <meta name="description" content="Release song: https://youtu.be/3L4YrGaR8E4">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Stomp" />
-    <meta property="og:description" content="This is a small maintenance release. It fixes a bug introduced with the latest release." />
+    <meta property="og:title" content="Bulls On Parade" />
+    <meta property="og:description" content="Release song: https://youtu.be/3L4YrGaR8E4" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v2131-stomp">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/bulls_on_parade">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.13.1.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.7.0.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/bulls_on_parade" >v4.7.0</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v2131-stomp"><span>stomp</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/bulls_on_parade"><span>bulls_on_parade</span></a>
                     </div>
                 </li>
                 
@@ -191,31 +191,119 @@
     </div>
 </div>
 
-                            <h1>v2.13.1 ~ Stomp (ce)</h1>
+                            <h1>v4.7.0 ~ Bulls On Parade (ce)</h1>
                             <p>Release date: 
-July
-7th,
-2020.
+April
+30th,
+2024.
 </p>
-                            <p>This is a small maintenance release. It fixes a bug introduced with the latest release.</p>
+                            <p>Release song: https://youtu.be/3L4YrGaR8E4</p>
 
-<p>Thank you to everyone who helped us test and iron out the last kinks!</p>
+<p>Passbolt Community Edition v4.7 is a maintenance release that resolves multiple issues identified by the community. Furthermore, this release supports the commitment to improving customization options and integration features, making it easier for organizations to tailor the system to their specific needs.</p>
 
-<p>In other news, we just published <a href="https://medium.com/passbolt/why-does-passbolt-require-an-extension-d1b189133b2">an article</a> 
-on the blog to explain why passbolt requires an extension.</p>
+<p>A key enhancement in this release is the ability to use custom SSL certificates for SMTP server connections. This long-awaited feature is particularly beneficial for organizations operating in air-gapped environments or those using their own root CAs, enabling passbolt to more securely integrate with internal tools.</p>
 
-<h1 id="changelog">Changelog</h1>
 <h2 id="api">API</h2>
+<h3 id="added">Added</h3>
+<ul>
+  <li>PB-30330 Add HTTP HEAD method support to /healthcheck/status.json to support more uptime monitoring tools (GITHUB #507)</li>
+  <li>PB-26156 As an administrator I can configure SMTP to use TLS with a self-signed cert on my mail server (GITHUB #498)</li>
+</ul>
+
+<h3 id="security">Security</h3>
+<ul>
+  <li>PB-30255 As an authenticated user I cannot access to the healthcheck endpoint when debug is on</li>
+</ul>
+
 <h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PB-1372 Fix user setup completed admin email notification</li>
+  <li>PB-30379 As an authenticating user I should not get a 500 if the gpg_auth is not an array</li>
+  <li>PB-32889 As an administrator I should not get an exception when running core healthcheck and the host cannot be resolved</li>
+  <li>PB-32928 As user I should see the accurate URL in the email footer when passbolt runs on multiple instances</li>
+  <li>PB-32566 As a user setting up my account I should not get an unexpected 500</li>
+  <li>PB-32903 Fix deprecation error on password expiry settings validation</li>
+</ul>
+
+<h3 id="maintenance">Maintenance</h3>
+<ul>
+  <li>PB-29983 Refactor health check code domain for better maintenance</li>
+  <li>PB-30394 Moves code in ActionLogsModelListener into a dedicated service</li>
+  <li>PB-32881 Disable by default all plugins in integration tests</li>
+  <li>PB-32978 Use dependency proxy to reduce docker pull limit</li>
+  <li>PB-22605 Refactor ShareSearchControllerTest, SecretViewControllerTest and GroupsDeleteControllerTest with fixture factories</li>
+  <li>PB-32594 Add tests for SecretCreateService</li>
+</ul>
+
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="added-1">Added</h3>
+<ul>
+  <li>PB-32931 As administrator, I see SSO and Directory Sync health checks in Passbolt API Status page</li>
+  <li>PB-33065 As an administrator I can add a fallback property to map my organisation AD user username</li>
+  <li>PB-33070 Request passphrase when exporting account kit</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+<ul>
+  <li>PB-32420 Fix double calls to PwnedPassword API service</li>
+  <li>PB-32631 Fix healthCheck Entity to support air gapped instances</li>
+  <li>PB-33066 As AD, I should not see directorySync and SSO checks if they are disabled</li>
+  <li>PB-33067 After an unexpected error during setup, recover or account recovery, only the iframe reload and the port cannot reconnect</li>
+</ul>
+
+<h3 id="maintenance-1">Maintenance</h3>
+<ul>
+  <li>PB-22623 Start service worker in an insecure environment</li>
+  <li>PB-22640 As a signed-in user the inform call to action should remain after the port is disconnected only for MV3</li>
+  <li>PB-22644 The passbolt icon should detect if the user is still connected after the service worker awake</li>
+  <li>PB-23928 Handle when the extension is updated, the webIntegration should be destroy and injected again</li>
+  <li>PB-29622 Simulate user keyboard input for autofill event</li>
+  <li>PB-29946 When the service worker is shutdown and a navigation is detected the service worker do not reconnect port and stay in error mode</li>
+  <li>PB-29965 Use a dedicated service to verify the server</li>
+  <li>PB-29966 Update apiClient to support form data body and custom header</li>
+  <li>PB-29967 Use a dedicated service to do the step challenge with the server</li>
+  <li>PB-29968 use a dedicated service to check the user authentication status</li>
+  <li>PB-29969 Use a dedicated service to logout the user</li>
+  <li>PB-29988 Update the alarm in the class StartLoopAuthSessionCheckService to use the property periodInMinutes</li>
+  <li>PB-29989 Put the alarm listener at the top level for the StartLoopAuthSessionCheckService to check the authentication status</li>
+  <li>PB-29990 Move PassphraseStorageService keep alive alarm listener in top level</li>
+  <li>PB-30272 Add message service in the app content script in order to reconnect the port from a message sent by the service worker</li>
+  <li>PB-30273 On the post logout event the service worker should reconnect port that needs to receive the post logout message</li>
+  <li>PB-30274 Add message service in the browser integration content script in order to reconnect the port from a message sent by the service worker</li>
+  <li>PB-30310 Improve invalid groups users sanitization strategy</li>
+  <li>PB-30335 Use timeout instead alarms for service worker</li>
+  <li>PB-30336 Use timeout instead alarms for promise timeout service</li>
+  <li>PB-30337 Put the alarm listener at the top level for the passphraseStorageService to flush passphrase after a time duration</li>
+  <li>PB-30341 Remove alarms for toolbar controller</li>
+  <li>PB-30342 Use timeout instead of alarm for the resource in progress cache service to flush the resource not consumed</li>
+  <li>PB-30374 Check if AuthService from styleguide is still used in the Bext otherwise remove it</li>
+  <li>PB-30375 Improve CI unit test performance by running them in band</li>
+  <li>PB-32291 Cleanup legacy code and unused passbolt.auth.is-authenticated related elements</li>
+  <li>PB-32335 Split PassphraseStorageService to put the KeepSessionAlive feature on its own service</li>
+  <li>PB-32345 Ensures on the desktop app during import account that the file to import is taken into account</li>
+  <li>PB-32597 Ensure ToolbarController are set on index.js</li>
+  <li>PB-32598 Ensure add listener from authentication event controller are set on index.js</li>
+  <li>PB-32599 Ensure add listener from StartLoopAuthSessionCheckService are set on index.js</li>
+  <li>PB-32604 Ensure add listener from on extension update available controller are set on index.js</li>
+  <li>PB-32602 Ensure add listener from user.js are set on index.js</li>
+  <li>PB-32603 Ensure add listener from ResourceInProgressCacheService are set on index.js</li>
+  <li>PB-32915 Update code to remove the destruction of the public web sign-in on port disconnected</li>
+  <li>PB-32916 Update code to remove the destruction of the setup on port disconnected</li>
+  <li>PB-32917 Update code to remove the destruction of the recover on port disconnected</li>
+  <li>PB-33018 Automate browser extension npm publication</li>
+  <li>PB-33024 Ensure only stable tags of the styleguide are published to npm</li>
+  <li>PB-33024 Ensure only stable tag of the browser extension are sent for review or publish to the store</li>
+  <li>PB-33061 Create account temporary storage</li>
+  <li>PB-33062 Use temporary account storage for setup process</li>
+  <li>PB-33063 Use temporary account storage for recover process</li>
+  <li>PB-33064 Use temporary account storage for account recovery process</li>
+  <li>PB-33068 Remove beta information for the windows app</li>
 </ul>
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"Lately I've been going through some things"</p>
-                                <a href="https://youtu.be/tPBDMihPRJA" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Bulls On Parade"</p>
+                                <a href="https://youtu.be/3L4YrGaR8E4" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

@@ -9,6 +9,37 @@
 
 
 <item>
+    <title>v4.7.8 | Another Brick In The Wall</title>
+    <link>https://help.passbolt.com/releases/ce/another-brick-in-the-wall</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/another-brick-in-the-wall</guid>
+    <description>Passbolt v4.7.8 is a browser extension maintenance release fixing issue introduces on v4.7.0 which might lead to unresponsive browser extension.
+
+Browser extension
+Fixed
+
+  PB-33410 Fix Chrome extension frozen and unusable after some period of inactivity
+
+</description>
+    <pubDate>Thu, 16 May 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v4.7.7 | Pride</title>
+    <link>https://help.passbolt.com/releases/ce/pride</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/ce/pride</guid>
+    <description>Passbolt v4.7.7 is a browser extension maintenance release focused on fixing problems linked to the extension update and preparing the transition to MV3. Browser extension Maintenance PB-33235 Convert formData file into a json serializable in offscreen PB-33297 Extension update available should store the state if user signed in PB-33321 Fix...</description>
+    <pubDate>Mon, 13 May 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.7.0 | Bulls On Parade</title>
     <link>https://help.passbolt.com/releases/ce/bulls_on_parade</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/ce/bulls_on_parade</guid>

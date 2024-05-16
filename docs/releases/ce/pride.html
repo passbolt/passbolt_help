@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | I want to break free</title>
+    <title>Passbolt Help | Pride</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Please note that Passbolt API V1.x will be officially unmaintained from 1st of September 2018. If you haven’t upgraded to V2.x yet, it is strongly advised to...">
+    <meta name="description" content="Passbolt v4.7.7 is a browser extension maintenance release focused on fixing problems linked to the extension update and preparing the transition to MV3.">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="I want to break free" />
-    <meta property="og:description" content="Please note that Passbolt API V1.x will be officially unmaintained from 1st of September 2018. If you haven’t upgraded to V2.x yet, it is strongly advised to..." />
+    <meta property="og:title" content="Pride" />
+    <meta property="og:description" content="Passbolt v4.7.7 is a browser extension maintenance release focused on fixing problems linked to the extension update and preparing the transition to MV3." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v220-i-want-to-break-free">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/pride">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.2.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.7.7.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -97,7 +97,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/pride" >v4.7.7</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v220-i-want-to-break-free"><span>i-want-to-break-free</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/pride"><span>pride</span></a>
                     </div>
                 </li>
                 
@@ -191,66 +191,27 @@
     </div>
 </div>
 
-                            <h1>v2.2.0 ~ I want to break free (ce)</h1>
+                            <h1>v4.7.7 ~ Pride (ce)</h1>
                             <p>Release date: 
-August
+May
 13th,
-2018.
+2024.
 </p>
-                            <p><strong>Please note that Passbolt API V1.x will be officially unmaintained from 1st of September 2018. If you haven’t upgraded to V2.x yet, it is strongly advised to do it now since the next versions of the browser extension will not be compatible anymore with V1.x branch.</strong></p>
+                            <p>Passbolt v4.7.7 is a browser extension maintenance release focused on fixing problems linked to the extension update and preparing the transition to MV3.</p>
 
-<p>This release is mainly a maintenance release that also prepares the groundwork for the upcoming ldap feature.</p>
-
-<p>This release also includes a <a href="https://community.passbolt.com/t/fix-performance-issue-on-large-password-database-2k-4k-passwords/493">long awaited fix</a> regarding performance issues. You can now manage thousands of passwords inside passbolt pretty smoothly.</p>
-
-<p>The security has been improved even more with the implementation of <a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)">CSRF</a> protection. Now each request made by the client contains a token that is verified server side, hence protecting against CSRF attack types.</p>
-
-<p>We have also upgraded canjs to version 4: It is the framework behind our javascript UI. This upgrade was long due and took quite a bit of efforts. After CakePHP 3.x, the upgrade of canjs is part of these invisible and painful but necessary upgrades that contribute to keep passbolt secure and maintainable.</p>
-
-<h1 id="passbolt-api">Passbolt API</h1>
-
-<h2 id="added">Added</h2>
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="maintenance">Maintenance</h3>
 <ul>
-  <li>PASSBOLT-2906: Enable CSRF protection</li>
-  <li>PASSBOLT-2940: Implement app-js primary routes</li>
+  <li>PB-33235 Convert formData file into a json serializable in offscreen</li>
+  <li>PB-33297 Extension update available should store the state if user signed in</li>
+  <li>PB-33321 Fix local storage loading on extension update</li>
 </ul>
-
-<h2 id="fixed">Fixed</h2>
-<ul>
-  <li>PASSBOLT-2805: Fix sort by date and sort by user first_name by default</li>
-  <li>PASSBOLT-2896: Fix filter by tag from the password details sidebar</li>
-  <li>PASSBOLT-2903: Fix logout link. It should target a full based url link</li>
-  <li>PASSBOLT-2926: Fix session timeout check</li>
-  <li>PASSBOLT-2927: Fix appjs ajax error handler</li>
-  <li>PASSBOLT-2941: Fix grid performance issues</li>
-</ul>
-
-<h2 id="improved">Improved</h2>
-<ul>
-  <li>PASSBOLT-2933: Upgrade to canjs 4</li>
-</ul>
-
-<h1 id="passbolt-docker">Passbolt Docker</h1>
-
-<h2 id="added-1">Added</h2>
-<ul>
-  <li>Added <a href="https://github.com/vishnubob/wait-for-it">wait-for-it</a> script instead of wait-for to eliminate netcat dependency</li>
-</ul>
-
-<h2 id="changed">Changed</h2>
-<ul>
-  <li>Merged: hide nginx and php version <a href="https://github.com/passbolt/passbolt_docker/pull/107">#107</a></li>
-  <li>Merged: restrict MySQL port access <a href="https://github.com/passbolt/passbolt_docker/pull/109">#109</a></li>
-  <li>Supervisor config files split into conf.d/{php.conf,nginx.conf,cron.conf}</li>
-  <li>Default stdout logging is more verbose now allowing users to see more details on the requests</li>
-</ul>
-
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"God knows, got to make it on my own"</p>
-                                <a href="https://youtu.be/f4Mc-NYPHaQ" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Pride"</p>
+                                <a href="https://youtu.be/J87pJrxvJ5E?si=vGs8M6uyM6E7Lcps" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

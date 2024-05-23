@@ -30,11 +30,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/</loc>
-<lastmod>2024-05-16T08:36:51+02:00</lastmod>
+<lastmod>2024-05-23T17:45:50+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/</loc>
-<lastmod>2024-05-16T08:36:51+02:00</lastmod>
+<lastmod>2024-05-23T17:45:50+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/security-vulnerability</loc>
@@ -98,7 +98,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/</loc>
-<lastmod>2024-05-16T08:36:51+02:00</lastmod>
+<lastmod>2024-05-23T17:45:50+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/incidents/20170210_chrome_not_available</loc>
@@ -823,6 +823,14 @@
 <url>
 <loc>https://help.passbolt.com/releases/pro/another-brick-in-the-wall</loc>
 <lastmod>2024-05-16T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/releases/ce/angel</loc>
+<lastmod>2024-05-21T00:00:00+02:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/releases/pro/angel</loc>
+<lastmod>2024-05-21T00:00:00+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/api/authentication</loc>

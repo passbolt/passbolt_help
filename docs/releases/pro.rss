@@ -7,6 +7,61 @@
 
 
 <item>
+    <title>v4.8.0 | Angel</title>
+    <link>https://help.passbolt.com/releases/pro/angel</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/angel</guid>
+    <description>Passbolt v4.8.0 is a maintenance release focusing on the migration of the browser extension to the latest MV3 architecture and adding tools for administrators to help them manage their instance. This release marks the introduction of the first version of the MV3 extension for Chrome. The transition to MV3 has...</description>
+    <pubDate>Tue, 21 May 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v4.7.8 | Another Brick In The Wall</title>
+    <link>https://help.passbolt.com/releases/pro/another-brick-in-the-wall</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/another-brick-in-the-wall</guid>
+    <description>Passbolt v4.7.8 is a browser extension maintenance release fixing issue introduces on v4.7.0 which might lead to unresponsive browser extension.
+
+Browser extension
+Fixed
+
+  PB-33410 Fix Chrome extension frozen and unusable after some period of inactivity
+
+</description>
+    <pubDate>Thu, 16 May 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v4.7.7 | Pride</title>
+    <link>https://help.passbolt.com/releases/pro/pride</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/pride</guid>
+    <description>Passbolt v4.7.7 is a browser extension maintenance release focused on fixing problems linked to the extension update and preparing the transition to MV3. Browser extension Maintenance PB-33235 Convert formData file into a json serializable in offscreen PB-33297 Extension update available should store the state if user signed in PB-33321 Fix...</description>
+    <pubDate>Mon, 13 May 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
+    <title>v4.7.0 | Bulls On Parade</title>
+    <link>https://help.passbolt.com/releases/pro/bulls_on_parade</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/bulls_on_parade</guid>
+    <description>Release song: https://youtu.be/3L4YrGaR8E4 Passbolt Pro v4.7 is a maintenance release that resolves multiple issues identified by the community. Furthermore, this release supports the commitment to improving customization options and integration features, making it easier for organizations to tailor the system to their specific needs. A key enhancement in this release...</description>
+    <pubDate>Tue, 30 Apr 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.6.2 | One Nation Under A Groove</title>
     <link>https://help.passbolt.com/releases/pro/one_nation_under_a_groove</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/one_nation_under_a_groove</guid>

@@ -30,11 +30,11 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/contribute/</loc>
-<lastmod>2024-04-26T09:34:15+02:00</lastmod>
+<lastmod>2024-06-12T10:48:31+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/</loc>
-<lastmod>2024-04-26T09:34:15+02:00</lastmod>
+<lastmod>2024-06-12T10:48:31+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/security-vulnerability</loc>
@@ -98,7 +98,7 @@
 </url>
 <url>
 <loc>https://help.passbolt.com/faq/security/</loc>
-<lastmod>2024-04-26T09:34:15+02:00</lastmod>
+<lastmod>2024-06-12T10:48:31+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/incidents/20170210_chrome_not_available</loc>
@@ -195,6 +195,10 @@
 <url>
 <loc>https://help.passbolt.com/incidents/reflective-html-injection-vulnerability</loc>
 <lastmod>2024-04-17T09:00:01+02:00</lastmod>
+</url>
+<url>
+<loc>https://help.passbolt.com/incidents/20240610_cloud-performance-degradation</loc>
+<lastmod>2024-06-12T10:30:00+02:00</lastmod>
 </url>
 <url>
 <loc>https://help.passbolt.com/releases/ce/v105-moveonup</loc>

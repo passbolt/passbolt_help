@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Passphrase information leakage</title>
+    <title>Passbolt Help | Cloud outage June 10th</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Summary">
+    <meta name="description" content="">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Passphrase information leakage" />
-    <meta property="og:description" content="Summary" />
+    <meta property="og:title" content="Cloud outage June 10th" />
+    <meta property="og:description" content="" />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
+    <link rel="canonical" href="https://help.passbolt.com/incidents/20240610_cloud-performance-degradation">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -74,7 +74,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2017-10-13-passphrase-information-leakage.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_incidents/2024-06-12-Cloud-performance-degradation.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -95,7 +95,7 @@
         
         
         
-        <li>
+        <li class="selected">
         
             <a href="https://help.passbolt.com/incidents/20240610_cloud-performance-degradation">
 June
@@ -315,7 +315,7 @@ December
         </li>
         
         
-        <li class="selected">
+        <li>
         
             <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage">
 October
@@ -379,7 +379,7 @@ February
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/incidents/20171013_passphrase_information_leakage"><span>2017-10-13 Passphrase information leakage</span></a>
+                        <a href="https://help.passbolt.com/incidents/20240610_cloud-performance-degradation"><span>20240610_cloud-performance-degradation</span></a>
                     </div>
                 </li>
                 
@@ -390,92 +390,95 @@ February
 
                         <div class="row" markdown="1">
 <div class="col7" markdown="1">
-<h1>Passphrase information leakage</h1>
+<h1>Cloud outage June 10th</h1>
 </div>
 </div>
 
                         <div class="row">
   <div class="col7">
-    <h2 id="summary">Summary</h2>
 
-    <p>Passbolt Extension version 1.6.6 is vulnerable to an information leakage during the setup.</p>
+    <h3 id="summary">Summary</h3>
+    <p>On June 10th, 2024, a service degradation occurred on Passbolt Cloud between 4:00 PM and 5:15 PM UTC. 
+This incident resulted in some users experiencing 404 errors and limited or no access to their organization 
+workspace. This incident was triggered by a release performed on the same day that contained some performance 
+improvements that proved to be problematic in conjunction with the underlying auto-scaling service configuration.</p>
 
+    <h3 id="impact">Impact</h3>
+    <p>We understand that this service degradation may have disrupted your daily operations, and we sincerely apologize 
+for the inconvenience caused.</p>
+
+    <h3 id="root-cause-analysis">Root Cause Analysis</h3>
+    <p>A thorough investigation identified a combination of factors contributing to the incident:</p>
     <ul>
-      <li><strong>CVE:</strong> N/A.</li>
-      <li><strong>Product affected:</strong> Passbolt Extension.</li>
-      <li><strong>Version affected:</strong> v1.6.6 and below.</li>
-      <li><strong>Version fixed:</strong> v1.6.7</li>
-      <li><strong>Affected component:</strong> Web extension private key passphrase entered before key generation.</li>
-      <li><strong>Vulnerability Type:</strong> Information leakage.</li>
+      <li><em>Change of Resource Usage</em>: The deployed applications were experiencing a change in usual resource consumption.</li>
+      <li><em>Aggressive Scaling Policy</em>: The recently implemented scaling policy was overly aggressive in resource deallocation.</li>
+      <li><em>Cluster Topology</em>: The specific configuration of the underlying cluster exacerbated the resource constraints.</li>
     </ul>
 
-    <h3 id="impact-of-issue">Impact of issue</h3>
+    <p>These factors, when combined, triggered a cascading series of failures across various system components, leading to 
+the service degradation.</p>
 
-    <p>Passphrase disclosure in the browser’s local storage between the key generation phase until the end of the setup.</p>
+    <h3 id="resolution">Resolution</h3>
+    <p>The engineering team promptly rolled back the new release and restarted the 
+underlying services to restore service stability.</p>
 
-    <h3 id="attack-vector--exploitation">Attack vector / exploitation</h3>
+    <h3 id="next-steps">Next steps</h3>
+    <p>We are committed to providing a reliable and high-performing cloud service. We will continue to monitor system 
+performance closely and implement new preventive measures.</p>
 
-    <p>An attacker having an access to the user file system during the extension setup, in the scenario where the key 
-is generated by the extension (as opposed to being imported), at the time between the key generation step and the 
-completion, could read the passphrase directly from the local storage. This information could be used to log in 
-into passbolt on behalf of the user and access / decrypt the secrets, therefore creating data confidentiality, 
-integrity and availability issues.</p>
-
-    <h3 id="credits">Credits</h3>
-
-    <p>This issue was found and reported by Juan Wajnerman.</p>
-
-    <h2 id="other-information">Other information</h2>
-
-    <h3 id="how-did-this-happen">How did this happen?</h3>
-
-    <p>Passbolt web extension use the local storage to store information about the setup so that a user that close the 
-browser window can come back at a later stage to complete the setup instead of starting from scratch.</p>
-
-    <h3 id="how-bad-is-this">How bad is this?</h3>
-
-    <p>From our perspective since the attacker requires an already high privilege in order to access to the local storage 
-of the browser via the file system, and that this information is available only temporarily (e.g. it is removed 
-when the setup is completed), we consider that the exploitability of this vulnerability is low. However considering 
-the high impact and since this vulnerability can be mitigated we decided to act on it.</p>
-
-    <h3 id="what-are-you-doing-about-it">What are you doing about it?</h3>
-
-    <p>From version 1.6.7 onward a user will not be able to continue the setup after closing the browser window and will 
-have to start the process from scratch starting by clicking on the setup link in their mailbox.</p>
-
-    <h3 id="event-timeline">Event timeline</h3>
-
+    <p>In that purpose, the following internal actions will take place:</p>
     <ul>
-      <li>2017-10-13 04:40:00 CET: Juan Wajnerman notify passbolt team about the issue.</li>
-      <li>2017-10-13 08:00:00 CET: Passbolt team starts working on an impact assessment.</li>
-      <li>2017-10-13 08:50:00 CET: Passbolt team notify Juan and starts working on afix.</li>
-      <li>2017-10-13 10:40:00 CET: v.1.6.7 is being tested on continuous integration servers.</li>
-      <li>2017-10-13 12:00:00 CET: v.1.6.7 submitted on chrome webstore and firefox add-ons.</li>
-      <li>2017-10-13 12:00:00 CET: This incident report is published.</li>
+      <li>Scaling Policy Review: Our team is actively reviewing and adjusting the scaling policy to ensure optimal resource allocation and prevent future resource contention.</li>
+      <li>Application Resource Optimization: We are continuing to investigate opportunities to optimize resource utilization within our applications.</li>
+      <li>Cluster Configuration Analysis: The underlying cluster configuration is being evaluated to identify any potential optimizations that could mitigate similar incidents in the future.</li>
+    </ul>
+
+    <p>Thank you for your patience and understanding.</p>
+
+    <h3 id="timeline">Timeline</h3>
+
+    <p>June 10th, 2024:</p>
+    <ul>
+      <li>15:30 CEST: Deployment of a new release that includes performance improvements specific to the cloud.</li>
+      <li>16:05 CEST: Service degradation began.</li>
+      <li>16:10 CEST: Service degradation reported by customers and monitoring tools.</li>
+      <li>16:20 CEST: Incident response team mobilized</li>
+      <li>16:30 CEST: Incident response team starts rolling back the release</li>
+      <li>16:45 CEST: Rollback of the release completed</li>
+      <li>17:10 CEST: Public communication about the incident on public channels</li>
+      <li>17:15 CEST: Remaining affected components are restored in working state</li>
+      <li>17:20 CEST: Service is back to nominal performance.</li>
+      <li>17:40 CEST: End of incident communicated on public channels.</li>
+    </ul>
+
+    <p>June 11th, 2024:</p>
+    <ul>
+      <li>18:00 CEST: Incident response team investigation ends</li>
+    </ul>
+
+    <p>June 12th, 2024</p>
+    <ul>
+      <li>12:00 CEST: Incident report published on the website.</li>
     </ul>
 
     <div class="last-updated">
       <h3>Last updated</h3>
       <p>This article was last updated on 
-October
-13th,
-2017.</p>
+June
+12th,
+2024.</p>
     </div>
+
   </div>
   <div class="col4 last push1">
-
     <div class="tldr message success">
     <h4>Current status:</h4>
-    1. Try first to reproduce the issue<br />
-    2. Acknowledge to the reporter<br />
-    3. Get a fix/patch prepared<br />
-    4. Release new version.<br />
-    5. Prepare a report about the issue.<br />
-    <strong>6. Feature the problem in the release.</strong>
-    <h5>Last updated: 2017-10-13 12:00:00 CET</h5>
+    1. Acknowledge issue with reporter<br />
+    2. Get a fix/patch prepared<br />
+    3. Prepare a report about the issue<br />
+    <strong>4. Feature the incident report</strong>
+    <h5>Last updated: 2024-06-12 10:30:00 CET</h5>
 </div>
-
   </div>
 </div>
 

@@ -7,6 +7,18 @@
 
 
 <item>
+    <title>v4.8.2 | The American Dream</title>
+    <link>https://help.passbolt.com/releases/pro/the-american-dream</link>
+    <guid isPermaLink="true">https://help.passbolt.com/releases/pro/the-american-dream</guid>
+    <description>Passbolt v4.8.2 is a maintenance update for the browser extension. This release primarily addresses issues related to Manifest v3 introduced in the latest update, which could, in rare cases, cause the application to become unresponsive. We hope these updates enhance your experience with Passbolt. Your feedback is always valuable to...</description>
+    <pubDate>Mon, 17 Jun 2024 00:00:00 +0200</pubDate>
+</item>
+
+
+
+
+
+<item>
     <title>v4.8.0 | Angel</title>
     <link>https://help.passbolt.com/releases/pro/angel</link>
     <guid isPermaLink="true">https://help.passbolt.com/releases/pro/angel</guid>

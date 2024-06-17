@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Passbolt Help | Thunderstruck</title>
+    <title>Passbolt Help | The American Dream</title>
     <!--
              ____                  __          ____
             / __ \____  _____ ____/ /_  ____  / / /_
@@ -16,15 +16,15 @@
      -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th...">
+    <meta name="description" content="Passbolt v4.8.2 is a maintenance update for the browser extension. This release primarily addresses issues related to Manifest v3 introduced in the latest up...">
     <meta property="og:image" content="https://help.passbolt.com/assets/img/background/og_preview.jpg" />
-    <meta property="og:title" content="Thunderstruck" />
-    <meta property="og:description" content="This release introduces some new dependencies and database changes. Make sure you follow the minor update documentation to roll out this new version. Read th..." />
+    <meta property="og:title" content="The American Dream" />
+    <meta property="og:description" content="Passbolt v4.8.2 is a maintenance update for the browser extension. This release primarily addresses issues related to Manifest v3 introduced in the latest up..." />
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/help.min.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/highlight.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/cookie-eu-banner.css">
     <link rel="stylesheet" href="https://help.passbolt.com/assets/css/custom.css">
-    <link rel="canonical" href="https://help.passbolt.com/releases/ce/v250-thunderstruck">
+    <link rel="canonical" href="https://help.passbolt.com/releases/ce/the-american-dream">
     <link rel="shortcut icon" type="image/x-icon" href="https://help.passbolt.com/assets/favicon.ico" />
     <link rel="alternate" type="application/rss+xml" title="Passbolt | Help" href="https://help.passbolt.com/feed.xml">
 </head>
@@ -73,7 +73,7 @@
         </div>
         <div class="col3">
             <div class="edit-on-github">
-                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v2.5.0.md" class="button">
+                <a href="https://github.com/passbolt/passbolt_help/edit/master/_releases/ce/v4.8.2.md" class="button">
                     <i class="fa fa-github-alt fa-fw"></i> Edit on github</a>
             </div>
         </div>
@@ -89,7 +89,7 @@
                     
                     
                     
-                    <li class="">
+                    <li class="selected">
                         <a href="https://help.passbolt.com/releases/ce/the-american-dream" >v4.8.2</a>
                     </li>
                     
@@ -182,7 +182,7 @@
                 
                 <li>
                     <div class="main-cell">
-                        <a href="https://help.passbolt.com/releases/ce/v250-thunderstruck"><span>thunderstruck</span></a>
+                        <a href="https://help.passbolt.com/releases/ce/the-american-dream"><span>the-american-dream</span></a>
                     </div>
                 </li>
                 
@@ -191,106 +191,34 @@
     </div>
 </div>
 
-                            <h1>v2.5.0 ~ Thunderstruck (ce)</h1>
+                            <h1>v4.8.2 ~ The American Dream (ce)</h1>
                             <p>Release date: 
-November
-15th,
-2018.
+June
+17th,
+2024.
 </p>
-                            <div class="message warning">
-    <p>
-        This release introduces some new dependencies and database changes. Make sure you follow 
-    the minor <a href="https://help.passbolt.com/hosting/update">update documentation</a> to roll out this new version.
-    </p>
-    
-    <a href="https://help.passbolt.com/hosting/update" class="button">Read the doc</a>
-    
-</div>
+                            <p>Passbolt v4.8.2 is a maintenance update for the browser extension. This release primarily addresses issues related 
+to <a href="https://www.passbolt.com/blog/passbolt-browser-extension-migration-to-manifest-v3">Manifest v3</a> introduced in the latest update, which could, in rare cases, cause the application to become unresponsive.</p>
 
-<p><br /></p>
+<p>We hope these updates enhance your experience with Passbolt. Your feedback is always valuable to us.</p>
 
-<p>This release greatly simplifies the passbolt <a href="https://help.passbolt.com/hosting/install">installation</a> process. 
-It ships with automated scripts for your favorite distributions (Debian 9, CentOS 7 and Ubuntu 18.04) that 
-will perform the heavy lifting of the server configuration for you. These scripts will configure a vanilla 
-operating system to be ready for a passbolt install.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/04/execute-install-script.png" alt="Install script example" style="max-width:;" />
-    <span class="legend">fig. Install script example</span>
-</figure>
-
-<p><br /></p>
-
-<p>They take care of setting up the web server (Nginx), database (MariaDb), PHP, SSL and yes, for real, also the 
-GPG keyring configuration. In addition to the install scripts, passbolt can now be configured in a few clicks 
-thanks to the presence of a web installer. Overall, the new installation process takes no more than 10 minutes!</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/web-installer-ce-options.png" alt="Install wizard" style="max-width:;" />
-    <span class="legend">fig. Install wizard</span>
-</figure>
-
-<p><br /></p>
-
-<p>This release also ships with few fixes and some nice improvements, the most notable one being the possibility 
-to select all passwords in a single click to perform bulk operations.</p>
-
-<figure>
-    <img src="https://help.passbolt.com/assets/img/help/2018/11/LU_select-all.png" alt="Select all passwords for bulk action" style="max-width:;" />
-    <span class="legend">fig. Select all passwords for bulk action</span>
-</figure>
-
-<p>A special thanks to this release contributors, who reported bugs or submited pull requests, keep them coming!</p>
+<h2 id="browser-extension">Browser extension</h2>
+<h3 id="improved">Improved</h3>
 <ul>
-  <li><a href="https://github.com/OdyX">Didier Raboud</a></li>
-  <li><a href="https://github.com/danpospisil">danpospisil</a></li>
-  <li><a href="https://github.com/clns">Calin Seciu</a></li>
+  <li>PB-33686 As a user I should be signed out after a browser update</li>
 </ul>
 
-<h3 id="passbolt-api-all">Passbolt API (All)</h3>
-
-<h4 id="added">Added</h4>
+<h3 id="fixed">Fixed</h3>
 <ul>
-  <li>PASSBOLT-2694: As a server administrator I can install Passbolt CE in a few clicks using a web installer.</li>
-  <li>PASSBOLT-3093: As LU I can select all passwords to perform a bulk operation</li>
+  <li>PB-33727 Fix session extension, service worker awaken and user instance storage not set</li>
+  <li>PB-33801 Remove active account cache in memory</li>
 </ul>
-
-<h4 id="improved">Improved</h4>
-<ul>
-  <li>PASSBOLT-3166: Add PHP 7.3 job on travis</li>
-  <li>PASSBOLT-3119: The Web Installer should control the route with a middleware</li>
-  <li>PASSBOLT-3153: The Web Installer health checks should ensure the config files can be written before continuing</li>
-  <li>PASSBOLT-3120: Improve the Web Installer code coverage</li>
-  <li>PASSBOLT-3127: The Web Installer should change the config folder permissions after the installation is completed</li>
-  <li>PASSBOLT-3152: As AN completing the registration process, if I’m following the link to download the browser extension I cannot go back easily to the registration process</li>
-  <li>PASSBOLT-3189: As AD migrating passbolt to the latest version I would like the CakePHP cache to be cleared with the same operation</li>
-</ul>
-
-<h4 id="fixed">Fixed</h4>
-<ul>
-  <li>PASSBOLT-3150: I should not see duplicates rows when I filter my passwords by keywords</li>
-  <li>GITHUB-290: A user who have not completed the setup should be allowed to request a new token using recover</li>
-  <li>PASSBOLT-3188: As LU the UI shouldn’t crash if the uri of a password cannot be parsed</li>
-</ul>
-
-<h3 id="passbolt-web-extension-244--243">Passbolt Web extension (2.4.4 &amp; 2.4.3)</h3>
-<h4 id="added-1">Added</h4>
-<ul>
-  <li>PASSBOLT-3093: As LU I can select all passwords to perform a bulk operation</li>
-</ul>
-
-<h4 id="fix">Fix</h4>
-<ul>
-  <li>GITHUB-52 As AP I should be able to generate a gpg key with a comment</li>
-  <li>Update openpgpjs to v4.2.0</li>
-</ul>
-
 
                         </div>
                         <div class="col5 last">
                             <div class="tldr" style="margin-top:3em;">
-                                <p>"And I knew there was no turning back"</p>
-                                <a href="https://www.youtube.com/watch?v=v2AC41dglnM" target="_blank" rel="noopener nofollow" class="button primary">
+                                <p>"Angel"</p>
+                                <a href="https://www.youtube.com/watch?v=OypXGyN6OZw" target="_blank" rel="noopener nofollow" class="button primary">
                                     <i class="fa fa-music"></i>
                                     <span class="visuallyhidden">Listen to the release song!</span>
                                 </a>

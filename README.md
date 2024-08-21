@@ -1,6 +1,6 @@
 ```
-THIS REPOSITORY WILL SOO BE ARCHIVED
-Checkout https://github.com/passbolt/passbolt-docs
+THIS REPOSITORY WILL SOON BE ARCHIVED
+Checkout https://github.com/passbolt/passbolt-docs instead
 ```
 
 	      ____                  __          ____

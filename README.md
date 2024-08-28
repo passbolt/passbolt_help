@@ -1,3 +1,7 @@
+```
+THIS REPOSITORY WILL SOON BE ARCHIVED
+Checkout https://github.com/passbolt/passbolt-docs instead
+```
 
 	      ____                  __          ____
 	     / __ \____  _____ ____/ /_  ____  / / /_

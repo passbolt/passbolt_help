@@ -1,6 +1,6 @@
 ARCHIVED
 
-This project is archived and the content has been moved there: [https://github.com/passbolt/passbolt-docs/tree/main/openapi](https://github.com/passbolt/passbolt-docs)
+This project is archived and the content has been moved there: [https://github.com/passbolt/passbolt-docs](https://github.com/passbolt/passbolt-docs)
 
 
 
